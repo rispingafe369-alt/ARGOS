@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#80005c">
+<title>ARGOS</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">ARGOS</div>
+  <div class="subtitle">Servicios ferroviarios</div>
+</header>
+
+<main class="container">
+<section id="menu" class="screen active">
+  <h1>Bienvenido</h1>
+  <p class="intro">Registra y consulta tus servicios ferroviarios.</p>
+  <div class="menu-grid">
+    <button class="menu-card primary" onclick="show('nuevo')">
+      <b>＋ Nuevo servicio</b><span>Registrar un nuevo servicio ferroviario</span>
+    </button>
+    <button class="menu-card" onclick="show('historial');renderHistory()">
+      <b>▤ Historial</b><span>Consultar servicios registrados</span>
+    </button>
+  </div>
+  <div class="stats-card">
+    <b>Servicios registrados</b>
+    <strong id="count">0</strong>
+  </div>
+</section>
+
+<section id="nuevo" class="screen">
+  <div class="section-header">
+    <button class="back" onclick="show('menu')">←</button>
+    <div><h2>Nuevo servicio</h2><p>Introduce los datos del servicio</p></div>
+  </div>
+  <form id="form">
+    <label>Número de tren</label>
+    <input id="train" maxlength="5" required placeholder="Máximo 5 caracteres">
+
+    <div class="row">
+      <div><label>Serie</label><input id="series" maxlength="3" required placeholder="Máx. 3"></div>
+      <div><label>Vehículo</label><input id="vehicle" maxlength="3" required placeholder="Máx. 3"></div>
+    </div>
+
+    <label>Origen</label>
+    <div class="auto"><input id="origin" required placeholder="Nombre o código de estación"><div id="originList"></div></div>
+
+    <label>Destino</label>
+    <div class="auto"><input id="destination" required placeholder="Nombre o código de estación"><div id="destinationList"></div></div>
+
+    <label>Fecha</label>
+    <input id="date" type="date" required>
+
+    <label>Anotaciones <em>(opcional)</em></label>
+    <textarea id="notes" rows="4"></textarea>
+
+    <label>Incidencias <em>(opcional)</em></label>
+    <textarea id="incidents" rows="4"></textarea>
+
+    <button class="submit" type="submit">GUARDAR SERVICIO</button>
+    <button class="cancel" type="button" onclick="show('menu')">CANCELAR</button>
+  </form>
+</section>
+
+<section id="historial" class="screen">
+  <div class="section-header">
+    <button class="back" onclick="show('menu')">←</button>
+    <div><h2>Historial</h2><p>Servicios registrados</p></div>
+  </div>
+  <div id="history"></div>
+</section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
