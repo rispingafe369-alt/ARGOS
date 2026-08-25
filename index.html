@@ -210,7 +210,7 @@ button{cursor:pointer}
 .screen:not(#menu){overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 .argos-footer{display:none!important}
 
-/* Drawer del menú */
+/* Drawer del menú de los tres puntos */
 .menu-drawer{
   position:fixed;
   inset:0;
@@ -298,187 +298,19 @@ button{cursor:pointer}
 }
 .save-button{background:var(--renfe);color:#fff}
 .cancel-button{background:var(--soft);color:var(--renfe)}
-
-/* ESTILOS DE AUTOCOMPLETADO DE ESTACIONES */
-.autocomplete-group{position:relative}
-.suggestions{
-  position:absolute;
-  top:calc(100% + 4px);
-  left:0; right:0;
-  z-index:100;
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:14px;
-  box-shadow:0 12px 30px rgba(0,0,0,.15);
-  max-height:220px;
-  overflow-y:auto;
-  display:none;
+.history-card,.stat-card,.setting-card{
+  background:var(--card);border:1px solid var(--line);border-radius:20px;
+  padding:18px;box-shadow:var(--shadow);margin-bottom:12px;
 }
-.suggestions.open{display:block}
-.suggestion-item{
-  padding:12px 14px;
-  font-size:14px;
-  font-weight:600;
-  cursor:pointer;
-  border-bottom:1px solid var(--line);
-  color:var(--ink);
-}
-.suggestion-item:last-child{border-bottom:none}
-.suggestion-item:hover, .suggestion-item:active{
-  background:var(--soft);
-  color:var(--renfe);
-}
-
-/* HISTORIAL ESTILO RENFE */
-.renfe-card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-left:5px solid var(--renfe);
-  border-radius:18px;
-  padding:18px;
-  box-shadow:var(--shadow);
-  margin-bottom:16px;
-}
-.renfe-card-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:10px;
-}
-.renfe-badge{
-  background:var(--soft);
-  color:var(--renfe-dark);
-  font-size:11px;
-  font-weight:800;
-  padding:4px 10px;
-  border-radius:99px;
-  text-transform:uppercase;
-  letter-spacing:.05em;
-}
-.renfe-date{font-size:13px;color:var(--muted);font-weight:600}
-.renfe-route{
-  font-size:18px;
-  font-weight:800;
-  color:var(--ink);
-  margin:4px 0 12px;
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-.renfe-route .arrow{color:var(--renfe);font-weight:900}
-.renfe-details{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(130px, 1fr));
-  gap:10px;
-  padding-top:10px;
-  border-top:1px dashed var(--line);
-  font-size:13px;
-}
-.renfe-detail-item{display:flex;flex-direction:column}
-.renfe-detail-item span{font-size:11px;color:var(--muted);font-weight:600}
-.renfe-detail-item strong{color:var(--ink);font-weight:700}
-
-.vehicle-tag{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  background:#f0f0f3;
-  padding:2px 8px;
-  border-radius:8px;
-  font-size:12px;
-  width:max-content;
-}
-body.dark .vehicle-tag{background:#322c35}
-.first-time-badge{
-  color:#00875a;
-  background:#e3fcef;
-  padding:2px 6px;
-  border-radius:6px;
-  font-size:10px;
-  font-weight:800;
-}
-body.dark .first-time-badge{background:#0e3829;color:#57d9a3}
-.last-time-badge{
-  color:var(--renfe-dark);
-  background:var(--soft);
-  padding:2px 6px;
-  border-radius:6px;
-  font-size:10px;
-  font-weight:700;
-}
-.btn-vehicle-sheet{
-  margin-top:12px;
-  width:100%;
-  border:1px solid var(--renfe);
-  background:transparent;
-  color:var(--renfe);
-  border-radius:12px;
-  padding:8px 12px;
-  font-size:13px;
-  font-weight:700;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
-  transition:background .15s ease;
-}
-.btn-vehicle-sheet:active{background:var(--soft)}
-
-/* MODAL FICHA TÉCNICA VEHÍCULO */
-.modal-overlay{
-  position:fixed;inset:0;
-  background:rgba(0,0,0,.5);
-  backdrop-filter:blur(3px);
-  z-index:2000;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:16px;
-}
-.modal-overlay.open{display:flex}
-.modal-card{
-  background:var(--card);
-  width:min(500px,100%);
-  border-radius:24px;
-  padding:24px;
-  box-shadow:0 20px 40px rgba(0,0,0,.2);
-  position:relative;
-  max-height:90vh;
-  overflow-y:auto;
-}
-.modal-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:2px solid var(--soft);
-  padding-bottom:14px;
-  margin-bottom:16px;
-}
-.modal-header h3{margin:0;font-size:20px;color:var(--renfe)}
-.modal-close{
-  border:0;background:var(--soft);color:var(--renfe);
-  width:36px;height:36px;border-radius:10px;font-size:20px;font-weight:800;
-}
-.modal-timeline{display:flex;flex-direction:column;gap:12px;margin-top:14px}
-.modal-timeline-item{
-  padding:10px 14px;
-  border-radius:12px;
-  background:var(--page);
-  border-left:3px solid var(--renfe);
-  font-size:13px;
-}
-
+.history-top{display:flex;justify-content:space-between;gap:12px}
+.train-number{font-weight:800;color:var(--renfe)}
+.service-date,.service-meta{color:var(--muted);font-size:13px}
+.route{font-size:21px;font-weight:800;margin:8px 0}
 .empty{padding:30px;text-align:center;color:var(--muted)}
 .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.stat-card{
-  background:var(--card);border:1px solid var(--line);border-radius:20px;
-  padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:7px
-}
+.stat-card{display:flex;flex-direction:column;gap:7px}
 .stat-card span{color:var(--muted);font-size:13px}.stat-card strong{font-size:30px}
-.setting-card{
-  background:var(--card);border:1px solid var(--line);border-radius:20px;
-  padding:18px;box-shadow:var(--shadow);margin-bottom:12px;display:flex;flex-direction:column;gap:18px
-}
+.setting-card{display:flex;flex-direction:column;gap:18px}
 .setting-card strong{display:block;font-size:18px}.setting-card>div>span{display:block;color:var(--muted);font-size:13px;margin-top:4px}
 .setting-group{display:flex;flex-direction:column;gap:6px}
 .setting-group label{font-weight:700;font-size:13px}
@@ -494,14 +326,17 @@ body.dark .welcome-card{background:linear-gradient(135deg,#242126 0%,#30212b 100
 body.dark .last-time-select{background:var(--card);color:#fff}
 body.dark .drawer-backdrop{background:rgba(0,0,0,.58)}
 
-/* ESCRITORIO */
+/* ===== AJUSTES ESCRITORIO ===== */
 @media(min-width:601px){
   .argos-home{
     width:min(1040px,100%)!important;
     padding:28px 34px 30px!important;
     gap:16px!important;
   }
-  .welcome-card{padding:22px 28px!important;border-radius:24px!important}
+  .welcome-card{
+    padding:22px 28px!important;
+    border-radius:24px!important;
+  }
   .welcome-card h1{font-size:32px!important}
   .welcome-card p{font-size:15px!important}
   .home-list{
@@ -517,8 +352,10 @@ body.dark .drawer-backdrop{background:rgba(0,0,0,.58)}
     column-gap:17px!important;
   }
   .home-icon{
-    width:62px!important;height:62px!important;
-    border-radius:18px!important;font-size:32px!important;
+    width:62px!important;
+    height:62px!important;
+    border-radius:18px!important;
+    font-size:32px!important;
   }
   .home-card h2{font-size:20px!important}
   .home-card p, .latest-service-value{font-size:14px!important}
@@ -526,7 +363,7 @@ body.dark .drawer-backdrop{background:rgba(0,0,0,.58)}
   .last-time-select{min-height:36px!important;font-size:14px!important}
 }
 
-/* DISEÑO AÑADIR SERVICIO */
+/* ===== DISEÑO AÑADIR SERVICIO ===== */
 #new-service{padding-bottom:50px!important}
 #new-service .service-form{padding-bottom:30px}
 #new-service .form-row{grid-template-columns:1fr!important;gap:0!important}
@@ -622,12 +459,33 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
 }
 
 @media(max-width:600px){
-  .brand-row{height:64px;border-radius:0 0 15px 15px}
-  .renfe-main-logo{width:105px}
-  .header-action{width:38px;height:38px;border-radius:12px}
-  .header-action.left{left:10px}
-  .header-action.right{right:10px}
-  .header-dots{font-size:24px}
+  .brand-row{
+    height:64px;
+    border-radius:0 0 15px 15px;
+  }
+
+  .renfe-main-logo{
+    width:105px;
+  }
+
+  .header-action{
+    width:38px;
+    height:38px;
+    border-radius:12px;
+  }
+
+  .header-action.left{
+    left:10px;
+  }
+
+  .header-action.right{
+    right:10px;
+  }
+
+  .header-dots{
+    font-size:24px;
+  }
+
 
   #new-service{padding:20px 14px 45px!important}
   #new-service .screen-header{margin-bottom:18px}
@@ -763,7 +621,7 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
         <label for="origin">Origen</label>
         <span class="field-hint">Nombre de la estación o código</span>
       </div>
-      <input id="origin" required autocomplete="off" placeholder="Ej. Madrid-Puerta de Atocha">
+      <input id="origin" required autocomplete="off" placeholder="">
       <div id="originList" class="suggestions"></div>
     </div>
 
@@ -772,7 +630,7 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
         <label for="destination">Destino</label>
         <span class="field-hint">Nombre de la estación o código</span>
       </div>
-      <input id="destination" required autocomplete="off" placeholder="Ej. Barcelona-Sants">
+      <input id="destination" required autocomplete="off" placeholder="">
       <div id="destinationList" class="suggestions"></div>
     </div>
 
@@ -846,17 +704,6 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
   </div>
 </section>
 
-<!-- MODAL FICHA DE VEHÍCULO -->
-<div id="vehicleModal" class="modal-overlay" aria-hidden="true">
-  <div class="modal-card">
-    <div class="modal-header">
-      <h3 id="modalVehicleTitle">Ficha Técnica de Vehículo</h3>
-      <button id="closeVehicleModal" class="modal-close" type="button">×</button>
-    </div>
-    <div id="modalVehicleContent"></div>
-  </div>
-</div>
-
 <!-- MENÚ DE LOS TRES PUNTOS -->
 <div id="menuDrawer" class="menu-drawer" aria-hidden="true">
   <div id="drawerBackdrop" class="drawer-backdrop"></div>
@@ -871,10 +718,12 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
   </aside>
 </div>
 
+<div id="toast" class="toast" role="status"></div>
 </main>
 
+<script src="app.js"></script>
+
 <script>
-// NAVEGACIÓN Y PANTALLAS
 (function(){
   window.showScreen=function(id){
     var screens=document.querySelectorAll(".app-shell > .screen");
@@ -898,314 +747,56 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
       menu.style.display=(id==="menu") ? "flex" : "none";
     }
 
-    if(id==="history") renderHistory();
-    if(id==="stats") updateStats();
     if(id==="new-service"){
       var form=target.querySelector(".service-form");
       if(form) form.scrollTop=0;
     }
   };
-
-  document.querySelectorAll("[data-back]").forEach(btn=>{
-    btn.onclick=()=>showScreen("menu");
-  });
 })();
+</script>
 
-// AUTOCOMPLETADO DE ESTACIONES
+<script>
 (function(){
-  const STATIONS = [
-    "Madrid-Puerta de Atocha", "Madrid-Chamartín-Clara Campoamor", "Barcelona-Sants",
-    "Sevilla-Santa Justa", "Valencia-Joaquín Sorolla", "Valencia-Nord", "Zaragoza-Delicias",
-    "Málaga-María Zambrano", "Alicante-Terminal", "Córdoba-Central", "Valladolid-Campo Grande",
-    "Santiago de Compostela", "A Coruña", "Vigo-Urzaiz", "Ourense", "Gijón", "Oviedo",
-    "Santander", "Bilbao-Abando", "San Sebastián", "Granada", "Murcia del Carmen",
-    "Castellón de la Plana", "Albacete-Los Llanos", "Cuenca-Fernando Zóbel", "Cádiz",
-    "Jerez de la Frontera", "Algeciras", "Badajoz", "Cáceres", "Mérida", "León", "Palencia",
-    "Burgos-Rosa Manzano", "Logroño", "Pamplona", "Tarragona", "Girona", "Figueres-Vilafant"
-  ];
+  const PROFILE_KEY="argos_profile";
+  const $=id=>document.getElementById(id);
 
-  function setupAutocomplete(inputId, listId){
-    const input = document.getElementById(inputId);
-    const list = document.getElementById(listId);
-    if(!input || !list) return;
-
-    input.addEventListener("input", function(){
-      const val = this.value.trim().toLowerCase();
-      list.innerHTML = "";
-      if(!val){
-        list.classList.remove("open");
-        return;
-      }
-
-      const matches = STATIONS.filter(s => s.toLowerCase().includes(val));
-      if(!matches.length){
-        list.classList.remove("open");
-        return;
-      }
-
-      matches.forEach(st => {
-        const item = document.createElement("div");
-        item.className = "suggestion-item";
-        item.textContent = st;
-        item.addEventListener("click", function(){
-          input.value = st;
-          list.classList.remove("open");
-        });
-        list.appendChild(item);
-      });
-
-      list.classList.add("open");
-    });
-
-    document.addEventListener("click", function(e){
-      if(!input.contains(e.target) && !list.contains(e.target)){
-        list.classList.remove("open");
-      }
-    });
-  }
-
-  setupAutocomplete("origin", "originList");
-  setupAutocomplete("destination", "destinationList");
-})();
-
-// GESTIÓN DE DATOS Y SERVICIOS
-(function(){
-  const STORAGE_KEY = "argos_services";
-  const PROFILE_KEY = "argos_profile";
-  const $ = id => document.getElementById(id);
-
-  function readServices(){
-    try{
-      const raw = localStorage.getItem(STORAGE_KEY);
-      return raw ? JSON.parse(raw) : [];
-    }catch(e){ return []; }
-  }
-
-  function saveServices(data){
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    refreshHome();
-  }
-
-  function formatDate(dStr){
-    if(!dStr) return "—";
-    const parts = dStr.split("-");
-    if(parts.length===3) return `${parts[2]}/${parts[1]}/${parts[0]}`;
-    return dStr;
-  }
-
-  // Carga inicial y perfil
   function loadProfile(){
-    let p = {name:"", job:""};
-    try{ p = JSON.parse(localStorage.getItem(PROFILE_KEY)||"{}") || p; }catch(e){}
-    const name = (p.name||"").trim();
-    const job = (p.job||"").trim();
-    $("welcomeName").textContent = name ? "Hola "+name : "Hola";
-    $("welcomeDescription").textContent = job
+    let p={name:"",job:""};
+    try{p=JSON.parse(localStorage.getItem(PROFILE_KEY)||"{}")||p}catch(e){}
+    const name=(p.name||"").trim();
+    const job=(p.job||"").trim();
+    $("welcomeName").textContent=name ? "Hola "+name : "Hola";
+    $("welcomeDescription").textContent=job
       ? job+" · Registra, consulta y controla tu actividad ferroviaria."
       : "Registra, consulta y controla tu actividad ferroviaria.";
-    if($("userName")) $("userName").value = name;
-    if($("userJob")) $("userJob").value = job;
+    if($("userName")) $("userName").value=name;
+    if($("userJob")) $("userJob").value=job;
   }
 
-  $("saveProfile").onclick = function(){
-    const p = {name:$("userName").value.trim(), job:$("userJob").value.trim()};
-    localStorage.setItem(PROFILE_KEY, JSON.stringify(p));
+  function saveProfile(){
+    const p={name:$("userName").value.trim(),job:$("userJob").value.trim()};
+    localStorage.setItem(PROFILE_KEY,JSON.stringify(p));
     loadProfile();
+    if(typeof toast==="function") toast("Perfil guardado");
     showScreen("menu");
-  };
-
-  // Historial Renfe
-  window.renderHistory = function(){
-    const historyList = $("historyList");
-    const services = readServices();
-
-    if(!services.length){
-      historyList.innerHTML = `<div class="empty">No hay servicios registrados todavía.</div>`;
-      return;
-    }
-
-    const sorted = [...services].reverse();
-
-    historyList.innerHTML = sorted.map((s) => {
-      let vehicleStatusHtml = "";
-      if(s.series && s.vehicle){
-        const fullVehicleId = `${s.series}-${s.vehicle}`;
-        const matchingPrev = services.filter(item => 
-          `${item.series}-${item.vehicle}` === fullVehicleId && 
-          item.id !== s.id &&
-          (item.date < s.date || (item.date === s.date && item.createdAt < s.createdAt))
-        );
-
-        if(matchingPrev.length === 0){
-          vehicleStatusHtml = `<span class="first-time-badge">Primera vez</span>`;
-        } else {
-          matchingPrev.sort((a,b) => b.date.localeCompare(a.date));
-          const lastDate = formatDate(matchingPrev[0].date);
-          vehicleStatusHtml = `<span class="last-time-badge">Última vez: ${lastDate}</span>`;
-        }
-      }
-
-      const trainLabel = s.train ? `Tren ${s.train}` : "Sin nº de tren";
-      const vehicleCode = (s.series && s.vehicle) ? `${s.series}-${s.vehicle}` : (s.series || "—");
-
-      return `
-        <div class="renfe-card">
-          <div class="renfe-card-top">
-            <span class="renfe-badge">${s.product || 'Servicio'}</span>
-            <span class="renfe-date">${formatDate(s.date)}</span>
-          </div>
-          <div class="renfe-route">
-            <span>${s.origin || '—'}</span>
-            <span class="arrow">→</span>
-            <span>${s.destination || '—'}</span>
-          </div>
-          <div class="renfe-details">
-            <div class="renfe-detail-item">
-              <span>Nº TREN</span>
-              <strong>${trainLabel}</strong>
-            </div>
-            <div class="renfe-detail-item">
-              <span>VEHÍCULO</span>
-              <div class="vehicle-tag">
-                <strong>${vehicleCode}</strong>
-                ${vehicleStatusHtml}
-              </div>
-            </div>
-          </div>
-          ${(s.series && s.vehicle) ? `
-            <button class="btn-vehicle-sheet" onclick="openVehicleSheet('${s.series}', '${s.vehicle}')">
-              📄 Ver ficha del vehículo ${s.series}-${s.vehicle}
-            </button>
-          ` : ''}
-        </div>
-      `;
-    }).join('');
-  };
-
-  // Modal Ficha de Vehículo
-  window.openVehicleSheet = function(series, vehicle){
-    const fullId = `${series}-${vehicle}`;
-    const services = readServices();
-    const history = services.filter(s => `${s.series}-${s.vehicle}` === fullId);
-
-    $("modalVehicleTitle").textContent = `Ficha del Vehículo ${fullId}`;
-    
-    let html = `
-      <div style="margin-bottom:14px; font-size:14px;">
-        <strong>Total de servicios en este vehículo:</strong> ${history.length}
-      </div>
-      <h4 style="margin:12px 0 6px; color:var(--renfe);">Historial de trayectos:</h4>
-      <div class="modal-timeline">
-    `;
-
-    history.sort((a,b) => b.date.localeCompare(a.date)).forEach(h => {
-      html += `
-        <div class="modal-timeline-item">
-          <strong>${formatDate(h.date)}</strong> - ${h.product || 'Servicio'}<br>
-          ${h.origin || '—'} → ${h.destination || '—'} (Tren: ${h.train || 'S/N'})
-        </div>
-      `;
-    });
-
-    html += `</div>`;
-    $("modalVehicleContent").innerHTML = html;
-    $("vehicleModal").classList.add("open");
-    $("vehicleModal").setAttribute("aria-hidden", "false");
-  };
-
-  $("closeVehicleModal").onclick = function(){
-    $("vehicleModal").classList.remove("open");
-    $("vehicleModal").setAttribute("aria-hidden", "true");
-  };
-
-  // Guardar servicio
-  $("serviceForm").onsubmit = function(e){
-    e.preventDefault();
-
-    const notes = Array.from(document.querySelectorAll("#notesEntries .entry-chip span")).map(e => e.textContent);
-    const incidents = Array.from(document.querySelectorAll("#incidentsEntries .entry-chip span")).map(e => e.textContent);
-
-    const newService = {
-      id: Date.now(),
-      createdAt: new Date().toISOString(),
-      train: $("noTrainNumber").checked ? "" : $("train").value.trim(),
-      series: $("series").value.trim(),
-      vehicle: $("vehicle").value.trim(),
-      product: $("product").value,
-      origin: $("origin").value.trim(),
-      destination: $("destination").value.trim(),
-      date: $("date").value,
-      notes: notes,
-      incidents: incidents
-    };
-
-    const services = readServices();
-    services.push(newService);
-    saveServices(services);
-
-    this.reset();
-    $("notesEntries").innerHTML = "";
-    $("incidentsEntries").innerHTML = "";
-    $("productSelectValue").textContent = "Selecciona un producto";
-    $("productSelectValue").classList.add("product-select-placeholder");
-    
-    showScreen("history");
-  };
-
-  // Estadísticas
-  window.updateStats = function(){
-    const services = readServices();
-    $("statServices").textContent = services.length;
-    
-    const seriesSet = new Set(services.map(s => s.series).filter(Boolean));
-    $("statSeries").textContent = seriesSet.size;
-
-    if(services.length){
-      const last = services[services.length - 1];
-      $("statLast").textContent = formatDate(last.date);
-    }else{
-      $("statLast").textContent = "—";
-    }
-  };
-
-  // Refrescar Home
-  function refreshHome(){
-    const services = readServices();
-    const latest = services.length ? services[services.length-1] : null;
-    if(latest){
-      const train = latest.train ? "Tren " + latest.train : "";
-      const route = (latest.origin || latest.destination) ? `${latest.origin || "—"} → ${latest.destination || "—"}` : "";
-      $("latestService").textContent = [train, route].filter(Boolean).join(" · ") || "Último servicio registrado";
-    }else{
-      $("latestService").textContent = "Aún no hay servicios registrados";
-    }
-
-    const select = $("lastTripSelect");
-    while(select.options.length > 1) select.remove(1);
-    services.slice().reverse().forEach((s, i) => {
-      const train = s.train ? "Tren " + s.train : "";
-      const route = (s.origin && s.destination) ? `${s.origin} → ${s.destination}` : "";
-      const date = formatDate(s.date);
-      const o = document.createElement("option");
-      o.value = String(i);
-      o.textContent = [train, route, date].filter(Boolean).join(" · ") || "Servicio registrado";
-      select.appendChild(o);
-    });
   }
 
+  $("saveProfile").onclick=saveProfile;
   loadProfile();
-  refreshHome();
-})();
 
-// DRAWER Y TEMA
-(function(){
-  const drawer = document.getElementById("menuDrawer");
-  const openDrawer = () => { drawer.classList.add("open"); drawer.setAttribute("aria-hidden","false"); };
-  const closeDrawer = () => { drawer.classList.remove("open"); drawer.setAttribute("aria-hidden","true"); };
+  const drawer=$("menuDrawer");
+  function openDrawer(){
+    drawer.classList.add("open");
+    drawer.setAttribute("aria-hidden","false");
+  }
+  function closeDrawer(){
+    drawer.classList.remove("open");
+    drawer.setAttribute("aria-hidden","true");
+  }
 
-  document.getElementById("openMenu").onclick = openDrawer;
-  document.getElementById("closeMenu").onclick = closeDrawer;
-  document.getElementById("drawerBackdrop").onclick = closeDrawer;
+  $("openMenu").onclick=openDrawer;
+  $("closeMenu").onclick=closeDrawer;
+  $("drawerBackdrop").onclick=closeDrawer;
 
   document.querySelectorAll("#menuDrawer [data-screen]").forEach(b=>{
     b.addEventListener("click",()=>{
@@ -1220,26 +811,49 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
     });
   });
 
-  const lightBtn = document.getElementById("lightTheme");
-  const darkBtn = document.getElementById("darkTheme");
+  function readServices(){
+    try{
+      const raw=localStorage.getItem("argos_services");
+      const data=raw?JSON.parse(raw):[];
+      return Array.isArray(data)?data:[];
+    }catch(e){return []}
+  }
+  function val(o,names){
+    for(const n of names) if(o&&o[n]!==undefined&&o[n]!==null&&o[n]!=="") return o[n];
+    return "";
+  }
+  function refreshHome(){
+    const services=readServices();
+    const latest=services.length?services[services.length-1]:null;
+    if(latest){
+      const train=val(latest,["train","tren","number","numero"]);
+      const origin=val(latest,["origin","origen"]);
+      const destination=val(latest,["destination","destino"]);
+      $("latestService").textContent=[train,origin||destination?(origin||"—")+" → "+(destination||"—"):""].filter(Boolean).join(" · ")||"Último servicio registrado";
+    }else $("latestService").textContent="Aún no hay servicios registrados";
 
-  lightBtn.onclick = () => {
-    document.body.classList.remove("dark");
-    lightBtn.classList.add("active");
-    darkBtn.classList.remove("active");
-    localStorage.setItem("argos_theme", "light");
-  };
-  darkBtn.onclick = () => {
-    document.body.classList.add("dark");
-    darkBtn.classList.add("active");
-    lightBtn.classList.remove("active");
-    localStorage.setItem("argos_theme", "dark");
-  };
-
-  if(localStorage.getItem("argos_theme") === "dark") darkBtn.click();
+    const select=$("lastTripSelect");
+    const current=select.value;
+    while(select.options.length>1) select.remove(1);
+    services.slice().reverse().forEach((s,i)=>{
+      const train=val(s,["train","tren","number","numero"]);
+      const origin=val(s,["origin","origen"]);
+      const destination=val(s,["destination","destino"]);
+      const date=val(s,["date","fecha"]);
+      const o=document.createElement("option");
+      o.value=String(i);
+      o.textContent=[train,origin&&destination?origin+" → "+destination:"",date].filter(Boolean).join(" · ")||"Servicio registrado";
+      select.appendChild(o);
+    });
+    if(current) select.value=current;
+  }
+  document.addEventListener("DOMContentLoaded",refreshHome);
+  window.addEventListener("storage",refreshHome);
+  refreshHome();
 })();
+</script>
 
-// CAMPOS REPETIBLES Y SELECTS
+<script>
 (function(){
   const train = document.getElementById("train");
   const noTrain = document.getElementById("noTrainNumber");
@@ -1254,67 +868,123 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
   }
 
   function addRepeatable(inputId, listId, buttonId, label){
-    const input = document.getElementById(inputId);
-    const list = document.getElementById(listId);
-    const button = document.getElementById(buttonId);
+    const input=document.getElementById(inputId);
+    const list=document.getElementById(listId);
+    const button=document.getElementById(buttonId);
     if(!input || !list || !button) return;
 
-    button.addEventListener("click", function(){
-      const value = input.value.trim();
+    button.addEventListener("click",function(){
+      const value=input.value.trim();
       if(!value) return;
 
-      const item = document.createElement("div");
-      item.className = "entry-chip";
+      const item=document.createElement("div");
+      item.className="entry-chip";
 
-      const text = document.createElement("span");
-      text.textContent = value;
+      const text=document.createElement("span");
+      text.textContent=value;
 
-      const remove = document.createElement("button");
-      remove.type = "button";
-      remove.className = "entry-remove";
-      remove.textContent = "×";
-      remove.onclick = () => item.remove();
+      const remove=document.createElement("button");
+      remove.type="button";
+      remove.className="entry-remove";
+      remove.textContent="×";
+      remove.setAttribute("aria-label","Eliminar "+label);
+      remove.onclick=()=>item.remove();
 
       item.appendChild(text);
       item.appendChild(remove);
       list.appendChild(item);
 
-      input.value = "";
+      input.value="";
       input.focus();
     });
   }
 
   addRepeatable("notes","notesEntries","addNote","anotación");
   addRepeatable("incidents","incidentsEntries","addIncident","incidencia");
+})();
+</script>
 
-  // Custom Select Producto
-  const select = document.getElementById("product");
-  const trigger = document.getElementById("productSelectTrigger");
-  const value = document.getElementById("productSelectValue");
-  const optionsBox = document.getElementById("productOptions");
+<script>
+(function(){
+  const select=document.getElementById("product");
+  const trigger=document.getElementById("productSelectTrigger");
+  const value=document.getElementById("productSelectValue");
+  const optionsBox=document.getElementById("productOptions");
+  const wrap=document.getElementById("productSelectWrap");
+  if(!select||!trigger||!value||!optionsBox||!wrap)return;
 
-  if(select && trigger && value && optionsBox){
-    Array.from(select.options).forEach((option, index) => {
-      const b = document.createElement("button");
-      b.type = "button";
-      b.className = "product-option";
-      b.textContent = option.textContent;
-      b.addEventListener("click", () => {
-        select.selectedIndex = index;
-        value.textContent = option.textContent;
-        value.classList.remove("product-select-placeholder");
-        optionsBox.classList.remove("open");
-        trigger.classList.remove("open");
+  function render(){
+    optionsBox.innerHTML="";
+    Array.from(select.options).forEach((option,index)=>{
+      const b=document.createElement("button");
+      b.type="button";
+      b.className="product-option";
+      b.setAttribute("role","option");
+      b.textContent=option.textContent;
+      b.addEventListener("click",()=>{
+        select.selectedIndex=index;
+        select.dispatchEvent(new Event("change",{bubbles:true}));
+        close();
       });
       optionsBox.appendChild(b);
     });
-
-    trigger.addEventListener("click", (e) => {
-      e.preventDefault();
-      optionsBox.classList.toggle("open");
-      trigger.classList.toggle("open");
+    sync();
+  }
+  function sync(){
+    const selected=select.options[select.selectedIndex];
+    const has=selected&&selected.value!=="";
+    value.textContent=has?selected.textContent:"Selecciona un producto";
+    value.classList.toggle("product-select-placeholder",!has);
+    optionsBox.querySelectorAll(".product-option").forEach((b,i)=>{
+      const active=i===select.selectedIndex;
+      b.classList.toggle("selected",active);
+      b.setAttribute("aria-selected",active?"true":"false");
     });
   }
+  function open(){
+    optionsBox.classList.add("open");
+    trigger.classList.add("open");
+    trigger.setAttribute("aria-expanded","true");
+  }
+  function close(){
+    optionsBox.classList.remove("open");
+    trigger.classList.remove("open");
+    trigger.setAttribute("aria-expanded","false");
+  }
+  trigger.addEventListener("click",e=>{
+    e.preventDefault();e.stopPropagation();
+    optionsBox.classList.contains("open")?close():open();
+  });
+  document.addEventListener("click",e=>{if(!wrap.contains(e.target))close()});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
+  select.addEventListener("change",sync);
+  render();
+})();
+</script>
+
+<script>
+(function(){
+  function setActiveScreen(id){
+    var screens=document.querySelectorAll(".app-shell > .screen");
+    screens.forEach(function(screen){
+      var active=screen.id===id;
+      screen.classList.toggle("active",active);
+      screen.setAttribute("aria-hidden",active?"false":"true");
+      screen.style.display=active?(id==="menu"?"flex":"block"):"none";
+    });
+
+    var target=document.getElementById(id);
+    if(target && id==="new-service"){
+      var form=target.querySelector(".service-form");
+      if(form) form.scrollTop=0;
+    }
+  }
+
+  window.showScreen=setActiveScreen;
+
+  document.addEventListener("DOMContentLoaded",function(){
+    setActiveScreen(document.querySelector(".screen.active")?.id || "menu");
+  });
 })();
 </script>
 </body>
