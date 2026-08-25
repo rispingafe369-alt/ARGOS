@@ -382,6 +382,46 @@ body.dark .drawer-backdrop{background:rgba(0,0,0,.58)}
 }
 #new-service .form-group textarea{min-height:104px;resize:vertical}
 
+#new-service .product-select-wrap{position:relative;z-index:10}
+#new-service .product-select-native{
+  position:absolute!important;width:1px!important;height:1px!important;
+  padding:0!important;margin:-1px!important;overflow:hidden!important;
+  clip:rect(0 0 0 0)!important;clip-path:inset(50%)!important;
+  white-space:nowrap!important;border:0!important;opacity:0!important;
+  pointer-events:none!important;
+}
+#new-service .product-select-trigger{
+  width:100%;min-height:52px;border:1px solid var(--line);border-radius:15px;
+  background:var(--card);color:var(--ink);padding:14px 48px 14px 15px;
+  text-align:left;position:relative;box-shadow:0 3px 12px rgba(30,20,30,.035);
+  display:flex;align-items:center;justify-content:space-between;
+}
+#new-service .product-select-trigger::after{
+  content:"";position:absolute;right:17px;top:50%;width:9px;height:9px;
+  border-right:2px solid var(--renfe);border-bottom:2px solid var(--renfe);
+  transform:translateY(-65%) rotate(45deg);transition:transform .18s ease;
+}
+#new-service .product-select-trigger.open{border-color:var(--renfe);box-shadow:0 0 0 3px rgba(138,0,92,.10)}
+#new-service .product-select-trigger.open::after{transform:translateY(-25%) rotate(225deg)}
+#new-service .product-select-placeholder{color:var(--muted)}
+#new-service .product-options{
+  position:absolute;z-index:60;left:0;right:0;top:calc(100% + 7px);
+  max-height:310px;overflow-y:auto;-webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;padding:7px;border:1px solid var(--line);
+  border-radius:17px;background:var(--card);
+  box-shadow:0 14px 36px rgba(30,20,30,.16);display:none;
+}
+#new-service .product-options.open{display:block}
+#new-service .product-option{
+  width:100%;min-height:46px;border:0;border-radius:12px;background:transparent;
+  color:var(--ink);padding:10px 12px;text-align:left;font-size:15px;font-weight:650;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+#new-service .product-option:hover,#new-service .product-option:focus-visible{background:var(--soft);color:var(--renfe);outline:none}
+#new-service .product-option.selected{background:var(--soft);color:var(--renfe);font-weight:800}
+#new-service .product-option.selected::after{content:"✓";font-weight:900}
+body.dark #new-service .product-options{box-shadow:0 14px 36px rgba(0,0,0,.45)}
+
 #new-service .form-section-title{
   margin:28px 0 13px;
   padding-bottom:8px;
@@ -423,11 +463,29 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
     height:64px;
     border-radius:0 0 15px 15px;
   }
-  .renfe-main-logo{width:105px}
-  .header-action{width:38px;height:38px;border-radius:12px}
-  .header-action.left{left:10px}
-  .header-action.right{right:10px}
-  .header-dots{font-size:24px}
+
+  .renfe-main-logo{
+    width:105px;
+  }
+
+  .header-action{
+    width:38px;
+    height:38px;
+    border-radius:12px;
+  }
+
+  .header-action.left{
+    left:10px;
+  }
+
+  .header-action.right{
+    right:10px;
+  }
+
+  .header-dots{
+    font-size:24px;
+  }
+
 
   #new-service{padding:20px 14px 45px!important}
   #new-service .screen-header{margin-bottom:18px}
@@ -436,6 +494,9 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
   #new-service .form-group input,
   #new-service .form-group textarea,
   #new-service .form-group select{min-height:50px;border-radius:14px;font-size:16px}
+  #new-service .product-select-trigger{min-height:50px;border-radius:14px;font-size:16px}
+  #new-service .product-options{max-height:min(52vh,360px);border-radius:16px}
+  #new-service .product-option{min-height:48px;font-size:16px;padding:11px 12px}
   #new-service .form-group textarea{min-height:96px}
   #new-service .field-hint{font-size:10px}
   #new-service .check-option{font-size:11px!important}
@@ -536,28 +597,21 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
 
     <div class="form-group">
       <label for="product">Tipo de producto</label>
-      <select id="product" required>
-        <option value="">Selecciona un producto</option>
-        <option value="AVE">AVE</option>
-        <option value="ALVIA">ALVIA</option>
-        <option value="EUROMED">EUROMED</option>
-        <option value="INTERCITY">INTERCITY</option>
-        <option value="AVLO">AVLO</option>
-        <option value="Cercanías">Cercanías</option>
-        <option value="Media Distancia">Media Distancia</option>
-        <option value="Regional">Regional</option>
-        <option value="Regional Exprés">Regional Exprés</option>
-        <option value="Trambahía">Trambahía</option>
-        <option value="Proximidad">Proximidad</option>
-        <option value="AVANT">AVANT</option>
-        <option value="Cercanías AM">Cercanías AM</option>
-        <option value="Media Distancia AM">Media Distancia AM</option>
-        <option value="Rodalies">Rodalies</option>
-        <option value="Turístico">Turístico</option>
-        <option value="Mercancías">Mercancías</option>
-        <option value="Charter">Charter</option>
-        <option value="Otro">Otro</option>
-      </select>
+      <div class="product-select-wrap" id="productSelectWrap">
+        <select id="product" class="product-select-native" aria-hidden="true" tabindex="-1">
+          <option value="">Selecciona un producto</option>
+          <option>AVE</option><option>ALVIA</option><option>EUROMED</option>
+          <option>INTERCITY</option><option>AVLO</option><option>Cercanías</option>
+          <option>Media Distancia</option><option>Regional</option><option>Regional Exprés</option>
+          <option>Trambahía</option><option>Proximidad</option><option>AVANT</option>
+          <option>Cercanías AM</option><option>Media Distancia AM</option><option>Rodalies</option>
+          <option>Turístico</option><option>Mercancías</option><option>Charter</option><option>Otro</option>
+        </select>
+        <button id="productSelectTrigger" class="product-select-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span id="productSelectValue" class="product-select-placeholder">Selecciona un producto</span>
+        </button>
+        <div id="productOptions" class="product-options" role="listbox" aria-label="Tipo de producto"></div>
+      </div>
     </div>
 
     <div class="form-section-title">RECORRIDO</div>
@@ -567,7 +621,8 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
         <label for="origin">Origen</label>
         <span class="field-hint">Nombre de la estación o código</span>
       </div>
-      <input id="origin" required autocomplete="off" placeholder="Estación de origen">
+      <input id="origin" required autocomplete="off" placeholder="">
+      <div id="originList" class="suggestions"></div>
     </div>
 
     <div class="form-group autocomplete-group">
@@ -575,7 +630,8 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
         <label for="destination">Destino</label>
         <span class="field-hint">Nombre de la estación o código</span>
       </div>
-      <input id="destination" required autocomplete="off" placeholder="Estación de destino">
+      <input id="destination" required autocomplete="off" placeholder="">
+      <div id="destinationList" class="suggestions"></div>
     </div>
 
     <div class="form-group">
@@ -662,81 +718,73 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
   </aside>
 </div>
 
+<div id="toast" class="toast" role="status"></div>
 </main>
 
+<script src="app.js"></script>
+
 <script>
-// NAVEGACIÓN GENERAL ENTRE PANTALLAS
 (function(){
-  window.showScreen = function(id){
-    var screens = document.querySelectorAll(".app-shell > .screen");
+  window.showScreen=function(id){
+    var screens=document.querySelectorAll(".app-shell > .screen");
     screens.forEach(function(screen){
       screen.classList.remove("active");
       screen.setAttribute("aria-hidden","true");
-      screen.style.display = "none";
+      screen.style.display="none";
     });
 
-    var target = document.getElementById(id);
+    var target=document.getElementById(id);
     if(!target) return;
 
     target.classList.add("active");
     target.setAttribute("aria-hidden","false");
-    target.style.display = (id === "menu") ? "flex" : "block";
+    target.style.display=(id==="menu") ? "flex" : "block";
 
-    var menu = document.getElementById("menu");
+    var menu=document.getElementById("menu");
     if(menu){
-      menu.classList.toggle("active", id === "menu");
-      menu.setAttribute("aria-hidden", id === "menu" ? "false" : "true");
-      menu.style.display = (id === "menu") ? "flex" : "none";
+      menu.classList.toggle("active",id==="menu");
+      menu.setAttribute("aria-hidden",id==="menu" ? "false" : "true");
+      menu.style.display=(id==="menu") ? "flex" : "none";
     }
 
-    if(id === "history") renderHistory();
-    if(id === "stats") renderStats();
-
-    if(id === "new-service"){
-      var form = target.querySelector(".service-form");
-      if(form) form.scrollTop = 0;
+    if(id==="new-service"){
+      var form=target.querySelector(".service-form");
+      if(form) form.scrollTop=0;
     }
   };
-
-  document.querySelectorAll("[data-back]").forEach(function(btn){
-    btn.addEventListener("click", function(){
-      showScreen("menu");
-    });
-  });
 })();
 </script>
 
 <script>
-// GESTIÓN DEL PERFIL Y DRAWER
 (function(){
-  const PROFILE_KEY = "argos_profile";
-  const $ = id => document.getElementById(id);
+  const PROFILE_KEY="argos_profile";
+  const $=id=>document.getElementById(id);
 
   function loadProfile(){
-    let p = {name:"", job:""};
-    try { p = JSON.parse(localStorage.getItem(PROFILE_KEY)||"{}") || p; } catch(e){}
-    const name = (p.name || "").trim();
-    const job = (p.job || "").trim();
-    $("welcomeName").textContent = name ? "Hola " + name : "Hola";
-    $("welcomeDescription").textContent = job
-      ? job + " · Registra, consulta y controla tu actividad ferroviaria."
+    let p={name:"",job:""};
+    try{p=JSON.parse(localStorage.getItem(PROFILE_KEY)||"{}")||p}catch(e){}
+    const name=(p.name||"").trim();
+    const job=(p.job||"").trim();
+    $("welcomeName").textContent=name ? "Hola "+name : "Hola";
+    $("welcomeDescription").textContent=job
+      ? job+" · Registra, consulta y controla tu actividad ferroviaria."
       : "Registra, consulta y controla tu actividad ferroviaria.";
-    if($("userName")) $("userName").value = name;
-    if($("userJob")) $("userJob").value = job;
+    if($("userName")) $("userName").value=name;
+    if($("userJob")) $("userJob").value=job;
   }
 
   function saveProfile(){
-    const p = { name: $("userName").value.trim(), job: $("userJob").value.trim() };
-    localStorage.setItem(PROFILE_KEY, JSON.stringify(p));
+    const p={name:$("userName").value.trim(),job:$("userJob").value.trim()};
+    localStorage.setItem(PROFILE_KEY,JSON.stringify(p));
     loadProfile();
-    alert("Perfil guardado");
+    if(typeof toast==="function") toast("Perfil guardado");
     showScreen("menu");
   }
 
-  $("saveProfile").onclick = saveProfile;
+  $("saveProfile").onclick=saveProfile;
   loadProfile();
 
-  const drawer = $("menuDrawer");
+  const drawer=$("menuDrawer");
   function openDrawer(){
     drawer.classList.add("open");
     drawer.setAttribute("aria-hidden","false");
@@ -746,72 +794,66 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
     drawer.setAttribute("aria-hidden","true");
   }
 
-  $("openMenu").onclick = openDrawer;
-  $("closeMenu").onclick = closeDrawer;
-  $("drawerBackdrop").onclick = closeDrawer;
+  $("openMenu").onclick=openDrawer;
+  $("closeMenu").onclick=closeDrawer;
+  $("drawerBackdrop").onclick=closeDrawer;
 
-  document.querySelectorAll("#menuDrawer [data-screen]").forEach(b => {
-    b.addEventListener("click", () => {
+  document.querySelectorAll("#menuDrawer [data-screen]").forEach(b=>{
+    b.addEventListener("click",()=>{
       closeDrawer();
-      if(typeof showScreen === "function") showScreen(b.dataset.screen);
+      if(typeof showScreen==="function") showScreen(b.dataset.screen);
     });
   });
 
-  document.querySelectorAll("#menu [data-screen]").forEach(b => {
-    b.addEventListener("click", () => {
-      if(typeof showScreen === "function") showScreen(b.dataset.screen);
+  document.querySelectorAll("#menu [data-screen]").forEach(b=>{
+    b.addEventListener("click",()=>{
+      if(typeof showScreen==="function") showScreen(b.dataset.screen);
     });
   });
 
   function readServices(){
     try{
-      const raw = localStorage.getItem("argos_services");
-      const data = raw ? JSON.parse(raw) : [];
-      return Array.isArray(data) ? data : [];
-    } catch(e) { return []; }
+      const raw=localStorage.getItem("argos_services");
+      const data=raw?JSON.parse(raw):[];
+      return Array.isArray(data)?data:[];
+    }catch(e){return []}
   }
-
-  function val(o, names){
-    for(const n of names) if(o && o[n] !== undefined && o[n] !== null && o[n] !== "") return o[n];
+  function val(o,names){
+    for(const n of names) if(o&&o[n]!==undefined&&o[n]!==null&&o[n]!=="") return o[n];
     return "";
   }
-
-  window.refreshHome = function(){
-    const services = readServices();
-    const latest = services.length ? services[services.length - 1] : null;
+  function refreshHome(){
+    const services=readServices();
+    const latest=services.length?services[services.length-1]:null;
     if(latest){
-      const train = val(latest, ["train", "tren", "number"]);
-      const origin = val(latest, ["origin", "origen"]);
-      const destination = val(latest, ["destination", "destino"]);
-      $("latestService").textContent = [train, (origin || destination ? (origin || "—") + " → " + (destination || "—") : "")].filter(Boolean).join(" · ") || "Último servicio registrado";
-    } else {
-      $("latestService").textContent = "Aún no hay servicios registrados";
-    }
+      const train=val(latest,["train","tren","number","numero"]);
+      const origin=val(latest,["origin","origen"]);
+      const destination=val(latest,["destination","destino"]);
+      $("latestService").textContent=[train,origin||destination?(origin||"—")+" → "+(destination||"—"):""].filter(Boolean).join(" · ")||"Último servicio registrado";
+    }else $("latestService").textContent="Aún no hay servicios registrados";
 
-    const select = $("lastTripSelect");
-    const current = select.value;
-    while(select.options.length > 1) select.remove(1);
-    services.slice().reverse().forEach((s, i) => {
-      const train = val(s, ["train", "tren", "number"]);
-      const origin = val(s, ["origin", "origen"]);
-      const destination = val(s, ["destination", "destino"]);
-      const date = val(s, ["date", "fecha"]);
-      const o = document.createElement("option");
-      o.value = String(i);
-      o.textContent = [train, origin && destination ? origin + " → " + destination : "", date].filter(Boolean).join(" · ") || "Servicio registrado";
+    const select=$("lastTripSelect");
+    const current=select.value;
+    while(select.options.length>1) select.remove(1);
+    services.slice().reverse().forEach((s,i)=>{
+      const train=val(s,["train","tren","number","numero"]);
+      const origin=val(s,["origin","origen"]);
+      const destination=val(s,["destination","destino"]);
+      const date=val(s,["date","fecha"]);
+      const o=document.createElement("option");
+      o.value=String(i);
+      o.textContent=[train,origin&&destination?origin+" → "+destination:"",date].filter(Boolean).join(" · ")||"Servicio registrado";
       select.appendChild(o);
     });
-    if(current) select.value = current;
-  };
-
-  document.addEventListener("DOMContentLoaded", window.refreshHome);
-  window.addEventListener("storage", window.refreshHome);
-  window.refreshHome();
+    if(current) select.value=current;
+  }
+  document.addEventListener("DOMContentLoaded",refreshHome);
+  window.addEventListener("storage",refreshHome);
+  refreshHome();
 })();
 </script>
 
 <script>
-// FORMULARIO DE REGISTRO DE SERVICIOS
 (function(){
   const train = document.getElementById("train");
   const noTrain = document.getElementById("noTrainNumber");
@@ -825,127 +867,125 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
     });
   }
 
-  function addRepeatable(inputId, listId, buttonId){
-    const input = document.getElementById(inputId);
-    const list = document.getElementById(listId);
-    const button = document.getElementById(buttonId);
+  function addRepeatable(inputId, listId, buttonId, label){
+    const input=document.getElementById(inputId);
+    const list=document.getElementById(listId);
+    const button=document.getElementById(buttonId);
     if(!input || !list || !button) return;
 
-    button.addEventListener("click", function(){
-      const value = input.value.trim();
+    button.addEventListener("click",function(){
+      const value=input.value.trim();
       if(!value) return;
 
-      const item = document.createElement("div");
-      item.className = "entry-chip";
+      const item=document.createElement("div");
+      item.className="entry-chip";
 
-      const text = document.createElement("span");
-      text.textContent = value;
+      const text=document.createElement("span");
+      text.textContent=value;
 
-      const remove = document.createElement("button");
-      remove.type = "button";
-      remove.className = "entry-remove";
-      remove.textContent = "×";
-      remove.onclick = function(){ item.remove(); };
+      const remove=document.createElement("button");
+      remove.type="button";
+      remove.className="entry-remove";
+      remove.textContent="×";
+      remove.setAttribute("aria-label","Eliminar "+label);
+      remove.onclick=()=>item.remove();
 
       item.appendChild(text);
       item.appendChild(remove);
       list.appendChild(item);
 
-      input.value = "";
+      input.value="";
+      input.focus();
     });
   }
 
-  addRepeatable("notes", "notesEntries", "addNote");
-  addRepeatable("incidents", "incidentsEntries", "addIncident");
-
-  // PERSISTENCIA DE DATOS
-  const form = document.getElementById("serviceForm");
-  if(form){
-    form.addEventListener("submit", function(e){
-      e.preventDefault();
-
-      const notes = [];
-      document.querySelectorAll("#notesEntries .entry-chip span").forEach(el => notes.push(el.textContent));
-      if(document.getElementById("notes").value.trim()) {
-        notes.push(document.getElementById("notes").value.trim());
-      }
-
-      const incidents = [];
-      document.querySelectorAll("#incidentsEntries .entry-chip span").forEach(el => incidents.push(el.textContent));
-      if(document.getElementById("incidents").value.trim()) {
-        incidents.push(document.getElementById("incidents").value.trim());
-      }
-
-      const newService = {
-        id: crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(),
-        created_at: new Date().toISOString(),
-        train: noTrain && noTrain.checked ? "S/N" : document.getElementById("train").value,
-        series: document.getElementById("series").value,
-        vehicle: document.getElementById("vehicle").value || null,
-        product: document.getElementById("product").value,
-        origin: document.getElementById("origin").value,
-        destination: document.getElementById("destination").value,
-        date: document.getElementById("date").value,
-        notes: notes,
-        incidents: incidents
-      };
-
-      try {
-        const existing = JSON.parse(localStorage.getItem("argos_services") || "[]");
-        existing.push(newService);
-        localStorage.setItem("argos_services", JSON.stringify(existing));
-
-        if(window.refreshHome) window.refreshHome();
-
-        form.reset();
-        document.getElementById("notesEntries").innerHTML = "";
-        document.getElementById("incidentsEntries").innerHTML = "";
-        if(noTrain) train.disabled = false;
-
-        alert("Servicio guardado en local correctamente");
-        showScreen("menu");
-
-      } catch (error) {
-        alert("Error al guardar el servicio");
-        console.error(error);
-      }
-    });
-  }
+  addRepeatable("notes","notesEntries","addNote","anotación");
+  addRepeatable("incidents","incidentsEntries","addIncident","incidencia");
 })();
+</script>
 
-// RENDERIZADO DE HISTORIAL Y ESTADÍSTICAS
-function renderHistory(){
-  const container = document.getElementById("historyList");
-  if(!container) return;
-  const services = JSON.parse(localStorage.getItem("argos_services") || "[]");
+<script>
+(function(){
+  const select=document.getElementById("product");
+  const trigger=document.getElementById("productSelectTrigger");
+  const value=document.getElementById("productSelectValue");
+  const optionsBox=document.getElementById("productOptions");
+  const wrap=document.getElementById("productSelectWrap");
+  if(!select||!trigger||!value||!optionsBox||!wrap)return;
 
-  if(!services.length){
-    container.innerHTML = '<div class="empty">No hay servicios registrados aún.</div>';
-    return;
+  function render(){
+    optionsBox.innerHTML="";
+    Array.from(select.options).forEach((option,index)=>{
+      const b=document.createElement("button");
+      b.type="button";
+      b.className="product-option";
+      b.setAttribute("role","option");
+      b.textContent=option.textContent;
+      b.addEventListener("click",()=>{
+        select.selectedIndex=index;
+        select.dispatchEvent(new Event("change",{bubbles:true}));
+        close();
+      });
+      optionsBox.appendChild(b);
+    });
+    sync();
+  }
+  function sync(){
+    const selected=select.options[select.selectedIndex];
+    const has=selected&&selected.value!=="";
+    value.textContent=has?selected.textContent:"Selecciona un producto";
+    value.classList.toggle("product-select-placeholder",!has);
+    optionsBox.querySelectorAll(".product-option").forEach((b,i)=>{
+      const active=i===select.selectedIndex;
+      b.classList.toggle("selected",active);
+      b.setAttribute("aria-selected",active?"true":"false");
+    });
+  }
+  function open(){
+    optionsBox.classList.add("open");
+    trigger.classList.add("open");
+    trigger.setAttribute("aria-expanded","true");
+  }
+  function close(){
+    optionsBox.classList.remove("open");
+    trigger.classList.remove("open");
+    trigger.setAttribute("aria-expanded","false");
+  }
+  trigger.addEventListener("click",e=>{
+    e.preventDefault();e.stopPropagation();
+    optionsBox.classList.contains("open")?close():open();
+  });
+  document.addEventListener("click",e=>{if(!wrap.contains(e.target))close()});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
+  select.addEventListener("change",sync);
+  render();
+})();
+</script>
+
+<script>
+(function(){
+  function setActiveScreen(id){
+    var screens=document.querySelectorAll(".app-shell > .screen");
+    screens.forEach(function(screen){
+      var active=screen.id===id;
+      screen.classList.toggle("active",active);
+      screen.setAttribute("aria-hidden",active?"false":"true");
+      screen.style.display=active?(id==="menu"?"flex":"block"):"none";
+    });
+
+    var target=document.getElementById(id);
+    if(target && id==="new-service"){
+      var form=target.querySelector(".service-form");
+      if(form) form.scrollTop=0;
+    }
   }
 
-  container.innerHTML = services.slice().reverse().map(s => `
-    <div class="history-card">
-      <div class="history-top">
-        <span class="train-number">${s.product || ''} ${s.train || ''}</span>
-        <span class="service-date">${s.date || ''}</span>
-      </div>
-      <div class="route">${s.origin || '—'} → ${s.destination || '—'}</div>
-      <div class="service-meta">Serie: ${s.series || '—'} ${s.vehicle ? '· Vehículo: ' + s.vehicle : ''}</div>
-    </div>
-  `).join('');
-}
+  window.showScreen=setActiveScreen;
 
-function renderStats(){
-  const services = JSON.parse(localStorage.getItem("argos_services") || "[]");
-  document.getElementById("statServices").textContent = services.length;
-  
-  const seriesSet = new Set(services.map(s => s.series).filter(Boolean));
-  document.getElementById("statSeries").textContent = seriesSet.size;
-
-  const last = services.length ? services[services.length - 1] : null;
-  document.getElementById("statLast").textContent = last ? (last.train || 'Registrado') : '—';
-}
+  document.addEventListener("DOMContentLoaded",function(){
+    setActiveScreen(document.querySelector(".screen.active")?.id || "menu");
+  });
+})();
 </script>
 </body>
 </html>
