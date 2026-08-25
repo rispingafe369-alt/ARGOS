@@ -864,9 +864,13 @@ body.dark #new-service input[type="date"]{
 }
 
 
-/* ===== BARRA DE ACCIONES FIJA AL VIEWPORT DE AÑADIR SERVICIO ===== */
+/* ===== AÑADIR SERVICIO · MÓVIL ===== */
 @media(max-width:600px){
-  /* La pantalla NO hace scroll. El scroll pertenece únicamente al formulario. */
+  /* La pantalla secundaria sustituye visualmente al menú principal. */
+  .app-shell > .screen:not(.active){display:none!important;}
+  .app-shell > .screen.active{display:block!important;}
+
+  /* Solo el formulario hace scroll. */
   #new-service{
     position:relative!important;
     display:flex!important;
@@ -874,61 +878,60 @@ body.dark #new-service input[type="date"]{
     height:100%!important;
     min-height:0!important;
     overflow:hidden!important;
+    box-sizing:border-box!important;
     padding:14px 14px 0!important;
   }
 
   #new-service .screen-header{
     flex:0 0 auto!important;
     position:relative!important;
-    z-index:10!important;
+    z-index:5!important;
+    margin-bottom:18px!important;
   }
 
-  /* Solo esta zona se desplaza. */
   #new-service .service-form{
     flex:1 1 auto!important;
     min-height:0!important;
     height:auto!important;
-    margin:0!important;
-    padding:0 0 110px!important;
+    width:100%!important;
+    margin:0 auto!important;
+    padding:0 0 24px!important;
     overflow-y:auto!important;
     overflow-x:hidden!important;
     -webkit-overflow-scrolling:touch!important;
     overscroll-behavior:contain!important;
-  }
-
-  /*
-   * BOTONES: quedan fuera del área que hace scroll y pegados
-   * al borde inferior de la pantalla de Añadir servicio.
-   */
-  #new-service .form-actions{
-    position:absolute!important;
-    left:0!important;
-    right:0!important;
-    bottom:0!important;
-    z-index:9999!important;
-    display:flex!important;
-    gap:10px!important;
-    width:100%!important;
-    margin:0!important;
-    padding:12px 14px calc(12px + env(safe-area-inset-bottom))!important;
-    background:rgba(244,245,247,.98)!important;
-    border-top:1px solid var(--line)!important;
-    box-shadow:0 -8px 25px rgba(30,20,30,.14)!important;
-    backdrop-filter:blur(12px)!important;
-    -webkit-backdrop-filter:blur(12px)!important;
     box-sizing:border-box!important;
   }
 
-  body.dark #new-service .form-actions{
-    background:rgba(21,19,23,.98)!important;
+  /* Los botones NO son flotantes ni sticky: están al final real del formulario. */
+  #new-service .form-actions{
+    position:static!important;
+    display:flex!important;
+    flex-direction:column!important;
+    gap:10px!important;
+    width:100%!important;
+    margin:18px 0 0!important;
+    padding:0!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
   }
 
   #new-service .form-actions button{
-    flex:1 1 0!important;
-    width:auto!important;
-    min-height:50px!important;
+    width:100%!important;
+    flex:0 0 auto!important;
+    min-height:52px!important;
     margin:0!important;
   }
+}
+
+/* ===== NAVEGACIÓN ROBUSTA ENTRE PANTALLAS ===== */
+@media(min-width:601px){
+  .app-shell > .screen:not(.active){display:none!important;}
+  .app-shell > .screen.active{display:block!important;}
+  .app-shell > .menu-screen.active{display:flex!important;}
 }
 
 </style>
@@ -1140,6 +1143,26 @@ body.dark #new-service input[type="date"]{
 </main>
 
 <script src="app.js"></script>
+
+<script>
+/* Refuerzo de navegación: una sola pantalla visible cada vez. */
+(function(){
+  window.showScreen=function(id){
+    document.querySelectorAll(".app-shell > .screen").forEach(function(screen){
+      screen.classList.remove("active");
+      screen.setAttribute("aria-hidden","true");
+    });
+    var target=document.getElementById(id);
+    if(!target) return;
+    target.classList.add("active");
+    target.setAttribute("aria-hidden","false");
+    if(id==="new-service") {
+      var form=target.querySelector(".service-form");
+      if(form) form.scrollTop=0;
+    }
+  };
+})();
+</script>
 
 <script>
 (function(){
