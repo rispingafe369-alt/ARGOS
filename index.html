@@ -1,1172 +1,372 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="theme-color" content="#8a005c">
-<meta name="description" content="ARGOS - Gestión de servicios ferroviarios">
-<link rel="manifest" href="manifest.webmanifest">
-<title>ARGOS · Renfe Operaciones</title>
-<link rel="stylesheet" href="style.css">
+<!-- PEGA ESTE BLOQUE JUSTO ANTES DE </body> EN index.html -->
 
 <style>
-:root{
-  --renfe:#8a005c;
-  --renfe-dark:#700049;
-  --page:#f4f5f7;
-  --card:#fff;
-  --ink:#17171b;
-  --muted:#73747c;
-  --line:rgba(20,20,25,.11);
-  --soft:#f4e6ef;
-  --shadow:0 8px 28px rgba(30,20,30,.07);
-}
-*{box-sizing:border-box}
-html,body{width:100%;height:100%;margin:0}
-body{
-  background:var(--page);
-  color:var(--ink);
-  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  overflow:hidden;
-  overscroll-behavior:none;
-}
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
-.app-shell{
-  width:100%;
-  height:100dvh;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-}
-.app-header{flex:0 0 auto;padding:0!important;margin:0!important}
-.brand-row{
-  height:116px;
-  margin:0!important;
-  background:var(--renfe);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-  border-radius:0 0 26px 26px;
-  box-shadow:0 5px 18px rgba(138,0,92,.18);
-}
-.renfe-main-logo{width:175px;height:auto;display:block}
-.header-action{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:58px;height:58px;
-  border:2px solid rgba(255,255,255,.36);
-  border-radius:18px;
-  background:transparent;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.header-action.left{left:20px}
-.header-action.right{right:20px}
-.header-dots{font-size:36px;line-height:1;padding-bottom:10px}
-.menu-screen{
-  flex:1 1 auto;
-  min-height:0;
-  height:auto!important;
-  overflow:hidden!important;
-  padding:0!important;
-  margin:0!important;
-}
-.argos-home{
-  width:min(760px,100%);
-  max-width:100%;
-  height:100%;
-  margin:0 auto;
-  padding:18px 22px 20px;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-.welcome-card{
-  flex:0 0 auto;
-  background:linear-gradient(135deg,#fff 0%,#fbf0f6 100%);
-  border:1px solid var(--line);
-  border-radius:24px;
-  padding:18px 24px;
-  box-shadow:var(--shadow);
-}
-.welcome-pill{
-  display:inline-flex;
-  background:var(--soft);
-  color:var(--renfe-dark);
-  border-radius:999px;
-  padding:5px 12px;
-  font-size:13px;
-  font-weight:800;
-  margin-bottom:8px;
-}
-.welcome-card h1{
-  margin:0 0 4px;
-  font-size:30px;
-  line-height:1.05;
-  letter-spacing:-.03em;
-}
-.welcome-card p{
-  margin:0;
-  color:var(--muted);
-  font-size:15px;
-  line-height:1.25;
-}
-.home-list{
-  min-height:0;
-  flex:1 1 auto;
-  display:grid;
-  grid-template-rows:repeat(5,minmax(0,1fr));
-  gap:10px;
-}
-.home-card{
-  width:100%;
-  min-height:0;
-  border:1px solid var(--line);
-  border-radius:21px;
-  background:var(--card);
-  color:var(--ink);
-  box-shadow:var(--shadow);
-  padding:13px 18px;
-  text-align:left;
-  display:grid;
-  grid-template-columns:54px 1fr;
-  grid-template-rows:auto 1fr;
-  column-gap:15px;
-  align-items:center;
-  overflow:hidden;
-  transition:transform .12s ease,box-shadow .12s ease;
-}
-.home-card:active{transform:scale(.99)}
-.home-card.primary{background:var(--renfe);color:#fff;border-color:transparent}
-.home-icon{
-  grid-row:1 / span 2;
-  width:54px;height:54px;
-  border-radius:17px;
-  background:var(--soft);
-  color:var(--renfe);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:29px;
-  line-height:1;
-}
-.primary .home-icon{background:rgba(255,255,255,.16);color:#fff}
-.home-card h2{
-  margin:0;
-  font-size:19px;
-  line-height:1.05;
-  letter-spacing:-.02em;
-}
-.home-card p{
-  margin:3px 0 0;
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.2;
-}
-.primary p{color:rgba(255,255,255,.82)}
-.latest-service-value{
-  display:block;
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.2;
-  margin-top:3px;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-.last-time-card{
-  cursor:default;
-  grid-template-rows:auto auto;
-}
-.last-time-card label{
-  display:block;
-  color:var(--muted);
-  font-size:12px;
-  margin:3px 0 5px;
-}
-.last-time-select{
-  width:100%;
-  min-height:32px;
-  border:1px solid var(--line);
-  border-radius:11px;
-  background:#fff;
-  color:var(--ink);
-  font-size:13px;
-  padding:0 10px;
-}
-.screen:not(#menu){overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
-.argos-footer{display:none!important}
+/* =========================================================
+   CORRECCIÓN MÓVIL — AÑADIR SERVICIO
+   ========================================================= */
 
-/* Drawer del menú de los tres puntos */
-.menu-drawer{
-  position:fixed;
-  inset:0;
-  z-index:1000;
-  visibility:hidden;
-  pointer-events:none;
-}
-.menu-drawer.open{visibility:visible;pointer-events:auto}
-.drawer-backdrop{
-  position:absolute;inset:0;
-  background:rgba(10,8,10,.42);
-  backdrop-filter:blur(3px);
-}
-.drawer-panel{
-  position:absolute;
-  top:0;left:0;bottom:0;
-  width:min(330px,88vw);
-  background:var(--card);
-  padding:22px 18px;
-  box-shadow:12px 0 35px rgba(0,0,0,.18);
-  transform:translateX(-105%);
-  transition:transform .2s ease;
-  display:flex;
-  flex-direction:column;
-}
-.menu-drawer.open .drawer-panel{transform:translateX(0)}
-.drawer-title{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:4px 5px 20px;
-}
-.drawer-title strong{font-size:20px}
-.drawer-close{
-  width:42px;height:42px;border:0;border-radius:13px;
-  background:var(--soft);color:var(--renfe);font-size:25px;
-}
-.drawer-nav{display:flex;flex-direction:column;gap:8px}
-.drawer-item{
-  width:100%;border:0;border-radius:15px;background:transparent;
-  color:var(--ink);padding:15px 13px;text-align:left;
-  display:flex;align-items:center;gap:13px;font-weight:700;
-}
-.drawer-item:hover,.drawer-item:active{background:var(--soft);color:var(--renfe)}
-.drawer-icon{
-  width:38px;height:38px;border-radius:12px;background:var(--soft);
-  color:var(--renfe);display:flex;align-items:center;justify-content:center;
-  font-size:20px;flex:0 0 auto;
-}
-
-/* Pantallas secundarias */
-.screen{display:none;flex:1 1 auto;min-height:0;padding:24px;overflow:auto}
-.screen.active{display:block}
-.screen-header{
-  width:min(900px,100%);margin:0 auto 22px;
-  display:flex;align-items:center;gap:14px;
-}
-.screen-header h2{margin:0;font-size:32px}
-.screen-kicker{color:var(--renfe);font-size:12px;font-weight:800;letter-spacing:.08em}
-.back-button{
-  width:48px;height:48px;border:0;border-radius:15px;
-  background:var(--soft);color:var(--renfe);font-size:32px;
-}
-.service-form,.history-list,.stats-grid,.settings-list{
-  width:min(900px,100%);margin:0 auto;
-}
-.form-section-title{margin:22px 0 10px;color:var(--renfe);font-weight:800;font-size:12px;letter-spacing:.08em}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.form-group{margin-bottom:14px}
-.form-group label{display:block;font-size:14px;font-weight:700;margin-bottom:6px}
-.form-group input,.form-group textarea,.form-group select{
-  width:100%;border:1px solid var(--line);border-radius:14px;background:var(--card);
-  color:var(--ink);padding:13px 14px;outline:none;
-}
-.form-group textarea{resize:vertical}
-.form-actions{display:flex;gap:10px;margin-top:18px}
-.save-button,.cancel-button{
-  border:0;border-radius:14px;padding:13px 18px;font-weight:800
-}
-.save-button{background:var(--renfe);color:#fff}
-.cancel-button{background:var(--soft);color:var(--renfe)}
-.history-card,.stat-card,.setting-card{
-  background:var(--card);border:1px solid var(--line);border-radius:20px;
-  padding:18px;box-shadow:var(--shadow);margin-bottom:12px;
-}
-.history-top{display:flex;justify-content:space-between;gap:12px}
-.train-number{font-weight:800;color:var(--renfe)}
-.service-date,.service-meta{color:var(--muted);font-size:13px}
-.route{font-size:21px;font-weight:800;margin:8px 0}
-.empty{padding:30px;text-align:center;color:var(--muted)}
-.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.stat-card{display:flex;flex-direction:column;gap:7px}
-.stat-card span{color:var(--muted);font-size:13px}.stat-card strong{font-size:30px}
-.setting-card{display:flex;flex-direction:column;gap:18px}
-.setting-card strong{display:block;font-size:18px}.setting-card>div>span{display:block;color:var(--muted);font-size:13px;margin-top:4px}
-.setting-group{display:flex;flex-direction:column;gap:6px}
-.setting-group label{font-weight:700;font-size:13px}
-.setting-group input{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:13px;background:var(--card);color:var(--ink)}
-.theme-switch{display:flex;gap:8px}
-.theme-option{border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);padding:10px 14px}
-.theme-option.active{background:var(--renfe);color:#fff;border-color:var(--renfe)}
-.save-settings{border:0;border-radius:13px;background:var(--renfe);color:#fff;padding:12px 15px;font-weight:800}
-
-/* Tema oscuro */
-body.dark{--page:#151317;--card:#242126;--ink:#fff;--muted:#aaa6ad;--line:rgba(255,255,255,.10);--soft:#352632}
-body.dark .welcome-card{background:linear-gradient(135deg,#242126 0%,#30212b 100%)}
-body.dark .last-time-select{background:var(--card);color:#fff}
-body.dark .drawer-backdrop{background:rgba(0,0,0,.58)}
-
-@media(max-width:600px){
-  .brand-row{height:100px;border-radius:0 0 22px 22px}
-  .renfe-main-logo{width:150px}
-  .header-action{width:52px;height:52px;border-radius:16px}
-  .header-action.left{left:14px}.header-action.right{right:14px}
-  .header-dots{font-size:32px}
-  .argos-home{padding:11px 14px 12px;gap:8px}
-  .welcome-card{padding:13px 16px;border-radius:19px}
-  .welcome-pill{font-size:10px;padding:4px 9px;margin-bottom:5px}
-  .welcome-card h1{font-size:22px}
-  .welcome-card p{font-size:12px}
-  .home-list{gap:7px}
-  .home-card{grid-template-columns:45px 1fr;column-gap:11px;padding:9px 12px;border-radius:17px}
-  .home-icon{width:45px;height:45px;border-radius:14px;font-size:25px}
-  .home-card h2{font-size:16px}
-  .home-card p,.latest-service-value{font-size:11px}
-  .last-time-card label{font-size:10px}.last-time-select{min-height:27px;font-size:11px;border-radius:9px}
-}
-@media(max-height:700px) and (max-width:600px){
-  .brand-row{height:82px}
-  .renfe-main-logo{width:125px}
-  .header-action{width:44px;height:44px}
-  .argos-home{padding:8px 12px;gap:6px}
-  .welcome-card{padding:9px 13px}
-  .welcome-pill{display:none}
-  .welcome-card h1{font-size:19px}.welcome-card p{font-size:10px}
-  .home-list{gap:5px}
-  .home-card{padding:7px 10px}.home-icon{width:39px;height:39px}
-  .home-card h2{font-size:14px}.home-card p,.latest-service-value{font-size:10px}
-  .last-time-card label{font-size:9px}.last-time-select{min-height:24px;font-size:10px}
-}
-
-/* AJUSTES FINALES DE PANTALLA PRINCIPAL */
-html,body{
-  margin:0!important;
-  padding:0!important;
-  width:100%!important;
-  height:100%!important;
-  min-height:100%!important;
-  touch-action:pan-x pan-y;
-  -ms-touch-action:pan-x pan-y;
-}
-body{
-  overflow:hidden!important;
-  -webkit-text-size-adjust:100%;
-}
-.app-shell{
-  width:100%!important;
-  max-width:none!important;
-  height:100dvh!important;
-  min-height:100dvh!important;
-  margin:0!important;
-  padding:0!important;
-  overflow:hidden!important;
-}
-.app-header{padding:0!important;margin:0!important;border:0!important}
-.menu-screen{
-  display:flex!important;
-  flex:1 1 auto!important;
-  height:auto!important;
-  min-height:0!important;
-  padding:0!important;
-  margin:0!important;
-  overflow:hidden!important;
-}
-.argos-home{
-  width:min(760px,100%)!important;
-  height:100%!important;
-  min-height:0!important;
-  padding:18px 22px 18px!important;
-  margin:0 auto!important;
-  gap:12px!important;
-}
-.welcome-card{flex:0 0 auto!important}
-.home-list{
-  flex:1 1 auto!important;
-  min-height:0!important;
-  grid-template-rows:repeat(5,minmax(0,1fr))!important;
-  gap:10px!important;
-}
-.home-card{
-  min-height:0!important;
-  height:auto!important;
-}
-@media(max-width:600px){
-  .brand-row{height:100px!important}
-  .argos-home{padding:12px 14px 14px!important;gap:9px!important}
-  .home-list{gap:8px!important}
-  .home-card{
-    grid-template-columns:58px 1fr!important;
-    column-gap:14px!important;
-    padding:12px 15px!important;
-    border-radius:18px!important;
-  }
-  .home-icon{
-    width:58px!important;
-    height:58px!important;
-    border-radius:17px!important;
-    font-size:30px!important;
-  }
-  .home-card h2{font-size:19px!important}
-  .home-card p,.latest-service-value{font-size:13px!important}
-  .last-time-card label{font-size:12px!important}
-  .last-time-select{min-height:34px!important;font-size:13px!important}
-}
-@media(max-width:430px){
-  .brand-row{height:96px!important}
-  .renfe-main-logo{width:150px!important}
-  .header-action{width:52px!important;height:52px!important}
-  .header-action.left{left:14px!important}.header-action.right{right:14px!important}
-  .argos-home{padding:10px 12px 12px!important;gap:8px!important}
-  .home-list{gap:7px!important}
-  .home-card{grid-template-columns:56px 1fr!important;padding:10px 13px!important}
-  .home-icon{width:56px!important;height:56px!important}
-}
-
-/* ===== AJUSTE ESCRITORIO ARGOS ===== */
-/* Solo afecta a pantallas de 601px o más. La versión móvil queda intacta. */
-@media(min-width:601px){
-
-  /* Al cambiar de pantalla, el menú principal desaparece correctamente. */
+/* El menú principal NO puede quedarse visible detrás
+   de una pantalla secundaria en móvil. */
+@media (max-width:600px){
   .menu-screen:not(.active){
     display:none!important;
   }
-  .menu-screen.active{
-    display:flex!important;
-  }
 
-  /* Pantalla principal más cómoda en ordenador. */
-  .argos-home{
-    width:min(1040px,100%)!important;
-    padding:28px 34px 30px!important;
-    gap:16px!important;
-  }
-
-  .welcome-card{
-    padding:22px 28px!important;
-    border-radius:24px!important;
-  }
-
-  .welcome-pill{
-    font-size:13px!important;
-    padding:6px 13px!important;
-    margin-bottom:8px!important;
-  }
-
-  .welcome-card h1{
-    font-size:34px!important;
-  }
-
-  .welcome-card p{
-    font-size:16px!important;
-  }
-
-  .home-list{
-    gap:12px!important;
-    grid-template-rows:repeat(5,minmax(0,1fr))!important;
-  }
-
-  .home-card{
+  #new-service{
+    display:none;
+    flex:1 1 auto!important;
     min-height:0!important;
-    padding:16px 22px!important;
-    border-radius:21px!important;
-    grid-template-columns:62px 1fr!important;
-    column-gap:17px!important;
-  }
-
-  .home-icon{
-    width:62px!important;
-    height:62px!important;
-    border-radius:18px!important;
-    font-size:32px!important;
-  }
-
-  .home-card h2{
-    font-size:21px!important;
-  }
-
-  .home-card p,
-  .latest-service-value{
-    font-size:14px!important;
-  }
-
-  .last-time-card label{
-    font-size:13px!important;
-  }
-
-  .last-time-select{
-    min-height:36px!important;
-    font-size:14px!important;
-  }
-
-  /* Las pantallas internas ocupan todo el espacio disponible y se pueden usar
-     con normalidad en ordenador. */
-  .screen:not(#menu){
+    height:auto!important;
     overflow-y:auto!important;
-    padding:30px 36px!important;
+    overflow-x:hidden!important;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior:contain;
+    padding:20px 14px calc(30px + env(safe-area-inset-bottom))!important;
   }
 
-  .screen-header,
-  .service-form,
-  .history-list,
-  .stats-grid,
-  .settings-list{
-    width:min(980px,100%)!important;
-  }
-
-  .screen-header{
-    margin-bottom:26px!important;
-  }
-
-  .screen-header h2{
-    font-size:36px!important;
-  }
-}
-
-/* En pantallas de escritorio especialmente bajas, reducimos ligeramente
-   las dimensiones para que todo el menú siga entrando sin scroll. */
-@media(min-width:601px) and (max-height:780px){
-  .argos-home{
-    padding:18px 30px 20px!important;
-    gap:10px!important;
-  }
-
-  .welcome-card{
-    padding:16px 24px!important;
-  }
-
-  .welcome-card h1{
-    font-size:30px!important;
-  }
-
-  .welcome-card p{
-    font-size:14px!important;
-  }
-
-  .home-list{
-    gap:8px!important;
-  }
-
-  .home-card{
-    padding:10px 18px!important;
-    grid-template-columns:54px 1fr!important;
-    column-gap:15px!important;
-  }
-
-  .home-icon{
-    width:54px!important;
-    height:54px!important;
-    border-radius:16px!important;
-    font-size:29px!important;
-  }
-
-  .home-card h2{
-    font-size:19px!important;
-  }
-
-  .home-card p,
-  .latest-service-value{
-    font-size:13px!important;
-  }
-
-  .last-time-card label{
-    font-size:12px!important;
-  }
-
-  .last-time-select{
-    min-height:32px!important;
-    font-size:13px!important;
-  }
-}
-
-
-/* ===== DISEÑO AÑADIR SERVICIO ===== */
-#new-service{
-  padding-bottom:50px!important;
-}
-
-#new-service .service-form{
-  padding-bottom:30px;
-}
-
-#new-service .form-row{
-  grid-template-columns:1fr!important;
-  gap:0!important;
-}
-
-#new-service .form-group{
-  margin-bottom:18px;
-}
-
-#new-service .form-group label{
-  color:var(--ink);
-  font-size:14px;
-  margin-bottom:8px;
-}
-
-#new-service .form-group input,
-#new-service .form-group textarea,
-#new-service .form-group select{
-  min-height:52px;
-  border-radius:15px;
-  border:1px solid var(--line);
-  background:var(--card);
-  color:var(--ink);
-  padding:14px 15px;
-  box-shadow:0 3px 12px rgba(30,20,30,.035);
-}
-
-#new-service .form-group textarea{
-  min-height:104px;
-  resize:vertical;
-}
-
-#new-service .form-group select{
-  appearance:none;
-  -webkit-appearance:none;
-  padding-right:46px;
-  background-image:linear-gradient(45deg,transparent 50%,var(--renfe) 50%),linear-gradient(135deg,var(--renfe) 50%,transparent 50%);
-  background-position:calc(100% - 21px) 22px,calc(100% - 15px) 22px;
-  background-size:6px 6px,6px 6px;
-  background-repeat:no-repeat;
-}
-
-#new-service .form-section-title{
-  margin:28px 0 13px;
-  padding-bottom:8px;
-  border-bottom:1px solid var(--line);
-  font-size:12px;
-}
-
-#new-service .label-line{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom:8px;
-}
-
-#new-service .label-line label{
-  margin-bottom:0;
-}
-
-#new-service .field-hint{
-  color:var(--muted);
-  font-size:12px;
-  font-weight:600;
-}
-
-#new-service .check-option{
-  display:flex!important;
-  align-items:center;
-  gap:7px;
-  color:var(--renfe)!important;
-  font-size:12px!important;
-  font-weight:800!important;
-  white-space:nowrap;
-}
-
-#new-service .check-option input{
-  width:18px!important;
-  min-height:18px!important;
-  height:18px!important;
-  padding:0!important;
-  margin:0;
-  accent-color:var(--renfe);
-  box-shadow:none!important;
-}
-
-#new-service .date-picker-wrap{
-  position:relative;
-}
-
-#new-service input[type="date"]{
-  color-scheme:light;
-}
-
-body.dark #new-service input[type="date"]{
-  color-scheme:dark;
-}
-
-#new-service .repeatable-group{
-  margin-bottom:24px;
-}
-
-#new-service .add-entry-button{
-  border:0;
-  border-radius:13px;
-  background:var(--soft);
-  color:var(--renfe);
-  padding:11px 15px;
-  font-weight:800;
-  font-size:14px;
-  margin-top:-5px;
-}
-
-#new-service .entries-list{
-  display:flex;
-  flex-direction:column;
-  gap:9px;
-  margin-top:12px;
-}
-
-#new-service .entry-chip{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:12px;
-  padding:13px 14px;
-  border:1px solid var(--line);
-  border-radius:14px;
-  background:var(--soft);
-  color:var(--ink);
-  font-size:14px;
-  line-height:1.35;
-}
-
-#new-service .entry-remove{
-  flex:0 0 auto;
-  width:30px;
-  height:30px;
-  border:0;
-  border-radius:9px;
-  background:var(--card);
-  color:var(--renfe);
-  font-weight:900;
-}
-
-@media(max-width:600px){
-  #new-service{
-    padding:20px 14px 45px!important;
-  }
-
-  #new-service .screen-header{
-    margin-bottom:18px;
-  }
-
-  #new-service .screen-header h2{
-    font-size:27px;
-  }
-
-  #new-service .form-group{
-    margin-bottom:15px;
-  }
-
-  #new-service .form-group input,
-  #new-service .form-group textarea,
-  #new-service .form-group select{
-    min-height:50px;
-    border-radius:14px;
-    font-size:16px;
-  }
-
-  #new-service .form-group textarea{
-    min-height:96px;
-  }
-
-  #new-service .field-hint{
-    font-size:10px;
-  }
-
-  #new-service .check-option{
-    font-size:11px!important;
-  }
-
-  #new-service .form-section-title{
-    margin-top:24px;
-  }
-
-  #new-service .form-actions{
-    position:sticky;
-    bottom:0;
-    padding:12px 0 calc(8px + env(safe-area-inset-bottom));
-    background:linear-gradient(transparent,var(--page) 25%);
-  }
-}
-
-@media(min-width:601px){
-  #new-service{
-    padding:30px 36px 50px!important;
+  #new-service.active{
+    display:block!important;
   }
 
   #new-service .service-form{
-    width:min(720px,100%)!important;
+    width:100%!important;
+    max-width:720px;
+    margin:0 auto;
+    padding-bottom:20px!important;
   }
 
   #new-service .screen-header{
-    width:min(720px,100%)!important;
+    width:100%!important;
+    margin:0 auto 18px!important;
+  }
+
+  #new-service .screen-header h2{
+    line-height:1.05!important;
+  }
+
+  #new-service .form-section-title{
+    margin-top:24px!important;
+  }
+
+  /* Evita que los elementos del formulario se monten unos sobre otros. */
+  #new-service .form-group,
+  #new-service .repeatable-group,
+  #new-service .form-actions{
+    position:relative!important;
+    z-index:1;
+  }
+
+  #new-service .label-line{
+    min-height:24px;
+    flex-wrap:wrap;
+  }
+
+  #new-service .field-hint{
+    white-space:normal!important;
+    text-align:right;
+  }
+
+  /* El botón de guardar ya no se queda flotando encima del formulario. */
+  #new-service .form-actions{
+    position:relative!important;
+    bottom:auto!important;
+    padding:12px 0 0!important;
+    background:none!important;
+    display:flex!important;
+    flex-direction:column!important;
+    gap:9px!important;
+  }
+
+  #new-service .form-actions button{
+    width:100%!important;
+    min-height:54px;
+  }
+
+  /* =====================================================
+     SELECT DE PRODUCTO PERSONALIZADO
+     No usamos el desplegable nativo de Android.
+     ===================================================== */
+
+  #new-service .product-native-select{
+    position:absolute!important;
+    width:1px!important;
+    height:1px!important;
+    opacity:0!important;
+    pointer-events:none!important;
+    overflow:hidden!important;
+  }
+
+  #new-service .product-custom-trigger{
+    width:100%;
+    min-height:52px;
+    border:1px solid var(--line);
+    border-radius:15px;
+    background:var(--card);
+    color:var(--ink);
+    padding:14px 46px 14px 15px;
+    text-align:left;
+    position:relative;
+    box-shadow:0 3px 12px rgba(30,20,30,.035);
+  }
+
+  #new-service .product-custom-trigger::after{
+    content:"";
+    position:absolute;
+    right:18px;
+    top:50%;
+    width:9px;
+    height:9px;
+    border-right:2px solid var(--renfe);
+    border-bottom:2px solid var(--renfe);
+    transform:translateY(-65%) rotate(45deg);
+  }
+
+  #new-service .product-custom-trigger.placeholder{
+    color:var(--muted);
+  }
+
+  .argos-product-picker{
+    position:fixed;
+    inset:0;
+    z-index:3000;
+    display:none;
+  }
+
+  .argos-product-picker.open{
+    display:block;
+  }
+
+  .argos-product-picker-backdrop{
+    position:absolute;
+    inset:0;
+    background:rgba(12,8,12,.48);
+    backdrop-filter:blur(4px);
+  }
+
+  .argos-product-picker-panel{
+    position:absolute;
+    left:14px;
+    right:14px;
+    bottom:14px;
+    max-height:min(78dvh,620px);
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 18px 55px rgba(0,0,0,.25);
+    display:flex;
+    flex-direction:column;
+  }
+
+  .argos-product-picker-header{
+    flex:0 0 auto;
+    padding:17px 18px 14px;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+  }
+
+  .argos-product-picker-header strong{
+    color:var(--ink);
+    font-size:18px;
+  }
+
+  .argos-product-picker-close{
+    width:38px;
+    height:38px;
+    border:0;
+    border-radius:12px;
+    background:var(--soft);
+    color:var(--renfe);
+    font-size:25px;
+    line-height:1;
+  }
+
+  .argos-product-picker-list{
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior:contain;
+  }
+
+  .argos-product-option{
+    width:100%;
+    min-height:55px;
+    border:0;
+    border-bottom:1px solid var(--line);
+    background:transparent;
+    color:var(--ink);
+    padding:14px 18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    text-align:left;
+    font-size:16px;
+  }
+
+  .argos-product-option:last-child{
+    border-bottom:0;
+  }
+
+  .argos-product-option:active{
+    background:var(--soft);
+  }
+
+  .argos-product-option.selected{
+    color:var(--renfe);
+    font-weight:800;
+    background:var(--soft);
+  }
+
+  .argos-product-option .product-check{
+    width:22px;
+    height:22px;
+    border:2px solid var(--line);
+    border-radius:50%;
+    flex:0 0 auto;
+    position:relative;
+  }
+
+  .argos-product-option.selected .product-check{
+    border-color:var(--renfe);
+  }
+
+  .argos-product-option.selected .product-check::after{
+    content:"";
+    position:absolute;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:var(--renfe);
+    left:4px;
+    top:4px;
+  }
+
+  body.dark .argos-product-picker-backdrop{
+    background:rgba(0,0,0,.62);
+  }
+
+  @media (min-width:601px){
+    .argos-product-picker{
+      display:none!important;
+    }
   }
 }
-
 </style>
-</head>
-
-<body>
-<main class="app-shell">
-
-<header class="app-header">
-  <div class="brand-row">
-    <button id="openMenu" class="header-action left header-dots" type="button" aria-label="Abrir menú">⋮</button>
-    <img class="renfe-main-logo" src="icons/renfe-logo-blanco.png" alt="Renfe">
-    <button class="header-action right" type="button" aria-label="Perfil">↪</button>
-  </div>
-</header>
-
-<!-- MENÚ PRINCIPAL -->
-<section id="menu" class="screen active menu-screen" aria-label="Menú principal">
-  <div class="argos-home">
-    <div class="welcome-card">
-      <div class="welcome-pill">ARGOS · SERVICIOS</div>
-      <h1 id="welcomeName">Hola</h1>
-      <p id="welcomeDescription">Registra, consulta y controla tu actividad ferroviaria.</p>
-    </div>
-
-    <div class="home-list">
-      <button class="home-card primary" data-screen="new-service" type="button">
-        <span class="home-icon">＋</span>
-        <span><h2>Añadir nuevo servicio</h2><p>Registrar un nuevo servicio ferroviario</p></span>
-      </button>
-
-      <button class="home-card" data-screen="history" type="button">
-        <span class="home-icon">☷</span>
-        <span><h2>Ver historial</h2><p>Consultar todos tus servicios registrados</p></span>
-      </button>
-
-      <button class="home-card" data-screen="stats" type="button">
-        <span class="home-icon">◔</span>
-        <span><h2>Estadísticas</h2><p>Resumen de tu actividad ferroviaria</p></span>
-      </button>
-
-      <button class="home-card" data-screen="history" type="button">
-        <span class="home-icon">↗</span>
-        <span><h2>Último servicio</h2><span id="latestService" class="latest-service-value">Aún no hay servicios registrados</span></span>
-      </button>
-
-      <div class="home-card last-time-card">
-        <span class="home-icon">◷</span>
-        <span>
-          <h2>Última vez</h2>
-          <label for="lastTripSelect">¿Cuándo hiciste un trayecto?</label>
-          <select id="lastTripSelect" class="last-time-select">
-            <option value="">Selecciona un trayecto</option>
-          </select>
-        </span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PANTALLAS SECUNDARIAS -->
-<section id="new-service" class="screen">
-  <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">REGISTRO</div><h2>Añadir servicio</h2></div></div>
-  <form id="serviceForm" class="service-form">
-    <div class="form-section-title">SERVICIO</div>
-
-    <div class="form-group train-group">
-      <div class="label-line">
-        <label for="train">Número de tren</label>
-        <label class="check-option"><input id="noTrainNumber" type="checkbox"> <span>Sin número de tren</span></label>
-      </div>
-      <input id="train" type="text" maxlength="5" required autocomplete="off" placeholder="Ej. 05120">
-    </div>
-
-    <div class="form-group">
-      <label for="series">Serie</label>
-      <input id="series" type="text" maxlength="3" required autocomplete="off" placeholder="Ej. 112">
-    </div>
-
-    <div class="form-group">
-      <label for="vehicle">Vehículo</label>
-      <input id="vehicle" type="text" maxlength="3" autocomplete="off" placeholder="Ej. 018">
-    </div>
-
-    <div class="form-group">
-      <label for="product">Tipo de producto</label>
-      <select id="product">
-        <option value="">Selecciona un producto</option>
-        <option>AVE</option>
-        <option>ALVIA</option>
-        <option>EUROMED</option>
-        <option>INTERCITY</option>
-        <option>AVLO</option>
-        <option>Cercanías</option>
-        <option>Media Distancia</option>
-        <option>Regional</option>
-        <option>Regional Exprés</option>
-        <option>Trambahía</option>
-        <option>Proximidad</option>
-        <option>AVANT</option>
-        <option>Cercanías AM</option>
-        <option>Media Distancia AM</option>
-        <option>Rodalies</option>
-        <option>Turístico</option>
-        <option>Mercancías</option>
-        <option>Charter</option>
-        <option>Otro</option>
-      </select>
-    </div>
-
-    <div class="form-section-title">RECORRIDO</div>
-
-    <div class="form-group autocomplete-group">
-      <div class="label-line">
-        <label for="origin">Origen</label>
-        <span class="field-hint">Nombre de la estación o código</span>
-      </div>
-      <input id="origin" required autocomplete="off" placeholder="">
-      <div id="originList" class="suggestions"></div>
-    </div>
-
-    <div class="form-group autocomplete-group">
-      <div class="label-line">
-        <label for="destination">Destino</label>
-        <span class="field-hint">Nombre de la estación o código</span>
-      </div>
-      <input id="destination" required autocomplete="off" placeholder="">
-      <div id="destinationList" class="suggestions"></div>
-    </div>
-
-    <div class="form-group">
-      <label for="date">Fecha</label>
-      <div class="date-picker-wrap">
-        <input id="date" type="date" required>
-      </div>
-    </div>
-
-    <div class="form-section-title">ANOTACIONES</div>
-
-    <div class="repeatable-group" id="notesGroup">
-      <div class="form-group">
-        <label for="notes">Anotación</label>
-        <textarea id="notes" rows="3" placeholder="Escribe una anotación..."></textarea>
-      </div>
-      <button id="addNote" class="add-entry-button" type="button">＋ Añadir anotación</button>
-      <div id="notesEntries" class="entries-list"></div>
-    </div>
-
-    <div class="form-section-title">INCIDENCIAS</div>
-
-    <div class="repeatable-group" id="incidentsGroup">
-      <div class="form-group">
-        <label for="incidents">Incidencia</label>
-        <textarea id="incidents" rows="3" placeholder="Escribe una incidencia..."></textarea>
-      </div>
-      <button id="addIncident" class="add-entry-button" type="button">＋ Añadir incidencia</button>
-      <div id="incidentsEntries" class="entries-list"></div>
-    </div>
-
-    <div class="form-actions">
-      <button class="save-button" type="submit">Guardar servicio</button>
-      <button class="cancel-button" data-back type="button">Cancelar</button>
-    </div>
-  </form>
-</section>
-
-<section id="history" class="screen">
-  <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">REGISTROS</div><h2>Historial</h2></div></div>
-  <div id="historyList" class="history-list"></div>
-</section>
-
-<section id="stats" class="screen">
-  <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">DATOS</div><h2>Estadísticas</h2></div></div>
-  <div class="stats-grid">
-    <div class="stat-card"><span>Servicios</span><strong id="statServices">0</strong></div>
-    <div class="stat-card"><span>Kilómetros</span><strong id="statKm">0</strong></div>
-    <div class="stat-card"><span>Series diferentes</span><strong id="statSeries">0</strong></div>
-    <div class="stat-card"><span>Último servicio</span><strong id="statLast">—</strong></div>
-  </div>
-</section>
-
-<section id="settings" class="screen">
-  <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">CONFIGURACIÓN</div><h2>Ajustes</h2></div></div>
-  <div class="settings-list">
-    <div class="setting-card">
-      <div><strong>Perfil</strong><span>Estos datos aparecen en la pantalla principal.</span></div>
-      <div class="setting-group"><label for="userName">Nombre del usuario</label><input id="userName" type="text" maxlength="60" placeholder="Tu nombre"></div>
-      <div class="setting-group"><label for="userJob">Puesto en Renfe</label><input id="userJob" type="text" maxlength="80" placeholder="Ej. Maquinista"></div>
-      <button id="saveProfile" class="save-settings" type="button">Guardar perfil</button>
-    </div>
-    <div class="setting-card">
-      <div><strong>Apariencia</strong><span>Selecciona el tema de ARGOS.</span></div>
-      <div class="theme-switch">
-        <button id="lightTheme" class="theme-option active" type="button">☀ Claro</button>
-        <button id="darkTheme" class="theme-option" type="button">☾ Oscuro</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MENÚ DE LOS TRES PUNTOS -->
-<div id="menuDrawer" class="menu-drawer" aria-hidden="true">
-  <div id="drawerBackdrop" class="drawer-backdrop"></div>
-  <aside class="drawer-panel" aria-label="Opciones de ARGOS">
-    <div class="drawer-title"><strong>ARGOS</strong><button id="closeMenu" class="drawer-close" type="button" aria-label="Cerrar">×</button></div>
-    <nav class="drawer-nav">
-      <button class="drawer-item" data-screen="new-service" type="button"><span class="drawer-icon">＋</span>Añadir un servicio</button>
-      <button class="drawer-item" data-screen="history" type="button"><span class="drawer-icon">☷</span>Ver historial</button>
-      <button class="drawer-item" data-screen="stats" type="button"><span class="drawer-icon">◔</span>Estadísticas</button>
-      <button id="openSettings" class="drawer-item" data-screen="settings" type="button"><span class="drawer-icon">⚙</span>Ajustes</button>
-    </nav>
-  </aside>
-</div>
-
-<div id="toast" class="toast" role="status"></div>
-</main>
-
-<script src="app.js"></script>
 
 <script>
+/* =========================================================
+   SELECT PERSONALIZADO DE PRODUCTO EN MÓVIL
+   ========================================================= */
 (function(){
-  const PROFILE_KEY="argos_profile";
-  const $=id=>document.getElementById(id);
+  function initProductPicker(){
+    const select = document.getElementById("product");
+    if(!select || select.dataset.customPickerReady === "1") return;
 
-  function loadProfile(){
-    let p={name:"",job:""};
-    try{p=JSON.parse(localStorage.getItem(PROFILE_KEY)||"{}")||p}catch(e){}
-    const name=(p.name||"").trim();
-    const job=(p.job||"").trim();
-    $("welcomeName").textContent=name ? "Hola "+name : "Hola";
-    $("welcomeDescription").textContent=job
-      ? job+" · Registra, consulta y controla tu actividad ferroviaria."
-      : "Registra, consulta y controla tu actividad ferroviaria.";
-    if($("userName")) $("userName").value=name;
-    if($("userJob")) $("userJob").value=job;
-  }
+    select.dataset.customPickerReady = "1";
+    select.classList.add("product-native-select");
 
-  function saveProfile(){
-    const p={name:$("userName").value.trim(),job:$("userJob").value.trim()};
-    localStorage.setItem(PROFILE_KEY,JSON.stringify(p));
-    loadProfile();
-    if(typeof toast==="function") toast("Perfil guardado");
-    showScreen("menu");
-  }
+    const trigger = document.createElement("button");
+    trigger.type = "button";
+    trigger.className = "product-custom-trigger placeholder";
+    trigger.textContent = select.options[0]?.textContent || "Selecciona un producto";
+    select.parentNode.insertBefore(trigger, select);
 
-  $("saveProfile").onclick=saveProfile;
-  loadProfile();
+    const picker = document.createElement("div");
+    picker.className = "argos-product-picker";
+    picker.innerHTML = `
+      <div class="argos-product-picker-backdrop"></div>
+      <div class="argos-product-picker-panel" role="dialog" aria-modal="true" aria-label="Selecciona un producto">
+        <div class="argos-product-picker-header">
+          <strong>Selecciona un producto</strong>
+          <button type="button" class="argos-product-picker-close" aria-label="Cerrar">×</button>
+        </div>
+        <div class="argos-product-picker-list"></div>
+      </div>
+    `;
+    document.body.appendChild(picker);
 
-  const drawer=$("menuDrawer");
-  function openDrawer(){
-    drawer.classList.add("open");
-    drawer.setAttribute("aria-hidden","false");
-  }
-  function closeDrawer(){
-    drawer.classList.remove("open");
-    drawer.setAttribute("aria-hidden","true");
-  }
+    const list = picker.querySelector(".argos-product-picker-list");
+    const closeButton = picker.querySelector(".argos-product-picker-close");
+    const backdrop = picker.querySelector(".argos-product-picker-backdrop");
 
-  $("openMenu").onclick=openDrawer;
-  $("closeMenu").onclick=closeDrawer;
-  $("drawerBackdrop").onclick=closeDrawer;
+    function renderOptions(){
+      list.innerHTML = "";
 
-  document.querySelectorAll("#menuDrawer [data-screen]").forEach(b=>{
-    b.addEventListener("click",()=>{
-      closeDrawer();
-      if(typeof showScreen==="function") showScreen(b.dataset.screen);
+      Array.from(select.options).forEach(option => {
+        if(option.value === "") return;
+
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "argos-product-option";
+        button.dataset.value = option.value;
+        button.innerHTML = `
+          <span>${option.textContent}</span>
+          <span class="product-check" aria-hidden="true"></span>
+        `;
+
+        if(select.value === option.value){
+          button.classList.add("selected");
+        }
+
+        button.addEventListener("click", function(){
+          select.value = option.value;
+          select.dispatchEvent(new Event("change", {bubbles:true}));
+          closePicker();
+        });
+
+        list.appendChild(button);
+      });
+    }
+
+    function syncTrigger(){
+      const option = select.options[select.selectedIndex];
+      const hasValue = !!select.value;
+
+      trigger.textContent = hasValue
+        ? option.textContent
+        : (select.options[0]?.textContent || "Selecciona un producto");
+
+      trigger.classList.toggle("placeholder", !hasValue);
+
+      list.querySelectorAll(".argos-product-option").forEach(button => {
+        button.classList.toggle("selected", button.dataset.value === select.value);
+      });
+    }
+
+    function openPicker(){
+      renderOptions();
+      syncTrigger();
+      picker.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closePicker(){
+      picker.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    trigger.addEventListener("click", openPicker);
+    closeButton.addEventListener("click", closePicker);
+    backdrop.addEventListener("click", closePicker);
+
+    select.addEventListener("change", syncTrigger);
+
+    document.addEventListener("keydown", function(event){
+      if(event.key === "Escape" && picker.classList.contains("open")){
+        closePicker();
+      }
     });
-  });
 
-  document.querySelectorAll("#menu [data-screen]").forEach(b=>{
-    b.addEventListener("click",()=>{
-      if(typeof showScreen==="function") showScreen(b.dataset.screen);
-    });
-  });
+    syncTrigger();
+  }
 
-  function readServices(){
-    try{
-      const raw=localStorage.getItem("argos_services");
-      const data=raw?JSON.parse(raw):[];
-      return Array.isArray(data)?data:[];
-    }catch(e){return []}
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", initProductPicker);
+  }else{
+    initProductPicker();
   }
-  function val(o,names){
-    for(const n of names) if(o&&o[n]!==undefined&&o[n]!==null&&o[n]!=="") return o[n];
-    return "";
-  }
-  function refreshHome(){
-    const services=readServices();
-    const latest=services.length?services[services.length-1]:null;
-    if(latest){
-      const train=val(latest,["train","tren","number","numero"]);
-      const origin=val(latest,["origin","origen"]);
-      const destination=val(latest,["destination","destino"]);
-      $("latestService").textContent=[train,origin||destination?(origin||"—")+" → "+(destination||"—"):""].filter(Boolean).join(" · ")||"Último servicio registrado";
-    }else $("latestService").textContent="Aún no hay servicios registrados";
-
-    const select=$("lastTripSelect");
-    const current=select.value;
-    while(select.options.length>1) select.remove(1);
-    services.slice().reverse().forEach((s,i)=>{
-      const train=val(s,["train","tren","number","numero"]);
-      const origin=val(s,["origin","origen"]);
-      const destination=val(s,["destination","destino"]);
-      const date=val(s,["date","fecha"]);
-      const o=document.createElement("option");
-      o.value=String(i);
-      o.textContent=[train,origin&&destination?origin+" → "+destination:"",date].filter(Boolean).join(" · ")||"Servicio registrado";
-      select.appendChild(o);
-    });
-    if(current) select.value=current;
-  }
-  document.addEventListener("DOMContentLoaded",refreshHome);
-  window.addEventListener("storage",refreshHome);
-  refreshHome();
 })();
 </script>
-
-<script>
-(function(){
-  const train = document.getElementById("train");
-  const noTrain = document.getElementById("noTrainNumber");
-
-  if(noTrain && train){
-    noTrain.addEventListener("change", function(){
-      train.required = !this.checked;
-      train.disabled = this.checked;
-      train.value = this.checked ? "" : train.value;
-      train.placeholder = this.checked ? "Sin número de tren" : "Ej. 05120";
-    });
-  }
-
-  function addRepeatable(inputId, listId, buttonId, label){
-    const input=document.getElementById(inputId);
-    const list=document.getElementById(listId);
-    const button=document.getElementById(buttonId);
-    if(!input || !list || !button) return;
-
-    button.addEventListener("click",function(){
-      const value=input.value.trim();
-      if(!value) return;
-
-      const item=document.createElement("div");
-      item.className="entry-chip";
-
-      const text=document.createElement("span");
-      text.textContent=value;
-
-      const remove=document.createElement("button");
-      remove.type="button";
-      remove.className="entry-remove";
-      remove.textContent="×";
-      remove.setAttribute("aria-label","Eliminar "+label);
-      remove.onclick=()=>item.remove();
-
-      item.appendChild(text);
-      item.appendChild(remove);
-      list.appendChild(item);
-
-      input.value="";
-      input.focus();
-    });
-  }
-
-  addRepeatable("notes","notesEntries","addNote","anotación");
-  addRepeatable("incidents","incidentsEntries","addIncident","incidencia");
-})();
-</script>
-
-</body>
-</html>
