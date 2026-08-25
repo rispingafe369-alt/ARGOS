@@ -583,6 +583,225 @@ body{
   }
 }
 
+
+/* ===== DISEÑO AÑADIR SERVICIO ===== */
+#new-service{
+  padding-bottom:50px!important;
+}
+
+#new-service .service-form{
+  padding-bottom:30px;
+}
+
+#new-service .form-row{
+  grid-template-columns:1fr!important;
+  gap:0!important;
+}
+
+#new-service .form-group{
+  margin-bottom:18px;
+}
+
+#new-service .form-group label{
+  color:var(--ink);
+  font-size:14px;
+  margin-bottom:8px;
+}
+
+#new-service .form-group input,
+#new-service .form-group textarea,
+#new-service .form-group select{
+  min-height:52px;
+  border-radius:15px;
+  border:1px solid var(--line);
+  background:var(--card);
+  color:var(--ink);
+  padding:14px 15px;
+  box-shadow:0 3px 12px rgba(30,20,30,.035);
+}
+
+#new-service .form-group textarea{
+  min-height:104px;
+  resize:vertical;
+}
+
+#new-service .form-group select{
+  appearance:none;
+  -webkit-appearance:none;
+  padding-right:46px;
+  background-image:linear-gradient(45deg,transparent 50%,var(--renfe) 50%),linear-gradient(135deg,var(--renfe) 50%,transparent 50%);
+  background-position:calc(100% - 21px) 22px,calc(100% - 15px) 22px;
+  background-size:6px 6px,6px 6px;
+  background-repeat:no-repeat;
+}
+
+#new-service .form-section-title{
+  margin:28px 0 13px;
+  padding-bottom:8px;
+  border-bottom:1px solid var(--line);
+  font-size:12px;
+}
+
+#new-service .label-line{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:8px;
+}
+
+#new-service .label-line label{
+  margin-bottom:0;
+}
+
+#new-service .field-hint{
+  color:var(--muted);
+  font-size:12px;
+  font-weight:600;
+}
+
+#new-service .check-option{
+  display:flex!important;
+  align-items:center;
+  gap:7px;
+  color:var(--renfe)!important;
+  font-size:12px!important;
+  font-weight:800!important;
+  white-space:nowrap;
+}
+
+#new-service .check-option input{
+  width:18px!important;
+  min-height:18px!important;
+  height:18px!important;
+  padding:0!important;
+  margin:0;
+  accent-color:var(--renfe);
+  box-shadow:none!important;
+}
+
+#new-service .date-picker-wrap{
+  position:relative;
+}
+
+#new-service input[type="date"]{
+  color-scheme:light;
+}
+
+body.dark #new-service input[type="date"]{
+  color-scheme:dark;
+}
+
+#new-service .repeatable-group{
+  margin-bottom:24px;
+}
+
+#new-service .add-entry-button{
+  border:0;
+  border-radius:13px;
+  background:var(--soft);
+  color:var(--renfe);
+  padding:11px 15px;
+  font-weight:800;
+  font-size:14px;
+  margin-top:-5px;
+}
+
+#new-service .entries-list{
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+  margin-top:12px;
+}
+
+#new-service .entry-chip{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  padding:13px 14px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:var(--soft);
+  color:var(--ink);
+  font-size:14px;
+  line-height:1.35;
+}
+
+#new-service .entry-remove{
+  flex:0 0 auto;
+  width:30px;
+  height:30px;
+  border:0;
+  border-radius:9px;
+  background:var(--card);
+  color:var(--renfe);
+  font-weight:900;
+}
+
+@media(max-width:600px){
+  #new-service{
+    padding:20px 14px 45px!important;
+  }
+
+  #new-service .screen-header{
+    margin-bottom:18px;
+  }
+
+  #new-service .screen-header h2{
+    font-size:27px;
+  }
+
+  #new-service .form-group{
+    margin-bottom:15px;
+  }
+
+  #new-service .form-group input,
+  #new-service .form-group textarea,
+  #new-service .form-group select{
+    min-height:50px;
+    border-radius:14px;
+    font-size:16px;
+  }
+
+  #new-service .form-group textarea{
+    min-height:96px;
+  }
+
+  #new-service .field-hint{
+    font-size:10px;
+  }
+
+  #new-service .check-option{
+    font-size:11px!important;
+  }
+
+  #new-service .form-section-title{
+    margin-top:24px;
+  }
+
+  #new-service .form-actions{
+    position:sticky;
+    bottom:0;
+    padding:12px 0 calc(8px + env(safe-area-inset-bottom));
+    background:linear-gradient(transparent,var(--page) 25%);
+  }
+}
+
+@media(min-width:601px){
+  #new-service{
+    padding:30px 36px 50px!important;
+  }
+
+  #new-service .service-form{
+    width:min(720px,100%)!important;
+  }
+
+  #new-service .screen-header{
+    width:min(720px,100%)!important;
+  }
+}
+
 </style>
 </head>
 
@@ -646,24 +865,104 @@ body{
   <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">REGISTRO</div><h2>Añadir servicio</h2></div></div>
   <form id="serviceForm" class="service-form">
     <div class="form-section-title">SERVICIO</div>
-    <div class="form-row">
-      <div class="form-group"><label for="train">Número de tren</label><input id="train" type="text" maxlength="5" required autocomplete="off" placeholder="Ej. 05120"></div>
-      <div class="form-group"><label for="series">Serie</label><input id="series" type="text" maxlength="3" required autocomplete="off" placeholder="Ej. 112"></div>
+
+    <div class="form-group train-group">
+      <div class="label-line">
+        <label for="train">Número de tren</label>
+        <label class="check-option"><input id="noTrainNumber" type="checkbox"> <span>Sin número de tren</span></label>
+      </div>
+      <input id="train" type="text" maxlength="5" required autocomplete="off" placeholder="Ej. 05120">
     </div>
-    <div class="form-group"><label for="vehicle">Vehículo</label><input id="vehicle" type="text" maxlength="3" autocomplete="off" placeholder="Ej. 018"></div>
+
+    <div class="form-group">
+      <label for="series">Serie</label>
+      <input id="series" type="text" maxlength="3" required autocomplete="off" placeholder="Ej. 112">
+    </div>
+
+    <div class="form-group">
+      <label for="vehicle">Vehículo</label>
+      <input id="vehicle" type="text" maxlength="3" autocomplete="off" placeholder="Ej. 018">
+    </div>
+
+    <div class="form-group">
+      <label for="product">Tipo de producto</label>
+      <select id="product">
+        <option value="">Selecciona un producto</option>
+        <option>AVE</option>
+        <option>ALVIA</option>
+        <option>EUROMED</option>
+        <option>INTERCITY</option>
+        <option>AVLO</option>
+        <option>Cercanías</option>
+        <option>Media Distancia</option>
+        <option>Regional</option>
+        <option>Regional Exprés</option>
+        <option>Trambahía</option>
+        <option>Proximidad</option>
+        <option>AVANT</option>
+        <option>Cercanías AM</option>
+        <option>Media Distancia AM</option>
+        <option>Rodalies</option>
+        <option>Turístico</option>
+        <option>Mercancías</option>
+        <option>Charter</option>
+        <option>Otro</option>
+      </select>
+    </div>
+
     <div class="form-section-title">RECORRIDO</div>
-    <div class="form-row">
-      <div class="form-group autocomplete-group"><label for="origin">Origen</label><input id="origin" required autocomplete="off" placeholder="Fuenla, 60000..."><div id="originList" class="suggestions"></div></div>
-      <div class="form-group autocomplete-group"><label for="destination">Destino</label><input id="destination" required autocomplete="off" placeholder="Jerez, 51300..."><div id="destinationList" class="suggestions"></div></div>
+
+    <div class="form-group autocomplete-group">
+      <div class="label-line">
+        <label for="origin">Origen</label>
+        <span class="field-hint">Nombre de la estación o código</span>
+      </div>
+      <input id="origin" required autocomplete="off" placeholder="">
+      <div id="originList" class="suggestions"></div>
     </div>
-    <div class="form-row">
-      <div class="form-group"><label for="date">Fecha</label><input id="date" type="date" required></div>
-      <div class="form-group"><label for="kilometres">Kilómetros</label><input id="kilometres" type="number" min="0" step="1" placeholder="Ej. 472"></div>
+
+    <div class="form-group autocomplete-group">
+      <div class="label-line">
+        <label for="destination">Destino</label>
+        <span class="field-hint">Nombre de la estación o código</span>
+      </div>
+      <input id="destination" required autocomplete="off" placeholder="">
+      <div id="destinationList" class="suggestions"></div>
     </div>
+
+    <div class="form-group">
+      <label for="date">Fecha</label>
+      <div class="date-picker-wrap">
+        <input id="date" type="date" required>
+      </div>
+    </div>
+
     <div class="form-section-title">ANOTACIONES</div>
-    <div class="form-group"><label for="notes">Anotaciones</label><textarea id="notes" rows="3" placeholder="Observaciones..."></textarea></div>
-    <div class="form-group"><label for="incidents">Incidencias</label><textarea id="incidents" rows="3" placeholder="Sin incidencias"></textarea></div>
-    <div class="form-actions"><button class="save-button" type="submit">Guardar servicio</button><button class="cancel-button" data-back type="button">Cancelar</button></div>
+
+    <div class="repeatable-group" id="notesGroup">
+      <div class="form-group">
+        <label for="notes">Anotación</label>
+        <textarea id="notes" rows="3" placeholder="Escribe una anotación..."></textarea>
+      </div>
+      <button id="addNote" class="add-entry-button" type="button">＋ Añadir anotación</button>
+      <div id="notesEntries" class="entries-list"></div>
+    </div>
+
+    <div class="form-section-title">INCIDENCIAS</div>
+
+    <div class="repeatable-group" id="incidentsGroup">
+      <div class="form-group">
+        <label for="incidents">Incidencia</label>
+        <textarea id="incidents" rows="3" placeholder="Escribe una incidencia..."></textarea>
+      </div>
+      <button id="addIncident" class="add-entry-button" type="button">＋ Añadir incidencia</button>
+      <div id="incidentsEntries" class="entries-list"></div>
+    </div>
+
+    <div class="form-actions">
+      <button class="save-button" type="submit">Guardar servicio</button>
+      <button class="cancel-button" data-back type="button">Cancelar</button>
+    </div>
   </form>
 </section>
 
@@ -817,5 +1116,57 @@ body{
   refreshHome();
 })();
 </script>
+
+<script>
+(function(){
+  const train = document.getElementById("train");
+  const noTrain = document.getElementById("noTrainNumber");
+
+  if(noTrain && train){
+    noTrain.addEventListener("change", function(){
+      train.required = !this.checked;
+      train.disabled = this.checked;
+      train.value = this.checked ? "" : train.value;
+      train.placeholder = this.checked ? "Sin número de tren" : "Ej. 05120";
+    });
+  }
+
+  function addRepeatable(inputId, listId, buttonId, label){
+    const input=document.getElementById(inputId);
+    const list=document.getElementById(listId);
+    const button=document.getElementById(buttonId);
+    if(!input || !list || !button) return;
+
+    button.addEventListener("click",function(){
+      const value=input.value.trim();
+      if(!value) return;
+
+      const item=document.createElement("div");
+      item.className="entry-chip";
+
+      const text=document.createElement("span");
+      text.textContent=value;
+
+      const remove=document.createElement("button");
+      remove.type="button";
+      remove.className="entry-remove";
+      remove.textContent="×";
+      remove.setAttribute("aria-label","Eliminar "+label);
+      remove.onclick=()=>item.remove();
+
+      item.appendChild(text);
+      item.appendChild(remove);
+      list.appendChild(item);
+
+      input.value="";
+      input.focus();
+    });
+  }
+
+  addRepeatable("notes","notesEntries","addNote","anotación");
+  addRepeatable("incidents","incidentsEntries","addIncident","incidencia");
+})();
+</script>
+
 </body>
 </html>
