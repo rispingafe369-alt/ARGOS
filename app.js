@@ -37,6 +37,10 @@ if($("darkTheme"))$("darkTheme").onclick=()=>applyTheme("dark");
 const fleet = {
   "100": {
     "seriesName": "Serie 100",
+    "fabricante": "Alstom",
+    "numeroCoches": "10",
+    "tipoMaterial": "AVE / Alta Velocidad",
+    "anchoVia": "1435 mm",
     "subseries": "100 / 100F (ramas 15–24)",
     "generalNotes": [
       "Serie de automotores eléctricos de Alta Velocidad y ancho internacional, formada por dos tractoras y ocho remolques con bogie compartido.",
@@ -349,6 +353,13 @@ const fleet = {
   }
 };
 
+// Datos técnicos comunes de la serie 100. Los datos específicos de cada rama pueden sobrescribirlos.
+Object.values(fleet["100"]?.units||{}).forEach(unit=>{
+  unit.fabricante=unit.fabricante||fleet["100"].fabricante;
+  unit.numeroCoches=unit.numeroCoches||fleet["100"].numeroCoches;
+  unit.anchoVia=unit.anchoVia||fleet["100"].anchoVia;
+});
+
 function normalizeFleetValue(value){
   return String(value ?? "").trim().replace(/\D/g,"").replace(/^0+/,"") || "";
 }
@@ -434,19 +445,89 @@ function saveCurrentService(e){
 }
 if($("serviceForm"))$("serviceForm").addEventListener("submit",saveCurrentService);
 
+function cancelCurrentService(){
+  const form=$("serviceForm");
+  if(form){form.reset();clearFormExtras();}
+  if($("date"))$("date").valueAsDate=new Date();
+  if($("product"))$("product").selectedIndex=0;
+  if($("productSelectValue")){
+    $("productSelectValue").textContent="Selecciona un producto";
+    $("productSelectValue").classList.add("product-select-placeholder");
+  }
+  updateBranchBox();
+  document.querySelectorAll(".suggestions.show").forEach(e=>e.classList.remove("show"));
+  showScreen("menu");
+}
+if($("cancelService"))$("cancelService").addEventListener("click",cancelCurrentService);
+
 function fleetFichaHtml(series,vehicle,service=null){
   const unit=getFleetUnit(series,vehicle);
   const seriesData=getSeriesData(series);
   if(!unit){
     return `<div class="ficha-empty"><strong>Ficha no disponible</strong><span>No hay información de material almacenada para Serie ${esc(series||"—")} · Vehículo ${esc(vehicle||"—")}.</span></div>`;
   }
-  const notes=unit.notas||[];
-  const serviceBlock=service?`<div class="ficha-section"><div class="ficha-section-title">SERVICIO REGISTRADO</div><div class="ficha-grid">${service.train?`<div><span>Nº de tren</span><strong>${esc(service.train)}</strong></div>`:""}<div><span>Producto</span><strong>${esc(service.product||"—")}</strong></div><div><span>Origen</span><strong>${esc(service.origin||"—")}</strong></div><div><span>Destino</span><strong>${esc(service.destination||"—")}</strong></div><div><span>Fecha</span><strong>${esc(service.date||"—")}</strong></div></div></div>`:"";
-  const notesHtml=notes.length?`<div class="ficha-section"><div class="ficha-section-title">DATOS DESTACADOS</div><div class="ficha-notes">${notes.map(n=>`<div class="ficha-note">${esc(n)}</div>`).join("")}</div></div>`:"";
-  const general=seriesData?.generalNotes||[];
-  return `<div class="ficha-hero"><div class="ficha-kicker">SERIE ${esc(series)}</div><h3>Rama ${esc(unit.rama)}</h3><p>Vehículo ${esc(vehicle)} · ${esc(unit.numero||"—")}</p></div><div class="ficha-section"><div class="ficha-section-title">IDENTIFICACIÓN</div><div class="ficha-grid"><div><span>Serie</span><strong>${esc(series)}</strong></div><div><span>Rama</span><strong>${esc(unit.rama)}</strong></div><div><span>Vehículo</span><strong>${esc(vehicle)}</strong></div><div><span>Número completo</span><strong>${esc(unit.numero||"—")}</strong></div><div><span>Año</span><strong>${esc(unit.ano||"—")}</strong></div><div><span>Depósito</span><strong>${esc(unit.deposito||"—")}</strong></div><div><span>Ancho de vía</span><strong>${esc(unit.ancho||"—")} mm</strong></div></div></div>${notesHtml}${general.length?`<div class="ficha-section"><div class="ficha-section-title">INFORMACIÓN DE LA SERIE</div><div class="ficha-notes">${general.map(n=>`<div class="ficha-note">${esc(n)}</div>`).join("")}</div></div>`:""}${serviceBlock}`;
-}
 
+  // Solo mostramos en la ficha los acontecimientos realmente destacados.
+  const importantKeywords=/récord|record|accidente|accident|descarril|incendi|incendio|intercamb|motriz|colisión|colision|primer ave|primer|inaugural|nombre |decoración|decoracion|vinilos|internacional|francia|marsella|hito|logro|habilitación|habilitacion/i;
+  const notes=(unit.notas||[]).filter(n=>importantKeywords.test(n));
+
+  // 1) Datos del servicio registrado.
+  const serviceBlock=service?`
+    <div class="ficha-section">
+      <div class="ficha-section-title">DATOS DEL SERVICIO</div>
+      <div class="ficha-grid">
+        <div><span>Nº de tren</span><strong>${esc(service.train||"—")}</strong></div>
+        <div><span>Producto</span><strong>${esc(service.product||"—")}</strong></div>
+        <div><span>Origen</span><strong>${esc(service.origin||"—")}</strong></div>
+        <div><span>Destino</span><strong>${esc(service.destination||"—")}</strong></div>
+        <div><span>Fecha</span><strong>${esc(service.date||"—")}</strong></div>
+      </div>
+    </div>`:"";
+
+  // 2) Identificación del tren.
+  const identification=`
+    <div class="ficha-section">
+      <div class="ficha-section-title">IDENTIFICACIÓN</div>
+      <div class="ficha-grid">
+        <div><span>Serie</span><strong>${esc(series)}</strong></div>
+        <div><span>Vehículo</span><strong>${esc(vehicle)}</strong></div>
+        <div><span>Rama</span><strong>${esc(unit.rama)}</strong></div>
+        <div><span>Número completo</span><strong>${esc(unit.numero||"—")}</strong></div>
+        <div><span>Fabricante</span><strong>${esc(unit.fabricante||seriesData?.fabricante||"—")}</strong></div>
+        <div><span>Número de coches</span><strong>${esc(unit.numeroCoches||seriesData?.numeroCoches||"—")}</strong></div>
+        <div><span>Año</span><strong>${esc(unit.ano||"—")}</strong></div>
+        <div><span>Depósito / base</span><strong>${esc(unit.deposito||"—")}</strong></div>
+        <div><span>Ancho de vía</span><strong>${esc(unit.ancho||seriesData?.anchoVia||"—")} ${unit.ancho?"mm":""}</strong></div>
+        ${seriesData?.subseries?`<div><span>Subserie</span><strong>${esc(seriesData.subseries)}</strong></div>`:""}
+        ${seriesData?.tipoMaterial?`<div><span>Tipo de material</span><strong>${esc(seriesData.tipoMaterial)}</strong></div>`:""}
+      </div>
+    </div>`;
+
+  // 3) Datos destacados de la rama.
+  const highlights=notes.length?`
+    <div class="ficha-section">
+      <div class="ficha-section-title">DATOS DESTACADOS DE LA RAMA</div>
+      <div class="ficha-notes">${notes.map(n=>`<div class="ficha-note">${esc(n)}</div>`).join("")}</div>
+    </div>`:`
+    <div class="ficha-section">
+      <div class="ficha-section-title">DATOS DESTACADOS DE LA RAMA</div>
+      <div class="ficha-empty-inline">No hay acontecimientos destacados registrados para esta rama.</div>
+    </div>`;
+
+  // 4) Información general de la serie.
+  const general=seriesData?.generalNotes||[];
+  const generalBlock=general.length?`
+    <div class="ficha-section">
+      <div class="ficha-section-title">INFORMACIÓN GENERAL DE LA SERIE ${esc(series)}</div>
+      <div class="ficha-notes">${general.map(n=>`<div class="ficha-note">${esc(n)}</div>`).join("")}</div>
+    </div>`:"";
+
+  return `${serviceBlock}
+    <div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>Serie ${esc(series)} · Rama ${esc(unit.rama)}</h3><p>Vehículo ${esc(vehicle)} · ${esc(unit.numero||"—")}</p></div>
+    ${identification}
+    ${highlights}
+    ${generalBlock}`;
+}
 function openFicha(series,vehicle,service=null){
   if($("fichaContent")) $("fichaContent").innerHTML=fleetFichaHtml(series,vehicle,service);
   showScreen("ficha");
