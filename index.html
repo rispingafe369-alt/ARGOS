@@ -11,181 +11,324 @@
 
 <style>
 /* =========================================================
-   ARGOS · MENÚ PRINCIPAL
-   El menú principal y su encabezado se controlan aquí.
+   ARGOS · MENÚ PRINCIPAL · DISEÑO RENFE
+   Solo afecta a la presentación. El resto de la app permanece igual.
    ========================================================= */
 
-html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    overflow: hidden !important;
+:root{
+    --renfe:#8a005c;
+    --renfe-dark:#700047;
+    --page:#f4f3f5;
+    --card:#ffffff;
+    --ink:#25252a;
+    --muted:#74747c;
+    --line:rgba(25,25,30,.10);
+    --shadow:0 8px 24px rgba(35,25,35,.07);
 }
 
-body {
-    background: #f5f4f6;
+html,body{
+    width:100%;
+    height:100%;
+    margin:0;
+    overflow:hidden !important;
+    overscroll-behavior:none;
 }
 
-body.dark {
-    background: #171717;
+body{
+    background:var(--page);
+    color:var(--ink);
 }
 
-.app-shell {
-    width: min(1100px, calc(100% - 24px));
-    height: 100dvh;
-    min-height: 100dvh;
-    margin: 0 auto;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden !important;
+body.dark{
+    background:#151317;
 }
 
-/* =========================================================
-   ENCABEZADO RENFE
-   ========================================================= */
-
-.app-header {
-    flex: 0 0 auto;
-    width: 100%;
-    padding: 0 !important;
-    margin: 0 0 18px !important;
+.app-shell{
+    width:100%;
+    max-width:1100px;
+    height:100dvh;
+    min-height:100dvh;
+    margin:0 auto;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden !important;
 }
 
-.brand-row {
-    width: 100%;
-    height: 92px;
-    min-height: 92px;
-    background: #8a005c;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0 0 18px 18px;
-    overflow: hidden;
+/* ---------- CABECERA ---------- */
+
+.app-header{
+    flex:0 0 auto;
+    width:100%;
+    padding:0 !important;
+    margin:0 !important;
 }
 
-.renfe-main-logo {
-    display: block;
-    width: 125px;
-    height: auto;
-    max-height: 48px;
-    object-fit: contain;
+.brand-row{
+    width:100%;
+    height:104px;
+    min-height:104px;
+    background:var(--renfe);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:0 0 26px 26px;
+    box-shadow:0 5px 18px rgba(138,0,92,.18);
 }
 
-.brand-copy {
-    display: none !important;
+.renfe-main-logo{
+    display:block;
+    width:128px;
+    height:auto;
+    max-height:52px;
+    object-fit:contain;
 }
 
-.argos-main-menu {
-    flex: 1 1 auto;
-    min-height: 0;
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-    align-content: center;
-    padding: 18px 0 !important;
-    border: 0 !important;
-    overflow: hidden !important;
+.brand-copy{
+    display:none !important;
 }
 
-.argos-main-menu .menu-card {
-    min-height: 190px;
-    height: 190px;
-    padding: 26px;
-    border-radius: 24px;
+/* ---------- MENÚ ---------- */
+
+#menu{
+    flex:1 1 auto !important;
+    min-height:0 !important;
+    height:auto !important;
+    overflow:hidden !important;
+    display:flex !important;
+    flex-direction:column !important;
 }
 
-.argos-main-menu .menu-card strong {
-    font-size: 26px;
+.argos-main-menu{
+    flex:1 1 auto !important;
+    min-height:0 !important;
+    height:auto !important;
+    width:100%;
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-rows:repeat(2,minmax(0,1fr));
+    gap:16px;
+    padding:22px !important;
+    margin:0 !important;
+    box-sizing:border-box;
+    overflow:hidden !important;
+    align-content:stretch;
 }
 
-.argos-main-menu .menu-card span {
-    font-size: 15px;
+.argos-main-menu .menu-card{
+    position:relative;
+    min-width:0;
+    min-height:0;
+    width:100%;
+    height:auto;
+    margin:0;
+    padding:26px;
+    border:1px solid var(--line);
+    border-radius:24px;
+    background:var(--card);
+    color:var(--ink);
+    box-shadow:var(--shadow);
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:space-between;
+    text-align:left;
+    overflow:hidden;
+    transition:transform .16s ease, box-shadow .16s ease;
 }
 
-.argos-main-menu .card-icon {
-    font-size: 38px;
+.argos-main-menu .menu-card::after{
+    content:"›";
+    position:absolute;
+    right:24px;
+    bottom:20px;
+    font-size:27px;
+    line-height:1;
+    color:var(--renfe);
+    opacity:.72;
 }
 
-.argos-footer {
-    flex: 0 0 auto;
+.argos-main-menu .menu-card.primary{
+    background:var(--renfe);
+    border-color:var(--renfe);
+    color:#fff;
+    box-shadow:0 10px 26px rgba(138,0,92,.20);
 }
 
-@media (max-width: 700px) {
-    .app-shell {
-        width: 100%;
-        height: 100dvh;
-        min-height: 100dvh;
-        overflow: hidden !important;
+.argos-main-menu .menu-card.primary::after{
+    color:#fff;
+}
+
+.argos-main-menu .menu-card:active{
+    transform:scale(.985);
+}
+
+.argos-main-menu .card-icon{
+    width:50px;
+    height:50px;
+    flex:0 0 50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:16px;
+    background:rgba(138,0,92,.09);
+    color:var(--renfe);
+    font-size:27px;
+    font-weight:500;
+}
+
+.argos-main-menu .primary .card-icon{
+    background:rgba(255,255,255,.15);
+    color:#fff;
+}
+
+.argos-main-menu .card-content{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:7px;
+    min-width:0;
+    padding-right:25px;
+}
+
+.argos-main-menu .card-content strong{
+    display:block;
+    font-size:clamp(21px,2.5vw,30px);
+    line-height:1.02;
+    letter-spacing:-.025em;
+}
+
+.argos-main-menu .card-content > span{
+    display:block;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.25;
+}
+
+.argos-main-menu .primary .card-content > span{
+    color:rgba(255,255,255,.84);
+}
+
+.argos-footer{
+    display:none !important;
+}
+
+/* ---------- MÓVIL ---------- */
+
+@media (max-width:700px){
+
+    .app-shell{
+        width:100%;
+        height:100dvh;
+        min-height:100dvh;
+        overflow:hidden !important;
     }
 
-    .app-header {
-        margin: 0 0 10px !important;
+    .brand-row{
+        height:96px;
+        min-height:96px;
+        border-radius:0 0 24px 24px;
     }
 
-    .brand-row {
-        height: 72px;
-        min-height: 72px;
-        border-radius: 0 0 16px 16px;
+    .renfe-main-logo{
+        width:116px;
+        max-height:45px;
     }
 
-    .renfe-main-logo {
-        width: 105px;
-        max-height: 38px;
+    #menu{
+        height:calc(100dvh - 96px) !important;
+        max-height:calc(100dvh - 96px) !important;
+        overflow:hidden !important;
     }
 
-    .argos-main-menu {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(4, minmax(0, 1fr));
-        gap: 8px;
-        padding: 6px 10px !important;
-        align-content: stretch;
-        overflow: hidden !important;
-        flex: 1 1 auto;
-        min-height: 0;
+    .argos-main-menu{
+        display:grid !important;
+        grid-template-columns:1fr !important;
+        grid-template-rows:repeat(4,minmax(0,1fr)) !important;
+        gap:10px;
+        padding:12px !important;
+        height:100% !important;
+        min-height:0 !important;
+        overflow:hidden !important;
     }
 
-    .argos-main-menu .menu-card {
-        width: 100%;
-        height: auto;
-        min-height: 0;
-        padding: 12px 16px;
-        border-radius: 16px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 14px;
-        text-align: left;
+    .argos-main-menu .menu-card{
+        min-height:0 !important;
+        height:auto !important;
+        padding:16px 18px;
+        border-radius:20px;
+        flex-direction:row;
+        align-items:center;
+        justify-content:flex-start;
+        gap:16px;
+        box-shadow:0 5px 16px rgba(35,25,35,.065);
     }
 
-    .argos-main-menu .menu-card strong {
-        font-size: clamp(17px, 5vw, 22px);
-        line-height: 1.05;
+    .argos-main-menu .menu-card::after{
+        right:17px;
+        top:50%;
+        bottom:auto;
+        transform:translateY(-50%);
+        font-size:30px;
+        opacity:.55;
     }
 
-    .argos-main-menu .menu-card span {
-        font-size: 11px;
-        line-height: 1.2;
+    .argos-main-menu .card-icon{
+        width:48px;
+        height:48px;
+        flex:0 0 48px;
+        border-radius:15px;
+        font-size:25px;
     }
 
-    .argos-main-menu .card-icon {
-        flex: 0 0 34px;
-        font-size: 27px;
-        text-align: center;
+    .argos-main-menu .card-content{
+        gap:4px;
+        padding-right:24px;
     }
 
-    .argos-main-menu .card-content {
-        min-width: 0;
+    .argos-main-menu .card-content strong{
+        font-size:20px;
+        line-height:1.05;
+        letter-spacing:-.015em;
     }
 
-    .argos-main-menu .card-content > span {
-        display: block;
-        margin-top: 4px;
+    .argos-main-menu .card-content > span{
+        font-size:11.5px;
+        line-height:1.18;
     }
+}
 
-    .argos-footer {
-        display: none !important;
+/* ---------- PANTALLAS INTERIORES ----------
+   El menú principal es fijo; las pantallas secundarias sí pueden desplazarse.
+   ---------- */
+
+.screen:not(#menu){
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior:contain;
+}
+
+@media (max-width:700px){
+    .screen:not(#menu){
+        max-height:100dvh;
+        overflow-y:auto;
     }
+}
+
+/* ---------- MODO OSCURO ---------- */
+
+body.dark .argos-main-menu .menu-card{
+    background:#222025;
+    border-color:rgba(255,255,255,.08);
+    color:#fff;
+}
+
+body.dark .argos-main-menu .card-content > span{
+    color:#aaa6ad;
+}
+
+body.dark .argos-main-menu .card-icon{
+    background:rgba(255,255,255,.07);
 }
 </style>
 </head>
