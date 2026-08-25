@@ -1,471 +1,97 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    >
-
-    <meta
-        name="theme-color"
-        content="#8a005c"
-    >
-
-    <meta
-        name="description"
-        content="ARGOS - Gestión de servicios ferroviarios"
-    >
-
-    <link rel="manifest" href="manifest.webmanifest">
-
-    <title>ARGOS · Renfe Operaciones</title>
-
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#8a005c">
+<meta name="description" content="ARGOS - Gestión de servicios ferroviarios">
+<link rel="manifest" href="manifest.webmanifest">
+<title>ARGOS · Renfe Operaciones</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <main class="app">
-
-        <header class="app-header">
-
-            <div class="brand">
-
-                <div class="brand-icon">
-                    🚆
-                </div>
-
-                <div class="brand-text">
-                    <div class="brand-company">
-                        RENFE · OPERACIONES
-                    </div>
-
-                    <h1>ARGOS</h1>
-
-                    <div class="brand-subtitle">
-                        <span>Gestión de servicios ferroviarios</span>
-                        <span>Versión 1.0</span>
-                    </div>
-                </div>
-
-            </div>
-
-        </header>
-
-
-        <section class="menu-grid">
-
-            <button
-                class="menu-card primary"
-                id="nuevoServicio"
-                type="button"
-            >
-                <div class="card-icon">＋</div>
-
-                <div class="card-content">
-                    <h2>Nuevo servicio</h2>
-                    <p>Registrar un servicio ferroviario</p>
-                </div>
-            </button>
-
-
-            <button
-                class="menu-card"
-                id="historial"
-                type="button"
-            >
-                <div class="card-icon">▣</div>
-
-                <div class="card-content">
-                    <h2>Historial</h2>
-                    <p>Consultar servicios registrados</p>
-                </div>
-            </button>
-
-
-            <button
-                class="menu-card"
-                id="buscarServicio"
-                type="button"
-            >
-                <div class="card-icon">⌕</div>
-
-                <div class="card-content">
-                    <h2>Buscar servicio</h2>
-                    <p>Número, origen, destino o fecha.</p>
-                </div>
-            </button>
-
-
-            <button
-                class="menu-card"
-                id="estadisticas"
-                type="button"
-            >
-                <div class="card-icon">▥</div>
-
-                <div class="card-content">
-                    <h2>Estadísticas</h2>
-                    <p>Servicios, kilómetros y series.</p>
-                </div>
-            </button>
-
-        </section>
-
-
-        <section class="daily-summary">
-
-            <div class="summary-title">
-                RESUMEN DEL DÍA
-            </div>
-
-            <div class="summary-grid">
-
-                <div class="summary-item">
-                    <strong id="totalServicios">0</strong>
-                    <span>Servicios</span>
-                </div>
-
-                <div class="summary-item">
-                    <strong id="serieMasUsada">—</strong>
-                    <span>Serie más usada</span>
-                </div>
-
-                <div class="summary-item">
-                    <strong id="ultimoServicio">—</strong>
-                    <span>Último servicio</span>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <footer class="app-footer">
-            <span>ARGOS</span>
-            <span>Renfe · Operaciones</span>
-        </footer>
-
-    </main>
-
-
-    <!-- VENTANA NUEVO SERVICIO -->
-
-    <div
-        class="modal"
-        id="modalNuevoServicio"
-        aria-hidden="true"
-    >
-
-        <div class="modal-box">
-
-            <div class="modal-header">
-                <div>
-                    <span class="modal-kicker">
-                        REGISTRO
-                    </span>
-
-                    <h2>Nuevo servicio</h2>
-                </div>
-
-                <button
-                    class="close-button"
-                    id="cerrarNuevoServicio"
-                    type="button"
-                >
-                    ×
-                </button>
-            </div>
-
-
-            <form id="formServicio">
-
-                <div class="form-group">
-                    <label for="numero">
-                        Número de servicio
-                    </label>
-
-                    <input
-                        id="numero"
-                        type="text"
-                        placeholder="Ej. 05120"
-                        autocomplete="off"
-                    >
-                </div>
-
-
-                <div class="form-row">
-
-                    <div class="form-group">
-                        <label for="origen">
-                            Origen
-                        </label>
-
-                        <input
-                            id="origen"
-                            type="text"
-                            placeholder="Madrid"
-                            autocomplete="off"
-                        >
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="destino">
-                            Destino
-                        </label>
-
-                        <input
-                            id="destino"
-                            type="text"
-                            placeholder="Sevilla"
-                            autocomplete="off"
-                        >
-                    </div>
-
-                </div>
-
-
-                <div class="form-row">
-
-                    <div class="form-group">
-                        <label for="fecha">
-                            Fecha
-                        </label>
-
-                        <input
-                            id="fecha"
-                            type="date"
-                        >
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="serie">
-                            Serie
-                        </label>
-
-                        <input
-                            id="serie"
-                            type="text"
-                            placeholder="S-112"
-                            autocomplete="off"
-                        >
-                    </div>
-
-                </div>
-
-
-                <div class="form-group">
-                    <label for="kilometros">
-                        Kilómetros
-                    </label>
-
-                    <input
-                        id="kilometros"
-                        type="number"
-                        min="0"
-                        placeholder="Ej. 472"
-                    >
-                </div>
-
-
-                <div class="form-actions">
-
-                    <button
-                        type="button"
-                        class="button secondary"
-                        id="cancelarServicio"
-                    >
-                        Cancelar
-                    </button>
-
-                    <button
-                        type="submit"
-                        class="button primary-button"
-                    >
-                        Guardar servicio
-                    </button>
-
-                </div>
-
-            </form>
-
-        </div>
-
+<main class="app-shell">
+<header class="app-header">
+  <div class="brand-row">
+    <div class="train-logo" aria-hidden="true">🚆</div>
+    <div class="brand-copy">
+      <div class="eyebrow">RENFE · OPERACIONES</div>
+      <h1>ARGOS</h1>
+      <div class="subtitle">Gestión de servicios ferroviarios <span>Versión 1.0</span></div>
     </div>
+    <button class="settings-button" id="openSettings" type="button" aria-label="Ajustes">⚙</button>
+  </div>
+</header>
 
+<section id="menu" class="screen active">
+  <div class="menu-grid">
+    <button class="menu-card primary" data-screen="new-service" type="button"><span class="card-icon">＋</span><span class="card-content"><strong>Nuevo servicio</strong><span>Registrar un servicio ferroviario</span></span></button>
+    <button class="menu-card" data-screen="history" type="button"><span class="card-icon">▣</span><span class="card-content"><strong>Historial</strong><span>Consultar servicios registrados</span></span></button>
+    <button class="menu-card" data-screen="search" type="button"><span class="card-icon">⌕</span><span class="card-content"><strong>Buscar servicio</strong><span>Número, origen, destino o fecha</span></span></button>
+    <button class="menu-card" data-screen="stats" type="button"><span class="card-icon">▥</span><span class="card-content"><strong>Estadísticas</strong><span>Servicios, kilómetros y series</span></span></button>
+  </div>
+</section>
 
-    <!-- VENTANA HISTORIAL -->
-
-    <div
-        class="modal"
-        id="modalHistorial"
-        aria-hidden="true"
-    >
-
-        <div class="modal-box large">
-
-            <div class="modal-header">
-
-                <div>
-                    <span class="modal-kicker">
-                        REGISTROS
-                    </span>
-
-                    <h2>Historial</h2>
-                </div>
-
-                <button
-                    class="close-button"
-                    id="cerrarHistorial"
-                    type="button"
-                >
-                    ×
-                </button>
-
-            </div>
-
-
-            <div id="listaHistorial" class="history-list">
-
-                <div class="empty-state">
-                    <div class="empty-icon">▣</div>
-                    <h3>No hay servicios registrados</h3>
-                    <p>Los servicios que guardes aparecerán aquí.</p>
-                </div>
-
-            </div>
-
-        </div>
-
+<section id="new-service" class="screen">
+  <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">REGISTRO</div><h2>Nuevo servicio</h2></div></div>
+  <form id="serviceForm" class="service-form">
+    <div class="form-section-title">SERVICIO</div>
+    <div class="form-row">
+      <div class="form-group"><label for="train">Número de tren</label><input id="train" required autocomplete="off" placeholder="Ej. 05120"></div>
+      <div class="form-group"><label for="series">Serie</label><input id="series" required autocomplete="off" placeholder="Ej. S-112"></div>
     </div>
-
-
-    <!-- VENTANA BUSCAR -->
-
-    <div
-        class="modal"
-        id="modalBuscar"
-        aria-hidden="true"
-    >
-
-        <div class="modal-box large">
-
-            <div class="modal-header">
-
-                <div>
-                    <span class="modal-kicker">
-                        CONSULTA
-                    </span>
-
-                    <h2>Buscar servicio</h2>
-                </div>
-
-                <button
-                    class="close-button"
-                    id="cerrarBuscar"
-                    type="button"
-                >
-                    ×
-                </button>
-
-            </div>
-
-
-            <div class="search-box">
-
-                <input
-                    id="campoBusqueda"
-                    type="search"
-                    placeholder="Número, origen, destino o serie..."
-                    autocomplete="off"
-                >
-
-            </div>
-
-
-            <div
-                id="resultadosBusqueda"
-                class="history-list"
-            >
-
-                <div class="empty-state">
-                    <div class="empty-icon">⌕</div>
-                    <h3>Buscar un servicio</h3>
-                    <p>Escribe algo para comenzar.</p>
-                </div>
-
-            </div>
-
-        </div>
-
+    <div class="form-group"><label for="vehicle">Vehículo / composición</label><input id="vehicle" autocomplete="off" placeholder="Ej. 112-018"></div>
+    <div class="form-section-title">RECORRIDO</div>
+    <div class="form-row">
+      <div class="form-group autocomplete-group"><label for="origin">Origen</label><input id="origin" required autocomplete="off" placeholder="Estación de origen"><div id="originList" class="suggestions"></div></div>
+      <div class="form-group autocomplete-group"><label for="destination">Destino</label><input id="destination" required autocomplete="off" placeholder="Estación de destino"><div id="destinationList" class="suggestions"></div></div>
     </div>
-
-
-    <!-- VENTANA ESTADÍSTICAS -->
-
-    <div
-        class="modal"
-        id="modalEstadisticas"
-        aria-hidden="true"
-    >
-
-        <div class="modal-box">
-
-            <div class="modal-header">
-
-                <div>
-                    <span class="modal-kicker">
-                        DATOS
-                    </span>
-
-                    <h2>Estadísticas</h2>
-                </div>
-
-                <button
-                    class="close-button"
-                    id="cerrarEstadisticas"
-                    type="button"
-                >
-                    ×
-                </button>
-
-            </div>
-
-
-            <div class="stats-grid">
-
-                <div class="stat-card">
-                    <span>Servicios</span>
-                    <strong id="statServicios">0</strong>
-                </div>
-
-                <div class="stat-card">
-                    <span>Kilómetros</span>
-                    <strong id="statKilometros">0</strong>
-                </div>
-
-                <div class="stat-card">
-                    <span>Series diferentes</span>
-                    <strong id="statSeries">0</strong>
-                </div>
-
-                <div class="stat-card">
-                    <span>Último servicio</span>
-                    <strong id="statUltimo">—</strong>
-                </div>
-
-            </div>
-
-        </div>
-
+    <div class="form-row">
+      <div class="form-group"><label for="date">Fecha</label><input id="date" type="date" required></div>
+      <div class="form-group"><label for="kilometres">Kilómetros</label><input id="kilometres" type="number" min="0" step="1" placeholder="Ej. 472"></div>
     </div>
+    <div class="form-section-title">ANOTACIONES</div>
+    <div class="form-group"><label for="notes">Anotaciones</label><textarea id="notes" rows="3" placeholder="Observaciones del servicio..."></textarea></div>
+    <div class="form-group"><label for="incidents">Incidencias</label><textarea id="incidents" rows="3" placeholder="Sin incidencias"></textarea></div>
+    <div class="form-actions"><button class="save-button" type="submit">Guardar servicio</button><button class="cancel-button" data-back type="button">Cancelar</button></div>
+  </form>
+</section>
 
+<section id="history" class="screen">
+  <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">REGISTROS</div><h2>Historial</h2></div></div>
+  <div id="historyList" class="history-list"></div>
+</section>
 
-    <script src="app.js"></script>
+<section id="search" class="screen">
+  <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">CONSULTA</div><h2>Buscar servicio</h2></div></div>
+  <div class="search-box"><input id="searchInput" type="search" placeholder="Número, origen, destino, serie..." autocomplete="off"></div>
+  <div id="searchResults" class="history-list"></div>
+</section>
 
+<section id="stats" class="screen">
+  <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">DATOS</div><h2>Estadísticas</h2></div></div>
+  <div class="stats-grid">
+    <div class="stat-card"><span>Servicios</span><strong id="statServices">0</strong></div>
+    <div class="stat-card"><span>Kilómetros</span><strong id="statKm">0</strong></div>
+    <div class="stat-card"><span>Series diferentes</span><strong id="statSeries">0</strong></div>
+    <div class="stat-card"><span>Último servicio</span><strong id="statLast">—</strong></div>
+  </div>
+</section>
+
+<section id="settings" class="screen">
+  <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">CONFIGURACIÓN</div><h2>Ajustes</h2></div></div>
+  <div class="settings-list">
+    <div class="setting-card">
+      <div><strong>Apariencia</strong><span>Elige cómo quieres ver ARGOS.</span></div>
+      <div class="theme-switch"><button id="lightTheme" class="theme-option active" type="button">☀ Claro</button><button id="darkTheme" class="theme-option" type="button">☾ Oscuro</button></div>
+    </div>
+    <div class="setting-card simple"><div><strong>ARGOS</strong><span>Renfe · Operaciones · Versión 1.0</span></div></div>
+  </div>
+</section>
+
+<footer class="app-footer"><span>ARGOS</span><span>Renfe · Operaciones</span></footer>
+</main>
+<div id="toast" class="toast" role="status"></div>
+<script src="app.js"></script>
 </body>
 </html>
