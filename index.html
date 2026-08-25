@@ -12,8 +12,7 @@
 <style>
 /* =========================================================
    ARGOS · MENÚ PRINCIPAL
-   Esta parte está dentro de index.html para poder modificar
-   el menú sin tocar style.css.
+   El menú principal y su encabezado se controlan aquí.
    ========================================================= */
 
 html, body {
@@ -42,9 +41,39 @@ body.dark {
     overflow: hidden !important;
 }
 
+/* =========================================================
+   ENCABEZADO RENFE
+   ========================================================= */
+
 .app-header {
     flex: 0 0 auto;
-    padding: 24px 0 18px !important;
+    width: 100%;
+    padding: 0 !important;
+    margin: 0 0 18px !important;
+}
+
+.brand-row {
+    width: 100%;
+    height: 92px;
+    min-height: 92px;
+    background: #8a005c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 18px 18px;
+    overflow: hidden;
+}
+
+.renfe-main-logo {
+    display: block;
+    width: 125px;
+    height: auto;
+    max-height: 48px;
+    object-fit: contain;
+}
+
+.brand-copy {
+    display: none !important;
 }
 
 .argos-main-menu {
@@ -84,17 +113,28 @@ body.dark {
 
 @media (max-width: 700px) {
     .app-shell {
-        width: calc(100% - 18px);
+        width: 100%;
     }
 
     .app-header {
-        padding: 16px 0 10px !important;
+        margin: 0 0 10px !important;
+    }
+
+    .brand-row {
+        height: 72px;
+        min-height: 72px;
+        border-radius: 0 0 16px 16px;
+    }
+
+    .renfe-main-logo {
+        width: 105px;
+        max-height: 38px;
     }
 
     .argos-main-menu {
         grid-template-columns: 1fr 1fr;
         gap: 10px;
-        padding: 8px 0 !important;
+        padding: 8px 9px !important;
     }
 
     .argos-main-menu .menu-card {
@@ -127,19 +167,11 @@ body.dark {
 
     <header class="app-header">
         <div class="brand-row">
-
-            <div class="train-logo" aria-hidden="true">
-                🚆
-            </div>
-
-            <div class="brand-copy">
-                <div class="eyebrow">RENFE · OPERACIONES</div>
-                <h1>ARGOS</h1>
-                <div class="subtitle">
-                    Gestión de servicios ferroviarios
-                </div>
-            </div>
-
+            <img
+                class="renfe-main-logo"
+                src="icons/renfe-logo-blanco.png"
+                alt="Renfe"
+            >
         </div>
     </header>
 
@@ -163,13 +195,11 @@ body.dark {
                 type="button"
             >
                 <span class="card-icon">＋</span>
-
                 <span class="card-content">
                     <strong>AÑADIR SERVICIO</strong>
                     <span>Registrar un nuevo servicio</span>
                 </span>
             </button>
-
 
             <button
                 class="menu-card"
@@ -177,13 +207,11 @@ body.dark {
                 type="button"
             >
                 <span class="card-icon">▣</span>
-
                 <span class="card-content">
                     <strong>HISTORIAL</strong>
                     <span>Consultar servicios registrados</span>
                 </span>
             </button>
-
 
             <button
                 class="menu-card"
@@ -191,13 +219,11 @@ body.dark {
                 type="button"
             >
                 <span class="card-icon">▥</span>
-
                 <span class="card-content">
                     <strong>ESTADÍSTICAS</strong>
                     <span>Consultar tus datos de servicio</span>
                 </span>
             </button>
-
 
             <button
                 class="menu-card"
@@ -205,7 +231,6 @@ body.dark {
                 type="button"
             >
                 <span class="card-icon">⚙</span>
-
                 <span class="card-content">
                     <strong>AJUSTES</strong>
                     <span>Apariencia y configuración</span>
@@ -225,7 +250,6 @@ body.dark {
 
         <div class="screen-header">
             <button class="back-button" data-back type="button">‹</button>
-
             <div>
                 <div class="screen-kicker">REGISTRO</div>
                 <h2>Añadir servicio</h2>
@@ -237,87 +261,39 @@ body.dark {
             <div class="form-section-title">SERVICIO</div>
 
             <div class="form-row">
-
                 <div class="form-group">
                     <label for="train">Número de tren</label>
-                    <input
-                        id="train"
-                        type="text"
-                        maxlength="5"
-                        required
-                        autocomplete="off"
-                        placeholder="Ej. 05120"
-                    >
+                    <input id="train" type="text" maxlength="5" required autocomplete="off" placeholder="Ej. 05120">
                 </div>
 
                 <div class="form-group">
                     <label for="series">Serie</label>
-                    <input
-                        id="series"
-                        type="text"
-                        maxlength="3"
-                        required
-                        autocomplete="off"
-                        placeholder="Ej. 112"
-                    >
+                    <input id="series" type="text" maxlength="3" required autocomplete="off" placeholder="Ej. 112">
                 </div>
-
             </div>
 
             <div class="form-group">
                 <label for="vehicle">Vehículo</label>
-                <input
-                    id="vehicle"
-                    type="text"
-                    maxlength="3"
-                    autocomplete="off"
-                    placeholder="Ej. 018"
-                >
+                <input id="vehicle" type="text" maxlength="3" autocomplete="off" placeholder="Ej. 018">
             </div>
-
 
             <div class="form-section-title">RECORRIDO</div>
 
             <div class="form-row">
-
                 <div class="form-group autocomplete-group">
                     <label for="origin">Origen</label>
-
-                    <input
-                        id="origin"
-                        required
-                        autocomplete="off"
-                        placeholder="Fuenla, 60000..."
-                    >
-
-                    <div
-                        id="originList"
-                        class="suggestions"
-                    ></div>
+                    <input id="origin" required autocomplete="off" placeholder="Fuenla, 60000...">
+                    <div id="originList" class="suggestions"></div>
                 </div>
-
 
                 <div class="form-group autocomplete-group">
                     <label for="destination">Destino</label>
-
-                    <input
-                        id="destination"
-                        required
-                        autocomplete="off"
-                        placeholder="Jerez, 51300..."
-                    >
-
-                    <div
-                        id="destinationList"
-                        class="suggestions"
-                    ></div>
+                    <input id="destination" required autocomplete="off" placeholder="Jerez, 51300...">
+                    <div id="destinationList" class="suggestions"></div>
                 </div>
-
             </div>
 
-
             <div class="form-row">
-
                 <div class="form-group">
                     <label for="date">Fecha</label>
                     <input id="date" type="date" required>
@@ -325,59 +301,25 @@ body.dark {
 
                 <div class="form-group">
                     <label for="kilometres">Kilómetros</label>
-                    <input
-                        id="kilometres"
-                        type="number"
-                        min="0"
-                        step="1"
-                        placeholder="Ej. 472"
-                    >
+                    <input id="kilometres" type="number" min="0" step="1" placeholder="Ej. 472">
                 </div>
-
             </div>
-
 
             <div class="form-section-title">ANOTACIONES</div>
 
             <div class="form-group">
                 <label for="notes">Anotaciones</label>
-
-                <textarea
-                    id="notes"
-                    rows="3"
-                    placeholder="Observaciones..."
-                ></textarea>
+                <textarea id="notes" rows="3" placeholder="Observaciones..."></textarea>
             </div>
-
 
             <div class="form-group">
                 <label for="incidents">Incidencias</label>
-
-                <textarea
-                    id="incidents"
-                    rows="3"
-                    placeholder="Sin incidencias"
-                ></textarea>
+                <textarea id="incidents" rows="3" placeholder="Sin incidencias"></textarea>
             </div>
 
-
             <div class="form-actions">
-
-                <button
-                    class="save-button"
-                    type="submit"
-                >
-                    Guardar servicio
-                </button>
-
-                <button
-                    class="cancel-button"
-                    data-back
-                    type="button"
-                >
-                    Cancelar
-                </button>
-
+                <button class="save-button" type="submit">Guardar servicio</button>
+                <button class="cancel-button" data-back type="button">Cancelar</button>
             </div>
 
         </form>
@@ -392,26 +334,14 @@ body.dark {
     <section id="history" class="screen">
 
         <div class="screen-header">
-
-            <button
-                class="back-button"
-                data-back
-                type="button"
-            >
-                ‹
-            </button>
-
+            <button class="back-button" data-back type="button">‹</button>
             <div>
                 <div class="screen-kicker">REGISTROS</div>
                 <h2>Historial</h2>
             </div>
-
         </div>
 
-        <div
-            id="historyList"
-            class="history-list"
-        ></div>
+        <div id="historyList" class="history-list"></div>
 
     </section>
 
@@ -423,24 +353,14 @@ body.dark {
     <section id="stats" class="screen">
 
         <div class="screen-header">
-
-            <button
-                class="back-button"
-                data-back
-                type="button"
-            >
-                ‹
-            </button>
-
+            <button class="back-button" data-back type="button">‹</button>
             <div>
                 <div class="screen-kicker">DATOS</div>
                 <h2>Estadísticas</h2>
             </div>
-
         </div>
 
         <div class="stats-grid">
-
             <div class="stat-card">
                 <span>Servicios</span>
                 <strong id="statServices">0</strong>
@@ -460,7 +380,6 @@ body.dark {
                 <span>Último servicio</span>
                 <strong id="statLast">—</strong>
             </div>
-
         </div>
 
     </section>
@@ -473,20 +392,11 @@ body.dark {
     <section id="settings" class="screen">
 
         <div class="screen-header">
-
-            <button
-                class="back-button"
-                data-back
-                type="button"
-            >
-                ‹
-            </button>
-
+            <button class="back-button" data-back type="button">‹</button>
             <div>
                 <div class="screen-kicker">CONFIGURACIÓN</div>
                 <h2>Ajustes</h2>
             </div>
-
         </div>
 
         <div class="settings-list">
@@ -533,12 +443,7 @@ body.dark {
 </main>
 
 
-<div
-    id="toast"
-    class="toast"
-    role="status"
-></div>
-
+<div id="toast" class="toast" role="status"></div>
 
 <script src="app.js"></script>
 
