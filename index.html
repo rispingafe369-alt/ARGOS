@@ -13,722 +13,563 @@
 :root{
   --renfe:#8a005c;
   --renfe-dark:#700049;
-  --page:#f3f4f7;
-  --card:#ffffff;
+  --page:#f4f5f7;
+  --card:#fff;
   --ink:#17171b;
-  --muted:#77777f;
-  --line:rgba(20,20,25,.10);
-  --soft:#f3e5ee;
+  --muted:#73747c;
+  --line:rgba(20,20,25,.11);
+  --soft:#f4e6ef;
+  --shadow:0 8px 28px rgba(30,20,30,.07);
 }
-
-html,body{
-  width:100%;
-  min-height:100%;
-  margin:0;
+*{box-sizing:border-box}
+html,body{width:100%;height:100%;margin:0}
+body{
   background:var(--page);
   color:var(--ink);
-}
-
-body{
-  overflow-x:hidden;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  overflow:hidden;
   overscroll-behavior:none;
 }
-
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
 .app-shell{
   width:100%;
-  min-height:100dvh;
-  margin:0 auto;
+  height:100dvh;
+  overflow:hidden;
   display:flex;
   flex-direction:column;
 }
-
-.app-header{
-  flex:0 0 auto;
-  width:100%;
-  position:relative;
-}
-
+.app-header{flex:0 0 auto}
 .brand-row{
-  width:100%;
-  height:156px;
+  height:116px;
   background:var(--renfe);
   display:flex;
   align-items:center;
   justify-content:center;
-  border-radius:0 0 28px 28px;
-  box-shadow:0 6px 20px rgba(138,0,92,.18);
   position:relative;
+  border-radius:0 0 26px 26px;
+  box-shadow:0 5px 18px rgba(138,0,92,.18);
 }
-
-.renfe-main-logo{
-  display:block;
-  width:190px;
-  max-width:48vw;
-  height:auto;
-  object-fit:contain;
-}
-
+.renfe-main-logo{width:175px;height:auto;display:block}
 .header-action{
   position:absolute;
   top:50%;
   transform:translateY(-50%);
-  width:68px;
-  height:68px;
-  border-radius:20px;
-  border:2px solid rgba(255,255,255,.35);
+  width:58px;height:58px;
+  border:2px solid rgba(255,255,255,.36);
+  border-radius:18px;
   background:transparent;
   color:#fff;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:35px;
-  line-height:1;
-  cursor:pointer;
 }
-
-.header-action.left{left:28px}
-.header-action.right{right:28px}
-.header-dots{
-  font-size:42px;
-  letter-spacing:2px;
-  padding-bottom:13px;
+.header-action.left{left:20px}
+.header-action.right{right:20px}
+.header-dots{font-size:36px;line-height:1;padding-bottom:10px}
+.menu-screen{
+  flex:1 1 auto;
+  min-height:0;
+  overflow:hidden;
 }
-
-#menu{
-  width:100%;
-  display:block;
-  overflow:visible;
-}
-
 .argos-home{
-  width:min(100%,920px);
+  width:min(760px,100%);
+  height:100%;
   margin:0 auto;
-  padding:38px 28px 46px;
-  box-sizing:border-box;
+  padding:18px 22px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
 }
-
 .welcome-card{
+  flex:0 0 auto;
+  background:linear-gradient(135deg,#fff 0%,#fbf0f6 100%);
   border:1px solid var(--line);
-  border-radius:30px;
-  background:linear-gradient(135deg,#fff 0%,#faeef5 100%);
-  padding:36px 42px 34px;
-  box-shadow:0 8px 24px rgba(40,25,40,.055);
-  margin-bottom:28px;
+  border-radius:24px;
+  padding:18px 24px;
+  box-shadow:var(--shadow);
 }
-
 .welcome-pill{
   display:inline-flex;
-  align-items:center;
-  padding:9px 17px;
-  border-radius:999px;
   background:var(--soft);
   color:var(--renfe-dark);
+  border-radius:999px;
+  padding:5px 12px;
+  font-size:13px;
   font-weight:800;
-  font-size:17px;
-  margin-bottom:22px;
+  margin-bottom:8px;
 }
-
 .welcome-card h1{
-  margin:0 0 12px;
-  font-size:48px;
+  margin:0 0 4px;
+  font-size:30px;
   line-height:1.05;
-  letter-spacing:-.04em;
+  letter-spacing:-.03em;
 }
-
 .welcome-card p{
   margin:0;
   color:var(--muted);
-  font-size:23px;
-  line-height:1.3;
+  font-size:15px;
+  line-height:1.25;
 }
-
-.home-grid{
+.home-list{
+  min-height:0;
+  flex:1 1 auto;
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:22px;
+  grid-template-rows:repeat(5,minmax(0,1fr));
+  gap:10px;
 }
-
 .home-card{
-  min-height:300px;
+  width:100%;
+  min-height:0;
   border:1px solid var(--line);
-  border-radius:30px;
+  border-radius:21px;
   background:var(--card);
   color:var(--ink);
-  box-shadow:0 8px 24px rgba(35,25,35,.055);
-  padding:34px 34px 30px;
-  box-sizing:border-box;
+  box-shadow:var(--shadow);
+  padding:13px 18px;
   text-align:left;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  justify-content:flex-start;
-  cursor:pointer;
-  transition:transform .15s ease,box-shadow .15s ease;
+  display:grid;
+  grid-template-columns:54px 1fr;
+  grid-template-rows:auto 1fr;
+  column-gap:15px;
+  align-items:center;
+  overflow:hidden;
+  transition:transform .12s ease,box-shadow .12s ease;
 }
-
-.home-card:active{
-  transform:scale(.985);
-}
-
-.home-card.primary{
-  background:var(--card);
-}
-
+.home-card:active{transform:scale(.99)}
+.home-card.primary{background:var(--renfe);color:#fff;border-color:transparent}
 .home-icon{
-  width:70px;
-  height:70px;
-  border-radius:20px;
+  grid-row:1 / span 2;
+  width:54px;height:54px;
+  border-radius:17px;
   background:var(--soft);
   color:var(--renfe);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:37px;
+  font-size:29px;
   line-height:1;
-  margin-bottom:auto;
 }
-
+.primary .home-icon{background:rgba(255,255,255,.16);color:#fff}
 .home-card h2{
-  margin:0 0 12px;
-  font-size:30px;
-  line-height:1.08;
-  letter-spacing:-.025em;
-}
-
-.home-card p{
   margin:0;
+  font-size:19px;
+  line-height:1.05;
+  letter-spacing:-.02em;
+}
+.home-card p{
+  margin:3px 0 0;
   color:var(--muted);
-  font-size:21px;
-  line-height:1.35;
+  font-size:13px;
+  line-height:1.2;
 }
-
-.latest-card{
-  grid-column:1 / -1;
-  min-height:250px;
-}
-
+.primary p{color:rgba(255,255,255,.82)}
 .latest-service-value{
   display:block;
   color:var(--muted);
-  font-size:20px;
-  line-height:1.4;
+  font-size:13px;
+  line-height:1.2;
+  margin-top:3px;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
-
 .last-time-card{
-  grid-column:1 / -1;
-  min-height:245px;
+  cursor:default;
+  grid-template-rows:auto auto;
 }
-
 .last-time-card label{
   display:block;
   color:var(--muted);
-  font-size:21px;
-  margin:0 0 14px;
+  font-size:12px;
+  margin:3px 0 5px;
 }
-
 .last-time-select{
   width:100%;
-  min-height:72px;
+  min-height:32px;
   border:1px solid var(--line);
-  border-radius:22px;
+  border-radius:11px;
   background:#fff;
   color:var(--ink);
-  font-size:22px;
-  padding:0 22px;
+  font-size:13px;
+  padding:0 10px;
 }
-
-.screen:not(#menu){
-  overflow-y:auto;
-  -webkit-overflow-scrolling:touch;
-  overscroll-behavior:contain;
-}
-
+.screen:not(#menu){overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 .argos-footer{display:none!important}
 
-body.dark{
-  background:#151317;
-  color:#fff;
+/* Drawer del menú de los tres puntos */
+.menu-drawer{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  visibility:hidden;
+  pointer-events:none;
 }
-body.dark .argos-home{background:#151317}
-body.dark .welcome-card{
-  background:linear-gradient(135deg,#242126 0%,#30212b 100%);
-  border-color:rgba(255,255,255,.08);
+.menu-drawer.open{visibility:visible;pointer-events:auto}
+.drawer-backdrop{
+  position:absolute;inset:0;
+  background:rgba(10,8,10,.42);
+  backdrop-filter:blur(3px);
 }
-body.dark .home-card{
-  background:#242126;
-  border-color:rgba(255,255,255,.08);
-  color:#fff;
+.drawer-panel{
+  position:absolute;
+  top:0;left:0;bottom:0;
+  width:min(330px,88vw);
+  background:var(--card);
+  padding:22px 18px;
+  box-shadow:12px 0 35px rgba(0,0,0,.18);
+  transform:translateX(-105%);
+  transition:transform .2s ease;
+  display:flex;
+  flex-direction:column;
 }
-body.dark .home-icon{background:rgba(255,255,255,.08)}
-body.dark .home-card p,
-body.dark .latest-service-value,
-body.dark .last-time-card label{color:#aaa6ad}
-body.dark .last-time-select{
-  background:#242126;
-  color:#fff;
-  border-color:rgba(255,255,255,.10);
+.menu-drawer.open .drawer-panel{transform:translateX(0)}
+.drawer-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:4px 5px 20px;
 }
-
-@media (max-width:700px){
-  .brand-row{
-    height:156px;
-    min-height:156px;
-    border-radius:0 0 27px 27px;
-  }
-
-  .renfe-main-logo{
-    width:185px;
-    max-width:48vw;
-  }
-
-  .header-action{
-    width:64px;
-    height:64px;
-    border-radius:19px;
-    font-size:34px;
-  }
-
-  .header-action.left{left:28px}
-  .header-action.right{right:28px}
-
-  .argos-home{
-    padding:38px 35px 42px;
-  }
-
-  .welcome-card{
-    padding:31px 48px 30px;
-    border-radius:29px;
-    margin-bottom:31px;
-  }
-
-  .welcome-pill{
-    font-size:15px;
-    padding:8px 16px;
-    margin-bottom:27px;
-  }
-
-  .welcome-card h1{
-    font-size:43px;
-    line-height:1.08;
-  }
-
-  .welcome-card p{
-    font-size:21px;
-    line-height:1.35;
-  }
-
-  .home-grid{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:24px;
-  }
-
-  .home-card{
-    min-height:315px;
-    border-radius:29px;
-    padding:35px 35px 30px;
-  }
-
-  .home-icon{
-    width:69px;
-    height:69px;
-    border-radius:20px;
-    font-size:36px;
-  }
-
-  .home-card h2{
-    font-size:29px;
-  }
-
-  .home-card p{
-    font-size:20px;
-  }
-
-  .latest-card{
-    min-height:315px;
-  }
-
-  .last-time-card{
-    min-height:285px;
-  }
-
-  .last-time-card label{
-    font-size:20px;
-  }
-
-  .last-time-select{
-    min-height:70px;
-    font-size:21px;
-  }
+.drawer-title strong{font-size:20px}
+.drawer-close{
+  width:42px;height:42px;border:0;border-radius:13px;
+  background:var(--soft);color:var(--renfe);font-size:25px;
+}
+.drawer-nav{display:flex;flex-direction:column;gap:8px}
+.drawer-item{
+  width:100%;border:0;border-radius:15px;background:transparent;
+  color:var(--ink);padding:15px 13px;text-align:left;
+  display:flex;align-items:center;gap:13px;font-weight:700;
+}
+.drawer-item:hover,.drawer-item:active{background:var(--soft);color:var(--renfe)}
+.drawer-icon{
+  width:38px;height:38px;border-radius:12px;background:var(--soft);
+  color:var(--renfe);display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex:0 0 auto;
 }
 
-@media (max-width:430px){
-  .argos-home{
-    padding-left:20px;
-    padding-right:20px;
-  }
+/* Pantallas secundarias */
+.screen{display:none;flex:1 1 auto;min-height:0;padding:24px;overflow:auto}
+.screen.active{display:block}
+.screen-header{
+  width:min(900px,100%);margin:0 auto 22px;
+  display:flex;align-items:center;gap:14px;
+}
+.screen-header h2{margin:0;font-size:32px}
+.screen-kicker{color:var(--renfe);font-size:12px;font-weight:800;letter-spacing:.08em}
+.back-button{
+  width:48px;height:48px;border:0;border-radius:15px;
+  background:var(--soft);color:var(--renfe);font-size:32px;
+}
+.service-form,.history-list,.stats-grid,.settings-list{
+  width:min(900px,100%);margin:0 auto;
+}
+.form-section-title{margin:22px 0 10px;color:var(--renfe);font-weight:800;font-size:12px;letter-spacing:.08em}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:14px;font-weight:700;margin-bottom:6px}
+.form-group input,.form-group textarea,.form-group select{
+  width:100%;border:1px solid var(--line);border-radius:14px;background:var(--card);
+  color:var(--ink);padding:13px 14px;outline:none;
+}
+.form-group textarea{resize:vertical}
+.form-actions{display:flex;gap:10px;margin-top:18px}
+.save-button,.cancel-button{
+  border:0;border-radius:14px;padding:13px 18px;font-weight:800
+}
+.save-button{background:var(--renfe);color:#fff}
+.cancel-button{background:var(--soft);color:var(--renfe)}
+.history-card,.stat-card,.setting-card{
+  background:var(--card);border:1px solid var(--line);border-radius:20px;
+  padding:18px;box-shadow:var(--shadow);margin-bottom:12px;
+}
+.history-top{display:flex;justify-content:space-between;gap:12px}
+.train-number{font-weight:800;color:var(--renfe)}
+.service-date,.service-meta{color:var(--muted);font-size:13px}
+.route{font-size:21px;font-weight:800;margin:8px 0}
+.empty{padding:30px;text-align:center;color:var(--muted)}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stat-card{display:flex;flex-direction:column;gap:7px}
+.stat-card span{color:var(--muted);font-size:13px}.stat-card strong{font-size:30px}
+.setting-card{display:flex;flex-direction:column;gap:18px}
+.setting-card strong{display:block;font-size:18px}.setting-card>div>span{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+.setting-group{display:flex;flex-direction:column;gap:6px}
+.setting-group label{font-weight:700;font-size:13px}
+.setting-group input{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:13px;background:var(--card);color:var(--ink)}
+.theme-switch{display:flex;gap:8px}
+.theme-option{border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);padding:10px 14px}
+.theme-option.active{background:var(--renfe);color:#fff;border-color:var(--renfe)}
+.save-settings{border:0;border-radius:13px;background:var(--renfe);color:#fff;padding:12px 15px;font-weight:800}
 
-  .header-action{
-    width:58px;
-    height:58px;
-  }
+/* Tema oscuro */
+body.dark{--page:#151317;--card:#242126;--ink:#fff;--muted:#aaa6ad;--line:rgba(255,255,255,.10);--soft:#352632}
+body.dark .welcome-card{background:linear-gradient(135deg,#242126 0%,#30212b 100%)}
+body.dark .last-time-select{background:var(--card);color:#fff}
+body.dark .drawer-backdrop{background:rgba(0,0,0,.58)}
 
-  .header-action.left{left:20px}
-  .header-action.right{right:20px}
-
-  .renfe-main-logo{width:165px}
-
-  .welcome-card{
-    padding:28px 28px;
-  }
-
-  .welcome-card h1{font-size:36px}
-  .welcome-card p{font-size:18px}
-
-  .home-grid{gap:16px}
-
-  .home-card{
-    min-height:260px;
-    padding:27px 25px 25px;
-    border-radius:25px;
-  }
-
-  .home-icon{
-    width:60px;
-    height:60px;
-    font-size:31px;
-  }
-
-  .home-card h2{font-size:24px}
-  .home-card p{font-size:17px}
-
-  .latest-card,.last-time-card{
-    min-height:250px;
-  }
+@media(max-width:600px){
+  .brand-row{height:100px;border-radius:0 0 22px 22px}
+  .renfe-main-logo{width:150px}
+  .header-action{width:52px;height:52px;border-radius:16px}
+  .header-action.left{left:14px}.header-action.right{right:14px}
+  .header-dots{font-size:32px}
+  .argos-home{padding:11px 14px 12px;gap:8px}
+  .welcome-card{padding:13px 16px;border-radius:19px}
+  .welcome-pill{font-size:10px;padding:4px 9px;margin-bottom:5px}
+  .welcome-card h1{font-size:22px}
+  .welcome-card p{font-size:12px}
+  .home-list{gap:7px}
+  .home-card{grid-template-columns:45px 1fr;column-gap:11px;padding:9px 12px;border-radius:17px}
+  .home-icon{width:45px;height:45px;border-radius:14px;font-size:25px}
+  .home-card h2{font-size:16px}
+  .home-card p,.latest-service-value{font-size:11px}
+  .last-time-card label{font-size:10px}.last-time-select{min-height:27px;font-size:11px;border-radius:9px}
+}
+@media(max-height:700px) and (max-width:600px){
+  .brand-row{height:82px}
+  .renfe-main-logo{width:125px}
+  .header-action{width:44px;height:44px}
+  .argos-home{padding:8px 12px;gap:6px}
+  .welcome-card{padding:9px 13px}
+  .welcome-pill{display:none}
+  .welcome-card h1{font-size:19px}.welcome-card p{font-size:10px}
+  .home-list{gap:5px}
+  .home-card{padding:7px 10px}.home-icon{width:39px;height:39px}
+  .home-card h2{font-size:14px}.home-card p,.latest-service-value{font-size:10px}
+  .last-time-card label{font-size:9px}.last-time-select{min-height:24px;font-size:10px}
 }
 </style>
 </head>
 
 <body>
-
 <main class="app-shell">
 
 <header class="app-header">
   <div class="brand-row">
-    <button class="header-action left" type="button" aria-label="Menú">⋮</button>
-
-    <img
-      class="renfe-main-logo"
-      src="icons/renfe-logo-blanco.png"
-      alt="Renfe"
-    >
-
-    <button class="header-action right" type="button" aria-label="Salir">↪</button>
+    <button id="openMenu" class="header-action left header-dots" type="button" aria-label="Abrir menú">⋮</button>
+    <img class="renfe-main-logo" src="icons/renfe-logo-blanco.png" alt="Renfe">
+    <button class="header-action right" type="button" aria-label="Perfil">↪</button>
   </div>
 </header>
 
-<section id="menu" class="screen active" aria-label="Menú principal">
-
+<!-- MENÚ PRINCIPAL -->
+<section id="menu" class="screen active menu-screen" aria-label="Menú principal">
   <div class="argos-home">
-
     <div class="welcome-card">
       <div class="welcome-pill">ARGOS · SERVICIOS</div>
-      <h1>Hola Pablo Roldán</h1>
-      <p>Registra, consulta y controla tu actividad ferroviaria.</p>
+      <h1 id="welcomeName">Hola</h1>
+      <p id="welcomeDescription">Registra, consulta y controla tu actividad ferroviaria.</p>
     </div>
 
-    <div class="home-grid">
-
-      <button class="home-card primary menu-card" data-screen="new-service" type="button">
+    <div class="home-list">
+      <button class="home-card primary" data-screen="new-service" type="button">
         <span class="home-icon">＋</span>
-        <h2>Registrar tren</h2>
-        <p>Añade un nuevo servicio</p>
+        <span><h2>Añadir nuevo servicio</h2><p>Registrar un nuevo servicio ferroviario</p></span>
       </button>
 
-      <button class="home-card menu-card" data-screen="history" type="button">
+      <button class="home-card" data-screen="history" type="button">
         <span class="home-icon">☷</span>
-        <h2>Ver historial</h2>
-        <p>Consulta tus registros</p>
+        <span><h2>Ver historial</h2><p>Consultar todos tus servicios registrados</p></span>
       </button>
 
-      <button class="home-card menu-card" data-screen="stats" type="button">
+      <button class="home-card" data-screen="stats" type="button">
         <span class="home-icon">◔</span>
-        <h2>Estadísticas</h2>
-        <p>Resumen de tu actividad</p>
+        <span><h2>Estadísticas</h2><p>Resumen de tu actividad ferroviaria</p></span>
       </button>
 
-      <button class="home-card latest-card menu-card" data-screen="history" type="button">
+      <button class="home-card" data-screen="history" type="button">
         <span class="home-icon">↗</span>
-        <h2>Último servicio</h2>
-        <span id="latestService" class="latest-service-value">Aún no hay servicios registrados</span>
+        <span><h2>Último servicio</h2><span id="latestService" class="latest-service-value">Aún no hay servicios registrados</span></span>
       </button>
 
       <div class="home-card last-time-card">
-        <h2>Última vez</h2>
-        <label for="lastTripSelect">¿Cuándo hiciste un trayecto?</label>
-        <select id="lastTripSelect" class="last-time-select">
-          <option value="">Selecciona un trayecto</option>
-        </select>
+        <span class="home-icon">◷</span>
+        <span>
+          <h2>Última vez</h2>
+          <label for="lastTripSelect">¿Cuándo hiciste un trayecto?</label>
+          <select id="lastTripSelect" class="last-time-select">
+            <option value="">Selecciona un trayecto</option>
+          </select>
+        </span>
       </div>
-
     </div>
-
   </div>
-
 </section>
 
+<!-- PANTALLAS SECUNDARIAS -->
 <section id="new-service" class="screen">
-
-  <div class="screen-header">
-    <button class="back-button" data-back type="button">‹</button>
-    <div>
-      <div class="screen-kicker">REGISTRO</div>
-      <h2>Añadir servicio</h2>
-    </div>
-  </div>
-
+  <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">REGISTRO</div><h2>Añadir servicio</h2></div></div>
   <form id="serviceForm" class="service-form">
-
     <div class="form-section-title">SERVICIO</div>
-
     <div class="form-row">
-      <div class="form-group">
-        <label for="train">Número de tren</label>
-        <input id="train" type="text" maxlength="5" required autocomplete="off" placeholder="Ej. 05120">
-      </div>
-
-      <div class="form-group">
-        <label for="series">Serie</label>
-        <input id="series" type="text" maxlength="3" required autocomplete="off" placeholder="Ej. 112">
-      </div>
+      <div class="form-group"><label for="train">Número de tren</label><input id="train" type="text" maxlength="5" required autocomplete="off" placeholder="Ej. 05120"></div>
+      <div class="form-group"><label for="series">Serie</label><input id="series" type="text" maxlength="3" required autocomplete="off" placeholder="Ej. 112"></div>
     </div>
-
-    <div class="form-group">
-      <label for="vehicle">Vehículo</label>
-      <input id="vehicle" type="text" maxlength="3" autocomplete="off" placeholder="Ej. 018">
-    </div>
-
+    <div class="form-group"><label for="vehicle">Vehículo</label><input id="vehicle" type="text" maxlength="3" autocomplete="off" placeholder="Ej. 018"></div>
     <div class="form-section-title">RECORRIDO</div>
-
     <div class="form-row">
-      <div class="form-group autocomplete-group">
-        <label for="origin">Origen</label>
-        <input id="origin" required autocomplete="off" placeholder="Fuenla, 60000...">
-        <div id="originList" class="suggestions"></div>
-      </div>
-
-      <div class="form-group autocomplete-group">
-        <label for="destination">Destino</label>
-        <input id="destination" required autocomplete="off" placeholder="Jerez, 51300...">
-        <div id="destinationList" class="suggestions"></div>
-      </div>
+      <div class="form-group autocomplete-group"><label for="origin">Origen</label><input id="origin" required autocomplete="off" placeholder="Fuenla, 60000..."><div id="originList" class="suggestions"></div></div>
+      <div class="form-group autocomplete-group"><label for="destination">Destino</label><input id="destination" required autocomplete="off" placeholder="Jerez, 51300..."><div id="destinationList" class="suggestions"></div></div>
     </div>
-
     <div class="form-row">
-      <div class="form-group">
-        <label for="date">Fecha</label>
-        <input id="date" type="date" required>
-      </div>
-
-      <div class="form-group">
-        <label for="kilometres">Kilómetros</label>
-        <input id="kilometres" type="number" min="0" step="1" placeholder="Ej. 472">
-      </div>
+      <div class="form-group"><label for="date">Fecha</label><input id="date" type="date" required></div>
+      <div class="form-group"><label for="kilometres">Kilómetros</label><input id="kilometres" type="number" min="0" step="1" placeholder="Ej. 472"></div>
     </div>
-
     <div class="form-section-title">ANOTACIONES</div>
-
-    <div class="form-group">
-      <label for="notes">Anotaciones</label>
-      <textarea id="notes" rows="3" placeholder="Observaciones..."></textarea>
-    </div>
-
-    <div class="form-group">
-      <label for="incidents">Incidencias</label>
-      <textarea id="incidents" rows="3" placeholder="Sin incidencias"></textarea>
-    </div>
-
-    <div class="form-actions">
-      <button class="save-button" type="submit">Guardar servicio</button>
-      <button class="cancel-button" data-back type="button">Cancelar</button>
-    </div>
-
+    <div class="form-group"><label for="notes">Anotaciones</label><textarea id="notes" rows="3" placeholder="Observaciones..."></textarea></div>
+    <div class="form-group"><label for="incidents">Incidencias</label><textarea id="incidents" rows="3" placeholder="Sin incidencias"></textarea></div>
+    <div class="form-actions"><button class="save-button" type="submit">Guardar servicio</button><button class="cancel-button" data-back type="button">Cancelar</button></div>
   </form>
-
 </section>
 
 <section id="history" class="screen">
-
-  <div class="screen-header">
-    <button class="back-button" data-back type="button">‹</button>
-    <div>
-      <div class="screen-kicker">REGISTROS</div>
-      <h2>Historial</h2>
-    </div>
-  </div>
-
+  <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">REGISTROS</div><h2>Historial</h2></div></div>
   <div id="historyList" class="history-list"></div>
-
 </section>
 
 <section id="stats" class="screen">
-
-  <div class="screen-header">
-    <button class="back-button" data-back type="button">‹</button>
-    <div>
-      <div class="screen-kicker">DATOS</div>
-      <h2>Estadísticas</h2>
-    </div>
-  </div>
-
+  <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">DATOS</div><h2>Estadísticas</h2></div></div>
   <div class="stats-grid">
-    <div class="stat-card">
-      <span>Servicios</span>
-      <strong id="statServices">0</strong>
-    </div>
-
-    <div class="stat-card">
-      <span>Kilómetros</span>
-      <strong id="statKm">0</strong>
-    </div>
-
-    <div class="stat-card">
-      <span>Series diferentes</span>
-      <strong id="statSeries">0</strong>
-    </div>
-
-    <div class="stat-card">
-      <span>Último servicio</span>
-      <strong id="statLast">—</strong>
-    </div>
+    <div class="stat-card"><span>Servicios</span><strong id="statServices">0</strong></div>
+    <div class="stat-card"><span>Kilómetros</span><strong id="statKm">0</strong></div>
+    <div class="stat-card"><span>Series diferentes</span><strong id="statSeries">0</strong></div>
+    <div class="stat-card"><span>Último servicio</span><strong id="statLast">—</strong></div>
   </div>
-
 </section>
 
 <section id="settings" class="screen">
-
-  <div class="screen-header">
-    <button class="back-button" data-back type="button">‹</button>
-    <div>
-      <div class="screen-kicker">CONFIGURACIÓN</div>
-      <h2>Ajustes</h2>
-    </div>
-  </div>
-
+  <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">CONFIGURACIÓN</div><h2>Ajustes</h2></div></div>
   <div class="settings-list">
-
     <div class="setting-card">
-
-      <div>
-        <strong>Apariencia</strong>
-        <span>Selecciona el tema de ARGOS.</span>
-      </div>
-
-      <div class="theme-switch">
-
-        <button id="lightTheme" class="theme-option active" type="button">
-          ☀ Claro
-        </button>
-
-        <button id="darkTheme" class="theme-option" type="button">
-          ☾ Oscuro
-        </button>
-
-      </div>
-
+      <div><strong>Perfil</strong><span>Estos datos aparecen en la pantalla principal.</span></div>
+      <div class="setting-group"><label for="userName">Nombre del usuario</label><input id="userName" type="text" maxlength="60" placeholder="Tu nombre"></div>
+      <div class="setting-group"><label for="userJob">Puesto en Renfe</label><input id="userJob" type="text" maxlength="80" placeholder="Ej. Maquinista"></div>
+      <button id="saveProfile" class="save-settings" type="button">Guardar perfil</button>
     </div>
-
+    <div class="setting-card">
+      <div><strong>Apariencia</strong><span>Selecciona el tema de ARGOS.</span></div>
+      <div class="theme-switch">
+        <button id="lightTheme" class="theme-option active" type="button">☀ Claro</button>
+        <button id="darkTheme" class="theme-option" type="button">☾ Oscuro</button>
+      </div>
+    </div>
   </div>
-
 </section>
 
-<footer class="app-footer argos-footer">
-  <span>ARGOS</span>
-  <span>Renfe · Operaciones</span>
-</footer>
-
-</main>
+<!-- MENÚ DE LOS TRES PUNTOS -->
+<div id="menuDrawer" class="menu-drawer" aria-hidden="true">
+  <div id="drawerBackdrop" class="drawer-backdrop"></div>
+  <aside class="drawer-panel" aria-label="Opciones de ARGOS">
+    <div class="drawer-title"><strong>ARGOS</strong><button id="closeMenu" class="drawer-close" type="button" aria-label="Cerrar">×</button></div>
+    <nav class="drawer-nav">
+      <button class="drawer-item" data-screen="new-service" type="button"><span class="drawer-icon">＋</span>Añadir un servicio</button>
+      <button class="drawer-item" data-screen="history" type="button"><span class="drawer-icon">☷</span>Ver historial</button>
+      <button class="drawer-item" data-screen="stats" type="button"><span class="drawer-icon">◔</span>Estadísticas</button>
+      <button id="openSettings" class="drawer-item" data-screen="settings" type="button"><span class="drawer-icon">⚙</span>Ajustes</button>
+    </nav>
+  </aside>
+</div>
 
 <div id="toast" class="toast" role="status"></div>
+</main>
 
 <script src="app.js"></script>
 
 <script>
-/*
-  Solo añade contenido visual a la pantalla principal.
-  No sustituye la lógica de app.js.
-*/
 (function(){
+  const PROFILE_KEY="argos_profile";
+  const $=id=>document.getElementById(id);
+
+  function loadProfile(){
+    let p={name:"",job:""};
+    try{p=JSON.parse(localStorage.getItem(PROFILE_KEY)||"{}")||p}catch(e){}
+    const name=(p.name||"").trim();
+    const job=(p.job||"").trim();
+    $("welcomeName").textContent=name ? "Hola "+name : "Hola";
+    $("welcomeDescription").textContent=job
+      ? job+" · Registra, consulta y controla tu actividad ferroviaria."
+      : "Registra, consulta y controla tu actividad ferroviaria.";
+    if($("userName")) $("userName").value=name;
+    if($("userJob")) $("userJob").value=job;
+  }
+
+  function saveProfile(){
+    const p={name:$("userName").value.trim(),job:$("userJob").value.trim()};
+    localStorage.setItem(PROFILE_KEY,JSON.stringify(p));
+    loadProfile();
+    if(typeof toast==="function") toast("Perfil guardado");
+    showScreen("menu");
+  }
+
+  $("saveProfile").onclick=saveProfile;
+  loadProfile();
+
+  const drawer=$("menuDrawer");
+  function openDrawer(){
+    drawer.classList.add("open");
+    drawer.setAttribute("aria-hidden","false");
+  }
+  function closeDrawer(){
+    drawer.classList.remove("open");
+    drawer.setAttribute("aria-hidden","true");
+  }
+
+  $("openMenu").onclick=openDrawer;
+  $("closeMenu").onclick=closeDrawer;
+  $("drawerBackdrop").onclick=closeDrawer;
+
+  document.querySelectorAll("#menuDrawer [data-screen]").forEach(b=>{
+    b.addEventListener("click",()=>{
+      closeDrawer();
+      if(typeof showScreen==="function") showScreen(b.dataset.screen);
+    });
+  });
+
+  document.querySelectorAll("#menu [data-screen]").forEach(b=>{
+    b.addEventListener("click",()=>{
+      if(typeof showScreen==="function") showScreen(b.dataset.screen);
+    });
+  });
+
   function readServices(){
     try{
-      const keys = ["argos_services","services","argosServices","servicios"];
-      for(const key of keys){
-        const raw = localStorage.getItem(key);
-        if(!raw) continue;
-        const data = JSON.parse(raw);
-        if(Array.isArray(data)) return data;
-        if(data && Array.isArray(data.services)) return data.services;
-      }
-    }catch(e){}
-    return [];
+      const raw=localStorage.getItem("argos_services");
+      const data=raw?JSON.parse(raw):[];
+      return Array.isArray(data)?data:[];
+    }catch(e){return []}
   }
-
-  function getValue(obj, names){
-    for(const name of names){
-      if(obj && obj[name] !== undefined && obj[name] !== null && obj[name] !== ""){
-        return obj[name];
-      }
-    }
+  function val(o,names){
+    for(const n of names) if(o&&o[n]!==undefined&&o[n]!==null&&o[n]!=="") return o[n];
     return "";
   }
-
   function refreshHome(){
-    const services = readServices();
-    const latest = services.length ? services[services.length - 1] : null;
-    const latestEl = document.getElementById("latestService");
-    const select = document.getElementById("lastTripSelect");
+    const services=readServices();
+    const latest=services.length?services[services.length-1]:null;
+    if(latest){
+      const train=val(latest,["train","tren","number","numero"]);
+      const origin=val(latest,["origin","origen"]);
+      const destination=val(latest,["destination","destino"]);
+      $("latestService").textContent=[train,origin||destination?(origin||"—")+" → "+(destination||"—"):""].filter(Boolean).join(" · ")||"Último servicio registrado";
+    }else $("latestService").textContent="Aún no hay servicios registrados";
 
-    if(latest && latestEl){
-      const train = getValue(latest,["train","tren","number","numero"]);
-      const origin = getValue(latest,["origin","origen"]);
-      const destination = getValue(latest,["destination","destino"]);
-      const text = [
-        train ? train : "",
-        origin || destination ? (origin || "—") + " → " + (destination || "—") : ""
-      ].filter(Boolean).join(" · ");
-      latestEl.textContent = text || "Último servicio registrado";
-    }
-
-    if(select){
-      const current = select.value;
-      while(select.options.length > 1) select.remove(1);
-
-      services.slice().reverse().forEach((service,index)=>{
-        const train = getValue(service,["train","tren","number","numero"]);
-        const origin = getValue(service,["origin","origen"]);
-        const destination = getValue(service,["destination","destino"]);
-        const date = getValue(service,["date","fecha"]);
-        const option = document.createElement("option");
-        option.value = String(index);
-        option.textContent =
-          [train, origin && destination ? origin + " → " + destination : "", date]
-          .filter(Boolean).join(" · ") || "Servicio registrado";
-        select.appendChild(option);
-      });
-
-      if(current) select.value = current;
-    }
+    const select=$("lastTripSelect");
+    const current=select.value;
+    while(select.options.length>1) select.remove(1);
+    services.slice().reverse().forEach((s,i)=>{
+      const train=val(s,["train","tren","number","numero"]);
+      const origin=val(s,["origin","origen"]);
+      const destination=val(s,["destination","destino"]);
+      const date=val(s,["date","fecha"]);
+      const o=document.createElement("option");
+      o.value=String(i);
+      o.textContent=[train,origin&&destination?origin+" → "+destination:"",date].filter(Boolean).join(" · ")||"Servicio registrado";
+      select.appendChild(o);
+    });
+    if(current) select.value=current;
   }
-
-  document.addEventListener("DOMContentLoaded", refreshHome);
-  window.addEventListener("storage", refreshHome);
-
-  const originalSetItem = localStorage.setItem;
-  localStorage.setItem = function(){
-    originalSetItem.apply(this, arguments);
-    setTimeout(refreshHome, 50);
-  };
+  document.addEventListener("DOMContentLoaded",refreshHome);
+  window.addEventListener("storage",refreshHome);
+  refreshHome();
 })();
 </script>
-
 </body>
 </html>
