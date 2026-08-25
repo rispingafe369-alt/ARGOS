@@ -382,6 +382,22 @@ body.dark .drawer-backdrop{background:rgba(0,0,0,.58)}
 }
 #new-service .form-group textarea{min-height:104px;resize:vertical}
 
+/* ===== IDENTIFICACIÓN AUTOMÁTICA DE RAMA ===== */
+#new-service .branch-box{
+  display:none;
+  margin:-4px 0 18px;
+  padding:13px 15px;
+  border:1px solid rgba(138,0,92,.20);
+  border-radius:15px;
+  background:var(--soft);
+  color:var(--renfe);
+}
+#new-service .branch-box.visible{display:flex;align-items:center;justify-content:space-between;gap:12px}
+#new-service .branch-box-label{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+#new-service .branch-box-value{font-size:18px;font-weight:900}
+body.dark #new-service .branch-box{border-color:rgba(255,255,255,.12)}
+
+
 #new-service .product-select-wrap{position:relative;z-index:10}
 #new-service .product-select-native{
   position:absolute!important;width:1px!important;height:1px!important;
@@ -593,6 +609,11 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
     <div class="form-group">
       <label for="vehicle">Vehículo</label>
       <input id="vehicle" type="text" maxlength="3" autocomplete="off" placeholder="Ej. 018">
+    </div>
+
+    <div id="branchBox" class="branch-box" aria-live="polite">
+      <span class="branch-box-label">Rama identificada</span>
+      <strong id="branchValue" class="branch-box-value"></strong>
     </div>
 
     <div class="form-group">
