@@ -255,6 +255,11 @@ button{cursor:pointer}
 /* Pantallas secundarias */
 .screen{display:none;flex:1 1 auto;min-height:0;padding:24px;overflow:auto}
 .screen.active{display:block}
+/* Una sola pantalla visible: evita que el menú quede debajo de las pantallas internas. */
+.app-shell > .screen{position:relative;z-index:1}
+.app-shell > .screen:not(.active){display:none!important}
+.app-shell > .menu-screen.active{display:flex!important}
+.app-shell > .screen.active:not(.menu-screen){display:block!important}
 .menu-screen{display:none}
 .menu-screen.active{display:flex}
 .screen-header{
@@ -1148,15 +1153,28 @@ body.dark #new-service input[type="date"]{
 /* Refuerzo de navegación: una sola pantalla visible cada vez. */
 (function(){
   window.showScreen=function(id){
-    document.querySelectorAll(".app-shell > .screen").forEach(function(screen){
+    var screens=document.querySelectorAll(".app-shell > .screen");
+    screens.forEach(function(screen){
       screen.classList.remove("active");
       screen.setAttribute("aria-hidden","true");
+      screen.style.display="none";
     });
+
     var target=document.getElementById(id);
     if(!target) return;
+
     target.classList.add("active");
     target.setAttribute("aria-hidden","false");
-    if(id==="new-service") {
+    target.style.display=(id==="menu") ? "flex" : "block";
+
+    var menu=document.getElementById("menu");
+    if(menu){
+      menu.classList.toggle("active",id==="menu");
+      menu.setAttribute("aria-hidden",id==="menu" ? "false" : "true");
+      menu.style.display=(id==="menu") ? "flex" : "none";
+    }
+
+    if(id==="new-service"){
       var form=target.querySelector(".service-form");
       if(form) form.scrollTop=0;
     }
@@ -1371,5 +1389,39 @@ body.dark #new-service input[type="date"]{
 })();
 </script>
 
+
+<script>
+/* ===== PROTECCIÓN FINAL DE NAVEGACIÓN EN MÓVIL =====
+   Algunos navegadores pueden conservar clases/estilos de la versión anterior.
+   Esta capa garantiza que jamás se vea el menú principal detrás de una pantalla. */
+(function(){
+  function enforceSingleScreen(){
+    var menu=document.getElementById("menu");
+    var secondary=document.querySelector('.app-shell > .screen.active:not(#menu)');
+    if(menu && secondary){
+      menu.classList.remove("active");
+      menu.setAttribute("aria-hidden","true");
+      menu.style.display="none";
+    }
+  }
+
+  document.addEventListener("click",function(e){
+    var button=e.target.closest("[data-screen]");
+    if(!button) return;
+    var id=button.getAttribute("data-screen");
+    if(!id || id==="menu") return;
+    var menu=document.getElementById("menu");
+    if(menu){
+      menu.classList.remove("active");
+      menu.setAttribute("aria-hidden","true");
+      menu.style.display="none";
+    }
+  },true);
+
+  var observer=new MutationObserver(enforceSingleScreen);
+  observer.observe(document.querySelector(".app-shell"),{subtree:true,attributes:true,attributeFilter:["class","style"]});
+  enforceSingleScreen();
+})();
+</script>
 </body>
 </html>
