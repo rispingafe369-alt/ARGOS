@@ -299,7 +299,37 @@ button{cursor:pointer}
 .save-button{background:var(--renfe);color:#fff}
 .cancel-button{background:var(--soft);color:var(--renfe)}
 
-/* ESTILOS DE HISTORIAL ESTILO RENFE */
+/* ESTILOS DE AUTOCOMPLETADO DE ESTACIONES */
+.autocomplete-group{position:relative}
+.suggestions{
+  position:absolute;
+  top:calc(100% + 4px);
+  left:0; right:0;
+  z-index:100;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  box-shadow:0 12px 30px rgba(0,0,0,.15);
+  max-height:220px;
+  overflow-y:auto;
+  display:none;
+}
+.suggestions.open{display:block}
+.suggestion-item{
+  padding:12px 14px;
+  font-size:14px;
+  font-weight:600;
+  cursor:pointer;
+  border-bottom:1px solid var(--line);
+  color:var(--ink);
+}
+.suggestion-item:last-child{border-bottom:none}
+.suggestion-item:hover, .suggestion-item:active{
+  background:var(--soft);
+  color:var(--renfe);
+}
+
+/* HISTORIAL ESTILO RENFE */
 .renfe-card{
   background:var(--card);
   border:1px solid var(--line);
@@ -733,7 +763,8 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
         <label for="origin">Origen</label>
         <span class="field-hint">Nombre de la estación o código</span>
       </div>
-      <input id="origin" required autocomplete="off" placeholder="Ej. Madrid-Chamartín">
+      <input id="origin" required autocomplete="off" placeholder="Ej. Madrid-Puerta de Atocha">
+      <div id="originList" class="suggestions"></div>
     </div>
 
     <div class="form-group autocomplete-group">
@@ -741,7 +772,8 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
         <label for="destination">Destino</label>
         <span class="field-hint">Nombre de la estación o código</span>
       </div>
-      <input id="destination" required autocomplete="off" placeholder="Ej. Sevilla-Santa Justa">
+      <input id="destination" required autocomplete="off" placeholder="Ej. Barcelona-Sants">
+      <div id="destinationList" class="suggestions"></div>
     </div>
 
     <div class="form-group">
@@ -879,6 +911,63 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
   });
 })();
 
+// AUTOCOMPLETADO DE ESTACIONES
+(function(){
+  const STATIONS = [
+    "Madrid-Puerta de Atocha", "Madrid-Chamartín-Clara Campoamor", "Barcelona-Sants",
+    "Sevilla-Santa Justa", "Valencia-Joaquín Sorolla", "Valencia-Nord", "Zaragoza-Delicias",
+    "Málaga-María Zambrano", "Alicante-Terminal", "Córdoba-Central", "Valladolid-Campo Grande",
+    "Santiago de Compostela", "A Coruña", "Vigo-Urzaiz", "Ourense", "Gijón", "Oviedo",
+    "Santander", "Bilbao-Abando", "San Sebastián", "Granada", "Murcia del Carmen",
+    "Castellón de la Plana", "Albacete-Los Llanos", "Cuenca-Fernando Zóbel", "Cádiz",
+    "Jerez de la Frontera", "Algeciras", "Badajoz", "Cáceres", "Mérida", "León", "Palencia",
+    "Burgos-Rosa Manzano", "Logroño", "Pamplona", "Tarragona", "Girona", "Figueres-Vilafant"
+  ];
+
+  function setupAutocomplete(inputId, listId){
+    const input = document.getElementById(inputId);
+    const list = document.getElementById(listId);
+    if(!input || !list) return;
+
+    input.addEventListener("input", function(){
+      const val = this.value.trim().toLowerCase();
+      list.innerHTML = "";
+      if(!val){
+        list.classList.remove("open");
+        return;
+      }
+
+      const matches = STATIONS.filter(s => s.toLowerCase().includes(val));
+      if(!matches.length){
+        list.classList.remove("open");
+        return;
+      }
+
+      matches.forEach(st => {
+        const item = document.createElement("div");
+        item.className = "suggestion-item";
+        item.textContent = st;
+        item.addEventListener("click", function(){
+          input.value = st;
+          list.classList.remove("open");
+        });
+        list.appendChild(item);
+      });
+
+      list.classList.add("open");
+    });
+
+    document.addEventListener("click", function(e){
+      if(!input.contains(e.target) && !list.contains(e.target)){
+        list.classList.remove("open");
+      }
+    });
+  }
+
+  setupAutocomplete("origin", "originList");
+  setupAutocomplete("destination", "destinationList");
+})();
+
 // GESTIÓN DE DATOS Y SERVICIOS
 (function(){
   const STORAGE_KEY = "argos_services";
@@ -935,15 +1024,12 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
       return;
     }
 
-    // Ordenar descendente (más recientes primero)
     const sorted = [...services].reverse();
 
-    historyList.innerHTML = sorted.map((s, idx) => {
-      // Cálculo de primer registro / registro anterior del vehículo
+    historyList.innerHTML = sorted.map((s) => {
       let vehicleStatusHtml = "";
       if(s.series && s.vehicle){
         const fullVehicleId = `${s.series}-${s.vehicle}`;
-        // Buscar apariciones previas cronológicamente antes que esta fecha/registro
         const matchingPrev = services.filter(item => 
           `${item.series}-${item.vehicle}` === fullVehicleId && 
           item.id !== s.id &&
@@ -953,7 +1039,6 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
         if(matchingPrev.length === 0){
           vehicleStatusHtml = `<span class="first-time-badge">Primera vez</span>`;
         } else {
-          // Obtener la fecha más reciente de entre las previas
           matchingPrev.sort((a,b) => b.date.localeCompare(a.date));
           const lastDate = formatDate(matchingPrev[0].date);
           vehicleStatusHtml = `<span class="last-time-badge">Última vez: ${lastDate}</span>`;
@@ -997,7 +1082,7 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
     }).join('');
   };
 
-  // Abrir modal de vehículo
+  // Modal Ficha de Vehículo
   window.openVehicleSheet = function(series, vehicle){
     const fullId = `${series}-${vehicle}`;
     const services = readServices();
@@ -1033,7 +1118,7 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
     $("vehicleModal").setAttribute("aria-hidden", "true");
   };
 
-  // Guardar nuevo servicio
+  // Guardar servicio
   $("serviceForm").onsubmit = function(e){
     e.preventDefault();
 
@@ -1058,7 +1143,6 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
     services.push(newService);
     saveServices(services);
 
-    // Limpieza
     this.reset();
     $("notesEntries").innerHTML = "";
     $("incidentsEntries").innerHTML = "";
@@ -1113,7 +1197,7 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
   refreshHome();
 })();
 
-// CONTROL DEL DRAWER Y TEMA
+// DRAWER Y TEMA
 (function(){
   const drawer = document.getElementById("menuDrawer");
   const openDrawer = () => { drawer.classList.add("open"); drawer.setAttribute("aria-hidden","false"); };
@@ -1136,7 +1220,6 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
     });
   });
 
-  // Tema Claro / Oscuro
   const lightBtn = document.getElementById("lightTheme");
   const darkBtn = document.getElementById("darkTheme");
 
@@ -1209,9 +1292,8 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
   const trigger = document.getElementById("productSelectTrigger");
   const value = document.getElementById("productSelectValue");
   const optionsBox = document.getElementById("productOptions");
-  const wrap = document.getElementById("productSelectWrap");
 
-  if(select && trigger && value && optionsBox && wrap){
+  if(select && trigger && value && optionsBox){
     Array.from(select.options).forEach((option, index) => {
       const b = document.createElement("button");
       b.type = "button";
