@@ -350,7 +350,469 @@ const fleet = {
         ]
       }
     }
-  }
+  },
+  "102": {
+    "seriesName": "Serie 102",
+    "tipoMaterial": "AVE / Alta Velocidad",
+    "anchoVia": "1435 mm",
+    "numeroRamas": 16,
+    "generalNotes": [
+      "Serie 102 de AVE con 16 ramas; cada rama está formada por un motor impar y un motor par.",
+      "Cada motor de la rama puede identificarse individualmente: introducir cualquiera de los dos números debe identificar la misma rama."
+    ],
+    "units": {
+      "1": {
+        "rama": "1",
+        "numero": "9-102-001-5",
+        "motorTipo": "impar",
+        "motorImpar": "9-102-001-5",
+        "motorPar": "9-102-002-3",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Ex-Cerro Negro."
+        ]
+      },
+      "2": {
+        "rama": "1",
+        "numero": "9-102-002-3",
+        "motorTipo": "par",
+        "motorImpar": "9-102-001-5",
+        "motorPar": "9-102-002-3",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Ex-Cerro Negro."
+        ]
+      },
+      "3": {
+        "rama": "2",
+        "numero": "9-102-003-1",
+        "motorTipo": "impar",
+        "motorImpar": "9-102-003-1",
+        "motorPar": "9-102-004-9",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Ex-Cerro Negro.",
+          "Primer vehículo con nuevos logos de Renfe AVE 20/04/22."
+        ]
+      },
+      "4": {
+        "rama": "2",
+        "numero": "9-102-004-9",
+        "motorTipo": "par",
+        "motorImpar": "9-102-003-1",
+        "motorPar": "9-102-004-9",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Ex-Cerro Negro.",
+          "Primer vehículo con nuevos logos de Renfe AVE 20/04/22."
+        ]
+      },
+      "5": {
+        "rama": "3",
+        "numero": "9-102-005-6",
+        "motorTipo": "impar",
+        "motorImpar": "9-102-005-6",
+        "motorPar": "9-102-006-4",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Accidentada en Urda al chocar con topera 13/02/04, en servicio.",
+          "Ex-Cerro Negro.",
+          "La caja accidentada está en Aranda-Chelva, preservada por ASAAT.",
+          "Vinilo Lego 07/21."
+        ]
+      },
+      "6": {
+        "rama": "3",
+        "numero": "9-102-006-4",
+        "motorTipo": "par",
+        "motorImpar": "9-102-005-6",
+        "motorPar": "9-102-006-4",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Accidentada en Urda al chocar con topera 13/02/04, en servicio.",
+          "Ex-Cerro Negro.",
+          "La caja accidentada está en Aranda-Chelva, preservada por ASAAT.",
+          "Vinilo Lego 07/21."
+        ]
+      },
+      "7": {
+        "rama": "4",
+        "numero": "9-102-007-2",
+        "motorTipo": "impar",
+        "motorImpar": "9-102-007-2",
+        "motorPar": "9-102-008-0",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Ex-Cerro Negro."
+        ]
+      },
+      "8": {
+        "rama": "4",
+        "numero": "9-102-008-0",
+        "motorTipo": "par",
+        "motorImpar": "9-102-007-2",
+        "motorPar": "9-102-008-0",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Ex-Cerro Negro."
+        ]
+      },
+      "9": {
+        "rama": "5",
+        "numero": "9-102-009-8",
+        "motorTipo": "impar",
+        "motorImpar": "9-102-009-8",
+        "motorPar": "9-102-010-6",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Ex-Cerro Negro."
+        ]
+      },
+      "10": {
+        "rama": "5",
+        "numero": "9-102-010-6",
+        "motorTipo": "par",
+        "motorImpar": "9-102-009-8",
+        "motorPar": "9-102-010-6",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Ex-Cerro Negro."
+        ]
+      },
+      "11": {
+        "rama": "6",
+        "numero": "9-102-011-4",
+        "motorTipo": "impar",
+        "motorImpar": "9-102-011-4",
+        "motorPar": "9-102-012-2",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Ex-Cerro Negro.",
+          "Tuvo vinilos APP Mapfre."
+        ]
+      },
+      "12": {
+        "rama": "6",
+        "numero": "9-102-012-2",
+        "motorTipo": "par",
+        "motorImpar": "9-102-011-4",
+        "motorPar": "9-102-012-2",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Ex-Cerro Negro.",
+          "Tuvo vinilos APP Mapfre."
+        ]
+      },
+      "13": {
+        "rama": "7",
+        "numero": "9-102-013-0",
+        "motorTipo": "impar",
+        "motorImpar": "9-102-013-0",
+        "motorPar": "9-102-014-8",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "4.º 102 en entrar en AV Valladolid, 14/12/07 hasta 13/05/08.",
+          "Vinilos «Tren del deporte Español» 04/12."
+        ]
+      },
+      "14": {
+        "rama": "7",
+        "numero": "9-102-014-8",
+        "motorTipo": "par",
+        "motorImpar": "9-102-013-0",
+        "motorPar": "9-102-014-8",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "4.º 102 en entrar en AV Valladolid, 14/12/07 hasta 13/05/08.",
+          "Vinilos «Tren del deporte Español» 04/12."
+        ]
+      },
+      "15": {
+        "rama": "8",
+        "numero": "9-102-015-5",
+        "motorTipo": "impar",
+        "motorImpar": "9-102-015-5",
+        "motorPar": "9-102-016-3",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Ex-Cerro Negro."
+        ]
+      },
+      "16": {
+        "rama": "8",
+        "numero": "9-102-016-3",
+        "motorTipo": "par",
+        "motorImpar": "9-102-015-5",
+        "motorPar": "9-102-016-3",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Ex-Cerro Negro."
+        ]
+      },
+      "17": {
+        "rama": "9",
+        "numero": "9-102-017-1",
+        "motorTipo": "impar",
+        "motorImpar": "9-102-017-1",
+        "motorPar": "9-102-018-9",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Ex-Cerro Negro.",
+          "Vinilos Expo Zaragoza 2008.",
+          "Logos 80 años Renfe (2021)."
+        ]
+      },
+      "18": {
+        "rama": "9",
+        "numero": "9-102-018-9",
+        "motorTipo": "par",
+        "motorImpar": "9-102-017-1",
+        "motorPar": "9-102-018-9",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Ex-Cerro Negro.",
+          "Vinilos Expo Zaragoza 2008.",
+          "Logos 80 años Renfe (2021)."
+        ]
+      },
+      "19": {
+        "rama": "10",
+        "numero": "9-102-019-7",
+        "motorTipo": "impar",
+        "motorImpar": "9-102-019-7",
+        "motorPar": "9-102-020-5",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Ex-Cerro Negro.",
+          "Vinilo Starlite 2024."
+        ]
+      },
+      "20": {
+        "rama": "10",
+        "numero": "9-102-020-5",
+        "motorTipo": "par",
+        "motorImpar": "9-102-019-7",
+        "motorPar": "9-102-020-5",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Ex-Cerro Negro.",
+          "Vinilo Starlite 2024."
+        ]
+      },
+      "21": {
+        "rama": "11",
+        "numero": "9-102-021-3",
+        "motorTipo": "impar",
+        "motorImpar": "9-102-021-3",
+        "motorPar": "9-102-022-1",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "2.º 102 en entrar en AV Valladolid, 02/12/07.",
+          "Tren inaugural 22/12/07.",
+          "Ex-Cerro Negro >> Fuencarral >> Málaga."
+        ]
+      },
+      "22": {
+        "rama": "11",
+        "numero": "9-102-022-1",
+        "motorTipo": "par",
+        "motorImpar": "9-102-021-3",
+        "motorPar": "9-102-022-1",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "2.º 102 en entrar en AV Valladolid, 02/12/07.",
+          "Tren inaugural 22/12/07.",
+          "Ex-Cerro Negro >> Fuencarral >> Málaga."
+        ]
+      },
+      "23": {
+        "rama": "12",
+        "numero": "9-102-023-9",
+        "motorTipo": "impar",
+        "motorImpar": "9-102-023-9",
+        "motorPar": "9-102-024-7",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Ex-Cerro Negro.",
+          "Logos 80 años Renfe (2021).",
+          "Vinilos final Copa del Rey de fútbol masculino 04/24."
+        ]
+      },
+      "24": {
+        "rama": "12",
+        "numero": "9-102-024-7",
+        "motorTipo": "par",
+        "motorImpar": "9-102-023-9",
+        "motorPar": "9-102-024-7",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Ex-Cerro Negro.",
+          "Logos 80 años Renfe (2021).",
+          "Vinilos final Copa del Rey de fútbol masculino 04/24."
+        ]
+      },
+      "25": {
+        "rama": "13",
+        "numero": "9-102-025-4",
+        "motorTipo": "impar",
+        "motorImpar": "9-102-025-4",
+        "motorPar": "9-102-026-2",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Primer 102 en entrar en AV Madrid-Valladolid 27/11/07.",
+          "Ex-Cerro Negro >> Fuencarral >> Málaga."
+        ]
+      },
+      "26": {
+        "rama": "13",
+        "numero": "9-102-026-2",
+        "motorTipo": "par",
+        "motorImpar": "9-102-025-4",
+        "motorPar": "9-102-026-2",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Primer 102 en entrar en AV Madrid-Valladolid 27/11/07.",
+          "Ex-Cerro Negro >> Fuencarral >> Málaga."
+        ]
+      },
+      "27": {
+        "rama": "14",
+        "numero": "9-102-027-0",
+        "motorTipo": "impar",
+        "motorImpar": "9-102-027-0",
+        "motorPar": "9-102-028-8",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Ex-Cerro Negro."
+        ]
+      },
+      "28": {
+        "rama": "14",
+        "numero": "9-102-028-8",
+        "motorTipo": "par",
+        "motorImpar": "9-102-027-0",
+        "motorPar": "9-102-028-8",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Ex-Cerro Negro."
+        ]
+      },
+      "29": {
+        "rama": "15",
+        "numero": "9-102-029-6",
+        "motorTipo": "impar",
+        "motorImpar": "9-102-029-6",
+        "motorPar": "9-102-030-4",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Ex-Cerro Negro >> Fuencarral.",
+          "Logos 75 años Renfe.",
+          "24/05/18: primer AVE en llegar en pruebas a Granada."
+        ]
+      },
+      "30": {
+        "rama": "15",
+        "numero": "9-102-030-4",
+        "motorTipo": "par",
+        "motorImpar": "9-102-029-6",
+        "motorPar": "9-102-030-4",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Colores Renfe Operadora.",
+          "Ex-Cerro Negro >> Fuencarral.",
+          "Logos 75 años Renfe.",
+          "24/05/18: primer AVE en llegar en pruebas a Granada."
+        ]
+      },
+      "31": {
+        "rama": "16",
+        "numero": "9-102-031-2",
+        "motorTipo": "impar",
+        "motorImpar": "9-102-031-2",
+        "motorPar": "9-102-032-0",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Fuencarral UIC.",
+          "Tercer 102 en entrar en AV Valladolid, 12/07 >> Málaga.",
+          "Vinilo final Copa del Rey de fútbol 05/23."
+        ]
+      },
+      "32": {
+        "rama": "16",
+        "numero": "9-102-032-0",
+        "motorTipo": "par",
+        "motorImpar": "9-102-031-2",
+        "motorPar": "9-102-032-0",
+        "deposito": "Málaga",
+        "ancho": "1435",
+        "notas": [
+          "Fuencarral UIC.",
+          "Tercer 102 en entrar en AV Valladolid, 12/07 >> Málaga.",
+          "Vinilo final Copa del Rey de fútbol 05/23."
+        ]
+      }
+    }
+  },
 };
 
 // Datos técnicos comunes de la serie 100. Los datos específicos de cada rama pueden sobrescribirlos.
@@ -491,6 +953,9 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Serie</span><strong>${esc(series)}</strong></div>
         <div><span>Vehículo</span><strong>${esc(vehicle)}</strong></div>
         <div><span>Rama</span><strong>${esc(unit.rama)}</strong></div>
+        <div><span>Motor introducido</span><strong>${esc(unit.motorTipo||"—")}</strong></div>
+        <div><span>Motor impar</span><strong>${esc(unit.motorImpar||"—")}</strong></div>
+        <div><span>Motor par</span><strong>${esc(unit.motorPar||"—")}</strong></div>
         <div><span>Número completo</span><strong>${esc(unit.numero||"—")}</strong></div>
         <div><span>Fabricante</span><strong>${esc(unit.fabricante||seriesData?.fabricante||"—")}</strong></div>
         <div><span>Número de coches</span><strong>${esc(unit.numeroCoches||seriesData?.numeroCoches||"—")}</strong></div>
