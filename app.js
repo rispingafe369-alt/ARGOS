@@ -356,7 +356,8 @@ function normalizeFleetValue(value){
 function getFleetUnit(series, vehicle){
   const s=normalizeFleetValue(series);
   const v=normalizeFleetValue(vehicle);
-  return fleet[s]?.[v] || null;
+  const seriesData=fleet[s];
+  return seriesData?.units?.[v] || null;
 }
 
 function getSeriesData(series){
