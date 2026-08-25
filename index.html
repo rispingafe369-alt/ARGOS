@@ -529,6 +529,16 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
   }
   #new-service .form-actions button{width:100%!important;flex:0 0 auto!important;min-height:52px!important;margin:0!important}
 }
+
+/* ===== FICHA DE MATERIAL ===== */
+.branch-box{display:none;margin:-5px 0 18px;padding:14px 16px;border:1px solid rgba(138,0,92,.22);border-radius:15px;background:var(--soft);color:var(--renfe);}
+.branch-box.visible{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.branch-box-label{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.branch-box-value{font-size:20px}
+.history-card-clickable{cursor:pointer;transition:transform .12s ease,box-shadow .12s ease,border-color .12s ease}.history-card-clickable:hover{border-color:rgba(138,0,92,.35);box-shadow:0 10px 30px rgba(30,20,30,.10)}.history-card-clickable:active{transform:scale(.99)}
+.history-open-hint{margin-top:12px;color:var(--renfe);font-size:12px;font-weight:800;text-align:right}
+.ficha-shell{width:min(900px,100%);margin:0 auto}.ficha-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:var(--shadow)}
+.ficha-hero{background:linear-gradient(135deg,var(--soft),var(--card));border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:14px}.ficha-kicker{color:var(--renfe);font-size:11px;font-weight:900;letter-spacing:.1em}.ficha-hero h3{margin:4px 0;font-size:30px}.ficha-hero p{margin:0;color:var(--muted);font-weight:700}.ficha-section{margin-top:18px}.ficha-section-title{color:var(--renfe);font-size:11px;font-weight:900;letter-spacing:.08em;margin-bottom:10px}.ficha-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.ficha-grid>div{padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--page)}.ficha-grid span{display:block;color:var(--muted);font-size:11px;margin-bottom:3px}.ficha-grid strong{font-size:14px}.ficha-notes{display:flex;flex-direction:column;gap:8px}.ficha-note{padding:12px 14px;border-radius:13px;background:var(--soft);line-height:1.4;font-size:13px}.ficha-empty{padding:24px;text-align:center;color:var(--muted);display:flex;flex-direction:column;gap:7px}.ficha-actions{display:flex;gap:10px;margin-top:14px}.ficha-actions button{flex:1}
+@media(max-width:600px){.ficha-grid{grid-template-columns:1fr}.ficha-hero h3{font-size:27px}}
 </style>
 </head>
 
@@ -616,6 +626,11 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
       <strong id="branchValue" class="branch-box-value"></strong>
     </div>
 
+    <div id="branchBox" class="branch-box" aria-live="polite">
+      <span class="branch-box-label">Rama identificada</span>
+      <strong id="branchValue" class="branch-box-value"></strong>
+    </div>
+
     <div class="form-group">
       <label for="product">Tipo de producto</label>
       <div class="product-select-wrap" id="productSelectWrap">
@@ -685,8 +700,8 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
     </div>
 
     <div class="form-actions">
-      <button class="save-button" type="submit">Guardar servicio</button>
-      <button class="cancel-button" data-back type="button">Cancelar</button>
+      <button class="save-button" type="submit">Aceptar</button>
+      <button id="viewFichaFromForm" class="cancel-button" type="button">Ver ficha</button>
     </div>
   </form>
 </section>
@@ -694,6 +709,11 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
 <section id="history" class="screen">
   <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">REGISTROS</div><h2>Historial</h2></div></div>
   <div id="historyList" class="history-list"></div>
+</section>
+
+<section id="ficha" class="screen">
+  <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">MATERIAL</div><h2>Ficha del tren</h2></div></div>
+  <div class="ficha-shell"><div id="fichaContent" class="ficha-card"></div></div>
 </section>
 
 <section id="stats" class="screen">
