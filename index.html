@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="theme-color" content="#8a005c">
 <meta name="description" content="ARGOS - Gestión de servicios ferroviarios">
 <link rel="manifest" href="manifest.webmanifest">
@@ -39,9 +39,10 @@ button{cursor:pointer}
   display:flex;
   flex-direction:column;
 }
-.app-header{flex:0 0 auto}
+.app-header{flex:0 0 auto;padding:0!important;margin:0!important}
 .brand-row{
   height:116px;
+  margin:0!important;
   background:var(--renfe);
   display:flex;
   align-items:center;
@@ -70,10 +71,14 @@ button{cursor:pointer}
 .menu-screen{
   flex:1 1 auto;
   min-height:0;
-  overflow:hidden;
+  height:auto!important;
+  overflow:hidden!important;
+  padding:0!important;
+  margin:0!important;
 }
 .argos-home{
   width:min(760px,100%);
+  max-width:100%;
   height:100%;
   margin:0 auto;
   padding:18px 22px 20px;
@@ -337,6 +342,91 @@ body.dark .drawer-backdrop{background:rgba(0,0,0,.58)}
   .home-card h2{font-size:14px}.home-card p,.latest-service-value{font-size:10px}
   .last-time-card label{font-size:9px}.last-time-select{min-height:24px;font-size:10px}
 }
+
+/* AJUSTES FINALES DE PANTALLA PRINCIPAL */
+html,body{
+  margin:0!important;
+  padding:0!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:100%!important;
+  touch-action:pan-x pan-y;
+  -ms-touch-action:pan-x pan-y;
+}
+body{
+  overflow:hidden!important;
+  -webkit-text-size-adjust:100%;
+}
+.app-shell{
+  width:100%!important;
+  max-width:none!important;
+  height:100dvh!important;
+  min-height:100dvh!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+}
+.app-header{padding:0!important;margin:0!important;border:0!important}
+.menu-screen{
+  display:flex!important;
+  flex:1 1 auto!important;
+  height:auto!important;
+  min-height:0!important;
+  padding:0!important;
+  margin:0!important;
+  overflow:hidden!important;
+}
+.argos-home{
+  width:min(760px,100%)!important;
+  height:100%!important;
+  min-height:0!important;
+  padding:18px 22px 18px!important;
+  margin:0 auto!important;
+  gap:12px!important;
+}
+.welcome-card{flex:0 0 auto!important}
+.home-list{
+  flex:1 1 auto!important;
+  min-height:0!important;
+  grid-template-rows:repeat(5,minmax(0,1fr))!important;
+  gap:10px!important;
+}
+.home-card{
+  min-height:0!important;
+  height:auto!important;
+}
+@media(max-width:600px){
+  .brand-row{height:100px!important}
+  .argos-home{padding:12px 14px 14px!important;gap:9px!important}
+  .home-list{gap:8px!important}
+  .home-card{
+    grid-template-columns:58px 1fr!important;
+    column-gap:14px!important;
+    padding:12px 15px!important;
+    border-radius:18px!important;
+  }
+  .home-icon{
+    width:58px!important;
+    height:58px!important;
+    border-radius:17px!important;
+    font-size:30px!important;
+  }
+  .home-card h2{font-size:19px!important}
+  .home-card p,.latest-service-value{font-size:13px!important}
+  .last-time-card label{font-size:12px!important}
+  .last-time-select{min-height:34px!important;font-size:13px!important}
+}
+@media(max-width:430px){
+  .brand-row{height:96px!important}
+  .renfe-main-logo{width:150px!important}
+  .header-action{width:52px!important;height:52px!important}
+  .header-action.left{left:14px!important}.header-action.right{right:14px!important}
+  .argos-home{padding:10px 12px 12px!important;gap:8px!important}
+  .home-list{gap:7px!important}
+  .home-card{grid-template-columns:56px 1fr!important;padding:10px 13px!important}
+  .home-icon{width:56px!important;height:56px!important}
+}
+
 </style>
 </head>
 
