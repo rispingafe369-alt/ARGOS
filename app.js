@@ -36,30 +36,316 @@ if($("darkTheme"))$("darkTheme").onclick=()=>applyTheme("dark");
 // Serie 100: datos aportados para ARGOS.
 const fleet = {
   "100": {
-    "101": { rama: "1" },
-    "102": { rama: "2" },
-    "103": { rama: "3" },
-    "104": { rama: "4" },
-    "105": { rama: "5" },
-    "106": { rama: "6" },
-    "107": { rama: "7" },
-    "108": { rama: "8" },
-    "109": { rama: "9" },
-    "110": { rama: "10" },
-    "111": { rama: "11" },
-    "119": { rama: "12" },
-    "113": { rama: "13" },
-    "114": { rama: "14" },
-    "115": { rama: "15" },
-    "116": { rama: "16" },
-    "117": { rama: "17" },
-    "118": { rama: "18" },
-    "112": { rama: "19" },
-    "120": { rama: "22" },
-    "121": { rama: "21" },
-    "122": { rama: "22" },
-    "123": { rama: "23" },
-    "124": { rama: "24" },
+    "seriesName": "Serie 100",
+    "subseries": "100 / 100F (ramas 15–24)",
+    "generalNotes": [
+      "Serie de automotores eléctricos de Alta Velocidad y ancho internacional, formada por dos tractoras y ocho remolques con bogie compartido.",
+      "La serie 100 alcanzó 18 composiciones; las ramas 19 a 24 proceden de seis composiciones de la serie 101 transformadas a ancho internacional e integradas entre 2009 y 2011.",
+      "Las ramas 1 a 18 fueron reformadas interiormente desde 2007 y recibieron los colores de Renfe Operadora.",
+      "La subserie 100F está formada por las ramas 15 a 24.",
+      "Las ramas 12 y 19 intercambiaron sus cabezas motrices.",
+      "Se conserva la numeración antigua y actual de las ramas para futuras fichas detalladas."
+    ],
+    "units": {
+      "101": {
+        "rama": "1",
+        "numero": "9-100-101-5",
+        "ano": 1992,
+        "deposito": "Cerro Negro",
+        "ancho": "1435",
+        "notas": [
+          "Reformada interiormente. Colores Renfe Operadora.",
+          "Ex-La Sagra."
+        ]
+      },
+      "102": {
+        "rama": "2",
+        "numero": "9-100-102-3",
+        "ano": 1992,
+        "deposito": "Cerro Negro",
+        "ancho": "1435",
+        "notas": [
+          "Récord de España de velocidad durante breve tiempo: 330 km/h en 01/92.",
+          "Reformada interiormente. Colores Renfe Operadora.",
+          "Ex-La Sagra.",
+          "Vinilos aceite de oliva 04/19."
+        ]
+      },
+      "103": {
+        "rama": "3",
+        "numero": "9-100-103-1",
+        "ano": 1992,
+        "deposito": "Cerro Negro",
+        "ancho": "1435",
+        "notas": [
+          "Reformada interiormente. Colores Renfe Operadora.",
+          "Ex-La Sagra."
+        ]
+      },
+      "104": {
+        "rama": "4",
+        "numero": "9-100-104-9",
+        "ano": 1992,
+        "deposito": "Cerro Negro",
+        "ancho": "1435",
+        "notas": [
+          "Reformada interiormente. Colores Renfe Operadora.",
+          "Ex-La Sagra.",
+          "04/08/2017: accidente con topera en estación de Alicante."
+        ]
+      },
+      "105": {
+        "rama": "5",
+        "numero": "9-100-105-6",
+        "ano": 1992,
+        "deposito": "Cerro Negro",
+        "ancho": "1435",
+        "notas": [
+          "Reformada interiormente. Colores Renfe Operadora.",
+          "Ex-La Sagra."
+        ]
+      },
+      "106": {
+        "rama": "6",
+        "numero": "9-100-106-4",
+        "ano": 1992,
+        "deposito": "Cerro Negro",
+        "ancho": "1435",
+        "notas": [
+          "Reformada interiormente. Colores Renfe Operadora.",
+          "Ex-La Sagra."
+        ]
+      },
+      "107": {
+        "rama": "7",
+        "numero": "9-100-107-2",
+        "ano": 1992,
+        "deposito": "Cerro Negro",
+        "ancho": "1435",
+        "notas": [
+          "Reformada interiormente. Colores Renfe Operadora.",
+          "Ex-La Sagra."
+        ]
+      },
+      "108": {
+        "rama": "8",
+        "numero": "9-100-108-0",
+        "ano": 1992,
+        "deposito": "Cerro Negro",
+        "ancho": "1435",
+        "notas": [
+          "Reformada interiormente. Colores Renfe Operadora.",
+          "Ex-La Sagra.",
+          "Vinilos Copa del Rey 04/25."
+        ]
+      },
+      "109": {
+        "rama": "9",
+        "numero": "9-100-109-8",
+        "ano": 1993,
+        "deposito": "Cerro Negro",
+        "ancho": "1435",
+        "notas": [
+          "Reformada interiormente. Colores Renfe Operadora.",
+          "Ex-La Sagra."
+        ]
+      },
+      "110": {
+        "rama": "10",
+        "numero": "9-100-110-6",
+        "ano": 1993,
+        "deposito": "Cerro Negro",
+        "ancho": "1435",
+        "notas": [
+          "Reformada interiormente. Colores Renfe Operadora.",
+          "Ex-La Sagra.",
+          "02/07/2014: descarrilo en Alpera.",
+          "Vinilos Movistar 07/15."
+        ]
+      },
+      "111": {
+        "rama": "11",
+        "numero": "9-100-111-4",
+        "ano": 1993,
+        "deposito": "Cerro Negro",
+        "ancho": "1435",
+        "notas": [
+          "Rama 11. Reformada interiormente. Colores Renfe Operadora.",
+          "Ex-La Sagra.",
+          "Decoración original AVE desde 20/04/2017 por los 25 años AVE.",
+          "Nombre Miguel de Cervantes.",
+          "Posteriormente recuperó colores de Renfe Operadora."
+        ]
+      },
+      "119": {
+        "rama": "12",
+        "numero": "9-100-119-7",
+        "ano": 1996,
+        "deposito": "Can Tunis",
+        "ancho": "1435",
+        "notas": [
+          "Ex-rama 101.101 (GL01) y reformada a 100.019.",
+          "En 2011, las motrices 9-100-119-7 y 9-100-219-5, originales de la rama 19, fueron instaladas en la rama 12.",
+          "Ex-Cerro Negro. Nuevos logos AVE."
+        ]
+      },
+      "113": {
+        "rama": "13",
+        "numero": "9-100-113-0",
+        "ano": 1993,
+        "deposito": "Cerro Negro",
+        "ancho": "1435",
+        "notas": [
+          "Rama 13. Reformada interiormente. Colores Renfe Operadora.",
+          "Ex-La Sagra.",
+          "Logos 75 años Renfe.",
+          "Tren inaugural 3er carril Valencia-Castellón 22/01/2018.",
+          "Nombre Juan Sebastián Elcano."
+        ]
+      },
+      "114": {
+        "rama": "14",
+        "numero": "9-100-114-8",
+        "ano": 1993,
+        "deposito": "Cerro Negro",
+        "ancho": "1435",
+        "notas": [
+          "Reformada interiormente. Colores Renfe Operadora.",
+          "Ex-La Sagra."
+        ]
+      },
+      "115": {
+        "rama": "15",
+        "numero": "9-100-115-5",
+        "ano": 1993,
+        "deposito": "Can Tunis",
+        "ancho": "1435",
+        "notas": [
+          "Reformada interiormente. Colores Renfe Operadora.",
+          "Ex-La Sagra >> Cerro Negro.",
+          "Pertenece a la subserie 100F.",
+          "Antiguo récord de España de velocidad: 356,8 km/h el 23/04/1993, pk 104 de la LAV Sevilla."
+        ]
+      },
+      "116": {
+        "rama": "16",
+        "numero": "9-100-116-3",
+        "ano": 1993,
+        "deposito": "Can Tunis",
+        "ancho": "1435",
+        "notas": [
+          "Reformada interiormente. Colores Renfe Operadora.",
+          "Ex-La Sagra >> Cerro Negro.",
+          "Pertenece a la subserie 100F."
+        ]
+      },
+      "117": {
+        "rama": "17",
+        "numero": "9-100-117-1",
+        "ano": 1996,
+        "deposito": "Can Tunis",
+        "ancho": "1435",
+        "notas": [
+          "Reformada interiormente. Colores Renfe Operadora.",
+          "Ex-La Sagra >> Cerro Negro.",
+          "Nuevos logos AVE 02/22.",
+          "Pertenece a la subserie 100F."
+        ]
+      },
+      "118": {
+        "rama": "18",
+        "numero": "9-100-118-9",
+        "ano": 1996,
+        "deposito": "Can Tunis",
+        "ancho": "1435",
+        "notas": [
+          "Reformada interiormente. Colores Renfe Operadora.",
+          "Ex-La Sagra >> Cerro Negro.",
+          "Pertenece a la subserie 100F."
+        ]
+      },
+      "112": {
+        "rama": "19",
+        "numero": "9-100-112-2",
+        "ano": 1993,
+        "deposito": "Cerro Negro",
+        "ancho": "1435",
+        "notas": [
+          "Procede de la serie 101 y se incorporó a la serie 100.",
+          "Reformada interiormente en 07/08. Colores Renfe Operadora.",
+          "En 2011 recibió las cabezas motrices originales de la rama 12; las ramas 12 y 19 intercambiaron cabezas motrices.",
+          "Pertenece a la subserie 100F."
+        ]
+      },
+      "120": {
+        "rama": "22",
+        "numero": "9-100-120-5",
+        "ano": 1996,
+        "deposito": "Can Tunis",
+        "ancho": "1435",
+        "notas": [
+          "Procede de la serie 101.102 (GL02), reformada en 2008 según placas.",
+          "Apartada por incendio 06/14. Tras el incendio, extremo 9-100-120-5 circuló en rama 22.",
+          "Circuló con motrices 100-220 y 224.",
+          "Nombre Marseille. Nuevos logos AVE 02/23.",
+          "Habilitación maquinistas Francia 2023 entre Barcelona y Lyon.",
+          "Pertenece a la subserie 100F."
+        ]
+      },
+      "121": {
+        "rama": "21",
+        "numero": "9-100-121-3",
+        "ano": 1997,
+        "deposito": "Can Tunis",
+        "ancho": "1435",
+        "notas": [
+          "Procede de la serie 101.103 (GL03).",
+          "Ex-La Sagra.",
+          "Nombre Marseille.",
+          "Pertenece a la subserie 100F."
+        ]
+      },
+      "122": {
+        "rama": "22",
+        "numero": "9-100-122-1",
+        "ano": 1997,
+        "deposito": "Can Tunis",
+        "ancho": "1435",
+        "notas": [
+          "Procede de la serie 101.104 (GL04).",
+          "Incendiado en Lunel 02/08/2015. Tras incendio, circuló con coches de la rama 20.",
+          "Circula con motrices 100-122 y 120. Con coches motores rama 20 y 24 en 02/24.",
+          "Pertenece a la subserie 100F."
+        ]
+      },
+      "123": {
+        "rama": "23",
+        "numero": "9-100-123-9",
+        "ano": 1997,
+        "deposito": "Can Tunis",
+        "ancho": "1435",
+        "notas": [
+          "Procede de la serie 101.105 (GL05).",
+          "Ex-La Sagra.",
+          "Pertenece a la subserie 100F."
+        ]
+      },
+      "124": {
+        "rama": "24",
+        "numero": "9-100-124-7",
+        "ano": 1997,
+        "deposito": "Can Tunis",
+        "ancho": "1435",
+        "notas": [
+          "Procede de la serie 101.106 (GL06). Último 101 en comenzar la reforma.",
+          "Primer AVE en salir de España, verano de 2012.",
+          "10/09/2014: colisión con una rama 736 de TGV en Marsella.",
+          "Ex-La Sagra.",
+          "Coche motor de rama 24 se instala en rama 22.",
+          "Pertenece a la subserie 100F."
+        ]
+      }
+    }
   }
 };
 
@@ -73,12 +359,20 @@ function getFleetUnit(series, vehicle){
   return fleet[s]?.[v] || null;
 }
 
+function getSeriesData(series){
+  return fleet[normalizeFleetValue(series)] || null;
+}
+
 function updateBranchBox(){
   const seriesEl=$("series"), vehicleEl=$("vehicle"), box=$("branchBox"), value=$("branchValue");
   if(!seriesEl || !vehicleEl || !box || !value) return;
   const unit=getFleetUnit(seriesEl.value, vehicleEl.value);
   if(unit){ value.textContent=`Rama ${unit.rama}`; box.classList.add("visible"); }
   else { value.textContent=""; box.classList.remove("visible"); }
+}
+
+function getCurrentFleetUnit(){
+  return getFleetUnit($("series")?.value||"",$("vehicle")?.value||"");
 }
 
 if($("series")) $("series").addEventListener("input",updateBranchBox);
@@ -139,16 +433,41 @@ function saveCurrentService(e){
 }
 if($("serviceForm"))$("serviceForm").addEventListener("submit",saveCurrentService);
 
+function fleetFichaHtml(series,vehicle,service=null){
+  const unit=getFleetUnit(series,vehicle);
+  const seriesData=getSeriesData(series);
+  if(!unit){
+    return `<div class="ficha-empty"><strong>Ficha no disponible</strong><span>No hay información de material almacenada para Serie ${esc(series||"—")} · Vehículo ${esc(vehicle||"—")}.</span></div>`;
+  }
+  const notes=unit.notas||[];
+  const serviceBlock=service?`<div class="ficha-section"><div class="ficha-section-title">SERVICIO REGISTRADO</div><div class="ficha-grid">${service.train?`<div><span>Nº de tren</span><strong>${esc(service.train)}</strong></div>`:""}<div><span>Producto</span><strong>${esc(service.product||"—")}</strong></div><div><span>Origen</span><strong>${esc(service.origin||"—")}</strong></div><div><span>Destino</span><strong>${esc(service.destination||"—")}</strong></div><div><span>Fecha</span><strong>${esc(service.date||"—")}</strong></div></div></div>`:"";
+  const notesHtml=notes.length?`<div class="ficha-section"><div class="ficha-section-title">DATOS DESTACADOS</div><div class="ficha-notes">${notes.map(n=>`<div class="ficha-note">${esc(n)}</div>`).join("")}</div></div>`:"";
+  const general=seriesData?.generalNotes||[];
+  return `<div class="ficha-hero"><div class="ficha-kicker">SERIE ${esc(series)}</div><h3>Rama ${esc(unit.rama)}</h3><p>Vehículo ${esc(vehicle)} · ${esc(unit.numero||"—")}</p></div><div class="ficha-section"><div class="ficha-section-title">IDENTIFICACIÓN</div><div class="ficha-grid"><div><span>Serie</span><strong>${esc(series)}</strong></div><div><span>Rama</span><strong>${esc(unit.rama)}</strong></div><div><span>Vehículo</span><strong>${esc(vehicle)}</strong></div><div><span>Número completo</span><strong>${esc(unit.numero||"—")}</strong></div><div><span>Año</span><strong>${esc(unit.ano||"—")}</strong></div><div><span>Depósito</span><strong>${esc(unit.deposito||"—")}</strong></div><div><span>Ancho de vía</span><strong>${esc(unit.ancho||"—")} mm</strong></div></div></div>${notesHtml}${general.length?`<div class="ficha-section"><div class="ficha-section-title">INFORMACIÓN DE LA SERIE</div><div class="ficha-notes">${general.map(n=>`<div class="ficha-note">${esc(n)}</div>`).join("")}</div></div>`:""}${serviceBlock}`;
+}
+
+function openFicha(series,vehicle,service=null){
+  if($("fichaContent")) $("fichaContent").innerHTML=fleetFichaHtml(series,vehicle,service);
+  showScreen("ficha");
+}
+
 function card(s){
   const notes=[...(s.notesEntries||[]),s.notes||""].filter(Boolean);
   const incidents=[...(s.incidentsEntries||[]),s.incidents||""].filter(Boolean);
-  return `<article class="history-card"><div class="history-top"><span class="train-number">${s.train?`Tren ${esc(s.train)}`:"Sin número de tren"}</span><span class="service-date">${esc(s.date)}</span></div><div class="route">${esc(s.origin)} → ${esc(s.destination)}</div><div class="service-meta">Serie ${esc(s.series)}${s.vehicle?" · Vehículo "+esc(s.vehicle):""}${s.product?" · "+esc(s.product):""}${s.kilometres?" · "+esc(s.kilometres)+" km":""}</div>${notes.length?`<div class="service-meta"><b>Anotaciones:</b> ${notes.map(esc).join(" · ")}</div>`:""}${incidents.length?`<div class="service-meta"><b>Incidencias:</b> ${incidents.map(esc).join(" · ")}</div>`:""}</article>`;
+  const label=s.train?`Tren ${esc(s.train)}`:"Sin número de tren";
+  return `<article class="history-card history-card-clickable" data-service-id="${esc(s.id||"")}" tabindex="0" role="button" aria-label="Ver ficha de ${label}"><div class="history-top"><span class="train-number">${label}</span><span class="service-date">${esc(s.date)}</span></div><div class="route">${esc(s.origin)} → ${esc(s.destination)}</div><div class="service-meta">Serie ${esc(s.series)}${s.vehicle?" · Vehículo "+esc(s.vehicle):""}${s.branch?" · Rama "+esc(s.branch):""}${s.product?" · "+esc(s.product):""}${s.kilometres?" · "+esc(s.kilometres)+" km":""}</div>${notes.length?`<div class="service-meta"><b>Anotaciones:</b> ${notes.map(esc).join(" · ")}</div>`:""}${incidents.length?`<div class="service-meta"><b>Incidencias:</b> ${incidents.map(esc).join(" · ")}</div>`:""}<div class="history-open-hint">Toca para ver ficha ›</div></article>`;
 }
 function renderHistory(){
   const list=$("historyList");if(!list)return;
   const a=services().slice().reverse();
   list.innerHTML=a.length?a.map(card).join(""):"<div class=\"empty\">Todavía no hay servicios registrados.</div>";
+  list.querySelectorAll("[data-service-id]").forEach(el=>{
+    const open=()=>{const service=services().find(s=>s.id===el.dataset.serviceId);if(service)openFicha(service.series,service.vehicle,service)};
+    el.addEventListener("click",open);
+    el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}});
+  });
 }
+
 function renderStats(){
   const a=services();
   if($("statServices"))$("statServices").textContent=a.length;
@@ -171,5 +490,12 @@ function toast(t){
   e.textContent=t;e.classList.add("show");clearTimeout(window.__argosToast);window.__argosToast=setTimeout(()=>e.classList.remove("show"),1800);
 }
 window.renderHistory=renderHistory;window.renderStats=renderStats;window.refreshHome=refreshHome;window.toast=toast;
+if($("viewFichaFromForm")) $("viewFichaFromForm").addEventListener("click",()=>{
+  const series=$("series")?.value.trim()||"", vehicle=$("vehicle")?.value.trim()||"";
+  if(!series||!vehicle){toast("Introduce serie y vehículo para ver la ficha");return;}
+  openFicha(series,vehicle,null);
+});
+
+
 
 document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();renderStats()});
