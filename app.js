@@ -467,9 +467,8 @@ function fleetFichaHtml(series,vehicle,service=null){
     return `<div class="ficha-empty"><strong>Ficha no disponible</strong><span>No hay información de material almacenada para Serie ${esc(series||"—")} · Vehículo ${esc(vehicle||"—")}.</span></div>`;
   }
 
-  // Solo mostramos en la ficha los acontecimientos realmente destacados.
-  const importantKeywords=/récord|record|accidente|accident|descarril|incendi|incendio|intercamb|motriz|colisión|colision|primer ave|primer|inaugural|nombre |decoración|decoracion|vinilos|internacional|francia|marsella|hito|logro|habilitación|habilitacion/i;
-  const notes=(unit.notas||[]).filter(n=>importantKeywords.test(n));
+  // Toda la información específica aportada para la rama forma parte de su ficha.
+  const notes=unit.notas||[];
 
   // 1) Datos del servicio registrado.
   const serviceBlock=service?`
@@ -522,8 +521,10 @@ function fleetFichaHtml(series,vehicle,service=null){
       <div class="ficha-notes">${general.map(n=>`<div class="ficha-note">${esc(n)}</div>`).join("")}</div>
     </div>`:"";
 
-  return `${serviceBlock}
-    <div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>Serie ${esc(series)} · Rama ${esc(unit.rama)}</h3><p>Vehículo ${esc(vehicle)} · ${esc(unit.numero||"—")}</p></div>
+  const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>Serie ${esc(series)} · Rama ${esc(unit.rama)}</h3><p>Vehículo ${esc(vehicle)} · ${esc(unit.numero||"—")}</p></div>`;
+
+  return `${hero}
+    ${serviceBlock}
     ${identification}
     ${highlights}
     ${generalBlock}`;
