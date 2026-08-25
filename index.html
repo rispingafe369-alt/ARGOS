@@ -22,7 +22,7 @@
   --shadow:0 8px 28px rgba(30,20,30,.07);
 }
 *{box-sizing:border-box}
-html,body{width:100%;height:100%;margin:0}
+html,body{width:100%;height:100%;margin:0;padding:0}
 body{
   background:var(--page);
   color:var(--ink);
@@ -41,33 +41,34 @@ button{cursor:pointer}
 }
 .app-header{flex:0 0 auto;padding:0!important;margin:0!important}
 .brand-row{
-  height:116px;
+  height:90px;
   margin:0!important;
   background:var(--renfe);
   display:flex;
   align-items:center;
   justify-content:center;
   position:relative;
-  border-radius:0 0 26px 26px;
+  border-radius:0 0 22px 22px;
   box-shadow:0 5px 18px rgba(138,0,92,.18);
 }
-.renfe-main-logo{width:175px;height:auto;display:block}
+.renfe-main-logo{width:150px;height:auto;display:block}
 .header-action{
   position:absolute;
   top:50%;
   transform:translateY(-50%);
-  width:58px;height:58px;
+  width:48px;height:48px;
   border:2px solid rgba(255,255,255,.36);
-  border-radius:18px;
+  border-radius:16px;
   background:transparent;
   color:#fff;
   display:flex;
   align-items:center;
   justify-content:center;
 }
-.header-action.left{left:20px}
-.header-action.right{right:20px}
-.header-dots{font-size:36px;line-height:1;padding-bottom:10px}
+.header-action.left{left:16px}
+.header-action.right{right:16px}
+.header-dots{font-size:30px;line-height:1;padding-bottom:6px}
+
 .menu-screen{
   flex:1 1 auto;
   min-height:0;
@@ -81,17 +82,19 @@ button{cursor:pointer}
   max-width:100%;
   height:100%;
   margin:0 auto;
-  padding:18px 22px 20px;
+  padding:16px 18px 20px;
   display:flex;
   flex-direction:column;
   gap:12px;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
 }
 .welcome-card{
   flex:0 0 auto;
   background:linear-gradient(135deg,#fff 0%,#fbf0f6 100%);
   border:1px solid var(--line);
-  border-radius:24px;
-  padding:18px 24px;
+  border-radius:20px;
+  padding:16px 20px;
   box-shadow:var(--shadow);
 }
 .welcome-pill{
@@ -99,105 +102,111 @@ button{cursor:pointer}
   background:var(--soft);
   color:var(--renfe-dark);
   border-radius:999px;
-  padding:5px 12px;
-  font-size:13px;
+  padding:4px 10px;
+  font-size:12px;
   font-weight:800;
-  margin-bottom:8px;
+  margin-bottom:6px;
 }
 .welcome-card h1{
   margin:0 0 4px;
-  font-size:30px;
-  line-height:1.05;
-  letter-spacing:-.03em;
+  font-size:24px;
+  line-height:1.1;
+  letter-spacing:-.02em;
 }
 .welcome-card p{
   margin:0;
   color:var(--muted);
-  font-size:15px;
-  line-height:1.25;
+  font-size:13px;
+  line-height:1.3;
 }
 .home-list{
   min-height:0;
   flex:1 1 auto;
-  display:grid;
-  grid-template-rows:repeat(5,minmax(0,1fr));
+  display:flex;
+  flex-direction:column;
   gap:10px;
 }
 .home-card{
   width:100%;
-  min-height:0;
+  min-height:72px;
   border:1px solid var(--line);
-  border-radius:21px;
+  border-radius:18px;
   background:var(--card);
   color:var(--ink);
   box-shadow:var(--shadow);
-  padding:13px 18px;
+  padding:12px 16px;
   text-align:left;
   display:grid;
-  grid-template-columns:54px 1fr;
-  grid-template-rows:auto 1fr;
-  column-gap:15px;
+  grid-template-columns:48px 1fr;
+  column-gap:14px;
   align-items:center;
-  overflow:hidden;
   transition:transform .12s ease,box-shadow .12s ease;
 }
 .home-card:active{transform:scale(.99)}
 .home-card.primary{background:var(--renfe);color:#fff;border-color:transparent}
 .home-icon{
-  grid-row:1 / span 2;
-  width:54px;height:54px;
-  border-radius:17px;
+  width:48px;height:48px;
+  border-radius:14px;
   background:var(--soft);
   color:var(--renfe);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:29px;
+  font-size:24px;
   line-height:1;
 }
 .primary .home-icon{background:rgba(255,255,255,.16);color:#fff}
 .home-card h2{
   margin:0;
-  font-size:19px;
-  line-height:1.05;
-  letter-spacing:-.02em;
+  font-size:16px;
+  line-height:1.1;
+  letter-spacing:-.01em;
+  font-weight:700;
 }
 .home-card p{
   margin:3px 0 0;
   color:var(--muted);
-  font-size:13px;
+  font-size:12px;
   line-height:1.2;
 }
-.primary p{color:rgba(255,255,255,.82)}
+.primary p{color:rgba(255,255,255,.85)}
 .latest-service-value{
   display:block;
   color:var(--muted);
-  font-size:13px;
+  font-size:12px;
   line-height:1.2;
   margin-top:3px;
   overflow:hidden;
   text-overflow:ellipsis;
+  white-space:nowrap;
 }
 .last-time-card{
   cursor:default;
-  grid-template-rows:auto auto;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.last-time-card > span:last-child{
+  flex:1;
+  min-width:0;
 }
 .last-time-card label{
   display:block;
   color:var(--muted);
-  font-size:12px;
-  margin:3px 0 5px;
+  font-size:11px;
+  margin:2px 0 4px;
 }
 .last-time-select{
   width:100%;
-  min-height:32px;
+  min-height:34px;
   border:1px solid var(--line);
-  border-radius:11px;
+  border-radius:10px;
   background:#fff;
   color:var(--ink);
-  font-size:13px;
-  padding:0 10px;
+  font-size:12px;
+  padding:0 8px;
 }
+
 .screen:not(#menu){overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 .argos-footer{display:none!important}
 
@@ -255,7 +264,6 @@ button{cursor:pointer}
 /* Pantallas secundarias */
 .screen{display:none;flex:1 1 auto;min-height:0;padding:24px;overflow:auto}
 .screen.active{display:block}
-/* Una sola pantalla visible: evita que el menú quede debajo de las pantallas internas. */
 .app-shell > .screen{position:relative;z-index:1}
 .app-shell > .screen:not(.active){display:none!important}
 .app-shell > .menu-screen.active{display:flex!important}
@@ -318,166 +326,24 @@ body.dark .welcome-card{background:linear-gradient(135deg,#242126 0%,#30212b 100
 body.dark .last-time-select{background:var(--card);color:#fff}
 body.dark .drawer-backdrop{background:rgba(0,0,0,.58)}
 
-@media(max-width:600px){
-  .brand-row{height:100px;border-radius:0 0 22px 22px}
-  .renfe-main-logo{width:150px}
-  .header-action{width:52px;height:52px;border-radius:16px}
-  .header-action.left{left:14px}.header-action.right{right:14px}
-  .header-dots{font-size:32px}
-  .argos-home{padding:11px 14px 12px;gap:8px}
-  .welcome-card{padding:13px 16px;border-radius:19px}
-  .welcome-pill{font-size:10px;padding:4px 9px;margin-bottom:5px}
-  .welcome-card h1{font-size:22px}
-  .welcome-card p{font-size:12px}
-  .home-list{gap:7px}
-  .home-card{grid-template-columns:45px 1fr;column-gap:11px;padding:9px 12px;border-radius:17px}
-  .home-icon{width:45px;height:45px;border-radius:14px;font-size:25px}
-  .home-card h2{font-size:16px}
-  .home-card p,.latest-service-value{font-size:11px}
-  .last-time-card label{font-size:10px}.last-time-select{min-height:27px;font-size:11px;border-radius:9px}
-}
-@media(max-height:700px) and (max-width:600px){
-  .brand-row{height:82px}
-  .renfe-main-logo{width:125px}
-  .header-action{width:44px;height:44px}
-  .argos-home{padding:8px 12px;gap:6px}
-  .welcome-card{padding:9px 13px}
-  .welcome-pill{display:none}
-  .welcome-card h1{font-size:19px}.welcome-card p{font-size:10px}
-  .home-list{gap:5px}
-  .home-card{padding:7px 10px}.home-icon{width:39px;height:39px}
-  .home-card h2{font-size:14px}.home-card p,.latest-service-value{font-size:10px}
-  .last-time-card label{font-size:9px}.last-time-select{min-height:24px;font-size:10px}
-}
-
-/* AJUSTES FINALES DE PANTALLA PRINCIPAL */
-html,body{
-  margin:0!important;
-  padding:0!important;
-  width:100%!important;
-  height:100%!important;
-  min-height:100%!important;
-  touch-action:pan-x pan-y;
-  -ms-touch-action:pan-x pan-y;
-}
-body{
-  overflow:hidden!important;
-  -webkit-text-size-adjust:100%;
-}
-.app-shell{
-  width:100%!important;
-  max-width:none!important;
-  height:100dvh!important;
-  min-height:100dvh!important;
-  margin:0!important;
-  padding:0!important;
-  overflow:hidden!important;
-}
-.app-header{padding:0!important;margin:0!important;border:0!important}
-.menu-screen{
-  flex:1 1 auto!important;
-  height:auto!important;
-  min-height:0!important;
-  padding:0!important;
-  margin:0!important;
-  overflow:hidden!important;
-}
-.menu-screen.active{display:flex!important}
-.menu-screen:not(.active){display:none!important}
-.argos-home{
-  width:min(760px,100%)!important;
-  height:100%!important;
-  min-height:0!important;
-  padding:18px 22px 18px!important;
-  margin:0 auto!important;
-  gap:12px!important;
-}
-.welcome-card{flex:0 0 auto!important}
-.home-list{
-  flex:1 1 auto!important;
-  min-height:0!important;
-  grid-template-rows:repeat(5,minmax(0,1fr))!important;
-  gap:10px!important;
-}
-.home-card{
-  min-height:0!important;
-  height:auto!important;
-}
-@media(max-width:600px){
-  .brand-row{height:100px!important}
-  .argos-home{padding:12px 14px 14px!important;gap:9px!important}
-  .home-list{gap:8px!important}
-  .home-card{
-    grid-template-columns:58px 1fr!important;
-    column-gap:14px!important;
-    padding:12px 15px!important;
-    border-radius:18px!important;
-  }
-  .home-icon{
-    width:58px!important;
-    height:58px!important;
-    border-radius:17px!important;
-    font-size:30px!important;
-  }
-  .home-card h2{font-size:19px!important}
-  .home-card p,.latest-service-value{font-size:13px!important}
-  .last-time-card label{font-size:12px!important}
-  .last-time-select{min-height:34px!important;font-size:13px!important}
-}
-@media(max-width:430px){
-  .brand-row{height:96px!important}
-  .renfe-main-logo{width:150px!important}
-  .header-action{width:52px!important;height:52px!important}
-  .header-action.left{left:14px!important}.header-action.right{right:14px!important}
-  .argos-home{padding:10px 12px 12px!important;gap:8px!important}
-  .home-list{gap:7px!important}
-  .home-card{grid-template-columns:56px 1fr!important;padding:10px 13px!important}
-  .home-icon{width:56px!important;height:56px!important}
-}
-
-/* ===== AJUSTE ESCRITORIO ARGOS ===== */
-/* Solo afecta a pantallas de 601px o más. La versión móvil queda intacta. */
+/* ===== AJUSTES ESCRITORIO ===== */
 @media(min-width:601px){
-
-  /* Al cambiar de pantalla, el menú principal desaparece correctamente. */
-  .menu-screen:not(.active){
-    display:none!important;
-  }
-  .menu-screen.active{
-    display:flex!important;
-  }
-
-  /* Pantalla principal más cómoda en ordenador. */
   .argos-home{
     width:min(1040px,100%)!important;
     padding:28px 34px 30px!important;
     gap:16px!important;
   }
-
   .welcome-card{
     padding:22px 28px!important;
     border-radius:24px!important;
   }
-
-  .welcome-pill{
-    font-size:13px!important;
-    padding:6px 13px!important;
-    margin-bottom:8px!important;
-  }
-
-  .welcome-card h1{
-    font-size:34px!important;
-  }
-
-  .welcome-card p{
-    font-size:16px!important;
-  }
-
+  .welcome-card h1{font-size:32px!important}
+  .welcome-card p{font-size:15px!important}
   .home-list{
-    gap:12px!important;
+    display:grid!important;
     grid-template-rows:repeat(5,minmax(0,1fr))!important;
+    gap:12px!important;
   }
-
   .home-card{
     min-height:0!important;
     padding:16px 22px!important;
@@ -485,137 +351,24 @@ body{
     grid-template-columns:62px 1fr!important;
     column-gap:17px!important;
   }
-
   .home-icon{
     width:62px!important;
     height:62px!important;
     border-radius:18px!important;
     font-size:32px!important;
   }
-
-  .home-card h2{
-    font-size:21px!important;
-  }
-
-  .home-card p,
-  .latest-service-value{
-    font-size:14px!important;
-  }
-
-  .last-time-card label{
-    font-size:13px!important;
-  }
-
-  .last-time-select{
-    min-height:36px!important;
-    font-size:14px!important;
-  }
-
-  /* Las pantallas internas ocupan todo el espacio disponible y se pueden usar
-     con normalidad en ordenador. */
-  .screen:not(#menu){
-    overflow-y:auto!important;
-    padding:30px 36px!important;
-  }
-
-  .screen-header,
-  .service-form,
-  .history-list,
-  .stats-grid,
-  .settings-list{
-    width:min(980px,100%)!important;
-  }
-
-  .screen-header{
-    margin-bottom:26px!important;
-  }
-
-  .screen-header h2{
-    font-size:36px!important;
-  }
+  .home-card h2{font-size:20px!important}
+  .home-card p, .latest-service-value{font-size:14px!important}
+  .last-time-card label{font-size:13px!important}
+  .last-time-select{min-height:36px!important;font-size:14px!important}
 }
-
-/* En pantallas de escritorio especialmente bajas, reducimos ligeramente
-   las dimensiones para que todo el menú siga entrando sin scroll. */
-@media(min-width:601px) and (max-height:780px){
-  .argos-home{
-    padding:18px 30px 20px!important;
-    gap:10px!important;
-  }
-
-  .welcome-card{
-    padding:16px 24px!important;
-  }
-
-  .welcome-card h1{
-    font-size:30px!important;
-  }
-
-  .welcome-card p{
-    font-size:14px!important;
-  }
-
-  .home-list{
-    gap:8px!important;
-  }
-
-  .home-card{
-    padding:10px 18px!important;
-    grid-template-columns:54px 1fr!important;
-    column-gap:15px!important;
-  }
-
-  .home-icon{
-    width:54px!important;
-    height:54px!important;
-    border-radius:16px!important;
-    font-size:29px!important;
-  }
-
-  .home-card h2{
-    font-size:19px!important;
-  }
-
-  .home-card p,
-  .latest-service-value{
-    font-size:13px!important;
-  }
-
-  .last-time-card label{
-    font-size:12px!important;
-  }
-
-  .last-time-select{
-    min-height:32px!important;
-    font-size:13px!important;
-  }
-}
-
 
 /* ===== DISEÑO AÑADIR SERVICIO ===== */
-#new-service{
-  padding-bottom:50px!important;
-}
-
-#new-service .service-form{
-  padding-bottom:30px;
-}
-
-#new-service .form-row{
-  grid-template-columns:1fr!important;
-  gap:0!important;
-}
-
-#new-service .form-group{
-  margin-bottom:18px;
-}
-
-#new-service .form-group label{
-  color:var(--ink);
-  font-size:14px;
-  margin-bottom:8px;
-}
-
+#new-service{padding-bottom:50px!important}
+#new-service .service-form{padding-bottom:30px}
+#new-service .form-row{grid-template-columns:1fr!important;gap:0!important}
+#new-service .form-group{margin-bottom:18px}
+#new-service .form-group label{color:var(--ink);font-size:14px;margin-bottom:8px}
 #new-service .form-group input,
 #new-service .form-group textarea,
 #new-service .form-group select{
@@ -627,25 +380,9 @@ body{
   padding:14px 15px;
   box-shadow:0 3px 12px rgba(30,20,30,.035);
 }
+#new-service .form-group textarea{min-height:104px;resize:vertical}
 
-#new-service .form-group textarea{
-  min-height:104px;
-  resize:vertical;
-}
-
-#new-service .form-group select{
-  appearance:none;
-  -webkit-appearance:none;
-  padding-right:46px;
-  background-image:linear-gradient(45deg,transparent 50%,var(--renfe) 50%),linear-gradient(135deg,var(--renfe) 50%,transparent 50%);
-  background-position:calc(100% - 21px) 22px,calc(100% - 15px) 22px;
-  background-size:6px 6px,6px 6px;
-  background-repeat:no-repeat;
-}
-#new-service .product-select-wrap{
-  position:relative;
-  z-index:10;
-}
+#new-service .product-select-wrap{position:relative;z-index:10}
 #new-service .product-select-native{
   position:absolute!important;width:1px!important;height:1px!important;
   padding:0!important;margin:-1px!important;overflow:hidden!important;
@@ -664,12 +401,8 @@ body{
   border-right:2px solid var(--renfe);border-bottom:2px solid var(--renfe);
   transform:translateY(-65%) rotate(45deg);transition:transform .18s ease;
 }
-#new-service .product-select-trigger.open{
-  border-color:var(--renfe);box-shadow:0 0 0 3px rgba(138,0,92,.10);
-}
-#new-service .product-select-trigger.open::after{
-  transform:translateY(-25%) rotate(225deg);
-}
+#new-service .product-select-trigger.open{border-color:var(--renfe);box-shadow:0 0 0 3px rgba(138,0,92,.10)}
+#new-service .product-select-trigger.open::after{transform:translateY(-25%) rotate(225deg)}
 #new-service .product-select-placeholder{color:var(--muted)}
 #new-service .product-options{
   position:absolute;z-index:60;left:0;right:0;top:calc(100% + 7px);
@@ -684,16 +417,10 @@ body{
   color:var(--ink);padding:10px 12px;text-align:left;font-size:15px;font-weight:650;
   display:flex;align-items:center;justify-content:space-between;gap:12px;
 }
-#new-service .product-option:hover,
-#new-service .product-option:focus-visible{
-  background:var(--soft);color:var(--renfe);outline:none;
-}
-#new-service .product-option.selected{
-  background:var(--soft);color:var(--renfe);font-weight:800;
-}
+#new-service .product-option:hover,#new-service .product-option:focus-visible{background:var(--soft);color:var(--renfe);outline:none}
+#new-service .product-option.selected{background:var(--soft);color:var(--renfe);font-weight:800}
 #new-service .product-option.selected::after{content:"✓";font-weight:900}
 body.dark #new-service .product-options{box-shadow:0 14px 36px rgba(0,0,0,.45)}
-
 
 #new-service .form-section-title{
   margin:28px 0 13px;
@@ -701,215 +428,51 @@ body.dark #new-service .product-options{box-shadow:0 14px 36px rgba(0,0,0,.45)}
   border-bottom:1px solid var(--line);
   font-size:12px;
 }
-
-#new-service .label-line{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom:8px;
-}
-
-#new-service .label-line label{
-  margin-bottom:0;
-}
-
-#new-service .field-hint{
-  color:var(--muted);
-  font-size:12px;
-  font-weight:600;
-}
-
+#new-service .label-line{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+#new-service .label-line label{margin-bottom:0}
+#new-service .field-hint{color:var(--muted);font-size:12px;font-weight:600}
 #new-service .check-option{
-  display:flex!important;
-  align-items:center;
-  gap:7px;
-  color:var(--renfe)!important;
-  font-size:12px!important;
-  font-weight:800!important;
-  white-space:nowrap;
+  display:flex!important;align-items:center;gap:7px;
+  color:var(--renfe)!important;font-size:12px!important;font-weight:800!important;white-space:nowrap;
 }
-
 #new-service .check-option input{
-  width:18px!important;
-  min-height:18px!important;
-  height:18px!important;
-  padding:0!important;
-  margin:0;
-  accent-color:var(--renfe);
-  box-shadow:none!important;
+  width:18px!important;min-height:18px!important;height:18px!important;
+  padding:0!important;margin:0;accent-color:var(--renfe);box-shadow:none!important;
 }
-
-#new-service .date-picker-wrap{
-  position:relative;
-}
-
-#new-service input[type="date"]{
-  color-scheme:light;
-}
-
-body.dark #new-service input[type="date"]{
-  color-scheme:dark;
-}
-
-#new-service .repeatable-group{
-  margin-bottom:24px;
-}
-
+#new-service .date-picker-wrap{position:relative}
+#new-service input[type="date"]{color-scheme:light}
+body.dark #new-service input[type="date"]{color-scheme:dark}
+#new-service .repeatable-group{margin-bottom:24px}
 #new-service .add-entry-button{
-  border:0;
-  border-radius:13px;
-  background:var(--soft);
-  color:var(--renfe);
-  padding:11px 15px;
-  font-weight:800;
-  font-size:14px;
-  margin-top:-5px;
+  border:0;border-radius:13px;background:var(--soft);color:var(--renfe);
+  padding:11px 15px;font-weight:800;font-size:14px;margin-top:-5px;
 }
-
-#new-service .entries-list{
-  display:flex;
-  flex-direction:column;
-  gap:9px;
-  margin-top:12px;
-}
-
+#new-service .entries-list{display:flex;flex-direction:column;gap:9px;margin-top:12px}
 #new-service .entry-chip{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:12px;
-  padding:13px 14px;
-  border:1px solid var(--line);
-  border-radius:14px;
-  background:var(--soft);
-  color:var(--ink);
-  font-size:14px;
-  line-height:1.35;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+  padding:13px 14px;border:1px solid var(--line);border-radius:14px;
+  background:var(--soft);color:var(--ink);font-size:14px;line-height:1.35;
 }
-
 #new-service .entry-remove{
-  flex:0 0 auto;
-  width:30px;
-  height:30px;
-  border:0;
-  border-radius:9px;
-  background:var(--card);
-  color:var(--renfe);
-  font-weight:900;
+  flex:0 0 auto;width:30px;height:30px;border:0;border-radius:99px;
+  background:var(--card);color:var(--renfe);font-weight:900;
 }
 
 @media(max-width:600px){
-  #new-service{
-    padding:20px 14px 45px!important;
-  }
-
-  #new-service .screen-header{
-    margin-bottom:18px;
-  }
-
-  #new-service .screen-header h2{
-    font-size:27px;
-  }
-
-  #new-service .form-group{
-    margin-bottom:15px;
-  }
-
+  #new-service{padding:20px 14px 45px!important}
+  #new-service .screen-header{margin-bottom:18px}
+  #new-service .screen-header h2{font-size:27px}
+  #new-service .form-group{margin-bottom:15px}
   #new-service .form-group input,
   #new-service .form-group textarea,
-  #new-service .form-group select{
-    min-height:50px;
-    border-radius:14px;
-    font-size:16px;
-  }
-  #new-service .product-select-trigger{
-    min-height:50px;border-radius:14px;font-size:16px;
-  }
+  #new-service .form-group select{min-height:50px;border-radius:14px;font-size:16px}
+  #new-service .product-select-trigger{min-height:50px;border-radius:14px;font-size:16px}
   #new-service .product-options{max-height:min(52vh,360px);border-radius:16px}
   #new-service .product-option{min-height:48px;font-size:16px;padding:11px 12px}
-
-
-  #new-service .form-group textarea{
-    min-height:96px;
-  }
-
-  #new-service .field-hint{
-    font-size:10px;
-  }
-
-  #new-service .check-option{
-    font-size:11px!important;
-  }
-
-  #new-service .form-section-title{
-    margin-top:24px;
-  }
-
-  #new-service .form-actions{
-    position:sticky;
-    bottom:0;
-    padding:12px 0 calc(8px + env(safe-area-inset-bottom));
-    background:linear-gradient(transparent,var(--page) 25%);
-  }
-}
-
-@media(min-width:601px){
-  #new-service{
-    padding:30px 36px 50px!important;
-  }
-
-  #new-service .service-form{
-    width:min(720px,100%)!important;
-  }
-
-  #new-service .screen-header{
-    width:min(720px,100%)!important;
-  }
-}
-
-
-/* ===== AÑADIR SERVICIO · MÓVIL ===== */
-@media(max-width:600px){
-  /* Una sola pantalla visible. La pantalla activa ocupa el área disponible. */
-  .app-shell > .screen:not(.active){display:none!important;}
-  .app-shell > .screen.active{display:block!important;position:relative!important;z-index:2!important;}
-  #menu.active{display:flex!important;z-index:1!important;}
-
-  /* Solo el formulario hace scroll. */
-  #new-service{
-    position:relative!important;
-    display:flex!important;
-    flex-direction:column!important;
-    height:100%!important;
-    min-height:0!important;
-    overflow:hidden!important;
-    box-sizing:border-box!important;
-    padding:14px 14px 0!important;
-  }
-
-  #new-service .screen-header{
-    flex:0 0 auto!important;
-    position:relative!important;
-    z-index:5!important;
-    margin-bottom:18px!important;
-  }
-
-  #new-service .service-form{
-    flex:1 1 auto!important;
-    min-height:0!important;
-    height:auto!important;
-    width:100%!important;
-    margin:0 auto!important;
-    padding:0 0 24px!important;
-    overflow-y:auto!important;
-    overflow-x:hidden!important;
-    -webkit-overflow-scrolling:touch!important;
-    overscroll-behavior:contain!important;
-    box-sizing:border-box!important;
-  }
-
-  /* Los botones NO son flotantes ni sticky: están al final real del formulario. */
+  #new-service .form-group textarea{min-height:96px}
+  #new-service .field-hint{font-size:10px}
+  #new-service .check-option{font-size:11px!important}
+  #new-service .form-section-title{margin-top:24px}
   #new-service .form-actions{
     position:static!important;
     display:flex!important;
@@ -919,27 +482,9 @@ body.dark #new-service input[type="date"]{
     margin:18px 0 0!important;
     padding:0!important;
     background:transparent!important;
-    border:0!important;
-    box-shadow:none!important;
-    backdrop-filter:none!important;
-    -webkit-backdrop-filter:none!important;
   }
-
-  #new-service .form-actions button{
-    width:100%!important;
-    flex:0 0 auto!important;
-    min-height:52px!important;
-    margin:0!important;
-  }
+  #new-service .form-actions button{width:100%!important;flex:0 0 auto!important;min-height:52px!important;margin:0!important}
 }
-
-/* ===== NAVEGACIÓN ROBUSTA ENTRE PANTALLAS ===== */
-@media(min-width:601px){
-  .app-shell > .screen:not(.active){display:none!important;}
-  .app-shell > .screen.active{display:block!important;}
-  .app-shell > .menu-screen.active{display:flex!important;}
-}
-
 </style>
 </head>
 
@@ -1151,7 +696,6 @@ body.dark #new-service input[type="date"]{
 <script src="app.js"></script>
 
 <script>
-/* Refuerzo de navegación: una sola pantalla visible cada vez. */
 (function(){
   window.showScreen=function(id){
     var screens=document.querySelectorAll(".app-shell > .screen");
@@ -1390,11 +934,7 @@ body.dark #new-service input[type="date"]{
 })();
 </script>
 
-
 <script>
-/* ===== NAVEGACIÓN FINAL ESTABLE =====
-   No usa MutationObserver: observar y modificar class/style a la vez provocaba
-   un bucle de mutaciones que podía congelar el navegador. */
 (function(){
   function setActiveScreen(id){
     var screens=document.querySelectorAll(".app-shell > .screen");
