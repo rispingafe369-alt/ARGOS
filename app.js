@@ -32,6 +32,58 @@ applyTheme(localStorage.getItem(THEME_KEY)||"light");
 if($("lightTheme"))$("lightTheme").onclick=()=>applyTheme("light");
 if($("darkTheme"))$("darkTheme").onclick=()=>applyTheme("dark");
 
+// ===== BASE DE MATERIAL ARGOS =====
+// Serie 100: datos aportados para ARGOS.
+const fleet = {
+  "100": {
+    "101": { rama: "1" },
+    "102": { rama: "2" },
+    "103": { rama: "3" },
+    "104": { rama: "4" },
+    "105": { rama: "5" },
+    "106": { rama: "6" },
+    "107": { rama: "7" },
+    "108": { rama: "8" },
+    "109": { rama: "9" },
+    "110": { rama: "10" },
+    "111": { rama: "11" },
+    "119": { rama: "12" },
+    "113": { rama: "13" },
+    "114": { rama: "14" },
+    "115": { rama: "15" },
+    "116": { rama: "16" },
+    "117": { rama: "17" },
+    "118": { rama: "18" },
+    "112": { rama: "19" },
+    "120": { rama: "22" },
+    "121": { rama: "21" },
+    "122": { rama: "22" },
+    "123": { rama: "23" },
+    "124": { rama: "24" },
+  }
+};
+
+function normalizeFleetValue(value){
+  return String(value ?? "").trim().replace(/\D/g,"").replace(/^0+/,"") || "";
+}
+
+function getFleetUnit(series, vehicle){
+  const s=normalizeFleetValue(series);
+  const v=normalizeFleetValue(vehicle);
+  return fleet[s]?.[v] || null;
+}
+
+function updateBranchBox(){
+  const seriesEl=$("series"), vehicleEl=$("vehicle"), box=$("branchBox"), value=$("branchValue");
+  if(!seriesEl || !vehicleEl || !box || !value) return;
+  const unit=getFleetUnit(seriesEl.value, vehicleEl.value);
+  if(unit){ value.textContent=`Rama ${unit.rama}`; box.classList.add("visible"); }
+  else { value.textContent=""; box.classList.remove("visible"); }
+}
+
+if($("series")) $("series").addEventListener("input",updateBranchBox);
+if($("vehicle")) $("vehicle").addEventListener("input",updateBranchBox);
+
 function autocomplete(inputId,listId){
   const input=$(inputId),list=$(listId); if(!input||!list)return;
   const render=()=>{
@@ -64,6 +116,7 @@ function saveCurrentService(e){
     train:$("train")?.value.trim()||"",
     series:$("series")?.value.trim()||"",
     vehicle:$("vehicle")?.value.trim()||"",
+    branch:getFleetUnit($("series")?.value||"", $("vehicle")?.value||"")?.rama||"",
     product:$("product")?.value||"",
     origin:$("origin")?.value.trim()||"",
     destination:$("destination")?.value.trim()||"",
@@ -82,7 +135,7 @@ function saveCurrentService(e){
   if($("date"))$("date").valueAsDate=new Date();
   if($("product"))$("product").selectedIndex=0;
   if($("productSelectValue")){ $("productSelectValue").textContent="Selecciona un producto";$("productSelectValue").classList.add("product-select-placeholder"); }
-  refreshHome();renderHistory();renderStats();toast("Servicio guardado");showScreen("menu");
+  refreshHome();renderHistory();renderStats();updateBranchBox();toast("Servicio guardado");showScreen("menu");
 }
 if($("serviceForm"))$("serviceForm").addEventListener("submit",saveCurrentService);
 
