@@ -2,8 +2,24 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#85005b">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="theme-color"
+        content="#8a005c"
+    >
+
+    <meta
+        name="description"
+        content="ARGOS - Gestión de servicios ferroviarios"
+    >
+
+    <link rel="manifest" href="manifest.webmanifest">
+
     <title>ARGOS · Renfe Operaciones</title>
 
     <link rel="stylesheet" href="style.css">
@@ -11,32 +27,41 @@
 
 <body>
 
-<div class="app-shell">
+    <main class="app">
 
-    <!-- CABECERA -->
-    <header class="app-header">
-        <div class="brand-row">
-            <div class="train-logo">🚆</div>
+        <header class="app-header">
 
-            <div>
-                <div class="eyebrow">RENFE · OPERACIONES</div>
-                <h1>ARGOS</h1>
-                <div class="subtitle">
-                    Gestión de servicios ferroviarios
-                    <span>Versión 1.0</span>
+            <div class="brand">
+
+                <div class="brand-icon">
+                    🚆
                 </div>
+
+                <div class="brand-text">
+                    <div class="brand-company">
+                        RENFE · OPERACIONES
+                    </div>
+
+                    <h1>ARGOS</h1>
+
+                    <div class="brand-subtitle">
+                        <span>Gestión de servicios ferroviarios</span>
+                        <span>Versión 1.0</span>
+                    </div>
+                </div>
+
             </div>
-        </div>
-    </header>
 
+        </header>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="main-content">
 
         <section class="menu-grid">
 
-            <!-- NUEVO SERVICIO -->
-            <button class="menu-card primary" onclick="showScreen('nuevo')">
+            <button
+                class="menu-card primary"
+                id="nuevoServicio"
+                type="button"
+            >
                 <div class="card-icon">＋</div>
 
                 <div class="card-content">
@@ -46,8 +71,11 @@
             </button>
 
 
-            <!-- HISTORIAL -->
-            <button class="menu-card" onclick="showScreen('historial')">
+            <button
+                class="menu-card"
+                id="historial"
+                type="button"
+            >
                 <div class="card-icon">▣</div>
 
                 <div class="card-content">
@@ -57,8 +85,11 @@
             </button>
 
 
-            <!-- BUSCAR -->
-            <button class="menu-card" onclick="showScreen('buscar')">
+            <button
+                class="menu-card"
+                id="buscarServicio"
+                type="button"
+            >
                 <div class="card-icon">⌕</div>
 
                 <div class="card-content">
@@ -68,8 +99,11 @@
             </button>
 
 
-            <!-- ESTADÍSTICAS -->
-            <button class="menu-card" onclick="showScreen('estadisticas')">
+            <button
+                class="menu-card"
+                id="estadisticas"
+                type="button"
+            >
                 <div class="card-icon">▥</div>
 
                 <div class="card-content">
@@ -81,8 +115,7 @@
         </section>
 
 
-        <!-- RESUMEN -->
-        <section class="summary">
+        <section class="daily-summary">
 
             <div class="summary-title">
                 RESUMEN DEL DÍA
@@ -96,7 +129,7 @@
                 </div>
 
                 <div class="summary-item">
-                    <strong id="seriePrincipal">—</strong>
+                    <strong id="serieMasUsada">—</strong>
                     <span>Serie más usada</span>
                 </div>
 
@@ -109,313 +142,330 @@
 
         </section>
 
+
+        <footer class="app-footer">
+            <span>ARGOS</span>
+            <span>Renfe · Operaciones</span>
+        </footer>
+
     </main>
 
 
-    <!-- PANTALLA NUEVO SERVICIO -->
-    <section id="screen-nuevo" class="screen">
+    <!-- VENTANA NUEVO SERVICIO -->
 
-        <div class="screen-header">
-            <button class="back-button" onclick="showScreen('inicio')">
-                ←
-            </button>
+    <div
+        class="modal"
+        id="modalNuevoServicio"
+        aria-hidden="true"
+    >
 
-            <div>
-                <div class="eyebrow">ARGOS · OPERACIONES</div>
-                <h2>Nuevo servicio</h2>
-            </div>
-        </div>
+        <div class="modal-box">
 
+            <div class="modal-header">
+                <div>
+                    <span class="modal-kicker">
+                        REGISTRO
+                    </span>
 
-        <form id="serviceForm" class="service-form">
-
-            <div class="form-section-title">
-                DATOS DEL SERVICIO
-            </div>
-
-
-            <div class="form-group">
-                <label for="numero">Número de tren</label>
-
-                <input
-                    id="numero"
-                    type="text"
-                    maxlength="5"
-                    inputmode="numeric"
-                    placeholder="Ej. 06123"
-                    required
-                >
-
-                <small>Máximo 5 caracteres</small>
-            </div>
-
-
-            <div class="form-row">
-
-                <div class="form-group">
-                    <label for="serie">Serie</label>
-
-                    <input
-                        id="serie"
-                        type="text"
-                        maxlength="3"
-                        placeholder="112"
-                        required
-                    >
-
-                    <small>Máximo 3 caracteres</small>
+                    <h2>Nuevo servicio</h2>
                 </div>
 
-
-                <div class="form-group">
-                    <label for="vehiculo">Vehículo</label>
-
-                    <input
-                        id="vehiculo"
-                        type="text"
-                        maxlength="3"
-                        inputmode="numeric"
-                        placeholder="008"
-                        required
-                    >
-
-                    <small>Máximo 3 caracteres</small>
-                </div>
-
-            </div>
-
-
-            <div class="form-group">
-                <label for="rama">Rama</label>
-
-                <input
-                    id="rama"
-                    type="text"
-                    maxlength="3"
-                    placeholder="001"
-                >
-            </div>
-
-
-            <div class="form-group">
-                <label for="fecha">Fecha</label>
-
-                <input
-                    id="fecha"
-                    type="date"
-                    required
-                >
-            </div>
-
-
-            <div class="form-section-title route-title">
-                RECORRIDO
-            </div>
-
-
-            <!-- ORIGEN -->
-            <div class="form-group autocomplete-group">
-
-                <label for="origen">Origen</label>
-
-                <input
-                    id="origen"
-                    type="text"
-                    autocomplete="off"
-                    placeholder="Nombre o código de estación"
-                    required
-                >
-
-                <div id="origenSuggestions" class="suggestions"></div>
-
-            </div>
-
-
-            <!-- DESTINO -->
-            <div class="form-group autocomplete-group">
-
-                <label for="destino">Destino</label>
-
-                <input
-                    id="destino"
-                    type="text"
-                    autocomplete="off"
-                    placeholder="Nombre o código de estación"
-                    required
-                >
-
-                <div id="destinoSuggestions" class="suggestions"></div>
-
-            </div>
-
-
-            <div class="form-section-title">
-                INFORMACIÓN ADICIONAL
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="anotaciones">
-                    Anotaciones
-                    <span>(opcional)</span>
-                </label>
-
-                <textarea
-                    id="anotaciones"
-                    rows="4"
-                    placeholder="Escribe cualquier observación..."
-                ></textarea>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="incidencias">
-                    Incidencias
-                    <span>(opcional)</span>
-                </label>
-
-                <textarea
-                    id="incidencias"
-                    rows="4"
-                    placeholder="Retrasos, averías, cambios de material..."
-                ></textarea>
-
-            </div>
-
-
-            <div class="form-actions">
-
                 <button
-                    type="submit"
-                    class="save-button"
-                >
-                    GUARDAR SERVICIO
-                </button>
-
-                <button
+                    class="close-button"
+                    id="cerrarNuevoServicio"
                     type="button"
-                    class="cancel-button"
-                    onclick="showScreen('inicio')"
                 >
-                    CANCELAR
+                    ×
+                </button>
+            </div>
+
+
+            <form id="formServicio">
+
+                <div class="form-group">
+                    <label for="numero">
+                        Número de servicio
+                    </label>
+
+                    <input
+                        id="numero"
+                        type="text"
+                        placeholder="Ej. 05120"
+                        autocomplete="off"
+                    >
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="origen">
+                            Origen
+                        </label>
+
+                        <input
+                            id="origen"
+                            type="text"
+                            placeholder="Madrid"
+                            autocomplete="off"
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="destino">
+                            Destino
+                        </label>
+
+                        <input
+                            id="destino"
+                            type="text"
+                            placeholder="Sevilla"
+                            autocomplete="off"
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="fecha">
+                            Fecha
+                        </label>
+
+                        <input
+                            id="fecha"
+                            type="date"
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="serie">
+                            Serie
+                        </label>
+
+                        <input
+                            id="serie"
+                            type="text"
+                            placeholder="S-112"
+                            autocomplete="off"
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label for="kilometros">
+                        Kilómetros
+                    </label>
+
+                    <input
+                        id="kilometros"
+                        type="number"
+                        min="0"
+                        placeholder="Ej. 472"
+                    >
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="button secondary"
+                        id="cancelarServicio"
+                    >
+                        Cancelar
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="button primary-button"
+                    >
+                        Guardar servicio
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- VENTANA HISTORIAL -->
+
+    <div
+        class="modal"
+        id="modalHistorial"
+        aria-hidden="true"
+    >
+
+        <div class="modal-box large">
+
+            <div class="modal-header">
+
+                <div>
+                    <span class="modal-kicker">
+                        REGISTROS
+                    </span>
+
+                    <h2>Historial</h2>
+                </div>
+
+                <button
+                    class="close-button"
+                    id="cerrarHistorial"
+                    type="button"
+                >
+                    ×
                 </button>
 
             </div>
 
-        </form>
 
-    </section>
+            <div id="listaHistorial" class="history-list">
 
+                <div class="empty-state">
+                    <div class="empty-icon">▣</div>
+                    <h3>No hay servicios registrados</h3>
+                    <p>Los servicios que guardes aparecerán aquí.</p>
+                </div>
 
-    <!-- HISTORIAL -->
-    <section id="screen-historial" class="screen">
-
-        <div class="screen-header">
-
-            <button class="back-button" onclick="showScreen('inicio')">
-                ←
-            </button>
-
-            <div>
-                <div class="eyebrow">ARGOS</div>
-                <h2>Historial</h2>
             </div>
 
         </div>
 
-        <div id="historyList" class="history-list"></div>
-
-    </section>
+    </div>
 
 
-    <!-- BUSCAR -->
-    <section id="screen-buscar" class="screen">
+    <!-- VENTANA BUSCAR -->
 
-        <div class="screen-header">
+    <div
+        class="modal"
+        id="modalBuscar"
+        aria-hidden="true"
+    >
 
-            <button class="back-button" onclick="showScreen('inicio')">
-                ←
-            </button>
+        <div class="modal-box large">
 
-            <div>
-                <div class="eyebrow">ARGOS</div>
-                <h2>Buscar servicio</h2>
+            <div class="modal-header">
+
+                <div>
+                    <span class="modal-kicker">
+                        CONSULTA
+                    </span>
+
+                    <h2>Buscar servicio</h2>
+                </div>
+
+                <button
+                    class="close-button"
+                    id="cerrarBuscar"
+                    type="button"
+                >
+                    ×
+                </button>
+
             </div>
 
-        </div>
 
-        <div class="search-box">
+            <div class="search-box">
 
-            <label for="searchInput">
-                Buscar servicio
-            </label>
+                <input
+                    id="campoBusqueda"
+                    type="search"
+                    placeholder="Número, origen, destino o serie..."
+                    autocomplete="off"
+                >
 
-            <input
-                id="searchInput"
-                type="search"
-                placeholder="Número, serie, origen o destino..."
+            </div>
+
+
+            <div
+                id="resultadosBusqueda"
+                class="history-list"
             >
 
-        </div>
+                <div class="empty-state">
+                    <div class="empty-icon">⌕</div>
+                    <h3>Buscar un servicio</h3>
+                    <p>Escribe algo para comenzar.</p>
+                </div>
 
-        <div id="searchResults" class="history-list"></div>
-
-    </section>
-
-
-    <!-- ESTADÍSTICAS -->
-    <section id="screen-estadisticas" class="screen">
-
-        <div class="screen-header">
-
-            <button class="back-button" onclick="showScreen('inicio')">
-                ←
-            </button>
-
-            <div>
-                <div class="eyebrow">ARGOS</div>
-                <h2>Estadísticas</h2>
             </div>
 
         </div>
 
+    </div>
 
-        <div class="stats-grid">
 
-            <div class="stat-card">
-                <span>Servicios</span>
-                <strong id="statsServicios">0</strong>
+    <!-- VENTANA ESTADÍSTICAS -->
+
+    <div
+        class="modal"
+        id="modalEstadisticas"
+        aria-hidden="true"
+    >
+
+        <div class="modal-box">
+
+            <div class="modal-header">
+
+                <div>
+                    <span class="modal-kicker">
+                        DATOS
+                    </span>
+
+                    <h2>Estadísticas</h2>
+                </div>
+
+                <button
+                    class="close-button"
+                    id="cerrarEstadisticas"
+                    type="button"
+                >
+                    ×
+                </button>
+
             </div>
 
-            <div class="stat-card">
-                <span>Series utilizadas</span>
-                <strong id="statsSeries">0</strong>
-            </div>
 
-            <div class="stat-card">
-                <span>Orígenes</span>
-                <strong id="statsOrigenes">0</strong>
-            </div>
+            <div class="stats-grid">
 
-            <div class="stat-card">
-                <span>Destinos</span>
-                <strong id="statsDestinos">0</strong>
+                <div class="stat-card">
+                    <span>Servicios</span>
+                    <strong id="statServicios">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>Kilómetros</span>
+                    <strong id="statKilometros">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>Series diferentes</span>
+                    <strong id="statSeries">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>Último servicio</span>
+                    <strong id="statUltimo">—</strong>
+                </div>
+
             </div>
 
         </div>
 
-    </section>
+    </div>
 
 
-    <!-- NOTIFICACIÓN -->
-    <div id="toast" class="toast"></div>
-
-</div>
-
-<script src="app.js"></script>
+    <script src="app.js"></script>
 
 </body>
 </html>
