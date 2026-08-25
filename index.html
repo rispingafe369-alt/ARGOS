@@ -940,6 +940,27 @@ body.dark #new-service input[type="date"]{
 }
 
 </style>
+
+<style>
+/* ===== CORRECCIÓN DEFINITIVA MÓVIL ===== */
+@media(max-width:600px){
+  html,body{overflow:hidden!important;height:100%!important;}
+  .app-shell{height:100dvh!important;overflow:hidden!important;}
+  .app-header{flex:0 0 auto!important;}
+  .app-shell > .screen:not(.active){display:none!important;visibility:hidden!important;}
+  .app-shell > .screen.active{visibility:visible!important;}
+
+  /* Menú principal: pantalla fija, sin scroll. */
+  #menu.active{display:flex!important;overflow:hidden!important;}
+
+  /* Añadir servicio: pantalla propia; SOLO el formulario desplaza. */
+  #new-service.active{display:flex!important;flex-direction:column!important;overflow:hidden!important;}
+  #new-service .service-form{overflow-y:auto!important;overflow-x:hidden!important;min-height:0!important;flex:1 1 auto!important;-webkit-overflow-scrolling:touch!important;}
+
+  /* Los botones pertenecen al final del formulario, nunca a la ventana. */
+  #new-service .form-actions{position:static!important;bottom:auto!important;left:auto!important;right:auto!important;z-index:auto!important;transform:none!important;}
+}
+</style>
 </head>
 
 <body>
@@ -1150,35 +1171,84 @@ body.dark #new-service input[type="date"]{
 <script src="app.js"></script>
 
 <script>
-/* Refuerzo de navegación: una sola pantalla visible cada vez. */
+/* ===== NAVEGACIÓN ARGOS: UNA SOLA PANTALLA VISIBLE =====
+   app.js trae su propia navegación. Aquí la reemplazamos después de cargarlo
+   para evitar que menú y pantallas secundarias queden superpuestos en móvil. */
 (function(){
-  window.showScreen=function(id){
-    var screens=document.querySelectorAll(".app-shell > .screen");
-    screens.forEach(function(screen){
-      screen.classList.remove("active");
-      screen.setAttribute("aria-hidden","true");
-      screen.style.display="none";
-    });
+  const shell=document.querySelector('.app-shell');
+  const screens=()=>shell ? shell.querySelectorAll(':scope > .screen') : [];
 
-    var target=document.getElementById(id);
+  window.showScreen=function(id){
+    const target=document.getElementById(id);
     if(!target) return;
 
-    target.classList.add("active");
-    target.setAttribute("aria-hidden","false");
-    target.style.display=(id==="menu") ? "flex" : "block";
+    screens().forEach(screen=>{
+      const active=screen===target;
+      screen.classList.toggle('active',active);
+      screen.setAttribute('aria-hidden',active?'false':'true');
+      screen.style.display=active?(id==='menu'?'flex':'block'):'none';
+    });
 
-    var menu=document.getElementById("menu");
-    if(menu){
-      menu.classList.toggle("active",id==="menu");
-      menu.setAttribute("aria-hidden",id==="menu" ? "false" : "true");
-      menu.style.display=(id==="menu") ? "flex" : "none";
+    // El menú nunca puede permanecer visible detrás de otra pantalla.
+    const menu=document.getElementById('menu');
+    if(menu && id!=='menu'){
+      menu.classList.remove('active');
+      menu.setAttribute('aria-hidden','true');
+      menu.style.display='none';
     }
 
-    if(id==="new-service"){
-      var form=target.querySelector(".service-form");
+    if(id==='menu' && typeof window.refreshHome==='function') window.refreshHome();
+
+    if(id==='new-service'){
+      const form=target.querySelector('.service-form');
       if(form) form.scrollTop=0;
+      target.scrollTop=0;
     }
   };
+
+  function bindNavigation(){
+    document.querySelectorAll('[data-screen]').forEach(button=>{
+      button.onclick=function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        const drawer=document.getElementById('menuDrawer');
+        if(drawer) drawer.classList.remove('open');
+        window.showScreen(button.dataset.screen);
+      };
+    });
+
+    document.querySelectorAll('[data-back]').forEach(button=>{
+      button.onclick=function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        window.showScreen('menu');
+      };
+    });
+
+    const openMenu=document.getElementById('openMenu');
+    const closeMenu=document.getElementById('closeMenu');
+    const backdrop=document.getElementById('drawerBackdrop');
+    const drawer=document.getElementById('menuDrawer');
+
+    if(openMenu) openMenu.onclick=function(e){
+      e.preventDefault(); e.stopPropagation();
+      drawer.classList.add('open');
+      drawer.setAttribute('aria-hidden','false');
+    };
+    if(closeMenu) closeMenu.onclick=function(e){
+      e.preventDefault(); e.stopPropagation();
+      drawer.classList.remove('open');
+      drawer.setAttribute('aria-hidden','true');
+    };
+    if(backdrop) backdrop.onclick=function(){
+      drawer.classList.remove('open');
+      drawer.setAttribute('aria-hidden','true');
+    };
+  }
+
+  // app.js ya ha terminado de registrar sus onclick: ahora los sustituimos.
+  bindNavigation();
+  window.showScreen('menu');
 })();
 </script>
 
@@ -1332,6 +1402,79 @@ body.dark #new-service input[type="date"]{
 </script>
 
 <script>
+/* ===== GUARDADO DEL SERVICIO =====
+   Mantiene la función existente, pero evita el error del antiguo campo kilómetros
+   (el campo ya no existe en la interfaz) y conserva producto/anotaciones/incidencias. */
+(function(){
+  const form=document.getElementById('serviceForm');
+  if(!form) return;
+
+  form.onsubmit=function(e){
+    e.preventDefault();
+    e.stopImmediatePropagation();
+
+    const read=id=>{const el=document.getElementById(id);return el?el.value.trim():''};
+    const noTrain=document.getElementById('noTrainNumber');
+    const train=noTrain&&noTrain.checked?'':read('train');
+
+    if(!noTrain?.checked && !train){
+      document.getElementById('train')?.focus();
+      return;
+    }
+    if(!read('series') || !read('origin') || !read('destination') || !read('date')){
+      form.reportValidity();
+      return;
+    }
+
+    const entries=id=>Array.from(document.querySelectorAll('#'+id+' .entry-chip span'))
+      .map(el=>el.textContent.trim()).filter(Boolean);
+    const notes=[read('notes'),...entries('notesEntries')].filter(Boolean);
+    const incidents=[read('incidents'),...entries('incidentsEntries')].filter(Boolean);
+    const product=document.getElementById('product');
+
+    let services=[];
+    try{services=JSON.parse(localStorage.getItem('argos_services')||'[]');if(!Array.isArray(services))services=[];}catch(_){services=[];}
+
+    services.push({
+      train,
+      series:read('series'),
+      vehicle:read('vehicle'),
+      product:product?product.value:'',
+      origin:read('origin'),
+      destination:read('destination'),
+      date:read('date'),
+      kilometres:0,
+      notes:notes.join(' | '),
+      incidents:incidents.join(' | '),
+      createdAt:Date.now()
+    });
+
+    localStorage.setItem('argos_services',JSON.stringify(services));
+
+    form.reset();
+    const date=document.getElementById('date');
+    if(date) date.valueAsDate=new Date();
+    const productSelect=document.getElementById('product');
+    if(productSelect){
+      productSelect.selectedIndex=0;
+      productSelect.dispatchEvent(new Event('change',{bubbles:true}));
+    }
+    document.getElementById('notesEntries').innerHTML='';
+    document.getElementById('incidentsEntries').innerHTML='';
+
+    const toast=document.getElementById('toast');
+    if(toast){
+      toast.textContent='Servicio guardado';
+      toast.classList.add('show');
+      setTimeout(()=>toast.classList.remove('show'),1800);
+    }
+
+    window.showScreen('menu');
+  };
+})();
+</script>
+
+<script>
 (function(){
   const select=document.getElementById("product");
   const trigger=document.getElementById("productSelectTrigger");
@@ -1390,38 +1533,6 @@ body.dark #new-service input[type="date"]{
 </script>
 
 
-<script>
-/* ===== PROTECCIÓN FINAL DE NAVEGACIÓN EN MÓVIL =====
-   Algunos navegadores pueden conservar clases/estilos de la versión anterior.
-   Esta capa garantiza que jamás se vea el menú principal detrás de una pantalla. */
-(function(){
-  function enforceSingleScreen(){
-    var menu=document.getElementById("menu");
-    var secondary=document.querySelector('.app-shell > .screen.active:not(#menu)');
-    if(menu && secondary){
-      menu.classList.remove("active");
-      menu.setAttribute("aria-hidden","true");
-      menu.style.display="none";
-    }
-  }
 
-  document.addEventListener("click",function(e){
-    var button=e.target.closest("[data-screen]");
-    if(!button) return;
-    var id=button.getAttribute("data-screen");
-    if(!id || id==="menu") return;
-    var menu=document.getElementById("menu");
-    if(menu){
-      menu.classList.remove("active");
-      menu.setAttribute("aria-hidden","true");
-      menu.style.display="none";
-    }
-  },true);
-
-  var observer=new MutationObserver(enforceSingleScreen);
-  observer.observe(document.querySelector(".app-shell"),{subtree:true,attributes:true,attributeFilter:["class","style"]});
-  enforceSingleScreen();
-})();
-</script>
 </body>
 </html>
