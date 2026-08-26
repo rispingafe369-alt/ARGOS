@@ -221,7 +221,765 @@ const fleet = {
           "Nombre Juan Sebastián Elcano."
         ]
       },
-      "114": {
+      "121": {
+    "seriesName": "Serie 121",
+    "fabricante": "CAF-Alstom",
+    "modelo": "CAF-Alstom S-121",
+    "apodo": "AVR (Ancho Variable Regional)",
+    "anoPuestaServicio": "enero de 2009",
+    "tipoMaterial": "Media Distancia · Alta Velocidad · AVANT",
+    "numeroCoches": "4 coches · Mc + M + M + Mc",
+    "anchoVia": "1435/1668 mm",
+    "numeroRamas": 29,
+    "velocidadMaxima": "250 km/h (25 kV c.a.) · 220 km/h (3 kV c.c.)",
+    "potencia": "4.000 kW (25 kV) · 2.500 kW (3 kV)",
+    "longitud": "107,36 m",
+    "peso": "251,3 t",
+    "tension": "25 kV c.a. / 3 kV c.c.",
+    "traccion": "Distribuida · 8 motores asíncronos Alstom",
+    "señalizacion": "ASFA, ERTMS y AVE",
+    "composicion": "Mc + M + M + Mc",
+    "capacidad": "281 plazas · 280 de clase única + 1 PMR",
+    "plazasSentadas": "281",
+    "numeroUnidades": "29 composiciones",
+    "generalNotes": [
+        "Trenes eléctricos de Media Distancia para servicios AVANT por líneas de Alta Velocidad y líneas convencionales.",
+        "La serie 121 es una evolución de la familia S-120, fabricada por el consorcio CAF-Alstom.",
+        "Las 29 unidades están formadas por cuatro coches motores en composición Mc + M + M + Mc.",
+        "Todos los asientos son de clase única y la capacidad total es de 281 plazas, incluyendo una plaza para personas con movilidad reducida.",
+        "Disponen de sistema de rodadura desplazable BRAVA, que permite circular por ancho internacional e ibérico.",
+        "Son bitensión: 25 kV en corriente alterna para líneas de Alta Velocidad y 3 kV en corriente continua para líneas convencionales.",
+        "La velocidad máxima comercial es de 250 km/h con 25 kV c.a. y 220 km/h con 3 kV c.c.",
+        "La serie dispone de tracción distribuida con ocho motores de tracción y cuatro coches motores.",
+        "Las ramas de la tabla aportada están numeradas del 1 al 29. Cada rama se identifica mediante sus dos coches extremos/cabezas y los dos coches motores intermedios asociados.",
+        "Cada rama puede localizarse en el buscador introduciendo cualquiera de sus dos códigos de referencia principales: el coche/motor de la familia 001–029 o el correspondiente 501–529.",
+        "El sistema BRAVA permite realizar el cambio de ancho sin necesidad de maniobras convencionales, facilitando servicios que combinan líneas de ancho internacional e ibérico."
+    ],
+    "units": {
+        "1": {
+            "rama": "1",
+            "vehiculoBase": "001",
+            "numero": "9-121-001-2",
+            "vehiculosRama": [
+                "9-121-001-2",
+                "6-121-001-2",
+                "6-121-501-1",
+                "9-121-501-1"
+            ],
+            "searchCodes": [
+                "001",
+                "501"
+            ],
+            "deposito": "Santa Catalina",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-001-2 + 6-121-001-2 + 6-121-501-1 + 9-121-501-1",
+            "notas": [
+                "En pruebas desde 04/08. AVANT Madrid-Valladolid. Ex-Fuencarral → Sta. Catalina → Redondela 01/25 → Sta. Catalina."
+            ]
+        },
+        "2": {
+            "rama": "2",
+            "vehiculoBase": "002",
+            "numero": "9-121-002-0",
+            "vehiculosRama": [
+                "9-121-002-0",
+                "6-121-002-0",
+                "6-121-502-9",
+                "9-121-502-9"
+            ],
+            "searchCodes": [
+                "002",
+                "502"
+            ],
+            "deposito": "Redondela",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-002-0 + 6-121-002-0 + 6-121-502-9 + 9-121-502-9",
+            "notas": [
+                "En pruebas desde 08/08. AVANT Madrid-Valladolid. Ex-Logos Junta Andalucía. Ex-Can Tunis → Redondela."
+            ]
+        },
+        "3": {
+            "rama": "3",
+            "vehiculoBase": "003",
+            "numero": "9-121-003-8",
+            "vehiculosRama": [
+                "9-121-003-8",
+                "6-121-003-8",
+                "6-121-503-7",
+                "9-121-503-7"
+            ],
+            "searchCodes": [
+                "003",
+                "503"
+            ],
+            "deposito": "Redondela",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-003-8 + 6-121-003-8 + 6-121-503-7 + 9-121-503-7",
+            "notas": [
+                "En pruebas desde 09/08 → AVANT Madrid-Valladolid → Galicia desde 12/11."
+            ]
+        },
+        "4": {
+            "rama": "4",
+            "vehiculoBase": "004",
+            "numero": "9-121-004-6",
+            "vehiculosRama": [
+                "9-121-004-6",
+                "6-121-004-6",
+                "6-121-504-5",
+                "9-121-504-5"
+            ],
+            "searchCodes": [
+                "004",
+                "504"
+            ],
+            "deposito": "Redondela",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-004-6 + 6-121-004-6 + 6-121-504-5 + 9-121-504-5",
+            "notas": [
+                "AVANT Madrid-Valladolid → Galicia desde 12/11."
+            ]
+        },
+        "5": {
+            "rama": "5",
+            "vehiculoBase": "005",
+            "numero": "9-121-005-3",
+            "vehiculosRama": [
+                "9-121-005-3",
+                "6-121-005-3",
+                "6-121-505-2",
+                "9-121-505-2"
+            ],
+            "searchCodes": [
+                "005",
+                "505"
+            ],
+            "deposito": "Redondela",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-005-3 + 6-121-005-3 + 6-121-505-2 + 9-121-505-2",
+            "notas": [
+                "AVANT Madrid-Valladolid → Redondela."
+            ]
+        },
+        "6": {
+            "rama": "6",
+            "vehiculoBase": "006",
+            "numero": "9-121-006-1",
+            "vehiculosRama": [
+                "9-121-006-1",
+                "6-121-006-1",
+                "6-121-506-0",
+                "9-121-506-0"
+            ],
+            "searchCodes": [
+                "006",
+                "506"
+            ],
+            "deposito": "Santa Catalina",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-006-1 + 6-121-006-1 + 6-121-506-0 + 9-121-506-0",
+            "notas": [
+                "AVANT Madrid-Valladolid. Ex-Fuencarral → Redondela → Sta. Catalina."
+            ]
+        },
+        "7": {
+            "rama": "7",
+            "vehiculoBase": "007",
+            "numero": "9-121-007-9",
+            "vehiculosRama": [
+                "9-121-007-9",
+                "6-121-007-9",
+                "6-121-507-8",
+                "9-121-507-8"
+            ],
+            "searchCodes": [
+                "007",
+                "507"
+            ],
+            "deposito": "Redondela",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-007-9 + 6-121-007-9 + 6-121-507-8 + 9-121-507-8",
+            "notas": []
+        },
+        "8": {
+            "rama": "8",
+            "vehiculoBase": "008",
+            "numero": "9-121-008-7",
+            "vehiculosRama": [
+                "9-121-008-7",
+                "6-121-008-7",
+                "6-121-508-6",
+                "9-121-508-6"
+            ],
+            "searchCodes": [
+                "008",
+                "508"
+            ],
+            "deposito": "Santa Catalina",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-008-7 + 6-121-008-7 + 6-121-508-6 + 9-121-508-6",
+            "notas": [
+                "Ex-Fuencarral."
+            ]
+        },
+        "9": {
+            "rama": "9",
+            "vehiculoBase": "009",
+            "numero": "9-121-009-5",
+            "vehiculosRama": [
+                "9-121-009-5",
+                "6-121-009-5",
+                "6-121-509-4",
+                "9-121-509-4"
+            ],
+            "searchCodes": [
+                "009",
+                "509"
+            ],
+            "deposito": "Santa Catalina",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-009-5 + 6-121-009-5 + 6-121-509-4 + 9-121-509-4",
+            "notas": [
+                "Ex-Fuencarral."
+            ]
+        },
+        "10": {
+            "rama": "10",
+            "vehiculoBase": "010",
+            "numero": "9-121-010-3",
+            "vehiculosRama": [
+                "9-121-010-3",
+                "6-121-010-3",
+                "6-121-510-2",
+                "9-121-510-2"
+            ],
+            "searchCodes": [
+                "010",
+                "510"
+            ],
+            "deposito": "Santa Catalina",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-010-3 + 6-121-010-3 + 6-121-510-2 + 9-121-510-2",
+            "notas": [
+                "Ex-Fuencarral."
+            ]
+        },
+        "11": {
+            "rama": "11",
+            "vehiculoBase": "011",
+            "numero": "9-121-011-1",
+            "vehiculosRama": [
+                "9-121-011-1",
+                "6-121-011-1",
+                "6-121-511-0",
+                "9-121-511-0"
+            ],
+            "searchCodes": [
+                "011",
+                "511"
+            ],
+            "deposito": "Redondela",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-011-1 + 6-121-011-1 + 6-121-511-0 + 9-121-511-0",
+            "notas": [
+                "Ex-Can Tunis → Redondela → Sta. Catalina → Redondela."
+            ]
+        },
+        "12": {
+            "rama": "12",
+            "vehiculoBase": "012",
+            "numero": "9-121-012-7",
+            "vehiculosRama": [
+                "9-121-012-7",
+                "6-121-012-7",
+                "6-121-512-8",
+                "9-121-512-8"
+            ],
+            "searchCodes": [
+                "012",
+                "512"
+            ],
+            "deposito": "Redondela",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-012-7 + 6-121-012-7 + 6-121-512-8 + 9-121-512-8",
+            "notas": [
+                "Galicia desde 12/11. Accidente contra un tractor en Arbo (17/08/13)."
+            ]
+        },
+        "13": {
+            "rama": "13",
+            "vehiculoBase": "013",
+            "numero": "9-121-013-7",
+            "vehiculosRama": [
+                "9-121-013-7",
+                "6-121-013-7",
+                "6-121-513-6",
+                "9-121-513-6"
+            ],
+            "searchCodes": [
+                "013",
+                "513"
+            ],
+            "deposito": "Santa Catalina",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-013-7 + 6-121-013-7 + 6-121-513-6 + 9-121-513-6",
+            "notas": [
+                "Inauguró el servicio Salamanca - Madrid vía Medina - LAV Valladolid, 17/12/15. Ex-Fuencarral."
+            ]
+        },
+        "14": {
+            "rama": "14",
+            "vehiculoBase": "014",
+            "numero": "9-121-014-5",
+            "vehiculosRama": [
+                "9-121-014-5",
+                "6-121-014-5",
+                "6-121-514-4",
+                "9-121-514-4"
+            ],
+            "searchCodes": [
+                "014",
+                "514"
+            ],
+            "deposito": "Redondela",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-014-5 + 6-121-014-5 + 6-121-514-4 + 9-121-514-4",
+            "notas": [
+                "Galicia desde 12/11. Ex-Can Tunis."
+            ]
+        },
+        "15": {
+            "rama": "15",
+            "vehiculoBase": "015",
+            "numero": "9-121-015-2",
+            "vehiculosRama": [
+                "9-121-015-2",
+                "6-121-015-2",
+                "6-121-515-1",
+                "9-121-515-1"
+            ],
+            "searchCodes": [
+                "015",
+                "515"
+            ],
+            "deposito": "Santa Catalina",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-015-2 + 6-121-015-2 + 6-121-515-1 + 9-121-515-1",
+            "notas": [
+                "Ex-Fuencarral."
+            ]
+        },
+        "16": {
+            "rama": "16",
+            "vehiculoBase": "016",
+            "numero": "9-121-016-0",
+            "vehiculosRama": [
+                "9-121-016-0",
+                "6-121-016-0",
+                "6-121-516-9",
+                "9-121-516-9"
+            ],
+            "searchCodes": [
+                "016",
+                "516"
+            ],
+            "deposito": "Santa Catalina",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-016-0 + 6-121-016-0 + 6-121-516-9 + 9-121-516-9",
+            "notas": [
+                "En Ourense para formación maquinistas en LAV Ourense - Santiago 07/11. Ex-Can Tunis → Fuencarral."
+            ]
+        },
+        "17": {
+            "rama": "17",
+            "vehiculoBase": "017",
+            "numero": "9-121-017-8",
+            "vehiculosRama": [
+                "9-121-017-8",
+                "6-121-017-8",
+                "6-121-517-7",
+                "9-121-517-7"
+            ],
+            "searchCodes": [
+                "017",
+                "517"
+            ],
+            "deposito": "Santa Catalina",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-017-8 + 6-121-017-8 + 6-121-517-7 + 9-121-517-7",
+            "notas": [
+                "Ex-Fuencarral."
+            ]
+        },
+        "18": {
+            "rama": "18",
+            "vehiculoBase": "018",
+            "numero": "9-121-018-6",
+            "vehiculosRama": [
+                "9-121-018-6",
+                "6-121-018-6",
+                "6-121-518-5",
+                "9-121-518-5"
+            ],
+            "searchCodes": [
+                "018",
+                "518"
+            ],
+            "deposito": "Santa Catalina",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-018-6 + 6-121-018-6 + 6-121-518-5 + 9-121-518-5",
+            "notas": [
+                "Ex-Fuencarral."
+            ]
+        },
+        "19": {
+            "rama": "19",
+            "vehiculoBase": "019",
+            "numero": "9-121-019-4",
+            "vehiculosRama": [
+                "9-121-019-4",
+                "6-121-019-4",
+                "6-121-519-3",
+                "9-121-519-3"
+            ],
+            "searchCodes": [
+                "019",
+                "519"
+            ],
+            "deposito": "Santa Catalina",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-019-4 + 6-121-019-4 + 6-121-519-3 + 9-121-519-3",
+            "notas": [
+                "Ex-Fuencarral → Sta. Catalina → Redondela."
+            ]
+        },
+        "20": {
+            "rama": "20",
+            "vehiculoBase": "020",
+            "numero": "9-121-020-2",
+            "vehiculosRama": [
+                "9-121-020-2",
+                "6-121-020-2",
+                "6-121-520-1",
+                "9-121-520-1"
+            ],
+            "searchCodes": [
+                "020",
+                "520"
+            ],
+            "deposito": "Santa Catalina",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-020-2 + 6-121-020-2 + 6-121-520-1 + 9-121-520-1",
+            "notas": [
+                "Ex-Fuencarral. Descarrilo en cambiador de ancho Burgos 21/09/25."
+            ]
+        },
+        "21": {
+            "rama": "21",
+            "vehiculoBase": "021",
+            "numero": "9-121-021-0",
+            "vehiculosRama": [
+                "9-121-021-0",
+                "6-121-021-0",
+                "6-121-521-9",
+                "9-121-521-9"
+            ],
+            "searchCodes": [
+                "021",
+                "521"
+            ],
+            "deposito": "Santa Catalina",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-021-0 + 6-121-021-0 + 6-121-521-9 + 9-121-521-9",
+            "notas": [
+                "Ex-Fuencarral."
+            ]
+        },
+        "22": {
+            "rama": "22",
+            "vehiculoBase": "022",
+            "numero": "9-121-022-8",
+            "vehiculosRama": [
+                "9-121-022-8",
+                "6-121-022-8",
+                "6-121-522-7",
+                "9-121-522-7"
+            ],
+            "searchCodes": [
+                "022",
+                "522"
+            ],
+            "deposito": "Santa Catalina",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-022-8 + 6-121-022-8 + 6-121-522-7 + 9-121-522-7",
+            "notas": [
+                "Ex-Fuencarral."
+            ]
+        },
+        "23": {
+            "rama": "23",
+            "vehiculoBase": "023",
+            "numero": "9-121-023-6",
+            "vehiculosRama": [
+                "9-121-023-6",
+                "6-121-023-6",
+                "6-121-523-5",
+                "9-121-523-5"
+            ],
+            "searchCodes": [
+                "023",
+                "523"
+            ],
+            "deposito": "Santa Catalina",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-023-6 + 6-121-023-6 + 6-121-523-5 + 9-121-523-5",
+            "notas": [
+                "Ex-Fuencarral."
+            ]
+        },
+        "24": {
+            "rama": "24",
+            "vehiculoBase": "024",
+            "numero": "9-121-024-4",
+            "vehiculosRama": [
+                "9-121-024-4",
+                "6-121-024-4",
+                "6-121-524-3",
+                "9-121-524-3"
+            ],
+            "searchCodes": [
+                "024",
+                "524"
+            ],
+            "deposito": "Redondela",
+            "color": "Blanco",
+            "estado": "Incendiado",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-024-4 + 6-121-024-4 + 6-121-524-3 + 9-121-524-3",
+            "notas": [
+                "Incendio A Coruña 18/08/26."
+            ]
+        },
+        "25": {
+            "rama": "25",
+            "vehiculoBase": "025",
+            "numero": "9-121-025-1",
+            "vehiculosRama": [
+                "9-121-025-1",
+                "6-121-025-1",
+                "6-121-525-0",
+                "9-121-525-0"
+            ],
+            "searchCodes": [
+                "025",
+                "525"
+            ],
+            "deposito": "Redondela",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-025-1 + 6-121-025-1 + 6-121-525-0 + 9-121-525-0",
+            "notas": []
+        },
+        "26": {
+            "rama": "26",
+            "vehiculoBase": "026",
+            "numero": "9-121-026-9",
+            "vehiculosRama": [
+                "9-121-026-9",
+                "6-121-026-9",
+                "6-121-526-8",
+                "9-121-526-8"
+            ],
+            "searchCodes": [
+                "026",
+                "526"
+            ],
+            "deposito": "Redondela",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-026-9 + 6-121-026-9 + 6-121-526-8 + 9-121-526-8",
+            "notas": [
+                "Ex-Fuencarral."
+            ]
+        },
+        "27": {
+            "rama": "27",
+            "vehiculoBase": "027",
+            "numero": "9-121-027-7",
+            "vehiculosRama": [
+                "9-121-027-7",
+                "6-121-027-7",
+                "6-121-527-6",
+                "9-121-527-6"
+            ],
+            "searchCodes": [
+                "027",
+                "527"
+            ],
+            "deposito": "Santa Catalina",
+            "color": "Blanco",
+            "estado": "En reparación",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-027-7 + 6-121-027-7 + 6-121-527-6 + 9-121-527-6",
+            "notas": [
+                "Ex-Fuencarral. Arrollamiento tractor S. Juan del Puerto 29/09/23. En reparación Can Tunis. Los dos coches 500 circulan temporalmente en el tren 121-029."
+            ]
+        },
+        "28": {
+            "rama": "28",
+            "vehiculoBase": "028",
+            "numero": "9-121-028-5",
+            "vehiculosRama": [
+                "9-121-028-5",
+                "6-121-028-5",
+                "6-121-528-4",
+                "9-121-528-4"
+            ],
+            "searchCodes": [
+                "028",
+                "528"
+            ],
+            "deposito": "Redondela",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-028-5 + 6-121-028-5 + 6-121-528-4 + 9-121-528-4",
+            "notas": [
+                "Ex-Fuencarral → Redondela → Baja por avería 06/24, en reparación. En servicio."
+            ]
+        },
+        "29": {
+            "rama": "29",
+            "vehiculoBase": "029",
+            "numero": "9-121-029-3",
+            "vehiculosRama": [
+                "9-121-029-3",
+                "6-121-029-3",
+                "6-121-529-2",
+                "9-121-529-2"
+            ],
+            "searchCodes": [
+                "029",
+                "529"
+            ],
+            "deposito": "Santa Catalina",
+            "color": "Blanco",
+            "estado": "En servicio",
+            "servicio": "AVANT",
+            "ano": "2008–2010",
+            "ancho": "1435/1668",
+            "composicionRama": "9-121-029-3 + 6-121-029-3 + 6-121-529-2 + 9-121-529-2",
+            "notas": [
+                "Ex-Can Tunis → Fuencarral → Sta. Catalina → Redondela. Desde 2025 circula con 6-121-527-6 y 9-121-527-6."
+            ]
+        }
+    }
+},
+  "114": {
         "rama": "14",
         "numero": "9-100-114-8",
         "ano": 1993,
@@ -2708,6 +3466,31 @@ function getFleetUnit(series, vehicle){
     };
   }
 
+  // Serie 121: cualquier coche/motor de la rama identifica la composición.
+  // Cada rama tiene dos códigos de búsqueda principales: 001-029 y 501-529.
+  // Ej.: 001 o 501 -> Rama 1; 029 o 529 -> Rama 29.
+  // Se acepta también la matrícula completa 9-121-XXX-X o 6-121-XXX-X.
+  if(s==="121"){
+    const raw=String(vehicle??"").trim();
+    const matriculaMatch=raw.match(/(?:^|-)121-(\d{3})(?:-|$)/i);
+    let code=matriculaMatch ? matriculaMatch[1] : v;
+    if(!matriculaMatch && /^121\d{3}$/.test(v)) code=v.slice(-3);
+    code=String(code).padStart(3,"0");
+    let base=null;
+    for(const candidate of Object.values(seriesData.units||{})){
+      if((candidate.searchCodes||[]).includes(code)){ base=candidate; break; }
+    }
+    if(!base) return null;
+    return {
+      ...base,
+      numero:base.numero,
+      vehiculoBase:base.vehiculoBase,
+      vehiculoIntroducido:raw,
+      vehiculoBuscado:code,
+      cocheTipo:code.startsWith("5") ? "Coche motor 500" : "Coche motor 000"
+    };
+  }
+
   // Serie 120: cualquier vehículo de la rama identifica la composición.
   // Primera subserie: ramas 1-12 -> códigos 301/901/601 ... 312/912/612.
   // Segunda subserie: ramas 51-66 -> códigos 351/951/651 ... 366/966/666.
@@ -2906,7 +3689,7 @@ function fleetFichaHtml(series,vehicle,service=null){
       <div class="ficha-section-title">IDENTIFICACIÓN</div>
       <div class="ficha-grid">
         <div><span>Serie</span><strong>${esc(series)}</strong></div>
-        <div><span>Vehículo</span><strong>${esc(["103","104","120"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : vehicle)}</strong></div>
+        <div><span>Vehículo</span><strong>${esc(["103","104","120","121"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : vehicle)}</strong></div>
         <div><span>Rama</span><strong>${esc(unit.rama)}</strong></div>
         ${(["102","112"].includes(normalizeFleetValue(series)))?`
         <div><span>Motor introducido</span><strong>${esc(unit.motorTipo||"—")}</strong></div>
@@ -2924,7 +3707,7 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${seriesData?.tipoMaterial?`<div><span>Tipo de material</span><strong>${esc(seriesData.tipoMaterial)}</strong></div>`:""}
         ${normalizeFleetValue(series)==="114"?`
         <div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||"—")}</strong></div>`:""}
-        ${normalizeFleetValue(series)==="120"?`<div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||"—")}</strong></div>`:""}
+        ${["120","121"].includes(normalizeFleetValue(series))?`<div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||"—")}</strong></div>`:""}
         ${normalizeFleetValue(series)==="103"?`
         <div><span>Coche introducido</span><strong>${esc(unit.vehiculoBase||vehicle)}</strong></div>
         <div><span>Tipo de coche</span><strong>${esc(unit.cocheTipo||"—")}</strong></div>
@@ -2932,7 +3715,7 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${seriesData?.velocidadMaxima?`<div><span>Velocidad máxima</span><strong>${esc(seriesData.velocidadMaxima)}</strong></div>`:""}
         ${seriesData?.potencia?`<div><span>Potencia</span><strong>${esc(seriesData.potencia)}</strong></div>`:""}
         ${seriesData?.plazasSentadas?`<div><span>Plazas sentadas</span><strong>${esc(seriesData.plazasSentadas)}</strong></div>`:""}
-         ${normalizeFleetValue(series)==="112"?`
+         ${["112","121"].includes(normalizeFleetValue(series))?`
          <div><span>Longitud</span><strong>${esc(seriesData.longitud||"—")}</strong></div>
          <div><span>Peso</span><strong>${esc(seriesData.peso||"—")}</strong></div>
          <div><span>Tensión</span><strong>${esc(seriesData.tension||"—")}</strong></div>
@@ -2961,7 +3744,7 @@ function fleetFichaHtml(series,vehicle,service=null){
       <div class="ficha-general-grid">${general.map((n,i)=>`<div class="ficha-general-item"><span class="ficha-general-number">${String(i+1).padStart(2,"0")}</span><div>${esc(n)}</div></div>`).join("")}</div>
     </div>`:"";
 
-  const vehiculoFicha=["103","104","120"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : vehicle;
+  const vehiculoFicha=["103","104","120","121"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : vehicle;
   const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>Serie ${esc(series)}${unit.subserie?` · ${esc(unit.subserie)}`:""} · Rama ${esc(unit.rama)}</h3><p>Vehículo ${esc(vehiculoFicha)} · ${esc(unit.numero||"—")}</p></div>`;
 
   return `${hero}
