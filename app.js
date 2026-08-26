@@ -1478,13 +1478,14 @@ const fleet = {
           ],
           "deposito": "Santa Catalina",
           "color": "Blanco",
-          "estado": "En reparación",
+          "estado": "En servicio",
           "servicio": "AVANT",
           "ano": "2008–2010",
           "ancho": "1435/1668",
           "composicionRama": "9-121-027-7 + 6-121-027-7 + 6-121-527-6 + 9-121-527-6",
           "notas": [
-              "Ex-Fuencarral. Arrollamiento tractor S. Juan del Puerto 29/09/23. En reparación Can Tunis. Los dos coches 500 circulan temporalmente en el tren 121-029."
+              "Ex-Fuencarral. Arrollamiento tractor S. Juan del Puerto 29/09/23. Reparación en Can Tunis.",
+              "Rama reparada desde julio de 2026."
           ]
       },
       "28": {
@@ -1534,7 +1535,8 @@ const fleet = {
           "ancho": "1435/1668",
           "composicionRama": "9-121-029-3 + 6-121-029-3 + 6-121-529-2 + 9-121-529-2",
           "notas": [
-              "Ex-Can Tunis → Fuencarral → Sta. Catalina → Redondela. Desde 2025 circula con 6-121-527-6 y 9-121-527-6."
+              "Ex-Can Tunis → Fuencarral → Sta. Catalina → Redondela.",
+              "Circula con su composición original tras la reparación de la Rama 27."
           ]
       }
   }
