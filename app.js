@@ -76,1162 +76,6 @@ const fleet = {
           "Ex-La Sagra."
         ]
       },
-        "130": {
-    "seriesName": "Serie 130",
-    "fabricante": "Talgo / Bombardier",
-    "modelo": "Talgo 250",
-    "apodo": "Patito / Patitos",
-    "anoPuestaServicio": "2007",
-    "tipoMaterial": "Alta Velocidad · Larga Distancia · Alvia",
-    "numeroCoches": "13 vehículos · 2 cabezas tractoras + 11 coches Talgo 7",
-    "anchoVia": "1435/1668 mm",
-    "numeroRamas": 45,
-    "velocidadMaxima": "250 km/h (25 kV c.a.) · 220 km/h (3 kV c.c.)",
-    "potencia": "4.800 kW (25 kV c.a.) · 4.000 kW (3 kV c.c.)",
-    "longitud": "aprox. 184 m",
-    "peso": "aprox. 312 t",
-    "tension": "25 kV c.a. / 3 kV c.c.",
-    "traccion": "2 cabezas tractoras Talgo-Bombardier",
-    "señalizacion": "ERTMS / LZB / ASFA según línea y unidad",
-    "composicion": "M + 11 coches Talgo 7 + M",
-    "capacidad": "299 plazas · 63 Preferente + 236 Turista",
-    "plazasSentadas": "299",
-    "numeroUnidades": "45 composiciones originales · 90 cabezas tractoras",
-    "generalNotes": [
-      "Automotores eléctricos formados por dos cabezas tractoras derivadas de la plataforma 'Travca' y una rama de 11 coches Talgo 7.",
-      "La serie está formada por 45 trenes, equivalentes a 90 locomotoras/cabezas tractoras.",
-      "Las 27 primeras composiciones se formaron a partir de ramas Talgo 7 existentes, adaptadas para servicio diurno y acopladas permanentemente a las nuevas cabezas tractoras.",
-      "Las ramas 28 a 45 fueron construidas de nueva planta para la serie 130.",
-      "La identificación por Ex-número es especialmente importante en esta serie: permite reconocer las ramas Talgo 7 de procedencia anterior. Cuando existe, se conserva el código 7B correspondiente.",
-      "Puede circular por ancho ibérico (1668 mm) y ancho estándar (1435 mm) gracias a la rodadura desplazable.",
-      "La potencia total es de 4.800 kW a 25 kV c.a. y 4.000 kW a 3 kV c.c.",
-      "La velocidad máxima es de 250 km/h en líneas de alta velocidad y 220 km/h en ancho ibérico.",
-      "La composición convencional de la serie es de dos cabezas tractoras y once coches Talgo 7, con 299 plazas.",
-      "Las ramas 11 a 25 fueron posteriormente transformadas en composiciones bimodales de la serie 730.",
-      "La serie comenzó oficialmente su servicio comercial el 6 de noviembre de 2007 en la relación Gijón–Madrid bajo la denominación Alvia."
-    ],
-    "units": {
-      "01": {
-        "rama": "01",
-        "vehiculoBase": "001",
-        "numero": "130-001-1",
-        "vehiculosRama": [
-          "130-001-1",
-          "130-002-9"
-        ],
-        "searchCodes": [
-          "001",
-          "002"
-        ],
-        "exNumero": "7B2",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Formado el 14/09/06. Reforma 08/22, segundo 130. Colisión con tractor en Arenas de Iguña 27/04/23. Reformado interiorismo y decoración 2024.",
-          "Formado en 10/06. Reforma 08/22, segundo 130. Colisión con tractor en Arenas de Iguña 27/04/23. Reformado interiorismo y decoración 2024."
-        ]
-      },
-      "02": {
-        "rama": "02",
-        "vehiculoBase": "003",
-        "numero": "130-003-7",
-        "vehiculosRama": [
-          "130-003-7",
-          "130-004-5"
-        ],
-        "searchCodes": [
-          "003",
-          "004"
-        ],
-        "exNumero": "7B5",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Formado en 11/06. Reforma interior pero no exterior, 2023.",
-          "Formada en 11/06. Reforma interior pero no exterior, 2023."
-        ]
-      },
-      "03": {
-        "rama": "03",
-        "vehiculoBase": "005",
-        "numero": "130-005-2",
-        "vehiculosRama": [
-          "130-005-2",
-          "130-006-0"
-        ],
-        "searchCodes": [
-          "005",
-          "006"
-        ],
-        "exNumero": "7B16",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Entra a reforma en 01/07. En pruebas desde 02/07. Nuevo interiorismo y decoración 05/26",
-          "Entra a reforma en 01/07. En pruebas desde 02/07. Nuevo interiorismo y decoración 05/26"
-        ]
-      },
-      "04": {
-        "rama": "04",
-        "vehiculoBase": "007",
-        "numero": "130-007-8",
-        "vehiculosRama": [
-          "130-007-8",
-          "130-008-6"
-        ],
-        "searchCodes": [
-          "007",
-          "008"
-        ],
-        "exNumero": "7B22",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Entra a reforma en 02/07. En pruebas en 07/07. Nuevo interiorismo y decoración 05/26.",
-          "Entra a reforma en 02/07. En pruebas en 07/07. Nuevo interiorismo y decoración 05/26."
-        ]
-      },
-      "05": {
-        "rama": "05",
-        "vehiculoBase": "009",
-        "numero": "130-009-4",
-        "vehiculosRama": [
-          "130-009-4",
-          "130-010-2"
-        ],
-        "searchCodes": [
-          "009",
-          "010"
-        ],
-        "exNumero": "7B26",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Reformada solo interiorismo 03/23.",
-          "Reformada solo interiorismo 03/23."
-        ]
-      },
-      "06": {
-        "rama": "06",
-        "vehiculoBase": "011",
-        "numero": "130-011-0",
-        "vehiculosRama": [
-          "130-011-0",
-          "130-012-8"
-        ],
-        "searchCodes": [
-          "011",
-          "012"
-        ],
-        "exNumero": "7B24",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Entra a reforma en 04/07. En pruebas desde 13/08/07. Logos 80 años Renfe",
-          "Entra a reforma en 04/07. En pruebas desde 13/08/07. Logos 80 años Renfe"
-        ]
-      },
-      "07": {
-        "rama": "07",
-        "vehiculoBase": "013",
-        "numero": "130-013-6",
-        "vehiculosRama": [
-          "130-013-6",
-          "130-014-4"
-        ],
-        "searchCodes": [
-          "013",
-          "014"
-        ],
-        "exNumero": "7B25",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Entra a reforma en 05/07. Piedra en Mont-Roig del Camp 15/03/16. Logos 75 años Renfe. Reformada interior 2023 sin decoración externa. Nueva decoración externa 05/26",
-          "Entra a reforma en 05/07. Piedra en Mont-Roig del Camp 15/03/16. Logos 75 años Renfe. Reformada interior 2023 sin decoración externa."
-        ]
-      },
-      "08": {
-        "rama": "08",
-        "vehiculoBase": "015",
-        "numero": "130-015-1",
-        "vehiculosRama": [
-          "130-015-1",
-          "130-016-9"
-        ],
-        "searchCodes": [
-          "015",
-          "016"
-        ],
-        "exNumero": "7B23",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Entra a reforma para 130 en 07/07. Reformado nuevo interiorismo y decoración 05/22 (Primer 130)",
-          "Entra a reforma para 130 en 07/07. Reformado nuevo interiorismo y decoración 05/22 (Primer 130)"
-        ]
-      },
-      "31": {
-        "rama": "31",
-        "vehiculoBase": "017",
-        "numero": "130-017-7",
-        "vehiculosRama": [
-          "130-017-7",
-          "130-018-5"
-        ],
-        "searchCodes": [
-          "017",
-          "018"
-        ],
-        "exNumero": "7B31",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Realizó pruebas LAV Valladolid. Descarrilo Freixeiro 26/08/22. Reformada interior y exterior xx/24.",
-          "Realizó pruebas LAV Valladolid. Descarrilo Freixeiro 26/08/22. Reformada interior/exterior xx/24."
-        ]
-      },
-      "29": {
-        "rama": "29",
-        "vehiculoBase": "019",
-        "numero": "130-019-3",
-        "vehiculosRama": [
-          "130-019-3",
-          "130-020-1"
-        ],
-        "searchCodes": [
-          "019",
-          "020"
-        ],
-        "exNumero": "7B29",
-        "deposito": "Can Tunis",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-Fuencarral. Reformado 04/23",
-          "Ex-Fuencarral. Reformado 04/23"
-        ]
-      },
-      "10": {
-        "rama": "10",
-        "vehiculoBase": "021",
-        "numero": "130-021-9",
-        "vehiculosRama": [
-          "130-021-9",
-          "130-022-7"
-        ],
-        "searchCodes": [
-          "021",
-          "022"
-        ],
-        "exNumero": "7B14",
-        "deposito": "Can Tunis",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-Fuencarral. Arrollamiento vehículo Husillos 26/11/24. Reformado, nuevo interiorismo y decoración 2024",
-          "Ex-Fuencarral. Arrollamiento vehículo Husillos 26/11/24. Reformado,nuevo interiorismo y decoración 2024"
-        ]
-      },
-      "32": {
-        "rama": "32",
-        "vehiculoBase": "023",
-        "numero": "130-023-5",
-        "vehiculosRama": [
-          "130-023-5",
-          "130-024-3"
-        ],
-        "searchCodes": [
-          "023",
-          "024"
-        ],
-        "exNumero": "",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Logos 80 años Renfe",
-          "Logos 80 años Renfe"
-        ]
-      },
-      "30": {
-        "rama": "30",
-        "vehiculoBase": "025",
-        "numero": "130-025-0",
-        "vehiculosRama": [
-          "130-025-0",
-          "130-026-8"
-        ],
-        "searchCodes": [
-          "025",
-          "026"
-        ],
-        "exNumero": "7B30",
-        "deposito": "Can Tunis",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "En pruebas desde 12/07. Primer 130 en llegar a Bilbao. Ex-Fuencarral",
-          "En pruebas desde 12/07. Primer 130 en llegar a Bilbao. Ex-Fuencarral"
-        ]
-      },
-      "34": {
-        "rama": "34",
-        "vehiculoBase": "027",
-        "numero": "130-027-6",
-        "vehiculosRama": [
-          "130-027-6",
-          "130-028-4"
-        ],
-        "searchCodes": [
-          "027",
-          "028"
-        ],
-        "exNumero": "",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "En pruebas desde 12/07. Descarrilo León 05/03/21. Reformada 10/22",
-          "En pruebas desde 12/07. Descarrilo León 05/03/21. Reformada 10/22"
-        ]
-      },
-      "09": {
-        "rama": "09",
-        "vehiculoBase": "029",
-        "numero": "130-029-2",
-        "vehiculosRama": [
-          "130-029-2",
-          "130-030-0"
-        ],
-        "searchCodes": [
-          "029",
-          "030"
-        ],
-        "exNumero": "7B15",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": []
-      },
-      "33": {
-        "rama": "33",
-        "vehiculoBase": "031",
-        "numero": "130-031-8",
-        "vehiculosRama": [
-          "130-031-8",
-          "130-032-6"
-        ],
-        "searchCodes": [
-          "031",
-          "032"
-        ],
-        "exNumero": "",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Logos \"80 Años RENFE\"",
-          "Logos \"80 Años RENFE\""
-        ]
-      },
-      "28": {
-        "rama": "28",
-        "vehiculoBase": "033",
-        "numero": "130-033-4",
-        "vehiculosRama": [
-          "130-033-4",
-          "130-034-2"
-        ],
-        "searchCodes": [
-          "033",
-          "034"
-        ],
-        "exNumero": "7B28",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Fabricado en el TCR de Málaga. Sale de talleres 19/12/07. Reformado, nuevo interiorismo y decoración 2024",
-          "Reformado, nuevo interiorismo y decoración 2024"
-        ]
-      },
-      "36": {
-        "rama": "36",
-        "vehiculoBase": "035",
-        "numero": "130-035-9",
-        "vehiculosRama": [
-          "130-035-9",
-          "130-036-7"
-        ],
-        "searchCodes": [
-          "035",
-          "036"
-        ],
-        "exNumero": "",
-        "deposito": "Can Tunis",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-Fuencarral. Reformado interior y exterior con librea nueva 03/25.",
-          "Ex-Fuencarral. Reformado interior y exterior con librea nueva 03/25."
-        ]
-      },
-      "38": {
-        "rama": "38",
-        "vehiculoBase": "037",
-        "numero": "130-037-5",
-        "vehiculosRama": [
-          "130-037-5",
-          "130-041-7"
-        ],
-        "searchCodes": [
-          "037",
-          "041"
-        ],
-        "exNumero": "",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": []
-      },
-      "13": {
-        "rama": "13",
-        "vehiculoBase": "038",
-        "numero": "130-038-3",
-        "vehiculosRama": [
-          "130-038-3",
-          "130-042-5"
-        ],
-        "searchCodes": [
-          "038",
-          "042"
-        ],
-        "exNumero": "7B10",
-        "deposito": "",
-        "color": "Blanco",
-        "estado": "Reformada",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-G.L. Fuencarral>> Reformada a 730-038.",
-          "Ex-G.L. Fuencarral>> Reformada a 730-042."
-        ]
-      },
-      "35": {
-        "rama": "35",
-        "vehiculoBase": "039",
-        "numero": "130-039-1",
-        "vehiculosRama": [
-          "130-039-1",
-          "130-040-9"
-        ],
-        "searchCodes": [
-          "039",
-          "040"
-        ],
-        "exNumero": "",
-        "deposito": "Can Tunis",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-Fuencarral. Reformado interior y exterior. Descarrilo Chamartín 12/06/25",
-          "Ex-Fuencarral. Reformada interior y exterior. Descarrilo Chamartín 12/06/25"
-        ]
-      },
-      "11": {
-        "rama": "11",
-        "vehiculoBase": "043",
-        "numero": "130-043-3",
-        "vehiculosRama": [
-          "130-043-3",
-          "130-044-1"
-        ],
-        "searchCodes": [
-          "043",
-          "044"
-        ],
-        "exNumero": "7B17",
-        "deposito": "",
-        "color": "Blanco",
-        "estado": "Reformada",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-G.L. Fuencarral>> Reformada a 730-043.",
-          "Ex-G.L. Fuencarral>> Reformada a 730-044. Vinilo Xacobeo 21-22, desde 28/05/21"
-        ]
-      },
-      "12": {
-        "rama": "12",
-        "vehiculoBase": "045",
-        "numero": "130-045-8",
-        "vehiculosRama": [
-          "130-045-8",
-          "130-046-6"
-        ],
-        "searchCodes": [
-          "045",
-          "046"
-        ],
-        "exNumero": "7B11",
-        "deposito": "",
-        "color": "Blanco",
-        "estado": "Desguazada",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-G.L. Fuencarral.>> Reformada a 730-045. Accidentada como 730 en Santiago, 24/07/13.",
-          "Ex-G.L. Fuencarral.>> Reformada a 730-046. Accidentada como 730 en Santiago, 24/07/13."
-        ]
-      },
-      "42": {
-        "rama": "42",
-        "vehiculoBase": "047",
-        "numero": "130-047-4",
-        "vehiculosRama": [
-          "130-047-4",
-          "130-048-2"
-        ],
-        "searchCodes": [
-          "047",
-          "048"
-        ],
-        "exNumero": "",
-        "deposito": "Can Tunis",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-Fuencarral. Reformado, nuevo interiorismo y decoración",
-          "Ex-Fuencarral. Reformado, nuevo interiorismo y decoración"
-        ]
-      },
-      "40": {
-        "rama": "40",
-        "vehiculoBase": "049",
-        "numero": "130-049-0",
-        "vehiculosRama": [
-          "130-049-0",
-          "130-054-0"
-        ],
-        "searchCodes": [
-          "049",
-          "054"
-        ],
-        "exNumero": "",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Choque con árbol en Villabona de Asturias 04/06/18. Reformado, nuevo interiorismo y decoración 2024",
-          "Vinilos USAL 03/18 Reformado, nuevo interiorismo y decoración 2024"
-        ]
-      },
-      "15": {
-        "rama": "15",
-        "vehiculoBase": "050",
-        "numero": "130-050-8",
-        "vehiculosRama": [
-          "130-050-8",
-          "130-053-2"
-        ],
-        "searchCodes": [
-          "050",
-          "053"
-        ],
-        "exNumero": "7B7",
-        "deposito": "",
-        "color": "Blanco",
-        "estado": "Reformada",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-G.L. Fuencarral>> Reformada a 730-050.",
-          "Ex-G.L. Fuencarral>> Reformada a 730-053."
-        ]
-      },
-      "37": {
-        "rama": "37",
-        "vehiculoBase": "051",
-        "numero": "130-051-6",
-        "vehiculosRama": [
-          "130-051-6",
-          "130-056-5"
-        ],
-        "searchCodes": [
-          "051",
-          "056"
-        ],
-        "exNumero": "",
-        "deposito": "Can Tunis",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-Fuencarral. Reformado,nuevo interiorismo y decoración 2024",
-          "Ex-Fuencarral. Reformado,nuevo interiorismo y decoración 2024"
-        ]
-      },
-      "39": {
-        "rama": "39",
-        "vehiculoBase": "052",
-        "numero": "130-052-4",
-        "vehiculosRama": [
-          "130-052-4",
-          "130-055-7"
-        ],
-        "searchCodes": [
-          "052",
-          "055"
-        ],
-        "exNumero": "",
-        "deposito": "Can Tunis",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Logos 75 años Renfe.Ex-Fuencarral. Logos 80 años",
-          "Logos 75 años Renfe.Ex-Fuencarral"
-        ]
-      },
-      "14": {
-        "rama": "14",
-        "vehiculoBase": "057",
-        "numero": "130-057-3",
-        "vehiculosRama": [
-          "130-057-3",
-          "130-058-1"
-        ],
-        "searchCodes": [
-          "057",
-          "058"
-        ],
-        "exNumero": "7B8",
-        "deposito": "",
-        "color": "Blanco",
-        "estado": "Reformada",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-G.L. Fuencarral>> Reformada a 730-057.",
-          "Ex-G.L. Fuencarral>> Reformada a 730-058."
-        ]
-      },
-      "41": {
-        "rama": "41",
-        "vehiculoBase": "059",
-        "numero": "130-059-9",
-        "vehiculosRama": [
-          "130-059-9",
-          "130-060-7"
-        ],
-        "searchCodes": [
-          "059",
-          "060"
-        ],
-        "exNumero": "",
-        "deposito": "Can Tunis",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-Fuencarral",
-          "Ex-Fuencarral"
-        ]
-      },
-      "43": {
-        "rama": "43",
-        "vehiculoBase": "061",
-        "numero": "130-061-5",
-        "vehiculosRama": [
-          "130-061-5",
-          "130-062-3"
-        ],
-        "searchCodes": [
-          "061",
-          "062"
-        ],
-        "exNumero": "",
-        "deposito": "Can Tunis",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Logos 75 años Renfe. Descarrilo Pajares 30/09/16. Ex-Fuencarral. Reformado interior y exterior.",
-          "Logos 75 años Renfe. Descarrilo Pajares 30/09/16. Ex-Fuencarral. Reformado interior y exterior."
-        ]
-      },
-      "16": {
-        "rama": "16",
-        "vehiculoBase": "063",
-        "numero": "130-063-1",
-        "vehiculosRama": [
-          "130-063-1",
-          "130-064-9"
-        ],
-        "searchCodes": [
-          "063",
-          "064"
-        ],
-        "exNumero": "7B6",
-        "deposito": "",
-        "color": "Blanco",
-        "estado": "Reformada",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-G.L. Fuencarral>> Reformada a 730-063.",
-          "Ex-G.L. Fuencarral>> Reformada a 730-064."
-        ]
-      },
-      "44": {
-        "rama": "44",
-        "vehiculoBase": "065",
-        "numero": "130-065-6",
-        "vehiculosRama": [
-          "130-065-6",
-          "130-066-4"
-        ],
-        "searchCodes": [
-          "065",
-          "066"
-        ],
-        "exNumero": "",
-        "deposito": "Can Tunis",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-Fuencarral. Nuevo interiorismo y decoración",
-          "Ex-Fuencarral. Nuevo interiorismo y decoración"
-        ]
-      },
-      "45": {
-        "rama": "45",
-        "vehiculoBase": "067",
-        "numero": "130-067-2",
-        "vehiculosRama": [
-          "130-067-2",
-          "130-068-0"
-        ],
-        "searchCodes": [
-          "067",
-          "068"
-        ],
-        "exNumero": "",
-        "deposito": "Can Tunis",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-Fuencarral. Reformada interiormente",
-          "Ex-Fuencarral"
-        ]
-      },
-      "17": {
-        "rama": "17",
-        "vehiculoBase": "069",
-        "numero": "130-069-8",
-        "vehiculosRama": [
-          "130-069-8",
-          "130-070-6"
-        ],
-        "searchCodes": [
-          "069",
-          "070"
-        ],
-        "exNumero": "7B12",
-        "deposito": "",
-        "color": "Blanco",
-        "estado": "Reformada",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-G.L. Fuencarral>> Reformada a 730-069.",
-          "Ex-G.L. Fuencarral>> Reformada a 730-070."
-        ]
-      },
-      "18": {
-        "rama": "18",
-        "vehiculoBase": "071",
-        "numero": "130-071-4",
-        "vehiculosRama": [
-          "130-071-4",
-          "130-072-2"
-        ],
-        "searchCodes": [
-          "071",
-          "072"
-        ],
-        "exNumero": "7B19",
-        "deposito": "",
-        "color": "Blanco",
-        "estado": "Reformada",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-G.L. Fuencarral>> Reformada a 730-071.",
-          "Ex-G.L. Fuencarral>> Reformada a 730-072."
-        ]
-      },
-      "19": {
-        "rama": "19",
-        "vehiculoBase": "073",
-        "numero": "130-073-0",
-        "vehiculosRama": [
-          "130-073-0",
-          "130-074-8"
-        ],
-        "searchCodes": [
-          "073",
-          "074"
-        ],
-        "exNumero": "7B20",
-        "deposito": "",
-        "color": "Blanco",
-        "estado": "Reformada",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-G.L. Fuencarral>> Reformada a 730-073.",
-          "Ex-G.L. Fuencarral>> Reformada a 730-074."
-        ]
-      },
-      "20": {
-        "rama": "20",
-        "vehiculoBase": "075",
-        "numero": "130-075-5",
-        "vehiculosRama": [
-          "130-075-5",
-          "130-076-3"
-        ],
-        "searchCodes": [
-          "075",
-          "076"
-        ],
-        "exNumero": "7B18",
-        "deposito": "",
-        "color": "Blanco",
-        "estado": "Reformada",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-G.L. Fuencarral>> Reformada a 730-075.",
-          "Ex-G.L. Fuencarral>> Reformada a 730-076."
-        ]
-      },
-      "21": {
-        "rama": "21",
-        "vehiculoBase": "077",
-        "numero": "130-077-1",
-        "vehiculosRama": [
-          "130-077-1",
-          "130-078-9"
-        ],
-        "searchCodes": [
-          "077",
-          "078"
-        ],
-        "exNumero": "7B13",
-        "deposito": "",
-        "color": "Blanco",
-        "estado": "Reformada",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-G.L. Fuencarral >> Reformada a 730-077.",
-          "Ex-G.L. Fuencarral >> Reformada a 730-078."
-        ]
-      },
-      "22": {
-        "rama": "22",
-        "vehiculoBase": "079",
-        "numero": "130-079-7",
-        "vehiculosRama": [
-          "130-079-7",
-          "130-080-5"
-        ],
-        "searchCodes": [
-          "079",
-          "080"
-        ],
-        "exNumero": "7B9",
-        "deposito": "",
-        "color": "Blanco",
-        "estado": "Reformada",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-G.L. Fuencarral >> Reformada a 730-079.",
-          "Ex-G.L. Fuencarral >> Reformada a 730-080."
-        ]
-      },
-      "23": {
-        "rama": "23",
-        "vehiculoBase": "081",
-        "numero": "130-081-3",
-        "vehiculosRama": [
-          "130-081-3",
-          "130-082-1"
-        ],
-        "searchCodes": [
-          "081",
-          "082"
-        ],
-        "exNumero": "7B1",
-        "deposito": "",
-        "color": "Blanco",
-        "estado": "Reformada",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-G.L. Fuencarral >> Reformada a 730-081.",
-          "Ex-G.L. Fuencarral >> Reformada a 730-082."
-        ]
-      },
-      "24": {
-        "rama": "24",
-        "vehiculoBase": "083",
-        "numero": "130-083-9",
-        "vehiculosRama": [
-          "130-083-9",
-          "130-084-7"
-        ],
-        "searchCodes": [
-          "083",
-          "084"
-        ],
-        "exNumero": "7B21",
-        "deposito": "",
-        "color": "Blanco",
-        "estado": "Reformada",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-G.L. Fuencarral >> Reformada a 730-083 desde 13/11/18.",
-          "Ex-G.L. Fuencarral >> Reformada a 730-084 desde 13/11/18."
-        ]
-      },
-      "25": {
-        "rama": "25",
-        "vehiculoBase": "085",
-        "numero": "130-085-4",
-        "vehiculosRama": [
-          "130-085-4",
-          "130-086-2"
-        ],
-        "searchCodes": [
-          "085",
-          "086"
-        ],
-        "exNumero": "7B4",
-        "deposito": "",
-        "color": "Blanco",
-        "estado": "Reformada",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Ex-G.L. Fuencarral. 10/19 comienza transformación a 730>> En servicio como 730-25 desde 15/08/20",
-          "Ex-G.L. Fuencarral. 10/19 comienza transformación a 730>> En servicio como 730-25 desde 15/08/20"
-        ]
-      },
-      "26": {
-        "rama": "26",
-        "vehiculoBase": "087",
-        "numero": "130-087-0",
-        "vehiculosRama": [
-          "130-087-0",
-          "130-088-8"
-        ],
-        "searchCodes": [
-          "087",
-          "088"
-        ],
-        "exNumero": "7B3",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Nuevo interiorismo y decoración 06/25",
-          "Nuevo interiorismo y decoración 06/25"
-        ]
-      },
-      "27": {
-        "rama": "27",
-        "vehiculoBase": "089",
-        "numero": "130-089-6",
-        "vehiculosRama": [
-          "130-089-6",
-          "130-090-4"
-        ],
-        "searchCodes": [
-          "089",
-          "090"
-        ],
-        "exNumero": "7B27",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2006–2010",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-        "notas": [
-          "Nuevo interiorismo y decoración 01/23.",
-          "Nuevo interiorismo y decoración 01/23."
-        ]
-      }
-    }
-  },
   "102": {
         "rama": "2",
         "numero": "9-100-102-3",
@@ -2697,6 +1541,1162 @@ const fleet = {
       }
   }
 },
+  "130": {
+  "seriesName": "Serie 130",
+  "fabricante": "Talgo / Bombardier",
+  "modelo": "Talgo 250",
+  "apodo": "Patito / Patitos",
+  "anoPuestaServicio": "2007",
+  "tipoMaterial": "Alta Velocidad · Larga Distancia · Alvia",
+  "numeroCoches": "13 vehículos · 2 cabezas tractoras + 11 coches Talgo 7",
+  "anchoVia": "1435/1668 mm",
+  "numeroRamas": 45,
+  "velocidadMaxima": "250 km/h (25 kV c.a.) · 220 km/h (3 kV c.c.)",
+  "potencia": "4.800 kW (25 kV c.a.) · 4.000 kW (3 kV c.c.)",
+  "longitud": "aprox. 184 m",
+  "peso": "aprox. 312 t",
+  "tension": "25 kV c.a. / 3 kV c.c.",
+  "traccion": "2 cabezas tractoras Talgo-Bombardier",
+  "señalizacion": "ERTMS / LZB / ASFA según línea y unidad",
+  "composicion": "M + 11 coches Talgo 7 + M",
+  "capacidad": "299 plazas · 63 Preferente + 236 Turista",
+  "plazasSentadas": "299",
+  "numeroUnidades": "45 composiciones originales · 90 cabezas tractoras",
+  "generalNotes": [
+  "Automotores eléctricos formados por dos cabezas tractoras derivadas de la plataforma 'Travca' y una rama de 11 coches Talgo 7.",
+  "La serie está formada por 45 trenes, equivalentes a 90 locomotoras/cabezas tractoras.",
+  "Las 27 primeras composiciones se formaron a partir de ramas Talgo 7 existentes, adaptadas para servicio diurno y acopladas permanentemente a las nuevas cabezas tractoras.",
+  "Las ramas 28 a 45 fueron construidas de nueva planta para la serie 130.",
+  "La identificación por Ex-número es especialmente importante en esta serie: permite reconocer las ramas Talgo 7 de procedencia anterior. Cuando existe, se conserva el código 7B correspondiente.",
+  "Puede circular por ancho ibérico (1668 mm) y ancho estándar (1435 mm) gracias a la rodadura desplazable.",
+  "La potencia total es de 4.800 kW a 25 kV c.a. y 4.000 kW a 3 kV c.c.",
+  "La velocidad máxima es de 250 km/h en líneas de alta velocidad y 220 km/h en ancho ibérico.",
+  "La composición convencional de la serie es de dos cabezas tractoras y once coches Talgo 7, con 299 plazas.",
+  "Las ramas 11 a 25 fueron posteriormente transformadas en composiciones bimodales de la serie 730.",
+  "La serie comenzó oficialmente su servicio comercial el 6 de noviembre de 2007 en la relación Gijón–Madrid bajo la denominación Alvia."
+  ],
+  "units": {
+  "01": {
+  "rama": "01",
+  "vehiculoBase": "001",
+  "numero": "130-001-1",
+  "vehiculosRama": [
+  "130-001-1",
+  "130-002-9"
+  ],
+  "searchCodes": [
+  "001",
+  "002"
+  ],
+  "exNumero": "7B2",
+  "deposito": "Fuencarral",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Formado el 14/09/06. Reforma 08/22, segundo 130. Colisión con tractor en Arenas de Iguña 27/04/23. Reformado interiorismo y decoración 2024.",
+  "Formado en 10/06. Reforma 08/22, segundo 130. Colisión con tractor en Arenas de Iguña 27/04/23. Reformado interiorismo y decoración 2024."
+  ]
+  },
+  "02": {
+  "rama": "02",
+  "vehiculoBase": "003",
+  "numero": "130-003-7",
+  "vehiculosRama": [
+  "130-003-7",
+  "130-004-5"
+  ],
+  "searchCodes": [
+  "003",
+  "004"
+  ],
+  "exNumero": "7B5",
+  "deposito": "Fuencarral",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Formado en 11/06. Reforma interior pero no exterior, 2023.",
+  "Formada en 11/06. Reforma interior pero no exterior, 2023."
+  ]
+  },
+  "03": {
+  "rama": "03",
+  "vehiculoBase": "005",
+  "numero": "130-005-2",
+  "vehiculosRama": [
+  "130-005-2",
+  "130-006-0"
+  ],
+  "searchCodes": [
+  "005",
+  "006"
+  ],
+  "exNumero": "7B16",
+  "deposito": "Fuencarral",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Entra a reforma en 01/07. En pruebas desde 02/07. Nuevo interiorismo y decoración 05/26",
+  "Entra a reforma en 01/07. En pruebas desde 02/07. Nuevo interiorismo y decoración 05/26"
+  ]
+  },
+  "04": {
+  "rama": "04",
+  "vehiculoBase": "007",
+  "numero": "130-007-8",
+  "vehiculosRama": [
+  "130-007-8",
+  "130-008-6"
+  ],
+  "searchCodes": [
+  "007",
+  "008"
+  ],
+  "exNumero": "7B22",
+  "deposito": "Fuencarral",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Entra a reforma en 02/07. En pruebas en 07/07. Nuevo interiorismo y decoración 05/26.",
+  "Entra a reforma en 02/07. En pruebas en 07/07. Nuevo interiorismo y decoración 05/26."
+  ]
+  },
+  "05": {
+  "rama": "05",
+  "vehiculoBase": "009",
+  "numero": "130-009-4",
+  "vehiculosRama": [
+  "130-009-4",
+  "130-010-2"
+  ],
+  "searchCodes": [
+  "009",
+  "010"
+  ],
+  "exNumero": "7B26",
+  "deposito": "Fuencarral",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Reformada solo interiorismo 03/23.",
+  "Reformada solo interiorismo 03/23."
+  ]
+  },
+  "06": {
+  "rama": "06",
+  "vehiculoBase": "011",
+  "numero": "130-011-0",
+  "vehiculosRama": [
+  "130-011-0",
+  "130-012-8"
+  ],
+  "searchCodes": [
+  "011",
+  "012"
+  ],
+  "exNumero": "7B24",
+  "deposito": "Fuencarral",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Entra a reforma en 04/07. En pruebas desde 13/08/07. Logos 80 años Renfe",
+  "Entra a reforma en 04/07. En pruebas desde 13/08/07. Logos 80 años Renfe"
+  ]
+  },
+  "07": {
+  "rama": "07",
+  "vehiculoBase": "013",
+  "numero": "130-013-6",
+  "vehiculosRama": [
+  "130-013-6",
+  "130-014-4"
+  ],
+  "searchCodes": [
+  "013",
+  "014"
+  ],
+  "exNumero": "7B25",
+  "deposito": "Fuencarral",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Entra a reforma en 05/07. Piedra en Mont-Roig del Camp 15/03/16. Logos 75 años Renfe. Reformada interior 2023 sin decoración externa. Nueva decoración externa 05/26",
+  "Entra a reforma en 05/07. Piedra en Mont-Roig del Camp 15/03/16. Logos 75 años Renfe. Reformada interior 2023 sin decoración externa."
+  ]
+  },
+  "08": {
+  "rama": "08",
+  "vehiculoBase": "015",
+  "numero": "130-015-1",
+  "vehiculosRama": [
+  "130-015-1",
+  "130-016-9"
+  ],
+  "searchCodes": [
+  "015",
+  "016"
+  ],
+  "exNumero": "7B23",
+  "deposito": "Fuencarral",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Entra a reforma para 130 en 07/07. Reformado nuevo interiorismo y decoración 05/22 (Primer 130)",
+  "Entra a reforma para 130 en 07/07. Reformado nuevo interiorismo y decoración 05/22 (Primer 130)"
+  ]
+  },
+  "31": {
+  "rama": "31",
+  "vehiculoBase": "017",
+  "numero": "130-017-7",
+  "vehiculosRama": [
+  "130-017-7",
+  "130-018-5"
+  ],
+  "searchCodes": [
+  "017",
+  "018"
+  ],
+  "exNumero": "7B31",
+  "deposito": "Fuencarral",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Realizó pruebas LAV Valladolid. Descarrilo Freixeiro 26/08/22. Reformada interior y exterior xx/24.",
+  "Realizó pruebas LAV Valladolid. Descarrilo Freixeiro 26/08/22. Reformada interior/exterior xx/24."
+  ]
+  },
+  "29": {
+  "rama": "29",
+  "vehiculoBase": "019",
+  "numero": "130-019-3",
+  "vehiculosRama": [
+  "130-019-3",
+  "130-020-1"
+  ],
+  "searchCodes": [
+  "019",
+  "020"
+  ],
+  "exNumero": "7B29",
+  "deposito": "Can Tunis",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-Fuencarral. Reformado 04/23",
+  "Ex-Fuencarral. Reformado 04/23"
+  ]
+  },
+  "10": {
+  "rama": "10",
+  "vehiculoBase": "021",
+  "numero": "130-021-9",
+  "vehiculosRama": [
+  "130-021-9",
+  "130-022-7"
+  ],
+  "searchCodes": [
+  "021",
+  "022"
+  ],
+  "exNumero": "7B14",
+  "deposito": "Can Tunis",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-Fuencarral. Arrollamiento vehículo Husillos 26/11/24. Reformado, nuevo interiorismo y decoración 2024",
+  "Ex-Fuencarral. Arrollamiento vehículo Husillos 26/11/24. Reformado,nuevo interiorismo y decoración 2024"
+  ]
+  },
+  "32": {
+  "rama": "32",
+  "vehiculoBase": "023",
+  "numero": "130-023-5",
+  "vehiculosRama": [
+  "130-023-5",
+  "130-024-3"
+  ],
+  "searchCodes": [
+  "023",
+  "024"
+  ],
+  "exNumero": "",
+  "deposito": "Fuencarral",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Logos 80 años Renfe",
+  "Logos 80 años Renfe"
+  ]
+  },
+  "30": {
+  "rama": "30",
+  "vehiculoBase": "025",
+  "numero": "130-025-0",
+  "vehiculosRama": [
+  "130-025-0",
+  "130-026-8"
+  ],
+  "searchCodes": [
+  "025",
+  "026"
+  ],
+  "exNumero": "7B30",
+  "deposito": "Can Tunis",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "En pruebas desde 12/07. Primer 130 en llegar a Bilbao. Ex-Fuencarral",
+  "En pruebas desde 12/07. Primer 130 en llegar a Bilbao. Ex-Fuencarral"
+  ]
+  },
+  "34": {
+  "rama": "34",
+  "vehiculoBase": "027",
+  "numero": "130-027-6",
+  "vehiculosRama": [
+  "130-027-6",
+  "130-028-4"
+  ],
+  "searchCodes": [
+  "027",
+  "028"
+  ],
+  "exNumero": "",
+  "deposito": "Fuencarral",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "En pruebas desde 12/07. Descarrilo León 05/03/21. Reformada 10/22",
+  "En pruebas desde 12/07. Descarrilo León 05/03/21. Reformada 10/22"
+  ]
+  },
+  "09": {
+  "rama": "09",
+  "vehiculoBase": "029",
+  "numero": "130-029-2",
+  "vehiculosRama": [
+  "130-029-2",
+  "130-030-0"
+  ],
+  "searchCodes": [
+  "029",
+  "030"
+  ],
+  "exNumero": "7B15",
+  "deposito": "Fuencarral",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": []
+  },
+  "33": {
+  "rama": "33",
+  "vehiculoBase": "031",
+  "numero": "130-031-8",
+  "vehiculosRama": [
+  "130-031-8",
+  "130-032-6"
+  ],
+  "searchCodes": [
+  "031",
+  "032"
+  ],
+  "exNumero": "",
+  "deposito": "Fuencarral",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Logos \"80 Años RENFE\"",
+  "Logos \"80 Años RENFE\""
+  ]
+  },
+  "28": {
+  "rama": "28",
+  "vehiculoBase": "033",
+  "numero": "130-033-4",
+  "vehiculosRama": [
+  "130-033-4",
+  "130-034-2"
+  ],
+  "searchCodes": [
+  "033",
+  "034"
+  ],
+  "exNumero": "7B28",
+  "deposito": "Fuencarral",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Fabricado en el TCR de Málaga. Sale de talleres 19/12/07. Reformado, nuevo interiorismo y decoración 2024",
+  "Reformado, nuevo interiorismo y decoración 2024"
+  ]
+  },
+  "36": {
+  "rama": "36",
+  "vehiculoBase": "035",
+  "numero": "130-035-9",
+  "vehiculosRama": [
+  "130-035-9",
+  "130-036-7"
+  ],
+  "searchCodes": [
+  "035",
+  "036"
+  ],
+  "exNumero": "",
+  "deposito": "Can Tunis",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-Fuencarral. Reformado interior y exterior con librea nueva 03/25.",
+  "Ex-Fuencarral. Reformado interior y exterior con librea nueva 03/25."
+  ]
+  },
+  "38": {
+  "rama": "38",
+  "vehiculoBase": "037",
+  "numero": "130-037-5",
+  "vehiculosRama": [
+  "130-037-5",
+  "130-041-7"
+  ],
+  "searchCodes": [
+  "037",
+  "041"
+  ],
+  "exNumero": "",
+  "deposito": "Fuencarral",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": []
+  },
+  "13": {
+  "rama": "13",
+  "vehiculoBase": "038",
+  "numero": "130-038-3",
+  "vehiculosRama": [
+  "130-038-3",
+  "130-042-5"
+  ],
+  "searchCodes": [
+  "038",
+  "042"
+  ],
+  "exNumero": "7B10",
+  "deposito": "",
+  "color": "Blanco",
+  "estado": "Reformada",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-G.L. Fuencarral>> Reformada a 730-038.",
+  "Ex-G.L. Fuencarral>> Reformada a 730-042."
+  ]
+  },
+  "35": {
+  "rama": "35",
+  "vehiculoBase": "039",
+  "numero": "130-039-1",
+  "vehiculosRama": [
+  "130-039-1",
+  "130-040-9"
+  ],
+  "searchCodes": [
+  "039",
+  "040"
+  ],
+  "exNumero": "",
+  "deposito": "Can Tunis",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-Fuencarral. Reformado interior y exterior. Descarrilo Chamartín 12/06/25",
+  "Ex-Fuencarral. Reformada interior y exterior. Descarrilo Chamartín 12/06/25"
+  ]
+  },
+  "11": {
+  "rama": "11",
+  "vehiculoBase": "043",
+  "numero": "130-043-3",
+  "vehiculosRama": [
+  "130-043-3",
+  "130-044-1"
+  ],
+  "searchCodes": [
+  "043",
+  "044"
+  ],
+  "exNumero": "7B17",
+  "deposito": "",
+  "color": "Blanco",
+  "estado": "Reformada",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-G.L. Fuencarral>> Reformada a 730-043.",
+  "Ex-G.L. Fuencarral>> Reformada a 730-044. Vinilo Xacobeo 21-22, desde 28/05/21"
+  ]
+  },
+  "12": {
+  "rama": "12",
+  "vehiculoBase": "045",
+  "numero": "130-045-8",
+  "vehiculosRama": [
+  "130-045-8",
+  "130-046-6"
+  ],
+  "searchCodes": [
+  "045",
+  "046"
+  ],
+  "exNumero": "7B11",
+  "deposito": "",
+  "color": "Blanco",
+  "estado": "Desguazada",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-G.L. Fuencarral.>> Reformada a 730-045. Accidentada como 730 en Santiago, 24/07/13.",
+  "Ex-G.L. Fuencarral.>> Reformada a 730-046. Accidentada como 730 en Santiago, 24/07/13."
+  ]
+  },
+  "42": {
+  "rama": "42",
+  "vehiculoBase": "047",
+  "numero": "130-047-4",
+  "vehiculosRama": [
+  "130-047-4",
+  "130-048-2"
+  ],
+  "searchCodes": [
+  "047",
+  "048"
+  ],
+  "exNumero": "",
+  "deposito": "Can Tunis",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-Fuencarral. Reformado, nuevo interiorismo y decoración",
+  "Ex-Fuencarral. Reformado, nuevo interiorismo y decoración"
+  ]
+  },
+  "40": {
+  "rama": "40",
+  "vehiculoBase": "049",
+  "numero": "130-049-0",
+  "vehiculosRama": [
+  "130-049-0",
+  "130-054-0"
+  ],
+  "searchCodes": [
+  "049",
+  "054"
+  ],
+  "exNumero": "",
+  "deposito": "Fuencarral",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Choque con árbol en Villabona de Asturias 04/06/18. Reformado, nuevo interiorismo y decoración 2024",
+  "Vinilos USAL 03/18 Reformado, nuevo interiorismo y decoración 2024"
+  ]
+  },
+  "15": {
+  "rama": "15",
+  "vehiculoBase": "050",
+  "numero": "130-050-8",
+  "vehiculosRama": [
+  "130-050-8",
+  "130-053-2"
+  ],
+  "searchCodes": [
+  "050",
+  "053"
+  ],
+  "exNumero": "7B7",
+  "deposito": "",
+  "color": "Blanco",
+  "estado": "Reformada",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-G.L. Fuencarral>> Reformada a 730-050.",
+  "Ex-G.L. Fuencarral>> Reformada a 730-053."
+  ]
+  },
+  "37": {
+  "rama": "37",
+  "vehiculoBase": "051",
+  "numero": "130-051-6",
+  "vehiculosRama": [
+  "130-051-6",
+  "130-056-5"
+  ],
+  "searchCodes": [
+  "051",
+  "056"
+  ],
+  "exNumero": "",
+  "deposito": "Can Tunis",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-Fuencarral. Reformado,nuevo interiorismo y decoración 2024",
+  "Ex-Fuencarral. Reformado,nuevo interiorismo y decoración 2024"
+  ]
+  },
+  "39": {
+  "rama": "39",
+  "vehiculoBase": "052",
+  "numero": "130-052-4",
+  "vehiculosRama": [
+  "130-052-4",
+  "130-055-7"
+  ],
+  "searchCodes": [
+  "052",
+  "055"
+  ],
+  "exNumero": "",
+  "deposito": "Can Tunis",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Logos 75 años Renfe.Ex-Fuencarral. Logos 80 años",
+  "Logos 75 años Renfe.Ex-Fuencarral"
+  ]
+  },
+  "14": {
+  "rama": "14",
+  "vehiculoBase": "057",
+  "numero": "130-057-3",
+  "vehiculosRama": [
+  "130-057-3",
+  "130-058-1"
+  ],
+  "searchCodes": [
+  "057",
+  "058"
+  ],
+  "exNumero": "7B8",
+  "deposito": "",
+  "color": "Blanco",
+  "estado": "Reformada",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-G.L. Fuencarral>> Reformada a 730-057.",
+  "Ex-G.L. Fuencarral>> Reformada a 730-058."
+  ]
+  },
+  "41": {
+  "rama": "41",
+  "vehiculoBase": "059",
+  "numero": "130-059-9",
+  "vehiculosRama": [
+  "130-059-9",
+  "130-060-7"
+  ],
+  "searchCodes": [
+  "059",
+  "060"
+  ],
+  "exNumero": "",
+  "deposito": "Can Tunis",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-Fuencarral",
+  "Ex-Fuencarral"
+  ]
+  },
+  "43": {
+  "rama": "43",
+  "vehiculoBase": "061",
+  "numero": "130-061-5",
+  "vehiculosRama": [
+  "130-061-5",
+  "130-062-3"
+  ],
+  "searchCodes": [
+  "061",
+  "062"
+  ],
+  "exNumero": "",
+  "deposito": "Can Tunis",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Logos 75 años Renfe. Descarrilo Pajares 30/09/16. Ex-Fuencarral. Reformado interior y exterior.",
+  "Logos 75 años Renfe. Descarrilo Pajares 30/09/16. Ex-Fuencarral. Reformado interior y exterior."
+  ]
+  },
+  "16": {
+  "rama": "16",
+  "vehiculoBase": "063",
+  "numero": "130-063-1",
+  "vehiculosRama": [
+  "130-063-1",
+  "130-064-9"
+  ],
+  "searchCodes": [
+  "063",
+  "064"
+  ],
+  "exNumero": "7B6",
+  "deposito": "",
+  "color": "Blanco",
+  "estado": "Reformada",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-G.L. Fuencarral>> Reformada a 730-063.",
+  "Ex-G.L. Fuencarral>> Reformada a 730-064."
+  ]
+  },
+  "44": {
+  "rama": "44",
+  "vehiculoBase": "065",
+  "numero": "130-065-6",
+  "vehiculosRama": [
+  "130-065-6",
+  "130-066-4"
+  ],
+  "searchCodes": [
+  "065",
+  "066"
+  ],
+  "exNumero": "",
+  "deposito": "Can Tunis",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-Fuencarral. Nuevo interiorismo y decoración",
+  "Ex-Fuencarral. Nuevo interiorismo y decoración"
+  ]
+  },
+  "45": {
+  "rama": "45",
+  "vehiculoBase": "067",
+  "numero": "130-067-2",
+  "vehiculosRama": [
+  "130-067-2",
+  "130-068-0"
+  ],
+  "searchCodes": [
+  "067",
+  "068"
+  ],
+  "exNumero": "",
+  "deposito": "Can Tunis",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-Fuencarral. Reformada interiormente",
+  "Ex-Fuencarral"
+  ]
+  },
+  "17": {
+  "rama": "17",
+  "vehiculoBase": "069",
+  "numero": "130-069-8",
+  "vehiculosRama": [
+  "130-069-8",
+  "130-070-6"
+  ],
+  "searchCodes": [
+  "069",
+  "070"
+  ],
+  "exNumero": "7B12",
+  "deposito": "",
+  "color": "Blanco",
+  "estado": "Reformada",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-G.L. Fuencarral>> Reformada a 730-069.",
+  "Ex-G.L. Fuencarral>> Reformada a 730-070."
+  ]
+  },
+  "18": {
+  "rama": "18",
+  "vehiculoBase": "071",
+  "numero": "130-071-4",
+  "vehiculosRama": [
+  "130-071-4",
+  "130-072-2"
+  ],
+  "searchCodes": [
+  "071",
+  "072"
+  ],
+  "exNumero": "7B19",
+  "deposito": "",
+  "color": "Blanco",
+  "estado": "Reformada",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-G.L. Fuencarral>> Reformada a 730-071.",
+  "Ex-G.L. Fuencarral>> Reformada a 730-072."
+  ]
+  },
+  "19": {
+  "rama": "19",
+  "vehiculoBase": "073",
+  "numero": "130-073-0",
+  "vehiculosRama": [
+  "130-073-0",
+  "130-074-8"
+  ],
+  "searchCodes": [
+  "073",
+  "074"
+  ],
+  "exNumero": "7B20",
+  "deposito": "",
+  "color": "Blanco",
+  "estado": "Reformada",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-G.L. Fuencarral>> Reformada a 730-073.",
+  "Ex-G.L. Fuencarral>> Reformada a 730-074."
+  ]
+  },
+  "20": {
+  "rama": "20",
+  "vehiculoBase": "075",
+  "numero": "130-075-5",
+  "vehiculosRama": [
+  "130-075-5",
+  "130-076-3"
+  ],
+  "searchCodes": [
+  "075",
+  "076"
+  ],
+  "exNumero": "7B18",
+  "deposito": "",
+  "color": "Blanco",
+  "estado": "Reformada",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-G.L. Fuencarral>> Reformada a 730-075.",
+  "Ex-G.L. Fuencarral>> Reformada a 730-076."
+  ]
+  },
+  "21": {
+  "rama": "21",
+  "vehiculoBase": "077",
+  "numero": "130-077-1",
+  "vehiculosRama": [
+  "130-077-1",
+  "130-078-9"
+  ],
+  "searchCodes": [
+  "077",
+  "078"
+  ],
+  "exNumero": "7B13",
+  "deposito": "",
+  "color": "Blanco",
+  "estado": "Reformada",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-G.L. Fuencarral >> Reformada a 730-077.",
+  "Ex-G.L. Fuencarral >> Reformada a 730-078."
+  ]
+  },
+  "22": {
+  "rama": "22",
+  "vehiculoBase": "079",
+  "numero": "130-079-7",
+  "vehiculosRama": [
+  "130-079-7",
+  "130-080-5"
+  ],
+  "searchCodes": [
+  "079",
+  "080"
+  ],
+  "exNumero": "7B9",
+  "deposito": "",
+  "color": "Blanco",
+  "estado": "Reformada",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-G.L. Fuencarral >> Reformada a 730-079.",
+  "Ex-G.L. Fuencarral >> Reformada a 730-080."
+  ]
+  },
+  "23": {
+  "rama": "23",
+  "vehiculoBase": "081",
+  "numero": "130-081-3",
+  "vehiculosRama": [
+  "130-081-3",
+  "130-082-1"
+  ],
+  "searchCodes": [
+  "081",
+  "082"
+  ],
+  "exNumero": "7B1",
+  "deposito": "",
+  "color": "Blanco",
+  "estado": "Reformada",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-G.L. Fuencarral >> Reformada a 730-081.",
+  "Ex-G.L. Fuencarral >> Reformada a 730-082."
+  ]
+  },
+  "24": {
+  "rama": "24",
+  "vehiculoBase": "083",
+  "numero": "130-083-9",
+  "vehiculosRama": [
+  "130-083-9",
+  "130-084-7"
+  ],
+  "searchCodes": [
+  "083",
+  "084"
+  ],
+  "exNumero": "7B21",
+  "deposito": "",
+  "color": "Blanco",
+  "estado": "Reformada",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-G.L. Fuencarral >> Reformada a 730-083 desde 13/11/18.",
+  "Ex-G.L. Fuencarral >> Reformada a 730-084 desde 13/11/18."
+  ]
+  },
+  "25": {
+  "rama": "25",
+  "vehiculoBase": "085",
+  "numero": "130-085-4",
+  "vehiculosRama": [
+  "130-085-4",
+  "130-086-2"
+  ],
+  "searchCodes": [
+  "085",
+  "086"
+  ],
+  "exNumero": "7B4",
+  "deposito": "",
+  "color": "Blanco",
+  "estado": "Reformada",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Ex-G.L. Fuencarral. 10/19 comienza transformación a 730>> En servicio como 730-25 desde 15/08/20",
+  "Ex-G.L. Fuencarral. 10/19 comienza transformación a 730>> En servicio como 730-25 desde 15/08/20"
+  ]
+  },
+  "26": {
+  "rama": "26",
+  "vehiculoBase": "087",
+  "numero": "130-087-0",
+  "vehiculosRama": [
+  "130-087-0",
+  "130-088-8"
+  ],
+  "searchCodes": [
+  "087",
+  "088"
+  ],
+  "exNumero": "7B3",
+  "deposito": "Fuencarral",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Nuevo interiorismo y decoración 06/25",
+  "Nuevo interiorismo y decoración 06/25"
+  ]
+  },
+  "27": {
+  "rama": "27",
+  "vehiculoBase": "089",
+  "numero": "130-089-6",
+  "vehiculosRama": [
+  "130-089-6",
+  "130-090-4"
+  ],
+  "searchCodes": [
+  "089",
+  "090"
+  ],
+  "exNumero": "7B27",
+  "deposito": "Fuencarral",
+  "color": "Blanco",
+  "estado": "En servicio",
+  "servicio": "Alvia",
+  "ano": "2006–2010",
+  "ancho": "1435/1668",
+  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
+  "notas": [
+  "Nuevo interiorismo y decoración 01/23.",
+  "Nuevo interiorismo y decoración 01/23."
+  ]
+  }
+  }
+  },
   "102": {
     "seriesName": "Serie 102",
     "fabricante": "Talgo-Bombardier",
