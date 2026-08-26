@@ -4854,7 +4854,10 @@ function fleetFichaHtml(series,vehicle,service=null){
   }
 
   // Toda la información específica aportada para la rama forma parte de su ficha.
-  const notes=unit.notas||[];
+  const rawNotes=Array.isArray(unit.notas)?unit.notas.filter(Boolean):[];
+  const notes=normalizeFleetValue(series)==="130"
+    ? rawNotes.filter((n,i,a)=>!a.some((other,j)=>j!==i && other.length>n.length && other.includes(n)))
+    : rawNotes;
 
   // 1) Datos del servicio registrado.
   const serviceBlock=service?`
@@ -4885,7 +4888,7 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Fabricante</span><strong>${esc(unit.fabricante||seriesData?.fabricante||"—")}</strong></div>
         <div><span>Número de coches</span><strong>${esc(unit.numeroCoches||seriesData?.numeroCoches||"—")}</strong></div>
         <div><span>Año</span><strong>${esc(unit.ano||"—")}</strong></div>
-        ${normalizeFleetValue(series)==="130" && unit.exNumero?`<div><span>Ex-número</span><strong>${esc(unit.exNumero)}</strong></div>`:""}
+        ${normalizeFleetValue(series)==="130" && unit.exNumero?`<div class="ficha-exnumero"><span>EX-NÚMERO · PROCEDENCIA TALGO 7</span><strong>${esc(unit.exNumero)}</strong></div>`:""}
         <div><span>Depósito / base</span><strong>${esc(unit.deposito||"—")}</strong></div>
         <div><span>Ancho de vía</span><strong>${esc(unit.ancho||seriesData?.anchoVia||"—")} ${unit.ancho?"mm":""}</strong></div>
         ${(unit.subserie||seriesData?.subseries)?`<div><span>Subserie</span><strong>${esc(unit.subserie||seriesData.subseries)}</strong></div>`:""}
@@ -4999,6 +5002,29 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   const s=document.createElement("style");
   s.id="argos-general-ficha-clean";
   s.textContent=`.ficha-general-grid{display:grid;grid-template-columns:1fr;gap:10px}.ficha-general-item{display:flex;gap:12px;align-items:flex-start;padding:13px 14px;border:1px solid rgba(120,120,120,.16);border-radius:12px;background:rgba(128,128,128,.045);line-height:1.45}.ficha-general-number{font-weight:800;font-size:12px;opacity:.55;min-width:24px;padding-top:2px}@media(min-width:760px){.ficha-general-grid{grid-template-columns:1fr 1fr}}`;
+  document.head.appendChild(s);
+})();
+
+(function(){
+  if(document.getElementById("argos-s130-exnumero")) return;
+  const s=document.createElement("style");
+  s.id="argos-s130-exnumero";
+  s.textContent=`
+    .ficha-exnumero{
+      border:2px solid rgba(145,0,95,.28)!important;
+      background:rgba(145,0,95,.07)!important;
+      box-shadow:0 4px 14px rgba(145,0,95,.08);
+    }
+    .ficha-exnumero span{
+      color:#91005f!important;
+      font-weight:800!important;
+      letter-spacing:.02em;
+    }
+    .ficha-exnumero strong{
+      color:#91005f!important;
+      font-size:1.12em;
+    }
+  `;
   document.head.appendChild(s);
 })();
 
