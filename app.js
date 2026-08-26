@@ -842,6 +842,253 @@ const fleet = {
       }
     }
   },
+  "103": {
+    "seriesName": "Serie 103",
+    "fabricante": "Siemens",
+    "numeroCoches": "8",
+    "tipoMaterial": "AVE / Alta Velocidad · Siemens Velaro E",
+    "anchoVia": "1435 mm",
+    "modelo": "Siemens Velaro E",
+    "familia": "Velaro / ICE 3",
+    "apodo": "Velaro",
+    "velocidadMaxima": "350 km/h",
+    "potencia": "8.800 kW",
+    "tension": "25 kV / 50 Hz",
+    "capacidad": "404/405 plazas",
+    "plazasSentadas": "404/405",
+    "longitud": "200 m",
+    "peso": "425 t",
+    "motores": "16 motores asíncronos",
+    "numeroUnidades": "26 composiciones",
+    "traccion": "Distribuida",
+    "señalizacion": "ERTMS niveles 1 y 2, ASFA y STM de LZB",
+    "composicion": "8 coches: Mc-R-M-R-R-M-R-Mc",
+    "generalNotes": [
+      "Unidades Siemens Velaro E de alta velocidad para los corredores AVE, con especial protagonismo en la línea Madrid-Barcelona.",
+      "La serie 103 fue presentada en enero de 2007 y está formada por 26 trenes adjudicados a Siemens en dos concursos.",
+      "Es un tren de tracción distribuida: no tiene cabezas tractoras convencionales y los equipos de tracción se reparten bajo los bastidores de la composición.",
+      "Cada unidad está formada por 8 coches. Los coches 1, 3, 6 y 8 disponen de bogies motores; el 50 % de los ejes están motorizados.",
+      "La potencia total es de 8.800 kW y la velocidad máxima de diseño es de 350 km/h.",
+      "La capacidad oficial es de 404/405 plazas según configuración; Renfe distribuye el interior entre Club, Preferente, cafetería y Turista.",
+      "La composición incorpora 2 plazas para viajeros en silla de ruedas y un aseo adaptado a PMR.",
+      "Está basada en la familia ICE 3 de Deutsche Bahn y corresponde a la variante española Siemens Velaro E.",
+      "La tracción distribuida mejora la adherencia, la aceleración y el aprovechamiento del espacio interior.",
+      "Dispone de ERTMS niveles 1 y 2, ASFA y STM de LZB para circular por distintos corredores de alta velocidad.",
+      "El tren puede circular en composición múltiple de dos unidades.",
+      "Los vehículos están equipados con sistemas de freno regenerativo, reostático y neumático, además de sistemas de protección contra incendios y antiacaballamiento.",
+      "La información de las ramas de esta serie se organiza por los dos últimos dígitos del número de vehículo: 01 identifica la Rama 1, 02 la Rama 2, …, 26 la Rama 26."
+    ],
+    "units": {
+      "1": {
+        "rama": "1",
+        "numero": "9-103-201",
+        "vehiculoBase": "201",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Vinilos Movistar, 07/15."]
+      },
+      "2": {
+        "rama": "2",
+        "numero": "9-103-202",
+        "vehiculoBase": "202",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Récord de España de velocidad: 390 km/h, 03/07/06."]
+      },
+      "3": {
+        "rama": "3",
+        "numero": "9-103-203",
+        "vehiculoBase": "203",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
+      },
+      "4": {
+        "rama": "4",
+        "numero": "9-103-204",
+        "vehiculoBase": "204",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
+      },
+      "5": {
+        "rama": "5",
+        "numero": "9-103-205",
+        "vehiculoBase": "205",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Récord de velocidad nocturno del 15 al 16/07/06: 403,7 km/h entre Alcalá de Henares y Calatayud, en la LAV Madrid-Lleida.", "Colores Renfe Operadora.", "Nuevo logo AVE 10/22.", "Ex-La Sagra → Can Tunis."]
+      },
+      "6": {
+        "rama": "6",
+        "numero": "9-103-206",
+        "vehiculoBase": "206",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Vinilos Feria del Libro 2023 en el coche 606."]
+      },
+      "7": {
+        "rama": "7",
+        "numero": "9-103-207",
+        "vehiculoBase": "207",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Nuevos logos AVE 10/22."]
+      },
+      "8": {
+        "rama": "8",
+        "numero": "9-103-208",
+        "vehiculoBase": "208",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
+      },
+      "9": {
+        "rama": "9",
+        "numero": "9-103-209",
+        "vehiculoBase": "209",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
+      },
+      "10": {
+        "rama": "10",
+        "numero": "9-103-210",
+        "vehiculoBase": "210",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Golpe con la rama 11 en talleres Cerro Negro, 08/10/13.", "Tras el accidente, circuló con coches de la rama 11.", "Vinilos Vuelta a España 08/23."]
+      },
+      "11": {
+        "rama": "11",
+        "numero": "9-103-211",
+        "vehiculoBase": "211",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Golpe con la rama 10 en talleres Cerro Negro, 08/10/13.", "Tras el accidente, por lo menos el coche Club (9-103-211-9) circuló en la rama 10.", "En servicio 05/21.", "Vinilo Vuelta a España 06/23."]
+      },
+      "12": {
+        "rama": "12",
+        "numero": "9-103-212",
+        "vehiculoBase": "212",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
+      },
+      "13": {
+        "rama": "13",
+        "numero": "9-103-213",
+        "vehiculoBase": "213",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Vinilos Fujitsu, 06/18.", "Vinilos PortAventura, 06/23."]
+      },
+      "14": {
+        "rama": "14",
+        "numero": "9-103-214",
+        "vehiculoBase": "214",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
+      },
+      "15": {
+        "rama": "15",
+        "numero": "9-103-215",
+        "vehiculoBase": "215",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
+      },
+      "16": {
+        "rama": "16",
+        "numero": "9-103-216",
+        "vehiculoBase": "216",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
+      },
+      "17": {
+        "rama": "17",
+        "numero": "9-103-217",
+        "vehiculoBase": "217",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Colisión con 120.60 en Santa Catalina, 13/05/17.", "En servicio 07/21."]
+      },
+      "18": {
+        "rama": "18",
+        "numero": "9-103-218",
+        "vehiculoBase": "218",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Vinilos Feria del Libro Madrid 05/26."]
+      },
+      "19": {
+        "rama": "19",
+        "numero": "9-103-219",
+        "vehiculoBase": "219",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
+      },
+      "20": {
+        "rama": "20",
+        "numero": "9-103-220",
+        "vehiculoBase": "220",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Vinilo Lola Índigo 06/25."]
+      },
+      "21": {
+        "rama": "21",
+        "numero": "9-103-221",
+        "vehiculoBase": "221",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
+      },
+      "22": {
+        "rama": "22",
+        "numero": "9-103-222",
+        "vehiculoBase": "222",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Vinilos 25 años Estopa desde 20/03/24."]
+      },
+      "23": {
+        "rama": "23",
+        "numero": "9-103-223",
+        "vehiculoBase": "223",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
+      },
+      "24": {
+        "rama": "24",
+        "numero": "9-103-224",
+        "vehiculoBase": "224",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Vinilos Correos, 07/16."]
+      },
+      "25": {
+        "rama": "25",
+        "numero": "9-103-225",
+        "vehiculoBase": "225",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
+      },
+      "26": {
+        "rama": "26",
+        "numero": "9-103-226",
+        "vehiculoBase": "226",
+        "deposito": "Santa Catalina",
+        "ancho": "1435",
+        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
+      }
+    }
+  }
 };
 
 // Datos técnicos comunes de la serie 100. Los datos específicos de cada rama pueden sobrescribirlos.
@@ -856,6 +1103,12 @@ Object.values(fleet["102"]?.units||{}).forEach(unit=>{
   unit.anchoVia=unit.anchoVia||fleet["102"].anchoVia;
   unit.ano=unit.ano||fleet["102"].anoPuestaServicio;
 });
+Object.values(fleet["103"]?.units||{}).forEach(unit=>{
+  unit.fabricante=unit.fabricante||fleet["103"].fabricante;
+  unit.numeroCoches=unit.numeroCoches||fleet["103"].numeroCoches;
+  unit.anchoVia=unit.anchoVia||fleet["103"].anchoVia;
+  unit.ano=unit.ano||"2007";
+});
 
 function normalizeFleetValue(value){
   return String(value ?? "").trim().replace(/\D/g,"").replace(/^0+/,"") || "";
@@ -865,6 +1118,27 @@ function getFleetUnit(series, vehicle){
   const s=normalizeFleetValue(series);
   const v=normalizeFleetValue(vehicle);
   const seriesData=fleet[s];
+  if(!seriesData) return null;
+
+  // Serie 103: cualquier coche se identifica por sus dos últimos dígitos.
+  // Ej.: 501 -> Rama 1, 521 -> Rama 21, 626 -> Rama 26.
+  if(s==="103"){
+    const digits=v.padStart(3,"0");
+    const rama=Number(digits.slice(-2));
+    const base=seriesData.units?.[String(rama)];
+    if(!base) return null;
+    return {
+      ...base,
+      numero:v,
+      vehiculoIntroducido:v,
+      cocheTipo: v.startsWith("2") ? "Club" :
+                 v.startsWith("3") ? "Preferente" :
+                 v.startsWith("4") ? "Cafetería" :
+                 v.startsWith("5") ? "Turista" :
+                 v.startsWith("6") ? "Turista" : "Coche"
+    };
+  }
+
   return seriesData?.units?.[v] || null;
 }
 
@@ -1002,6 +1276,10 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${seriesData?.modelo?`<div><span>Modelo</span><strong>${esc(seriesData.modelo)}</strong></div>`:""}
         ${seriesData?.apodo?`<div><span>Apodo</span><strong>${esc(seriesData.apodo)}</strong></div>`:""}
         ${seriesData?.tipoMaterial?`<div><span>Tipo de material</span><strong>${esc(seriesData.tipoMaterial)}</strong></div>`:""}
+        ${normalizeFleetValue(series)==="103"?`
+        <div><span>Coche introducido</span><strong>${esc(unit.vehiculoIntroducido||vehicle)}</strong></div>
+        <div><span>Tipo de coche</span><strong>${esc(unit.cocheTipo||"—")}</strong></div>
+        <div><span>Composición</span><strong>8 coches · Mc-R-M-R-R-M-R-Mc</strong></div>`:""}
         ${seriesData?.velocidadMaxima?`<div><span>Velocidad máxima</span><strong>${esc(seriesData.velocidadMaxima)}</strong></div>`:""}
         ${seriesData?.potencia?`<div><span>Potencia</span><strong>${esc(seriesData.potencia)}</strong></div>`:""}
         ${seriesData?.plazasSentadas?`<div><span>Plazas sentadas</span><strong>${esc(seriesData.plazasSentadas)}</strong></div>`:""}
