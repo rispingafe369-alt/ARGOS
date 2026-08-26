@@ -798,7 +798,7 @@ const fleet = {
   "peso": "251,3 t",
   "tension": "25 kV c.a. / 3 kV c.c.",
   "traccion": "Distribuida · 8 motores asíncronos Alstom",
-  "señalizacion": "ASFA, ERTMS y AVE",
+  "señalizacion": "ASFA y ERTMS",
   "composicion": "Mc + M + M + Mc",
   "capacidad": "281 plazas · 280 de clase única + 1 PMR",
   "plazasSentadas": "281",
@@ -813,7 +813,6 @@ const fleet = {
       "La velocidad máxima comercial es de 250 km/h con 25 kV c.a. y 220 km/h con 3 kV c.c.",
       "La serie dispone de tracción distribuida con ocho motores de tracción y cuatro coches motores.",
       "Las ramas de la tabla aportada están numeradas del 1 al 29. Cada rama se identifica mediante sus dos coches extremos/cabezas y los dos coches motores intermedios asociados.",
-      "Cada rama puede localizarse en el buscador introduciendo cualquiera de sus dos códigos de referencia principales: el coche/motor de la familia 001–029 o el correspondiente 501–529.",
       "El sistema BRAVA permite realizar el cambio de ancho sin necesidad de maniobras convencionales, facilitando servicios que combinan líneas de ancho internacional e ibérico."
   ],
   "units": {
@@ -3730,7 +3729,7 @@ function fleetFichaHtml(series,vehicle,service=null){
   const highlights=notes.length?`
     <div class="ficha-section">
       <div class="ficha-section-title">DATOS DESTACADOS DE LA RAMA</div>
-      <div class="ficha-notes">${notes.map(n=>`<div class="ficha-note">${esc(n)}</div>`).join("")}</div>
+      <div class="ficha-notes${normalizeFleetValue(series)==="121"?" ficha-notes-121":""}">${notes.map(n=>`<div class="ficha-note">${esc(n)}</div>`).join("")}</div>
     </div>`:`
     <div class="ficha-section">
       <div class="ficha-section-title">DATOS DESTACADOS DE LA RAMA</div>
@@ -3813,5 +3812,16 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   const s=document.createElement("style");
   s.id="argos-general-ficha-clean";
   s.textContent=`.ficha-general-grid{display:grid;grid-template-columns:1fr;gap:10px}.ficha-general-item{display:flex;gap:12px;align-items:flex-start;padding:13px 14px;border:1px solid rgba(120,120,120,.16);border-radius:12px;background:rgba(128,128,128,.045);line-height:1.45}.ficha-general-number{font-weight:800;font-size:12px;opacity:.55;min-width:24px;padding-top:2px}@media(min-width:760px){.ficha-general-grid{grid-template-columns:1fr 1fr}}`;
+  document.head.appendChild(s);
+})();
+
+(function(){
+  if(document.getElementById("argos-s121-notes-separated")) return;
+  const s=document.createElement("style");
+  s.id="argos-s121-notes-separated";
+  s.textContent=`
+    .ficha-notes-121{display:grid;grid-template-columns:1fr;gap:10px}
+    .ficha-notes-121 .ficha-note{padding:13px 14px;border:1px solid rgba(120,120,120,.16);border-radius:12px;background:rgba(128,128,128,.045);line-height:1.45}
+  `;
   document.head.appendChild(s);
 })();
