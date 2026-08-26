@@ -1545,7 +1545,7 @@ const fleet = {
   "seriesName": "Serie 130",
   "fabricante": "Talgo / Bombardier",
   "modelo": "Talgo 250",
-  "apodo": "Patito / Patitos",
+  "apodo": "Patito",
   "anoPuestaServicio": "2007",
   "tipoMaterial": "Alta Velocidad · Larga Distancia · Alvia",
   "numeroCoches": "13 vehículos · 2 cabezas tractoras + 11 coches Talgo 7",
@@ -2341,7 +2341,6 @@ const fleet = {
   "ancho": "1435/1668",
   "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
   "notas": [
-  "Logos 75 años Renfe. Descarrilo Pajares 30/09/16. Ex-Fuencarral. Reformado interior y exterior.",
   "Logos 75 años Renfe. Descarrilo Pajares 30/09/16. Ex-Fuencarral. Reformado interior y exterior."
   ]
   },
@@ -4886,6 +4885,7 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Fabricante</span><strong>${esc(unit.fabricante||seriesData?.fabricante||"—")}</strong></div>
         <div><span>Número de coches</span><strong>${esc(unit.numeroCoches||seriesData?.numeroCoches||"—")}</strong></div>
         <div><span>Año</span><strong>${esc(unit.ano||"—")}</strong></div>
+        ${normalizeFleetValue(series)==="130" && unit.exNumero?`<div><span>Ex-número</span><strong>${esc(unit.exNumero)}</strong></div>`:""}
         <div><span>Depósito / base</span><strong>${esc(unit.deposito||"—")}</strong></div>
         <div><span>Ancho de vía</span><strong>${esc(unit.ancho||seriesData?.anchoVia||"—")} ${unit.ancho?"mm":""}</strong></div>
         ${(unit.subserie||seriesData?.subseries)?`<div><span>Subserie</span><strong>${esc(unit.subserie||seriesData.subseries)}</strong></div>`:""}
