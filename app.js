@@ -1127,15 +1127,19 @@ function getFleetUnit(series, vehicle){
     const rama=Number(digits.slice(-2));
     const base=seriesData.units?.[String(rama)];
     if(!base) return null;
+    const tipoCoche = v.startsWith("2") ? "Club" :
+                      v.startsWith("3") ? "Preferente" :
+                      v.startsWith("4") ? "Cafetería" :
+                      v.startsWith("5") ? "Turista" :
+                      v.startsWith("6") ? "Turista" : "Coche";
+    const vehiculoCanonico=base.vehiculoBase || String(200+rama);
     return {
       ...base,
-      numero:v,
-      vehiculoIntroducido:v,
-      cocheTipo: v.startsWith("2") ? "Club" :
-                 v.startsWith("3") ? "Preferente" :
-                 v.startsWith("4") ? "Cafetería" :
-                 v.startsWith("5") ? "Turista" :
-                 v.startsWith("6") ? "Turista" : "Coche"
+      numero:base.numero,
+      vehiculoBase:vehiculoCanonico,
+      vehiculoIntroducido:vehiculoCanonico,
+      vehiculoBuscado:v,
+      cocheTipo:tipoCoche
     };
   }
 
@@ -1192,7 +1196,11 @@ function saveCurrentService(e){
     id:Date.now().toString(36)+Math.random().toString(36).slice(2,8),
     train:$("train")?.value.trim()||"",
     series:$("series")?.value.trim()||"",
-    vehicle:$("vehicle")?.value.trim()||"",
+    vehicle:(()=>{
+      const entered=$("vehicle")?.value.trim()||"";
+      const unit=getFleetUnit($("series")?.value||"",entered);
+      return normalizeFleetValue($("series")?.value||"")==="103" ? (unit?.vehiculoBase||entered) : entered;
+    })(),
     branch:getFleetUnit($("series")?.value||"", $("vehicle")?.value||"")?.rama||"",
     product:$("product")?.value||"",
     origin:$("origin")?.value.trim()||"",
@@ -1260,7 +1268,7 @@ function fleetFichaHtml(series,vehicle,service=null){
       <div class="ficha-section-title">IDENTIFICACIÓN</div>
       <div class="ficha-grid">
         <div><span>Serie</span><strong>${esc(series)}</strong></div>
-        <div><span>Vehículo</span><strong>${esc(vehicle)}</strong></div>
+        <div><span>Vehículo</span><strong>${esc(normalizeFleetValue(series)==="103" ? (unit.vehiculoBase||vehicle) : vehicle)}</strong></div>
         <div><span>Rama</span><strong>${esc(unit.rama)}</strong></div>
         ${normalizeFleetValue(series)==="102"?`
         <div><span>Motor introducido</span><strong>${esc(unit.motorTipo||"—")}</strong></div>
@@ -1277,7 +1285,7 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${seriesData?.apodo?`<div><span>Apodo</span><strong>${esc(seriesData.apodo)}</strong></div>`:""}
         ${seriesData?.tipoMaterial?`<div><span>Tipo de material</span><strong>${esc(seriesData.tipoMaterial)}</strong></div>`:""}
         ${normalizeFleetValue(series)==="103"?`
-        <div><span>Coche introducido</span><strong>${esc(unit.vehiculoIntroducido||vehicle)}</strong></div>
+        <div><span>Coche introducido</span><strong>${esc(unit.vehiculoBase||vehicle)}</strong></div>
         <div><span>Tipo de coche</span><strong>${esc(unit.cocheTipo||"—")}</strong></div>
         <div><span>Composición</span><strong>8 coches · Mc-R-M-R-R-M-R-Mc</strong></div>`:""}
         ${seriesData?.velocidadMaxima?`<div><span>Velocidad máxima</span><strong>${esc(seriesData.velocidadMaxima)}</strong></div>`:""}
@@ -1305,7 +1313,8 @@ function fleetFichaHtml(series,vehicle,service=null){
       <div class="ficha-general-grid">${general.map((n,i)=>`<div class="ficha-general-item"><span class="ficha-general-number">${String(i+1).padStart(2,"0")}</span><div>${esc(n)}</div></div>`).join("")}</div>
     </div>`:"";
 
-  const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>Serie ${esc(series)} · Rama ${esc(unit.rama)}</h3><p>Vehículo ${esc(vehicle)} · ${esc(unit.numero||"—")}</p></div>`;
+  const vehiculoFicha=normalizeFleetValue(series)==="103" ? (unit.vehiculoBase||vehicle) : vehicle;
+  const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>Serie ${esc(series)} · Rama ${esc(unit.rama)}</h3><p>Vehículo ${esc(vehiculoFicha)} · ${esc(unit.numero||"—")}</p></div>`;
 
   return `${hero}
     ${serviceBlock}
