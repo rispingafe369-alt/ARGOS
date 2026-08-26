@@ -876,7 +876,6 @@ const fleet = {
       "Dispone de ERTMS niveles 1 y 2, ASFA y STM de LZB para circular por distintos corredores de alta velocidad.",
       "El tren puede circular en composición múltiple de dos unidades.",
       "Los vehículos están equipados con sistemas de freno regenerativo, reostático y neumático, además de sistemas de protección contra incendios y antiacaballamiento.",
-      "La información de las ramas de esta serie se organiza por los dos últimos dígitos del número de vehículo: 01 identifica la Rama 1, 02 la Rama 2, …, 26 la Rama 26."
     ],
     "units": {
       "1": {
