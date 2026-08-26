@@ -77,15 +77,421 @@ const fleet = {
         ]
       },
       "106": {
-    "name":"Talgo AVRIL S-106",
-    "fabricante":"Talgo",
-    "anoPuestaServicio":"2024",
-    "tipoMaterial":"Alta Velocidad · AVE / Avlo",
-    "numeroCoches":"12",
-    "anchoVia":"1435 mm / ancho variable según unidad",
-    "maxSpeed":"330 km/h",
-    "units":{}
-  },
+        "seriesName": "Serie 106",
+        "fabricante": "Talgo",
+        "modelo": "Talgo AVRIL F070",
+        "apodo": "AVRIL",
+        "anoPuestaServicio": "2020-2024 (según rama)",
+        "tipoMaterial": "Alta Velocidad · AVE / Avlo",
+        "numeroCoches": "14 vehículos: 2 cabezas motrices + 12 coches intermedios",
+        "anchoVia": "1435 mm (ancho fijo) / 1435-1668 mm (rodadura desplazable)",
+        "numeroRamas": "30 ramas: 1-15 de ancho fijo y 51-65 de ancho variable",
+        "velocidadMaxima": "330 km/h",
+        "plazasSentadas": "521 plazas + 2 espacios PMR",
+        "generalNotes": [
+          "Trenes de muy alta velocidad basados en el prototipo AVRIL de Talgo (Talgo F057 Modelo G3). El modelo adquirido por Renfe es F070.",
+          "Renfe dispone de 15 ramas de ancho fijo y otras 15 de rodadura desplazable.",
+          "Cada rama está formada por 2 cabezas motrices y 12 coches intermedios.",
+          "Configuración indicada en la documentación aportada: un extremo Preferente de 44 plazas, un Preferente de 36 plazas, un Turista de 25 plazas + 2 PMR, una cafetería, cuatro Turista de 49 plazas, tres Turista de 54 plazas y un cola Turista de 58 plazas.",
+          "Los coches Turista tienen distribución de asientos 3+2 y los Preferente 2+2.",
+          "Las ramas 1-15 son de ancho fijo 1.435 mm. Las ramas 51-65 son de rodadura desplazable y permiten ancho 1.435/1.668 mm.",
+          "La tabla aportada muestra las dos cabezas motrices de cada rama: 001-015/101-115 y 051-065/151-165. Las dos cabezas de cada pareja pertenecen a la misma rama."
+        ],
+        "units": {
+          "1": {
+            "rama": "1",
+            "numero": "9-106-001-3",
+            "vehiculoBase": "001",
+            "deposito": "Can Tunis",
+            "color": "Morado",
+            "servicio": "AVLO",
+            "ancho": "1435",
+            "subserie": "Ancho fijo",
+            "notas": [],
+            "ano": 2020
+          },
+          "2": {
+            "rama": "2",
+            "numero": "9-106-002-1",
+            "vehiculoBase": "002",
+            "deposito": "Can Tunis",
+            "color": "Morado",
+            "servicio": "AVLO",
+            "ancho": "1435",
+            "subserie": "Ancho fijo",
+            "notas": [],
+            "ano": 2024
+          },
+          "3": {
+            "rama": "3",
+            "numero": "9-106-003-9",
+            "vehiculoBase": "003",
+            "deposito": "Can Tunis",
+            "color": "Morado",
+            "servicio": "AVLO",
+            "ancho": "1435",
+            "subserie": "Ancho fijo",
+            "notas": [
+              "Primer 106 de ancho fijo en colores AVLO, 10/12/22."
+            ],
+            "ano": 2024
+          },
+          "4": {
+            "rama": "4",
+            "numero": "9-106-004-7",
+            "vehiculoBase": "004",
+            "deposito": "Can Tunis",
+            "color": "Morado",
+            "servicio": "AVLO",
+            "ancho": "1435",
+            "subserie": "Ancho fijo",
+            "notas": [],
+            "ano": 2024
+          },
+          "5": {
+            "rama": "5",
+            "numero": "9-106-005-4",
+            "vehiculoBase": "005",
+            "deposito": "Can Tunis",
+            "color": "Morado",
+            "servicio": "AVLO",
+            "ancho": "1435",
+            "subserie": "Ancho fijo",
+            "notas": [],
+            "ano": 2022
+          },
+          "6": {
+            "rama": "6",
+            "numero": "9-106-006-2",
+            "vehiculoBase": "006",
+            "deposito": "Fuencarral",
+            "color": "Blanco",
+            "servicio": "AVE",
+            "ancho": "1435",
+            "subserie": "Ancho fijo",
+            "notas": [
+              "Primera rama en salir de pruebas. Pruebas de homologación entre Olmedo y Otero de Sanabria en 02/21."
+            ],
+            "ano": 2020
+          },
+          "7": {
+            "rama": "7",
+            "numero": "9-106-007-0",
+            "vehiculoBase": "007",
+            "deposito": "Fuencarral",
+            "color": "Blanco",
+            "servicio": "AVE",
+            "ancho": "1435",
+            "subserie": "Ancho fijo",
+            "notas": [
+              "En pruebas de homologación línea Venta de Baños-Burgos, 04/21."
+            ],
+            "ano": 2020
+          },
+          "8": {
+            "rama": "8",
+            "numero": "9-106-008-8",
+            "vehiculoBase": "008",
+            "deposito": "Fuencarral",
+            "color": "Blanco",
+            "servicio": "AVE",
+            "ancho": "1435",
+            "subserie": "Ancho fijo",
+            "notas": [
+              "Traslado Ribavellosa-La Sagra 23/07/20. Incluye sistemas de seguridad Francia."
+            ],
+            "ano": 2020
+          },
+          "9": {
+            "rama": "9",
+            "numero": "9-106-009-6",
+            "vehiculoBase": "009",
+            "deposito": "Fuencarral",
+            "color": "Blanco",
+            "servicio": "AVE",
+            "ancho": "1435",
+            "subserie": "Ancho fijo",
+            "notas": [
+              "Traslado Ribavellosa-La Sagra 19/04/21. Trasladado a Francia para pruebas de homologación 04/10/22. Devuelta a España 13/05/26."
+            ],
+            "ano": 2024
+          },
+          "10": {
+            "rama": "10",
+            "numero": "9-106-010-4",
+            "vehiculoBase": "010",
+            "deposito": "Fuencarral",
+            "color": "Blanco",
+            "servicio": "AVE",
+            "ancho": "1435",
+            "subserie": "Ancho fijo",
+            "notas": [],
+            "ano": 2024
+          },
+          "11": {
+            "rama": "11",
+            "numero": "9-106-011-2",
+            "vehiculoBase": "011",
+            "deposito": "Fuencarral",
+            "color": "Blanco",
+            "servicio": "AVE",
+            "ancho": "1435",
+            "subserie": "Ancho fijo",
+            "notas": [],
+            "ano": 2024
+          },
+          "12": {
+            "rama": "12",
+            "numero": "9-106-012-0",
+            "vehiculoBase": "012",
+            "deposito": "Fuencarral",
+            "color": "Morado",
+            "servicio": "AVLO",
+            "ancho": "1435",
+            "subserie": "Ancho fijo",
+            "notas": [
+              "Morado AVLO desde 05/24."
+            ],
+            "ano": 2024
+          },
+          "13": {
+            "rama": "13",
+            "numero": "9-106-013-8",
+            "vehiculoBase": "013",
+            "deposito": "Fuencarral",
+            "color": "Morado",
+            "servicio": "AVLO",
+            "ancho": "1435",
+            "subserie": "Ancho fijo",
+            "notas": [
+              "Morado AVLO desde 05/24."
+            ],
+            "ano": 2024
+          },
+          "14": {
+            "rama": "14",
+            "numero": "9-106-014-6",
+            "vehiculoBase": "014",
+            "deposito": "Fuencarral",
+            "color": "Morado",
+            "servicio": "AVLO",
+            "ancho": "1435",
+            "subserie": "Ancho fijo",
+            "notas": [
+              "Morado AVLO desde 05/24."
+            ],
+            "ano": 2024
+          },
+          "15": {
+            "rama": "15",
+            "numero": "9-106-015-3",
+            "vehiculoBase": "015",
+            "deposito": "Fuencarral",
+            "color": "Morado",
+            "servicio": "AVLO",
+            "ancho": "1435",
+            "subserie": "Ancho fijo",
+            "notas": [
+              "Morado AVLO desde 05/24."
+            ],
+            "ano": 2024
+          },
+          "51": {
+            "rama": "51",
+            "numero": "9-106-051-8",
+            "vehiculoBase": "051",
+            "deposito": "Can Tunis",
+            "color": "Morado",
+            "servicio": "AVLO",
+            "ancho": "1435/1668",
+            "subserie": "Ancho variable · Rodadura desplazable",
+            "notas": [
+              "Primer 106 en colores AVLO, 09/12/22."
+            ],
+            "ano": 2021
+          },
+          "52": {
+            "rama": "52",
+            "numero": "9-106-052-6",
+            "vehiculoBase": "052",
+            "deposito": "Can Tunis",
+            "color": "Morado",
+            "servicio": "AVLO",
+            "ancho": "1435/1668",
+            "subserie": "Ancho variable · Rodadura desplazable",
+            "notas": [
+              "Pruebas entre Galicia y Madrid 07/23."
+            ],
+            "ano": 2021
+          },
+          "53": {
+            "rama": "53",
+            "numero": "9-106-053-4",
+            "vehiculoBase": "053",
+            "deposito": "Can Tunis",
+            "color": "Morado",
+            "servicio": "AVLO",
+            "ancho": "1435/1668",
+            "subserie": "Ancho variable · Rodadura desplazable",
+            "notas": [
+              "Traslado de Miranda de Ebro a Galicia 12/07/21."
+            ],
+            "ano": 2021
+          },
+          "54": {
+            "rama": "54",
+            "numero": "9-106-054-2",
+            "vehiculoBase": "054",
+            "deposito": "Can Tunis",
+            "color": "Morado",
+            "servicio": "AVLO",
+            "ancho": "1435/1668",
+            "subserie": "Ancho variable · Rodadura desplazable",
+            "notas": [],
+            "ano": 2022
+          },
+          "55": {
+            "rama": "55",
+            "numero": "9-106-055-9",
+            "vehiculoBase": "055",
+            "deposito": "Can Tunis",
+            "color": "Morado",
+            "servicio": "AVLO",
+            "ancho": "1435/1668",
+            "subserie": "Ancho variable · Rodadura desplazable",
+            "notas": [
+              "Traslado Ribavellosa-La Sagra 20/08/21."
+            ],
+            "ano": 2022
+          },
+          "56": {
+            "rama": "56",
+            "numero": "9-106-056-7",
+            "vehiculoBase": "056",
+            "deposito": "Fuencarral",
+            "color": "Blanco",
+            "servicio": "AVE",
+            "ancho": "1435/1668",
+            "subserie": "Ancho variable · Rodadura desplazable",
+            "notas": [],
+            "ano": 2021
+          },
+          "57": {
+            "rama": "57",
+            "numero": "9-106-057-5",
+            "vehiculoBase": "057",
+            "deposito": "Fuencarral",
+            "color": "Blanco",
+            "servicio": "AVE",
+            "ancho": "1435/1668",
+            "subserie": "Ancho variable · Rodadura desplazable",
+            "notas": [],
+            "ano": 2024
+          },
+          "58": {
+            "rama": "58",
+            "numero": "9-106-058-3",
+            "vehiculoBase": "058",
+            "deposito": "Fuencarral",
+            "color": "Blanco",
+            "servicio": "AVE",
+            "ancho": "1435/1668",
+            "subserie": "Ancho variable · Rodadura desplazable",
+            "notas": [],
+            "ano": 2024
+          },
+          "59": {
+            "rama": "59",
+            "numero": "9-106-059-1",
+            "vehiculoBase": "059",
+            "deposito": "Fuencarral",
+            "color": "Blanco",
+            "servicio": "AVE",
+            "ancho": "1435/1668",
+            "subserie": "Ancho variable · Rodadura desplazable",
+            "notas": [
+              "Logos Ave 02/24."
+            ],
+            "ano": 2024
+          },
+          "60": {
+            "rama": "60",
+            "numero": "9-106-060-9",
+            "vehiculoBase": "060",
+            "deposito": "Fuencarral",
+            "color": "Blanco",
+            "servicio": "AVE",
+            "ancho": "1435/1668",
+            "subserie": "Ancho variable · Rodadura desplazable",
+            "notas": [
+              "Primer tren de Alta Velocidad en realizar pruebas en la LAV: Plasencia-Badajoz."
+            ],
+            "ano": 2024
+          },
+          "61": {
+            "rama": "61",
+            "numero": "9-106-061-7",
+            "vehiculoBase": "061",
+            "deposito": "Fuencarral",
+            "color": "Blanco",
+            "servicio": "AVE",
+            "ancho": "1435/1668",
+            "subserie": "Ancho variable · Rodadura desplazable",
+            "notas": [],
+            "ano": 2024
+          },
+          "62": {
+            "rama": "62",
+            "numero": "9-106-062-5",
+            "vehiculoBase": "062",
+            "deposito": "Fuencarral",
+            "color": "Blanco",
+            "servicio": "AVE",
+            "ancho": "1435/1668",
+            "subserie": "Ancho variable · Rodadura desplazable",
+            "notas": [
+              "Presentación en Vigo 05/01/24. Primera rama con logos Ave 02/24."
+            ],
+            "ano": 2024
+          },
+          "63": {
+            "rama": "63",
+            "numero": "9-106-063-3",
+            "vehiculoBase": "063",
+            "deposito": "Fuencarral",
+            "color": "Blanco",
+            "servicio": "AVE",
+            "ancho": "1435/1668",
+            "subserie": "Ancho variable · Rodadura desplazable",
+            "notas": [],
+            "ano": 2024
+          },
+          "64": {
+            "rama": "64",
+            "numero": "9-106-064-1",
+            "vehiculoBase": "064",
+            "deposito": "Fuencarral",
+            "color": "Blanco",
+            "servicio": "AVE",
+            "ancho": "1435/1668",
+            "subserie": "Ancho variable · Rodadura desplazable",
+            "notas": [],
+            "ano": 2024
+          },
+          "65": {
+            "rama": "65",
+            "numero": "9-106-065-8",
+            "vehiculoBase": "065",
+            "deposito": "Fuencarral",
+            "color": "Blanco",
+            "servicio": "AVE",
+            "ancho": "1435/1668",
+            "subserie": "Ancho variable · Rodadura desplazable",
+            "notas": [],
+            "ano": 2024
+          }
+        }
+      },
   "102": {
         "rama": "2",
         "numero": "9-100-102-3",
@@ -1252,6 +1658,69 @@ const fleet = {
   },
 
 
+  "120":{
+    "seriesName":"Serie 120",
+    "fabricante":"CAF-Alstom",
+    "numeroCoches":"4 coches · Cabina Preferente + Preferente/Cafetería + Turista + Cabina Turista",
+    "anoPuestaServicio":"2005 / 2009",
+    "tipoMaterial":"Alta Velocidad · Alvia",
+    "anchoVia":"1435/1668 mm",
+    "numeroRamas":28,
+    "modelo":"CAF-Alstom ATPRD",
+    "velocidadMaxima":"250 km/h (1.435 mm) · 220 km/h (1.668 mm)",
+    "potencia":"4.000 kW (25 kV) · 2.500 kW (3 kV)",
+    "longitud":"107,36 m",
+    "peso":"247 t",
+    "tension":"25 kV c.a. / 3 kV c.c.",
+    "traccion":"Distribuida · 8 motores asíncronos Alstom MTA/550 H",
+    "señalizacion":"ASFA, ERTMS y AVE",
+    "composicion":"Mc + M + M + Mc",
+    "capacidad":"238 plazas · 156 Turista + 81 Preferente + 1 PMR",
+    "plazasSentadas":"238",
+    "numeroUnidades":"12 ramas de primera subserie + 15 construidas de segunda subserie; la 66 (120.366) no fue construida",
+    "generalNotes":[
+      "La serie 120 de Renfe (ATPRD) es una familia de trenes de alta velocidad de ancho variable fabricados por CAF y Alstom.",
+      "Cada unidad está formada por cuatro coches: Cabina Preferente + Preferente/Cafetería + Turista + Cabina Turista.",
+      "El sistema de rodadura desplazable BRAVA, desarrollado por CAF, permite circular por ancho ibérico e internacional y realizar el cambio de ancho de forma continua.",
+      "La serie es bitensión: 25 kV en corriente alterna para ancho internacional y 3 kV en corriente continua para ancho ibérico.",
+      "La velocidad máxima comercial es de 250 km/h en ancho internacional y 220 km/h en ancho ibérico.",
+      "La S-120 cuenta con 238 plazas: 156 de Turista, 81 de Preferente y 1 plaza para personas con movilidad reducida.",
+      "La primera subserie comprende las ramas 1 a 12; la segunda subserie, correspondiente a la S-120.5, se desarrolló a partir del verano de 2009 y comprende las ramas 51 a 66, aunque la 66 no llegó a construirse.",
+      "La primera unidad de la serie inició el servicio comercial el 17 de mayo de 2006 en la relación Madrid-Barcelona bajo la denominación Alvia.",
+      "La segunda subserie incorporó equipos redundantes para mejorar la seguridad en el cruce de túneles de la LAV de Madrid a Valladolid.",
+      "El sistema de tracción está distribuido a lo largo de los cuatro coches y emplea ocho motores asíncronos."
+    ],
+    "units":{
+      "1":{"rama":"1","vehiculoBase":"301","subserie":"Primera subserie","numero":"9-120-301-7","vehiculosRama":["9-120-301-7","6-120-901-4","6-120-601-0","9-120-601-0"],"searchCodes":["301","901","601"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-301-7 + 6-120-901-4 + 6-120-601-0 + 9-120-601-0","notas":["Arrollamiento de tractor en Rincón de Soto, 13/05/16.", "Logos 75 años Renfe."]},
+      "2":{"rama":"2","vehiculoBase":"302","subserie":"Primera subserie","numero":"9-120-302-5","vehiculosRama":["9-120-302-5","6-120-902-2","6-120-602-8","9-120-602-8"],"searchCodes":["302","902","602"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-302-5 + 6-120-902-2 + 6-120-602-8 + 9-120-602-8","notas":["Logos 75 años Renfe."]},
+      "3":{"rama":"3","vehiculoBase":"303","subserie":"Primera subserie","numero":"9-120-303-3","vehiculosRama":["9-120-303-3","6-120-903-0","6-120-603-6","9-120-603-6"],"searchCodes":["303","903","603"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-303-3 + 6-120-903-0 + 6-120-603-6 + 9-120-603-6","notas":[]},
+      "4":{"rama":"4","vehiculoBase":"304","subserie":"Primera subserie","numero":"9-120-304-1","vehiculosRama":["9-120-304-1","6-120-904-8","6-120-604-4","9-120-604-4"],"searchCodes":["304","904","604"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-304-1 + 6-120-904-8 + 6-120-604-4 + 9-120-604-4","notas":["Ex-Madrid."]},
+      "5":{"rama":"5","vehiculoBase":"305","subserie":"Primera subserie","numero":"9-120-305-8","vehiculosRama":["9-120-305-8","6-120-905-5","6-120-605-1","9-120-605-1"],"searchCodes":["305","905","605"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-305-8 + 6-120-905-5 + 6-120-605-1 + 9-120-605-1","notas":["Apartada por accidente 09/09. Vuelve al servicio 07/10."]},
+      "6":{"rama":"6","vehiculoBase":"306","subserie":"Primera subserie","numero":"9-120-306-6","vehiculosRama":["9-120-306-6","6-120-906-3","6-120-606-9","9-120-606-9"],"searchCodes":["306","906","606"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-306-6 + 6-120-906-3 + 6-120-606-9 + 9-120-606-9","notas":["Ex-Madrid."]},
+      "7":{"rama":"7","vehiculoBase":"307","subserie":"Primera subserie","numero":"9-120-307-4","vehiculosRama":["9-120-307-4","6-120-907-1","6-120-607-7","9-120-607-7"],"searchCodes":["307","907","607"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-307-4 + 6-120-907-1 + 6-120-607-7 + 9-120-607-7","notas":["Ex-Madrid. Logos 75 años Renfe."]},
+      "8":{"rama":"8","vehiculoBase":"308","subserie":"Primera subserie","numero":"9-120-308-2","vehiculosRama":["9-120-308-2","6-120-908-9","6-120-608-5","9-120-608-5"],"searchCodes":["308","908","608"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-308-2 + 6-120-908-9 + 6-120-608-5 + 9-120-608-5","notas":["Ex-Madrid → Can Tunis."]},
+      "9":{"rama":"9","vehiculoBase":"309","subserie":"Primera subserie","numero":"9-120-309-0","vehiculosRama":["9-120-309-0","6-120-909-7","6-120-609-3","9-120-609-3"],"searchCodes":["309","909","609"],"deposito":"Can Tunis","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-309-0 + 6-120-909-7 + 6-120-609-3 + 9-120-609-3","notas":["Ex-Madrid."]},
+      "10":{"rama":"10","vehiculoBase":"310","subserie":"Primera subserie","numero":"9-120-310-8","vehiculosRama":["9-120-310-8","6-120-910-5","6-120-610-1","9-120-610-1"],"searchCodes":["310","910","610"],"deposito":"Can Tunis","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-310-8 + 6-120-910-5 + 6-120-610-1 + 9-120-610-1","notas":["Ex-Madrid."]},
+      "11":{"rama":"11","vehiculoBase":"311","subserie":"Primera subserie","numero":"9-120-311-6","vehiculosRama":["9-120-311-6","6-120-911-3","6-120-611-9","9-120-611-9"],"searchCodes":["311","911","611"],"deposito":"Can Tunis","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-311-6 + 6-120-911-3 + 6-120-611-9 + 9-120-611-9","notas":["Ex-Madrid."]},
+      "12":{"rama":"12","vehiculoBase":"312","subserie":"Primera subserie","numero":"9-120-312-4","vehiculosRama":["9-120-312-4","6-120-912-1","6-120-612-7","9-120-612-7"],"searchCodes":["312","912","612"],"deposito":"Can Tunis","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-312-4 + 6-120-912-1 + 6-120-612-7 + 9-120-612-7","notas":["Amunt en testeros 04/08. Ex-Madrid."]},
+      "51":{"rama":"51","vehiculoBase":"351","subserie":"Segunda subserie","numero":"9-120-351-2","vehiculosRama":["9-120-351-2","6-120-951-9","6-120-651-5","9-120-651-5"],"searchCodes":["351","951","651"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-351-2 + 6-120-951-9 + 6-120-651-5 + 9-120-651-5","notas":["En pruebas 10/09. En servicio 11/09. Ex-Can Tunis → Fuencarral"]},
+      "52":{"rama":"52","vehiculoBase":"352","subserie":"Segunda subserie","numero":"9-120-352-0","vehiculosRama":["9-120-352-0","6-120-952-7","6-120-652-3","9-120-652-3"],"searchCodes":["352","952","652"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-352-0 + 6-120-952-7 + 6-120-652-3 + 9-120-652-3","notas":["En pruebas 10/09. En servicio 11/09. Descarrilo Artomaña 31/05/22. Ex-Fuencarral."]},
+      "53":{"rama":"53","vehiculoBase":"353","subserie":"Segunda subserie","numero":"9-120-353-8","vehiculosRama":["9-120-353-8","6-120-953-5","6-120-653-1","9-120-653-1"],"searchCodes":["353","953","653"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-353-8 + 6-120-953-5 + 6-120-653-1 + 9-120-653-1","notas":["En pruebas 10/09. En servicio. Ex-Sta. Catalina → Fuencarral"]},
+      "54":{"rama":"54","vehiculoBase":"354","subserie":"Segunda subserie","numero":"9-120-354-6","vehiculosRama":["9-120-354-6","6-120-954-3","6-120-654-9","9-120-654-9"],"searchCodes":["354","954","654"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-354-6 + 6-120-954-3 + 6-120-654-9 + 9-120-654-9","notas":["En pruebas 10/09. En servicio. Ex-Sta.Catalina. Incendio cambiador Córdoba 30/01/23. Ex-Fuencarral"]},
+      "55":{"rama":"55","vehiculoBase":"355","subserie":"Segunda subserie","numero":"9-120-355-3","vehiculosRama":["9-120-355-3","6-120-955-0","6-120-655-6","9-120-655-6"],"searchCodes":["355","955","655"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-355-3 + 6-120-955-0 + 6-120-655-6 + 9-120-655-6","notas":["Vinilo Los Señores del Tiempo en coche 3, 01/10/18. Descarrilamiento coche 3 en Villaquirán 07/01/19. Ex-Sta.Catalina → Fuencarral"]},
+      "56":{"rama":"56","vehiculoBase":"356","subserie":"Segunda subserie","numero":"9-120-356-1","vehiculosRama":["9-120-356-1","6-120-956-8","6-120-656-4","9-120-656-4"],"searchCodes":["356","956","656"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-356-1 + 6-120-956-8 + 6-120-656-4 + 9-120-656-4","notas":["Choque contra un remolque de camión en un paso a nivel entre Benacazón y Carrión de los Céspedes 2/19. Ex-Fuencarral"]},
+      "57":{"rama":"57","vehiculoBase":"357","subserie":"Segunda subserie","numero":"9-120-357-9","vehiculosRama":["9-120-357-9","6-120-957-6","6-120-657-2","9-120-657-2"],"searchCodes":["357","957","657"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-357-9 + 6-120-957-6 + 6-120-657-2 + 9-120-657-2","notas":["Arrollamiento de caballo entre Brinkola y Zegama, 29/10/14. Ex-Fuencarral"]},
+      "58":{"rama":"58","vehiculoBase":"358","subserie":"Segunda subserie","numero":"9-120-358-7","vehiculosRama":["9-120-358-7","6-120-958-4","6-120-658-0","9-120-658-0"],"searchCodes":["358","958","658"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-358-7 + 6-120-958-4 + 6-120-658-0 + 9-120-658-0","notas":["Logos 75 años Renfe. Ex-Fuencarral. Descarrilo Inoso-Oiardo 11/10/24."]},
+      "59":{"rama":"59","vehiculoBase":"359","subserie":"Segunda subserie","numero":"9-120-359-5","vehiculosRama":["9-120-359-5","6-120-959-2","6-120-659-8","9-120-659-8"],"searchCodes":["359","959","659"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-359-5 + 6-120-959-2 + 6-120-659-8 + 9-120-659-8","notas":["Ex-Fuencarral"]},
+      "60":{"rama":"60","vehiculoBase":"360","subserie":"Segunda subserie","numero":"9-120-360-3","vehiculosRama":["9-120-360-3","6-120-960-0","6-120-660-6","9-120-660-6"],"searchCodes":["360","960","660"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-360-3 + 6-120-960-0 + 6-120-660-6 + 9-120-660-6","notas":["Colisión con 103.17 en Santa Catalina, 13/05/17. Apartado. En reparación desde 12/19. Vuelta al servicio 08/21. Ex-Fuencarral"]},
+      "61":{"rama":"61","vehiculoBase":"361","subserie":"Segunda subserie","numero":"9-120-361-1","vehiculosRama":["9-120-361-1","6-120-961-8","6-120-661-4","9-120-661-4"],"searchCodes":["361","961","661"],"deposito":"Can Tunis","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-361-1 + 6-120-961-8 + 6-120-661-4 + 9-120-661-4","notas":["Logos 75 años Renfe. Ex-Fuencarral. Descarrilo Adamuz 18/01/26."]},
+      "62":{"rama":"62","vehiculoBase":"362","subserie":"Segunda subserie","numero":"9-120-362-9","vehiculosRama":["9-120-362-9","6-120-962-6","6-120-662-2","9-120-662-2"],"searchCodes":["362","962","662"],"deposito":"Can Tunis","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-362-9 + 6-120-962-6 + 6-120-662-2 + 9-120-662-2","notas":["Ex-Fuencarral"]},
+      "63":{"rama":"63","vehiculoBase":"363","subserie":"Segunda subserie","numero":"9-120-363-7","vehiculosRama":["9-120-363-7","6-120-963-4","6-120-663-0","9-120-663-0"],"searchCodes":["363","963","663"],"deposito":"Can Tunis","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-363-7 + 6-120-963-4 + 6-120-663-0 + 9-120-663-0","notas":["Logos 75 años Renfe. Ex-Fuencarral"]},
+      "64":{"rama":"64","vehiculoBase":"364","subserie":"Segunda subserie","numero":"9-120-364-5","vehiculosRama":["9-120-364-5","6-120-964-2","6-120-664-8","9-120-664-8"],"searchCodes":["364","964","664"],"deposito":"Can Tunis","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-364-5 + 6-120-964-2 + 6-120-664-8 + 9-120-664-8","notas":["Ex-Sta.Catalina. Ex-Fuencarral"]},
+      "65":{"rama":"65","vehiculoBase":"365","subserie":"Segunda subserie","numero":"9-120-365-2","vehiculosRama":["9-120-365-2","6-120-965-9","6-120-665-5","9-120-665-5"],"searchCodes":["365","965","665"],"deposito":"Can Tunis","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-365-2 + 6-120-965-9 + 6-120-665-5 + 9-120-665-5","notas":["Ex-Fuencarral"]},
+      "66":{"rama":"66","vehiculoBase":"366","subserie":"Segunda subserie","numero":"9-120-366-0","vehiculosRama":["9-120-366-0","6-120-966-7","6-120-666-3","9-120-666-3"],"searchCodes":["366","966","666"],"deposito":"","color":"Blanco","estado":"No construido","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-366-0 + 6-120-966-7 + 6-120-666-3 + 9-120-666-3","notas":["No construido. En su lugar, y con el mismo contrato, se construyó el prototipo OARIS de la serie 105."]}
+    }
+  },
   "114": {
     "seriesName":"Serie 114",
     "fabricante":"CAF-Alstom",
@@ -2162,28 +2631,33 @@ function getS106Unit(vehicle){
   const n=Number(v);
   if(!Number.isFinite(n)) return null;
 
-  let branch=null, variable=false;
-  if(n>=1 && n<=15){ branch=n; variable=false; }
-  else if(n>=51 && n<=65){ branch=n; variable=true; }
-  else if(n>=101 && n<=115){ branch=n-100; variable=false; }
-  else if(n>=151 && n<=165){ branch=n-100; variable=true; }
+  let branch=null;
+  if(n>=1 && n<=15) branch=n;
+  else if(n>=51 && n<=65) branch=n;
+  else if(n>=101 && n<=115) branch=n-100;
+  else if(n>=151 && n<=165) branch=n-100;
   else return null;
 
+  const base=fleet["106"]?.units?.[String(branch)];
+  if(!base) return null;
+
+  const variable=branch>=51;
   return {
+    ...base,
     rama:String(branch),
-    // En la S-106 las matrículas 101–115 y 151–165 son la segunda
-    // cabeza motriz de las ramas 1–15 y 51–65 respectivamente.
-    // Por tanto, 063 y 163 pertenecen ambos a la Rama 63.
-    vehiculoBase:String(branch).padStart(3,'0'),
+    // La ficha conserva como número completo la primera motriz de la rama.
+    // 063 y 163, por ejemplo, pertenecen ambos a la Rama 63.
+    vehiculoBase:base.vehiculoBase || String(branch).padStart(3,'0'),
     vehiculoIntroducido:String(n).padStart(3,'0'),
-    numero:`9-106-${String(n).padStart(3,'0')}`,
-    ano:2024,
-    fabricante:'Talgo',
-    numeroCoches:'12',
-    tipoMaterial:'Alta Velocidad · AVE / Avlo',
-    anchoVia:variable?'1435 mm / ancho variable':'1435 mm',
-    subserie:variable?'Ancho variable':'Ancho fijo',
-    notas:[]
+    vehiculoBuscado:v,
+    numero:base.numero,
+    ano:base.ano || 2024,
+    fabricante:fleet["106"].fabricante || 'Talgo',
+    numeroCoches:fleet["106"].numeroCoches || '14 vehículos: 2 cabezas motrices + 12 coches intermedios',
+    tipoMaterial:fleet["106"].tipoMaterial || 'Alta Velocidad · AVE / Avlo',
+    ancho:base.ancho || (variable?'1435/1668':'1435'),
+    subserie:base.subserie || (variable?'Ancho variable':'Ancho fijo'),
+    notas:Array.isArray(base.notas)?[...base.notas]:[]
   };
 }
 
@@ -2231,6 +2705,35 @@ function getFleetUnit(series, vehicle){
       vehiculoIntroducido:vehiculoCanonico,
       vehiculoBuscado:v,
       cocheTipo:tipoCoche
+    };
+  }
+
+  // Serie 120: cualquier vehículo de la rama identifica la composición.
+  // Primera subserie: ramas 1-12 -> códigos 301/901/601 ... 312/912/612.
+  // Segunda subserie: ramas 51-66 -> códigos 351/951/651 ... 366/966/666.
+  // Se acepta tanto el código corto (356) como la matrícula completa (9-120-356-1).
+  if(s==="120"){
+    const raw=String(vehicle??"").trim();
+    const matriculaMatch=raw.match(/(?:^|-)120-(\d{3})(?:-|$)/i);
+    let code=matriculaMatch ? matriculaMatch[1] : v;
+    if(!matriculaMatch && /^120\d{3}$/.test(v)) code=v.slice(-3);
+    code=String(code).padStart(3,"0");
+    let base=null;
+    for(const candidate of Object.values(seriesData.units||{})){
+      if((candidate.searchCodes||[]).includes(code)){ base=candidate; break; }
+    }
+    if(!base) return null;
+    const tipoCoche = code.startsWith("3") ? "Cabina Preferente" :
+                      code.startsWith("9") ? "Preferente / Cafetería" :
+                      code.startsWith("6") ? "Turista / Cabina Turista" : "Vehículo";
+    return {
+      ...base,
+      numero:base.numero,
+      vehiculoBase:base.vehiculoBase,
+      vehiculoIntroducido:raw,
+      vehiculoBuscado:code,
+      cocheTipo:tipoCoche,
+      subserie:base.subserie
     };
   }
 
@@ -2403,7 +2906,7 @@ function fleetFichaHtml(series,vehicle,service=null){
       <div class="ficha-section-title">IDENTIFICACIÓN</div>
       <div class="ficha-grid">
         <div><span>Serie</span><strong>${esc(series)}</strong></div>
-        <div><span>Vehículo</span><strong>${esc(["103","104"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : vehicle)}</strong></div>
+        <div><span>Vehículo</span><strong>${esc(["103","104","120"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : vehicle)}</strong></div>
         <div><span>Rama</span><strong>${esc(unit.rama)}</strong></div>
         ${(["102","112"].includes(normalizeFleetValue(series)))?`
         <div><span>Motor introducido</span><strong>${esc(unit.motorTipo||"—")}</strong></div>
@@ -2415,12 +2918,13 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Año</span><strong>${esc(unit.ano||"—")}</strong></div>
         <div><span>Depósito / base</span><strong>${esc(unit.deposito||"—")}</strong></div>
         <div><span>Ancho de vía</span><strong>${esc(unit.ancho||seriesData?.anchoVia||"—")} ${unit.ancho?"mm":""}</strong></div>
-        ${seriesData?.subseries?`<div><span>Subserie</span><strong>${esc(seriesData.subseries)}</strong></div>`:""}
+        ${(unit.subserie||seriesData?.subseries)?`<div><span>Subserie</span><strong>${esc(unit.subserie||seriesData.subseries)}</strong></div>`:""}
         ${seriesData?.modelo?`<div><span>Modelo</span><strong>${esc(seriesData.modelo)}</strong></div>`:""}
         ${seriesData?.apodo?`<div><span>Apodo</span><strong>${esc(seriesData.apodo)}</strong></div>`:""}
         ${seriesData?.tipoMaterial?`<div><span>Tipo de material</span><strong>${esc(seriesData.tipoMaterial)}</strong></div>`:""}
         ${normalizeFleetValue(series)==="114"?`
         <div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||"—")}</strong></div>`:""}
+        ${normalizeFleetValue(series)==="120"?`<div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||"—")}</strong></div>`:""}
         ${normalizeFleetValue(series)==="103"?`
         <div><span>Coche introducido</span><strong>${esc(unit.vehiculoBase||vehicle)}</strong></div>
         <div><span>Tipo de coche</span><strong>${esc(unit.cocheTipo||"—")}</strong></div>
@@ -2457,8 +2961,8 @@ function fleetFichaHtml(series,vehicle,service=null){
       <div class="ficha-general-grid">${general.map((n,i)=>`<div class="ficha-general-item"><span class="ficha-general-number">${String(i+1).padStart(2,"0")}</span><div>${esc(n)}</div></div>`).join("")}</div>
     </div>`:"";
 
-  const vehiculoFicha=["103","104"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : vehicle;
-  const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>Serie ${esc(series)} · Rama ${esc(unit.rama)}</h3><p>Vehículo ${esc(vehiculoFicha)} · ${esc(unit.numero||"—")}</p></div>`;
+  const vehiculoFicha=["103","104","120"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : vehicle;
+  const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>Serie ${esc(series)}${unit.subserie?` · ${esc(unit.subserie)}`:""} · Rama ${esc(unit.rama)}</h3><p>Vehículo ${esc(vehiculoFicha)} · ${esc(unit.numero||"—")}</p></div>`;
 
   return `${hero}
     ${serviceBlock}
