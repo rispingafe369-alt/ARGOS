@@ -76,7 +76,7 @@ const fleet = {
           "Ex-La Sagra."
         ]
       },
-      "102": {
+  "102": {
         "rama": "2",
         "numero": "9-100-102-3",
         "ano": 1992,
@@ -362,6 +362,403 @@ const fleet = {
           "Coche motor de rama 24 se instala en rama 22.",
           "Pertenece a la subserie 100F."
         ]
+      }
+    }
+  },
+  "106": {
+    "seriesName": "Serie 106",
+    "fabricante": "Talgo",
+    "modelo": "Talgo AVRIL F070",
+    "apodo": "AVRIL",
+    "anoPuestaServicio": "2020-2024 (según rama)",
+    "tipoMaterial": "Alta Velocidad · AVE / Avlo",
+    "numeroCoches": "14 vehículos: 2 cabezas motrices + 12 coches intermedios",
+    "anchoVia": "1435 mm (ancho fijo) / 1435-1668 mm (rodadura desplazable)",
+    "numeroRamas": "30 ramas: 1-15 de ancho fijo y 51-65 de ancho variable",
+    "velocidadMaxima": "330 km/h",
+    "plazasSentadas": "521 plazas + 2 espacios PMR",
+    "generalNotes": [
+      "Trenes de muy alta velocidad basados en el prototipo AVRIL de Talgo (Talgo F057 Modelo G3). El modelo adquirido por Renfe es F070.",
+      "Renfe dispone de 15 ramas de ancho fijo y otras 15 de rodadura desplazable.",
+      "Cada rama está formada por 2 cabezas motrices y 12 coches intermedios.",
+      "Configuración indicada en la documentación aportada: un extremo Preferente de 44 plazas, un Preferente de 36 plazas, un Turista de 25 plazas + 2 PMR, una cafetería, cuatro Turista de 49 plazas, tres Turista de 54 plazas y un cola Turista de 58 plazas.",
+      "Los coches Turista tienen distribución de asientos 3+2 y los Preferente 2+2.",
+      "Las ramas 1-15 son de ancho fijo 1.435 mm. Las ramas 51-65 son de rodadura desplazable y permiten ancho 1.435/1.668 mm.",
+      "La tabla aportada muestra las dos cabezas motrices de cada rama: 001-015/101-115 y 051-065/151-165. Las dos cabezas de cada pareja pertenecen a la misma rama."
+    ],
+    "units": {
+      "1": {
+        "rama": "1",
+        "numero": "9-106-001-3",
+        "vehiculoBase": "001",
+        "deposito": "Can Tunis",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ancho": "1435",
+        "subserie": "Ancho fijo",
+        "notas": [],
+        "ano": 2020
+      },
+      "2": {
+        "rama": "2",
+        "numero": "9-106-002-1",
+        "vehiculoBase": "002",
+        "deposito": "Can Tunis",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ancho": "1435",
+        "subserie": "Ancho fijo",
+        "notas": []
+      },
+      "3": {
+        "rama": "3",
+        "numero": "9-106-003-9",
+        "vehiculoBase": "003",
+        "deposito": "Can Tunis",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ancho": "1435",
+        "subserie": "Ancho fijo",
+        "notas": [
+          "Primer 106 de ancho fijo en colores AVLO, 10/12/22."
+        ]
+      },
+      "4": {
+        "rama": "4",
+        "numero": "9-106-004-7",
+        "vehiculoBase": "004",
+        "deposito": "Can Tunis",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ancho": "1435",
+        "subserie": "Ancho fijo",
+        "notas": []
+      },
+      "5": {
+        "rama": "5",
+        "numero": "9-106-005-4",
+        "vehiculoBase": "005",
+        "deposito": "Can Tunis",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ancho": "1435",
+        "subserie": "Ancho fijo",
+        "notas": [],
+        "ano": 2022
+      },
+      "6": {
+        "rama": "6",
+        "numero": "9-106-006-2",
+        "vehiculoBase": "006",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ancho": "1435",
+        "subserie": "Ancho fijo",
+        "notas": [
+          "Primera rama en salir de pruebas. Pruebas de homologación entre Olmedo y Otero de Sanabria en 02/21."
+        ],
+        "ano": 2020
+      },
+      "7": {
+        "rama": "7",
+        "numero": "9-106-007-0",
+        "vehiculoBase": "007",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ancho": "1435",
+        "subserie": "Ancho fijo",
+        "notas": [
+          "En pruebas de homologación línea Venta de Baños-Burgos, 04/21."
+        ],
+        "ano": 2020
+      },
+      "8": {
+        "rama": "8",
+        "numero": "9-106-008-8",
+        "vehiculoBase": "008",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ancho": "1435",
+        "subserie": "Ancho fijo",
+        "notas": [
+          "Traslado Ribavellosa-La Sagra 23/07/20. Incluye sistemas de seguridad Francia."
+        ],
+        "ano": 2020
+      },
+      "9": {
+        "rama": "9",
+        "numero": "9-106-009-6",
+        "vehiculoBase": "009",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ancho": "1435",
+        "subserie": "Ancho fijo",
+        "notas": [
+          "Traslado Ribavellosa-La Sagra 19/04/21. Trasladado a Francia para pruebas de homologación 04/10/22. Devuelta a España 13/05/26."
+        ]
+      },
+      "10": {
+        "rama": "10",
+        "numero": "9-106-010-4",
+        "vehiculoBase": "010",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ancho": "1435",
+        "subserie": "Ancho fijo",
+        "notas": []
+      },
+      "11": {
+        "rama": "11",
+        "numero": "9-106-011-2",
+        "vehiculoBase": "011",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ancho": "1435",
+        "subserie": "Ancho fijo",
+        "notas": []
+      },
+      "12": {
+        "rama": "12",
+        "numero": "9-106-012-0",
+        "vehiculoBase": "012",
+        "deposito": "Fuencarral",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ancho": "1435",
+        "subserie": "Ancho fijo",
+        "notas": [
+          "Morado AVLO desde 05/24."
+        ]
+      },
+      "13": {
+        "rama": "13",
+        "numero": "9-106-013-8",
+        "vehiculoBase": "013",
+        "deposito": "Fuencarral",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ancho": "1435",
+        "subserie": "Ancho fijo",
+        "notas": [
+          "Morado AVLO desde 05/24."
+        ]
+      },
+      "14": {
+        "rama": "14",
+        "numero": "9-106-014-6",
+        "vehiculoBase": "014",
+        "deposito": "Fuencarral",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ancho": "1435",
+        "subserie": "Ancho fijo",
+        "notas": [
+          "Morado AVLO desde 05/24."
+        ]
+      },
+      "15": {
+        "rama": "15",
+        "numero": "9-106-015-3",
+        "vehiculoBase": "015",
+        "deposito": "Fuencarral",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ancho": "1435",
+        "subserie": "Ancho fijo",
+        "notas": [
+          "Morado AVLO desde 05/24."
+        ]
+      },
+      "51": {
+        "rama": "51",
+        "numero": "9-106-051-8",
+        "vehiculoBase": "051",
+        "deposito": "Can Tunis",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ancho": "1435/1668",
+        "subserie": "Ancho variable · Rodadura desplazable",
+        "notas": [
+          "Primer 106 en colores AVLO, 09/12/22."
+        ],
+        "ano": 2021
+      },
+      "52": {
+        "rama": "52",
+        "numero": "9-106-052-6",
+        "vehiculoBase": "052",
+        "deposito": "Can Tunis",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ancho": "1435/1668",
+        "subserie": "Ancho variable · Rodadura desplazable",
+        "notas": [
+          "Pruebas entre Galicia y Madrid 07/23."
+        ],
+        "ano": 2021
+      },
+      "53": {
+        "rama": "53",
+        "numero": "9-106-053-4",
+        "vehiculoBase": "053",
+        "deposito": "Can Tunis",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ancho": "1435/1668",
+        "subserie": "Ancho variable · Rodadura desplazable",
+        "notas": [
+          "Traslado de Miranda de Ebro a Galicia 12/07/21."
+        ],
+        "ano": 2021
+      },
+      "54": {
+        "rama": "54",
+        "numero": "9-106-054-2",
+        "vehiculoBase": "054",
+        "deposito": "Can Tunis",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ancho": "1435/1668",
+        "subserie": "Ancho variable · Rodadura desplazable",
+        "notas": [],
+        "ano": 2022
+      },
+      "55": {
+        "rama": "55",
+        "numero": "9-106-055-9",
+        "vehiculoBase": "055",
+        "deposito": "Can Tunis",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ancho": "1435/1668",
+        "subserie": "Ancho variable · Rodadura desplazable",
+        "notas": [
+          "Traslado Ribavellosa-La Sagra 20/08/21."
+        ],
+        "ano": 2022
+      },
+      "56": {
+        "rama": "56",
+        "numero": "9-106-056-7",
+        "vehiculoBase": "056",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ancho": "1435/1668",
+        "subserie": "Ancho variable · Rodadura desplazable",
+        "notas": [],
+        "ano": 2021
+      },
+      "57": {
+        "rama": "57",
+        "numero": "9-106-057-5",
+        "vehiculoBase": "057",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ancho": "1435/1668",
+        "subserie": "Ancho variable · Rodadura desplazable",
+        "notas": []
+      },
+      "58": {
+        "rama": "58",
+        "numero": "9-106-058-3",
+        "vehiculoBase": "058",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ancho": "1435/1668",
+        "subserie": "Ancho variable · Rodadura desplazable",
+        "notas": []
+      },
+      "59": {
+        "rama": "59",
+        "numero": "9-106-059-1",
+        "vehiculoBase": "059",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ancho": "1435/1668",
+        "subserie": "Ancho variable · Rodadura desplazable",
+        "notas": [
+          "Logos Ave 02/24."
+        ]
+      },
+      "60": {
+        "rama": "60",
+        "numero": "9-106-060-9",
+        "vehiculoBase": "060",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ancho": "1435/1668",
+        "subserie": "Ancho variable · Rodadura desplazable",
+        "notas": [
+          "Primer tren de Alta Velocidad en realizar pruebas en la LAV: Plasencia-Badajoz."
+        ]
+      },
+      "61": {
+        "rama": "61",
+        "numero": "9-106-061-7",
+        "vehiculoBase": "061",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ancho": "1435/1668",
+        "subserie": "Ancho variable · Rodadura desplazable",
+        "notas": []
+      },
+      "62": {
+        "rama": "62",
+        "numero": "9-106-062-5",
+        "vehiculoBase": "062",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ancho": "1435/1668",
+        "subserie": "Ancho variable · Rodadura desplazable",
+        "notas": [
+          "Presentación en Vigo 05/01/24. Primera rama con logos Ave 02/24."
+        ]
+      },
+      "63": {
+        "rama": "63",
+        "numero": "9-106-063-3",
+        "vehiculoBase": "063",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ancho": "1435/1668",
+        "subserie": "Ancho variable · Rodadura desplazable",
+        "notas": []
+      },
+      "64": {
+        "rama": "64",
+        "numero": "9-106-064-1",
+        "vehiculoBase": "064",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ancho": "1435/1668",
+        "subserie": "Ancho variable · Rodadura desplazable",
+        "notas": []
+      },
+      "65": {
+        "rama": "65",
+        "numero": "9-106-065-8",
+        "vehiculoBase": "065",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ancho": "1435/1668",
+        "subserie": "Ancho variable · Rodadura desplazable",
+        "notas": []
       }
     }
   },
@@ -1266,10 +1663,56 @@ function normalizeFleetValue(value){
   return String(value ?? "").trim().replace(/\D/g,"").replace(/^0+/,"") || "";
 }
 
+// Serie 106: las matrículas de rama se agrupan en dos bloques.
+// 001–015 = ramas 1–15 (ancho fijo)
+// 051–065 = ramas 51–65 (ancho variable)
+// 101–115 y 151–165 = matrículas con dígito de coche adicional.
+// Ej.: 106.063 -> rama 63.
+function getS106Unit(vehicle){
+  const v=normalizeFleetValue(vehicle);
+  if(!v) return null;
+  const n=Number(v);
+  if(!Number.isFinite(n)) return null;
+
+  // Serie 106: dos cabezas motrices por rama.
+  // Ancho fijo: 001-015 y su segunda cabeza 101-115.
+  // Ancho variable: 051-065 y su segunda cabeza 151-165.
+  // El 1 inicial identifica la segunda cabeza; NO cambia la rama.
+  let branch=null;
+  if(n>=1 && n<=15) branch=n;
+  else if(n>=101 && n<=115) branch=n-100;
+  else if(n>=51 && n<=65) branch=n;
+  else if(n>=151 && n<=165) branch=n-100;
+  else return null;
+
+  const seriesData=fleet["106"];
+  const base=seriesData?.units?.[String(branch)];
+  if(!base) return null;
+
+  const variable=(branch>=51 && branch<=65);
+  return {
+    ...base,
+    rama:String(branch),
+    vehiculoBase:base.vehiculoBase,
+    vehiculoIntroducido:String(n).padStart(3,"0"),
+    vehiculoBuscado:v,
+    numero:base.numero,
+    fabricante:base.fabricante||seriesData.fabricante,
+    numeroCoches:seriesData.numeroCoches,
+    tipoMaterial:seriesData.tipoMaterial,
+    anchoVia:variable?"1435/1668 mm":"1435 mm",
+    subserie:variable?"Ancho variable · Rodadura desplazable":"Ancho fijo",
+    cocheTipo:"Cabeza motriz",
+    segundaCabeza:(n>=101 && n<=115)||(n>=151 && n<=165),
+    notas:base.notas||[]
+  };
+}
+
 function getFleetUnit(series, vehicle){
   const s=normalizeFleetValue(series);
   const v=normalizeFleetValue(vehicle);
   const seriesData=fleet[s];
+  if(s==="106") return getS106Unit(v);
   if(!seriesData) return null;
 
   // Serie 104: cualquier coche se identifica por sus dos últimos dígitos.
