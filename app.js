@@ -47,12 +47,13 @@ const fleet = {
     "potencia": "8.800 kW",
     "tension": "25 kV / 50 Hz y 3 kV CC",
     "capacidad": "332 plazas tras la reforma",
+    "plazasSentadas": "329 (332 tras la reforma)",
     "longitud": "200,150 m",
     "peso": "392,6 t en vacío",
     "señalizacion": "LZB y ASFA; parte de la flota adaptada con ERTMS",
     "numeroUnidades": "18 composiciones originales de la serie 100",
     "subseries": "100 / 100F (ramas 15–24)",
-    "generalNotes": [[
+    "generalNotes": [
       "La serie 100 fue el primer tren de alta velocidad de Renfe y comenzó a circular en abril de 1992 con la inauguración de la línea Madrid-Sevilla.",
       "Es una evolución del TGV Atlantique adaptada a las condiciones españolas, con modificaciones en climatización, presión en túneles y sistemas de control y señalización.",
       "Cada composición está formada por 2 cabezas tractoras y 8 coches de viajeros, con cafetería y clases Preferente y Turista.",
@@ -62,7 +63,7 @@ const fleet = {
       "La serie tuvo un papel destacado en la expansión de la alta velocidad española y posteriormente fue adaptada para servicios internacionales hacia Francia.",
       "Durante las pruebas de homologación, un S-100 alcanzó 356,8 km/h.",
       "En 2011 se adjudicó la adaptación de 10 composiciones para su explotación internacional entre España y Francia."
-    ]],
+    ],
     "units": {
       "101": {
         "rama": "1",
@@ -378,6 +379,7 @@ const fleet = {
     "potencia": "8.000 kW",
     "longitud": "200,244 m",
     "capacidad": "316 plazas + 2 PMR",
+    "plazasSentadas": "316",
     "generalNotes": [
       "La serie 102 corresponde al Talgo 350, desarrollado por Talgo y Bombardier para los servicios AVE de alta velocidad.",
       "Está formada por 16 ramas. Cada rama dispone de dos cabezas tractoras, un motor impar y un motor par, y doce remolques Talgo.",
@@ -986,9 +988,10 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Serie</span><strong>${esc(series)}</strong></div>
         <div><span>Vehículo</span><strong>${esc(vehicle)}</strong></div>
         <div><span>Rama</span><strong>${esc(unit.rama)}</strong></div>
+        ${normalizeFleetValue(series)==="102"?`
         <div><span>Motor introducido</span><strong>${esc(unit.motorTipo||"—")}</strong></div>
         <div><span>Motor impar</span><strong>${esc(unit.motorImpar||"—")}</strong></div>
-        <div><span>Motor par</span><strong>${esc(unit.motorPar||"—")}</strong></div>
+        <div><span>Motor par</span><strong>${esc(unit.motorPar||"—")}</strong></div>`:""}
         <div><span>Número completo</span><strong>${esc(unit.numero||"—")}</strong></div>
         <div><span>Fabricante</span><strong>${esc(unit.fabricante||seriesData?.fabricante||"—")}</strong></div>
         <div><span>Número de coches</span><strong>${esc(unit.numeroCoches||seriesData?.numeroCoches||"—")}</strong></div>
@@ -1001,6 +1004,7 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${seriesData?.tipoMaterial?`<div><span>Tipo de material</span><strong>${esc(seriesData.tipoMaterial)}</strong></div>`:""}
         ${seriesData?.velocidadMaxima?`<div><span>Velocidad máxima</span><strong>${esc(seriesData.velocidadMaxima)}</strong></div>`:""}
         ${seriesData?.potencia?`<div><span>Potencia</span><strong>${esc(seriesData.potencia)}</strong></div>`:""}
+        ${seriesData?.plazasSentadas?`<div><span>Plazas sentadas</span><strong>${esc(seriesData.plazasSentadas)}</strong></div>`:""}
       </div>
     </div>`;
 
@@ -1016,11 +1020,11 @@ function fleetFichaHtml(series,vehicle,service=null){
     </div>`;
 
   // 4) Información general de la serie.
-  const general=seriesData?.generalNotes||[];
+  const general=Array.isArray(seriesData?.generalNotes)?seriesData.generalNotes.flat(Infinity).filter(Boolean):[];
   const generalBlock=general.length?`
-    <div class="ficha-section">
+    <div class="ficha-section ficha-general-section">
       <div class="ficha-section-title">INFORMACIÓN GENERAL DE LA SERIE ${esc(series)}</div>
-      <div class="ficha-notes">${general.map(n=>`<div class="ficha-note">${esc(n)}</div>`).join("")}</div>
+      <div class="ficha-general-grid">${general.map((n,i)=>`<div class="ficha-general-item"><span class="ficha-general-number">${String(i+1).padStart(2,"0")}</span><div>${esc(n)}</div></div>`).join("")}</div>
     </div>`:"";
 
   const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>Serie ${esc(series)} · Rama ${esc(unit.rama)}</h3><p>Vehículo ${esc(vehicle)} · ${esc(unit.numero||"—")}</p></div>`;
@@ -1084,3 +1088,11 @@ if($("viewFichaFromForm")) $("viewFichaFromForm").addEventListener("click",()=>{
 
 
 document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();renderStats()});
+
+(function(){
+  if(document.getElementById("argos-general-ficha-clean")) return;
+  const s=document.createElement("style");
+  s.id="argos-general-ficha-clean";
+  s.textContent=`.ficha-general-grid{display:grid;grid-template-columns:1fr;gap:10px}.ficha-general-item{display:flex;gap:12px;align-items:flex-start;padding:13px 14px;border:1px solid rgba(120,120,120,.16);border-radius:12px;background:rgba(128,128,128,.045);line-height:1.45}.ficha-general-number{font-weight:800;font-size:12px;opacity:.55;min-width:24px;padding-top:2px}@media(min-width:760px){.ficha-general-grid{grid-template-columns:1fr 1fr}}`;
+  document.head.appendChild(s);
+})();
