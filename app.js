@@ -2696,6 +2696,526 @@ const fleet = {
   }
   }
   },
+  "730": {
+    "seriesName": "Serie 730",
+    "fabricante": "Talgo / Bombardier",
+    "modelo": "Talgo 250 Dual",
+    "apodo": "Frankenstein",
+    "anoPuestaServicio": "2012",
+    "tipoMaterial": "Alta Velocidad · Larga Distancia · Alvia · Híbrido diésel-eléctrico",
+    "numeroCoches": "13 vehículos · 2 cabezas tractoras + 2 furgones generadores diésel + 9 coches Talgo VII",
+    "anchoVia": "1435/1668 mm",
+    "numeroRamas": 15,
+    "velocidadMaxima": "250 km/h (alta velocidad) · 220 km/h (convencional electrificada) · 180 km/h (convencional sin electrificar)",
+    "potencia": "2 × 1.800 kW diésel de generación · 2 × 1.200 kW para tracción",
+    "longitud": "aprox. 186,5 m",
+    "peso": "aprox. 346 t",
+    "tension": "25 kV c.a. / 3 kV c.c. / diésel en líneas sin electrificar",
+    "traccion": "2 cabezas tractoras eléctricas S-130 + 2 grupos generadores diésel MTU",
+    "señalizacion": "ERTMS / LZB / ASFA Digital",
+    "composicion": "M + CET + 9 coches Talgo VII + CET + M",
+    "capacidad": "263 plazas · 47 Preferente + 216 Turista",
+    "plazasSentadas": "263",
+    "numeroUnidades": "15 composiciones híbridas · 30 cabezas tractoras de la S-130",
+    "generalNotes": [
+      "Trenes híbridos de alta velocidad y ancho variable derivados de la serie 130.",
+      "La serie está formada por 15 composiciones obtenidas mediante la transformación de las ramas 11 a 25 de la serie 130.",
+      "Cada tren incorpora dos cabezas tractoras de la S-130, dos furgones generadores diésel y nueve coches de viajeros Talgo VII.",
+      "Los dos furgones generadores sustituyen a los coches extremos originales y permiten alimentar eléctricamente la tracción y los servicios del tren en líneas sin electrificar.",
+      "Puede circular por ancho ibérico (1668 mm) y ancho estándar (1435 mm) gracias a la rodadura desplazable.",
+      "La velocidad máxima es de 250 km/h en alta velocidad, 220 km/h en líneas convencionales electrificadas y 180 km/h en líneas convencionales sin electrificar.",
+      "Cuenta con dos motores diésel MTU de 1.800 kW, uno en cada furgón generador, y dos cabezas tractoras eléctricas derivadas de la S-130.",
+      "Renfe inició el servicio comercial de la serie en junio de 2012 en la relación Madrid–Galicia.",
+      "La identificación mediante Ex-número permite conocer la rama original de la serie 130 de la que procede cada composición."
+    ],
+    "units": {
+      "11": {
+        "rama": "11",
+        "vehiculoBase": "043",
+        "numero": "730-043-7",
+        "vehiculosRama": [
+          "730-043-7",
+          "730-044-5"
+        ],
+        "searchCodes": [
+          "043",
+          "044"
+        ],
+        "exNumeros": {
+          "043": "130-043-3",
+          "044": "130-044-1"
+        },
+        "exNumero": "130-043-3",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "servicio": "Alvia",
+        "ano": "2010–2012 (transformación a S-730)",
+        "ancho": "1435/1668",
+        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
+        "notasPorVehiculo": {
+          "043": "Logos 75 años Renfe. Logo Xacobeo 21-22.",
+          "044": "Logos 75 años Renfe. Logo Xacobeo 21-22."
+        },
+        "notas": [
+          "Logos 75 años Renfe. Logo Xacobeo 21-22."
+        ]
+      },
+      "12": {
+        "rama": "12",
+        "vehiculoBase": "045",
+        "numero": "730-045-2",
+        "vehiculosRama": [
+          "730-045-2",
+          "730-046-0"
+        ],
+        "searchCodes": [
+          "045",
+          "046"
+        ],
+        "exNumeros": {
+          "045": "130-045-8",
+          "046": "130-046-6"
+        },
+        "exNumero": "130-045-8",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "Desguazada",
+        "servicio": "Alvia",
+        "ano": "2010–2012 (transformación a S-730)",
+        "ancho": "1435/1668",
+        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
+        "notasPorVehiculo": {
+          "045": "Ex-Fuencarral. Accidente en Santiago de Compostela, 24/07/13. Custodiada en Grúas Padrón de A Escravitude. Desguazada verano 2020.",
+          "046": "Ex-Fuencarral. Accidente en Santiago de Compostela, 24/07/13. Custodiada en Grúas Padrón de A Escravitude. Desguazada verano 2020."
+        },
+        "notas": [
+          "Ex-Fuencarral. Accidente en Santiago de Compostela, 24/07/13. Custodiada en Grúas Padrón de A Escravitude. Desguazada verano 2020."
+        ]
+      },
+      "13": {
+        "rama": "13",
+        "vehiculoBase": "038",
+        "numero": "730-038-7",
+        "vehiculosRama": [
+          "730-038-7",
+          "730-042-9"
+        ],
+        "searchCodes": [
+          "038",
+          "042"
+        ],
+        "exNumeros": {
+          "038": "130-038-3",
+          "042": "130-042-5"
+        },
+        "exNumero": "130-038-3",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "servicio": "Alvia",
+        "ano": "2010–2012 (transformación a S-730)",
+        "ancho": "1435/1668",
+        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
+        "notasPorVehiculo": {
+          "038": "Ex 130-038-3. Primer tren en pruebas variante Pajares 03/11/22, con ministra 09/11/22.",
+          "042": "Primer tren en pruebas variante Pajares 03/11/22, con ministra 09/11/22."
+        },
+        "notas": [
+          "Ex 130-038-3. Primer tren en pruebas variante Pajares 03/11/22, con ministra 09/11/22.",
+          "Primer tren en pruebas variante Pajares 03/11/22, con ministra 09/11/22."
+        ]
+      },
+      "14": {
+        "rama": "14",
+        "vehiculoBase": "057",
+        "numero": "730-057-7",
+        "vehiculosRama": [
+          "730-057-7",
+          "730-058-5"
+        ],
+        "searchCodes": [
+          "057",
+          "058"
+        ],
+        "exNumeros": {
+          "057": "130-057-3",
+          "058": "130-058-1"
+        },
+        "exNumero": "130-057-3",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "Reformada",
+        "servicio": "Alvia",
+        "ano": "2010–2012 (transformación a S-730)",
+        "ancho": "1435/1668",
+        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
+        "notasPorVehiculo": {
+          "057": "02/06/20 Accidente en Hiniesta (Zamora), tren de cola. En servicio 07/21, vinilos Xacobeo 21-22. Reformado. Colores AVE, 04/22.",
+          "058": "02/06/20 Accidente en Hiniesta (Zamora), tren de cola. En servicio 07/21, vinilos Xacobeo 21-22. Reformado. Colores AVE, 04/22."
+        },
+        "notas": [
+          "02/06/20 Accidente en Hiniesta (Zamora), tren de cola. En servicio 07/21, vinilos Xacobeo 21-22. Reformado. Colores AVE, 04/22."
+        ]
+      },
+      "15": {
+        "rama": "15",
+        "vehiculoBase": "050",
+        "numero": "730-050-2",
+        "vehiculosRama": [
+          "730-050-2",
+          "730-053-6"
+        ],
+        "searchCodes": [
+          "050",
+          "053"
+        ],
+        "exNumeros": {
+          "050": "130-050-8",
+          "053": "130-053-2"
+        },
+        "exNumero": "130-050-8",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En reparación",
+        "servicio": "Alvia",
+        "ano": "2010–2012 (transformación a S-730)",
+        "ancho": "1435/1668",
+        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
+        "notasPorVehiculo": {
+          "050": "Rama inaugural Alvia Cartagena-Madrid, 17/09/18. Incendio en motriz turista 06/09/24.",
+          "053": "Rama inaugural Alvia Cartagena-Madrid, 17/09/18. Incendio en motriz turista 06/09/24."
+        },
+        "notas": [
+          "Rama inaugural Alvia Cartagena-Madrid, 17/09/18. Incendio en motriz turista 06/09/24."
+        ]
+      },
+      "16": {
+        "rama": "16",
+        "vehiculoBase": "063",
+        "numero": "730-063-5",
+        "vehiculosRama": [
+          "730-063-5",
+          "730-064-3"
+        ],
+        "searchCodes": [
+          "063",
+          "064"
+        ],
+        "exNumeros": {
+          "063": "130-063-1",
+          "064": "130-064-9"
+        },
+        "exNumero": "130-063-1",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "servicio": "Alvia",
+        "ano": "2010–2012 (transformación a S-730)",
+        "ancho": "1435/1668",
+        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
+        "notasPorVehiculo": {
+          "063": "Incendio CET 06/04/17 Puebla de Sanabria → en servicio 12/17. Logos Xacobeo 21-22 desde 06/21. Arrollamiento coche entre Montearagón y Talavera 05/06/25.",
+          "064": "Incendio CET 06/04/17 Puebla de Sanabria → en servicio 12/17. Logos Xacobeo 21-22 desde 06/21. Arrollamiento coche entre Montearagón y Talavera 05/06/25."
+        },
+        "notas": [
+          "Incendio CET 06/04/17 Puebla de Sanabria → en servicio 12/17. Logos Xacobeo 21-22 desde 06/21. Arrollamiento coche entre Montearagón y Talavera 05/06/25."
+        ]
+      },
+      "17": {
+        "rama": "17",
+        "vehiculoBase": "069",
+        "numero": "730-069-2",
+        "vehiculosRama": [
+          "730-069-2",
+          "730-070-0"
+        ],
+        "searchCodes": [
+          "069",
+          "070"
+        ],
+        "exNumeros": {
+          "069": "130-069-8",
+          "070": "130-070-6"
+        },
+        "exNumero": "130-069-8",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "servicio": "Alvia",
+        "ano": "2010–2012 (transformación a S-730)",
+        "ancho": "1435/1668",
+        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
+        "notasPorVehiculo": {
+          "069": "Ex-Logos Xacobeo 21-22.",
+          "070": "Ex-Logos Xacobeo 21-22."
+        },
+        "notas": [
+          "Ex-Logos Xacobeo 21-22."
+        ]
+      },
+      "18": {
+        "rama": "18",
+        "vehiculoBase": "071",
+        "numero": "730-071-8",
+        "vehiculosRama": [
+          "730-071-8",
+          "730-072-6"
+        ],
+        "searchCodes": [
+          "071",
+          "072"
+        ],
+        "exNumeros": {
+          "071": "130-071-4",
+          "072": "130-072-2"
+        },
+        "exNumero": "130-071-4",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "Reformada",
+        "servicio": "Alvia",
+        "ano": "2010–2012 (transformación a S-730)",
+        "ancho": "1435/1668",
+        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
+        "notasPorVehiculo": {
+          "071": "Logos 75 años Renfe. Tren medicalizado 04/20. Tte. Covid-19. Reformado (excepto fundas asientos turista), tercero de la serie, sale 30/03/23. Incendio CET turista Puertollano 30/08/25 (intercambiado por CET turista rama 15). En servicio desde 10/25.",
+          "072": "Logos 75 años Renfe. Tren medicalizado 04/20. Tte. Covid-19. Reformado (excepto fundas asientos turista), tercero de la serie, sale 30/03/23. Incendio CET turista Puertollano 30/08/25 (intercambiado por CET turista rama 15). En servicio desde 10/25."
+        },
+        "notas": [
+          "Logos 75 años Renfe. Tren medicalizado 04/20. Tte. Covid-19. Reformado (excepto fundas asientos turista), tercero de la serie, sale 30/03/23. Incendio CET turista Puertollano 30/08/25 (intercambiado por CET turista rama 15). En servicio desde 10/25."
+        ]
+      },
+      "19": {
+        "rama": "19",
+        "vehiculoBase": "073",
+        "numero": "730-073-4",
+        "vehiculosRama": [
+          "730-073-4",
+          "730-074-2"
+        ],
+        "searchCodes": [
+          "073",
+          "074"
+        ],
+        "exNumeros": {
+          "073": "130-073-0",
+          "074": "130-074-8"
+        },
+        "exNumero": "130-073-0",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "servicio": "Alvia",
+        "ano": "2010–2012 (transformación a S-730)",
+        "ancho": "1435/1668",
+        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
+        "notasPorVehiculo": {
+          "073": "-",
+          "074": "-"
+        },
+        "notas": [
+          "-"
+        ]
+      },
+      "20": {
+        "rama": "20",
+        "vehiculoBase": "075",
+        "numero": "730-075-9",
+        "vehiculosRama": [
+          "730-075-9",
+          "730-076-7"
+        ],
+        "searchCodes": [
+          "075",
+          "076"
+        ],
+        "exNumeros": {
+          "075": "130-075-5",
+          "076": "130-076-3"
+        },
+        "exNumero": "130-075-5",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "servicio": "Alvia",
+        "ano": "2010–2012 (transformación a S-730)",
+        "ancho": "1435/1668",
+        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
+        "notasPorVehiculo": {
+          "075": "Logotipo de Xacobeo 21-22",
+          "076": "-"
+        },
+        "notas": [
+          "Logotipo de Xacobeo 21-22",
+          "-"
+        ]
+      },
+      "21": {
+        "rama": "21",
+        "vehiculoBase": "077",
+        "numero": "730-077-5",
+        "vehiculosRama": [
+          "730-077-5",
+          "730-078-3"
+        ],
+        "searchCodes": [
+          "077",
+          "078"
+        ],
+        "exNumeros": {
+          "077": "130-077-1",
+          "078": "130-078-9"
+        },
+        "exNumero": "130-077-1",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "servicio": "Alvia",
+        "ano": "2010–2012 (transformación a S-730)",
+        "ancho": "1435/1668",
+        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
+        "notasPorVehiculo": {
+          "077": "Logos 75 años Renfe.",
+          "078": "Logos 75 años Renfe."
+        },
+        "notas": [
+          "Logos 75 años Renfe."
+        ]
+      },
+      "22": {
+        "rama": "22",
+        "vehiculoBase": "079",
+        "numero": "730-079-1",
+        "vehiculosRama": [
+          "730-079-1",
+          "730-080-9"
+        ],
+        "searchCodes": [
+          "079",
+          "080"
+        ],
+        "exNumeros": {
+          "079": "130-079-7",
+          "080": "130-080-5"
+        },
+        "exNumero": "130-079-7",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "Reformada",
+        "servicio": "Alvia",
+        "ano": "2010–2012 (transformación a S-730)",
+        "ancho": "1435/1668",
+        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
+        "notasPorVehiculo": {
+          "079": "Reformado desde 11/21, colores AVE. Descarrilo Badajoz 07/01/24. Primer tren Alvia en realizar el Badajoz-Madrid usando el bypass de Mérida y parando en Plasencia 09/05/2025",
+          "080": "Reformado desde 11/21, colores AVE. Descarrilo Badajoz 07/01/24."
+        },
+        "notas": [
+          "Reformado desde 11/21, colores AVE. Descarrilo Badajoz 07/01/24. Primer tren Alvia en realizar el Badajoz-Madrid usando el bypass de Mérida y parando en Plasencia 09/05/2025",
+          "Reformado desde 11/21, colores AVE. Descarrilo Badajoz 07/01/24."
+        ]
+      },
+      "23": {
+        "rama": "23",
+        "vehiculoBase": "081",
+        "numero": "730-081-7",
+        "vehiculosRama": [
+          "730-081-7",
+          "730-082-5"
+        ],
+        "searchCodes": [
+          "081",
+          "082"
+        ],
+        "exNumeros": {
+          "081": "130-081-3",
+          "082": "130-082-1"
+        },
+        "exNumero": "130-081-3",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "servicio": "Alvia",
+        "ano": "2010–2012 (transformación a S-730)",
+        "ancho": "1435/1668",
+        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
+        "notasPorVehiculo": {
+          "081": "02/06/20 Accidente en Hiniesta (Zamora), tren de cabeza. Motriz destruida, se construye una nueva. Terminada 05/24. En servicio 12/24",
+          "082": "02/06/20 Accidente en Hiniesta (Zamora), tren de cabeza. En reparación. En servicio 12/24"
+        },
+        "notas": [
+          "02/06/20 Accidente en Hiniesta (Zamora), tren de cabeza. Motriz destruida, se construye una nueva. Terminada 05/24. En servicio 12/24",
+          "02/06/20 Accidente en Hiniesta (Zamora), tren de cabeza. En reparación. En servicio 12/24"
+        ]
+      },
+      "24": {
+        "rama": "24",
+        "vehiculoBase": "083",
+        "numero": "730-083-3",
+        "vehiculosRama": [
+          "730-083-3",
+          "730-084-1"
+        ],
+        "searchCodes": [
+          "083",
+          "084"
+        ],
+        "exNumeros": {
+          "083": "130-083-9",
+          "084": "130-084-7"
+        },
+        "exNumero": "130-083-9",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "Reformada",
+        "servicio": "Alvia",
+        "ano": "2010–2012 (transformación a S-730)",
+        "ancho": "1435/1668",
+        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
+        "notasPorVehiculo": {
+          "083": "En transformación desde 13/11/18. En pruebas desde 10/06/19 → en servicio desde 07/19. Reformada interiormente 10/25",
+          "084": "En transformación desde 13/11/18. En pruebas desde 10/06/19 → en servicio desde 07/19. Reformada interiormente 10/25"
+        },
+        "notas": [
+          "En transformación desde 13/11/18. En pruebas desde 10/06/19 → en servicio desde 07/19. Reformada interiormente 10/25"
+        ]
+      },
+      "25": {
+        "rama": "25",
+        "vehiculoBase": "085",
+        "numero": "730-085-8",
+        "vehiculosRama": [
+          "730-085-8",
+          "730-086-6"
+        ],
+        "searchCodes": [
+          "085",
+          "086"
+        ],
+        "exNumeros": {
+          "085": "130-085-4",
+          "086": "130-086-2"
+        },
+        "exNumero": "130-085-4",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "Reformada",
+        "servicio": "Alvia",
+        "ano": "2010–2012 (transformación a S-730)",
+        "ancho": "1435/1668",
+        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
+        "notasPorVehiculo": {
+          "085": "En transformación desde 10/19. En servicio 08/20. Logos Xacobeo 21-22. Reformada 03/26",
+          "086": "En transformación desde 10/19. En servicio 08/20. Logos Xacobeo 21-22. Reformada interior y exterior 03/26"
+        },
+        "notas": [
+          "En transformación desde 10/19. En servicio 08/20. Logos Xacobeo 21-22. Reformada 03/26",
+          "En transformación desde 10/19. En servicio 08/20. Logos Xacobeo 21-22. Reformada interior y exterior 03/26"
+        ]
+      }
+    }
+  },
   "102": {
     "seriesName": "Serie 102",
     "fabricante": "Talgo-Bombardier",
@@ -4648,6 +5168,28 @@ function getFleetUnit(series, vehicle){
     };
   }
 
+  // Serie 730: cada rama se identifica por cualquiera de sus dos vehículos Talgo 730.
+  // Se acepta el código corto (038), la matrícula 730-038-7 y la matrícula completa Renfe.
+  // También se admite el Ex-número 130-038-3 para localizar la rama transformada.
+  if(s==="730"){
+    const raw=String(vehicle??"").trim();
+    const matriculaMatch=raw.match(/(?:^|-)730-(\d{3})(?:-|$)/i);
+    const exMatch=raw.match(/(?:^|-)130-(\d{3})(?:-|$)/i);
+    let code=matriculaMatch ? matriculaMatch[1] : (exMatch ? exMatch[1] : v);
+    if(!matriculaMatch && !exMatch && /^730\d{3}$/.test(v)) code=v.slice(-3);
+    code=String(code).padStart(3,"0");
+    let base=null;
+    for(const candidate of Object.values(seriesData.units||{})){
+      if((candidate.searchCodes||[]).includes(code)){ base=candidate; break; }
+      if(Object.values(candidate.exNumeros||{}).some(x=>String(x).split("-")[2]===code)){ base=candidate; break; }
+    }
+    if(!base) return null;
+    const idx=(base.searchCodes||[]).indexOf(code);
+    const canonicalVehicle=idx>=0 ? base.vehiculosRama[idx] : base.numero;
+    const matchedEx=(base.exNumeros||{})[code] || base.exNumero || "";
+    return {...base,numero:canonicalVehicle,vehiculoBase:code,vehiculoIntroducido:raw,vehiculoBuscado:code,exNumero:matchedEx,notas:(base.notasPorVehiculo||{})[code]?[ (base.notasPorVehiculo||{})[code] ]:(base.notas||[]),cocheTipo:"Vehículo Talgo 730"};
+  }
+
   // Serie 130: las dos cabezas tractoras de cada rama identifican la composición.
   // Cada rama usa dos códigos de búsqueda: 001–045 y 001–045 de la segunda cabeza,
   // representadas en los datos mediante los números reales 001–090.
@@ -4854,10 +5396,7 @@ function fleetFichaHtml(series,vehicle,service=null){
   }
 
   // Toda la información específica aportada para la rama forma parte de su ficha.
-  const rawNotes=Array.isArray(unit.notas)?unit.notas.filter(Boolean):[];
-  const notes=normalizeFleetValue(series)==="130"
-    ? rawNotes.filter((n,i,a)=>!a.some((other,j)=>j!==i && other.length>n.length && other.includes(n)))
-    : rawNotes;
+  const notes=unit.notas||[];
 
   // 1) Datos del servicio registrado.
   const serviceBlock=service?`
@@ -4888,7 +5427,7 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Fabricante</span><strong>${esc(unit.fabricante||seriesData?.fabricante||"—")}</strong></div>
         <div><span>Número de coches</span><strong>${esc(unit.numeroCoches||seriesData?.numeroCoches||"—")}</strong></div>
         <div><span>Año</span><strong>${esc(unit.ano||"—")}</strong></div>
-        ${normalizeFleetValue(series)==="130" && unit.exNumero?`<div class="ficha-exnumero"><span>EX-NÚMERO · PROCEDENCIA TALGO 7</span><strong>${esc(unit.exNumero)}</strong></div>`:""}
+        ${["130","730"].includes(normalizeFleetValue(series)) && unit.exNumero?`<div><span>${normalizeFleetValue(series)==="730"?"Ex-número · procedencia S-130":"Ex-número"}</span><strong>${esc(unit.exNumero)}</strong></div>`:""}
         <div><span>Depósito / base</span><strong>${esc(unit.deposito||"—")}</strong></div>
         <div><span>Ancho de vía</span><strong>${esc(unit.ancho||seriesData?.anchoVia||"—")} ${unit.ancho?"mm":""}</strong></div>
         ${(unit.subserie||seriesData?.subseries)?`<div><span>Subserie</span><strong>${esc(unit.subserie||seriesData.subseries)}</strong></div>`:""}
@@ -4897,7 +5436,7 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${seriesData?.tipoMaterial?`<div><span>Tipo de material</span><strong>${esc(seriesData.tipoMaterial)}</strong></div>`:""}
         ${normalizeFleetValue(series)==="114"?`
         <div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||"—")}</strong></div>`:""}
-        ${["120","121"].includes(normalizeFleetValue(series))?`<div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||"—")}</strong></div>`:""}
+        ${["120","121","730"].includes(normalizeFleetValue(series))?`<div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||"—")}</strong></div>`:""}
         ${normalizeFleetValue(series)==="103"?`
         <div><span>Coche introducido</span><strong>${esc(unit.vehiculoBase||vehicle)}</strong></div>
         <div><span>Tipo de coche</span><strong>${esc(unit.cocheTipo||"—")}</strong></div>
@@ -4905,7 +5444,7 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${seriesData?.velocidadMaxima?`<div><span>Velocidad máxima</span><strong>${esc(seriesData.velocidadMaxima)}</strong></div>`:""}
         ${seriesData?.potencia?`<div><span>Potencia</span><strong>${esc(seriesData.potencia)}</strong></div>`:""}
         ${seriesData?.plazasSentadas?`<div><span>Plazas sentadas</span><strong>${esc(seriesData.plazasSentadas)}</strong></div>`:""}
-         ${["112","121"].includes(normalizeFleetValue(series))?`
+         ${["112","121","730"].includes(normalizeFleetValue(series))?`
          <div><span>Longitud</span><strong>${esc(seriesData.longitud||"—")}</strong></div>
          <div><span>Peso</span><strong>${esc(seriesData.peso||"—")}</strong></div>
          <div><span>Tensión</span><strong>${esc(seriesData.tension||"—")}</strong></div>
@@ -4934,7 +5473,7 @@ function fleetFichaHtml(series,vehicle,service=null){
       <div class="ficha-general-grid">${general.map((n,i)=>`<div class="ficha-general-item"><span class="ficha-general-number">${String(i+1).padStart(2,"0")}</span><div>${esc(n)}</div></div>`).join("")}</div>
     </div>`:"";
 
-  const vehiculoFicha=["103","104","120","121"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : vehicle;
+  const vehiculoFicha=["103","104","120","121"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : (normalizeFleetValue(series)==="730" ? (unit.numero||vehicle) : vehicle);
   const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>Serie ${esc(series)}${unit.subserie?` · ${esc(unit.subserie)}`:""} · Rama ${esc(unit.rama)}</h3><p>Vehículo ${esc(vehiculoFicha)} · ${esc(unit.numero||"—")}</p></div>`;
 
   return `${hero}
@@ -5002,29 +5541,6 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   const s=document.createElement("style");
   s.id="argos-general-ficha-clean";
   s.textContent=`.ficha-general-grid{display:grid;grid-template-columns:1fr;gap:10px}.ficha-general-item{display:flex;gap:12px;align-items:flex-start;padding:13px 14px;border:1px solid rgba(120,120,120,.16);border-radius:12px;background:rgba(128,128,128,.045);line-height:1.45}.ficha-general-number{font-weight:800;font-size:12px;opacity:.55;min-width:24px;padding-top:2px}@media(min-width:760px){.ficha-general-grid{grid-template-columns:1fr 1fr}}`;
-  document.head.appendChild(s);
-})();
-
-(function(){
-  if(document.getElementById("argos-s130-exnumero")) return;
-  const s=document.createElement("style");
-  s.id="argos-s130-exnumero";
-  s.textContent=`
-    .ficha-exnumero{
-      border:2px solid rgba(145,0,95,.28)!important;
-      background:rgba(145,0,95,.07)!important;
-      box-shadow:0 4px 14px rgba(145,0,95,.08);
-    }
-    .ficha-exnumero span{
-      color:#91005f!important;
-      font-weight:800!important;
-      letter-spacing:.02em;
-    }
-    .ficha-exnumero strong{
-      color:#91005f!important;
-      font-size:1.12em;
-    }
-  `;
   document.head.appendChild(s);
 })();
 
