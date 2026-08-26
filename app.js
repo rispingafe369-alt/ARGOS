@@ -76,6 +76,16 @@ const fleet = {
           "Ex-La Sagra."
         ]
       },
+      "106": {
+    "name":"Talgo AVRIL S-106",
+    "fabricante":"Talgo",
+    "anoPuestaServicio":"2024",
+    "tipoMaterial":"Alta Velocidad · AVE / Avlo",
+    "numeroCoches":"12",
+    "anchoVia":"1435 mm / ancho variable según unidad",
+    "maxSpeed":"330 km/h",
+    "units":{}
+  },
   "102": {
         "rama": "2",
         "numero": "9-100-102-3",
@@ -362,422 +372,6 @@ const fleet = {
           "Coche motor de rama 24 se instala en rama 22.",
           "Pertenece a la subserie 100F."
         ]
-      }
-    }
-  },
-  "106": {
-    "seriesName": "Serie 106",
-    "fabricante": "Talgo",
-    "modelo": "Talgo AVRIL F070",
-    "apodo": "AVRIL",
-    "anoPuestaServicio": "2020-2024 (según rama)",
-    "tipoMaterial": "Alta Velocidad · AVE / Avlo",
-    "numeroCoches": "14 vehículos: 2 cabezas motrices + 12 coches intermedios",
-    "anchoVia": "1435 mm (ancho fijo) / 1435-1668 mm (rodadura desplazable)",
-    "numeroRamas": "30 ramas: 1-15 de ancho fijo y 51-65 de ancho variable",
-    "velocidadMaxima": "330 km/h",
-    "plazasSentadas": "521 plazas + 2 espacios PMR",
-    "generalNotes": [
-      "Trenes de muy alta velocidad basados en el prototipo AVRIL de Talgo (Talgo F057 Modelo G3). El modelo adquirido por Renfe es F070.",
-      "Renfe dispone de 15 ramas de ancho fijo y otras 15 de rodadura desplazable.",
-      "Cada rama está formada por 2 cabezas motrices y 12 coches intermedios.",
-      "Configuración indicada en la documentación aportada: un extremo Preferente de 44 plazas, un Preferente de 36 plazas, un Turista de 25 plazas + 2 PMR, una cafetería, cuatro Turista de 49 plazas, tres Turista de 54 plazas y un cola Turista de 58 plazas.",
-      "Los coches Turista tienen distribución de asientos 3+2 y los Preferente 2+2.",
-      "Las ramas 1-15 son de ancho fijo 1.435 mm. Las ramas 51-65 son de rodadura desplazable y permiten ancho 1.435/1.668 mm.",
-      "La tabla aportada muestra las dos cabezas motrices de cada rama: 001-015/101-115 y 051-065/151-165. Las dos cabezas de cada pareja pertenecen a la misma rama."
-    ],
-    "units": {
-      "1": {
-        "rama": "1",
-        "numero": "9-106-001-3",
-        "vehiculoBase": "001",
-        "deposito": "Can Tunis",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [],
-        "ano": 2020
-      },
-      "2": {
-        "rama": "2",
-        "numero": "9-106-002-1",
-        "vehiculoBase": "002",
-        "deposito": "Can Tunis",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [],
-        "ano": 2024
-      },
-      "3": {
-        "rama": "3",
-        "numero": "9-106-003-9",
-        "vehiculoBase": "003",
-        "deposito": "Can Tunis",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [
-          "Primer 106 de ancho fijo en colores AVLO, 10/12/22."
-        ],
-        "ano": 2024
-      },
-      "4": {
-        "rama": "4",
-        "numero": "9-106-004-7",
-        "vehiculoBase": "004",
-        "deposito": "Can Tunis",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [],
-        "ano": 2024
-      },
-      "5": {
-        "rama": "5",
-        "numero": "9-106-005-4",
-        "vehiculoBase": "005",
-        "deposito": "Can Tunis",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [],
-        "ano": 2022
-      },
-      "6": {
-        "rama": "6",
-        "numero": "9-106-006-2",
-        "vehiculoBase": "006",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [
-          "Primera rama en salir de pruebas. Pruebas de homologación entre Olmedo y Otero de Sanabria en 02/21."
-        ],
-        "ano": 2020
-      },
-      "7": {
-        "rama": "7",
-        "numero": "9-106-007-0",
-        "vehiculoBase": "007",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [
-          "En pruebas de homologación línea Venta de Baños-Burgos, 04/21."
-        ],
-        "ano": 2020
-      },
-      "8": {
-        "rama": "8",
-        "numero": "9-106-008-8",
-        "vehiculoBase": "008",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [
-          "Traslado Ribavellosa-La Sagra 23/07/20. Incluye sistemas de seguridad Francia."
-        ],
-        "ano": 2020
-      },
-      "9": {
-        "rama": "9",
-        "numero": "9-106-009-6",
-        "vehiculoBase": "009",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [
-          "Traslado Ribavellosa-La Sagra 19/04/21. Trasladado a Francia para pruebas de homologación 04/10/22. Devuelta a España 13/05/26."
-        ],
-        "ano": 2024
-      },
-      "10": {
-        "rama": "10",
-        "numero": "9-106-010-4",
-        "vehiculoBase": "010",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [],
-        "ano": 2024
-      },
-      "11": {
-        "rama": "11",
-        "numero": "9-106-011-2",
-        "vehiculoBase": "011",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [],
-        "ano": 2024
-      },
-      "12": {
-        "rama": "12",
-        "numero": "9-106-012-0",
-        "vehiculoBase": "012",
-        "deposito": "Fuencarral",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [
-          "Morado AVLO desde 05/24."
-        ],
-        "ano": 2024
-      },
-      "13": {
-        "rama": "13",
-        "numero": "9-106-013-8",
-        "vehiculoBase": "013",
-        "deposito": "Fuencarral",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [
-          "Morado AVLO desde 05/24."
-        ],
-        "ano": 2024
-      },
-      "14": {
-        "rama": "14",
-        "numero": "9-106-014-6",
-        "vehiculoBase": "014",
-        "deposito": "Fuencarral",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [
-          "Morado AVLO desde 05/24."
-        ],
-        "ano": 2024
-      },
-      "15": {
-        "rama": "15",
-        "numero": "9-106-015-3",
-        "vehiculoBase": "015",
-        "deposito": "Fuencarral",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [
-          "Morado AVLO desde 05/24."
-        ],
-        "ano": 2024
-      },
-      "51": {
-        "rama": "51",
-        "numero": "9-106-051-8",
-        "vehiculoBase": "051",
-        "deposito": "Can Tunis",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [
-          "Primer 106 en colores AVLO, 09/12/22."
-        ],
-        "ano": 2021
-      },
-      "52": {
-        "rama": "52",
-        "numero": "9-106-052-6",
-        "vehiculoBase": "052",
-        "deposito": "Can Tunis",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [
-          "Pruebas entre Galicia y Madrid 07/23."
-        ],
-        "ano": 2021
-      },
-      "53": {
-        "rama": "53",
-        "numero": "9-106-053-4",
-        "vehiculoBase": "053",
-        "deposito": "Can Tunis",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [
-          "Traslado de Miranda de Ebro a Galicia 12/07/21."
-        ],
-        "ano": 2021
-      },
-      "54": {
-        "rama": "54",
-        "numero": "9-106-054-2",
-        "vehiculoBase": "054",
-        "deposito": "Can Tunis",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [],
-        "ano": 2022
-      },
-      "55": {
-        "rama": "55",
-        "numero": "9-106-055-9",
-        "vehiculoBase": "055",
-        "deposito": "Can Tunis",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [
-          "Traslado Ribavellosa-La Sagra 20/08/21."
-        ],
-        "ano": 2022
-      },
-      "56": {
-        "rama": "56",
-        "numero": "9-106-056-7",
-        "vehiculoBase": "056",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [],
-        "ano": 2021
-      },
-      "57": {
-        "rama": "57",
-        "numero": "9-106-057-5",
-        "vehiculoBase": "057",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [],
-        "ano": 2024
-      },
-      "58": {
-        "rama": "58",
-        "numero": "9-106-058-3",
-        "vehiculoBase": "058",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [],
-        "ano": 2024
-      },
-      "59": {
-        "rama": "59",
-        "numero": "9-106-059-1",
-        "vehiculoBase": "059",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [
-          "Logos Ave 02/24."
-        ],
-        "ano": 2024
-      },
-      "60": {
-        "rama": "60",
-        "numero": "9-106-060-9",
-        "vehiculoBase": "060",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [
-          "Primer tren de Alta Velocidad en realizar pruebas en la LAV: Plasencia-Badajoz."
-        ],
-        "ano": 2024
-      },
-      "61": {
-        "rama": "61",
-        "numero": "9-106-061-7",
-        "vehiculoBase": "061",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [],
-        "ano": 2024
-      },
-      "62": {
-        "rama": "62",
-        "numero": "9-106-062-5",
-        "vehiculoBase": "062",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [
-          "Presentación en Vigo 05/01/24. Primera rama con logos Ave 02/24."
-        ],
-        "ano": 2024
-      },
-      "63": {
-        "rama": "63",
-        "numero": "9-106-063-3",
-        "vehiculoBase": "063",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [],
-        "ano": 2024
-      },
-      "64": {
-        "rama": "64",
-        "numero": "9-106-064-1",
-        "vehiculoBase": "064",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [],
-        "ano": 2024
-      },
-      "65": {
-        "rama": "65",
-        "numero": "9-106-065-8",
-        "vehiculoBase": "065",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [],
-        "ano": 2024
       }
     }
   },
@@ -1657,6 +1251,822 @@ const fleet = {
     }
   },
 
+
+  "112": {
+    "seriesName":"Serie 112",
+    "fabricante":"Talgo-Bombardier",
+    "numeroCoches":"12 remolques Talgo + 2 cabezas tractoras",
+    "anoPuestaServicio":"2009",
+    "tipoMaterial":"AVE / Alta Velocidad",
+    "anchoVia":"1435 mm",
+    "numeroRamas":30,
+    "modelo":"Talgo 350",
+    "apodo":"Pato",
+    "velocidadMaxima":"330 km/h homologada",
+    "potencia":"8.000 kW",
+    "longitud":"200 m",
+    "peso":"332 t en vacío / 357 t cargado",
+    "tension":"25 kV / 50 Hz",
+    "señalizacion":"ERTMS, LZB-STM y ASFA",
+    "traccion":"2 cabezas tractoras Bombardier · 8 motores asíncronos trifásicos",
+    "composicion":"Motriz + 12 remolques Talgo + motriz",
+    "capacidad":"348 plazas",
+    "plazasSentadas":"348",
+    "numeroUnidades":"30 composiciones",
+    "generalNotes":[
+      "La serie 112 es una evolución de la serie 102 Talgo 350, fabricada por Talgo y Bombardier para los servicios de Alta Velocidad de Renfe.",
+      "Está formada por 30 composiciones, cada una con dos cabezas tractoras y doce remolques Talgo articulados.",
+      "La principal diferencia respecto a la serie 102 es el aumento de capacidad hasta 348 plazas mediante una nueva distribución interior.",
+      "La potencia total es de 8.000 kW, con ocho motores de tracción asíncronos trifásicos y alimentación a 25 kV / 50 Hz.",
+      "La velocidad máxima homologada es de 330 km/h; el diseño del Talgo 350 está preparado para velocidades de hasta 350 km/h.",
+      "La composición tiene aproximadamente 200 metros de longitud y emplea el sistema de rodadura propio de Talgo.",
+      "Los trenes disponen de cafetería y de tomas de corriente en los asientos.",
+      "Renfe transformó cinco composiciones de la serie 112 para el servicio Avlo, con configuración de clase única y 438 plazas.",
+      "Las 30 unidades fueron fabricadas en el periodo 2009-2010, con participación de los talleres de Renfe Integria en Los Prados (Málaga)."
+    ],
+    "units": {
+      "1": {
+        "rama": "1",
+        "numero": "9-112-001-3",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-001-3",
+        "motorPar": "9-112-002-1",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2008,
+        "ancho": "1435",
+        "notas": ["En pruebas 2008.", "Descarrilo de un rodal/coche 7 en Brazatortas, 12/05/17.", "Nuevos logos AVE 03/23.", "Vinilos #TotsAlValencia 2024.", "Vinilos 84ª Feria del Libro de Madrid 05/25.", "Ex-Málaga.", "Descarrilo en Fuencarral 31/12/25."]
+      },
+      "2": {
+        "rama": "1",
+        "numero": "9-112-002-1",
+        "motorTipo": "par",
+        "motorImpar": "9-112-001-3",
+        "motorPar": "9-112-002-1",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2008,
+        "ancho": "1435",
+        "notas": ["En pruebas 2008.", "Descarrilo de un rodal/coche 7 en Brazatortas, 12/05/17.", "Nuevos logos AVE 03/23.", "Vinilos #TotsAlValencia 2024.", "Vinilos 84ª Feria del Libro de Madrid 05/25.", "Ex-Málaga.", "Descarrilo en Fuencarral 31/12/25."]
+      },
+      "3": {
+        "rama": "2",
+        "numero": "9-112-003-9",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-003-9",
+        "motorPar": "9-112-004-7",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2008,
+        "ancho": "1435",
+        "notas": ["En pruebas 2009.", "Nuevos logos AVE.", "Ex-Santa Catalina."]
+      },
+      "4": {
+        "rama": "2",
+        "numero": "9-112-004-7",
+        "motorTipo": "par",
+        "motorImpar": "9-112-003-9",
+        "motorPar": "9-112-004-7",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2008,
+        "ancho": "1435",
+        "notas": ["En pruebas 2009.", "Nuevos logos AVE.", "Ex-Santa Catalina."]
+      },
+      "5": {
+        "rama": "3",
+        "numero": "9-112-005-4",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-005-4",
+        "motorPar": "9-112-006-2",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["En pruebas 2009.", "Nuevo logo AVE.", "Ex-Santa Catalina."]
+      },
+      "6": {
+        "rama": "3",
+        "numero": "9-112-006-2",
+        "motorTipo": "par",
+        "motorImpar": "9-112-005-4",
+        "motorPar": "9-112-006-2",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["En pruebas 2009.", "Nuevo logo AVE.", "Ex-Santa Catalina."]
+      },
+      "7": {
+        "rama": "4",
+        "numero": "9-112-007-0",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-007-0",
+        "motorPar": "9-112-008-8",
+        "deposito": "Málaga",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["En pruebas 2009.", "Línea AV Madrid-León 2015.", "Ex-Fuencarral.", "Servicio Avlo desde 03/23.", "Interiorismo de AVE."]
+      },
+      "8": {
+        "rama": "4",
+        "numero": "9-112-008-8",
+        "motorTipo": "par",
+        "motorImpar": "9-112-007-0",
+        "motorPar": "9-112-008-8",
+        "deposito": "Málaga",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["En pruebas 2009.", "Línea AV Madrid-León 2015.", "Ex-Fuencarral.", "Servicio Avlo desde 03/23.", "Interiorismo de AVE."]
+      },
+      "9": {
+        "rama": "5",
+        "numero": "9-112-009-6",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-009-6",
+        "motorPar": "9-112-010-4",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["En pruebas 2009.", "Vinilos Feria del Libro de Madrid 05/24.", "Ex-Santa Catalina."]
+      },
+      "10": {
+        "rama": "5",
+        "numero": "9-112-010-4",
+        "motorTipo": "par",
+        "motorImpar": "9-112-009-6",
+        "motorPar": "9-112-010-4",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["En pruebas 2009.", "Vinilos Feria del Libro de Madrid 05/24.", "Ex-Santa Catalina."]
+      },
+      "11": {
+        "rama": "6",
+        "numero": "9-112-011-2",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-011-2",
+        "motorPar": "9-112-012-0",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["En pruebas 2009.", "Ex-Santa Catalina."]
+      },
+      "12": {
+        "rama": "6",
+        "numero": "9-112-012-0",
+        "motorTipo": "par",
+        "motorImpar": "9-112-011-2",
+        "motorPar": "9-112-012-0",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["En pruebas 2009.", "Ex-Santa Catalina."]
+      },
+      "13": {
+        "rama": "7",
+        "numero": "9-112-013-8",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-013-8",
+        "motorPar": "9-112-014-6",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["En pruebas 2009; en servicio desde 04/10.", "Nuevo logo AVE.", "Ex-Santa Catalina."]
+      },
+      "14": {
+        "rama": "7",
+        "numero": "9-112-014-6",
+        "motorTipo": "par",
+        "motorImpar": "9-112-013-8",
+        "motorPar": "9-112-014-6",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["En pruebas 2009; en servicio desde 04/10.", "Nuevo logo AVE.", "Ex-Santa Catalina."]
+      },
+      "15": {
+        "rama": "8",
+        "numero": "9-112-015-3",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-015-3",
+        "motorPar": "9-112-016-1",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Pruebas ERTMS N2 en LAV Palencia-León y antena Wi-Fi.", "Ex-Fuencarral → Santa Catalina.", "Nuevo logo AVE."]
+      },
+      "16": {
+        "rama": "8",
+        "numero": "9-112-016-1",
+        "motorTipo": "par",
+        "motorImpar": "9-112-015-3",
+        "motorPar": "9-112-016-1",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Pruebas ERTMS N2 en LAV Palencia-León y antena Wi-Fi.", "Ex-Fuencarral → Santa Catalina.", "Nuevo logo AVE."]
+      },
+      "17": {
+        "rama": "9",
+        "numero": "9-112-017-9",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-017-9",
+        "motorPar": "9-112-018-7",
+        "deposito": "Málaga",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Vinilos AVLO de 03/23 a 11/24.", "Interiorismo AVE.", "Ex-Santa Catalina."]
+      },
+      "18": {
+        "rama": "9",
+        "numero": "9-112-018-7",
+        "motorTipo": "par",
+        "motorImpar": "9-112-017-9",
+        "motorPar": "9-112-018-7",
+        "deposito": "Málaga",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Vinilos AVLO de 03/23 a 11/24.", "Interiorismo AVE.", "Ex-Santa Catalina."]
+      },
+      "19": {
+        "rama": "10",
+        "numero": "9-112-019-5",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-019-5",
+        "motorPar": "9-112-020-3",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["En pruebas 2009.", "Pruebas LAV Galicia 08/21.", "Vinilos bandera de España 11/10/24."]
+      },
+      "20": {
+        "rama": "10",
+        "numero": "9-112-020-3",
+        "motorTipo": "par",
+        "motorImpar": "9-112-019-5",
+        "motorPar": "9-112-020-3",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["En pruebas 2009.", "Pruebas LAV Galicia 08/21.", "Vinilos bandera de España 11/10/24."]
+      },
+      "21": {
+        "rama": "11",
+        "numero": "9-112-021-1",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-021-1",
+        "motorPar": "9-112-022-9",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Ex-Santa Catalina."]
+      },
+      "22": {
+        "rama": "11",
+        "numero": "9-112-022-9",
+        "motorTipo": "par",
+        "motorImpar": "9-112-021-1",
+        "motorPar": "9-112-022-9",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Ex-Santa Catalina."]
+      },
+      "23": {
+        "rama": "12",
+        "numero": "9-112-023-7",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-023-7",
+        "motorPar": "9-112-024-5",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Ex-Santa Catalina."]
+      },
+      "24": {
+        "rama": "12",
+        "numero": "9-112-024-5",
+        "motorTipo": "par",
+        "motorImpar": "9-112-023-7",
+        "motorPar": "9-112-024-5",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Ex-Santa Catalina."]
+      },
+      "25": {
+        "rama": "13",
+        "numero": "9-112-025-2",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-025-2",
+        "motorPar": "9-112-026-0",
+        "deposito": "Málaga",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Vinilos AVLO provisionales, con interior AVE en 02/22.", "Ex-Santa Catalina."]
+      },
+      "26": {
+        "rama": "13",
+        "numero": "9-112-026-0",
+        "motorTipo": "par",
+        "motorImpar": "9-112-025-2",
+        "motorPar": "9-112-026-0",
+        "deposito": "Málaga",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Vinilos AVLO provisionales, con interior AVE en 02/22.", "Ex-Santa Catalina."]
+      },
+      "27": {
+        "rama": "14",
+        "numero": "9-112-027-8",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-027-8",
+        "motorPar": "9-112-028-6",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Nuevos logos AVE.", "Descarrilo por desprendimiento en Álora, 29/10/24.", "Ex-Santa Catalina.", "Vinilos LGTBQ+ 06/26."]
+      },
+      "28": {
+        "rama": "14",
+        "numero": "9-112-028-6",
+        "motorTipo": "par",
+        "motorImpar": "9-112-027-8",
+        "motorPar": "9-112-028-6",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Nuevos logos AVE.", "Descarrilo por desprendimiento en Álora, 29/10/24.", "Ex-Santa Catalina.", "Vinilos LGTBQ+ 06/26."]
+      },
+      "29": {
+        "rama": "15",
+        "numero": "9-112-029-4",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-029-4",
+        "motorPar": "9-112-030-2",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Ex-Santa Catalina → Fuencarral desde 08/22."]
+      },
+      "30": {
+        "rama": "15",
+        "numero": "9-112-030-2",
+        "motorTipo": "par",
+        "motorImpar": "9-112-029-4",
+        "motorPar": "9-112-030-2",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Ex-Santa Catalina → Fuencarral desde 08/22."]
+      },
+      "31": {
+        "rama": "16",
+        "numero": "9-112-031-0",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-031-0",
+        "motorPar": "9-112-032-8",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Ex-Santa Catalina."]
+      },
+      "32": {
+        "rama": "16",
+        "numero": "9-112-032-8",
+        "motorTipo": "par",
+        "motorImpar": "9-112-031-0",
+        "motorPar": "9-112-032-8",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Ex-Santa Catalina."]
+      },
+      "33": {
+        "rama": "17",
+        "numero": "9-112-033-6",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-033-6",
+        "motorPar": "9-112-034-4",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Vinilo 10 años AVE Madrid-Valencia."]
+      },
+      "34": {
+        "rama": "17",
+        "numero": "9-112-034-4",
+        "motorTipo": "par",
+        "motorImpar": "9-112-033-6",
+        "motorPar": "9-112-034-4",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Vinilo 10 años AVE Madrid-Valencia."]
+      },
+      "35": {
+        "rama": "18",
+        "numero": "9-112-035-1",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-035-1",
+        "motorPar": "9-112-036-9",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Logos 75 años Renfe.", "Tuvo vinilos en puertas APP Renfe.", "Vinilo 'Barcelona estrena Navidad, ¿vendrás?' en 2021.", "Nuevo logo AVE."]
+      },
+      "36": {
+        "rama": "18",
+        "numero": "9-112-036-9",
+        "motorTipo": "par",
+        "motorImpar": "9-112-035-1",
+        "motorPar": "9-112-036-9",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Logos 75 años Renfe.", "Tuvo vinilos en puertas APP Renfe.", "Vinilo 'Barcelona estrena Navidad, ¿vendrás?' en 2021.", "Nuevo logo AVE."]
+      },
+      "37": {
+        "rama": "19",
+        "numero": "9-112-037-7",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-037-7",
+        "motorPar": "9-112-038-5",
+        "deposito": "Málaga",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Ex-Cerro Negro → Fuencarral 2015 para Madrid-León.", "En reforma AVLO desde 03/02/20.", "Estreno servicio AVLO 23/06/21."]
+      },
+      "38": {
+        "rama": "19",
+        "numero": "9-112-038-5",
+        "motorTipo": "par",
+        "motorImpar": "9-112-037-7",
+        "motorPar": "9-112-038-5",
+        "deposito": "Málaga",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Ex-Cerro Negro → Fuencarral 2015 para Madrid-León.", "En reforma AVLO desde 03/02/20.", "Estreno servicio AVLO 23/06/21."]
+      },
+      "39": {
+        "rama": "20",
+        "numero": "9-112-039-3",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-039-3",
+        "motorPar": "9-112-040-1",
+        "deposito": "Málaga",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["En preparación en La Sagra para AVLO, 09/19.", "Presentación como AVLO, 11/12/19."]
+      },
+      "40": {
+        "rama": "20",
+        "numero": "9-112-040-1",
+        "motorTipo": "par",
+        "motorImpar": "9-112-039-3",
+        "motorPar": "9-112-040-1",
+        "deposito": "Málaga",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["En preparación en La Sagra para AVLO, 09/19.", "Presentación como AVLO, 11/12/19."]
+      },
+      "41": {
+        "rama": "21",
+        "numero": "9-112-041-9",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-041-9",
+        "motorPar": "9-112-042-7",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Ex-Santa Catalina → Fuencarral.", "Servicio AVLO (Morado) de 02/22 a 10/25."]
+      },
+      "42": {
+        "rama": "21",
+        "numero": "9-112-042-7",
+        "motorTipo": "par",
+        "motorImpar": "9-112-041-9",
+        "motorPar": "9-112-042-7",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Ex-Santa Catalina → Fuencarral.", "Servicio AVLO (Morado) de 02/22 a 10/25."]
+      },
+      "43": {
+        "rama": "22",
+        "numero": "9-112-043-5",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-043-5",
+        "motorPar": "9-112-044-3",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["25/06/19: tren inaugural AVE Madrid-Granada.", "Ex-Santa Catalina."]
+      },
+      "44": {
+        "rama": "22",
+        "numero": "9-112-044-3",
+        "motorTipo": "par",
+        "motorImpar": "9-112-043-5",
+        "motorPar": "9-112-044-3",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["25/06/19: tren inaugural AVE Madrid-Granada.", "Ex-Santa Catalina."]
+      },
+      "45": {
+        "rama": "23",
+        "numero": "9-112-045-0",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-045-0",
+        "motorPar": "9-112-046-8",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Nuevo logo AVE.", "Vinilos Sorolla 08/23.", "Ex-Santa Catalina."]
+      },
+      "46": {
+        "rama": "23",
+        "numero": "9-112-046-8",
+        "motorTipo": "par",
+        "motorImpar": "9-112-045-0",
+        "motorPar": "9-112-046-8",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Nuevo logo AVE.", "Vinilos Sorolla 08/23.", "Ex-Santa Catalina."]
+      },
+      "47": {
+        "rama": "24",
+        "numero": "9-112-047-6",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-047-6",
+        "motorPar": "9-112-048-4",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Ex-Málaga."]
+      },
+      "48": {
+        "rama": "24",
+        "numero": "9-112-048-4",
+        "motorTipo": "par",
+        "motorImpar": "9-112-047-6",
+        "motorPar": "9-112-048-4",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Ex-Málaga."]
+      },
+      "49": {
+        "rama": "25",
+        "numero": "9-112-049-2",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-049-2",
+        "motorPar": "9-112-050-0",
+        "deposito": "Málaga",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Logos 75 años Renfe.", "Ex-Santa Catalina.", "08/02/20: accidentada por invasión de vehículo en Villarrubia de Santiago.", "Transformación AVLO desde 21/03/20."]
+      },
+      "50": {
+        "rama": "25",
+        "numero": "9-112-050-0",
+        "motorTipo": "par",
+        "motorImpar": "9-112-049-2",
+        "motorPar": "9-112-050-0",
+        "deposito": "Málaga",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Logos 75 años Renfe.", "Ex-Santa Catalina.", "08/02/20: accidentada por invasión de vehículo en Villarrubia de Santiago.", "Transformación AVLO desde 21/03/20."]
+      },
+      "51": {
+        "rama": "26",
+        "numero": "9-112-051-8",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-051-8",
+        "motorPar": "9-112-052-6",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Nuevo logo AVE.", "Ex-Málaga."]
+      },
+      "52": {
+        "rama": "26",
+        "numero": "9-112-052-6",
+        "motorTipo": "par",
+        "motorImpar": "9-112-051-8",
+        "motorPar": "9-112-052-6",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Nuevo logo AVE.", "Ex-Málaga."]
+      },
+      "53": {
+        "rama": "27",
+        "numero": "9-112-053-4",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-053-4",
+        "motorPar": "9-112-054-2",
+        "deposito": "Málaga",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Tuvo vinilos Caballo Ganador.", "Transformación AVLO desde 09/03/20."]
+      },
+      "54": {
+        "rama": "27",
+        "numero": "9-112-054-2",
+        "motorTipo": "par",
+        "motorImpar": "9-112-053-4",
+        "motorPar": "9-112-054-2",
+        "deposito": "Málaga",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Tuvo vinilos Caballo Ganador.", "Transformación AVLO desde 09/03/20."]
+      },
+      "55": {
+        "rama": "28",
+        "numero": "9-112-055-9",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-055-9",
+        "motorPar": "9-112-056-7",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["—"]
+      },
+      "56": {
+        "rama": "28",
+        "numero": "9-112-056-7",
+        "motorTipo": "par",
+        "motorImpar": "9-112-055-9",
+        "motorPar": "9-112-056-7",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["—"]
+      },
+      "57": {
+        "rama": "29",
+        "numero": "9-112-057-5",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-057-5",
+        "motorPar": "9-112-058-3",
+        "deposito": "Málaga",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Transformación AVLO desde 09/03/20."]
+      },
+      "58": {
+        "rama": "29",
+        "numero": "9-112-058-3",
+        "motorTipo": "par",
+        "motorImpar": "9-112-057-5",
+        "motorPar": "9-112-058-3",
+        "deposito": "Málaga",
+        "color": "Morado",
+        "servicio": "AVLO",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Transformación AVLO desde 09/03/20."]
+      },
+      "59": {
+        "rama": "30",
+        "numero": "9-112-059-1",
+        "motorTipo": "impar",
+        "motorImpar": "9-112-059-1",
+        "motorPar": "9-112-060-9",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Ex-Málaga → Fuencarral 2020.", "Pruebas LAV Galicia 08/21.", "Nuevos logos Renfe AVE 07/22."]
+      },
+      "60": {
+        "rama": "30",
+        "numero": "9-112-060-9",
+        "motorTipo": "par",
+        "motorImpar": "9-112-059-1",
+        "motorPar": "9-112-060-9",
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "servicio": "AVE",
+        "ano": 2009,
+        "ancho": "1435",
+        "notas": ["Ex-Málaga → Fuencarral 2020.", "Pruebas LAV Galicia 08/21.", "Nuevos logos Renfe AVE 07/22."]
+      }
+    }
+  },
 };
 
 // Datos técnicos comunes de la serie 100. Los datos específicos de cada rama pueden sobrescribirlos.
@@ -1677,6 +2087,11 @@ Object.values(fleet["103"]?.units||{}).forEach(unit=>{
   unit.anchoVia=unit.anchoVia||fleet["103"].anchoVia;
   unit.ano=unit.ano||"2007";
 });
+Object.values(fleet["112"]?.units||{}).forEach(unit=>{
+  unit.fabricante=unit.fabricante||fleet["112"].fabricante;
+  unit.numeroCoches=unit.numeroCoches||fleet["112"].numeroCoches;
+  unit.anchoVia=unit.anchoVia||fleet["112"].anchoVia;
+});
 
 function normalizeFleetValue(value){
   return String(value ?? "").trim().replace(/\D/g,"").replace(/^0+/,"") || "";
@@ -1689,41 +2104,31 @@ function normalizeFleetValue(value){
 // Ej.: 106.063 -> rama 63.
 function getS106Unit(vehicle){
   const v=normalizeFleetValue(vehicle);
-  if(!v) return null;
   const n=Number(v);
   if(!Number.isFinite(n)) return null;
 
-  // Serie 106: dos cabezas motrices por rama.
-  // Ancho fijo: 001-015 y su segunda cabeza 101-115.
-  // Ancho variable: 051-065 y su segunda cabeza 151-165.
-  // El 1 inicial identifica la segunda cabeza; NO cambia la rama.
-  let branch=null;
-  if(n>=1 && n<=15) branch=n;
-  else if(n>=101 && n<=115) branch=n-100;
-  else if(n>=51 && n<=65) branch=n;
-  else if(n>=151 && n<=165) branch=n-100;
+  let branch=null, variable=false;
+  if(n>=1 && n<=15){ branch=n; variable=false; }
+  else if(n>=51 && n<=65){ branch=n; variable=true; }
+  else if(n>=101 && n<=115){ branch=n-100; variable=false; }
+  else if(n>=151 && n<=165){ branch=n-100; variable=true; }
   else return null;
 
-  const seriesData=fleet["106"];
-  const base=seriesData?.units?.[String(branch)];
-  if(!base) return null;
-
-  const variable=(branch>=51 && branch<=65);
   return {
-    ...base,
     rama:String(branch),
-    vehiculoBase:base.vehiculoBase,
-    vehiculoIntroducido:String(n).padStart(3,"0"),
-    vehiculoBuscado:v,
-    numero:base.numero,
-    fabricante:base.fabricante||seriesData.fabricante,
-    numeroCoches:seriesData.numeroCoches,
-    tipoMaterial:seriesData.tipoMaterial,
-    anchoVia:variable?"1435/1668 mm":"1435 mm",
-    subserie:variable?"Ancho variable · Rodadura desplazable":"Ancho fijo",
-    cocheTipo:"Cabeza motriz",
-    segundaCabeza:(n>=101 && n<=115)||(n>=151 && n<=165),
-    notas:base.notas||[]
+    // En la S-106 las matrículas 101–115 y 151–165 son la segunda
+    // cabeza motriz de las ramas 1–15 y 51–65 respectivamente.
+    // Por tanto, 063 y 163 pertenecen ambos a la Rama 63.
+    vehiculoBase:String(branch).padStart(3,'0'),
+    vehiculoIntroducido:String(n).padStart(3,'0'),
+    numero:`9-106-${String(n).padStart(3,'0')}`,
+    ano:2024,
+    fabricante:'Talgo',
+    numeroCoches:'12',
+    tipoMaterial:'Alta Velocidad · AVE / Avlo',
+    anchoVia:variable?'1435 mm / ancho variable':'1435 mm',
+    subserie:variable?'Ancho variable':'Ancho fijo',
+    notas:[]
   };
 }
 
@@ -1901,7 +2306,7 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Serie</span><strong>${esc(series)}</strong></div>
         <div><span>Vehículo</span><strong>${esc(["103","104"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : vehicle)}</strong></div>
         <div><span>Rama</span><strong>${esc(unit.rama)}</strong></div>
-        ${normalizeFleetValue(series)==="102"?`
+        ${(["102","112"].includes(normalizeFleetValue(series)))?`
         <div><span>Motor introducido</span><strong>${esc(unit.motorTipo||"—")}</strong></div>
         <div><span>Motor impar</span><strong>${esc(unit.motorImpar||"—")}</strong></div>
         <div><span>Motor par</span><strong>${esc(unit.motorPar||"—")}</strong></div>`:""}
@@ -1922,6 +2327,13 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${seriesData?.velocidadMaxima?`<div><span>Velocidad máxima</span><strong>${esc(seriesData.velocidadMaxima)}</strong></div>`:""}
         ${seriesData?.potencia?`<div><span>Potencia</span><strong>${esc(seriesData.potencia)}</strong></div>`:""}
         ${seriesData?.plazasSentadas?`<div><span>Plazas sentadas</span><strong>${esc(seriesData.plazasSentadas)}</strong></div>`:""}
+         ${normalizeFleetValue(series)==="112"?`
+         <div><span>Longitud</span><strong>${esc(seriesData.longitud||"—")}</strong></div>
+         <div><span>Peso</span><strong>${esc(seriesData.peso||"—")}</strong></div>
+         <div><span>Tensión</span><strong>${esc(seriesData.tension||"—")}</strong></div>
+         <div><span>Tracción</span><strong>${esc(seriesData.traccion||"—")}</strong></div>
+         <div><span>Señalización</span><strong>${esc(seriesData.señalizacion||"—")}</strong></div>
+         <div><span>Composición</span><strong>${esc(seriesData.composicion||"—")}</strong></div>`:""}
       </div>
     </div>`;
 
