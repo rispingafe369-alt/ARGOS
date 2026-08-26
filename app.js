@@ -38,18 +38,31 @@ const fleet = {
   "100": {
     "seriesName": "Serie 100",
     "fabricante": "Alstom",
-    "numeroCoches": "10",
-    "tipoMaterial": "AVE / Alta Velocidad",
+    "numeroCoches": "10 (2 cabezas tractoras + 8 remolques)",
+    "tipoMaterial": "AVE / Alta Velocidad · evolución del TGV Atlantique",
     "anchoVia": "1435 mm",
+    "modelo": "AVE Serie 100",
+    "apodo": "AVE",
+    "velocidadMaxima": "300 km/h",
+    "potencia": "8.800 kW",
+    "tension": "25 kV / 50 Hz y 3 kV CC",
+    "capacidad": "332 plazas tras la reforma",
+    "longitud": "200,150 m",
+    "peso": "392,6 t en vacío",
+    "señalizacion": "LZB y ASFA; parte de la flota adaptada con ERTMS",
+    "numeroUnidades": "18 composiciones originales de la serie 100",
     "subseries": "100 / 100F (ramas 15–24)",
-    "generalNotes": [
-      "Serie de automotores eléctricos de Alta Velocidad y ancho internacional, formada por dos tractoras y ocho remolques con bogie compartido.",
-      "La serie 100 alcanzó 18 composiciones; las ramas 19 a 24 proceden de seis composiciones de la serie 101 transformadas a ancho internacional e integradas entre 2009 y 2011.",
-      "Las ramas 1 a 18 fueron reformadas interiormente desde 2007 y recibieron los colores de Renfe Operadora.",
-      "La subserie 100F está formada por las ramas 15 a 24.",
-      "Las ramas 12 y 19 intercambiaron sus cabezas motrices.",
-      "Se conserva la numeración antigua y actual de las ramas para futuras fichas detalladas."
-    ],
+    "generalNotes": [[
+      "La serie 100 fue el primer tren de alta velocidad de Renfe y comenzó a circular en abril de 1992 con la inauguración de la línea Madrid-Sevilla.",
+      "Es una evolución del TGV Atlantique adaptada a las condiciones españolas, con modificaciones en climatización, presión en túneles y sistemas de control y señalización.",
+      "Cada composición está formada por 2 cabezas tractoras y 8 coches de viajeros, con cafetería y clases Preferente y Turista.",
+      "Velocidad máxima comercial: 300 km/h. Potencia total: 8.800 kW.",
+      "Ancho de vía: 1.435 mm. Alimentación: 25 kV / 50 Hz y 3 kV en corriente continua.",
+      "Tras unos 15 años de servicio, la flota recibió una importante remodelación técnica y estética iniciada en 2007 y finalizada progresivamente en 2009.",
+      "La serie tuvo un papel destacado en la expansión de la alta velocidad española y posteriormente fue adaptada para servicios internacionales hacia Francia.",
+      "Durante las pruebas de homologación, un S-100 alcanzó 356,8 km/h.",
+      "En 2011 se adjudicó la adaptación de 10 composiciones para su explotación internacional entre España y Francia."
+    ]],
     "units": {
       "101": {
         "rama": "1",
@@ -353,12 +366,26 @@ const fleet = {
   },
   "102": {
     "seriesName": "Serie 102",
+    "fabricante": "Talgo-Bombardier",
+    "numeroCoches": "12 remolques Talgo + 2 cabezas tractoras",
+    "anoPuestaServicio": "2005",
     "tipoMaterial": "AVE / Alta Velocidad",
     "anchoVia": "1435 mm",
     "numeroRamas": 16,
+    "modelo": "Talgo 350",
+    "apodo": "Pato",
+    "velocidadMaxima": "330 km/h",
+    "potencia": "8.000 kW",
+    "longitud": "200,244 m",
+    "capacidad": "316 plazas + 2 PMR",
     "generalNotes": [
-      "Serie 102 de AVE con 16 ramas; cada rama está formada por un motor impar y un motor par.",
-      "Cada motor de la rama puede identificarse individualmente: introducir cualquiera de los dos números debe identificar la misma rama."
+      "La serie 102 corresponde al Talgo 350, desarrollado por Talgo y Bombardier para los servicios AVE de alta velocidad.",
+      "Está formada por 16 ramas. Cada rama dispone de dos cabezas tractoras, un motor impar y un motor par, y doce remolques Talgo.",
+      "La puesta en servicio comercial comenzó el 26 de febrero de 2005 en la relación Madrid-Zaragoza-Lleida.",
+      "La velocidad máxima comercial es de 330 km/h y la potencia instalada es de 8.000 kW.",
+      "El tren es conocido popularmente como «Pato» por la forma aerodinámica de sus cabezas tractoras.",
+      "La serie fue la primera aplicación comercial del Talgo 350 en Renfe y posteriormente sirvió de base para la serie 112.",
+      "En junio de 2004, el Talgo 350 alcanzó 365 km/h en pruebas, estableciendo un récord español de velocidad con tracción eléctrica."
     ],
     "units": {
       "1": {
@@ -821,6 +848,12 @@ Object.values(fleet["100"]?.units||{}).forEach(unit=>{
   unit.numeroCoches=unit.numeroCoches||fleet["100"].numeroCoches;
   unit.anchoVia=unit.anchoVia||fleet["100"].anchoVia;
 });
+Object.values(fleet["102"]?.units||{}).forEach(unit=>{
+  unit.fabricante=unit.fabricante||fleet["102"].fabricante;
+  unit.numeroCoches=unit.numeroCoches||fleet["102"].numeroCoches;
+  unit.anchoVia=unit.anchoVia||fleet["102"].anchoVia;
+  unit.ano=unit.ano||fleet["102"].anoPuestaServicio;
+});
 
 function normalizeFleetValue(value){
   return String(value ?? "").trim().replace(/\D/g,"").replace(/^0+/,"") || "";
@@ -963,7 +996,11 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Depósito / base</span><strong>${esc(unit.deposito||"—")}</strong></div>
         <div><span>Ancho de vía</span><strong>${esc(unit.ancho||seriesData?.anchoVia||"—")} ${unit.ancho?"mm":""}</strong></div>
         ${seriesData?.subseries?`<div><span>Subserie</span><strong>${esc(seriesData.subseries)}</strong></div>`:""}
+        ${seriesData?.modelo?`<div><span>Modelo</span><strong>${esc(seriesData.modelo)}</strong></div>`:""}
+        ${seriesData?.apodo?`<div><span>Apodo</span><strong>${esc(seriesData.apodo)}</strong></div>`:""}
         ${seriesData?.tipoMaterial?`<div><span>Tipo de material</span><strong>${esc(seriesData.tipoMaterial)}</strong></div>`:""}
+        ${seriesData?.velocidadMaxima?`<div><span>Velocidad máxima</span><strong>${esc(seriesData.velocidadMaxima)}</strong></div>`:""}
+        ${seriesData?.potencia?`<div><span>Potencia</span><strong>${esc(seriesData.potencia)}</strong></div>`:""}
       </div>
     </div>`;
 
