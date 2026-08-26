@@ -1087,7 +1087,160 @@ const fleet = {
         "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
       }
     }
-  }
+  },
+  "104":{
+    "seriesName":"Serie 104",
+    "fabricante":"CAF-Alstom",
+    "modelo":"Serie 104 / Pendolino",
+    "apodo":"Avant",
+    "tipoMaterial":"Media Distancia · Alta Velocidad / Avant",
+    "numeroCoches":"4",
+    "unidades":"20",
+    "año":"2004",
+    "deposito":"Cerro Negro / Málaga",
+    "anchoVia":"1435 mm",
+    "velocidadMaxima":"270 km/h",
+    "velocidadComercial":"250 km/h",
+    "potencia":"4.000 kW",
+    "tension":"25 kV / 50 Hz",
+    "traccion":"Eléctrica · 8 motores asíncronos",
+    "composicion":"Mc + Mi + Mi + Mc",
+    "plazasSentadas":"236 + 1 PMR",
+    "capacidad":"237 plazas",
+    "longitud":"107,10 m",
+    "peso":"221,5 t",
+    "generalNotes":[
+      "Unidades construidas por CAF y Alstom para servicios regionales en líneas de Alta Velocidad.",
+      "Inicialmente pertenecieron a Regionales, aunque antes de iniciar servicio pasaron a Grandes Líneas.",
+      "Fueron diseñadas específicamente para prestar servicios de media distancia a alta velocidad.",
+      "El primer servicio comercial comenzó el 29 de diciembre de 2004 entre Madrid, Ciudad Real y Puertollano.",
+      "La serie está formada por 20 unidades de cuatro coches y puede circular en mando múltiple.",
+      "La plataforma pertenece a la familia Pendolino desarrollada originalmente por Fiat Ferroviaria y posteriormente integrada en Alstom."
+    ],
+    "units":{
+      "1":{
+        "rama":1,"vehiculoBase":"001","numero":"9-104-001-3",
+        "motor":"7-104-001-1","motorCentral":"6-104-501-2","cocheMotorFinal":"9-104-901-4",
+        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
+        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
+      },
+      "2":{
+        "rama":2,"vehiculoBase":"002","numero":"9-104-002-1",
+        "motor":"7-104-002-1","motorCentral":"6-104-502-0","cocheMotorFinal":"9-104-902-2",
+        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
+        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra. Logos 75 años Renfe."]
+      },
+      "3":{
+        "rama":3,"vehiculoBase":"003","numero":"9-104-003-9",
+        "motor":"7-104-003-9","motorCentral":"6-104-503-8","cocheMotorFinal":"9-104-903-0",
+        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
+        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
+      },
+      "4":{
+        "rama":4,"vehiculoBase":"004","numero":"9-104-004-7",
+        "motor":"7-104-004-7","motorCentral":"6-104-504-6","cocheMotorFinal":"9-104-904-8",
+        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
+        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
+      },
+      "5":{
+        "rama":5,"vehiculoBase":"005","numero":"9-104-005-4",
+        "motor":"7-104-005-5","motorCentral":"6-104-505-3","cocheMotorFinal":"9-104-905-5",
+        "deposito":"Málaga","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
+        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
+      },
+      "6":{
+        "rama":6,"vehiculoBase":"006","numero":"9-104-006-2",
+        "motor":"7-104-006-2","motorCentral":"6-104-506-1","cocheMotorFinal":"9-104-906-3",
+        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
+        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
+      },
+      "7":{
+        "rama":7,"vehiculoBase":"007","numero":"9-104-007-0",
+        "motor":"7-104-007-0","motorCentral":"6-104-507-9","cocheMotorFinal":"9-104-907-1",
+        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
+        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Estuvo en LAV Valladolid (único de su serie). Ex-Fuenlabrada."]
+      },
+      "8":{
+        "rama":8,"vehiculoBase":"008","numero":"9-104-008-8",
+        "motor":"7-104-008-8","motorCentral":"6-104-508-7","cocheMotorFinal":"9-104-908-9",
+        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
+        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
+      },
+      "9":{
+        "rama":9,"vehiculoBase":"009","numero":"9-104-009-6",
+        "motor":"7-104-009-6","motorCentral":"6-104-509-5","cocheMotorFinal":"9-104-909-7",
+        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
+        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra. Logos 75 años Renfe."]
+      },
+      "10":{
+        "rama":10,"vehiculoBase":"010","numero":"9-104-010-4",
+        "motor":"7-104-010-4","motorCentral":"6-104-510-3","cocheMotorFinal":"9-104-910-5",
+        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
+        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
+      },
+      "11":{
+        "rama":11,"vehiculoBase":"011","numero":"9-104-011-2",
+        "motor":"7-104-011-2","motorCentral":"6-104-511-1","cocheMotorFinal":"9-104-911-3",
+        "deposito":"Málaga","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
+        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
+      },
+      "12":{
+        "rama":12,"vehiculoBase":"012","numero":"9-104-012-0",
+        "motor":"7-104-012-0","motorCentral":"6-104-512-9","cocheMotorFinal":"9-104-912-1",
+        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
+        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
+      },
+      "13":{
+        "rama":13,"vehiculoBase":"013","numero":"9-104-013-8",
+        "motor":"7-104-013-8","motorCentral":"6-104-513-7","cocheMotorFinal":"9-104-913-9",
+        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
+        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
+      },
+      "14":{
+        "rama":14,"vehiculoBase":"014","numero":"9-104-014-6",
+        "motor":"7-104-014-6","motorCentral":"6-104-514-5","cocheMotorFinal":"9-104-914-7",
+        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
+        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra. Ex-Cerro Negro → Málaga."]
+      },
+      "15":{
+        "rama":15,"vehiculoBase":"015","numero":"9-104-015-3",
+        "motor":"7-104-015-3","motorCentral":"6-104-515-2","cocheMotorFinal":"9-104-915-4",
+        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
+        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
+      },
+      "16":{
+        "rama":16,"vehiculoBase":"016","numero":"9-104-016-1",
+        "motor":"7-104-016-1","motorCentral":"6-104-516-0","cocheMotorFinal":"9-104-916-2",
+        "deposito":"Málaga","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
+        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
+      },
+      "17":{
+        "rama":17,"vehiculoBase":"017","numero":"9-104-017-9",
+        "motor":"7-104-017-9","motorCentral":"6-104-517-8","cocheMotorFinal":"9-104-917-0",
+        "deposito":"Málaga","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
+        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra. Logos 75 años Renfe."]
+      },
+      "18":{
+        "rama":18,"vehiculoBase":"018","numero":"9-104-018-7",
+        "motor":"7-104-018-7","motorCentral":"6-104-518-6","cocheMotorFinal":"9-104-918-8",
+        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
+        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
+      },
+      "19":{
+        "rama":19,"vehiculoBase":"019","numero":"9-104-019-5",
+        "motor":"7-104-019-5","motorCentral":"6-104-519-4","cocheMotorFinal":"9-104-919-6",
+        "deposito":"Málaga","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
+        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
+      },
+      "20":{
+        "rama":20,"vehiculoBase":"020","numero":"9-104-020-3",
+        "motor":"7-104-020-3","motorCentral":"6-104-520-2","cocheMotorFinal":"9-104-920-4",
+        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
+        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
+      }
+    }
+  },
+
 };
 
 // Datos técnicos comunes de la serie 100. Los datos específicos de cada rama pueden sobrescribirlos.
@@ -1118,6 +1271,23 @@ function getFleetUnit(series, vehicle){
   const v=normalizeFleetValue(vehicle);
   const seriesData=fleet[s];
   if(!seriesData) return null;
+
+  // Serie 104: cualquier coche se identifica por sus dos últimos dígitos.
+  // Ej.: 901 -> Rama 1 y se registra como 001; 506 -> Rama 6 y se registra como 006.
+  if(s==="104"){
+    const digits=v.padStart(3,"0");
+    const rama=Number(digits.slice(-2));
+    const base=seriesData.units?.[String(rama)];
+    if(!base) return null;
+    return {
+      ...base,
+      numero:base.numero,
+      vehiculoBase:base.vehiculoBase,
+      vehiculoIntroducido:base.vehiculoBase,
+      vehiculoBuscado:v,
+      cocheTipo:"Composición S-104"
+    };
+  }
 
   // Serie 103: cualquier coche se identifica por sus dos últimos dígitos.
   // Ej.: 501 -> Rama 1, 521 -> Rama 21, 626 -> Rama 26.
@@ -1198,7 +1368,7 @@ function saveCurrentService(e){
     vehicle:(()=>{
       const entered=$("vehicle")?.value.trim()||"";
       const unit=getFleetUnit($("series")?.value||"",entered);
-      return normalizeFleetValue($("series")?.value||"")==="103" ? (unit?.vehiculoBase||entered) : entered;
+      return ["103","104"].includes(normalizeFleetValue($("series")?.value||"")) ? (unit?.vehiculoBase||entered) : entered;
     })(),
     branch:getFleetUnit($("series")?.value||"", $("vehicle")?.value||"")?.rama||"",
     product:$("product")?.value||"",
@@ -1267,7 +1437,7 @@ function fleetFichaHtml(series,vehicle,service=null){
       <div class="ficha-section-title">IDENTIFICACIÓN</div>
       <div class="ficha-grid">
         <div><span>Serie</span><strong>${esc(series)}</strong></div>
-        <div><span>Vehículo</span><strong>${esc(normalizeFleetValue(series)==="103" ? (unit.vehiculoBase||vehicle) : vehicle)}</strong></div>
+        <div><span>Vehículo</span><strong>${esc(["103","104"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : vehicle)}</strong></div>
         <div><span>Rama</span><strong>${esc(unit.rama)}</strong></div>
         ${normalizeFleetValue(series)==="102"?`
         <div><span>Motor introducido</span><strong>${esc(unit.motorTipo||"—")}</strong></div>
@@ -1312,7 +1482,7 @@ function fleetFichaHtml(series,vehicle,service=null){
       <div class="ficha-general-grid">${general.map((n,i)=>`<div class="ficha-general-item"><span class="ficha-general-number">${String(i+1).padStart(2,"0")}</span><div>${esc(n)}</div></div>`).join("")}</div>
     </div>`:"";
 
-  const vehiculoFicha=normalizeFleetValue(series)==="103" ? (unit.vehiculoBase||vehicle) : vehicle;
+  const vehiculoFicha=["103","104"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : vehicle;
   const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>Serie ${esc(series)} · Rama ${esc(unit.rama)}</h3><p>Vehículo ${esc(vehiculoFicha)} · ${esc(unit.numero||"—")}</p></div>`;
 
   return `${hero}
