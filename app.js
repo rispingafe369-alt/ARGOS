@@ -1252,6 +1252,57 @@ const fleet = {
   },
 
 
+  "114": {
+    "seriesName":"Serie 114",
+    "fabricante":"CAF-Alstom",
+    "numeroCoches":"4 coches · Mc + Mi + Mi + Mc",
+    "anoPuestaServicio":"2011",
+    "tipoMaterial":"Media Distancia · Alta Velocidad · Avant",
+    "anchoVia":"1435 mm",
+    "numeroRamas":13,
+    "modelo":"Alstom S-114",
+    "apodo":"Avant",
+    "velocidadMaxima":"250 km/h comercial · 270 km/h máxima",
+    "potencia":"4.000 kW",
+    "longitud":"107,9 m",
+    "peso":"221,5 t en vacío",
+    "tension":"25 kV / 50 Hz",
+    "señalizacion":"ERTMS, STM-LZB y ASFA Digital",
+    "traccion":"8 motores asíncronos trifásicos",
+    "composicion":"Mc + Mi + Mi + Mc",
+    "capacidad":"237 plazas · 236 + 1 PMR",
+    "plazasSentadas":"237",
+    "numeroUnidades":"13 composiciones",
+    "generalNotes":[
+      "Trenes de Media Distancia para servicios AVANT sobre líneas de Alta Velocidad.",
+      "La serie 114 es una evolución de la serie 104, con mejoras en tracción, frenado, eficiencia energética, confort e interiorismo.",
+      "Las 13 unidades fueron construidas por Alstom y CAF; Alstom realizó la construcción de la serie en su centro industrial de Santa Perpètua de Mogoda (Barcelona).",
+      "Cada composición está formada por cuatro coches: dos coches extremos con cabina y dos coches intermedios.",
+      "El tren es monotensión a 25 kV / 50 Hz y utiliza ancho internacional de 1.435 mm.",
+      "Dispone de 237 plazas: 236 plazas de clase única y una plaza adaptada para personas con movilidad reducida.",
+      "La velocidad comercial es de 250 km/h. Algunas fuentes técnicas sitúan la velocidad máxima del tren en 270 km/h.",
+      "Incorpora tomas de corriente en los asientos, zona de vending y espacio para bicicletas.",
+      "Los sistemas de señalización y protección incluyen ERTMS, STM-LZB y ASFA Digital.",
+      "La primera unidad de la serie entró en servicio comercial en junio de 2011 en servicios Avant entre Madrid, Segovia y Valladolid."
+    ],
+    "units": {
+      "1":{"rama":"1","vehiculoBase":"601","numero":"9-114-601-8","motorPar":"9-114-601-8","motorCentral1":"6-114-501-0","motorCentral2":"6-114-601-8","motorImpar":"9-114-602-6","deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["En pruebas desde 10/08.","Ex-Fuencarral → Can Tunis → 11/19 Cerro Negro → Fuencarral."]},
+      "2":{"rama":"2","vehiculoBase":"603","numero":"9-114-603-4","motorPar":"9-114-603-4","motorCentral1":"6-114-502-8","motorCentral2":"6-114-602-6","motorImpar":"9-114-604-2","deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["En servicio LAV Valladolid.","Desde 11/19 Cerro Negro para Avant Granada-Málaga → 06/20 Fuencarral."]},
+      "3":{"rama":"3","vehiculoBase":"605","numero":"9-114-605-9","motorPar":"9-114-605-9","motorCentral1":"6-114-503-6","motorCentral2":"6-114-603-4","motorImpar":"9-114-606-7","deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["En servicio LAV Valladolid."]},
+      "4":{"rama":"4","vehiculoBase":"607","numero":"9-114-607-5","motorPar":"9-114-607-5","motorCentral1":"6-114-504-4","motorCentral2":"6-114-604-2","motorImpar":"9-114-608-3","deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["En servicio LAV Valladolid.","Desde 11/19 Cerro Negro para Avant Granada-Málaga → Fuencarral."]},
+      "5":{"rama":"5","vehiculoBase":"609","numero":"9-114-609-1","motorPar":"9-114-609-1","motorCentral1":"6-114-505-1","motorCentral2":"6-114-605-9","motorImpar":"9-114-610-9","deposito":"","color":"Blanco","estado":"Desguazada","servicio":"","ano":"2008–2011","ancho":"1435","notas":["En pruebas en LAV Valladolid, 03/11.","Logos 75 años Renfe. Fuencarral → Desde 01/20 Cerro Negro para Avant Granada-Málaga → 06/20 Fuencarral.","Accidente y vuelco en Jardín Botánico (túnel urbano LAV Madrid Atocha - Chamartín) 19/10/24.","Desguazado in situ 15/12/24."]},
+      "6":{"rama":"6","vehiculoBase":"611","numero":"9-114-611-7","motorPar":"9-114-611-7","motorCentral1":"6-114-506-9","motorCentral2":"6-114-606-7","motorImpar":"9-114-612-5","deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["LAV Valladolid (Fuencarral) → Lleida, 06/13 → Cerro Negro 10/19.","Pruebas ERTMS LAV Antequera-Granada → Fuencarral."]},
+      "7":{"rama":"7","vehiculoBase":"613","numero":"9-114-613-3","motorPar":"9-114-613-3","motorCentral1":"6-114-507-7","motorCentral2":"6-114-607-5","motorImpar":"9-114-614-1","deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["Avant Madrid-Segovia-Valladolid → Pruebas en Zaragoza, 04/13.","Fuencarral → Can Tunis → 11/19 Fuencarral.","Logos 75 años Renfe → Cerro Negro → Fuencarral."]},
+      "8":{"rama":"8","vehiculoBase":"615","numero":"9-114-615-8","motorPar":"9-114-615-8","motorCentral1":"6-114-508-5","motorCentral2":"6-114-608-3","motorImpar":"9-114-616-6","deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["En servicio LAV Valladolid.","Fuencarral → Cerro Negro.","Vinilos Transporte Sostenible y 80 años Renfe."]},
+      "9":{"rama":"9","vehiculoBase":"617","numero":"9-114-617-4","motorPar":"9-114-617-4","motorCentral1":"6-114-509-3","motorCentral2":"6-114-609-1","motorImpar":"9-114-618-2","deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["En servicio LAV Valladolid → 06/20 Cerro Negro → Fuencarral."]},
+      "10":{"rama":"10","vehiculoBase":"619","numero":"9-114-619-0","motorPar":"9-114-619-0","motorCentral1":"6-114-510-1","motorCentral2":"6-114-610-9","motorImpar":"9-114-620-8","deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["Rama 10. Fuencarral → Cerro Negro."]},
+      "11":{"rama":"11","vehiculoBase":"621","numero":"9-114-621-6","motorPar":"9-114-621-6","motorCentral1":"6-114-511-9","motorCentral2":"6-114-611-7","motorImpar":"9-114-622-4","deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["Avant Madrid-Segovia-Valladolid → 06/20 Cerro Negro → Fuencarral."]},
+      "12":{"rama":"12","vehiculoBase":"623","numero":"9-114-623-2","motorPar":"9-114-623-2","motorCentral1":"6-114-512-7","motorCentral2":"6-114-612-5","motorImpar":"9-114-624-0","deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["Avant Madrid-Segovia-Valladolid → 06/20 Cerro Negro → Fuencarral → Cerro Negro."]},
+      "13":{"rama":"13","vehiculoBase":"625","numero":"9-114-625-7","motorPar":"9-114-625-7","motorCentral1":"6-114-513-5","motorCentral2":"6-114-613-3","motorImpar":"9-114-626-5","deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["Avant Madrid-Segovia-Valladolid.","Logos 75 años Renfe. Fuencarral → Cerro Negro."]}
+    }
+  },
+
+
   "112": {
     "seriesName":"Serie 112",
     "fabricante":"Talgo-Bombardier",
@@ -2087,6 +2138,12 @@ Object.values(fleet["103"]?.units||{}).forEach(unit=>{
   unit.anchoVia=unit.anchoVia||fleet["103"].anchoVia;
   unit.ano=unit.ano||"2007";
 });
+Object.values(fleet["114"]?.units||{}).forEach(unit=>{
+  unit.fabricante=unit.fabricante||fleet["114"].fabricante;
+  unit.numeroCoches=unit.numeroCoches||fleet["114"].numeroCoches;
+  unit.anchoVia=unit.anchoVia||fleet["114"].anchoVia;
+  unit.ano=unit.ano||fleet["114"].anoPuestaServicio;
+});
 Object.values(fleet["112"]?.units||{}).forEach(unit=>{
   unit.fabricante=unit.fabricante||fleet["112"].fabricante;
   unit.numeroCoches=unit.numeroCoches||fleet["112"].numeroCoches;
@@ -2176,6 +2233,25 @@ function getFleetUnit(series, vehicle){
       vehiculoIntroducido:vehiculoCanonico,
       vehiculoBuscado:v,
       cocheTipo:tipoCoche
+    };
+  }
+
+  // Serie 114: cualquier vehículo se identifica por sus dos últimos dígitos.
+  // Ej.: 901 en S-104 -> Rama 1; en S-114, 501/601 -> Rama 1,
+  // 506/606 -> Rama 6. La ficha conserva el vehículo introducido.
+  // Si se introduce un número completo UIC, también se normaliza y se usa su sufijo.
+  if(s==="114"){
+    const digits=v.padStart(3,"0");
+    const rama=Number(digits.slice(-2));
+    const base=seriesData.units?.[String(rama)];
+    if(!base) return null;
+    return {
+      ...base,
+      numero:base.numero,
+      vehiculoBase:base.vehiculoBase,
+      vehiculoIntroducido:v,
+      vehiculoBuscado:v,
+      cocheTipo:"Composición S-114"
     };
   }
 
