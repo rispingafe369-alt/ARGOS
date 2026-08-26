@@ -408,7 +408,8 @@ const fleet = {
         "servicio": "AVLO",
         "ancho": "1435",
         "subserie": "Ancho fijo",
-        "notas": []
+        "notas": [],
+        "ano": 2024
       },
       "3": {
         "rama": "3",
@@ -421,7 +422,8 @@ const fleet = {
         "subserie": "Ancho fijo",
         "notas": [
           "Primer 106 de ancho fijo en colores AVLO, 10/12/22."
-        ]
+        ],
+        "ano": 2024
       },
       "4": {
         "rama": "4",
@@ -432,7 +434,8 @@ const fleet = {
         "servicio": "AVLO",
         "ancho": "1435",
         "subserie": "Ancho fijo",
-        "notas": []
+        "notas": [],
+        "ano": 2024
       },
       "5": {
         "rama": "5",
@@ -499,7 +502,8 @@ const fleet = {
         "subserie": "Ancho fijo",
         "notas": [
           "Traslado Ribavellosa-La Sagra 19/04/21. Trasladado a Francia para pruebas de homologación 04/10/22. Devuelta a España 13/05/26."
-        ]
+        ],
+        "ano": 2024
       },
       "10": {
         "rama": "10",
@@ -510,7 +514,8 @@ const fleet = {
         "servicio": "AVE",
         "ancho": "1435",
         "subserie": "Ancho fijo",
-        "notas": []
+        "notas": [],
+        "ano": 2024
       },
       "11": {
         "rama": "11",
@@ -521,7 +526,8 @@ const fleet = {
         "servicio": "AVE",
         "ancho": "1435",
         "subserie": "Ancho fijo",
-        "notas": []
+        "notas": [],
+        "ano": 2024
       },
       "12": {
         "rama": "12",
@@ -534,7 +540,8 @@ const fleet = {
         "subserie": "Ancho fijo",
         "notas": [
           "Morado AVLO desde 05/24."
-        ]
+        ],
+        "ano": 2024
       },
       "13": {
         "rama": "13",
@@ -547,7 +554,8 @@ const fleet = {
         "subserie": "Ancho fijo",
         "notas": [
           "Morado AVLO desde 05/24."
-        ]
+        ],
+        "ano": 2024
       },
       "14": {
         "rama": "14",
@@ -560,7 +568,8 @@ const fleet = {
         "subserie": "Ancho fijo",
         "notas": [
           "Morado AVLO desde 05/24."
-        ]
+        ],
+        "ano": 2024
       },
       "15": {
         "rama": "15",
@@ -573,7 +582,8 @@ const fleet = {
         "subserie": "Ancho fijo",
         "notas": [
           "Morado AVLO desde 05/24."
-        ]
+        ],
+        "ano": 2024
       },
       "51": {
         "rama": "51",
@@ -664,7 +674,8 @@ const fleet = {
         "servicio": "AVE",
         "ancho": "1435/1668",
         "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": []
+        "notas": [],
+        "ano": 2024
       },
       "58": {
         "rama": "58",
@@ -675,7 +686,8 @@ const fleet = {
         "servicio": "AVE",
         "ancho": "1435/1668",
         "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": []
+        "notas": [],
+        "ano": 2024
       },
       "59": {
         "rama": "59",
@@ -688,7 +700,8 @@ const fleet = {
         "subserie": "Ancho variable · Rodadura desplazable",
         "notas": [
           "Logos Ave 02/24."
-        ]
+        ],
+        "ano": 2024
       },
       "60": {
         "rama": "60",
@@ -701,7 +714,8 @@ const fleet = {
         "subserie": "Ancho variable · Rodadura desplazable",
         "notas": [
           "Primer tren de Alta Velocidad en realizar pruebas en la LAV: Plasencia-Badajoz."
-        ]
+        ],
+        "ano": 2024
       },
       "61": {
         "rama": "61",
@@ -712,7 +726,8 @@ const fleet = {
         "servicio": "AVE",
         "ancho": "1435/1668",
         "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": []
+        "notas": [],
+        "ano": 2024
       },
       "62": {
         "rama": "62",
@@ -725,7 +740,8 @@ const fleet = {
         "subserie": "Ancho variable · Rodadura desplazable",
         "notas": [
           "Presentación en Vigo 05/01/24. Primera rama con logos Ave 02/24."
-        ]
+        ],
+        "ano": 2024
       },
       "63": {
         "rama": "63",
@@ -736,7 +752,8 @@ const fleet = {
         "servicio": "AVE",
         "ancho": "1435/1668",
         "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": []
+        "notas": [],
+        "ano": 2024
       },
       "64": {
         "rama": "64",
@@ -747,7 +764,8 @@ const fleet = {
         "servicio": "AVE",
         "ancho": "1435/1668",
         "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": []
+        "notas": [],
+        "ano": 2024
       },
       "65": {
         "rama": "65",
@@ -758,7 +776,8 @@ const fleet = {
         "servicio": "AVE",
         "ancho": "1435/1668",
         "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": []
+        "notas": [],
+        "ano": 2024
       }
     }
   },
