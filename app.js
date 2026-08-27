@@ -9214,8 +9214,6 @@ const fleet = {
         "PRIMER LOTE · CAF · 001-008: las 001 y 002 son preserie; las 003-008 proceden de transformar seis unidades de la serie 464 mediante el añadido de un remolque intermedio.",
         "SEGUNDO LOTE · CAF · 009-112: 009-042 Civia II; 043-082 Civia III; 083-112 Civia IV. Las unidades CAF del núcleo de Cercanías de Madrid tienen como base Atocha.",
         "TERCER LOTE · ALSTOM · 201-268: 201-236 Modular 2 (equivalente a Civia III) y 237-266 Modular 3 (equivalente a Civia IV).",
-        "La 465-267 procede directamente de la 463-216, transformada con la construcción de dos remolques intermedios A4 y A5.",
-        "La 465-268 procede de la 464-215, transformada mediante el añadido de un remolque intermedio.",
         "Ancho de vía: 1.668 mm. Alimentación: 3.000 V en corriente continua. Velocidad máxima: 120 km/h.",
         "Longitud aproximada: 98,05 m. Masa: 157,3 t. Potencia nominal: 2.200 kW. Capacidad aproximada: 997 plazas, 277 sentadas.",
         "La numeración de cada rama se puede localizar mediante cualquiera de sus cinco vehículos."
