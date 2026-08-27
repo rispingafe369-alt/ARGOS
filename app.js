@@ -9103,6 +9103,699 @@ const fleet = {
       }
     }
   },
+  "453": {
+    "seriesName": "Serie 453.0 · Stadler · TL100 · 4 coches",
+    "fabricante": "Stadler Rail",
+    "modelo": "FLIRT / KISS · TL100",
+    "apodo": "Cercanías Stadler",
+    "subseries": "453.0",
+    "anoPuestaServicio": "2026",
+    "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T100",
+    "numeroCoches": "4 coches · 2 motores cabina + 2 remolques de dos pisos",
+    "anchoVia": "1668 mm",
+    "numeroRamas": 24,
+    "velocidadMaxima": "140 km/h",
+    "potencia": "4.000 kW",
+    "esfuerzoTraccion": "320 kN",
+    "longitud": "97,72 m",
+    "peso": "207/272 t (tara/carga normal)",
+    "tension": "3.000 V cc",
+    "traccion": "8 motores de tracción · 500 kW por motor",
+    "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+    "composicion": "Mc-R-R-Mc",
+    "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+    "plazasSentadas": "252",
+    "capacidad": "912 plazas (252 sentadas + 664 de pie, según ficha aportada)",
+    "frenos": "Eléctrico reostático y regenerativo · neumático",
+    "mandoMultiple": "3 unidades máximo",
+    "enganche": "Scharfenberg",
+    "generalNotes": [
+      "Serie de trenes modulares fabricados por Stadler para Cercanías, versión de cuatro coches TL100 (subserie 453.0), concebida como sustituta de material de Cercanías más antiguo.",
+      "El modelo 453.0 está formado por cuatro coches: Mc-R-R-Mc. Los dos coches extremos son motores de piso bajo con cabina y los dos coches centrales son remolques de dos pisos.",
+      "La serie 453 forma parte de la nueva familia modular de Stadler para Renfe. El pedido inicial comprendió 24 trenes T100 de cuatro coches y 55 T200 de ocho coches, dentro de un total de 79 trenes contratados.",
+      "El diseño es modular y permite ampliar las composiciones: el T100 de cuatro coches puede evolucionar a configuraciones de mayor longitud. Stadler denomina TL100 a la configuración de cuatro coches y unos 100 metros.",
+      "La numeración NEV completa mantiene los cuatro primeros dígitos comunes 94-71, que se omiten en la tabla. Ejemplo de la primera rama: 94-71-1-453-001-9 + 94-71-3-453-001-5 + 94-71-3-453-002-3 + 94-71-2-453-001-7.",
+      "Renfe utiliza una rotulación simplificada de cuatro cifras: 1001 + 3001 + 3002 + 2001 para la primera rama. El primer dígito identifica el tipo de coche, el segundo la subserie (0 en la 453.0) y los dos últimos el número de la rama.",
+      "Para identificar una rama se admiten el motor cabina impar, el remolque 1 y el motor cabina par. El remolque 2 se conserva en la composición pero no se utiliza como código de búsqueda para evitar ambigüedades.",
+      "En el campo Vehículo, la Serie 453.0 admite excepcionalmente códigos simplificados de cuatro cifras como 1001, 3001 o 2001, que remiten a la rama correspondiente.",
+      "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico fijo de 1.668 mm, con una velocidad máxima de 140 km/h. El T100 alcanza aproximadamente 100 metros de longitud y hasta 912 plazas.",
+      "La tracción del T100 utiliza ocho motores de 500 kW, con una potencia nominal total de 4.000 kW. El tren dispone además de frenado eléctrico reostático y regenerativo y freno neumático.",
+      "El equipamiento de seguridad y señalización incluye ASFA Digital y ERTMS niveles 1 y 2, además de PUC para comunicaciones ferroviarias (GSM-R y Tren-Tierra), según la ficha técnica aportada.",
+      "Los coches motores extremos incorporan los pantógrafos, dos por tren. El coche motor de cabina par integra el espacio PMR y aseo accesible; el motor impar dispone de espacios para bicicletas. El tren dispone de puertas a nivel en los coches de piso bajo.",
+      "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios accesibles. También dispone de baterías 'last mile' para pequeños desplazamientos sin alimentación de catenaria en maniobras o taller.",
+      "Las primeras unidades comenzaron las pruebas en 2024 y la 453-003 inició el servicio comercial el 24 de agosto de 2026, según la tabla incorporada al proyecto."
+],
+    "units": {
+      "1": {
+            "rama": "001",
+            "vehiculoBase": "001",
+            "numero": "1-453-001-9",
+            "vehiculosRama": [
+                  "1-453-001-9",
+                  "3-453-001-5",
+                  "3-453-002-3",
+                  "2-453-001-7"
+            ],
+            "searchCodes": [
+                  "001",
+                  "1001",
+                  "3001",
+                  "2001"
+            ],
+            "deposito": "",
+            "color": "Cercanías",
+            "estado": "En pruebas",
+            "ano": "",
+            "fechaAlta": "",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "En pruebas 14/08/24"
+            ]
+      },
+      "2": {
+            "rama": "002",
+            "vehiculoBase": "002",
+            "numero": "1-453-002-7",
+            "vehiculosRama": [
+                  "1-453-002-7",
+                  "3-453-003-1",
+                  "3-453-004-9",
+                  "2-453-002-5"
+            ],
+            "searchCodes": [
+                  "002",
+                  "1002",
+                  "3003",
+                  "2002"
+            ],
+            "deposito": "Fuencarral",
+            "color": "Cercanías",
+            "estado": "En pruebas",
+            "ano": 2026,
+            "fechaAlta": "25/08/2026",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "-"
+            ]
+      },
+      "3": {
+            "rama": "003",
+            "vehiculoBase": "003",
+            "numero": "1-453-003-5",
+            "vehiculosRama": [
+                  "1-453-003-5",
+                  "3-453-005-7",
+                  "3-453-006-5",
+                  "2-453-003-3"
+            ],
+            "searchCodes": [
+                  "003",
+                  "1003",
+                  "3005",
+                  "2003"
+            ],
+            "deposito": "Fuencarral",
+            "color": "Cercanías",
+            "estado": "En servicio",
+            "ano": "",
+            "fechaAlta": "24/08/2026",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "Primero de la serie 453.0 en servicio comercial."
+            ]
+      },
+      "4": {
+            "rama": "004",
+            "vehiculoBase": "004",
+            "numero": "1-453-004-3",
+            "vehiculosRama": [
+                  "1-453-004-3",
+                  "3-453-007-3",
+                  "3-453-008-1",
+                  "2-453-004-1"
+            ],
+            "searchCodes": [
+                  "004",
+                  "1004",
+                  "3007",
+                  "2004"
+            ],
+            "deposito": "",
+            "color": "Cercanías",
+            "estado": "En pruebas",
+            "ano": "",
+            "fechaAlta": "",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "-"
+            ]
+      },
+      "5": {
+            "rama": "005",
+            "vehiculoBase": "005",
+            "numero": "1-453-005-1",
+            "vehiculosRama": [
+                  "1-453-005-1",
+                  "3-453-009-9",
+                  "3-453-010-6",
+                  "2-453-005-9"
+            ],
+            "searchCodes": [
+                  "005",
+                  "1005",
+                  "3009",
+                  "2005"
+            ],
+            "deposito": "",
+            "color": "",
+            "estado": "En construcción",
+            "ano": "",
+            "fechaAlta": "",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "-"
+            ]
+      },
+      "6": {
+            "rama": "006",
+            "vehiculoBase": "006",
+            "numero": "1-453-006-9",
+            "vehiculosRama": [
+                  "1-453-006-9",
+                  "3-453-011-4",
+                  "3-453-012-2",
+                  "2-453-006-7"
+            ],
+            "searchCodes": [
+                  "006",
+                  "1006",
+                  "3011",
+                  "2006"
+            ],
+            "deposito": "",
+            "color": "",
+            "estado": "En construcción",
+            "ano": "",
+            "fechaAlta": "",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "-"
+            ]
+      },
+      "7": {
+            "rama": "007",
+            "vehiculoBase": "007",
+            "numero": "1-453-007-7",
+            "vehiculosRama": [
+                  "1-453-007-7",
+                  "3-453-013-0",
+                  "3-453-014-8",
+                  "2-453-007-5"
+            ],
+            "searchCodes": [
+                  "007",
+                  "1007",
+                  "3013",
+                  "2007"
+            ],
+            "deposito": "",
+            "color": "",
+            "estado": "En construcción",
+            "ano": "",
+            "fechaAlta": "",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "-"
+            ]
+      },
+      "8": {
+            "rama": "008",
+            "vehiculoBase": "008",
+            "numero": "1-453-008-5",
+            "vehiculosRama": [
+                  "1-453-008-5",
+                  "3-453-015-6",
+                  "3-453-016-4",
+                  "2-453-008-3"
+            ],
+            "searchCodes": [
+                  "008",
+                  "1008",
+                  "3015",
+                  "2008"
+            ],
+            "deposito": "",
+            "color": "",
+            "estado": "En construcción",
+            "ano": "",
+            "fechaAlta": "",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "-"
+            ]
+      },
+      "9": {
+            "rama": "009",
+            "vehiculoBase": "009",
+            "numero": "1-453-009-3",
+            "vehiculosRama": [
+                  "1-453-009-3",
+                  "3-453-017-2",
+                  "3-453-018-0",
+                  "2-453-009-1"
+            ],
+            "searchCodes": [
+                  "009",
+                  "1009",
+                  "3017",
+                  "2009"
+            ],
+            "deposito": "",
+            "color": "",
+            "estado": "En construcción",
+            "ano": "",
+            "fechaAlta": "",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "-"
+            ]
+      },
+      "10": {
+            "rama": "010",
+            "vehiculoBase": "010",
+            "numero": "1-453-010-0",
+            "vehiculosRama": [
+                  "1-453-010-0",
+                  "3-453-019-8",
+                  "3-453-020-5",
+                  "2-453-010-8"
+            ],
+            "searchCodes": [
+                  "010",
+                  "1010",
+                  "3019",
+                  "2010"
+            ],
+            "deposito": "",
+            "color": "",
+            "estado": "En construcción",
+            "ano": "",
+            "fechaAlta": "",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "-"
+            ]
+      },
+      "11": {
+            "rama": "011",
+            "vehiculoBase": "011",
+            "numero": "1-453-011-8",
+            "vehiculosRama": [
+                  "1-453-011-8",
+                  "3-453-021-3",
+                  "3-453-022-1",
+                  "2-453-011-6"
+            ],
+            "searchCodes": [
+                  "011",
+                  "1011",
+                  "3021",
+                  "2011"
+            ],
+            "deposito": "",
+            "color": "",
+            "estado": "En construcción",
+            "ano": "",
+            "fechaAlta": "",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "-"
+            ]
+      },
+      "12": {
+            "rama": "012",
+            "vehiculoBase": "012",
+            "numero": "1-453-012-6",
+            "vehiculosRama": [
+                  "1-453-012-6",
+                  "3-453-023-9",
+                  "3-453-024-7",
+                  "2-453-012-4"
+            ],
+            "searchCodes": [
+                  "012",
+                  "1012",
+                  "3023",
+                  "2012"
+            ],
+            "deposito": "",
+            "color": "",
+            "estado": "En construcción",
+            "ano": "",
+            "fechaAlta": "",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "-"
+            ]
+      },
+      "13": {
+            "rama": "013",
+            "vehiculoBase": "013",
+            "numero": "1-453-013-4",
+            "vehiculosRama": [
+                  "1-453-013-4",
+                  "3-453-025-5",
+                  "3-453-026-3",
+                  "2-453-013-2"
+            ],
+            "searchCodes": [
+                  "013",
+                  "1013",
+                  "3025",
+                  "2013"
+            ],
+            "deposito": "",
+            "color": "",
+            "estado": "En construcción",
+            "ano": "",
+            "fechaAlta": "",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "-"
+            ]
+      },
+      "14": {
+            "rama": "014",
+            "vehiculoBase": "014",
+            "numero": "1-453-014-2",
+            "vehiculosRama": [
+                  "1-453-014-2",
+                  "3-453-027-1",
+                  "3-453-028-9",
+                  "2-453-014-0"
+            ],
+            "searchCodes": [
+                  "014",
+                  "1014",
+                  "3027",
+                  "2014"
+            ],
+            "deposito": "",
+            "color": "",
+            "estado": "En construcción",
+            "ano": "",
+            "fechaAlta": "",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "-"
+            ]
+      },
+      "15": {
+            "rama": "015",
+            "vehiculoBase": "015",
+            "numero": "1-453-015-0",
+            "vehiculosRama": [
+                  "1-453-015-0",
+                  "3-453-029-7",
+                  "3-453-030-4",
+                  "2-453-015-8"
+            ],
+            "searchCodes": [
+                  "015",
+                  "1015",
+                  "3029",
+                  "2015"
+            ],
+            "deposito": "",
+            "color": "",
+            "estado": "En construcción",
+            "ano": "",
+            "fechaAlta": "",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "-"
+            ]
+      },
+      "16": {
+            "rama": "016",
+            "vehiculoBase": "016",
+            "numero": "1-453-016-8",
+            "vehiculosRama": [
+                  "1-453-016-8",
+                  "3-453-031-2",
+                  "3-453-032-0",
+                  "2-453-016-6"
+            ],
+            "searchCodes": [
+                  "016",
+                  "1016",
+                  "3031",
+                  "2016"
+            ],
+            "deposito": "",
+            "color": "",
+            "estado": "En construcción",
+            "ano": "",
+            "fechaAlta": "",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "-"
+            ]
+      },
+      "17": {
+            "rama": "017",
+            "vehiculoBase": "017",
+            "numero": "1-453-017-6",
+            "vehiculosRama": [
+                  "1-453-017-6",
+                  "3-453-033-8",
+                  "3-453-034-6",
+                  "2-453-017-4"
+            ],
+            "searchCodes": [
+                  "017",
+                  "1017",
+                  "3033",
+                  "2017"
+            ],
+            "deposito": "",
+            "color": "",
+            "estado": "En construcción",
+            "ano": "",
+            "fechaAlta": "",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "-"
+            ]
+      },
+      "18": {
+            "rama": "018",
+            "vehiculoBase": "018",
+            "numero": "1-453-018-4",
+            "vehiculosRama": [
+                  "1-453-018-4",
+                  "3-453-035-4",
+                  "3-453-036-2",
+                  "2-453-018-2"
+            ],
+            "searchCodes": [
+                  "018",
+                  "1018",
+                  "3035",
+                  "2018"
+            ],
+            "deposito": "",
+            "color": "",
+            "estado": "En construcción",
+            "ano": "",
+            "fechaAlta": "",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "-"
+            ]
+      },
+      "19": {
+            "rama": "019",
+            "vehiculoBase": "019",
+            "numero": "1-453-019-2",
+            "vehiculosRama": [
+                  "1-453-019-2",
+                  "3-453-037-0",
+                  "3-453-038-8",
+                  "2-453-019-0"
+            ],
+            "searchCodes": [
+                  "019",
+                  "1019",
+                  "3037",
+                  "2019"
+            ],
+            "deposito": "",
+            "color": "",
+            "estado": "En construcción",
+            "ano": "",
+            "fechaAlta": "",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "-"
+            ]
+      },
+      "20": {
+            "rama": "020",
+            "vehiculoBase": "020",
+            "numero": "1-453-020-9",
+            "vehiculosRama": [
+                  "1-453-020-9",
+                  "3-453-039-6",
+                  "3-453-040-3",
+                  "2-453-020-7"
+            ],
+            "searchCodes": [
+                  "020",
+                  "1020",
+                  "3039",
+                  "2020"
+            ],
+            "deposito": "",
+            "color": "",
+            "estado": "En construcción",
+            "ano": "",
+            "fechaAlta": "",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "-"
+            ]
+      },
+      "21": {
+            "rama": "021",
+            "vehiculoBase": "021",
+            "numero": "1-453-021-7",
+            "vehiculosRama": [
+                  "1-453-021-7",
+                  "3-453-041-1",
+                  "3-453-042-9",
+                  "2-453-021-5"
+            ],
+            "searchCodes": [
+                  "021",
+                  "1021",
+                  "3041",
+                  "2021"
+            ],
+            "deposito": "",
+            "color": "",
+            "estado": "En construcción",
+            "ano": "",
+            "fechaAlta": "",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "-"
+            ]
+      },
+      "22": {
+            "rama": "022",
+            "vehiculoBase": "022",
+            "numero": "1-453-022-5",
+            "vehiculosRama": [
+                  "1-453-022-5",
+                  "3-453-043-7",
+                  "3-453-044-5",
+                  "2-453-022-3"
+            ],
+            "searchCodes": [
+                  "022",
+                  "1022",
+                  "3043",
+                  "2022"
+            ],
+            "deposito": "",
+            "color": "",
+            "estado": "En construcción",
+            "ano": "",
+            "fechaAlta": "",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "-"
+            ]
+      },
+      "23": {
+            "rama": "023",
+            "vehiculoBase": "023",
+            "numero": "1-453-023-3",
+            "vehiculosRama": [
+                  "1-453-023-3",
+                  "3-453-045-3",
+                  "3-453-046-1",
+                  "2-453-023-1"
+            ],
+            "searchCodes": [
+                  "023",
+                  "1023",
+                  "3045",
+                  "2023"
+            ],
+            "deposito": "",
+            "color": "",
+            "estado": "En construcción",
+            "ano": "",
+            "fechaAlta": "",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "-"
+            ]
+      },
+      "24": {
+            "rama": "024",
+            "vehiculoBase": "024",
+            "numero": "1-453-024-1",
+            "vehiculosRama": [
+                  "1-453-024-1",
+                  "3-453-047-9",
+                  "3-453-048-7",
+                  "2-453-024-9"
+            ],
+            "searchCodes": [
+                  "024",
+                  "1024",
+                  "3047",
+                  "2024"
+            ],
+            "deposito": "",
+            "color": "",
+            "estado": "En construcción",
+            "ano": "",
+            "fechaAlta": "",
+            "ancho": "1668",
+            "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
+            "notas": [
+                  "-"
+            ]
+      }
+}
+  },
   "465": (() => {
     // Serie 465 Civia · 5 coches: 2 motores + 3 remolques.
     // La búsqueda acepta cualquiera de los cinco vehículos de la rama.
@@ -9566,6 +10259,72 @@ function getFleetUnit(series, vehicle){
     return {...base,numero:canonicalVehicle,vehiculoBase:code,vehiculoIntroducido:raw,vehiculoBuscado:code,exNumero:matchedEx,notas:(base.notasPorVehiculo||{})[code]?[ (base.notasPorVehiculo||{})[code] ]:(base.notas||[]),cocheTipo:"Vehículo Talgo 730"};
   }
 
+  // Serie 453.0 Stadler TL100: 24 ramas de cuatro coches.
+  // Se acepta cualquiera de los vehículos identificables excepto el remolque 2.
+  // También se aceptan los números simplificados de cuatro cifras de Renfe:
+  // 1001/3001/2001 -> Rama 001; 1002/3003/2002 -> Rama 002, etc.
+  if(s==="453"){
+    const raw=String(vehicle??"").trim();
+    const compact=raw.replace(/\s+/g,"");
+    let branch=null;
+    let matchedCode="";
+    let matchedVehicle="";
+
+    // Matrícula simplificada o NEV completa: 1/2/3-453-XXX-X.
+    const full=compact.match(/(?:^|[-])(?:94-71[-])?([123])[-]?453[-]?(\d{3})(?:[-]\d)?$/i);
+    if(full){
+      const tipo=full[1];
+      const orden=Number(full[2]);
+      if(tipo==="1" || tipo==="2"){
+        if(orden>=1 && orden<=24) branch=orden;
+      }else if(tipo==="3" && orden>=1 && orden<=47 && orden%2===1){
+        branch=(orden+1)/2; // Remolque 1: 001,003,...047.
+      }
+      matchedCode=full[2];
+    }
+
+    // Numeración simplificada de cuatro cifras: 100x, 200x y 300x.
+    if(!branch && /^\d{4}$/.test(compact)){
+      const tipo4=compact.charAt(0);
+      const orden4=Number(compact.slice(1));
+      if((tipo4==="1" || tipo4==="2") && orden4>=1 && orden4<=24){
+        branch=orden4;
+      }else if(tipo4==="3" && orden4>=1 && orden4<=47 && orden4%2===1){
+        branch=(orden4+1)/2; // Solo remolque 1; 3002,3004,... no identifican.
+      }
+      matchedCode=compact;
+    }
+
+    // Código de rama corto 001-024.
+    if(!branch && /^\d{1,3}$/.test(compact)){
+      const n=Number(compact);
+      if(n>=1 && n<=24){
+        branch=n;
+        matchedCode=String(n).padStart(3,"0");
+      }
+    }
+
+    if(!branch) return null;
+    const base=seriesData.units?.[String(branch)];
+    if(!base) return null;
+
+    const vehicles=base.vehiculosRama||[];
+    if(matchedCode){
+      const found=vehicles.find(x=>x.replace(/\s+/g,"").includes(matchedCode));
+      if(found) matchedVehicle=found;
+    }
+
+    return {
+      ...base,
+      numero:base.numero,
+      vehiculoBase:base.vehiculoBase,
+      vehiculoIntroducido:raw,
+      vehiculoBuscado:matchedCode||base.vehiculoBase,
+      vehiculoEncontrado:matchedVehicle,
+      cocheTipo:"Serie 453.0 · TL100"
+    };
+  }
+
   // Serie 464 Civia: cualquiera de sus cuatro vehículos identifica la rama.
   // Se distinguen expresamente primer lote (CAF) y segundo lote (Alstom).
   // También se conserva la procedencia de las ramas 224-231 transformadas desde la 463.
@@ -9830,7 +10589,20 @@ function getCurrentFleetUnit(){
   return getFleetUnit($("series")?.value||"",$("vehicle")?.value||"");
 }
 
-if($("series")) $("series").addEventListener("input",updateBranchBox);
+if($("series")) $("series").addEventListener("input",()=>{
+  const s=normalizeFleetValue($("series").value);
+  const v=$("vehicle");
+  if(v){
+    if(v.dataset.argosOriginalMaxLength===undefined){
+      v.dataset.argosOriginalMaxLength=v.getAttribute("maxlength")||"";
+    }
+    if(s==="453") v.maxLength=4;
+    else if(v.dataset.argosOriginalMaxLength) v.setAttribute("maxlength",v.dataset.argosOriginalMaxLength);
+    else v.removeAttribute("maxlength");
+  }
+  updateBranchBox();
+});
+
 if($("vehicle")) $("vehicle").addEventListener("input",updateBranchBox);
 
 function autocomplete(inputId,listId){
@@ -9949,6 +10721,10 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Año</span><strong>${esc(unit.ano||"—")}</strong></div>
         ${["130","730"].includes(normalizeFleetValue(series)) && unit.exNumero?`<div><span>${normalizeFleetValue(series)==="730"?"Ex-número · procedencia S-130":"Ex-número"}</span><strong>${esc(unit.exNumero)}</strong></div>`:""}
         <div><span>Depósito / base</span><strong>${esc(unit.deposito||"—")}</strong></div>
+        ${normalizeFleetValue(series)==="453"?`
+        <div><span>Color</span><strong>${esc(unit.color||"—")}</strong></div>
+        <div><span>Estado</span><strong>${esc(unit.estado||"—")}</strong></div>
+        <div><span>Fecha de alta</span><strong>${esc(unit.fechaAlta||"—")}</strong></div>`:""}
         ${normalizeFleetValue(series)==="463"?`<div><span>Color</span><strong>${esc(unit.color||"—")}</strong></div>
         <div><span>Red</span><strong>${esc(unit.red||"—")}</strong></div>`:""}
         <div><span>Ancho de vía</span><strong>${esc(unit.ancho||seriesData?.anchoVia||"—")} ${unit.ancho?"mm":""}</strong></div>
@@ -9969,19 +10745,25 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Coche introducido</span><strong>${esc(unit.vehiculoBase||vehicle)}</strong></div>
         <div><span>Tipo de coche</span><strong>${esc(unit.cocheTipo||"—")}</strong></div>
         <div><span>Composición</span><strong>8 coches · Mc-R-M-R-R-M-R-Mc</strong></div>`:""}
-        ${normalizeFleetValue(series)==="801"?`
+        ${["453","801"].includes(normalizeFleetValue(series))?`
         <div><span>Vehículos de la rama</span><strong>${esc((unit.vehiculosRama||[]).join(" · ")||"—")}</strong></div>
         <div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||seriesData?.composicion||"—")}</strong></div>`:""}
         ${seriesData?.velocidadMaxima?`<div><span>Velocidad máxima</span><strong>${esc(seriesData.velocidadMaxima)}</strong></div>`:""}
         ${seriesData?.potencia?`<div><span>Potencia</span><strong>${esc(seriesData.potencia)}</strong></div>`:""}
         ${seriesData?.plazasSentadas?`<div><span>Plazas sentadas</span><strong>${esc(seriesData.plazasSentadas)}</strong></div>`:""}
-         ${["112","121","464","730","801"].includes(normalizeFleetValue(series))?`
+         ${["112","121","453","464","730","801"].includes(normalizeFleetValue(series))?`
          <div><span>Longitud</span><strong>${esc(seriesData.longitud||"—")}</strong></div>
          <div><span>Peso</span><strong>${esc(seriesData.peso||"—")}</strong></div>
          <div><span>Tensión</span><strong>${esc(seriesData.tension||"—")}</strong></div>
          <div><span>Tracción</span><strong>${esc(seriesData.traccion||"—")}</strong></div>
          <div><span>Señalización</span><strong>${esc(seriesData.señalizacion||"—")}</strong></div>
-         <div><span>Composición</span><strong>${esc(seriesData.composicion||"—")}</strong></div>`:""}
+         <div><span>Composición</span><strong>${esc(seriesData.composicion||"—")}</strong></div>
+         ${normalizeFleetValue(series)==="453"?`
+         <div><span>Esfuerzo de tracción</span><strong>${esc(seriesData.esfuerzoTraccion||"—")}</strong></div>
+         <div><span>Frenos</span><strong>${esc(seriesData.frenos||"—")}</strong></div>
+         <div><span>Mando múltiple</span><strong>${esc(seriesData.mandoMultiple||"—")}</strong></div>
+         <div><span>Enganche</span><strong>${esc(seriesData.enganche||"—")}</strong></div>
+         <div><span>Rodaje</span><strong>${esc(seriesData.rodaje||"—")}</strong></div>`:""}`:""}
       </div>
     </div>`;
 
