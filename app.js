@@ -9789,7 +9789,3474 @@ const fleet = {
                   "-"
             ]
       }
-}
+},
+    "unitsTL200": {
+      "1": {
+        "rama": "001",
+        "vehiculoBase": "001",
+        "numero": "1-453-601-6",
+        "vehiculosRama": [
+          "1-453-601-6",
+          "2-453-601-4"
+        ],
+        "searchCodes": [
+          "001",
+          "1601",
+          "2601"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En pruebas",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "2": {
+        "rama": "002",
+        "vehiculoBase": "002",
+        "numero": "1-453-602-4",
+        "vehiculosRama": [
+          "1-453-602-4",
+          "2-453-602-2"
+        ],
+        "searchCodes": [
+          "002",
+          "1602",
+          "2602"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En pruebas",
+        "ano": 2025,
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "Vinilo blanco durante pruebas (Desde 09/25)."
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "3": {
+        "rama": "003",
+        "vehiculoBase": "003",
+        "numero": "1-453-603-2",
+        "vehiculosRama": [
+          "1-453-603-2",
+          "2-453-603-0"
+        ],
+        "searchCodes": [
+          "003",
+          "1603",
+          "2603"
+        ],
+        "deposito": "Fuencarral",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": 2026,
+        "fechaAlta": "24/08/2026",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "Primero de la serie 453.6 en servicio comercial."
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "4": {
+        "rama": "004",
+        "vehiculoBase": "004",
+        "numero": "1-453-604-0",
+        "vehiculosRama": [
+          "1-453-604-0",
+          "2-453-604-8"
+        ],
+        "searchCodes": [
+          "004",
+          "1604",
+          "2604"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "5": {
+        "rama": "005",
+        "vehiculoBase": "005",
+        "numero": "1-453-605-7",
+        "vehiculosRama": [
+          "1-453-605-7",
+          "2-453-605-5"
+        ],
+        "searchCodes": [
+          "005",
+          "1605",
+          "2605"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "6": {
+        "rama": "006",
+        "vehiculoBase": "006",
+        "numero": "1-453-606-5",
+        "vehiculosRama": [
+          "1-453-606-5",
+          "2-453-606-3"
+        ],
+        "searchCodes": [
+          "006",
+          "1606",
+          "2606"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "7": {
+        "rama": "007",
+        "vehiculoBase": "007",
+        "numero": "1-453-607-3",
+        "vehiculosRama": [
+          "1-453-607-3",
+          "2-453-607-1"
+        ],
+        "searchCodes": [
+          "007",
+          "1607",
+          "2607"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "8": {
+        "rama": "008",
+        "vehiculoBase": "008",
+        "numero": "1-453-608-1",
+        "vehiculosRama": [
+          "1-453-608-1",
+          "2-453-608-9"
+        ],
+        "searchCodes": [
+          "008",
+          "1608",
+          "2608"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "9": {
+        "rama": "009",
+        "vehiculoBase": "009",
+        "numero": "1-453-609-9",
+        "vehiculosRama": [
+          "1-453-609-9",
+          "2-453-609-7"
+        ],
+        "searchCodes": [
+          "009",
+          "1609",
+          "2609"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "10": {
+        "rama": "010",
+        "vehiculoBase": "010",
+        "numero": "1-453-610-7",
+        "vehiculosRama": [
+          "1-453-610-7",
+          "2-453-610-5"
+        ],
+        "searchCodes": [
+          "010",
+          "1610",
+          "2610"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "11": {
+        "rama": "011",
+        "vehiculoBase": "011",
+        "numero": "1-453-611-5",
+        "vehiculosRama": [
+          "1-453-611-5",
+          "2-453-611-3"
+        ],
+        "searchCodes": [
+          "011",
+          "1611",
+          "2611"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "12": {
+        "rama": "012",
+        "vehiculoBase": "012",
+        "numero": "1-453-612-3",
+        "vehiculosRama": [
+          "1-453-612-3",
+          "2-453-612-1"
+        ],
+        "searchCodes": [
+          "012",
+          "1612",
+          "2612"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "13": {
+        "rama": "013",
+        "vehiculoBase": "013",
+        "numero": "1-453-613-1",
+        "vehiculosRama": [
+          "1-453-613-1",
+          "2-453-613-9"
+        ],
+        "searchCodes": [
+          "013",
+          "1613",
+          "2613"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "14": {
+        "rama": "014",
+        "vehiculoBase": "014",
+        "numero": "1-453-614-9",
+        "vehiculosRama": [
+          "1-453-614-9",
+          "2-453-614-7"
+        ],
+        "searchCodes": [
+          "014",
+          "1614",
+          "2614"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "15": {
+        "rama": "015",
+        "vehiculoBase": "015",
+        "numero": "1-453-615-6",
+        "vehiculosRama": [
+          "1-453-615-6",
+          "2-453-615-4"
+        ],
+        "searchCodes": [
+          "015",
+          "1615",
+          "2615"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "16": {
+        "rama": "016",
+        "vehiculoBase": "016",
+        "numero": "1-453-616-4",
+        "vehiculosRama": [
+          "1-453-616-4",
+          "2-453-616-2"
+        ],
+        "searchCodes": [
+          "016",
+          "1616",
+          "2616"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "17": {
+        "rama": "017",
+        "vehiculoBase": "017",
+        "numero": "1-453-617-2",
+        "vehiculosRama": [
+          "1-453-617-2",
+          "2-453-617-0"
+        ],
+        "searchCodes": [
+          "017",
+          "1617",
+          "2617"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "18": {
+        "rama": "018",
+        "vehiculoBase": "018",
+        "numero": "1-453-618-0",
+        "vehiculosRama": [
+          "1-453-618-0",
+          "2-453-618-8"
+        ],
+        "searchCodes": [
+          "018",
+          "1618",
+          "2618"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "19": {
+        "rama": "019",
+        "vehiculoBase": "019",
+        "numero": "1-453-619-8",
+        "vehiculosRama": [
+          "1-453-619-8",
+          "2-453-619-6"
+        ],
+        "searchCodes": [
+          "019",
+          "1619",
+          "2619"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "20": {
+        "rama": "020",
+        "vehiculoBase": "020",
+        "numero": "1-453-620-6",
+        "vehiculosRama": [
+          "1-453-620-6",
+          "2-453-620-4"
+        ],
+        "searchCodes": [
+          "020",
+          "1620",
+          "2620"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "21": {
+        "rama": "021",
+        "vehiculoBase": "021",
+        "numero": "1-453-621-4",
+        "vehiculosRama": [
+          "1-453-621-4",
+          "2-453-621-2"
+        ],
+        "searchCodes": [
+          "021",
+          "1621",
+          "2621"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "22": {
+        "rama": "022",
+        "vehiculoBase": "022",
+        "numero": "1-453-622-2",
+        "vehiculosRama": [
+          "1-453-622-2",
+          "2-453-622-0"
+        ],
+        "searchCodes": [
+          "022",
+          "1622",
+          "2622"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "23": {
+        "rama": "023",
+        "vehiculoBase": "023",
+        "numero": "1-453-623-0",
+        "vehiculosRama": [
+          "1-453-623-0",
+          "2-453-623-8"
+        ],
+        "searchCodes": [
+          "023",
+          "1623",
+          "2623"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "24": {
+        "rama": "024",
+        "vehiculoBase": "024",
+        "numero": "1-453-624-8",
+        "vehiculosRama": [
+          "1-453-624-8",
+          "2-453-624-6"
+        ],
+        "searchCodes": [
+          "024",
+          "1624",
+          "2624"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "25": {
+        "rama": "025",
+        "vehiculoBase": "025",
+        "numero": "1-453-625-5",
+        "vehiculosRama": [
+          "1-453-625-5",
+          "2-453-625-3"
+        ],
+        "searchCodes": [
+          "025",
+          "1625",
+          "2625"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "26": {
+        "rama": "026",
+        "vehiculoBase": "026",
+        "numero": "1-453-626-3",
+        "vehiculosRama": [
+          "1-453-626-3",
+          "2-453-626-1"
+        ],
+        "searchCodes": [
+          "026",
+          "1626",
+          "2626"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "27": {
+        "rama": "027",
+        "vehiculoBase": "027",
+        "numero": "1-453-627-1",
+        "vehiculosRama": [
+          "1-453-627-1",
+          "2-453-627-9"
+        ],
+        "searchCodes": [
+          "027",
+          "1627",
+          "2627"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "28": {
+        "rama": "028",
+        "vehiculoBase": "028",
+        "numero": "1-453-628-9",
+        "vehiculosRama": [
+          "1-453-628-9",
+          "2-453-628-7"
+        ],
+        "searchCodes": [
+          "028",
+          "1628",
+          "2628"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "29": {
+        "rama": "029",
+        "vehiculoBase": "029",
+        "numero": "1-453-629-7",
+        "vehiculosRama": [
+          "1-453-629-7",
+          "2-453-629-5"
+        ],
+        "searchCodes": [
+          "029",
+          "1629",
+          "2629"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "30": {
+        "rama": "030",
+        "vehiculoBase": "030",
+        "numero": "1-453-630-5",
+        "vehiculosRama": [
+          "1-453-630-5",
+          "2-453-630-3"
+        ],
+        "searchCodes": [
+          "030",
+          "1630",
+          "2630"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "31": {
+        "rama": "031",
+        "vehiculoBase": "031",
+        "numero": "1-453-631-3",
+        "vehiculosRama": [
+          "1-453-631-3",
+          "2-453-631-1"
+        ],
+        "searchCodes": [
+          "031",
+          "1631",
+          "2631"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "32": {
+        "rama": "032",
+        "vehiculoBase": "032",
+        "numero": "1-453-632-1",
+        "vehiculosRama": [
+          "1-453-632-1",
+          "2-453-632-9"
+        ],
+        "searchCodes": [
+          "032",
+          "1632",
+          "2632"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "33": {
+        "rama": "033",
+        "vehiculoBase": "033",
+        "numero": "1-453-633-9",
+        "vehiculosRama": [
+          "1-453-633-9",
+          "2-453-633-7"
+        ],
+        "searchCodes": [
+          "033",
+          "1633",
+          "2633"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "34": {
+        "rama": "034",
+        "vehiculoBase": "034",
+        "numero": "1-453-634-7",
+        "vehiculosRama": [
+          "1-453-634-7",
+          "2-453-634-5"
+        ],
+        "searchCodes": [
+          "034",
+          "1634",
+          "2634"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "35": {
+        "rama": "035",
+        "vehiculoBase": "035",
+        "numero": "1-453-635-4",
+        "vehiculosRama": [
+          "1-453-635-4",
+          "2-453-635-2"
+        ],
+        "searchCodes": [
+          "035",
+          "1635",
+          "2635"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "36": {
+        "rama": "036",
+        "vehiculoBase": "036",
+        "numero": "1-453-636-2",
+        "vehiculosRama": [
+          "1-453-636-2",
+          "2-453-636-0"
+        ],
+        "searchCodes": [
+          "036",
+          "1636",
+          "2636"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "37": {
+        "rama": "037",
+        "vehiculoBase": "037",
+        "numero": "1-453-637-2",
+        "vehiculosRama": [
+          "1-453-637-2",
+          "2-453-637-8"
+        ],
+        "searchCodes": [
+          "037",
+          "1637",
+          "2637"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "38": {
+        "rama": "038",
+        "vehiculoBase": "038",
+        "numero": "1-453-638-8",
+        "vehiculosRama": [
+          "1-453-638-8",
+          "2-453-638-6"
+        ],
+        "searchCodes": [
+          "038",
+          "1638",
+          "2638"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "39": {
+        "rama": "039",
+        "vehiculoBase": "039",
+        "numero": "1-453-639-6",
+        "vehiculosRama": [
+          "1-453-639-6",
+          "2-453-639-4"
+        ],
+        "searchCodes": [
+          "039",
+          "1639",
+          "2639"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "40": {
+        "rama": "040",
+        "vehiculoBase": "040",
+        "numero": "1-453-640-4",
+        "vehiculosRama": [
+          "1-453-640-4",
+          "2-453-640-2"
+        ],
+        "searchCodes": [
+          "040",
+          "1640",
+          "2640"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "41": {
+        "rama": "041",
+        "vehiculoBase": "041",
+        "numero": "1-453-641-2",
+        "vehiculosRama": [
+          "1-453-641-2",
+          "2-453-641-0"
+        ],
+        "searchCodes": [
+          "041",
+          "1641",
+          "2641"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "42": {
+        "rama": "042",
+        "vehiculoBase": "042",
+        "numero": "1-453-642-0",
+        "vehiculosRama": [
+          "1-453-642-0",
+          "2-453-642-8"
+        ],
+        "searchCodes": [
+          "042",
+          "1642",
+          "2642"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "43": {
+        "rama": "043",
+        "vehiculoBase": "043",
+        "numero": "1-453-643-8",
+        "vehiculosRama": [
+          "1-453-643-8",
+          "2-453-643-6"
+        ],
+        "searchCodes": [
+          "043",
+          "1643",
+          "2643"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "44": {
+        "rama": "044",
+        "vehiculoBase": "044",
+        "numero": "1-453-644-6",
+        "vehiculosRama": [
+          "1-453-644-6",
+          "2-453-644-4"
+        ],
+        "searchCodes": [
+          "044",
+          "1644",
+          "2644"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "45": {
+        "rama": "045",
+        "vehiculoBase": "045",
+        "numero": "1-453-645-3",
+        "vehiculosRama": [
+          "1-453-645-3",
+          "2-453-645-1"
+        ],
+        "searchCodes": [
+          "045",
+          "1645",
+          "2645"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "46": {
+        "rama": "046",
+        "vehiculoBase": "046",
+        "numero": "1-453-646-8",
+        "vehiculosRama": [
+          "1-453-646-8",
+          "2-453-646-9"
+        ],
+        "searchCodes": [
+          "046",
+          "1646",
+          "2646"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "47": {
+        "rama": "047",
+        "vehiculoBase": "047",
+        "numero": "1-453-647-6",
+        "vehiculosRama": [
+          "1-453-647-6",
+          "2-453-647-7"
+        ],
+        "searchCodes": [
+          "047",
+          "1647",
+          "2647"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "48": {
+        "rama": "048",
+        "vehiculoBase": "048",
+        "numero": "1-453-648-4",
+        "vehiculosRama": [
+          "1-453-648-4",
+          "2-453-648-5"
+        ],
+        "searchCodes": [
+          "048",
+          "1648",
+          "2648"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "49": {
+        "rama": "049",
+        "vehiculoBase": "049",
+        "numero": "1-453-649-2",
+        "vehiculosRama": [
+          "1-453-649-2",
+          "2-453-649-3"
+        ],
+        "searchCodes": [
+          "049",
+          "1649",
+          "2649"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "50": {
+        "rama": "050",
+        "vehiculoBase": "050",
+        "numero": "1-453-650-0",
+        "vehiculosRama": [
+          "1-453-650-0",
+          "2-453-650-1"
+        ],
+        "searchCodes": [
+          "050",
+          "1650",
+          "2650"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "51": {
+        "rama": "051",
+        "vehiculoBase": "051",
+        "numero": "1-453-651-8",
+        "vehiculosRama": [
+          "1-453-651-8",
+          "2-453-651-6"
+        ],
+        "searchCodes": [
+          "051",
+          "1651",
+          "2651"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "52": {
+        "rama": "052",
+        "vehiculoBase": "052",
+        "numero": "1-453-652-6",
+        "vehiculosRama": [
+          "1-453-652-6",
+          "2-453-652-4"
+        ],
+        "searchCodes": [
+          "052",
+          "1652",
+          "2652"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "53": {
+        "rama": "053",
+        "vehiculoBase": "053",
+        "numero": "1-453-653-4",
+        "vehiculosRama": [
+          "1-453-653-4",
+          "2-453-653-2"
+        ],
+        "searchCodes": [
+          "053",
+          "1653",
+          "2653"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "54": {
+        "rama": "054",
+        "vehiculoBase": "054",
+        "numero": "1-453-654-2",
+        "vehiculosRama": [
+          "1-453-654-2",
+          "2-453-654-0"
+        ],
+        "searchCodes": [
+          "054",
+          "1654",
+          "2654"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      },
+      "55": {
+        "rama": "055",
+        "vehiculoBase": "055",
+        "numero": "1-453-655-9",
+        "vehiculosRama": [
+          "1-453-655-9",
+          "2-453-655-7"
+        ],
+        "searchCodes": [
+          "055",
+          "1655",
+          "2655"
+        ],
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "En construcción",
+        "ano": "",
+        "fechaAlta": "",
+        "ancho": "1668",
+        "subserie": "453.6 · TL200 · 8 coches",
+        "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
+        "notas": [
+          "-"
+        ],
+        "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+        "modelo": "FLIRT / KISS · TL200",
+        "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T200",
+        "tech": {
+          "fabricante": "Stadler Rail",
+          "numeroCoches": "8 coches · 2 motores cabina + 2 motores intermedios + 4 remolques de dos pisos",
+          "anchoVia": "1668 mm",
+          "diametroRuedas": "870 mm",
+          "anchuraCaja": "3.050 mm",
+          "alturaTecho": "4.297 mm",
+          "pesoPorCoche": "19 t motor cabina impar y par · 17 t motor intermedio · 15 t remolque de dos pisos",
+          "pesoPorEje": "16 t motor cabina impar · 15,5 t motor cabina par · 13,5 t motor intermedio · 10 t remolque de dos pisos",
+          "velocidadMaxima": "140 km/h (Tipo A)",
+          "potencia": "8.000 kW (10.728 CV)",
+          "esfuerzoTraccion": "637 kN",
+          "longitud": "191,16 m",
+          "peso": "398/530 t (tara/carga normal)",
+          "tension": "3.000 V cc",
+          "traccion": "16 motores de tracción · 500 kW por motor",
+          "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
+          "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
+          "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
+          "plazasSentadas": "524",
+          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "frenos": "Eléctrico reostático y regenerativo · neumático",
+          "mandoMultiple": "3 unidades máximo",
+          "enganche": "Scharfenberg"
+        },
+        "generalNotes": [
+          "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
+          "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
+          "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
+          "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
+          "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios PMR. Renfe indica para el T200 una capacidad de hasta 18 bicicletas."
+        ]
+      }
+    }
   },
   "465": (() => {
     // Serie 465 Civia · 5 coches: 2 motores + 3 remolques.
@@ -10254,61 +13721,82 @@ function getFleetUnit(series, vehicle){
     return {...base,numero:canonicalVehicle,vehiculoBase:code,vehiculoIntroducido:raw,vehiculoBuscado:code,exNumero:matchedEx,notas:(base.notasPorVehiculo||{})[code]?[ (base.notasPorVehiculo||{})[code] ]:(base.notas||[]),cocheTipo:"Vehículo Talgo 730"};
   }
 
-  // Serie 453.0 Stadler TL100: 24 ramas de cuatro coches.
-  // Se acepta cualquiera de los vehículos identificables excepto el remolque 2.
-  // También se aceptan los números simplificados de cuatro cifras de Renfe:
-  // 1001/3001/2001 -> Rama 001; 1002/3003/2002 -> Rama 002, etc.
+  // Serie 453 Stadler: TL100 (453.0, 4 coches) + TL200 (453.6, 8 coches).
+  // TL100: 001-024 y códigos simplificados 1001/2001/...
+  // TL200: 001-055, códigos simplificados 1601/2601/... y matrículas de los dos motores cabina.
+  // Para evitar ambigüedades NO se utilizan remolques ni motores intermedios como códigos de búsqueda.
   if(s==="453"){
     const raw=String(vehicle??"").trim();
     const compact=raw.replace(/\s+/g,"");
     let branch=null;
+    let variant="";
     let matchedCode="";
     let matchedVehicle="";
+    let cabIndex=0;
 
-    // Matrícula simplificada o NEV completa: 1/2/3-453-XXX-X.
-    const full=compact.match(/(?:^|[-])(?:94-71[-])?([123])[-]?453[-]?(\d{3})(?:[-]\d)?$/i);
+    // Matrícula completa o simplificada de los motores cabina.
+    // TL100 usa órdenes 001-024; TL200 usa 601-655.
+    const full=compact.match(/(?:^|[-])(?:94-71[-])?([12])[-]?453[-]?(\d{3})(?:[-]\d)?$/i);
     if(full){
       const tipo=full[1];
       const orden=Number(full[2]);
-      if(tipo==="1" || tipo==="2"){
-        if(orden>=1 && orden<=24) branch=orden;
-      }else if(tipo==="3" && orden>=1 && orden<=47 && orden%2===1){
-        branch=(orden+1)/2; // Remolque 1: 001,003,...047.
+      if(orden>=1 && orden<=24){
+        branch=orden;
+        variant="TL100";
+      }else if(orden>=601 && orden<=655){
+        branch=orden-600;
+        variant="TL200";
       }
       matchedCode=full[2];
+      cabIndex=tipo==="2" ? (variant==="TL200" ? 7 : 3) : 0;
     }
 
-    // Numeración simplificada de cuatro cifras: 100x, 200x y 300x.
+    // Numeración simplificada de cuatro cifras.
+    // 100x/200x = TL100; 160x/260x = TL200.
     if(!branch && /^\d{4}$/.test(compact)){
       const tipo4=compact.charAt(0);
-      const orden4=Number(compact.slice(1));
-      if((tipo4==="1" || tipo4==="2") && orden4>=1 && orden4<=24){
+      const sub4=compact.charAt(1);
+      const orden4=Number(compact.slice(2));
+      if((tipo4==="1" || tipo4==="2") && sub4==="0" && orden4>=1 && orden4<=24){
         branch=orden4;
-      }else if(tipo4==="3" && orden4>=1 && orden4<=47 && orden4%2===1){
-        branch=(orden4+1)/2; // Solo remolque 1; 3002,3004,... no identifican.
+        variant="TL100";
+        matchedCode=compact;
+        cabIndex=tipo4==="2" ? 3 : 0;
+      }else if((tipo4==="1" || tipo4==="2") && sub4==="6" && orden4>=1 && orden4<=55){
+        branch=orden4;
+        variant="TL200";
+        matchedCode=compact;
+        cabIndex=tipo4==="2" ? 7 : 0;
       }
-      matchedCode=compact;
     }
 
-    // Código de rama corto 001-024.
+    // Código corto de rama. 001-024 se reserva al TL100 para conservar el comportamiento anterior;
+    // 025-055 identifica directamente el TL200.
     if(!branch && /^\d{1,3}$/.test(compact)){
       const n=Number(compact);
       if(n>=1 && n<=24){
         branch=n;
+        variant="TL100";
         matchedCode=String(n).padStart(3,"0");
+      }else if(n>=25 && n<=55){
+        branch=n;
+        variant="TL200";
+        matchedCode=String(n).padStart(3,"0");
+      }else if(n>=601 && n<=655){
+        branch=n-600;
+        variant="TL200";
+        matchedCode=String(n);
       }
     }
 
     if(!branch) return null;
-    const base=seriesData.units?.[String(branch)];
+    const base = variant==="TL200"
+      ? seriesData.unitsTL200?.[String(branch)]
+      : seriesData.units?.[String(branch)];
     if(!base) return null;
 
     const vehicles=base.vehiculosRama||[];
-    if(matchedCode){
-      const found=vehicles.find(x=>x.replace(/\s+/g,"").includes(matchedCode));
-      if(found) matchedVehicle=found;
-    }
-
+    matchedVehicle=vehicles[cabIndex]||"";
     return {
       ...base,
       numero:base.numero,
@@ -10316,7 +13804,7 @@ function getFleetUnit(series, vehicle){
       vehiculoIntroducido:raw,
       vehiculoBuscado:matchedCode||base.vehiculoBase,
       vehiculoEncontrado:matchedVehicle,
-      cocheTipo:"Serie 453.0 · TL100"
+      cocheTipo:variant==="TL200" ? "Serie 453.6 · TL200 · 8 coches" : "Serie 453.0 · TL100 · 4 coches"
     };
   }
 
@@ -10677,6 +14165,7 @@ if($("cancelService"))$("cancelService").addEventListener("click",cancelCurrentS
 function fleetFichaHtml(series,vehicle,service=null){
   const unit=getFleetUnit(series,vehicle);
   const seriesData=getSeriesData(series);
+  const tech=unit.tech||seriesData;
   if(!unit){
     return `<div class="ficha-empty"><strong>Ficha no disponible</strong><span>No hay información de material almacenada para Serie ${esc(series||"—")} · Vehículo ${esc(vehicle||"—")}.</span></div>`;
   }
@@ -10711,8 +14200,8 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Motor impar</span><strong>${esc(unit.motorImpar||"—")}</strong></div>
         <div><span>Motor par</span><strong>${esc(unit.motorPar||"—")}</strong></div>`:""}
         <div><span>Número completo</span><strong>${esc(unit.numero||"—")}</strong></div>
-        <div><span>Fabricante</span><strong>${esc(unit.fabricante||seriesData?.fabricante||"—")}</strong></div>
-        <div><span>Número de coches</span><strong>${esc(unit.numeroCoches||seriesData?.numeroCoches||"—")}</strong></div>
+        <div><span>Fabricante</span><strong>${esc(unit.fabricante||tech?.fabricante||"—")}</strong></div>
+        <div><span>Número de coches</span><strong>${esc(unit.numeroCoches||tech?.numeroCoches||"—")}</strong></div>
         <div><span>Año</span><strong>${esc(unit.ano||"—")}</strong></div>
         ${["130","730"].includes(normalizeFleetValue(series)) && unit.exNumero?`<div><span>${normalizeFleetValue(series)==="730"?"Ex-número · procedencia S-130":"Ex-número"}</span><strong>${esc(unit.exNumero)}</strong></div>`:""}
         <div><span>Depósito / base</span><strong>${esc(unit.deposito||"—")}</strong></div>
@@ -10722,11 +14211,11 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Fecha de alta</span><strong>${esc(unit.fechaAlta||"—")}</strong></div>`:""}
         ${normalizeFleetValue(series)==="463"?`<div><span>Color</span><strong>${esc(unit.color||"—")}</strong></div>
         <div><span>Red</span><strong>${esc(unit.red||"—")}</strong></div>`:""}
-        <div><span>Ancho de vía</span><strong>${esc(unit.ancho||seriesData?.anchoVia||"—")} ${unit.ancho?"mm":""}</strong></div>
+        <div><span>Ancho de vía</span><strong>${esc(unit.ancho||tech?.anchoVia||"—")} ${unit.ancho?"mm":""}</strong></div>
         ${(unit.subserie||seriesData?.subseries)?`<div><span>Subserie</span><strong>${esc(unit.subserie||seriesData.subseries)}</strong></div>`:""}
-        ${seriesData?.modelo?`<div><span>Modelo</span><strong>${esc(seriesData.modelo)}</strong></div>`:""}
-        ${seriesData?.apodo?`<div><span>Apodo</span><strong>${esc(seriesData.apodo)}</strong></div>`:""}
-        ${seriesData?.tipoMaterial?`<div><span>Tipo de material</span><strong>${esc(seriesData.tipoMaterial)}</strong></div>`:""}
+        ${(unit.modelo||tech?.modelo)?`<div><span>Modelo</span><strong>${esc(seriesData.modelo)}</strong></div>`:""}
+        ${(unit.apodo||tech?.apodo)?`<div><span>Apodo</span><strong>${esc(seriesData.apodo)}</strong></div>`:""}
+        ${(unit.tipoMaterial||tech?.tipoMaterial)?`<div><span>Tipo de material</span><strong>${esc(seriesData.tipoMaterial)}</strong></div>`:""}
         ${normalizeFleetValue(series)==="114"?`
         <div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||"—")}</strong></div>`:""}
         ${["120","121","730"].includes(normalizeFleetValue(series))?`<div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||"—")}</strong></div>`:""}
@@ -10743,22 +14232,22 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${["453","801"].includes(normalizeFleetValue(series))?`
         <div><span>Vehículos de la rama</span><strong>${esc((unit.vehiculosRama||[]).join(" · ")||"—")}</strong></div>
         <div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||seriesData?.composicion||"—")}</strong></div>`:""}
-        ${seriesData?.velocidadMaxima?`<div><span>Velocidad máxima</span><strong>${esc(seriesData.velocidadMaxima)}</strong></div>`:""}
-        ${seriesData?.potencia?`<div><span>Potencia</span><strong>${esc(seriesData.potencia)}</strong></div>`:""}
-        ${seriesData?.plazasSentadas?`<div><span>Plazas sentadas</span><strong>${esc(seriesData.plazasSentadas)}</strong></div>`:""}
+        ${tech?.velocidadMaxima?`<div><span>Velocidad máxima</span><strong>${esc(seriesData.velocidadMaxima)}</strong></div>`:""}
+        ${tech?.potencia?`<div><span>Potencia</span><strong>${esc(seriesData.potencia)}</strong></div>`:""}
+        ${tech?.plazasSentadas?`<div><span>Plazas sentadas</span><strong>${esc(seriesData.plazasSentadas)}</strong></div>`:""}
          ${["112","121","453","464","730","801"].includes(normalizeFleetValue(series))?`
-         <div><span>Longitud</span><strong>${esc(seriesData.longitud||"—")}</strong></div>
-         <div><span>Peso</span><strong>${esc(seriesData.peso||"—")}</strong></div>
-         <div><span>Tensión</span><strong>${esc(seriesData.tension||"—")}</strong></div>
-         <div><span>Tracción</span><strong>${esc(seriesData.traccion||"—")}</strong></div>
-         <div><span>Señalización</span><strong>${esc(seriesData.señalizacion||"—")}</strong></div>
-         <div><span>Composición</span><strong>${esc(seriesData.composicion||"—")}</strong></div>
+         <div><span>Longitud</span><strong>${esc(tech.longitud||"—")}</strong></div>
+         <div><span>Peso</span><strong>${esc(tech.peso||"—")}</strong></div>
+         <div><span>Tensión</span><strong>${esc(tech.tension||"—")}</strong></div>
+         <div><span>Tracción</span><strong>${esc(tech.traccion||"—")}</strong></div>
+         <div><span>Señalización</span><strong>${esc(tech.señalizacion||"—")}</strong></div>
+         <div><span>Composición</span><strong>${esc(tech.composicion||"—")}</strong></div>
          ${normalizeFleetValue(series)==="453"?`
-         <div><span>Esfuerzo de tracción</span><strong>${esc(seriesData.esfuerzoTraccion||"—")}</strong></div>
-         <div><span>Frenos</span><strong>${esc(seriesData.frenos||"—")}</strong></div>
-         <div><span>Mando múltiple</span><strong>${esc(seriesData.mandoMultiple||"—")}</strong></div>
-         <div><span>Enganche</span><strong>${esc(seriesData.enganche||"—")}</strong></div>
-         <div><span>Rodaje</span><strong>${esc(seriesData.rodaje||"—")}</strong></div>`:""}`:""}
+         <div><span>Esfuerzo de tracción</span><strong>${esc(tech.esfuerzoTraccion||"—")}</strong></div>
+         <div><span>Frenos</span><strong>${esc(tech.frenos||"—")}</strong></div>
+         <div><span>Mando múltiple</span><strong>${esc(tech.mandoMultiple||"—")}</strong></div>
+         <div><span>Enganche</span><strong>${esc(tech.enganche||"—")}</strong></div>
+         <div><span>Rodaje</span><strong>${esc(tech.rodaje||"—")}</strong></div>`:""}`:""}
       </div>
     </div>`;
 
@@ -10774,7 +14263,8 @@ function fleetFichaHtml(series,vehicle,service=null){
     </div>`;
 
   // 4) Información general de la serie.
-  const general=Array.isArray(seriesData?.generalNotes)?seriesData.generalNotes.flat(Infinity).filter(Boolean):[];
+  const general=Array.isArray(unit.generalNotes)?unit.generalNotes.flat(Infinity).filter(Boolean):
+    (Array.isArray(seriesData?.generalNotes)?seriesData.generalNotes.flat(Infinity).filter(Boolean):[]);
   const generalBlock=general.length?`
     <div class="ficha-section ficha-general-section">
       <div class="ficha-section-title">INFORMACIÓN GENERAL DE LA SERIE ${esc(series)}</div>
