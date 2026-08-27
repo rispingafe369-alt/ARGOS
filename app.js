@@ -6053,12 +6053,10 @@ const fleet = {
   "generalNotes": [
     "Unidades CIVIA de cuatro coches, con dos coches motores extremos y dos remolques intermedios.",
     "PRIMER LOTE · CAF: ramas 001 a 006, preserie. Todas fueron posteriormente transformadas a la serie 465 mediante el añadido de un coche intermedio.",
-    "SEGUNDO LOTE · ALSTOM: subserie 200. Las tablas aportadas registran las ramas 201 a 231.",
     "La composición de la serie 464 es A1-A2-A3-A1. El remolque A3 dispone de piso bajo y facilita el acceso de personas con movilidad reducida.",
     "Ancho de vía: 1.668 mm. Alimentación: 3.000 V en corriente continua. Velocidad máxima comercial: 120 km/h.",
     "Longitud aproximada: 80,30 m. Masa: 131,5 t. Potencia nominal: 2.100 kW. Capacidad aproximada: 832 plazas, 223 sentadas.",
     "Las ramas 224 a 231 de las tablas proceden de la transformación de unidades de la serie 463 mediante el añadido del remolque intermedio correspondiente.",
-    "La rama 215 fue transformada posteriormente a la serie 465 como 465-268."
   ],
   "units": {
     "001": {
