@@ -5020,6 +5020,1677 @@ const fleet = {
       }
     }
   },
+  "449": {
+    "seriesName": "Serie 449",
+    "fabricante": "CAF",
+    "modelo": "EMU-5",
+    "apodo": "Besugo",
+    "anoPuestaServicio": "2009",
+    "tipoMaterial": "Media Distancia",
+    "numeroCoches": "5 coches · 2 coches motor + 3 remolques",
+    "anchoVia": "1668 mm",
+    "numeroRamas": 57,
+    "velocidadMaxima": "160 km/h (3 kV c.c.)",
+    "potencia": "2.400 kW",
+    "longitud": "98.970 mm",
+    "peso": "172 t en tara",
+    "tension": "3.000 V c.c.",
+    "traccion": "6 motores eléctricos asíncronos · 400 kW por motor",
+    "señalizacion": "ASFA Digital · GSM-R · Tren-Tierra",
+    "composicion": "A1-A4-A3-A5-A2",
+    "capacidad": "260 plazas sentadas + 1 PMR",
+    "plazasSentadas": "260 + 1 PMR",
+    "numeroUnidades": "57 automotores eléctricos",
+    "generalNotes": [
+      "Automotores eléctricos de Media Distancia fabricados por CAF para servicios regionales en líneas electrificadas.",
+      "La serie está formada por 57 unidades de cinco coches con bogies compartidos y mando múltiple, pudiendo acoplarse hasta tres unidades (15 coches).",
+      "La composición mínima es A1-A4-A3-A5-A2. El coche intermedio A3 dispone de piso bajo y está adaptado para personas con movilidad reducida.",
+      "La alimentación es de 3.000 V c.c. y el ancho de vía de 1.668 mm. Las unidades incorporaron preinstalación para una posible adaptación a ancho UIC.",
+      "La velocidad máxima es de 160 km/h y la potencia total instalada de tracción es de 2.400 kW, mediante seis motores eléctricos de 400 kW.",
+      "La unidad dispone de 260 plazas sentadas más una plaza PMR, en clase única, además de espacio para bicicletas y servicios adaptados.",
+      "El contrato original contempló 23 unidades exclusivamente de ancho ibérico y otras 34 preparadas para ancho UIC; finalmente las 57 unidades quedaron configuradas de forma homogénea para ancho ibérico.",
+      "La serie 449 es una adaptación para Media Distancia de la plataforma Civia y comparte elementos de diseño y motorización con ella."
+    ],
+    "units": {
+      "1": {
+        "rama": "01",
+        "vehiculoBase": "001",
+        "numero": "9-449-001-7",
+        "vehiculosRama": [
+          "9-449-001-7",
+          "6-449-701-2",
+          "6-449-001-7",
+          "6-449-501-6",
+          "9-449-501-6"
+        ],
+        "searchCodes": [
+          "001",
+          "701",
+          "001",
+          "501",
+          "501"
+        ],
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "14/07/2009",
+        "ano": 2008,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "En pruebas desde 29/09/08."
+        ]
+      },
+      "2": {
+        "rama": "02",
+        "vehiculoBase": "002",
+        "numero": "9-449-002-5",
+        "vehiculosRama": [
+          "9-449-002-5",
+          "6-449-702-0",
+          "6-449-002-5",
+          "6-449-502-4",
+          "9-449-502-4"
+        ],
+        "searchCodes": [
+          "002",
+          "702",
+          "002",
+          "502",
+          "502"
+        ],
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "16/07/2009",
+        "ano": 2008,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "En pruebas desde 10/08. Ex-León"
+        ]
+      },
+      "3": {
+        "rama": "03",
+        "vehiculoBase": "003",
+        "numero": "9-449-003-3",
+        "vehiculosRama": [
+          "9-449-003-3",
+          "6-449-703-8",
+          "6-449-003-3",
+          "6-449-503-2",
+          "9-449-503-2"
+        ],
+        "searchCodes": [
+          "003",
+          "703",
+          "003",
+          "503",
+          "503"
+        ],
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2008,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "En pruebas desde 20/04/09."
+        ]
+      },
+      "4": {
+        "rama": "04",
+        "vehiculoBase": "004",
+        "numero": "9-449-004-1",
+        "vehiculosRama": [
+          "9-449-004-1",
+          "6-449-704-6",
+          "6-449-004-1",
+          "6-449-504-0",
+          "9-449-504-0"
+        ],
+        "searchCodes": [
+          "004",
+          "704",
+          "004",
+          "504",
+          "504"
+        ],
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "14/07/2009",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "-"
+        ]
+      },
+      "5": {
+        "rama": "05",
+        "vehiculoBase": "005",
+        "numero": "9-449-005-8",
+        "vehiculosRama": [
+          "9-449-005-8",
+          "6-449-705-3",
+          "6-449-005-8",
+          "6-449-505-7",
+          "9-449-505-7"
+        ],
+        "searchCodes": [
+          "005",
+          "705",
+          "005",
+          "505",
+          "505"
+        ],
+        "deposito": "Sevilla",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "14/07/2009",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Ex-Fuencarral"
+        ]
+      },
+      "6": {
+        "rama": "06",
+        "vehiculoBase": "006",
+        "numero": "9-449-006-6",
+        "vehiculosRama": [
+          "9-449-006-6",
+          "6-449-706-1",
+          "6-449-006-6",
+          "6-449-506-5",
+          "9-449-506-5"
+        ],
+        "searchCodes": [
+          "006",
+          "706",
+          "006",
+          "506",
+          "506"
+        ],
+        "deposito": "León",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "16/07/2009",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Logos 75 años Renfe."
+        ]
+      },
+      "7": {
+        "rama": "07",
+        "vehiculoBase": "007",
+        "numero": "9-449-007-4",
+        "vehiculosRama": [
+          "9-449-007-4",
+          "6-449-707-9",
+          "6-449-007-4",
+          "6-449-507-3",
+          "9-449-507-3"
+        ],
+        "searchCodes": [
+          "007",
+          "707",
+          "007",
+          "507",
+          "507"
+        ],
+        "deposito": "Sevilla",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "-"
+        ]
+      },
+      "8": {
+        "rama": "08",
+        "vehiculoBase": "008",
+        "numero": "9-449-008-2",
+        "vehiculosRama": [
+          "9-449-008-2",
+          "6-449-708-7",
+          "6-449-008-2",
+          "6-449-508-1",
+          "9-449-508-1"
+        ],
+        "searchCodes": [
+          "008",
+          "708",
+          "008",
+          "508",
+          "508"
+        ],
+        "deposito": "Sevilla",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Ex-Fuencarral"
+        ]
+      },
+      "9": {
+        "rama": "09",
+        "vehiculoBase": "009",
+        "numero": "9-449-009-0",
+        "vehiculosRama": [
+          "9-449-009-0",
+          "6-449-709-5",
+          "6-449-009-0",
+          "6-449-509-9",
+          "9-449-509-9"
+        ],
+        "searchCodes": [
+          "009",
+          "709",
+          "009",
+          "509",
+          "509"
+        ],
+        "deposito": "León",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "16/07/2009",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "1ª Unidad en hacer el trayecto Vigo-León"
+        ]
+      },
+      "10": {
+        "rama": "10",
+        "vehiculoBase": "010",
+        "numero": "9-449-010-8",
+        "vehiculosRama": [
+          "9-449-010-8",
+          "6-449-710-3",
+          "6-449-010-8",
+          "6-449-510-7",
+          "9-449-510-7"
+        ],
+        "searchCodes": [
+          "010",
+          "710",
+          "010",
+          "510",
+          "510"
+        ],
+        "deposito": "Sevilla",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "-"
+        ]
+      },
+      "11": {
+        "rama": "11",
+        "vehiculoBase": "011",
+        "numero": "9-449-011-6",
+        "vehiculosRama": [
+          "9-449-011-6",
+          "6-449-711-1",
+          "6-449-011-6",
+          "6-449-511-5",
+          "9-449-511-5"
+        ],
+        "searchCodes": [
+          "011",
+          "711",
+          "011",
+          "511",
+          "511"
+        ],
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "14/07/2009",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "-"
+        ]
+      },
+      "12": {
+        "rama": "12",
+        "vehiculoBase": "012",
+        "numero": "9-449-012-4",
+        "vehiculosRama": [
+          "9-449-012-4",
+          "6-449-712-9",
+          "6-449-012-4",
+          "6-449-512-3",
+          "9-449-512-3"
+        ],
+        "searchCodes": [
+          "012",
+          "712",
+          "012",
+          "512",
+          "512"
+        ],
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "14/07/2009",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Ex-Fuencarral>>Valencia"
+        ]
+      },
+      "13": {
+        "rama": "13",
+        "vehiculoBase": "013",
+        "numero": "9-449-013-2",
+        "vehiculosRama": [
+          "9-449-013-2",
+          "6-449-713-7",
+          "6-449-013-2",
+          "6-449-513-1",
+          "9-449-513-1"
+        ],
+        "searchCodes": [
+          "013",
+          "713",
+          "013",
+          "513",
+          "513"
+        ],
+        "deposito": "Sevilla",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Logos Junta Andalucía."
+        ]
+      },
+      "14": {
+        "rama": "14",
+        "vehiculoBase": "014",
+        "numero": "9-449-014-0",
+        "vehiculosRama": [
+          "9-449-014-0",
+          "6-449-714-5",
+          "6-449-014-0",
+          "6-449-514-9",
+          "9-449-514-9"
+        ],
+        "searchCodes": [
+          "014",
+          "714",
+          "014",
+          "514",
+          "514"
+        ],
+        "deposito": "BCN-SAC",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "14/07/2009",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": []
+      },
+      "15": {
+        "rama": "15",
+        "vehiculoBase": "015",
+        "numero": "9-449-015-7",
+        "vehiculosRama": [
+          "9-449-015-7",
+          "6-449-715-2",
+          "6-449-015-7",
+          "6-449-515-6",
+          "9-449-515-6"
+        ],
+        "searchCodes": [
+          "015",
+          "715",
+          "015",
+          "515",
+          "515"
+        ],
+        "deposito": "Sevilla",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "-"
+        ]
+      },
+      "16": {
+        "rama": "16",
+        "vehiculoBase": "016",
+        "numero": "9-449-016-5",
+        "vehiculosRama": [
+          "9-449-016-5",
+          "6-449-716-0",
+          "6-449-016-5",
+          "6-449-516-4",
+          "9-449-516-4"
+        ],
+        "searchCodes": [
+          "016",
+          "716",
+          "016",
+          "516",
+          "516"
+        ],
+        "deposito": "BCN-SAC",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Ex-Sevilla>> Barcelona 10/09."
+        ]
+      },
+      "17": {
+        "rama": "17",
+        "vehiculoBase": "017",
+        "numero": "9-449-017-3",
+        "vehiculosRama": [
+          "9-449-017-3",
+          "6-449-717-8",
+          "6-449-017-3",
+          "6-449-517-2",
+          "9-449-517-2"
+        ],
+        "searchCodes": [
+          "017",
+          "717",
+          "017",
+          "517",
+          "517"
+        ],
+        "deposito": "León",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "14/07/2009",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Logos Junta Andalucía. Ex-Sevilla>>Fuencarral 07/13"
+        ]
+      },
+      "18": {
+        "rama": "18",
+        "vehiculoBase": "018",
+        "numero": "9-449-018-1",
+        "vehiculosRama": [
+          "9-449-018-1",
+          "6-449-718-6",
+          "6-449-018-1",
+          "6-449-518-0",
+          "9-449-518-0"
+        ],
+        "searchCodes": [
+          "018",
+          "718",
+          "018",
+          "518",
+          "518"
+        ],
+        "deposito": "BCN-SAC",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "28/10/2009",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "-"
+        ]
+      },
+      "19": {
+        "rama": "19",
+        "vehiculoBase": "019",
+        "numero": "9-449-019-9",
+        "vehiculosRama": [
+          "9-449-019-9",
+          "6-449-719-4",
+          "6-449-019-9",
+          "6-449-519-8",
+          "9-449-519-8"
+        ],
+        "searchCodes": [
+          "019",
+          "719",
+          "019",
+          "519",
+          "519"
+        ],
+        "deposito": "Sevilla",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Apartada taller Humanes por accidente>> En servicio."
+        ]
+      },
+      "20": {
+        "rama": "20",
+        "vehiculoBase": "020",
+        "numero": "9-449-020-7",
+        "vehiculosRama": [
+          "9-449-020-7",
+          "6-449-720-2",
+          "6-449-020-7",
+          "6-449-520-6",
+          "9-449-520-6"
+        ],
+        "searchCodes": [
+          "020",
+          "720",
+          "020",
+          "520",
+          "520"
+        ],
+        "deposito": "BCN-SAC",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "-"
+        ]
+      },
+      "21": {
+        "rama": "21",
+        "vehiculoBase": "021",
+        "numero": "9-449-021-5",
+        "vehiculosRama": [
+          "9-449-021-5",
+          "6-449-721-0",
+          "6-449-021-5",
+          "6-449-521-4",
+          "9-449-521-4"
+        ],
+        "searchCodes": [
+          "021",
+          "721",
+          "021",
+          "521",
+          "521"
+        ],
+        "deposito": "Sevilla",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "-"
+        ]
+      },
+      "22": {
+        "rama": "22",
+        "vehiculoBase": "022",
+        "numero": "9-449-022-3",
+        "vehiculosRama": [
+          "9-449-022-3",
+          "6-449-722-8",
+          "6-449-022-3",
+          "6-449-522-2",
+          "9-449-522-2"
+        ],
+        "searchCodes": [
+          "022",
+          "722",
+          "022",
+          "522",
+          "522"
+        ],
+        "deposito": "BCN-SAC",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "28/10/2009",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Descarrilo haciendo maniobras en Barcelona-SAC (19/02/17)"
+        ]
+      },
+      "23": {
+        "rama": "23",
+        "vehiculoBase": "023",
+        "numero": "9-449-023-1",
+        "vehiculosRama": [
+          "9-449-023-1",
+          "6-449-723-6",
+          "6-449-023-1",
+          "6-449-523-0",
+          "9-449-523-0"
+        ],
+        "searchCodes": [
+          "023",
+          "723",
+          "023",
+          "523",
+          "523"
+        ],
+        "deposito": "BCN-SAC",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Logos 75 años Renfe."
+        ]
+      },
+      "24": {
+        "rama": "24",
+        "vehiculoBase": "024",
+        "numero": "9-449-024-9",
+        "vehiculosRama": [
+          "9-449-024-9",
+          "6-449-724-4",
+          "6-449-024-9",
+          "6-449-524-8",
+          "9-449-524-8"
+        ],
+        "searchCodes": [
+          "024",
+          "724",
+          "024",
+          "524",
+          "524"
+        ],
+        "deposito": "BCN-SAC",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": []
+      },
+      "25": {
+        "rama": "25",
+        "vehiculoBase": "025",
+        "numero": "9-449-025-6",
+        "vehiculosRama": [
+          "9-449-025-6",
+          "6-449-725-1",
+          "6-449-025-6",
+          "6-449-525-5",
+          "9-449-525-5"
+        ],
+        "searchCodes": [
+          "025",
+          "725",
+          "025",
+          "525",
+          "525"
+        ],
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Accidente en PN entre Bolaños y Almagro (Ciudad Real), 16/11/17. Apartado Fuencarral>> En servicio 12/18."
+        ]
+      },
+      "26": {
+        "rama": "26",
+        "vehiculoBase": "026",
+        "numero": "9-449-026-4",
+        "vehiculosRama": [
+          "9-449-026-4",
+          "6-449-726-9",
+          "6-449-026-4",
+          "6-449-526-3",
+          "9-449-526-3"
+        ],
+        "searchCodes": [
+          "026",
+          "726",
+          "026",
+          "526",
+          "526"
+        ],
+        "deposito": "BCN-SAC",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "-"
+        ]
+      },
+      "27": {
+        "rama": "27",
+        "vehiculoBase": "027",
+        "numero": "9-449-027-2",
+        "vehiculosRama": [
+          "9-449-027-2",
+          "6-449-727-7",
+          "6-449-027-2",
+          "6-449-527-1",
+          "9-449-527-1"
+        ],
+        "searchCodes": [
+          "027",
+          "727",
+          "027",
+          "527",
+          "527"
+        ],
+        "deposito": "BCN-SAC",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "-"
+        ]
+      },
+      "28": {
+        "rama": "28",
+        "vehiculoBase": "028",
+        "numero": "9-449-028-0",
+        "vehiculosRama": [
+          "9-449-028-0",
+          "6-449-728-5",
+          "6-449-028-0",
+          "6-449-528-9",
+          "9-449-528-9"
+        ],
+        "searchCodes": [
+          "028",
+          "728",
+          "028",
+          "528",
+          "528"
+        ],
+        "deposito": "BCN-SAC",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Ex-BCN SAC>> Valencia, desde 05/13>>>Bcn SAC."
+        ]
+      },
+      "29": {
+        "rama": "29",
+        "vehiculoBase": "029",
+        "numero": "9-449-029-8",
+        "vehiculosRama": [
+          "9-449-029-8",
+          "6-449-729-3",
+          "6-449-029-8",
+          "6-449-529-7",
+          "9-449-529-7"
+        ],
+        "searchCodes": [
+          "029",
+          "729",
+          "029",
+          "529",
+          "529"
+        ],
+        "deposito": "BCN-SAC",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Nuevo tapizado de asientos con piel sintética (2022)"
+        ]
+      },
+      "30": {
+        "rama": "30",
+        "vehiculoBase": "030",
+        "numero": "9-449-030-6",
+        "vehiculosRama": [
+          "9-449-030-6",
+          "6-449-730-1",
+          "6-449-030-6",
+          "6-449-530-5",
+          "9-449-530-5"
+        ],
+        "searchCodes": [
+          "030",
+          "730",
+          "030",
+          "530",
+          "530"
+        ],
+        "deposito": "BCN-SAC",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Ex-BCN SAC>> Valencia, desde 05/13. Logos 75 años Renfe.>> BCN-SAC."
+        ]
+      },
+      "31": {
+        "rama": "31",
+        "vehiculoBase": "031",
+        "numero": "9-449-031-4",
+        "vehiculosRama": [
+          "9-449-031-4",
+          "6-449-731-9",
+          "6-449-031-4",
+          "6-449-531-3",
+          "9-449-531-3"
+        ],
+        "searchCodes": [
+          "031",
+          "731",
+          "031",
+          "531",
+          "531"
+        ],
+        "deposito": "BCN-SAC",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Logos 75 años Renfe."
+        ]
+      },
+      "32": {
+        "rama": "32",
+        "vehiculoBase": "032",
+        "numero": "9-449-032-2",
+        "vehiculosRama": [
+          "9-449-032-2",
+          "6-449-732-7",
+          "6-449-032-2",
+          "6-449-532-1",
+          "9-449-532-1"
+        ],
+        "searchCodes": [
+          "032",
+          "732",
+          "032",
+          "532",
+          "532"
+        ],
+        "deposito": "BCN-SAC",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "-"
+        ]
+      },
+      "33": {
+        "rama": "33",
+        "vehiculoBase": "033",
+        "numero": "9-449-033-0",
+        "vehiculosRama": [
+          "9-449-033-0",
+          "6-449-733-5",
+          "6-449-033-0",
+          "6-449-533-9",
+          "9-449-533-9"
+        ],
+        "searchCodes": [
+          "033",
+          "733",
+          "033",
+          "533",
+          "533"
+        ],
+        "deposito": "BCN-SAC",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": []
+      },
+      "34": {
+        "rama": "34",
+        "vehiculoBase": "034",
+        "numero": "9-449-034-8",
+        "vehiculosRama": [
+          "9-449-034-8",
+          "6-449-734-3",
+          "6-449-034-8",
+          "6-449-534-7",
+          "9-449-534-7"
+        ],
+        "searchCodes": [
+          "034",
+          "734",
+          "034",
+          "534",
+          "534"
+        ],
+        "deposito": "BCN-SAC",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": []
+      },
+      "35": {
+        "rama": "35",
+        "vehiculoBase": "035",
+        "numero": "9-449-035-5",
+        "vehiculosRama": [
+          "9-449-035-5",
+          "6-449-735-0",
+          "6-449-035-5",
+          "6-449-535-4",
+          "9-449-535-4"
+        ],
+        "searchCodes": [
+          "035",
+          "735",
+          "035",
+          "535",
+          "535"
+        ],
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": []
+      },
+      "36": {
+        "rama": "36",
+        "vehiculoBase": "036",
+        "numero": "9-449-036-3",
+        "vehiculosRama": [
+          "9-449-036-3",
+          "6-449-736-8",
+          "6-449-036-3",
+          "6-449-536-2",
+          "9-449-536-2"
+        ],
+        "searchCodes": [
+          "036",
+          "736",
+          "036",
+          "536",
+          "536"
+        ],
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Ex-BCN-SAC"
+        ]
+      },
+      "37": {
+        "rama": "37",
+        "vehiculoBase": "037",
+        "numero": "9-449-037-1",
+        "vehiculosRama": [
+          "9-449-037-1",
+          "6-449-737-6",
+          "6-449-037-1",
+          "6-449-537-0",
+          "9-449-537-0"
+        ],
+        "searchCodes": [
+          "037",
+          "737",
+          "037",
+          "537",
+          "537"
+        ],
+        "deposito": "León",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Logos Junta Andalucía>>Sin logos. Ex-Sevilla>>Fuencarral. Descarrilo Robledo Chavela tras tormenta, 17/09/20"
+        ]
+      },
+      "38": {
+        "rama": "38",
+        "vehiculoBase": "038",
+        "numero": "9-449-038-9",
+        "vehiculosRama": [
+          "9-449-038-9",
+          "6-449-738-4",
+          "6-449-038-9",
+          "6-449-538-8",
+          "9-449-538-8"
+        ],
+        "searchCodes": [
+          "038",
+          "738",
+          "038",
+          "538",
+          "538"
+        ],
+        "deposito": "BCN-SAC",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "-"
+        ]
+      },
+      "39": {
+        "rama": "39",
+        "vehiculoBase": "039",
+        "numero": "9-449-039-7",
+        "vehiculosRama": [
+          "9-449-039-7",
+          "6-449-739-2",
+          "6-449-039-7",
+          "6-449-539-6",
+          "9-449-539-6"
+        ],
+        "searchCodes": [
+          "039",
+          "739",
+          "039",
+          "539",
+          "539"
+        ],
+        "deposito": "León",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Arrollamiento de árboles entre Zegama y Alsasua, 13/02/17. Visto coche 449-039-7 en 449.041 en sustitución de coche 449-041-3, 07/06/18. Ex-Fuencarral."
+        ]
+      },
+      "40": {
+        "rama": "40",
+        "vehiculoBase": "040",
+        "numero": "9-449-040-5",
+        "vehiculosRama": [
+          "9-449-040-5",
+          "6-449-740-0",
+          "6-449-040-5",
+          "6-449-540-4",
+          "9-449-540-4"
+        ],
+        "searchCodes": [
+          "040",
+          "740",
+          "040",
+          "540",
+          "540"
+        ],
+        "deposito": "BCN-SAC",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "-"
+        ]
+      },
+      "41": {
+        "rama": "41",
+        "vehiculoBase": "041",
+        "numero": "9-449-041-3",
+        "vehiculosRama": [
+          "9-449-041-3",
+          "6-449-741-8",
+          "6-449-041-3",
+          "6-449-541-2",
+          "9-449-541-2"
+        ],
+        "searchCodes": [
+          "041",
+          "741",
+          "041",
+          "541",
+          "541"
+        ],
+        "deposito": "Sevilla",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Visto coche 449-039-7 en sustitución de coche 449-041-3, 07/06/18. Arrollamiento Sanchidrian 19/10/17. Apartada Fuencarral. De nuevo en servicio, 09/20."
+        ]
+      },
+      "42": {
+        "rama": "42",
+        "vehiculoBase": "042",
+        "numero": "9-449-042-1",
+        "vehiculosRama": [
+          "9-449-042-1",
+          "6-449-742-6",
+          "6-449-042-1",
+          "6-449-542-0",
+          "9-449-542-0"
+        ],
+        "searchCodes": [
+          "042",
+          "742",
+          "042",
+          "542",
+          "542"
+        ],
+        "deposito": "BCN-SAC",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "-"
+        ]
+      },
+      "43": {
+        "rama": "43",
+        "vehiculoBase": "043",
+        "numero": "9-449-043-9",
+        "vehiculosRama": [
+          "9-449-043-9",
+          "6-449-743-4",
+          "6-449-043-9",
+          "6-449-543-8",
+          "9-449-543-8"
+        ],
+        "searchCodes": [
+          "043",
+          "743",
+          "043",
+          "543",
+          "543"
+        ],
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Ex-Sevilla. Apartada Sta. Justa desde 28/08/23 para reparación por colisión>> Traslado a Fuencarral>> En servicio 05/24."
+        ]
+      },
+      "44": {
+        "rama": "44",
+        "vehiculoBase": "044",
+        "numero": "9-449-044-7",
+        "vehiculosRama": [
+          "9-449-044-7",
+          "6-449-744-2",
+          "6-449-044-7",
+          "6-449-544-6",
+          "9-449-544-6"
+        ],
+        "searchCodes": [
+          "044",
+          "744",
+          "044",
+          "544",
+          "544"
+        ],
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Logos Junta Andalucía>>Sin logos.>>Ex-Sevilla>>Madrid desde 14/12/23"
+        ]
+      },
+      "45": {
+        "rama": "45",
+        "vehiculoBase": "045",
+        "numero": "9-449-045-4",
+        "vehiculosRama": [
+          "9-449-045-4",
+          "6-449-745-9",
+          "6-449-045-4",
+          "6-449-545-3",
+          "9-449-545-3"
+        ],
+        "searchCodes": [
+          "045",
+          "745",
+          "045",
+          "545",
+          "545"
+        ],
+        "deposito": "Sevilla",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Ex-León"
+        ]
+      },
+      "46": {
+        "rama": "46",
+        "vehiculoBase": "046",
+        "numero": "9-449-046-2",
+        "vehiculosRama": [
+          "9-449-046-2",
+          "6-449-746-7",
+          "6-449-046-2",
+          "6-449-546-1",
+          "9-449-546-1"
+        ],
+        "searchCodes": [
+          "046",
+          "746",
+          "046",
+          "546",
+          "546"
+        ],
+        "deposito": "León",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Ex-Fuencarral"
+        ]
+      },
+      "47": {
+        "rama": "47",
+        "vehiculoBase": "047",
+        "numero": "9-449-047-0",
+        "vehiculosRama": [
+          "9-449-047-0",
+          "6-449-747-5",
+          "6-449-047-0",
+          "6-449-547-9",
+          "9-449-547-9"
+        ],
+        "searchCodes": [
+          "047",
+          "747",
+          "047",
+          "547",
+          "547"
+        ],
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "-"
+        ]
+      },
+      "48": {
+        "rama": "48",
+        "vehiculoBase": "048",
+        "numero": "9-449-048-8",
+        "vehiculosRama": [
+          "9-449-048-8",
+          "6-449-748-3",
+          "6-449-048-8",
+          "6-449-548-7",
+          "9-449-548-7"
+        ],
+        "searchCodes": [
+          "048",
+          "748",
+          "048",
+          "548",
+          "548"
+        ],
+        "deposito": "Sevilla",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Logos Junta Andalucía. Ex-Sevilla>>Fuencarral 07/13>>Sevilla"
+        ]
+      },
+      "49": {
+        "rama": "49",
+        "vehiculoBase": "049",
+        "numero": "9-449-049-6",
+        "vehiculosRama": [
+          "9-449-049-6",
+          "6-449-749-1",
+          "6-449-049-6",
+          "6-449-549-5",
+          "9-449-549-5"
+        ],
+        "searchCodes": [
+          "049",
+          "749",
+          "049",
+          "549",
+          "549"
+        ],
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": []
+      },
+      "50": {
+        "rama": "50",
+        "vehiculoBase": "050",
+        "numero": "9-449-050-4",
+        "vehiculosRama": [
+          "9-449-050-4",
+          "6-449-750-9",
+          "6-449-050-4",
+          "6-449-550-3",
+          "9-449-550-3"
+        ],
+        "searchCodes": [
+          "050",
+          "750",
+          "050",
+          "550",
+          "550"
+        ],
+        "deposito": "Sevilla",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Ex-Sevilla>> Fuencarral>> Sevilla"
+        ]
+      },
+      "51": {
+        "rama": "51",
+        "vehiculoBase": "051",
+        "numero": "9-449-051-2",
+        "vehiculosRama": [
+          "9-449-051-2",
+          "6-449-751-7",
+          "6-449-051-2",
+          "6-449-551-1",
+          "9-449-551-1"
+        ],
+        "searchCodes": [
+          "051",
+          "751",
+          "051",
+          "551",
+          "551"
+        ],
+        "deposito": "León",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Ex-León>>Fuencarral"
+        ]
+      },
+      "52": {
+        "rama": "52",
+        "vehiculoBase": "052",
+        "numero": "9-449-052-0",
+        "vehiculosRama": [
+          "9-449-052-0",
+          "6-449-752-5",
+          "6-449-052-0",
+          "6-449-552-9",
+          "9-449-552-9"
+        ],
+        "searchCodes": [
+          "052",
+          "752",
+          "052",
+          "552",
+          "552"
+        ],
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Ex-Fuencarral>>BCN-SAC"
+        ]
+      },
+      "53": {
+        "rama": "53",
+        "vehiculoBase": "053",
+        "numero": "9-449-053-8",
+        "vehiculosRama": [
+          "9-449-053-8",
+          "6-449-753-3",
+          "6-449-053-8",
+          "6-449-553-7",
+          "9-449-553-7"
+        ],
+        "searchCodes": [
+          "053",
+          "753",
+          "053",
+          "553",
+          "553"
+        ],
+        "deposito": "Sevilla",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Logos 75 años Renfe."
+        ]
+      },
+      "54": {
+        "rama": "54",
+        "vehiculoBase": "054",
+        "numero": "9-449-054-6",
+        "vehiculosRama": [
+          "9-449-054-6",
+          "6-449-754-1",
+          "6-449-054-6",
+          "6-449-554-5",
+          "9-449-554-5"
+        ],
+        "searchCodes": [
+          "054",
+          "754",
+          "054",
+          "554",
+          "554"
+        ],
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": []
+      },
+      "55": {
+        "rama": "55",
+        "vehiculoBase": "055",
+        "numero": "9-449-055-3",
+        "vehiculosRama": [
+          "9-449-055-3",
+          "6-449-755-8",
+          "6-449-055-3",
+          "6-449-555-2",
+          "9-449-555-2"
+        ],
+        "searchCodes": [
+          "055",
+          "755",
+          "055",
+          "555",
+          "555"
+        ],
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "Descarrilo por inundación entre La Encina-Almansa 12/06/24."
+        ]
+      },
+      "56": {
+        "rama": "56",
+        "vehiculoBase": "056",
+        "numero": "9-449-056-1",
+        "vehiculosRama": [
+          "9-449-056-1",
+          "6-449-756-6",
+          "6-449-056-1",
+          "6-449-556-0",
+          "9-449-556-0"
+        ],
+        "searchCodes": [
+          "056",
+          "756",
+          "056",
+          "556",
+          "556"
+        ],
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": [
+          "-"
+        ]
+      },
+      "57": {
+        "rama": "57",
+        "vehiculoBase": "057",
+        "numero": "9-449-057-9",
+        "vehiculosRama": [
+          "9-449-057-9",
+          "6-449-757-4",
+          "6-449-057-9",
+          "6-449-557-8",
+          "9-449-557-8"
+        ],
+        "searchCodes": [
+          "057",
+          "757",
+          "057",
+          "557",
+          "557"
+        ],
+        "deposito": "Fuencarral",
+        "color": "Blanco",
+        "estado": "En servicio",
+        "puestaServicio": "",
+        "ano": 2009,
+        "ancho": "1668",
+        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
+        "notas": []
+      }
+    }
+  }
 };
 
 // Datos técnicos comunes de la serie 100. Los datos específicos de cada rama pueden sobrescribirlos.
@@ -5188,6 +6859,26 @@ function getFleetUnit(series, vehicle){
     const canonicalVehicle=idx>=0 ? base.vehiculosRama[idx] : base.numero;
     const matchedEx=(base.exNumeros||{})[code] || base.exNumero || "";
     return {...base,numero:canonicalVehicle,vehiculoBase:code,vehiculoIntroducido:raw,vehiculoBuscado:code,exNumero:matchedEx,notas:(base.notasPorVehiculo||{})[code]?[ (base.notasPorVehiculo||{})[code] ]:(base.notas||[]),cocheTipo:"Vehículo Talgo 730"};
+  }
+
+  // Serie 449: cada rama se identifica por cualquiera de sus cinco vehículos.
+  // Se acepta el código corto (001, 701, 501...), la matrícula 449-XXX-X
+  // y la matrícula completa Renfe.
+  if(s==="449"){
+    const raw=String(vehicle??"").trim();
+    const matriculaMatch=raw.match(/(?:^|-)449-(\d{3})(?:-|$)/i);
+    let code=matriculaMatch ? matriculaMatch[1] : v;
+    if(!matriculaMatch && /^449\d{3}$/.test(v)) code=v.slice(-3);
+    code=String(code).padStart(3,"0");
+    let base=null;
+    for(const candidate of Object.values(seriesData.units||{})){
+      if((candidate.searchCodes||[]).includes(code)){ base=candidate; break; }
+    }
+    if(!base) return null;
+    const idx=(base.searchCodes||[]).indexOf(code);
+    const canonicalVehicle=idx>=0 ? base.vehiculosRama[idx] : base.numero;
+    const tipos=["Coche motor A1","Remolque A4","Remolque A3 (piso bajo)","Remolque A5","Coche motor A2"];
+    return {...base,numero:canonicalVehicle,vehiculoBase:code,vehiculoIntroducido:raw,vehiculoBuscado:code,cocheTipo:tipos[idx]||"Vehículo Serie 449"};
   }
 
   // Serie 130: las dos cabezas tractoras de cada rama identifican la composición.
