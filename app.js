@@ -9122,10 +9122,10 @@ const fleet = {
     "tension": "3.000 V cc",
     "traccion": "8 motores de tracción · 500 kW por motor",
     "señalizacion": "ASFA Digital · ERTMS N1/2 · PUC (GSM-R y Tren-Tierra)",
-    "composicion": "Mc-R-R-Mc",
+    "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mc",
     "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
     "plazasSentadas": "252",
-    "capacidad": "912 plazas (252 sentadas + 675 de pie)",
+    "capacidad": "912 plazas (252 sentadas + 660 de pie)",
     "frenos": "Eléctrico reostático y regenerativo · neumático",
     "mandoMultiple": "3 unidades máximo",
     "enganche": "Scharfenberg",
@@ -9157,11 +9157,11 @@ const fleet = {
                   "3001",
                   "2001"
             ],
-            "deposito": "",
+            "deposito": "Fuencarral",
             "color": "Cercanías",
             "estado": "En pruebas",
             "ano": "",
-            "fechaAlta": "",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9188,7 +9188,7 @@ const fleet = {
             "color": "Cercanías",
             "estado": "En pruebas",
             "ano": 2026,
-            "fechaAlta": "25/08/2026",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9215,7 +9215,7 @@ const fleet = {
             "color": "Cercanías",
             "estado": "En servicio",
             "ano": "",
-            "fechaAlta": "24/08/2026",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9238,11 +9238,11 @@ const fleet = {
                   "3007",
                   "2004"
             ],
-            "deposito": "",
+            "deposito": "Fuencarral",
             "color": "Cercanías",
             "estado": "En pruebas",
             "ano": "",
-            "fechaAlta": "",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9265,11 +9265,11 @@ const fleet = {
                   "3009",
                   "2005"
             ],
-            "deposito": "",
+            "deposito": "Fuencarral",
             "color": "",
             "estado": "En construcción",
             "ano": "",
-            "fechaAlta": "",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9292,11 +9292,11 @@ const fleet = {
                   "3011",
                   "2006"
             ],
-            "deposito": "",
+            "deposito": "Fuencarral",
             "color": "",
             "estado": "En construcción",
             "ano": "",
-            "fechaAlta": "",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9319,11 +9319,11 @@ const fleet = {
                   "3013",
                   "2007"
             ],
-            "deposito": "",
+            "deposito": "Fuencarral",
             "color": "",
             "estado": "En construcción",
             "ano": "",
-            "fechaAlta": "",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9346,11 +9346,11 @@ const fleet = {
                   "3015",
                   "2008"
             ],
-            "deposito": "",
+            "deposito": "Fuencarral",
             "color": "",
             "estado": "En construcción",
             "ano": "",
-            "fechaAlta": "",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9373,11 +9373,11 @@ const fleet = {
                   "3017",
                   "2009"
             ],
-            "deposito": "",
+            "deposito": "Fuencarral",
             "color": "",
             "estado": "En construcción",
             "ano": "",
-            "fechaAlta": "",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9400,11 +9400,11 @@ const fleet = {
                   "3019",
                   "2010"
             ],
-            "deposito": "",
+            "deposito": "Fuencarral",
             "color": "",
             "estado": "En construcción",
             "ano": "",
-            "fechaAlta": "",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9427,11 +9427,11 @@ const fleet = {
                   "3021",
                   "2011"
             ],
-            "deposito": "",
+            "deposito": "Fuencarral",
             "color": "",
             "estado": "En construcción",
             "ano": "",
-            "fechaAlta": "",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9454,11 +9454,11 @@ const fleet = {
                   "3023",
                   "2012"
             ],
-            "deposito": "",
+            "deposito": "Fuencarral",
             "color": "",
             "estado": "En construcción",
             "ano": "",
-            "fechaAlta": "",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9481,11 +9481,11 @@ const fleet = {
                   "3025",
                   "2013"
             ],
-            "deposito": "",
+            "deposito": "Fuencarral",
             "color": "",
             "estado": "En construcción",
             "ano": "",
-            "fechaAlta": "",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9508,11 +9508,11 @@ const fleet = {
                   "3027",
                   "2014"
             ],
-            "deposito": "",
+            "deposito": "Fuencarral",
             "color": "",
             "estado": "En construcción",
             "ano": "",
-            "fechaAlta": "",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9535,11 +9535,11 @@ const fleet = {
                   "3029",
                   "2015"
             ],
-            "deposito": "",
+            "deposito": "Fuencarral",
             "color": "",
             "estado": "En construcción",
             "ano": "",
-            "fechaAlta": "",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9562,11 +9562,11 @@ const fleet = {
                   "3031",
                   "2016"
             ],
-            "deposito": "",
+            "deposito": "Fuencarral",
             "color": "",
             "estado": "En construcción",
             "ano": "",
-            "fechaAlta": "",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9589,11 +9589,11 @@ const fleet = {
                   "3033",
                   "2017"
             ],
-            "deposito": "",
+            "deposito": "Fuencarral",
             "color": "",
             "estado": "En construcción",
             "ano": "",
-            "fechaAlta": "",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9616,11 +9616,11 @@ const fleet = {
                   "3035",
                   "2018"
             ],
-            "deposito": "",
+            "deposito": "Fuencarral",
             "color": "",
             "estado": "En construcción",
             "ano": "",
-            "fechaAlta": "",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9643,11 +9643,11 @@ const fleet = {
                   "3037",
                   "2019"
             ],
-            "deposito": "",
+            "deposito": "Fuencarral",
             "color": "",
             "estado": "En construcción",
             "ano": "",
-            "fechaAlta": "",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9670,11 +9670,11 @@ const fleet = {
                   "3039",
                   "2020"
             ],
-            "deposito": "",
+            "deposito": "Fuencarral",
             "color": "",
             "estado": "En construcción",
             "ano": "",
-            "fechaAlta": "",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9697,11 +9697,11 @@ const fleet = {
                   "3041",
                   "2021"
             ],
-            "deposito": "",
+            "deposito": "Fuencarral",
             "color": "",
             "estado": "En construcción",
             "ano": "",
-            "fechaAlta": "",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9724,11 +9724,11 @@ const fleet = {
                   "3043",
                   "2022"
             ],
-            "deposito": "",
+            "deposito": "Fuencarral",
             "color": "",
             "estado": "En construcción",
             "ano": "",
-            "fechaAlta": "",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9751,11 +9751,11 @@ const fleet = {
                   "3045",
                   "2023"
             ],
-            "deposito": "",
+            "deposito": "Fuencarral",
             "color": "",
             "estado": "En construcción",
             "ano": "",
-            "fechaAlta": "",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9778,11 +9778,11 @@ const fleet = {
                   "3047",
                   "2024"
             ],
-            "deposito": "",
+            "deposito": "Fuencarral",
             "color": "",
             "estado": "En construcción",
             "ano": "",
-            "fechaAlta": "",
+            "fechaAlta": "2026",
             "ancho": "1668",
             "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor cabina par",
             "notas": [
@@ -9797,6 +9797,12 @@ const fleet = {
         "numero": "1-453-601-6",
         "vehiculosRama": [
           "1-453-601-6",
+          "3-453-601-2",
+          "3-453-602-3",
+          "4-453-601-0",
+          "4-453-602-8",
+          "3-453-603-8",
+          "3-453-604-6",
           "2-453-601-4"
         ],
         "searchCodes": [
@@ -9804,11 +9810,11 @@ const fleet = {
           "1601",
           "2601"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En pruebas",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -9860,6 +9866,12 @@ const fleet = {
         "numero": "1-453-602-4",
         "vehiculosRama": [
           "1-453-602-4",
+          "3-453-602-0",
+          "3-453-603-8",
+          "4-453-602-8",
+          "4-453-603-6",
+          "3-453-604-6",
+          "3-453-605-3",
           "2-453-602-2"
         ],
         "searchCodes": [
@@ -9867,11 +9879,11 @@ const fleet = {
           "1602",
           "2602"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En pruebas",
         "ano": 2025,
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -9923,6 +9935,12 @@ const fleet = {
         "numero": "1-453-603-2",
         "vehiculosRama": [
           "1-453-603-2",
+          "3-453-603-8",
+          "3-453-604-6",
+          "4-453-603-6",
+          "4-453-604-4",
+          "3-453-605-3",
+          "3-453-606-1",
           "2-453-603-0"
         ],
         "searchCodes": [
@@ -9934,7 +9952,7 @@ const fleet = {
         "color": "Cercanías",
         "estado": "En servicio",
         "ano": 2026,
-        "fechaAlta": "24/08/2026",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -9986,6 +10004,12 @@ const fleet = {
         "numero": "1-453-604-0",
         "vehiculosRama": [
           "1-453-604-0",
+          "3-453-604-6",
+          "3-453-605-3",
+          "4-453-604-4",
+          "4-453-605-1",
+          "3-453-606-1",
+          "3-453-607-9",
           "2-453-604-8"
         ],
         "searchCodes": [
@@ -9993,11 +10017,11 @@ const fleet = {
           "1604",
           "2604"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -10049,6 +10073,12 @@ const fleet = {
         "numero": "1-453-605-7",
         "vehiculosRama": [
           "1-453-605-7",
+          "3-453-605-3",
+          "3-453-606-1",
+          "4-453-605-1",
+          "4-453-606-9",
+          "3-453-607-9",
+          "3-453-608-7",
           "2-453-605-5"
         ],
         "searchCodes": [
@@ -10056,11 +10086,11 @@ const fleet = {
           "1605",
           "2605"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -10112,6 +10142,12 @@ const fleet = {
         "numero": "1-453-606-5",
         "vehiculosRama": [
           "1-453-606-5",
+          "3-453-606-1",
+          "3-453-607-9",
+          "4-453-606-9",
+          "4-453-607-7",
+          "3-453-608-7",
+          "3-453-609-5",
           "2-453-606-3"
         ],
         "searchCodes": [
@@ -10119,11 +10155,11 @@ const fleet = {
           "1606",
           "2606"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -10175,6 +10211,12 @@ const fleet = {
         "numero": "1-453-607-3",
         "vehiculosRama": [
           "1-453-607-3",
+          "3-453-607-9",
+          "3-453-608-7",
+          "4-453-607-7",
+          "4-453-608-5",
+          "3-453-609-5",
+          "3-453-610-3",
           "2-453-607-1"
         ],
         "searchCodes": [
@@ -10182,11 +10224,11 @@ const fleet = {
           "1607",
           "2607"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -10238,6 +10280,12 @@ const fleet = {
         "numero": "1-453-608-1",
         "vehiculosRama": [
           "1-453-608-1",
+          "3-453-608-7",
+          "3-453-609-5",
+          "4-453-608-5",
+          "4-453-609-3",
+          "3-453-610-3",
+          "3-453-611-1",
           "2-453-608-9"
         ],
         "searchCodes": [
@@ -10245,11 +10293,11 @@ const fleet = {
           "1608",
           "2608"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -10301,6 +10349,12 @@ const fleet = {
         "numero": "1-453-609-9",
         "vehiculosRama": [
           "1-453-609-9",
+          "3-453-609-5",
+          "3-453-610-3",
+          "4-453-609-3",
+          "4-453-610-1",
+          "3-453-611-1",
+          "3-453-612-9",
           "2-453-609-7"
         ],
         "searchCodes": [
@@ -10308,11 +10362,11 @@ const fleet = {
           "1609",
           "2609"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -10364,6 +10418,12 @@ const fleet = {
         "numero": "1-453-610-7",
         "vehiculosRama": [
           "1-453-610-7",
+          "3-453-610-3",
+          "3-453-611-1",
+          "4-453-610-1",
+          "4-453-611-9",
+          "3-453-612-9",
+          "3-453-613-7",
           "2-453-610-5"
         ],
         "searchCodes": [
@@ -10371,11 +10431,11 @@ const fleet = {
           "1610",
           "2610"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -10427,6 +10487,12 @@ const fleet = {
         "numero": "1-453-611-5",
         "vehiculosRama": [
           "1-453-611-5",
+          "3-453-611-1",
+          "3-453-612-9",
+          "4-453-611-9",
+          "4-453-612-7",
+          "3-453-613-7",
+          "3-453-614-5",
           "2-453-611-3"
         ],
         "searchCodes": [
@@ -10434,11 +10500,11 @@ const fleet = {
           "1611",
           "2611"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -10490,6 +10556,12 @@ const fleet = {
         "numero": "1-453-612-3",
         "vehiculosRama": [
           "1-453-612-3",
+          "3-453-612-9",
+          "3-453-613-7",
+          "4-453-612-7",
+          "4-453-613-5",
+          "3-453-614-5",
+          "3-453-615-2",
           "2-453-612-1"
         ],
         "searchCodes": [
@@ -10497,11 +10569,11 @@ const fleet = {
           "1612",
           "2612"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -10553,6 +10625,12 @@ const fleet = {
         "numero": "1-453-613-1",
         "vehiculosRama": [
           "1-453-613-1",
+          "3-453-613-7",
+          "3-453-614-5",
+          "4-453-613-5",
+          "4-453-614-3",
+          "3-453-615-2",
+          "3-453-616-0",
           "2-453-613-9"
         ],
         "searchCodes": [
@@ -10560,11 +10638,11 @@ const fleet = {
           "1613",
           "2613"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -10616,6 +10694,12 @@ const fleet = {
         "numero": "1-453-614-9",
         "vehiculosRama": [
           "1-453-614-9",
+          "3-453-614-5",
+          "3-453-615-2",
+          "4-453-614-3",
+          "4-453-615-0",
+          "3-453-616-0",
+          "3-453-617-8",
           "2-453-614-7"
         ],
         "searchCodes": [
@@ -10623,11 +10707,11 @@ const fleet = {
           "1614",
           "2614"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -10679,6 +10763,12 @@ const fleet = {
         "numero": "1-453-615-6",
         "vehiculosRama": [
           "1-453-615-6",
+          "3-453-615-2",
+          "3-453-616-0",
+          "4-453-615-0",
+          "4-453-616-8",
+          "3-453-617-8",
+          "3-453-618-6",
           "2-453-615-4"
         ],
         "searchCodes": [
@@ -10686,11 +10776,11 @@ const fleet = {
           "1615",
           "2615"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -10742,6 +10832,12 @@ const fleet = {
         "numero": "1-453-616-4",
         "vehiculosRama": [
           "1-453-616-4",
+          "3-453-616-0",
+          "3-453-617-8",
+          "4-453-616-8",
+          "4-453-617-6",
+          "3-453-618-6",
+          "3-453-619-4",
           "2-453-616-2"
         ],
         "searchCodes": [
@@ -10749,11 +10845,11 @@ const fleet = {
           "1616",
           "2616"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -10805,6 +10901,12 @@ const fleet = {
         "numero": "1-453-617-2",
         "vehiculosRama": [
           "1-453-617-2",
+          "3-453-617-8",
+          "3-453-618-6",
+          "4-453-617-6",
+          "4-453-618-4",
+          "3-453-619-4",
+          "3-453-620-2",
           "2-453-617-0"
         ],
         "searchCodes": [
@@ -10812,11 +10914,11 @@ const fleet = {
           "1617",
           "2617"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -10868,6 +10970,12 @@ const fleet = {
         "numero": "1-453-618-0",
         "vehiculosRama": [
           "1-453-618-0",
+          "3-453-618-6",
+          "3-453-619-4",
+          "4-453-618-4",
+          "4-453-619-2",
+          "3-453-620-2",
+          "3-453-621-0",
           "2-453-618-8"
         ],
         "searchCodes": [
@@ -10875,11 +10983,11 @@ const fleet = {
           "1618",
           "2618"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -10931,6 +11039,12 @@ const fleet = {
         "numero": "1-453-619-8",
         "vehiculosRama": [
           "1-453-619-8",
+          "3-453-619-4",
+          "3-453-620-2",
+          "4-453-619-2",
+          "4-453-620-0",
+          "3-453-621-0",
+          "3-453-622-8",
           "2-453-619-6"
         ],
         "searchCodes": [
@@ -10938,11 +11052,11 @@ const fleet = {
           "1619",
           "2619"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -10994,6 +11108,12 @@ const fleet = {
         "numero": "1-453-620-6",
         "vehiculosRama": [
           "1-453-620-6",
+          "3-453-620-2",
+          "3-453-621-0",
+          "4-453-620-0",
+          "4-453-621-8",
+          "3-453-622-8",
+          "3-453-623-6",
           "2-453-620-4"
         ],
         "searchCodes": [
@@ -11001,11 +11121,11 @@ const fleet = {
           "1620",
           "2620"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -11057,6 +11177,12 @@ const fleet = {
         "numero": "1-453-621-4",
         "vehiculosRama": [
           "1-453-621-4",
+          "3-453-621-0",
+          "3-453-622-8",
+          "4-453-621-8",
+          "4-453-622-6",
+          "3-453-623-6",
+          "3-453-624-4",
           "2-453-621-2"
         ],
         "searchCodes": [
@@ -11064,11 +11190,11 @@ const fleet = {
           "1621",
           "2621"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -11120,6 +11246,12 @@ const fleet = {
         "numero": "1-453-622-2",
         "vehiculosRama": [
           "1-453-622-2",
+          "3-453-622-8",
+          "3-453-623-6",
+          "4-453-622-6",
+          "4-453-623-4",
+          "3-453-624-4",
+          "3-453-625-1",
           "2-453-622-0"
         ],
         "searchCodes": [
@@ -11127,11 +11259,11 @@ const fleet = {
           "1622",
           "2622"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -11183,6 +11315,12 @@ const fleet = {
         "numero": "1-453-623-0",
         "vehiculosRama": [
           "1-453-623-0",
+          "3-453-623-6",
+          "3-453-624-4",
+          "4-453-623-4",
+          "4-453-624-2",
+          "3-453-625-1",
+          "3-453-626-9",
           "2-453-623-8"
         ],
         "searchCodes": [
@@ -11190,11 +11328,11 @@ const fleet = {
           "1623",
           "2623"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -11246,6 +11384,12 @@ const fleet = {
         "numero": "1-453-624-8",
         "vehiculosRama": [
           "1-453-624-8",
+          "3-453-624-4",
+          "3-453-625-1",
+          "4-453-624-2",
+          "4-453-625-9",
+          "3-453-626-9",
+          "3-453-627-7",
           "2-453-624-6"
         ],
         "searchCodes": [
@@ -11253,11 +11397,11 @@ const fleet = {
           "1624",
           "2624"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -11309,6 +11453,12 @@ const fleet = {
         "numero": "1-453-625-5",
         "vehiculosRama": [
           "1-453-625-5",
+          "3-453-625-1",
+          "3-453-626-9",
+          "4-453-625-9",
+          "4-453-626-7",
+          "3-453-627-7",
+          "3-453-628-5",
           "2-453-625-3"
         ],
         "searchCodes": [
@@ -11316,11 +11466,11 @@ const fleet = {
           "1625",
           "2625"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -11372,6 +11522,12 @@ const fleet = {
         "numero": "1-453-626-3",
         "vehiculosRama": [
           "1-453-626-3",
+          "3-453-626-9",
+          "3-453-627-7",
+          "4-453-626-7",
+          "4-453-627-5",
+          "3-453-628-5",
+          "3-453-629-3",
           "2-453-626-1"
         ],
         "searchCodes": [
@@ -11379,11 +11535,11 @@ const fleet = {
           "1626",
           "2626"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -11435,6 +11591,12 @@ const fleet = {
         "numero": "1-453-627-1",
         "vehiculosRama": [
           "1-453-627-1",
+          "3-453-627-7",
+          "3-453-628-5",
+          "4-453-627-5",
+          "4-453-628-3",
+          "3-453-629-3",
+          "3-453-630-1",
           "2-453-627-9"
         ],
         "searchCodes": [
@@ -11442,11 +11604,11 @@ const fleet = {
           "1627",
           "2627"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -11498,6 +11660,12 @@ const fleet = {
         "numero": "1-453-628-9",
         "vehiculosRama": [
           "1-453-628-9",
+          "3-453-628-5",
+          "3-453-629-3",
+          "4-453-628-3",
+          "4-453-629-1",
+          "3-453-630-1",
+          "3-453-631-9",
           "2-453-628-7"
         ],
         "searchCodes": [
@@ -11505,11 +11673,11 @@ const fleet = {
           "1628",
           "2628"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -11561,6 +11729,12 @@ const fleet = {
         "numero": "1-453-629-7",
         "vehiculosRama": [
           "1-453-629-7",
+          "3-453-629-3",
+          "3-453-630-1",
+          "4-453-629-1",
+          "4-453-630-9",
+          "3-453-631-9",
+          "3-453-632-7",
           "2-453-629-5"
         ],
         "searchCodes": [
@@ -11568,11 +11742,11 @@ const fleet = {
           "1629",
           "2629"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -11624,6 +11798,12 @@ const fleet = {
         "numero": "1-453-630-5",
         "vehiculosRama": [
           "1-453-630-5",
+          "3-453-630-1",
+          "3-453-631-9",
+          "4-453-630-9",
+          "4-453-631-7",
+          "3-453-632-7",
+          "3-453-633-5",
           "2-453-630-3"
         ],
         "searchCodes": [
@@ -11631,11 +11811,11 @@ const fleet = {
           "1630",
           "2630"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -11687,6 +11867,12 @@ const fleet = {
         "numero": "1-453-631-3",
         "vehiculosRama": [
           "1-453-631-3",
+          "3-453-631-9",
+          "3-453-632-7",
+          "4-453-631-7",
+          "4-453-632-5",
+          "3-453-633-5",
+          "3-453-634-3",
           "2-453-631-1"
         ],
         "searchCodes": [
@@ -11694,11 +11880,11 @@ const fleet = {
           "1631",
           "2631"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -11750,6 +11936,12 @@ const fleet = {
         "numero": "1-453-632-1",
         "vehiculosRama": [
           "1-453-632-1",
+          "3-453-632-7",
+          "3-453-633-5",
+          "4-453-632-5",
+          "4-453-633-3",
+          "3-453-634-3",
+          "3-453-635-0",
           "2-453-632-9"
         ],
         "searchCodes": [
@@ -11757,11 +11949,11 @@ const fleet = {
           "1632",
           "2632"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -11813,6 +12005,12 @@ const fleet = {
         "numero": "1-453-633-9",
         "vehiculosRama": [
           "1-453-633-9",
+          "3-453-633-5",
+          "3-453-634-3",
+          "4-453-633-3",
+          "4-453-634-1",
+          "3-453-635-0",
+          "3-453-636-8",
           "2-453-633-7"
         ],
         "searchCodes": [
@@ -11820,11 +12018,11 @@ const fleet = {
           "1633",
           "2633"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -11876,6 +12074,12 @@ const fleet = {
         "numero": "1-453-634-7",
         "vehiculosRama": [
           "1-453-634-7",
+          "3-453-634-3",
+          "3-453-635-0",
+          "4-453-634-1",
+          "4-453-635-8",
+          "3-453-636-8",
+          "3-453-637-6",
           "2-453-634-5"
         ],
         "searchCodes": [
@@ -11883,11 +12087,11 @@ const fleet = {
           "1634",
           "2634"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -11939,6 +12143,12 @@ const fleet = {
         "numero": "1-453-635-4",
         "vehiculosRama": [
           "1-453-635-4",
+          "3-453-635-0",
+          "3-453-636-8",
+          "4-453-635-8",
+          "4-453-636-6",
+          "3-453-637-6",
+          "3-453-638-4",
           "2-453-635-2"
         ],
         "searchCodes": [
@@ -11946,11 +12156,11 @@ const fleet = {
           "1635",
           "2635"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -12002,6 +12212,12 @@ const fleet = {
         "numero": "1-453-636-2",
         "vehiculosRama": [
           "1-453-636-2",
+          "3-453-636-8",
+          "3-453-637-6",
+          "4-453-636-6",
+          "4-453-637-4",
+          "3-453-638-4",
+          "3-453-639-2",
           "2-453-636-0"
         ],
         "searchCodes": [
@@ -12009,11 +12225,11 @@ const fleet = {
           "1636",
           "2636"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -12064,7 +12280,13 @@ const fleet = {
         "vehiculoBase": "037",
         "numero": "1-453-637-2",
         "vehiculosRama": [
-          "1-453-637-2",
+          "1-453-637-0",
+          "3-453-637-6",
+          "3-453-638-4",
+          "4-453-637-4",
+          "4-453-638-2",
+          "3-453-639-2",
+          "3-453-640-0",
           "2-453-637-8"
         ],
         "searchCodes": [
@@ -12072,11 +12294,11 @@ const fleet = {
           "1637",
           "2637"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -12128,6 +12350,12 @@ const fleet = {
         "numero": "1-453-638-8",
         "vehiculosRama": [
           "1-453-638-8",
+          "3-453-638-4",
+          "3-453-639-2",
+          "4-453-638-2",
+          "4-453-639-0",
+          "3-453-640-0",
+          "3-453-641-8",
           "2-453-638-6"
         ],
         "searchCodes": [
@@ -12135,11 +12363,11 @@ const fleet = {
           "1638",
           "2638"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -12191,6 +12419,12 @@ const fleet = {
         "numero": "1-453-639-6",
         "vehiculosRama": [
           "1-453-639-6",
+          "3-453-639-2",
+          "3-453-640-0",
+          "4-453-639-0",
+          "4-453-640-8",
+          "3-453-641-8",
+          "3-453-642-6",
           "2-453-639-4"
         ],
         "searchCodes": [
@@ -12198,11 +12432,11 @@ const fleet = {
           "1639",
           "2639"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -12254,6 +12488,12 @@ const fleet = {
         "numero": "1-453-640-4",
         "vehiculosRama": [
           "1-453-640-4",
+          "3-453-640-0",
+          "3-453-641-8",
+          "4-453-640-8",
+          "4-453-641-6",
+          "3-453-642-6",
+          "3-453-643-4",
           "2-453-640-2"
         ],
         "searchCodes": [
@@ -12261,11 +12501,11 @@ const fleet = {
           "1640",
           "2640"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -12317,6 +12557,12 @@ const fleet = {
         "numero": "1-453-641-2",
         "vehiculosRama": [
           "1-453-641-2",
+          "3-453-641-8",
+          "3-453-642-6",
+          "4-453-641-6",
+          "4-453-642-4",
+          "3-453-643-4",
+          "3-453-644-2",
           "2-453-641-0"
         ],
         "searchCodes": [
@@ -12324,11 +12570,11 @@ const fleet = {
           "1641",
           "2641"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -12380,6 +12626,12 @@ const fleet = {
         "numero": "1-453-642-0",
         "vehiculosRama": [
           "1-453-642-0",
+          "3-453-642-6",
+          "3-453-643-4",
+          "4-453-642-4",
+          "4-453-643-2",
+          "3-453-644-2",
+          "3-453-645-9",
           "2-453-642-8"
         ],
         "searchCodes": [
@@ -12387,11 +12639,11 @@ const fleet = {
           "1642",
           "2642"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -12443,6 +12695,12 @@ const fleet = {
         "numero": "1-453-643-8",
         "vehiculosRama": [
           "1-453-643-8",
+          "3-453-643-4",
+          "3-453-644-2",
+          "4-453-643-2",
+          "4-453-644-0",
+          "3-453-645-9",
+          "3-453-646-7",
           "2-453-643-6"
         ],
         "searchCodes": [
@@ -12450,11 +12708,11 @@ const fleet = {
           "1643",
           "2643"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -12506,6 +12764,12 @@ const fleet = {
         "numero": "1-453-644-6",
         "vehiculosRama": [
           "1-453-644-6",
+          "3-453-644-2",
+          "3-453-645-9",
+          "4-453-644-0",
+          "4-453-645-7",
+          "3-453-646-7",
+          "3-453-647-5",
           "2-453-644-4"
         ],
         "searchCodes": [
@@ -12513,11 +12777,11 @@ const fleet = {
           "1644",
           "2644"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -12569,6 +12833,12 @@ const fleet = {
         "numero": "1-453-645-3",
         "vehiculosRama": [
           "1-453-645-3",
+          "3-453-645-9",
+          "3-453-646-7",
+          "4-453-645-7",
+          "4-453-646-5",
+          "3-453-647-5",
+          "3-453-648-3",
           "2-453-645-1"
         ],
         "searchCodes": [
@@ -12576,11 +12846,11 @@ const fleet = {
           "1645",
           "2645"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -12631,7 +12901,13 @@ const fleet = {
         "vehiculoBase": "046",
         "numero": "1-453-646-8",
         "vehiculosRama": [
-          "1-453-646-8",
+          "1-453-646-1",
+          "3-453-646-7",
+          "3-453-647-5",
+          "4-453-646-5",
+          "4-453-647-3",
+          "3-453-648-3",
+          "3-453-649-1",
           "2-453-646-9"
         ],
         "searchCodes": [
@@ -12639,11 +12915,11 @@ const fleet = {
           "1646",
           "2646"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -12694,7 +12970,13 @@ const fleet = {
         "vehiculoBase": "047",
         "numero": "1-453-647-6",
         "vehiculosRama": [
-          "1-453-647-6",
+          "1-453-647-9",
+          "3-453-647-5",
+          "3-453-648-3",
+          "4-453-647-3",
+          "4-453-648-1",
+          "3-453-649-1",
+          "3-453-650-9",
           "2-453-647-7"
         ],
         "searchCodes": [
@@ -12702,11 +12984,11 @@ const fleet = {
           "1647",
           "2647"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -12757,7 +13039,13 @@ const fleet = {
         "vehiculoBase": "048",
         "numero": "1-453-648-4",
         "vehiculosRama": [
-          "1-453-648-4",
+          "1-453-648-7",
+          "3-453-648-3",
+          "3-453-649-1",
+          "4-453-648-1",
+          "4-453-649-9",
+          "3-453-650-9",
+          "3-453-651-7",
           "2-453-648-5"
         ],
         "searchCodes": [
@@ -12765,11 +13053,11 @@ const fleet = {
           "1648",
           "2648"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -12820,7 +13108,13 @@ const fleet = {
         "vehiculoBase": "049",
         "numero": "1-453-649-2",
         "vehiculosRama": [
-          "1-453-649-2",
+          "1-453-649-5",
+          "3-453-649-1",
+          "3-453-650-9",
+          "4-453-649-9",
+          "4-453-650-7",
+          "3-453-651-7",
+          "3-453-652-5",
           "2-453-649-3"
         ],
         "searchCodes": [
@@ -12828,11 +13122,11 @@ const fleet = {
           "1649",
           "2649"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -12883,7 +13177,13 @@ const fleet = {
         "vehiculoBase": "050",
         "numero": "1-453-650-0",
         "vehiculosRama": [
-          "1-453-650-0",
+          "1-453-650-3",
+          "3-453-650-9",
+          "3-453-651-7",
+          "4-453-650-7",
+          "4-453-651-5",
+          "3-453-652-5",
+          "3-453-653-3",
           "2-453-650-1"
         ],
         "searchCodes": [
@@ -12891,11 +13191,11 @@ const fleet = {
           "1650",
           "2650"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -12946,19 +13246,25 @@ const fleet = {
         "vehiculoBase": "051",
         "numero": "1-453-651-8",
         "vehiculosRama": [
-          "1-453-651-8",
-          "2-453-651-6"
+          "1-453-651-1",
+          "3-453-651-7",
+          "3-453-652-5",
+          "4-453-651-5",
+          "4-453-652-3",
+          "3-453-653-3",
+          "3-453-654-1",
+          "2-453-651-9"
         ],
         "searchCodes": [
           "051",
           "1651",
           "2651"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -13009,19 +13315,25 @@ const fleet = {
         "vehiculoBase": "052",
         "numero": "1-453-652-6",
         "vehiculosRama": [
-          "1-453-652-6",
-          "2-453-652-4"
+          "1-453-652-9",
+          "3-453-652-5",
+          "3-453-653-3",
+          "4-453-652-3",
+          "4-453-653-1",
+          "3-453-654-1",
+          "3-453-655-8",
+          "2-453-652-7"
         ],
         "searchCodes": [
           "052",
           "1652",
           "2652"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -13072,19 +13384,25 @@ const fleet = {
         "vehiculoBase": "053",
         "numero": "1-453-653-4",
         "vehiculosRama": [
-          "1-453-653-4",
-          "2-453-653-2"
+          "1-453-653-7",
+          "3-453-653-3",
+          "3-453-654-1",
+          "4-453-653-1",
+          "4-453-654-9",
+          "3-453-655-8",
+          "3-453-656-6",
+          "2-453-653-5"
         ],
         "searchCodes": [
           "053",
           "1653",
           "2653"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -13135,19 +13453,25 @@ const fleet = {
         "vehiculoBase": "054",
         "numero": "1-453-654-2",
         "vehiculosRama": [
-          "1-453-654-2",
-          "2-453-654-0"
+          "1-453-654-5",
+          "3-453-654-1",
+          "3-453-655-8",
+          "4-453-654-9",
+          "4-453-655-6",
+          "3-453-656-6",
+          "3-453-657-4",
+          "2-453-654-3"
         ],
         "searchCodes": [
           "054",
           "1654",
           "2654"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
@@ -13198,19 +13522,25 @@ const fleet = {
         "vehiculoBase": "055",
         "numero": "1-453-655-9",
         "vehiculosRama": [
-          "1-453-655-9",
-          "2-453-655-7"
+          "1-453-655-2",
+          "3-453-655-8",
+          "3-453-656-6",
+          "4-453-655-6",
+          "4-453-656-4",
+          "3-453-657-4",
+          "3-453-658-2",
+          "2-453-655-0"
         ],
         "searchCodes": [
           "055",
           "1655",
           "2655"
         ],
-        "deposito": "",
+        "deposito": "Fuencarral",
         "color": "Cercanías",
         "estado": "En construcción",
         "ano": "",
-        "fechaAlta": "",
+        "fechaAlta": "2026",
         "ancho": "1668",
         "subserie": "453.6 · TL200 · 8 coches",
         "composicionRama": "Motor cabina impar + remolque 1 de dos pisos + remolque 2 de dos pisos + motor intermedio 1 + motor intermedio 2 + remolque 3 de dos pisos + remolque 4 de dos pisos + motor cabina par",
