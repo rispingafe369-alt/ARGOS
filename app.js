@@ -8935,6 +8935,174 @@ const fleet = {
       }
     }
   },
+  "801": {
+    "seriesName": "Serie 801 · Trambahía",
+    "fabricante": "CAF-Santana (Linares)",
+    "modelo": "CAF Urbos TT",
+    "apodo": "Trambahía",
+    "anoPuestaServicio": "2022",
+    "tipoMaterial": "Tren-tranvía · Trambahía de Cádiz",
+    "numeroCoches": "3 coches · 2 remolques con cabina + 1 coche motor intermedio",
+    "anchoVia": "1668 mm (adaptable a 1435 mm)",
+    "numeroRamas": 7,
+    "velocidadMaxima": "100 km/h (70 km/h con 750 Vcc)",
+    "potencia": "900 kW",
+    "longitud": "38,114 m (M-R-Rc)",
+    "peso": "67,79 t en orden de marcha",
+    "tension": "3.000 / 750 Vcc",
+    "traccion": "64 motores de tracción · 150 kW por motor",
+    "señalizacion": "Sistemas de seguridad ferroviarios y tranviarios",
+    "composicion": "Bo' + 2'Bo' + Bo'",
+    "plazasSentadas": "84",
+    "capacidad": "227 viajeros en ocupación normal · 299 a 6 viajeros/m²",
+    "generalNotes": [
+      "Siete trenes de tres coches fabricados por CAF en Linares para la red de tren-tranvía de la Bahía de Cádiz.",
+      "Son tren-tranvía capaces de circular tanto por la red tranviaria como por la Red Ferroviaria de Interés General gestionada por ADIF en la entrada a Cádiz.",
+      "Toda la serie está construida en ancho ibérico de 1.668 mm, incluido el tramo tranviario, y los ejes de los bogies están preparados para un futuro cambio a ancho internacional.",
+      "Las siete unidades son bitensión: 750 Vcc en el trazado tranviario y 3.000 Vcc en la infraestructura ferroviaria, con un único pantógrafo. El cambio de tensión es semiautomático.",
+      "Disponen de puertas a dos alturas para adaptarse a los andenes ferroviarios y tranviarios, y cuentan con sistemas de seguridad adecuados para ambos tipos de red.",
+      "La velocidad máxima alcanza 100 km/h en la vía ferroviaria y en los tramos interurbanos; en los tramos urbanos tranviarios la velocidad se limita según el entorno.",
+      "Fueron inaugurados en servicio comercial el 26 de octubre de 2022. Las unidades fueron entregadas y homologadas antes de su puesta en servicio comercial.",
+      "La composición es de tres coches: dos remolques con cabina en los extremos y un coche motor intermedio. La longitud de la unidad es de 38,114 m.",
+      "La capacidad es de 84 plazas sentadas; la capacidad total indicada por el fabricante es de 227 viajeros en condiciones normales de ocupación y 299 viajeros a seis viajeros por metro cuadrado.",
+      "La flota presta servicio en el Trambahía, cuya línea combina trazado tranviario y ferroviario entre Chiclana de la Frontera, San Fernando y Cádiz."
+    ],
+    "units": {
+      "1": {
+        "rama": "001",
+        "vehiculoBase": "001",
+        "numero": "96 71 9 801 001-9",
+        "vehiculosRama": [
+          "96 71 9 801 001-9",
+          "92 71 6 801 101-7",
+          "96 71 9 801 201-5"
+        ],
+        "searchCodes": ["001", "101", "201"],
+        "deposito": "Cádiz",
+        "base": "Cádiz",
+        "color": "Verde/Blanco",
+        "estado": "En servicio",
+        "ano": 2011,
+        "ancho": "1668",
+        "composicionRama": "Remolque con cabina + coche motor intermedio + remolque con cabina",
+        "notas": ["-"]
+      },
+      "2": {
+        "rama": "002",
+        "vehiculoBase": "002",
+        "numero": "96 71 9 801 002-7",
+        "vehiculosRama": [
+          "96 71 9 801 002-7",
+          "92 71 6 801 102-5",
+          "96 71 9 801 202-3"
+        ],
+        "searchCodes": ["002", "102", "202"],
+        "deposito": "Cádiz",
+        "base": "Cádiz",
+        "color": "Verde/Blanco",
+        "estado": "En servicio",
+        "ano": 2011,
+        "ancho": "1668",
+        "composicionRama": "Remolque con cabina + coche motor intermedio + remolque con cabina",
+        "notas": ["Pruebas Pajares 04/13. Llega Cádiz 13/07/16"]
+      },
+      "3": {
+        "rama": "003",
+        "vehiculoBase": "003",
+        "numero": "96 71 9 801 003-5",
+        "vehiculosRama": [
+          "96 71 9 801 003-5",
+          "92 71 6 801 103-3",
+          "96 71 9 801 203-1"
+        ],
+        "searchCodes": ["003", "103", "203"],
+        "deposito": "Cádiz",
+        "base": "Cádiz",
+        "color": "Verde/Blanco",
+        "estado": "En servicio",
+        "ano": 2012,
+        "ancho": "1668",
+        "composicionRama": "Remolque con cabina + coche motor intermedio + remolque con cabina",
+        "notas": ["-"]
+      },
+      "4": {
+        "rama": "004",
+        "vehiculoBase": "004",
+        "numero": "96 71 9 801 004-3",
+        "vehiculosRama": [
+          "96 71 9 801 004-3",
+          "92 71 6 801 104-1",
+          "96 71 9 801 204-9"
+        ],
+        "searchCodes": ["004", "104", "204"],
+        "deposito": "Cádiz",
+        "base": "Cádiz",
+        "color": "Verde/Blanco",
+        "estado": "En servicio",
+        "ano": 2012,
+        "ancho": "1668",
+        "composicionRama": "Remolque con cabina + coche motor intermedio + remolque con cabina",
+        "notas": ["-"]
+      },
+      "5": {
+        "rama": "005",
+        "vehiculoBase": "005",
+        "numero": "96 71 9 801 005-0",
+        "vehiculosRama": [
+          "96 71 9 801 005-0",
+          "92 71 6 801 105-8",
+          "96 71 9 801 205-6"
+        ],
+        "searchCodes": ["005", "105", "205"],
+        "deposito": "Cádiz",
+        "base": "Cádiz",
+        "color": "Verde/Blanco",
+        "estado": "En servicio",
+        "ano": 2012,
+        "ancho": "1668",
+        "composicionRama": "Remolque con cabina + coche motor intermedio + remolque con cabina",
+        "notas": ["-"]
+      },
+      "6": {
+        "rama": "006",
+        "vehiculoBase": "006",
+        "numero": "96 71 9 801 006-8",
+        "vehiculosRama": [
+          "96 71 9 801 006-8",
+          "92 71 6 801 106-6",
+          "96 71 9 801 206-4"
+        ],
+        "searchCodes": ["006", "106", "206"],
+        "deposito": "Cádiz",
+        "base": "Cádiz",
+        "color": "Verde/Blanco",
+        "estado": "En servicio",
+        "ano": 2012,
+        "ancho": "1668",
+        "composicionRama": "Remolque con cabina + coche motor intermedio + remolque con cabina",
+        "notas": ["-"]
+      },
+      "7": {
+        "rama": "007",
+        "vehiculoBase": "007",
+        "numero": "96 71 9 801 007-6",
+        "vehiculosRama": [
+          "96 71 9 801 007-6",
+          "92 71 6 801 107-4",
+          "96 71 9 801 207-2"
+        ],
+        "searchCodes": ["007", "107", "207"],
+        "deposito": "Cádiz",
+        "base": "Cádiz",
+        "color": "Verde/Blanco",
+        "estado": "En servicio",
+        "ano": 2012,
+        "ancho": "1668",
+        "composicionRama": "Remolque con cabina + coche motor intermedio + remolque con cabina",
+        "notas": ["-"]
+      }
+    }
+  },
   "465": (() => {
     // Serie 465 Civia · 5 coches: 2 motores + 3 remolques.
     // La búsqueda acepta cualquiera de los cinco vehículos de la rama.
@@ -9487,6 +9655,36 @@ function getFleetUnit(series, vehicle){
     return {...base,numero:canonicalVehicle,vehiculoBase:code,vehiculoIntroducido:raw,vehiculoBuscado:code,cocheTipo:tipoCoche,fabricante};
   }
 
+  // Serie 801 Trambahía: cualquiera de sus tres vehículos identifica la rama.
+  // Se aceptan códigos cortos (001/101/201...), la matrícula 801-XXX-X
+  // y la matrícula completa con espacios o guiones.
+  if(s==="801"){
+    const raw=String(vehicle??"").trim();
+    const matriculaMatch=raw.match(/(?:^|[-\s])801[-\s.]?(\d{3})(?:[-\s.]|$)/i);
+    let code=matriculaMatch ? matriculaMatch[1] : v;
+    if(!matriculaMatch && /^801\d{3}$/.test(v)) code=v.slice(-3);
+    code=String(code).padStart(3,"0");
+    let base=null;
+    for(const candidate of Object.values(seriesData.units||{})){
+      if((candidate.searchCodes||[]).includes(code)){ base=candidate; break; }
+      if((candidate.vehiculosRama||[]).some(x=>String(x).replace(/\D/g,"").slice(-4,-1)===code)){ base=candidate; break; }
+    }
+    if(!base) return null;
+    const idx=(base.searchCodes||[]).indexOf(code);
+    const canonicalVehicle=idx>=0 ? base.vehiculosRama[idx] : base.numero;
+    const tipos=["Remolque con cabina","Coche motor intermedio","Remolque con cabina"];
+    return {
+      ...base,
+      numero:canonicalVehicle,
+      vehiculoBase:code,
+      vehiculoIntroducido:raw,
+      vehiculoBuscado:code,
+      cocheTipo:tipos[idx]||"Vehículo Serie 801",
+      fabricante:seriesData.fabricante,
+      numeroCoches:seriesData.numeroCoches
+    };
+  }
+
   // Serie 449: cada rama se identifica por cualquiera de sus cinco vehículos.
   // Se acepta el código corto (001, 701, 501...), la matrícula 449-XXX-X
   // y la matrícula completa Renfe.
@@ -9771,10 +9969,13 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Coche introducido</span><strong>${esc(unit.vehiculoBase||vehicle)}</strong></div>
         <div><span>Tipo de coche</span><strong>${esc(unit.cocheTipo||"—")}</strong></div>
         <div><span>Composición</span><strong>8 coches · Mc-R-M-R-R-M-R-Mc</strong></div>`:""}
+        ${normalizeFleetValue(series)==="801"?`
+        <div><span>Vehículos de la rama</span><strong>${esc((unit.vehiculosRama||[]).join(" · ")||"—")}</strong></div>
+        <div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||seriesData?.composicion||"—")}</strong></div>`:""}
         ${seriesData?.velocidadMaxima?`<div><span>Velocidad máxima</span><strong>${esc(seriesData.velocidadMaxima)}</strong></div>`:""}
         ${seriesData?.potencia?`<div><span>Potencia</span><strong>${esc(seriesData.potencia)}</strong></div>`:""}
         ${seriesData?.plazasSentadas?`<div><span>Plazas sentadas</span><strong>${esc(seriesData.plazasSentadas)}</strong></div>`:""}
-         ${["112","121","464","730"].includes(normalizeFleetValue(series))?`
+         ${["112","121","464","730","801"].includes(normalizeFleetValue(series))?`
          <div><span>Longitud</span><strong>${esc(seriesData.longitud||"—")}</strong></div>
          <div><span>Peso</span><strong>${esc(seriesData.peso||"—")}</strong></div>
          <div><span>Tensión</span><strong>${esc(seriesData.tension||"—")}</strong></div>
