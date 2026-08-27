@@ -1,7304 +1,8352 @@
-const KEY="argos_services",THEME_KEY="argos_theme";
-const stations=[{"code":"01003","name":"ARAHAL","aliases":["SEVILLA"]},{"code":"01005","name":"MARCHENA","aliases":["SEVILLA"]},{"code":"01007","name":"OSUNA","aliases":["SEVILLA"]},{"code":"01009","name":"PEDRERA","aliases":["SEVILLA"]},{"code":"02002","name":"PUENTE GENIL-HERRERA","aliases":["PUENTE GENIL","CÓRDOBA"]},{"code":"02003","name":"ANTEQUERA-SANTA ANA","aliases":["ANTEQUERA","MÁLAGA"]},{"code":"02030","name":"ANTEQUERA AV","aliases":["ANTEQUERA","MÁLAGA"]},{"code":"03001","name":"MENGÍBAR-ARTICHUELA","aliases":["MENGÍBAR","JAÉN"]},{"code":"03100","name":"JAÉN","aliases":[]},{"code":"03208","name":"CUENCA-FERNANDO ZÓBEL","aliases":["CUENCA"]},{"code":"03213","name":"REQUENA-UTIEL","aliases":["REQUENA","VALENCIA/VALÈNCIA"]},{"code":"03216","name":"VALÈNCIA-JOAQUÍN SOROLLA","aliases":["VALENCIA","VALENCIA/VALÈNCIA"]},{"code":"03309","name":"VILLENA ALTA VELOCIDAD","aliases":["VILLENA","ALICANTE/ALACANT"]},{"code":"03410","name":"ELCHE/ELX AV","aliases":["ELCHE/ELX","ALICANTE/ALACANT"]},{"code":"03412","name":"CALLOSA DE SEGURA-COX","aliases":["CALLOSA DE SEGURA","ALICANTE/ALACANT"]},{"code":"04007","name":"GUADALAJARA-YEBES","aliases":["YEBES","GUADALAJARA"]},{"code":"04040","name":"ZARAGOZA DELICIAS","aliases":["ZARAGOZA"]},{"code":"04104","name":"CAMP DE TARRAGONA","aliases":["TARRAGONA"]},{"code":"04307","name":"FIGUERES-VILAFANT","aliases":["VILAFANT","GIRONA"]},{"code":"05000","name":"GRANADA","aliases":[]},{"code":"05012","name":"LOJA","aliases":["GRANADA"]},{"code":"05102","name":"SAN XOÁN","aliases":["FERROL","CORUÑA, A"]},{"code":"05103","name":"SANTA ICÍA","aliases":["NARÓN","CORUÑA, A"]},{"code":"05104","name":"VIRXE DO MAR","aliases":["NARÓN","CORUÑA, A"]},{"code":"05105","name":"PIÑEIROS","aliases":["NARÓN","CORUÑA, A"]},{"code":"05106","name":"O PONTO","aliases":["NARÓN","CORUÑA, A"]},{"code":"05107","name":"XUVIA","aliases":["NARÓN","CORUÑA, A"]},{"code":"05108","name":"O ALTO DO CASTIÑEIRO","aliases":["NARÓN","CORUÑA, A"]},{"code":"05109","name":"FERRERÍAS","aliases":["NARÓN","CORUÑA, A"]},{"code":"05111","name":"SEDES","aliases":["NARÓN","CORUÑA, A"]},{"code":"05113","name":"PEDROSO DE NARÓN","aliases":["NARÓN","CORUÑA, A"]},{"code":"05115","name":"SAN SADURNIÑO","aliases":["CORUÑA, A"]},{"code":"05117","name":"LAMAS","aliases":["SAN SADURNIÑO","CORUÑA, A"]},{"code":"05119","name":"APALLA","aliases":["SAN SADURNIÑO","CORUÑA, A"]},{"code":"05121","name":"MOECHE","aliases":["CORUÑA, A"]},{"code":"05123","name":"LABACENGOS","aliases":["MOECHE","CORUÑA, A"]},{"code":"05125","name":"ENTRAMBARRÍAS","aliases":["MOECHE","CORUÑA, A"]},{"code":"05127","name":"CERDIDO","aliases":["CORUÑA, A"]},{"code":"05129","name":"A CUQUEIRA","aliases":["CERDIDO","CORUÑA, A"]},{"code":"05131","name":"SANTA MARÍA DE MERA","aliases":["ORTIGUEIRA","CORUÑA, A"]},{"code":"05133","name":"PONTE MERA","aliases":["ORTIGUEIRA","CORUÑA, A"]},{"code":"05135","name":"SAN CLODIO","aliases":["RIBAS DE SIL","CORUÑA, A"]},{"code":"05137","name":"SENRA","aliases":["ORTIGUEIRA","CORUÑA, A"]},{"code":"05139","name":"ORTIGUEIRA","aliases":["CORUÑA, A"]},{"code":"05141","name":"ESPASANTE","aliases":["ORTIGUEIRA","CORUÑA, A"]},{"code":"05143","name":"LOIBA","aliases":["ORTIGUEIRA","CORUÑA, A"]},{"code":"05145","name":"O BARQUEIRO","aliases":["MAÑÓN","CORUÑA, A"]},{"code":"05147","name":"O VICEDO","aliases":["VICEDO (O)","LUGO"]},{"code":"05149","name":"MOSENDE","aliases":["VICEDO (O)","LUGO"]},{"code":"05151","name":"FOLGUEIRO","aliases":["VICEDO (O)","LUGO"]},{"code":"05153","name":"COVAS DE VIVEIRO","aliases":["VIVEIRO","LUGO"]},{"code":"05155","name":"VIVEIRO","aliases":["LUGO"]},{"code":"05156","name":"VIVEIRO APEADERO","aliases":["VIVEIRO","LUGO"]},{"code":"05157","name":"XUANCES","aliases":["XOVE","LUGO"]},{"code":"05159","name":"XOVE POBO","aliases":["XOVE","LUGO"]},{"code":"05161","name":"XOVE","aliases":["LUGO"]},{"code":"05163","name":"LAGO","aliases":["XOVE","LUGO"]},{"code":"05165","name":"BIDUEIROS","aliases":["CERVO","LUGO"]},{"code":"05167","name":"SAN CIBRAO","aliases":["CERVO","LUGO"]},{"code":"05169","name":"MADEIRO","aliases":["CERVO","LUGO"]},{"code":"05171","name":"BURELA","aliases":["LUGO"]},{"code":"05173","name":"CANGAS DE FOZ","aliases":["FOZ","LUGO"]},{"code":"05175","name":"NOIS","aliases":["FOZ","LUGO"]},{"code":"05177","name":"FAZOURO","aliases":["FOZ","LUGO"]},{"code":"05179","name":"MARZÁN","aliases":["FOZ","LUGO"]},{"code":"05181","name":"FOZ","aliases":["LUGO"]},{"code":"05183","name":"BARREIROS","aliases":["LUGO"]},{"code":"05185","name":"REINANTE","aliases":["BARREIROS","LUGO"]},{"code":"05187","name":"ESTEIRO","aliases":["RIBADEO","LUGO"]},{"code":"05189","name":"OS CASTROS","aliases":["RIBADEO","LUGO"]},{"code":"05191","name":"RINLO","aliases":["RIBADEO","LUGO"]},{"code":"05193","name":"RIBADEO","aliases":["LUGO"]},{"code":"05197","name":"VEGADEO PUEBLO","aliases":["VEGADEO","ASTURIAS"]},{"code":"05199","name":"VILAVEDELLE","aliases":["CASTROPOL","ASTURIAS"]},{"code":"05239","name":"SANTIANES","aliases":["PRAVIA","ASTURIAS"]},{"code":"05241","name":"LOS CABOS","aliases":["PRAVIA","ASTURIAS"]},{"code":"05243","name":"MUROS DEL NALÓN","aliases":["MUROS DE NALÓN","ASTURIAS"]},{"code":"05244","name":"EL PITO PIÑERA","aliases":["CUDILLERO","ASTURIAS"]},{"code":"05245","name":"CUDILLERO","aliases":["ASTURIAS"]},{"code":"05247","name":"VILLADEMAR","aliases":["CUDILLERO","ASTURIAS"]},{"code":"05249","name":"LA MAGDALENA","aliases":["CUDILLERO","ASTURIAS"]},{"code":"05251","name":"SAN MARTÍN DE LUIÑA","aliases":["CUDILLERO","ASTURIAS"]},{"code":"05253","name":"SAN COSME","aliases":["CUDILLERO","ASTURIAS"]},{"code":"05255","name":"SOTO DE LUIÑA","aliases":["CUDILLERO","ASTURIAS"]},{"code":"05257","name":"VALDREDO","aliases":["CUDILLERO","ASTURIAS"]},{"code":"05259","name":"NOVELLANA","aliases":["CUDILLERO","ASTURIAS"]},{"code":"05261","name":"SANTA MARINA","aliases":["CUDILLERO","ASTURIAS"]},{"code":"05263","name":"BALLOTA","aliases":["CUDILLERO","ASTURIAS"]},{"code":"05265","name":"TABLIZO","aliases":["VALDÉS","ASTURIAS"]},{"code":"05267","name":"CADAVEDO","aliases":["VALDÉS","ASTURIAS"]},{"code":"05269","name":"SAN CRISTÓBAL","aliases":["VALDÉS","ASTURIAS"]},{"code":"05271","name":"CANERO","aliases":["VALDÉS","ASTURIAS"]},{"code":"05273","name":"BARCIA","aliases":["VALDÉS","ASTURIAS"]},{"code":"05275","name":"LUARCA","aliases":["VALDÉS","ASTURIAS"]},{"code":"05277","name":"OTUR","aliases":["VALDÉS","ASTURIAS"]},{"code":"05279","name":"VILLAPEDRE","aliases":["NAVIA","ASTURIAS"]},{"code":"05281","name":"PIÑERA-VILLAORIL","aliases":["NAVIA","ASTURIAS"]},{"code":"05283","name":"NAVIA","aliases":["ASTURIAS"]},{"code":"05285","name":"MEDAL","aliases":["COAÑA","ASTURIAS"]},{"code":"05287","name":"LOZA","aliases":["COAÑA","ASTURIAS"]},{"code":"05289","name":"CARTAVIO","aliases":["COAÑA","ASTURIAS"]},{"code":"05291","name":"LA CARIDAD","aliases":["FRANCO (EL)","ASTURIAS"]},{"code":"05293","name":"TAPIA","aliases":["TAPIA DE CASARIEGO","ASTURIAS"]},{"code":"05295","name":"TOL","aliases":["CASTROPOL","ASTURIAS"]},{"code":"05297","name":"LAS CAMPAS DE CASTROPOL","aliases":["CASTROPOL","ASTURIAS"]},{"code":"05299","name":"CASTROPOL","aliases":["ASTURIAS"]},{"code":"05300","name":"VALLOBÍN","aliases":["OVIEDO","ASTURIAS"]},{"code":"05301","name":"ARGAÑOSA-LAVAPIÉS","aliases":["OVIEDO","ASTURIAS"]},{"code":"05302","name":"LAS CAMPAS","aliases":["OVIEDO","ASTURIAS"]},{"code":"05303","name":"LAS MAZAS","aliases":["OVIEDO","ASTURIAS"]},{"code":"05304","name":"SAN CLAUDIO","aliases":["OVIEDO","ASTURIAS"]},{"code":"05306","name":"SAN PEDRO DE NORA","aliases":["OVIEDO","ASTURIAS"]},{"code":"05308","name":"SOTO UDRIÓN","aliases":["OVIEDO","ASTURIAS"]},{"code":"05311","name":"TRUBIA","aliases":["OVIEDO","ASTURIAS"]},{"code":"05313","name":"SANTA MARÍA DE GRADO","aliases":["GRADO","ASTURIAS"]},{"code":"05315","name":"VEGA DE ANZO","aliases":["GRADO","ASTURIAS"]},{"code":"05316","name":"PEÑAFLOR DE GRADO","aliases":["GRADO","ASTURIAS"]},{"code":"05317","name":"GRADO","aliases":["ASTURIAS"]},{"code":"05319","name":"SANDICHE","aliases":["CANDAMO","ASTURIAS"]},{"code":"05320","name":"ACES","aliases":["CANDAMO","ASTURIAS"]},{"code":"05321","name":"SAN ROMÁN","aliases":["CANDAMO","ASTURIAS"]},{"code":"05323","name":"BEIFAR","aliases":["PRAVIA","ASTURIAS"]},{"code":"05325","name":"PRAVIA","aliases":["ASTURIAS"]},{"code":"05451","name":"BILBAO LA CONCORDIA","aliases":["BILBAO","BIZKAIA"]},{"code":"05455","name":"BASURTO HOSPITAL","aliases":["BILBAO","BIZKAIA"]},{"code":"05457","name":"ZORROTZA ZORROZGOITI","aliases":["BILBAO","BIZKAIA"]},{"code":"05459","name":"SANTA ÁGUEDA","aliases":["BILBAO","BIZKAIA"]},{"code":"05460","name":"KASTREXANA","aliases":["BILBAO","BIZKAIA"]},{"code":"05461","name":"IRAUREGUI","aliases":["ALONSOTEGI","BIZKAIA"]},{"code":"05463","name":"ZARAMILLO","aliases":["GÜEÑES","BIZKAIA"]},{"code":"05465","name":"LA QUADRA","aliases":["GÜEÑES","BIZKAIA"]},{"code":"05467","name":"SODUPE","aliases":["GÜEÑES","BIZKAIA"]},{"code":"05469","name":"ARTXUBE","aliases":["GÜEÑES","BIZKAIA"]},{"code":"05470","name":"LAMBARRI","aliases":["GÜEÑES","BIZKAIA"]},{"code":"05471","name":"GÜEÑES","aliases":["BIZKAIA"]},{"code":"05473","name":"ARANGUREN","aliases":["ZALLA","BIZKAIA"]},{"code":"05474","name":"ARANGUREN-APEADERO","aliases":["ZALLA","BIZKAIA"]},{"code":"05475","name":"ZALLA","aliases":["BIZKAIA"]},{"code":"05477","name":"COLEGIO","aliases":["ZALLA","BIZKAIA"]},{"code":"05479","name":"IBARRA","aliases":["ZALLA","BIZKAIA"]},{"code":"05481","name":"LA HERRERA","aliases":["ZALLA","BIZKAIA"]},{"code":"05483","name":"BALMASEDA","aliases":["BIZKAIA"]},{"code":"05484","name":"MIMETIZ","aliases":["ZALLA","BIZKAIA"]},{"code":"05487","name":"TRASLAVIÑA","aliases":["ARTZENTALES","BIZKAIA"]},{"code":"05489","name":"ARTZENTALES","aliases":["ERRIBERAGOITIA/RIBERA ALTA","BIZKAIA"]},{"code":"05493","name":"VILLAVERDE DE TRUCIOS","aliases":["TRUCIOS-TURTZIOZ","BIZKAIA"]},{"code":"05497","name":"KARRANTZA","aliases":["KARRANTZA HARANA/VALLE DE CARRANZA","BIZKAIA"]},{"code":"05504","name":"PARQUE PRINCIPADO","aliases":["OVIEDO","ASTURIAS"]},{"code":"05505","name":"COLLOTO","aliases":["SIERO","ASTURIAS"]},{"code":"05507","name":"MERES","aliases":["SIERO","ASTURIAS"]},{"code":"05508","name":"FONCIELLO","aliases":["SIERO","ASTURIAS"]},{"code":"05509","name":"EL BERRÓN","aliases":["SIERO","ASTURIAS"]},{"code":"05511","name":"LA CARRERA DE SIERO","aliases":["SIERO","ASTURIAS"]},{"code":"05513","name":"POLA DE SIERO","aliases":["SIERO","ASTURIAS"]},{"code":"05515","name":"LOS CORROS","aliases":["SIERO","ASTURIAS"]},{"code":"05517","name":"LIERES","aliases":["SIERO","ASTURIAS"]},{"code":"05521","name":"EL REMEDIO","aliases":["NAVA","ASTURIAS"]},{"code":"05522","name":"LLAMES","aliases":["NAVA","ASTURIAS"]},{"code":"05523","name":"NAVA","aliases":["ASTURIAS"]},{"code":"05525","name":"FUENTE SANTA DE NAVA","aliases":["NAVA","ASTURIAS"]},{"code":"05527","name":"CECEDA","aliases":["NAVA","ASTURIAS"]},{"code":"05529","name":"CARANCOS","aliases":["NAVA","ASTURIAS"]},{"code":"05531","name":"PINTUELES","aliases":["PILOÑA","ASTURIAS"]},{"code":"05533","name":"INFIESTO","aliases":["PILOÑA","ASTURIAS"]},{"code":"05534","name":"INFIESTO APEADERO","aliases":["PILOÑA","ASTURIAS"]},{"code":"05535","name":"VILLAMAYOR","aliases":["PILOÑA","ASTURIAS"]},{"code":"05537","name":"SEBARES","aliases":["PILOÑA","ASTURIAS"]},{"code":"05539","name":"SOTO DE DUEÑAS","aliases":["PARRES","ASTURIAS"]},{"code":"05541","name":"OZANES","aliases":["PARRES","ASTURIAS"]},{"code":"05542","name":"POLICLÍNICO","aliases":["PARRES","ASTURIAS"]},{"code":"05543","name":"ARRIONDAS","aliases":["PARRES","ASTURIAS"]},{"code":"05545","name":"FUENTES","aliases":["PARRES","ASTURIAS"]},{"code":"05547","name":"TORAÑO","aliases":["PARRES","ASTURIAS"]},{"code":"05549","name":"CUEVAS","aliases":["RIBADESELLA","ASTURIAS"]},{"code":"05551","name":"LLOVIO","aliases":["RIBADESELLA","ASTURIAS"]},{"code":"05553","name":"RIBADESELLA","aliases":["ASTURIAS"]},{"code":"05555","name":"CAMANGO","aliases":["RIBADESELLA","ASTURIAS"]},{"code":"05557","name":"BELMONTE DE PRÍA","aliases":["LLANES","ASTURIAS"]},{"code":"05559","name":"NUEVA","aliases":["LLANES","ASTURIAS"]},{"code":"05561","name":"VILLAHORMES","aliases":["LLANES","ASTURIAS"]},{"code":"05563","name":"POSADA","aliases":["LLANES","ASTURIAS"]},{"code":"05565","name":"BALMORI","aliases":["LLANES","ASTURIAS"]},{"code":"05567","name":"CELORIO","aliases":["LLANES","ASTURIAS"]},{"code":"05569","name":"POO","aliases":["LLANES","ASTURIAS"]},{"code":"05571","name":"LLANES","aliases":["ASTURIAS"]},{"code":"05573","name":"SAN ROQUE DEL ACEBAL","aliases":["LLANES","ASTURIAS"]},{"code":"05575","name":"VIDIAGO","aliases":["LLANES","ASTURIAS"]},{"code":"05577","name":"PENDUELES","aliases":["LLANES","ASTURIAS"]},{"code":"05579","name":"COLOMBRES","aliases":["RIBADEDEVA","ASTURIAS"]},{"code":"05602","name":"VALDECILLA LA MARGA","aliases":["SANTANDER","CANTABRIA"]},{"code":"05621","name":"TORRELAVEGA-CENTRO","aliases":["TORRELAVEGA","CANTABRIA"]},{"code":"05623","name":"PUENTE SAN MIGUEL","aliases":["REOCÍN","CANTABRIA"]},{"code":"05637","name":"CABEZÓN DE LA SAL","aliases":["CANTABRIA"]},{"code":"05641","name":"TRECEÑO","aliases":["VALDÁLIGA","CANTABRIA"]},{"code":"05643","name":"ROIZ","aliases":["VALDÁLIGA","CANTABRIA"]},{"code":"05644","name":"EL BARCENAL","aliases":["SAN VICENTE DE LA BARQUERA","CANTABRIA"]},{"code":"05645","name":"SAN VICENTE DE LA BARQUERA","aliases":["CANTABRIA"]},{"code":"05647","name":"PESUÉS","aliases":["VAL DE SAN VICENTE","CANTABRIA"]},{"code":"05649","name":"UNQUERA","aliases":["VAL DE SAN VICENTE","CANTABRIA"]},{"code":"05651","name":"NUEVA MONTAÑA","aliases":["SANTANDER","CANTABRIA"]},{"code":"05652","name":"VALLE REAL","aliases":["SANTANDER","CANTABRIA"]},{"code":"05655","name":"MALIAÑO VIDRIERA","aliases":["CAMARGO","CANTABRIA"]},{"code":"05657","name":"ASTILLERO","aliases":["ASTILLERO (EL)","CANTABRIA"]},{"code":"05661","name":"HERAS","aliases":["MEDIO CUDEYO","CANTABRIA"]},{"code":"05663","name":"OREJO","aliases":["MARINA DE CUDEYO","CANTABRIA"]},{"code":"05672","name":"PUENTE AGÜERO","aliases":["ENTRAMBASAGUAS","CANTABRIA"]},{"code":"05673","name":"VILLAVERDE DE PONTONES","aliases":["RIBAMONTÁN AL MONTE","CANTABRIA"]},{"code":"05675","name":"HOZ DE ANERO","aliases":["RIBAMONTÁN AL MONTE","CANTABRIA"]},{"code":"05677","name":"BERANGA","aliases":["HAZAS DE CESTO","CANTABRIA"]},{"code":"05679","name":"GAMA","aliases":["BÁRCENA DE CICERO","CANTABRIA"]},{"code":"05681","name":"CICERO","aliases":["BÁRCENA DE CICERO","CANTABRIA"]},{"code":"05683","name":"TRETO","aliases":["BÁRCENA DE CICERO","CANTABRIA"]},{"code":"05685","name":"LIMPIAS","aliases":["CANTABRIA"]},{"code":"05687","name":"MARRÓN","aliases":["AMPUERO","CANTABRIA"]},{"code":"05689","name":"UDALLA","aliases":["RASINES","CANTABRIA"]},{"code":"05691","name":"GIBAJA","aliases":["RAMALES DE LA VICTORIA","CANTABRIA"]},{"code":"05721","name":"ARLA BERRÓN","aliases":["VALLE DE MENA","BURGOS"]},{"code":"05722","name":"UNGO NAVA","aliases":["VALLE DE MENA","BURGOS"]},{"code":"05724","name":"MERCADILLO VILLASANA","aliases":["CEREZO DE RÍO TIRÓN","BURGOS"]},{"code":"05727","name":"CADAGUA","aliases":["VALLE DE MENA","BURGOS"]},{"code":"05730","name":"BERCEDO-MONTIJA","aliases":["MERINDAD DE SOTOSCUEVA","BURGOS"]},{"code":"05731","name":"QUINTANA DE LOS PRADOS","aliases":["ESPINOSA DE LOS MONTEROS","BURGOS"]},{"code":"05732","name":"ESPINOSA DE LOS MONTEROS","aliases":["BURGOS"]},{"code":"05733","name":"REDONDO","aliases":["MERINDAD DE SOTOSCUEVA","BURGOS"]},{"code":"05734","name":"SOTOSCUEVA","aliases":["MERINDAD DE SOTOSCUEVA","BURGOS"]},{"code":"05735","name":"PEDROSA","aliases":["MERINDAD DE VALDEPORRES","BURGOS"]},{"code":"05736","name":"DOSANTE CIDAD","aliases":["MERINDAD DE VALDEPORRES","BURGOS"]},{"code":"05737","name":"ROBREDO AHEDO","aliases":["MERINDAD DE VALDEPORRES","BURGOS"]},{"code":"05738","name":"SONCILLO","aliases":["VALLE DE VALDEBEZANA","BURGOS"]},{"code":"05739","name":"CABAÑAS DE VIRTUS","aliases":["VALLE DE VALDEBEZANA","BURGOS"]},{"code":"05740","name":"ARIJA","aliases":["BURGOS"]},{"code":"05741","name":"LLANO","aliases":["ROZAS DE VALDEARROYO (LAS)","CANTABRIA"]},{"code":"05742","name":"LAS ROZAS DE VALDEARROYO","aliases":["ROZAS DE VALDEARROYO (LAS)","CANTABRIA"]},{"code":"05743","name":"MONTES CLAROS","aliases":["VALDEPRADO DEL RÍO","CANTABRIA"]},{"code":"05744","name":"LOS CARABEOS","aliases":["VALDEPRADO DEL RÍO","CANTABRIA"]},{"code":"05747","name":"CILLAMAYOR","aliases":["BARRUELO DE SANTULLÁN","PALENCIA"]},{"code":"05748","name":"SALINAS DE PISUERGA","aliases":["PALENCIA"]},{"code":"05749","name":"VADO-CERVERA","aliases":["DEHESA DE MONTEJO","PALENCIA"]},{"code":"05750","name":"CASTREJÓN DE LA PEÑA","aliases":["PALENCIA"]},{"code":"05751","name":"VILLAVERDE TARILONTE","aliases":["SANTIBÁÑEZ DE LA PEÑA","PALENCIA"]},{"code":"05752","name":"SANTIBÁÑEZ DE LA PEÑA","aliases":["PALENCIA"]},{"code":"05753","name":"GUARDO APEADERO","aliases":["GUARDO","PALENCIA"]},{"code":"05754","name":"GUARDO","aliases":["PALENCIA"]},{"code":"05755","name":"LA LLAMA DE LA GUZPEÑA","aliases":["PRADO DE LA GUZPEÑA","LEÓN"]},{"code":"05756","name":"LA ESPINA","aliases":["VALDERRUEDA","LEÓN"]},{"code":"05757","name":"VALCUENDE","aliases":["VALDERRUEDA","LEÓN"]},{"code":"05758","name":"PUENTE ALMUHEY","aliases":["VALDERRUEDA","LEÓN"]},{"code":"05759","name":"PRADO DE LA GUZPEÑA","aliases":["LEÓN"]},{"code":"05760","name":"VALLE DE LAS CASAS","aliases":["CEBANICO","LEÓN"]},{"code":"05761","name":"CISTIERNA","aliases":["LEÓN"]},{"code":"05763","name":"LA ERCINA","aliases":["ERCINA (LA)","LEÓN"]},{"code":"05766","name":"BOÑAR","aliases":["LEÓN"]},{"code":"05767","name":"LA VECILLA","aliases":["VECILLA (LA)","LEÓN"]},{"code":"05770","name":"MATALLANA","aliases":["MATALLANA DE TORÍO","LEÓN"]},{"code":"05776","name":"SAN FELIZ","aliases":["GARRAFE DE TORÍO","LEÓN"]},{"code":"05778","name":"FEVE-LEÓN","aliases":["LEÓN"]},{"code":"05790","name":"SORRIBA","aliases":["VALVERDE DE LA VIRGEN","LEÓN"]},{"code":"05799","name":"CEREZAL DE LA GUZPEÑA","aliases":["PRADO DE LA GUZPEÑA","LEÓN"]},{"code":"05803","name":"LA ASUNCIÓN UNIVERSIDAD","aliases":["LEÓN"]},{"code":"06002","name":"ALHAMA DE MURCIA","aliases":["MURCIA"]},{"code":"06003","name":"TOTANA","aliases":["MURCIA"]},{"code":"06006","name":"LORCA-SUTULLENA","aliases":["LORCA","MURCIA"]},{"code":"07004","name":"ÁGUILAS","aliases":["MURCIA"]},{"code":"08004","name":"SEGOVIA-GUIOMAR","aliases":["SEGOVIA"]},{"code":"08223","name":"VIGO URZAIZ","aliases":["VIGO","PONTEVEDRA"]},{"code":"08224","name":"REDONDELA AV","aliases":["REDONDELA","PONTEVEDRA"]},{"code":"08240","name":"MEDINA DEL CAMPO AV","aliases":["MEDINA DEL CAMPO","VALLADOLID"]},{"code":"08247","name":"SANABRIA AV","aliases":["PUEBLA DE SANABRIA","ZAMORA"]},{"code":"08251","name":"A GUDIÑA-PORTA DE GALICIA","aliases":["GUDIÑA (A)","OURENSE"]},{"code":"10000","name":"Madrid-Príncipe Pío","aliases":["MADRID","principe pio","príncipe pío"]},{"code":"10001","name":"Aravaca","aliases":["MADRID","aravaca"]},{"code":"10002","name":"Pozuelo","aliases":["POZUELO DE ALARCÓN","MADRID","pozuelo"]},{"code":"10005","name":"Las Rozas","aliases":["ROZAS DE MADRID (LAS)","MADRID","las rozas"]},{"code":"10100","name":"Pinar de Las Rozas","aliases":["ROZAS DE MADRID (LAS)","MADRID","pinar","pinar de las rozas"]},{"code":"10101","name":"Las Matas","aliases":["ROZAS DE MADRID (LAS)","MADRID","las matas"]},{"code":"10103","name":"Torrelodones","aliases":["MADRID","torrelodones"]},{"code":"10104","name":"Galapagar-La Navata","aliases":["GALAPAGAR","MADRID","galapagar","la navata","galapagar la navata"]},{"code":"10200","name":"Villalba de Guadarrama","aliases":["COLLADO VILLALBA","MADRID","villalba","villalba de guadarrama"]},{"code":"10201","name":"San Yago","aliases":["GALAPAGAR","MADRID","san yago"]},{"code":"10202","name":"Las Zorreras-Navalquejigo","aliases":["SAN LORENZO DE EL ESCORIAL","MADRID","las zorreras","navalquejigo"]},{"code":"10203","name":"El Escorial","aliases":["SAN LORENZO DE EL ESCORIAL","MADRID","escorial"]},{"code":"10204","name":"ZARZALEJO","aliases":["MADRID"]},{"code":"10205","name":"ROBLEDO DE CHAVELA","aliases":["MADRID"]},{"code":"10206","name":"SANTA MARÍA DE LA ALAMEDA-PEGUERINOS","aliases":["SANTA MARÍA DE LA ALAMEDA","MADRID","santa maría de la alameda"]},{"code":"10207","name":"LAS NAVAS DEL MARQUÉS","aliases":["NAVAS DEL MARQUÉS (LAS)","ÁVILA"]},{"code":"10208","name":"NAVALPERAL","aliases":["NAVALPERAL DE PINARES","ÁVILA"]},{"code":"10209","name":"EL PIMPOLLAR","aliases":["SANTA MARÍA DE LA ALAMEDA","MADRID"]},{"code":"10300","name":"HERRADÓN-LA CAÑADA","aliases":["HERRADÓN DE PINARES","ÁVILA"]},{"code":"10302","name":"GUIMORCONDO","aliases":["ÁVILA"]},{"code":"10400","name":"ÁVILA","aliases":[]},{"code":"10409","name":"ARÉVALO","aliases":["ÁVILA"]},{"code":"10500","name":"MEDINA DEL CAMPO","aliases":["VALLADOLID"]},{"code":"10501","name":"POZALDEZ","aliases":["VALLADOLID"]},{"code":"10502","name":"MATAPOZUELOS","aliases":["VALLADOLID"]},{"code":"10503","name":"VALDESTILLAS","aliases":["VALLADOLID"]},{"code":"10504","name":"VIANA","aliases":["VIANA DE CEGA","VALLADOLID"]},{"code":"10600","name":"VALLADOLID-CAMPO GRANDE","aliases":["VALLADOLID"]},{"code":"10602","name":"CABEZÓN DEL PISUERGA","aliases":["CABEZÓN DE PISUERGA","VALLADOLID","cabezón de pisuerga"]},{"code":"10603","name":"CORCOS-AGUILAREJO","aliases":["CORCOS","VALLADOLID"]},{"code":"10604","name":"CUBILLAS DE SANTA MARTA","aliases":["VALLADOLID"]},{"code":"10605","name":"DUEÑAS","aliases":["PALENCIA"]},{"code":"10610","name":"VALLADOLID UNIVERSIDAD","aliases":["VALLADOLID"]},{"code":"11000","name":"VENTA DE BAÑOS","aliases":["PALENCIA"]},{"code":"11004","name":"MAGAZ","aliases":["MAGAZ DE PISUERGA","PALENCIA"]},{"code":"11006","name":"QUINTANA DEL PUENTE","aliases":["PALENCIA"]},{"code":"11009","name":"VILLAQUIRÁN","aliases":["VILLAQUIRÁN DE LOS INFANTES","BURGOS"]},{"code":"11014","name":"BURGOS-ROSA MANZANO","aliases":["BURGOS"]},{"code":"11109","name":"BRIVIESCA","aliases":["BURGOS"]},{"code":"11111","name":"PANCORBO","aliases":["BURGOS"]},{"code":"11200","name":"MIRANDA DE EBRO","aliases":["BURGOS"]},{"code":"11203","name":"MANZANOS","aliases":["RIBERA BAJA/ERRIBERA BEITIA","ARABA/ÁLAVA"]},{"code":"11204","name":"LA PUEBLA DE ARGANZÓN","aliases":["PUEBLA DE ARGANZÓN (LA)","BURGOS"]},{"code":"11205","name":"NANCLARES-LANGRAIZ","aliases":["IRUÑA OKA/IRUÑA DE OCA","ARABA/ÁLAVA"]},{"code":"11208","name":"VITORIA-GASTEIZ","aliases":["ARABA/ÁLAVA"]},{"code":"11210","name":"ALEGRÍA-DULANTZI","aliases":["ARABA/ÁLAVA"]},{"code":"11212","name":"AGURAIN-SALVATIERRA DE ÁLAVA","aliases":["SALVATIERRA/AGURAIN","ARABA/ÁLAVA"]},{"code":"11213","name":"ARAIA","aliases":["ZALDUONDO","ARABA/ÁLAVA"]},{"code":"11300","name":"ALTSASU","aliases":["ALTSASU/ALSASUA","NAVARRA"]},{"code":"11305","name":"BRINKOLA","aliases":["LEGAZPI","GIPUZKOA"]},{"code":"11306","name":"LEGAZPI","aliases":["GIPUZKOA"]},{"code":"11400","name":"ZUMARRAGA","aliases":["GIPUZKOA"]},{"code":"11402","name":"ORMÁIZTEGUI","aliases":["ORMAIZTEGI","GIPUZKOA"]},{"code":"11404","name":"BEASAIN","aliases":["GIPUZKOA"]},{"code":"11405","name":"ORDIZIA","aliases":["GIPUZKOA"]},{"code":"11500","name":"TOLOSA","aliases":["GIPUZKOA"]},{"code":"11501","name":"TOLOSA-CENTRO","aliases":["TOLOSA","GIPUZKOA"]},{"code":"11503","name":"BILLABONA-ZIZURKIL","aliases":["VILLABONA","GIPUZKOA"]},{"code":"11504","name":"ANDOAIN-CENTRO","aliases":["ANDOAIN","GIPUZKOA"]},{"code":"11507","name":"HERNANI-ERDIA","aliases":["HERNANI","GIPUZKOA"]},{"code":"11511","name":"SAN SEBASTIÁN-DONOSTIA","aliases":["DONOSTIA/SAN SEBASTIÁN","GIPUZKOA"]},{"code":"11515","name":"PASAIA","aliases":["GIPUZKOA"]},{"code":"11516","name":"LEZO-RENTERÍA","aliases":["LEZO","GIPUZKOA"]},{"code":"11600","name":"IRUN","aliases":["GIPUZKOA"]},{"code":"12001","name":"Los Negrales","aliases":["ALPEDRETE","MADRID","los negrales"]},{"code":"12002","name":"ALPEDRETE","aliases":["MADRID"]},{"code":"12004","name":"Collado Mediano","aliases":["MADRID","collado mediano"]},{"code":"12005","name":"Los Molinos","aliases":["MOLINOS (LOS)","MADRID","los molinos"]},{"code":"12006","name":"Cercedilla","aliases":["MADRID","cercedilla"]},{"code":"12009","name":"SAN RAFAEL","aliases":["CASTRO DEL RÍO","SEGOVIA"]},{"code":"12010","name":"EL ESPINAR","aliases":["CASTRO DEL RÍO","SEGOVIA"]},{"code":"12011","name":"LOS ÁNGELES DE SAN RAFAEL","aliases":["CASTRO DEL RÍO","SEGOVIA"]},{"code":"12012","name":"OTERO-HERREROS","aliases":["OTERO DE HERREROS","SEGOVIA"]},{"code":"12013","name":"ORTIGOSA DEL MONTE","aliases":["SEGOVIA"]},{"code":"12014","name":"NAVAS DE RIOFRÍO-LA LOSA","aliases":["NAVAS DE RIOFRÍO","SEGOVIA"]},{"code":"12020","name":"Puerto de Navacerrada","aliases":["CERCEDILLA","MADRID","puerto navacerrada","navacerrada"]},{"code":"12023","name":"Cotos","aliases":["REAL SITIO DE SAN ILDEFONSO","SEGOVIA","cotos"]},{"code":"12100","name":"SEGOVIA","aliases":[]},{"code":"13106","name":"LLODIO","aliases":["LAUDIO/LLODIO","ARABA/ÁLAVA"]},{"code":"13200","name":"BILBAO-INTERMOD. ABANDO INDALECIO PRIETO","aliases":["BILBAO","BIZKAIA","intermodal abando indalecio prieto"]},{"code":"13206","name":"AMETZOLA","aliases":["BILBAO","BIZKAIA"]},{"code":"14100","name":"PALENCIA","aliases":[]},{"code":"14103","name":"PIÑA","aliases":["PIÑA DE CAMPOS","PALENCIA"]},{"code":"14104","name":"FRÓMISTA","aliases":["PALENCIA"]},{"code":"14107","name":"OSORNO","aliases":["OSORNO LA MAYOR","PALENCIA"]},{"code":"14108","name":"ESPINOSA DE VILLAGONZALO","aliases":["PALENCIA"]},{"code":"14111","name":"HERRERA DE PISUERGA","aliases":["PALENCIA"]},{"code":"14112","name":"ALAR DEL REY","aliases":["PALENCIA"]},{"code":"14113","name":"MAVE","aliases":["AGUILAR DE CAMPOO","PALENCIA"]},{"code":"14114","name":"AGUILAR DE CAMPOO","aliases":["PALENCIA"]},{"code":"14115","name":"QUINTANILLA DE LAS TORRES","aliases":["POMAR DE VALDIVIA","PALENCIA"]},{"code":"14117","name":"EL CARRIÓN","aliases":["MONZÓN DE CAMPOS","PALENCIA"]},{"code":"14200","name":"MATAPORQUERA","aliases":["VALDEOLEA","CANTABRIA"]},{"code":"14202","name":"REINOSA","aliases":["CANTABRIA"]},{"code":"14206","name":"BÁRCENA","aliases":["BÁRCENA DE PIE DE CONCHA","CANTABRIA"]},{"code":"14210","name":"LOS CORRALES DE BUELNA","aliases":["CORRALES DE BUELNA (LOS)","CANTABRIA"]},{"code":"14213","name":"TORRELAVEGA","aliases":["CANTABRIA"]},{"code":"14216","name":"RENEDO","aliases":["PIÉLAGOS","CANTABRIA"]},{"code":"14220","name":"MALIAÑO","aliases":["CAMARGO","CANTABRIA"]},{"code":"14223","name":"SANTANDER","aliases":["CANTABRIA"]},{"code":"14230","name":"VALDECILLA","aliases":["SANTANDER","CANTABRIA"]},{"code":"15001","name":"GRIJOTA","aliases":["PALENCIA"]},{"code":"15003","name":"BECERRIL","aliases":["BECERRIL DE CAMPOS","PALENCIA"]},{"code":"15004","name":"PAREDES DE NAVA","aliases":["PALENCIA"]},{"code":"15006","name":"CISNEROS","aliases":["PALENCIA"]},{"code":"15007","name":"VILLADA","aliases":["PALENCIA"]},{"code":"15008","name":"GRAJAL","aliases":["GRAJAL DE CAMPOS","LEÓN"]},{"code":"15009","name":"SAHAGÚN","aliases":["LEÓN"]},{"code":"15012","name":"EL BURGO RANERO","aliases":["BURGO RANERO (EL)","LEÓN"]},{"code":"15014","name":"SANTAS MARTAS","aliases":["LEÓN"]},{"code":"15015","name":"PALANQUINOS","aliases":["VILLANUEVA DE LAS MANZANAS","LEÓN"]},{"code":"15100","name":"LEÓN","aliases":[]},{"code":"15106","name":"LA ROBLA","aliases":["ROBLA (LA)","LEÓN"]},{"code":"15108","name":"LA POLA DE GORDÓN","aliases":["POLA DE GORDÓN (LA)","LEÓN"]},{"code":"15109","name":"SANTA LUCÍA","aliases":["POLA DE GORDÓN (LA)","LEÓN"]},{"code":"15112","name":"VILLAMANÍN","aliases":["LEÓN"]},{"code":"15113","name":"BUSDONGO","aliases":["VILLAMANÍN","LEÓN"]},{"code":"15116","name":"LINARES-CONGOSTINAS","aliases":["LENA","ASTURIAS"]},{"code":"15118","name":"PUENTE DE LOS FIERROS","aliases":["LENA","ASTURIAS"]},{"code":"15120","name":"CAMPOMANES","aliases":["LENA","ASTURIAS"]},{"code":"15122","name":"POLA DE LENA","aliases":["LENA","ASTURIAS"]},{"code":"15200","name":"UJO","aliases":["MIERES","ASTURIAS"]},{"code":"15203","name":"MIERES-PUENTE","aliases":["MIERES","ASTURIAS"]},{"code":"15211","name":"OVIEDO","aliases":["ASTURIAS"]},{"code":"15217","name":"LA CORREDORIA","aliases":["OVIEDO","ASTURIAS"]},{"code":"15218","name":"LLAMAQUIQUE","aliases":["OVIEDO","ASTURIAS"]},{"code":"15401","name":"CALZADA DE ASTURIAS","aliases":["GIJÓN","ASTURIAS"]},{"code":"15410","name":"GIJÓN-SANZ CRESPO","aliases":["GIJÓN","ASTURIAS"]},{"code":"16403","name":"AVILÉS","aliases":["ASTURIAS"]},{"code":"17000","name":"MADRID-CHAMARTÍN-CLARA CAMPOAMOR","aliases":["MADRID","chamartin","chamartín","madrid chamartin","madrid chamartín","chamartín cercanías","chamartin cercanias","madrid chamartín clara campoamor"]},{"code":"18000","name":"Madrid-Atocha Cercanías","aliases":["atocha cercanias","atocha cercanías","madrid atocha cercanias","madrid atocha cercanías"]},{"code":"18001","name":"Madrid-Recoletos","aliases":["MADRID","chamartin","chamartín","madrid chamartin","madrid chamartín","recoletos"]},{"code":"18002","name":"Madrid-Nuevos Ministerios","aliases":["MADRID","nuevos ministerios"]},{"code":"20002","name":"QUINTANA-RANEROS","aliases":["SANTOVENIA DE LA VALDONCINA","LEÓN"]},{"code":"20005","name":"VEGUELLINA","aliases":["VILLAREJO DE ÓRBIGO","LEÓN"]},{"code":"20006","name":"BARRIENTOS","aliases":["VALDERREY","LEÓN"]},{"code":"20007","name":"NISTAL","aliases":["SAN JUSTO DE LA VEGA","LEÓN"]},{"code":"20008","name":"VILLAVANTE","aliases":["SANTA MARINA DEL REY","LEÓN"]},{"code":"20100","name":"ASTORGA","aliases":["LEÓN"]},{"code":"20102","name":"VEGA-MAGAZ","aliases":["MAGAZ DE CEPEDA","LEÓN"]},{"code":"20103","name":"PORQUEROS","aliases":["MAGAZ DE CEPEDA","LEÓN"]},{"code":"20104","name":"BRAÑUELAS","aliases":["VILLAGATÓN","LEÓN"]},{"code":"20106","name":"LA GRANJA","aliases":["TORRE DEL BIERZO","LEÓN"]},{"code":"20109","name":"TORRE DEL BIERZO","aliases":["LEÓN"]},{"code":"20111","name":"BEMBIBRE","aliases":["LEÓN"]},{"code":"20113","name":"SAN MIGUEL DE LAS DUEÑAS","aliases":["CONGOSTO","LEÓN"]},{"code":"20200","name":"PONFERRADA","aliases":["LEÓN"]},{"code":"20203","name":"VILLADEPALOS","aliases":["CARRACEDELO","LEÓN"]},{"code":"20204","name":"TORAL DE LOS VADOS","aliases":["LEÓN"]},{"code":"20207","name":"COVAS","aliases":["RUBIÁ","OURENSE"]},{"code":"20208","name":"QUEREÑO","aliases":["RUBIÁ","OURENSE"]},{"code":"20210","name":"SOBRADELO","aliases":["CARBALLEDA DE VALDEORRAS","OURENSE"]},{"code":"20211","name":"O BARCO DE VALDEORRAS","aliases":["BARCO DE VALDEORRAS (O)","OURENSE"]},{"code":"20212","name":"VILAMARTÍN DE VALDEORRAS","aliases":["OURENSE"]},{"code":"20213","name":"A RÚA-PETÍN","aliases":["RÚA (A)","OURENSE"]},{"code":"20214","name":"MONTEFURADO","aliases":["QUIROGA","LUGO"]},{"code":"20216","name":"SAN CLODIO-QUIROGA","aliases":["RIBAS DE SIL","LUGO"]},{"code":"20218","name":"A POBRA DO BROLLÓN","aliases":["POBRA DO BROLLÓN (A)","LUGO","pobra de brollon","pobra de brollón"]},{"code":"20300","name":"MONFORTE DE LEMOS","aliases":["LUGO"]},{"code":"20305","name":"SARRIA","aliases":["LUGO"]},{"code":"20306","name":"PEDRELO-CÉLTIGOS","aliases":["SARRIA","LUGO"]},{"code":"20309","name":"LUGO","aliases":[]},{"code":"20310","name":"RÁBADE","aliases":["LUGO"]},{"code":"20312","name":"BAAMONDE","aliases":["BEGONTE","LUGO"]},{"code":"20313","name":"PARGA","aliases":["GUITIRIZ","LUGO"]},{"code":"20314","name":"GUITIRIZ","aliases":["LUGO"]},{"code":"20316","name":"TEIXEIRO","aliases":["CURTIS","CORUÑA, A"]},{"code":"20317","name":"CURTIS","aliases":["CORUÑA, A"]},{"code":"20318","name":"PIÑOI","aliases":["CESURAS","CORUÑA, A"]},{"code":"20319","name":"CESURAS","aliases":["CORUÑA, A"]},{"code":"20320","name":"OZA DOS RÍOS","aliases":["CORUÑA, A"]},{"code":"20400","name":"BETANZOS-INFESTA","aliases":["BETANZOS","CORUÑA, A"]},{"code":"20402","name":"CECEBRE","aliases":["CAMBRE","CORUÑA, A"]},{"code":"20403","name":"CAMBRE","aliases":["CORUÑA, A"]},{"code":"20404","name":"O BURGO-SANTIAGO","aliases":["CULLEREDO","CORUÑA, A"]},{"code":"20410","name":"ELVIÑA-UNIVERSIDADE","aliases":["CORUÑA (A)","CORUÑA, A"]},{"code":"21001","name":"BETANZOS-CIDADE","aliases":["BETANZOS","CORUÑA, A"]},{"code":"21002","name":"MIÑO","aliases":["CORUÑA, A"]},{"code":"21003","name":"PERBES","aliases":["MIÑO","CORUÑA, A"]},{"code":"21004","name":"PONTEDEUME","aliases":["CORUÑA, A"]},{"code":"21005","name":"CABANAS","aliases":["CORUÑA, A"]},{"code":"21007","name":"BARALLOBRE","aliases":["FENE","CORUÑA, A"]},{"code":"21008","name":"PERLÍO","aliases":["FENE","CORUÑA, A"]},{"code":"21009","name":"NEDA","aliases":["CORUÑA, A"]},{"code":"21010","name":"FERROL","aliases":["CORUÑA, A"]},{"code":"21913","name":"POLIGON INDUSTRIAL DEL SEGRE","aliases":["LLEIDA"]},{"code":"22001","name":"CANAVAL","aliases":["SOBER","LUGO"]},{"code":"22002","name":"AREAS","aliases":["SOBER","LUGO"]},{"code":"22003","name":"SANTO ESTEVO DO SIL","aliases":["PANTÓN","LUGO"]},{"code":"22004","name":"SAN PEDRO DO SIL","aliases":["PANTÓN","LUGO"]},{"code":"22005","name":"OS PEARES","aliases":["PEROXA (A)","OURENSE"]},{"code":"22006","name":"BARRA DE MIÑO","aliases":["COLES","OURENSE"]},{"code":"22100","name":"OURENSE","aliases":[]},{"code":"22101","name":"BARBANTES","aliases":["CENLLE","OURENSE"]},{"code":"22102","name":"RIBADAVIA","aliases":["OURENSE"]},{"code":"22103","name":"FILGUEIRA","aliases":["CRECENTE","PONTEVEDRA"]},{"code":"22104","name":"FRIEIRA","aliases":["CRECENTE","PONTEVEDRA"]},{"code":"22105","name":"POUSA-CRECENTE","aliases":["CRECENTE","PONTEVEDRA"]},{"code":"22106","name":"ARBO","aliases":["PONTEVEDRA"]},{"code":"22107","name":"SELA","aliases":["ARBO","PONTEVEDRA"]},{"code":"22108","name":"AS NEVES","aliases":["NEVES (AS)","PONTEVEDRA"]},{"code":"22109","name":"SALVATERRA","aliases":["SALVATERRA DE MIÑO","PONTEVEDRA"]},{"code":"22110","name":"CALDELAS","aliases":["TUI","PONTEVEDRA"]},{"code":"22200","name":"GUILLAREI","aliases":["TUI","PONTEVEDRA"]},{"code":"22201","name":"O PORRIÑO","aliases":["PORRIÑO (O)","PONTEVEDRA"]},{"code":"22300","name":"REDONDELA","aliases":["PONTEVEDRA"]},{"code":"22308","name":"VIGO-GUIXAR","aliases":["VIGO","PONTEVEDRA"]},{"code":"22401","name":"TUI","aliases":["PONTEVEDRA"]},{"code":"22402","name":"VALENÇA DO MINHO","aliases":["TUI","PONTEVEDRA"]},{"code":"23000","name":"REDONDELA-PICOTA","aliases":["REDONDELA","PONTEVEDRA"]},{"code":"23001","name":"CESANTES","aliases":["REDONDELA","PONTEVEDRA"]},{"code":"23002","name":"ARCADE","aliases":["SOUTOMAIOR","PONTEVEDRA"]},{"code":"23004","name":"PONTEVEDRA","aliases":[]},{"code":"23005","name":"PORTELA","aliases":["BARRO","PONTEVEDRA"]},{"code":"23008","name":"VILAGARCÍA DE AROUSA","aliases":["PONTEVEDRA"]},{"code":"23009","name":"CATOIRA","aliases":["PONTEVEDRA"]},{"code":"23010","name":"PONTECESURES","aliases":["PONTEVEDRA"]},{"code":"23011","name":"PADRÓN","aliases":["CORUÑA, A"]},{"code":"23013","name":"OSEBE","aliases":["TEO","CORUÑA, A"]},{"code":"23018","name":"PONTEVEDRA UNIVERSIDAD","aliases":["PONTEVEDRA"]},{"code":"23021","name":"PADRÓN BARBANZA","aliases":["PADRÓN","CORUÑA, A"]},{"code":"30000","name":"MONFRAGÜE","aliases":["MALPARTIDA DE PLASENCIA","CÁCERES"]},{"code":"30002","name":"PLASENCIA","aliases":["CÁCERES"]},{"code":"30100","name":"SALAMANCA","aliases":[]},{"code":"30110","name":"SALAMANCA-LA ALAMEDILLA","aliases":["SALAMANCA"]},{"code":"30200","name":"ZAMORA","aliases":[]},{"code":"31002","name":"NAVA DEL REY","aliases":["VALLADOLID"]},{"code":"31006","name":"TORO","aliases":["ZAMORA"]},{"code":"31104","name":"CARBAJALES DE ALBA","aliases":["ZAMORA"]},{"code":"31106","name":"FERRERUELA DE TÁBARA","aliases":["FERRERUELA DE HUERVA","ZAMORA"]},{"code":"31107","name":"ABEJERA","aliases":["RIOFRÍO DE ALISTE","ZAMORA"]},{"code":"31108","name":"SARRACÍN DE ALISTE","aliases":["RIOFRÍO DE ALISTE","ZAMORA"]},{"code":"31109","name":"CABAÑAS DE ALISTE","aliases":["SAN VICENTE DE LA CABEZA","ZAMORA"]},{"code":"31112","name":"LINAREJOS-PEDROSO","aliases":["MANZANAL DE ARRIBA","ZAMORA"]},{"code":"31200","name":"PUEBLA DE SANABRIA","aliases":["ZAMORA"]},{"code":"31303","name":"A FRIELA-MASIDE","aliases":["MASIDE","OURENSE"]},{"code":"31304","name":"O CARBALLIÑO","aliases":["CARBALLIÑO (O)","OURENSE"]},{"code":"31306","name":"O IRIXO","aliases":["IRIXO (O)","OURENSE"]},{"code":"31308","name":"LALÍN","aliases":["PONTEVEDRA"]},{"code":"31400","name":"SANTIAGO DE COMPOSTELA-DANIEL CASTELAO","aliases":["SANTIAGO DE COMPOSTELA","CORUÑA, A"]},{"code":"31411","name":"UXES","aliases":["ARTEIXO","CORUÑA, A"]},{"code":"31412","name":"A CORUÑA","aliases":["CORUÑA (A)","CORUÑA, A"]},{"code":"31415","name":"ORDES","aliases":["CORUÑA, A"]},{"code":"31416","name":"CERCEDA-MEIRAMA","aliases":["CERCEDA","CORUÑA, A"]},{"code":"32001","name":"CAMPILLO","aliases":["CAMPILLO (EL)","VALLADOLID"]},{"code":"32002","name":"EL CARPIO","aliases":["CARPIO","VALLADOLID"]},{"code":"32003","name":"FRESNO EL VIEJO","aliases":["VALLADOLID"]},{"code":"32004","name":"CANTALAPIEDRA","aliases":["SALAMANCA"]},{"code":"32006","name":"EL PEDROSO DE LA ARMUÑA","aliases":["PEDROSO DE LA ARMUÑA (EL)","SALAMANCA"]},{"code":"32007","name":"PITIEGUA","aliases":["SALAMANCA"]},{"code":"32008","name":"GOMECELLO","aliases":["SALAMANCA"]},{"code":"32009","name":"MORISCOS","aliases":["SALAMANCA"]},{"code":"34002","name":"CARDEÑOSA DE ÁVILA","aliases":["CARDEÑOSA","ÁVILA"]},{"code":"34005","name":"SAN PEDRO DEL ARROYO","aliases":["ÁVILA"]},{"code":"34007","name":"CRESPOS","aliases":["ÁVILA"]},{"code":"34008","name":"NARROS DEL CASTILLO","aliases":["ÁVILA"]},{"code":"34010","name":"PEÑARANDA DE BRACAMONTE","aliases":["SALAMANCA"]},{"code":"34011","name":"VILLAR DE GALLIMAZO","aliases":["SALAMANCA"]},{"code":"34012","name":"BABILAFUENTE","aliases":["SALAMANCA"]},{"code":"34013","name":"SAN MORALES","aliases":["SALAMANCA"]},{"code":"34014","name":"ALDEALENGUA","aliases":["SALAMANCA"]},{"code":"35001","name":"Leganés","aliases":["MADRID","leganes","leganés"]},{"code":"35002","name":"FUENLABRADA","aliases":["fuenla","fuenlabrada"]},{"code":"35005","name":"ILLESCAS","aliases":["TOLEDO"]},{"code":"35012","name":"Humanes","aliases":["HUMANES DE MADRID","MADRID","humanes"]},{"code":"35105","name":"TORRIJOS","aliases":["TOLEDO"]},{"code":"35109","name":"MONTEARAGÓN","aliases":["TOLEDO"]},{"code":"35200","name":"TALAVERA DE LA REINA","aliases":["TOLEDO"]},{"code":"35203","name":"OROPESA DE TOLEDO","aliases":["OROPESA","TOLEDO"]},{"code":"35206","name":"NAVALMORAL DE LA MATA","aliases":["CÁCERES"]},{"code":"35207","name":"CASATEJADA","aliases":["CÁCERES"]},{"code":"35301","name":"MIRABEL","aliases":["CÁCERES"]},{"code":"35302","name":"CASAS DE MILLÁN","aliases":["CÁCERES"]},{"code":"35303","name":"CAÑAVERAL","aliases":["CÁCERES"]},{"code":"35400","name":"CÁCERES","aliases":[]},{"code":"35402","name":"ARROYO DE MALPARTIDA","aliases":["CÁCERES"]},{"code":"35405","name":"SAN VICENTE DE ALCÁNTARA","aliases":["BADAJOZ"]},{"code":"35406","name":"VALENCIA DE ALCÁNTARA","aliases":["CÁCERES"]},{"code":"37200","name":"CIUDAD REAL","aliases":[]},{"code":"37300","name":"PUERTOLLANO","aliases":["CIUDAD REAL"]},{"code":"37302","name":"BRAZATORTAS-VEREDAS","aliases":["BRAZATORTAS","CIUDAD REAL"]},{"code":"37305","name":"ALMADENEJOS-ALMADÉN","aliases":["ALMADENEJOS","CIUDAD REAL"]},{"code":"37308","name":"GUADALMEZ-LOS PEDROCHES","aliases":["GUADALMEZ","CIUDAD REAL"]},{"code":"37311","name":"CABEZA DEL BUEY","aliases":["BADAJOZ"]},{"code":"37400","name":"ALMORCHÓN","aliases":["CABEZA DEL BUEY","BADAJOZ"]},{"code":"37402","name":"CASTUERA","aliases":["BADAJOZ"]},{"code":"37404","name":"CAMPANARIO","aliases":["BADAJOZ"]},{"code":"37406","name":"VILLANUEVA DE LA SERENA","aliases":["BADAJOZ"]},{"code":"37407","name":"DON BENITO","aliases":["BADAJOZ"]},{"code":"37409","name":"VALDETORRES","aliases":["BADAJOZ"]},{"code":"37410","name":"GUAREÑA","aliases":["BADAJOZ"]},{"code":"37500","name":"MÉRIDA","aliases":["BADAJOZ"]},{"code":"37603","name":"MONTIJO","aliases":["BADAJOZ"]},{"code":"37604","name":"GUADIANA","aliases":["GUADIANA DEL CAUDILLO","BADAJOZ"]},{"code":"37606","name":"BADAJOZ","aliases":[]},{"code":"37608","name":"MONTIJO-EL MOLINO","aliases":["MONTIJO","BADAJOZ"]},{"code":"37611","name":"GARROVILLA-LAS VEGAS","aliases":["GARROVILLA (LA)","BADAJOZ"]},{"code":"37704","name":"VILLANUEVA DE CÓRDOBA","aliases":["CÓRDOBA"]},{"code":"40002","name":"CALAMONTE","aliases":["BADAJOZ"]},{"code":"40004","name":"ALMENDRALEJO","aliases":["BADAJOZ"]},{"code":"40005","name":"VILLAFRANCA DE LOS BARROS","aliases":["BADAJOZ"]},{"code":"40006","name":"LOS SANTOS DE MAIMONA","aliases":["SANTOS DE MAIMONA (LOS)","BADAJOZ"]},{"code":"40008","name":"ZAFRA FERIA","aliases":["ZAFRA","BADAJOZ"]},{"code":"40100","name":"ZAFRA","aliases":["BADAJOZ"]},{"code":"40105","name":"LLERENA","aliases":["BADAJOZ"]},{"code":"40107","name":"FUENTE DEL ARCO","aliases":["BADAJOZ"]},{"code":"40108","name":"GUADALCANAL","aliases":["SEVILLA"]},{"code":"40113","name":"CAZALLA-CONSTANTINA","aliases":["CONSTANTINA","SEVILLA"]},{"code":"40115","name":"PEDROSO","aliases":["PEDROSO (EL)","SEVILLA"]},{"code":"40119","name":"VILLANUEVA DEL RÍO-MINAS","aliases":["VILLANUEVA DEL RÍO Y MINAS","SEVILLA"]},{"code":"40122","name":"TOCINA","aliases":["SEVILLA"]},{"code":"42005","name":"FREGENAL DE LA SIERRA","aliases":["BADAJOZ"]},{"code":"42006","name":"CUMBRES MAYORES","aliases":["HUELVA"]},{"code":"42008","name":"JABUGO-GALAROZA","aliases":["JABUGO","HUELVA"]},{"code":"42009","name":"ALMONASTER-CORTEGANA","aliases":["ALMONASTER LA REAL","HUELVA"]},{"code":"42012","name":"VALDELAMUSA","aliases":["CORTEGANA","HUELVA"]},{"code":"42013","name":"EL TAMUJOSO","aliases":["CERRO DE ANDÉVALO (EL)","HUELVA"]},{"code":"42015","name":"CALAÑAS","aliases":["HUELVA"]},{"code":"42016","name":"LOS MILANOS","aliases":["CALAÑAS","HUELVA"]},{"code":"42018","name":"EL COBUJÓN","aliases":["CALAÑAS","HUELVA"]},{"code":"42019","name":"BELMONTE","aliases":["GIBRALEÓN","HUELVA"]},{"code":"42020","name":"GIBRALEÓN","aliases":["HUELVA"]},{"code":"43005","name":"BENACAZÓN","aliases":["SEVILLA"]},{"code":"43008","name":"CARRIÓN DE LOS CÉSPEDES","aliases":["SEVILLA"]},{"code":"43009","name":"ESCACENA","aliases":["ESCACENA DEL CAMPO","HUELVA"]},{"code":"43011","name":"LA PALMA DEL CONDADO","aliases":["PALMA DEL CONDADO (LA)","HUELVA"]},{"code":"43012","name":"VILLARRASA","aliases":["HUELVA"]},{"code":"43015","name":"NIEBLA-PUERTA DEL BUEY","aliases":["NIEBLA","HUELVA"]},{"code":"43019","name":"HUELVA","aliases":["huelva-término"]},{"code":"43021","name":"SAN JUAN DEL PUERTO","aliases":["HUELVA"]},{"code":"50002","name":"CINCO CASAS","aliases":["ALCÁZAR DE SAN JUAN","CIUDAD REAL"]},{"code":"50100","name":"MANZANARES","aliases":["CIUDAD REAL"]},{"code":"50102","name":"VALDEPEÑAS","aliases":["CIUDAD REAL"]},{"code":"50200","name":"SANTA CRUZ DE MUDELA","aliases":["CIUDAD REAL"]},{"code":"50202","name":"ALMURADIEL-VISO DEL MARQUÉS","aliases":["ALMURADIEL","CIUDAD REAL"]},{"code":"50207","name":"VILCHES","aliases":["JAÉN"]},{"code":"50300","name":"LINARES-BAEZA","aliases":["LINARES","JAÉN"]},{"code":"50400","name":"ESPELÚY","aliases":["JAÉN"]},{"code":"50403","name":"ANDÚJAR","aliases":["JAÉN"]},{"code":"50407","name":"VILLA DEL RÍO","aliases":["CÓRDOBA"]},{"code":"50413","name":"ALCOLEA DE CÓRDOBA","aliases":["CÓRDOBA"]},{"code":"50417","name":"CAMPUS UNIVERSITARIO DE RABANALES","aliases":["CÓRDOBA"]},{"code":"50500","name":"CÓRDOBA-JULIO ANGUITA","aliases":["CÓRDOBA"]},{"code":"50501","name":"EL HIGUERÓN","aliases":["CÓRDOBA"]},{"code":"50502","name":"VILLARRUBIA DE CÓRDOBA","aliases":["CÓRDOBA"]},{"code":"50504","name":"POSADAS","aliases":["CÓRDOBA"]},{"code":"50506","name":"PALMA DEL RÍO","aliases":["CÓRDOBA"]},{"code":"50507","name":"PEÑAFLOR","aliases":["SEVILLA"]},{"code":"50600","name":"LORA DEL RÍO","aliases":["SEVILLA"]},{"code":"50700","name":"LOS ROSALES","aliases":["TOCINA","SEVILLA"]},{"code":"51003","name":"SEVILLA-SANTA JUSTA","aliases":["SEVILLA"]},{"code":"51100","name":"SAN BERNARDO","aliases":["SEVILLA"]},{"code":"51103","name":"DOS HERMANAS","aliases":["SEVILLA"]},{"code":"51110","name":"VIRGEN DEL ROCÍO","aliases":["SEVILLA"]},{"code":"51111","name":"BELLAVISTA","aliases":["SEVILLA"]},{"code":"51200","name":"UTRERA","aliases":["SEVILLA"]},{"code":"51202","name":"LAS CABEZAS DE SAN JUAN","aliases":["CABEZAS DE SAN JUAN (LAS)","SEVILLA"]},{"code":"51203","name":"LEBRIJA","aliases":["SEVILLA"]},{"code":"51205","name":"AEROPUERTO DE JEREZ","aliases":["JEREZ DE LA FRONTERA","CÁDIZ"]},{"code":"51300","name":"JEREZ DE LA FRONTERA","aliases":["CÁDIZ","jerez","jerez de la frontera"]},{"code":"51405","name":"Cádiz","aliases":["PUERTO DE SANTA MARÍA (EL)","CÁDIZ","cadiz","cádiz","bahia sur","bahía sur","san fernando bahia sur","san fernando bahía sur"]},{"code":"51407","name":"Cortadura","aliases":["CÁDIZ","cortadura"]},{"code":"51414","name":"San Severiano","aliases":["CÁDIZ","segunda aguada","san severiano"]},{"code":"51409","name":"Estadio","aliases":["CÁDIZ","estadio","cádiz"]},{"code":"54400","name":"BOBADILLA","aliases":["ANTEQUERA","MÁLAGA"]},{"code":"54403","name":"EL CHORRO-CAMINITO DEL REY","aliases":["ÁLORA","MÁLAGA"]},{"code":"54404","name":"LAS MELLIZAS","aliases":["ÁLORA","MÁLAGA"]},{"code":"54405","name":"ÁLORA","aliases":["MÁLAGA"]},{"code":"54406","name":"PIZARRA","aliases":["MÁLAGA"]},{"code":"54407","name":"ALJAIMA","aliases":["CÁRTAMA","MÁLAGA"]},{"code":"54408","name":"CÁRTAMA","aliases":["MÁLAGA"]},{"code":"54410","name":"CAMPANILLAS","aliases":["MÁLAGA"]},{"code":"54412","name":"MÁLAGA-LOS PRADOS","aliases":["MÁLAGA","los prados"]},{"code":"54413","name":"MÁLAGA MARÍA ZAMBRANO","aliases":["MÁLAGA"]},{"code":"54501","name":"VICTORIA KENT","aliases":["MÁLAGA"]},{"code":"54517","name":"MÁLAGA-CENTRO ALAMEDA","aliases":["MÁLAGA"]},{"code":"55001","name":"CAMPILLOS","aliases":["MÁLAGA"]},{"code":"55003","name":"ALMARGEN-CAÑETE LA REAL","aliases":["ALMARGEN","MÁLAGA"]},{"code":"55005","name":"SETENIL","aliases":["SETENIL DE LAS BODEGAS","CÁDIZ"]},{"code":"55007","name":"RONDA","aliases":["MÁLAGA"]},{"code":"55008","name":"ARRIATE","aliases":["MÁLAGA"]},{"code":"55010","name":"BENAOJÁN-MONTEJAQUE","aliases":["BENAOJÁN","MÁLAGA"]},{"code":"55011","name":"JIMERA DE LÍBAR","aliases":["MÁLAGA"]},{"code":"55012","name":"CORTES DE LA FRONTERA","aliases":["MÁLAGA"]},{"code":"55013","name":"GAUCÍN","aliases":["CORTES DE LA FRONTERA","MÁLAGA"]},{"code":"55014","name":"SAN PABLO","aliases":["JIMENA DE LA FRONTERA","CÁDIZ"]},{"code":"55015","name":"JIMENA DE LA FRONTERA","aliases":["CÁDIZ"]},{"code":"55017","name":"ALMORAIMA","aliases":["CASTELLAR DE LA FRONTERA","CÁDIZ"]},{"code":"55018","name":"SAN ROQUE-LA LÍNEA","aliases":["SAN ROQUE","CÁDIZ"]},{"code":"55019","name":"LOS BARRIOS","aliases":["BARRIOS (LOS)","CÁDIZ"]},{"code":"55020","name":"ALGECIRAS","aliases":["CÁDIZ"]},{"code":"56004","name":"JÓDAR-ÚBEDA","aliases":["JÓDAR","JAÉN"]},{"code":"56009","name":"CABRA DEL SANTO CRISTO Y ALICÚN","aliases":["CABRA DEL SANTO CRISTO","JAÉN"]},{"code":"56100","name":"MOREDA","aliases":["MORELÁBOR","GRANADA"]},{"code":"56103","name":"BENALÚA DE GUADIX","aliases":["BENALÚA","GRANADA"]},{"code":"56200","name":"GUADIX","aliases":["GRANADA"]},{"code":"56301","name":"FIÑANA","aliases":["ALMERÍA"]},{"code":"56305","name":"GÉRGAL","aliases":["ALMERÍA"]},{"code":"56308","name":"GÁDOR","aliases":["ALMERÍA"]},{"code":"56310","name":"HUERCAL-VIATOR","aliases":["HUÉRCAL DE ALMERÍA","ALMERÍA"]},{"code":"56312","name":"ALMERÍA","aliases":[]},{"code":"57003","name":"IZNALLOZ","aliases":["GRANADA"]},{"code":"60000","name":"MADRID-PUERTA DE ATOCHA-ALMUDENA GRANDES","aliases":["madrid puerta de atocha","puerta de atocha","atocha"]},{"code":"60200","name":"Aranjuez","aliases":["MADRID","aranjuez"]},{"code":"60202","name":"CASTILLEJO-AÑOVER","aliases":["ARANJUEZ","MADRID"]},{"code":"60203","name":"VILLASEQUILLA","aliases":["TOLEDO"]},{"code":"60206","name":"TEMBLEQUE","aliases":["TOLEDO"]},{"code":"60207","name":"EL ROMERAL","aliases":["ROMERAL (EL)","TOLEDO"]},{"code":"60300","name":"VILLACAÑAS","aliases":["TOLEDO"]},{"code":"60301","name":"QUERO","aliases":["TOLEDO"]},{"code":"60400","name":"ALCÁZAR DE SAN JUAN","aliases":["CIUDAD REAL"]},{"code":"60402","name":"CAMPO DE CRIPTANA","aliases":["CIUDAD REAL"]},{"code":"60406","name":"SOCUÉLLAMOS","aliases":["CIUDAD REAL"]},{"code":"60500","name":"VILLARROBLEDO","aliases":["ALBACETE"]},{"code":"60503","name":"MINAYA","aliases":["ALBACETE"]},{"code":"60505","name":"LA RODA DE ALBACETE","aliases":["RODA (LA)","ALBACETE"]},{"code":"60507","name":"LA GINETA","aliases":["GINETA (LA)","ALBACETE"]},{"code":"60600","name":"ALBACETE-LOS LLANOS","aliases":["ALBACETE"]},{"code":"60800","name":"ALMANSA","aliases":["ALBACETE"]},{"code":"60900","name":"LA ENCINA","aliases":["VILLENA","ALICANTE/ALACANT"]},{"code":"60901","name":"CAUDETE","aliases":["ALBACETE"]},{"code":"60902","name":"VILLENA","aliases":["ALICANTE/ALACANT"]},{"code":"60904","name":"SAX","aliases":["ALICANTE/ALACANT"]},{"code":"60905","name":"ELDA-PETRER","aliases":["ELDA","ALICANTE/ALACANT"]},{"code":"60907","name":"NOVELDA-ASPE","aliases":["NOVELDA","ALICANTE/ALACANT"]},{"code":"60911","name":"ALICANTE/ALACANT-TERMINAL","aliases":["ALICANTE/ALACANT"]},{"code":"60913","name":"SANT VICENT CENTRE","aliases":["SAN VICENTE DEL RASPEIG/SANT VICENT DEL RASPEIG","ALICANTE/ALACANT"]},{"code":"60914","name":"UNIVERSIDAD DE ALICANTE","aliases":["ALICANTE/ALACANT"]},{"code":"61005","name":"HELLÍN","aliases":["ALBACETE"]},{"code":"61012","name":"CIEZA","aliases":["MURCIA"]},{"code":"61015","name":"ARCHENA-FORTUNA","aliases":["MOLINA DE SEGURA","MURCIA"]},{"code":"61200","name":"MURCIA DEL CARMEN","aliases":["MURCIA"]},{"code":"61303","name":"BALSICAS-MAR MENOR","aliases":["TORRE-PACHECO","MURCIA"]},{"code":"61304","name":"TORRE-PACHECO","aliases":["MURCIA"]},{"code":"61307","name":"CARTAGENA","aliases":["MURCIA"]},{"code":"62001","name":"BENIEL","aliases":["MURCIA"]},{"code":"62002","name":"ORIHUELA-MIGUEL HERNÁNDEZ","aliases":["ORIHUELA","ALICANTE/ALACANT"]},{"code":"62003","name":"CALLOSA DE SEGURA","aliases":["ALICANTE/ALACANT"]},{"code":"62100","name":"SAN ISIDRO-ALBATERA-CATRAL","aliases":["SAN ISIDRO","ALICANTE/ALACANT"]},{"code":"62101","name":"CREVILLENTE","aliases":["CREVILLENT","ALICANTE/ALACANT"]},{"code":"62102","name":"ELCHE/ELX-CARRÚS","aliases":["ELCHE/ELX","ALICANTE/ALACANT"]},{"code":"62103","name":"ELCHE/ELX-PARC","aliases":["ELCHE/ELX","ALICANTE/ALACANT"]},{"code":"62104","name":"TORRELLANO","aliases":["ELCHE/ELX","ALICANTE/ALACANT"]},{"code":"62109","name":"SANT GABRIEL","aliases":["ALICANTE/ALACANT"]},{"code":"64007","name":"LENOVA-MANUEL","aliases":["MANUEL","VALENCIA/VALÈNCIA"]},{"code":"64100","name":"XÀTIVA","aliases":["VALENCIA/VALÈNCIA"]},{"code":"64102","name":"LA POBLA LLARGA","aliases":["POBLA LLARGA (LA)","VALENCIA/VALÈNCIA"]},{"code":"64103","name":"CARCAIXENT","aliases":["VALENCIA/VALÈNCIA"]},{"code":"64104","name":"ALZIRA","aliases":["VALENCIA/VALÈNCIA"]},{"code":"64105","name":"ALGEMESÍ","aliases":["VALENCIA/VALÈNCIA"]},{"code":"64107","name":"BENIFAIÓ","aliases":["VALENCIA/VALÈNCIA"]},{"code":"64200","name":"SILLA","aliases":["VALENCIA/VALÈNCIA"]},{"code":"64201","name":"CATARROJA","aliases":["VALENCIA/VALÈNCIA"]},{"code":"64202","name":"MASSANASSA","aliases":["VALENCIA/VALÈNCIA"]},{"code":"64203","name":"ALFAFAR-BENETÚSSER","aliases":["ALFAFAR","VALENCIA/VALÈNCIA"]},{"code":"65000","name":"VALÈNCIA-ESTACIÓ DEL NORD","aliases":["VALENCIA","VALENCIA/VALÈNCIA"]},{"code":"65001","name":"ROCA-CÚPER","aliases":["MELIANA","VALENCIA/VALÈNCIA"]},{"code":"65002","name":"VALÈNCIA-LA FONT DE SANT LLUÍS","aliases":["VALENCIA","VALENCIA/VALÈNCIA"]},{"code":"65003","name":"VALÈNCIA-CABANYAL","aliases":["VALENCIA","VALENCIA/VALÈNCIA"]},{"code":"65005","name":"ALBUIXECH","aliases":["VALENCIA/VALÈNCIA"]},{"code":"65006","name":"MASSALFASSAR","aliases":["VALENCIA/VALÈNCIA"]},{"code":"65007","name":"EL PUIG","aliases":["PUIG DE SANTA MARIA (EL)","VALENCIA/VALÈNCIA"]},{"code":"65008","name":"PUÇOL","aliases":["VALENCIA/VALÈNCIA"]},{"code":"65200","name":"SAGUNT","aliases":["SAGUNTO/SAGUNT","VALENCIA/VALÈNCIA"]},{"code":"65201","name":"LES VALLS","aliases":["SAGUNTO/SAGUNT","VALENCIA/VALÈNCIA"]},{"code":"65202","name":"ALMENARA","aliases":["CASTELLÓN/CASTELLÓ"]},{"code":"65203","name":"LA LLOSA","aliases":["LLOSA (LA)","CASTELLÓN/CASTELLÓ"]},{"code":"65204","name":"CHILCHES/XILXES","aliases":["CASTELLÓN/CASTELLÓ"]},{"code":"65205","name":"MONCOFA","aliases":["NULES","CASTELLÓN/CASTELLÓ","moncofar"]},{"code":"65206","name":"NULES LA VILLAVELLA","aliases":["NULES","CASTELLÓN/CASTELLÓ"]},{"code":"65207","name":"BURRIANA-ALQUERÍAS NIÑO PERDIDO","aliases":["BORRIANA/BURRIANA","CASTELLÓN/CASTELLÓ"]},{"code":"65208","name":"VILA-REAL","aliases":["CASTELLÓN/CASTELLÓ"]},{"code":"65209","name":"ALMASSORA","aliases":["ALMAZORA/ALMASSORA","CASTELLÓN/CASTELLÓ"]},{"code":"65300","name":"CASTELLÓ DE LA PLANA","aliases":["CASTELLÓN DE LA PLANA/CASTELLÓ DE LA PLANA","CASTELLÓN/CASTELLÓ"]},{"code":"65304","name":"ORPESA","aliases":["OROPESA DEL MAR/ORPESA","CASTELLÓN/CASTELLÓ"]},{"code":"65306","name":"TORREBLANCA","aliases":["CASTELLÓN/CASTELLÓ"]},{"code":"65308","name":"ALCALÁ DE CHIVERT","aliases":["ALCALÀ DE XIVERT","CASTELLÓN/CASTELLÓ"]},{"code":"65311","name":"BENICARLÓ-PEÑÍSCOLA","aliases":["BENICARLÓ","CASTELLÓN/CASTELLÓ"]},{"code":"65312","name":"VINARÒS","aliases":["CASTELLÓN/CASTELLÓ"]},{"code":"65314","name":"ULLDECONA-ALCANAR-LA SÉNIA","aliases":["ULLDECONA","TARRAGONA"]},{"code":"65318","name":"BENICÀSSIM","aliases":["BENICASIM/BENICÀSSIM","CASTELLÓN/CASTELLÓ"]},{"code":"65400","name":"TORTOSA","aliases":["TARRAGONA"]},{"code":"65401","name":"CAMP-REDÓ","aliases":["TORTOSA","TARRAGONA"]},{"code":"65402","name":"L'ALDEA-AMPOSTA-TORTOSA","aliases":["ALDEA (L')","TARRAGONA"]},{"code":"65403","name":"CAMARLES-DELTEBRE","aliases":["CAMARLES","TARRAGONA"]},{"code":"65404","name":"L'AMPOLLA-EL PERELLÓ-DELTEBRE","aliases":["AMPOLLA (L')","TARRAGONA"]},{"code":"65405","name":"L'AMETLLA DE MAR","aliases":["AMETLLA DE MAR (L')","TARRAGONA"]},{"code":"65411","name":"SALOU-PORT AVENTURA","aliases":["SALOU","TARRAGONA"]},{"code":"65420","name":"L'HOSPITALET DE L'INFANT","aliases":["VANDELLÒS I L'HOSPITALET DE L'INFANT","TARRAGONA"]},{"code":"65422","name":"CAMBRILS","aliases":["TARRAGONA"]},{"code":"67004","name":"MARÍA DE HUERVA","aliases":["ZARAGOZA"]},{"code":"67007","name":"ARAÑALES DE MUEL","aliases":["MUEL","ZARAGOZA"]},{"code":"67009","name":"LONGARES","aliases":["ZARAGOZA"]},{"code":"67010","name":"CARIÑENA","aliases":["ZARAGOZA"]},{"code":"67011","name":"ENCINACORBA","aliases":["ZARAGOZA"]},{"code":"67013","name":"VILLARREAL DE HUERVA","aliases":["ZARAGOZA"]},{"code":"67014","name":"VILLADOZ","aliases":["ZARAGOZA"]},{"code":"67015","name":"BADULES","aliases":["ZARAGOZA"]},{"code":"67016","name":"VILLAHERMOSA","aliases":["VILLAHERMOSA DEL CAMPO","TERUEL"]},{"code":"67017","name":"FERRERUELA","aliases":["FERRERUELA DE HUERVA","TERUEL"]},{"code":"67018","name":"CUENCABUENA","aliases":["CALAMOCHA","TERUEL"]},{"code":"67019","name":"LECHAGO","aliases":["CALAMOCHA","TERUEL"]},{"code":"67020","name":"NAVARRETE","aliases":["CALAMOCHA","TERUEL"]},{"code":"67021","name":"CALAMOCHA","aliases":["TERUEL"]},{"code":"67100","name":"CAMINREAL-FUENTES CLARAS","aliases":["CAMINREAL","TERUEL"]},{"code":"67101","name":"TORRIJO DEL CAMPO","aliases":["TERUEL"]},{"code":"67103","name":"VILLAFRANCA DEL CAMPO","aliases":["TERUEL"]},{"code":"67105","name":"SANTA EULALIA DEL CAMPO","aliases":["SANTA EULALIA","TERUEL"]},{"code":"67107","name":"CELLA","aliases":["TERUEL"]},{"code":"67113","name":"MONREAL DEL CAMPO","aliases":["TERUEL"]},{"code":"67200","name":"TERUEL","aliases":[]},{"code":"67203","name":"PUEBLA DE VALVERDE","aliases":["PUEBLA DE VALVERDE (LA)","TERUEL"]},{"code":"67205","name":"SARRIÓN","aliases":["TERUEL"]},{"code":"67206","name":"MORA DE RUBIELOS","aliases":["ALBENTOSA","TERUEL"]},{"code":"67207","name":"RUBIELOS DE MORA","aliases":["TERUEL"]},{"code":"67208","name":"BARRACAS","aliases":["CASTELLÓN/CASTELLÓ"]},{"code":"67215","name":"SEGORBE-CIUDAD","aliases":["SEGORBE","CASTELLÓN/CASTELLÓ"]},{"code":"69001","name":"GENOVÉS","aliases":["VALENCIA/VALÈNCIA"]},{"code":"69002","name":"BENIGÀNIM","aliases":["VALENCIA/VALÈNCIA"]},{"code":"69003","name":"LA POBLA DEL DUC","aliases":["POBLA DEL DUC (LA)","VALENCIA/VALÈNCIA"]},{"code":"69004","name":"MONTABERNER","aliases":["MONTAVERNER","VALENCIA/VALÈNCIA"]},{"code":"69005","name":"BUFALÍ","aliases":["BUFALI","VALENCIA/VALÈNCIA"]},{"code":"69006","name":"ALBAIDA","aliases":["VALENCIA/VALÈNCIA"]},{"code":"69007","name":"AGULLENT","aliases":["VALENCIA/VALÈNCIA"]},{"code":"69008","name":"ONTINYENT","aliases":["VALENCIA/VALÈNCIA"]},{"code":"69009","name":"AGRES","aliases":["ALICANTE/ALACANT"]},{"code":"69010","name":"COCENTAINA","aliases":["ALICANTE/ALACANT"]},{"code":"69011","name":"ALCOI","aliases":["ALCOY/ALCOI","ALICANTE/ALACANT"]},{"code":"70002","name":"Asamblea de Madrid-Entrevías","aliases":["MADRID","asamblea","entrevias","entrevías"]},{"code":"70003","name":"El Pozo","aliases":["MADRID","el pozo"]},{"code":"70001","name":"Vallecas","aliases":["MADRID","vallecas","vallecas industrial"]},{"code":"70100","name":"Vicálvaro","aliases":["MADRID","vicalvaro","vicálvaro"]},{"code":"70101","name":"San Fernando de Henares","aliases":["COSLADA","MADRID","san fernando","san fernando de henares"]},{"code":"70102","name":"Torrejón de Ardoz","aliases":["MADRID","torrejon","torrejón","torrejon de ardoz"]},{"code":"70103","name":"ALCALÁ DE HENARES","aliases":["MADRID"]},{"code":"70104","name":"Meco","aliases":["MADRID","meco"]},{"code":"70105","name":"Azuqueca","aliases":["AZUQUECA DE HENARES","GUADALAJARA","azuqueca"]},{"code":"70107","name":"ALCALÁ DE HENARES-UNIVERSIDAD","aliases":["ALCALÁ DE HENARES","MADRID"]},{"code":"70108","name":"COSLADA","aliases":["MADRID"]},{"code":"70109","name":"Santa Eugenia","aliases":["MADRID","santa eugenia"]},{"code":"70111","name":"La Garena","aliases":["ALCALÁ DE HENARES","MADRID","la garena"]},{"code":"70112","name":"Soto del Henares","aliases":["YUNQUERA DE HENARES","MADRID","soto del henares"]},{"code":"70106","name":"Guadalajara","aliases":["guadalajara"]},{"code":"70202","name":"YUNQUERA DE HENARES","aliases":["GUADALAJARA"]},{"code":"70204","name":"HUMANES DE MOHERNANDO","aliases":["HUMANES","GUADALAJARA"]},{"code":"70207","name":"ESPINOSA DE HENARES","aliases":["COPERNAL","GUADALAJARA"]},{"code":"70208","name":"CARRASCOSA DE HENARES","aliases":["ESPINOSA DE HENARES","GUADALAJARA"]},{"code":"70209","name":"JADRAQUE","aliases":["GUADALAJARA"]},{"code":"70210","name":"MATILLAS","aliases":["GUADALAJARA"]},{"code":"70300","name":"BAIDES","aliases":["GUADALAJARA"]},{"code":"70302","name":"SIGÜENZA","aliases":["GUADALAJARA"]},{"code":"70400","name":"TORRALBA","aliases":["MEDINACELI","SORIA"]},{"code":"70401","name":"MEDINACELI","aliases":["SORIA"]},{"code":"70403","name":"ARCOS DE JALÓN","aliases":["SORIA"]},{"code":"70404","name":"SANTA MARÍA DE HUERTA","aliases":["SORIA"]},{"code":"70405","name":"MONREAL DE ARIZA","aliases":["ZARAGOZA"]},{"code":"70500","name":"ARIZA","aliases":["ZARAGOZA"]},{"code":"70501","name":"CETINA","aliases":["ZARAGOZA"]},{"code":"70502","name":"ALHAMA DE ARAGÓN","aliases":["ZARAGOZA"]},{"code":"70503","name":"BUBIERCA","aliases":["ZARAGOZA"]},{"code":"70504","name":"ATECA","aliases":["ZARAGOZA"]},{"code":"70505","name":"TERRER","aliases":["ZARAGOZA"]},{"code":"70600","name":"CALATAYUD","aliases":["ZARAGOZA"]},{"code":"70602","name":"EMBID DE JALÓN","aliases":["CALATAYUD","ZARAGOZA"]},{"code":"70603","name":"PARACUELLOS-SABIÑÁN","aliases":["PARACUELLOS DE LA RIBERA","ZARAGOZA"]},{"code":"70604","name":"SABIÑÁN","aliases":["ZARAGOZA"]},{"code":"70605","name":"MORÉS","aliases":["ZARAGOZA"]},{"code":"70606","name":"PURROY","aliases":["MORÉS","ZARAGOZA"]},{"code":"70607","name":"MORATA DE JALÓN","aliases":["ZARAGOZA"]},{"code":"70700","name":"RICLA-LA ALMUNIA","aliases":["RICLA","ZARAGOZA"]},{"code":"70701","name":"CALATORAO","aliases":["ZARAGOZA"]},{"code":"70702","name":"SALILLAS DE JALÓN","aliases":["ZARAGOZA"]},{"code":"70703","name":"ÉPILA","aliases":["ZARAGOZA"]},{"code":"70704","name":"RUEDA DE JALÓN-LUMPIAQUE","aliases":["RUEDA DE JALÓN","ZARAGOZA"]},{"code":"70705","name":"PLASENCIA DE JALÓN","aliases":["ZARAGOZA"]},{"code":"70706","name":"GRISÉN","aliases":["ZARAGOZA"]},{"code":"70800","name":"CASETAS","aliases":["ZARAGOZA"]},{"code":"70801","name":"UTEBO","aliases":["ZARAGOZA"]},{"code":"70806","name":"ZARAGOZA-PORTILLO","aliases":["ZARAGOZA"]},{"code":"70807","name":"ZARAGOZA-GOYA","aliases":["ZARAGOZA","zaragoza goya","goya","zaragoza-goya (apd)"]},{"code":"71100","name":"ZARAGOZA-MIRAFLORES","aliases":["ZARAGOZA"]},{"code":"71103","name":"FUENTES DE EBRO","aliases":["ZARAGOZA"]},{"code":"71105","name":"QUINTO","aliases":["ZARAGOZA"]},{"code":"71108","name":"LA ZAIDA-SÁSTAGO","aliases":["ZAIDA (LA)","ZARAGOZA"]},{"code":"71200","name":"LA PUEBLA DE HÍJAR","aliases":["PUEBLA DE HÍJAR (LA)","TERUEL"]},{"code":"71201","name":"SAMPER","aliases":["SAMPER DE CALANDA","TERUEL"]},{"code":"71204","name":"CASPE","aliases":["ZARAGOZA"]},{"code":"71205","name":"VAL DE PILAS","aliases":["CASPE","ZARAGOZA"]},{"code":"71206","name":"FABARA","aliases":["ZARAGOZA"]},{"code":"71207","name":"NONASPE","aliases":["ZARAGOZA"]},{"code":"71208","name":"FAIÓ-LA POBLA DE MASSALUCA","aliases":["POBLA DE MASSALUCA (LA)","TARRAGONA"]},{"code":"71209","name":"RIBA-ROJA D'EBRE","aliases":["TARRAGONA"]},{"code":"71210","name":"FLIX","aliases":["TARRAGONA"]},{"code":"71211","name":"ASCÓ","aliases":["TARRAGONA"]},{"code":"71300","name":"MÓRA LA NOVA","aliases":["TARRAGONA"]},{"code":"71302","name":"CAPÇANES","aliases":["TARRAGONA"]},{"code":"71303","name":"MARÇÀ-FALSET","aliases":["MARÇÀ","TARRAGONA"]},{"code":"71304","name":"PRADELL","aliases":["PRADELL DE LA TEIXETA","TARRAGONA"]},{"code":"71305","name":"DUESAIGÜES-L'ARGENTERA","aliases":["ARGENTERA (L')","TARRAGONA"]},{"code":"71306","name":"RIUDECANYES-BOTARELL","aliases":["RIUDECANYES","TARRAGONA"]},{"code":"71307","name":"LES BORGES DEL CAMP","aliases":["BORGES DEL CAMP (LES)","TARRAGONA"]},{"code":"71400","name":"REUS","aliases":["TARRAGONA"]},{"code":"71401","name":"VILA-SECA","aliases":["TARRAGONA"]},{"code":"71500","name":"TARRAGONA","aliases":[]},{"code":"71502","name":"ALTAFULLA-TAMARIT","aliases":["TARRAGONA"]},{"code":"71503","name":"TORREDEMBARRA","aliases":["TARRAGONA"]},{"code":"71600","name":"SANT VICENÇ DE CALDERS","aliases":["VENDRELL (EL)","TARRAGONA"]},{"code":"71700","name":"VILANOVA I LA GELTRÚ","aliases":["BARCELONA"]},{"code":"71801","name":"BARCELONA-SANTS","aliases":["BARCELONA"]},{"code":"71802","name":"BARCELONA-PASSEIG DE GRÀCIA","aliases":["BARCELONA"]},{"code":"72101","name":"RODA DE MAR","aliases":["RODA DE BARÀ","TARRAGONA"]},{"code":"73001","name":"PUIGVERD DE LLEIDA-ARTESA","aliases":["PUIGVERD DE LLEIDA","LLEIDA"]},{"code":"73002","name":"JUNEDA","aliases":["LLEIDA"]},{"code":"73003","name":"LES BORGES BLANQUES","aliases":["BORGES BLANQUES (LES)","LLEIDA"]},{"code":"73004","name":"LA FLORESTA","aliases":["FLORESTA (LA)","LLEIDA"]},{"code":"73005","name":"VINAIXA","aliases":["LLEIDA"]},{"code":"73006","name":"VIMBODÍ I POBLET","aliases":["TARRAGONA"]},{"code":"73007","name":"L'ESPLUGA DE FRANCOLÍ","aliases":["ESPLUGA DE FRANCOLÍ (L')","TARRAGONA"]},{"code":"73008","name":"MONTBLANC","aliases":["TARRAGONA"]},{"code":"73009","name":"VILAVERD","aliases":["TARRAGONA"]},{"code":"73010","name":"LA RIBA","aliases":["RIBA (LA)","TARRAGONA"]},{"code":"73100","name":"LA PLANA-PICAMOIXONS","aliases":["VALLS","TARRAGONA"]},{"code":"73101","name":"ALCOVER","aliases":["TARRAGONA"]},{"code":"73102","name":"LA SELVA DEL CAMP","aliases":["SELVA DEL CAMP (LA)","TARRAGONA"]},{"code":"74200","name":"HUESCA","aliases":[]},{"code":"74204","name":"AYERBE","aliases":["HUESCA"]},{"code":"74206","name":"RIGLOS","aliases":["PEÑAS DE RIGLOS (LAS)","HUESCA"]},{"code":"74207","name":"SANTA MARÍA Y LA PEÑA","aliases":["PEÑAS DE RIGLOS (LAS)","HUESCA"]},{"code":"74208","name":"ANZÁNIGO","aliases":["JACA","HUESCA"]},{"code":"74209","name":"CALDEARENAS-AQUILUÉ","aliases":["CALDEARENAS","HUESCA"]},{"code":"74211","name":"SABIÑÁNIGO","aliases":["HUESCA"]},{"code":"74213","name":"JACA","aliases":["HUESCA"]},{"code":"74214","name":"CASTIELLO-PUEBLO","aliases":["CASTIELLO DE JACA","HUESCA"]},{"code":"74216","name":"VILLANÚA","aliases":["HUESCA"]},{"code":"74217","name":"CANFRANC","aliases":["HUESCA"]},{"code":"75101","name":"ALCOLETGE","aliases":["LLEIDA"]},{"code":"75102","name":"VILANOVA DE LA BARCA","aliases":["LLEIDA"]},{"code":"75103","name":"TÉRMENS","aliases":["LLEIDA"]},{"code":"75104","name":"VALLFOGONA DE BALAGUER","aliases":["LLEIDA"]},{"code":"75105","name":"BALAGUER","aliases":["LLEIDA"]},{"code":"75106","name":"GERB","aliases":["OS DE BALAGUER","LLEIDA"]},{"code":"75107","name":"SANT LLORENÇ DE MONTGAI","aliases":["CAMARASA","LLEIDA"]},{"code":"75108","name":"VILANOVA DE LA SAL","aliases":["AVELLANES I SANTA LINYA (LES)","LLEIDA"]},{"code":"75109","name":"SANTA LIÑA","aliases":["AVELLANES I SANTA LINYA (LES)","LLEIDA"]},{"code":"75110","name":"AGER","aliases":["ÀGER","LLEIDA"]},{"code":"75111","name":"CELLERS-LLIMIANA","aliases":["CASTELL DE MUR","LLEIDA"]},{"code":"75112","name":"GUARDIA DE TREMP","aliases":["SANT ESTEVE DE LA SARGA","LLEIDA"]},{"code":"75113","name":"PALAU-PUIGCERCOS","aliases":["TREMP","LLEIDA"]},{"code":"75114","name":"TREMP","aliases":["LLEIDA"]},{"code":"75115","name":"SALAS DE PALLARS","aliases":["SALÀS DE PALLARS","LLEIDA"]},{"code":"75116","name":"LA POBLA DE SEGUR","aliases":["POBLA DE SEGUR (LA)","LLEIDA"]},{"code":"76001","name":"SALOMÓ","aliases":["TARRAGONA"]},{"code":"76002","name":"VILABELLA","aliases":["TARRAGONA"]},{"code":"76003","name":"NULLES-BRÀFIM","aliases":["NULLES","TARRAGONA"]},{"code":"76004","name":"VALLS","aliases":["TARRAGONA"]},{"code":"78005","name":"VILLANUEVA DE GÁLLEGO","aliases":["ZARAGOZA"]},{"code":"78200","name":"TARDIENTA","aliases":["HUESCA"]},{"code":"78201","name":"GRAÑÉN","aliases":["HUESCA"]},{"code":"78203","name":"SARIÑENA","aliases":["HUESCA"]},{"code":"78301","name":"MONZÓN-RÍO CINCA","aliases":["MONZÓN","HUESCA"]},{"code":"78302","name":"BINÉFAR","aliases":["HUESCA"]},{"code":"78400","name":"LLEIDA-PIRINEUS","aliases":["LLEIDA"]},{"code":"78402","name":"BELL-LLOC D'URGELL","aliases":["LLEIDA"]},{"code":"78403","name":"MOLLERUSSA","aliases":["LLEIDA"]},{"code":"78404","name":"GOLMÉS","aliases":["LLEIDA"]},{"code":"78405","name":"CASTELLNOU DE SEANA","aliases":["LLEIDA"]},{"code":"78406","name":"BELLPUIG","aliases":["LLEIDA"]},{"code":"78407","name":"ANGLESOLA","aliases":["LLEIDA"]},{"code":"78408","name":"TÀRREGA","aliases":["LLEIDA"]},{"code":"78500","name":"CERVERA","aliases":["LLEIDA"]},{"code":"78501","name":"SANT GUIM DE FREIXENET","aliases":["LLEIDA"]},{"code":"78502","name":"SANT MARTÍ SESGUEIOLES","aliases":["BARCELONA"]},{"code":"78503","name":"CALAF","aliases":["BARCELONA"]},{"code":"78504","name":"SEGUERS-SANT PERE SALLAVINERA","aliases":["SANT PERE SALLAVINERA","BARCELONA"]},{"code":"78505","name":"AGUILAR DE SEGARRA","aliases":["BARCELONA"]},{"code":"78506","name":"RAJADELL","aliases":["BARCELONA"]},{"code":"78600","name":"MANRESA","aliases":["BARCELONA"]},{"code":"78604","name":"SANT VICENÇ DE CASTELLET","aliases":["BARCELONA"]},{"code":"78700","name":"TERRASSA ESTACIÓ DEL NORD","aliases":["TERRASSA","BARCELONA","terrassa"]},{"code":"79004","name":"BARCELONA-SANT ANDREU","aliases":["BARCELONA"]},{"code":"79009","name":"BARCELONA-EL CLOT","aliases":["BARCELONA"]},{"code":"79100","name":"GRANOLLERS-CENTRE","aliases":["GRANOLLERS","BARCELONA"]},{"code":"79104","name":"SANT CELONI","aliases":["BARCELONA"]},{"code":"79105","name":"GUALBA","aliases":["BARCELONA"]},{"code":"79106","name":"RIELLS I VIABREA-BREDA","aliases":["RIELLS I VIABREA","GIRONA"]},{"code":"79107","name":"HOSTALRIC","aliases":["GIRONA"]},{"code":"79200","name":"MAÇANET-MASSANES","aliases":["MASSANES","GIRONA"]},{"code":"79202","name":"SILS","aliases":["GIRONA"]},{"code":"79203","name":"CALDES DE MALAVELLA","aliases":["GIRONA"]},{"code":"79204","name":"RIUDELLOTS","aliases":["RIUDELLOTS DE LA SELVA","GIRONA"]},{"code":"79205","name":"FORNELLS DE LA SELVA","aliases":["GIRONA"]},{"code":"79300","name":"GIRONA","aliases":[]},{"code":"79301","name":"CELRÀ","aliases":["GIRONA"]},{"code":"79302","name":"BORDILS-JUIÀ","aliases":["BORDILS","GIRONA"]},{"code":"79303","name":"FLAÇÀ","aliases":["GIRONA"]},{"code":"79304","name":"SANT JORDI DESVALLS","aliases":["GIRONA"]},{"code":"79305","name":"CAMALLERA","aliases":["SAUS, CAMALLERA I LLAMPAIES","GIRONA"]},{"code":"79306","name":"SANT MIQUEL DE FLUVIÀ","aliases":["GIRONA"]},{"code":"79308","name":"VILAMALLA","aliases":["GIRONA"]},{"code":"79309","name":"FIGUERES","aliases":["GIRONA"]},{"code":"79311","name":"VILAJUÏGA","aliases":["GIRONA"]},{"code":"79312","name":"LLANÇÀ","aliases":["GIRONA"]},{"code":"79314","name":"COLERA","aliases":["GIRONA"]},{"code":"79315","name":"PORTBOU","aliases":["GIRONA"]},{"code":"79316","name":"CERBÈRE","aliases":["PORTBOU","GIRONA"]},{"code":"79400","name":"BARCELONA ESTACIÓ DE FRANÇA","aliases":["BARCELONA"]},{"code":"80001","name":"ALTSASU-PUEBLO","aliases":["ALTSASU/ALSASUA","NAVARRA"]},{"code":"80003","name":"ETXARRI-ARANATZ","aliases":["NAVARRA"]},{"code":"80005","name":"UHARTE-ARAKIL","aliases":["NAVARRA"]},{"code":"80100","name":"PAMPLONA/IRUÑA","aliases":["NAVARRA","pamplona"]},{"code":"80108","name":"TAFALLA","aliases":["NAVARRA"]},{"code":"80109","name":"OLITE-ERRIBERRI","aliases":["OLITE/ERRIBERRI","NAVARRA"]},{"code":"80114","name":"MARCILLA DE NAVARRA","aliases":["MARCILLA","NAVARRA"]},{"code":"80115","name":"VILLAFRANCA DE NAVARRA","aliases":["VILLAFRANCA","NAVARRA"]},{"code":"81002","name":"HARO","aliases":["RIOJA, LA"]},{"code":"81100","name":"LOGROÑO","aliases":["RIOJA, LA"]},{"code":"81102","name":"AGONCILLO","aliases":["RIOJA, LA"]},{"code":"81105","name":"ALCANADRE","aliases":["RIOJA, LA"]},{"code":"81106","name":"FÉCULAS-NAVARRA","aliases":["LODOSA","NAVARRA"]},{"code":"81108","name":"CALAHORRA","aliases":["RIOJA, LA"]},{"code":"81109","name":"RINCÓN DE SOTO","aliases":["RIOJA, LA"]},{"code":"81110","name":"ALFARO","aliases":["RIOJA, LA"]},{"code":"81200","name":"CASTEJÓN DE EBRO","aliases":["CASTEJÓN","NAVARRA"]},{"code":"81202","name":"TUDELA DE NAVARRA","aliases":["TUDELA","NAVARRA"]},{"code":"81203","name":"RIBAFORADA","aliases":["NAVARRA"]},{"code":"81205","name":"CORTES DE NAVARRA","aliases":["CORTES","NAVARRA"]},{"code":"81206","name":"GALLUR","aliases":["ZARAGOZA"]},{"code":"81207","name":"LUCENI","aliases":["ZARAGOZA"]},{"code":"81208","name":"PEDROLA","aliases":["ZARAGOZA"]},{"code":"81209","name":"CABAÑAS DE EBRO","aliases":["ZARAGOZA"]},{"code":"81210","name":"ALAGÓN","aliases":["ZARAGOZA"]},{"code":"82100","name":"SORIA","aliases":[]},{"code":"84101","name":"ALMAZÁN-VILLA","aliases":["ALMAZÁN","SORIA"]},{"code":"84103","name":"TARDELCUENDE","aliases":["SORIA"]},{"code":"84104","name":"QUINTANA REDONDA","aliases":["SORIA"]},{"code":"87088","name":"NARBONNE","aliases":["NARBONA","DESCONOCIDO"]},{"code":"87089","name":"MARSEILLE ST CHARLES","aliases":["MARSEILLE"]},{"code":"87173","name":"MONTPELLIER SAINT-ROCH","aliases":["MONTPELLIER","DESCONOCIDO"]},{"code":"87302","name":"NIMES","aliases":[]},{"code":"87303","name":"LYON PART DIEU","aliases":["LYON"]},{"code":"87374","name":"PERPIGNAN","aliases":[]},{"code":"87810","name":"VALENCE TGV","aliases":["VALENCE"]},{"code":"87814","name":"AVIGNON TGV","aliases":["AVIGNON"]},{"code":"87912","name":"AIX EN PROVENCE TGV","aliases":["AIX EN PROVENCE"]},{"code":"92102","name":"TOLEDO","aliases":[]},{"code":"94002","name":"DAIMIEL","aliases":["CIUDAD REAL"]},{"code":"94004","name":"ALMAGRO","aliases":["CIUDAD REAL"]},{"code":"94021","name":"NINE","aliases":[]},{"code":"94033","name":"VIANA DA CASTELO","aliases":[]},{"code":"94346","name":"PORTO CAMPANHA - O PORTO CAMPAÑA","aliases":["O PORTO CAMPAÑA"]},{"code":"96122","name":"BARCELOS","aliases":[]},{"code":"97004","name":"PORTAVE.FERRARI","aliases":["DESCONOCIDO","BARCELONA"]},{"code":"97015","name":"PORTAVENTURA","aliases":["SALOU","BARCELONA"]},{"code":"97017","name":"SANT SADURNÍ D'ANOIA","aliases":["BARCELONA"]},{"code":"97018","name":"CARIBE PARK","aliases":["SALOU","BARCELONA"]},{"code":"97100","name":"Pitis","aliases":["MADRID","pitis"]},{"code":"97200","name":"Mirasierra","aliases":["CANENCIA","MADRID","mirasierra"]},{"code":"97201","name":"Ramón y Cajal","aliases":["MADRID","ramon y cajal","ramon"]},{"code":"99000","name":"MADRID CERCANÍAS","aliases":["MADRID"]},{"code":"99117","name":"OURENSE-TURÍSTICO","aliases":["OURENSE"]},{"code":"99143","name":"A CORUÑA-TURÍSTICO","aliases":["CORUÑA (A)","CORUÑA, A"]},{"code":"99159","name":"SANTIAGO-TURÍSTICO","aliases":["SANTIAGO DE COMPOSTELA","CORUÑA, A"]},{"code":"99161","name":"PONTEVEDRA-TURÍSTICO","aliases":["PONTEVEDRA"]},{"code":"99173","name":"OVIEDO-TUR","aliases":["OVIEDO","ASTURIAS"]},{"code":"99174","name":"FERROL-TUR","aliases":["FERROL","CORUÑA, A"]},{"code":"99180","name":"SORIA ENLACE AVE","aliases":["SORIA"]},{"code":"99183","name":"MADRID EMBAJADORES MuF","aliases":["MADRID"]},{"code":"51419","name":"Río Arillo","aliases":["rio arillo","río arillo"]},{"code":"51438","name":"La Ardila","aliases":["la ardila"]},{"code":"51437","name":"Santo Entierro","aliases":["santo entierro"]},{"code":"51439","name":"Plaza del Carmen","aliases":["plaza del carmen"]},{"code":"51440","name":"Compañía de María","aliases":["compania maria","compania de maria","compañía de maría"]},{"code":"51441","name":"Plaza del Rey","aliases":["plaza del rey"]},{"code":"51442","name":"Plaza de la Iglesia","aliases":["plaza iglesia","plaza de la iglesia"]},{"code":"51443","name":"Venta de Vargas","aliases":["venta vargas","venta de vargas"]},{"code":"51444","name":"Tres Caminos","aliases":["tres caminos"]},{"code":"51418","name":"Pinar de los Franceses","aliases":["pinar franceses"]},{"code":"51445","name":"Marquesado","aliases":["marquesado"]},{"code":"51447","name":"Nuestra Señora de los Remedios","aliases":["nuestra senora remedios","ntra sra de los remedios","remedios"]},{"code":"51448","name":"Reyes Católicos","aliases":["reyes catolicos","reyes católicos"]},{"code":"51449","name":"La Hoya","aliases":["la hoya"]},{"code":"51450","name":"Pelagatos","aliases":["pelagatos"]},{"code":"17001","name":"Fuencarral","aliases":["fuencarral"]},{"code":"17003","name":"El Goloso","aliases":["goloso"]},{"code":"17004","name":"Tres Cantos","aliases":["tres cantos","trescantos"]},{"code":"17005","name":"Colmenar Viejo","aliases":["colmenar","colmenar viejo"]},{"code":"17009","name":"Universidad-Cantoblanco","aliases":["cantoblanco","universidad cantoblanco","universidad"]},{"code":"98003","name":"Fuente de la Mora","aliases":["fuente de la mora"]},{"code":"98304","name":"Valdebebas","aliases":["valdebebas"]},{"code":"98305","name":"Aeropuerto T4","aliases":["aeropuerto t4","t4","aeropuerto"]},{"code":"19001","name":"Universidad P. Comillas","aliases":["universidad comillas","comillas"]},{"code":"19002","name":"Valdelasfuentes","aliases":["valdelasfuentes"]},{"code":"19003","name":"Alcobendas-San Sebastián de los Reyes","aliases":["alcobendas","san sebastian","san sebastian de los reyes","alcobendas/san sebastián"]},{"code":"10007","name":"Majadahonda","aliases":["majadahonda"]},{"code":"35009","name":"Zarzaquemada","aliases":["zarzaquemada"]},{"code":"35010","name":"La Serna-Fuenlabrada","aliases":["la serna","la serna fuenlabrada"]},{"code":"35011","name":"Parque Polvoranca","aliases":["parque polvoranca","polvoranca"]},{"code":"35600","name":"Aluche","aliases":["aluche"]},{"code":"35601","name":"Fanjul","aliases":["fanjul"]},{"code":"35602","name":"Las Águilas","aliases":["las aguilas","águilas"]},{"code":"35603","name":"Cuatro Vientos","aliases":["cuatro vientos"]},{"code":"35604","name":"San José de Valderas","aliases":["san jose de valderas","san jose"]},{"code":"35605","name":"Alcorcón","aliases":["alcorcon","alcorcón"]},{"code":"35606","name":"Móstoles","aliases":["mostoles","móstoles"]},{"code":"35607","name":"Móstoles-El Soto","aliases":["mostoles el soto","el soto"]},{"code":"35608","name":"Laguna","aliases":["laguna"]},{"code":"35609","name":"Embajadores","aliases":["embajadores"]},{"code":"35610","name":"Las Retamas","aliases":["las retamas"]},{"code":"35701","name":"Méndez Álvaro","aliases":["mendez alvaro","méndez álvaro"]},{"code":"35702","name":"Doce de Octubre","aliases":["doce de octubre"]},{"code":"35703","name":"Orcasitas","aliases":["orcasitas"]},{"code":"35704","name":"Puente Alcocer","aliases":["puente alcocer"]},{"code":"37001","name":"Villaverde Alto","aliases":["villaverde alto"]},{"code":"37002","name":"Getafe-Centro","aliases":["getafe centro","getafe"]},{"code":"37010","name":"Las Margaritas-Universidad","aliases":["las margaritas","las margaritas universidad"]},{"code":"37011","name":"Getafe-Sector 3","aliases":["getafe sector 3","sector 3"]},{"code":"37012","name":"Parla","aliases":["parla"]},{"code":"60100","name":"Villaverde Bajo","aliases":["villaverde bajo"]},{"code":"60101","name":"San Cristóbal Industrial","aliases":["san cristobal industrial"]},{"code":"60102","name":"Getafe Industrial","aliases":["getafe industrial"]},{"code":"60103","name":"Pinto","aliases":["pinto"]},{"code":"60104","name":"Valdemoro","aliases":["valdemoro"]},{"code":"60105","name":"Ciempozuelos","aliases":["ciempozuelos"]},{"code":"60107","name":"San Cristóbal de los Ángeles","aliases":["san cristobal de los angeles","san cristobal"]},{"code":"18004","name":"Madrid-Delicias","aliases":["delicias"]},{"code":"18005","name":"Madrid-Pirámides","aliases":["piramides","pirámides"]},{"code":"18101","name":"Madrid-Sol","aliases":["sol"]},{"code":"51446","name":"Alameda Solano","aliases":["alameda solano"]},{"code":"94563","name":"Vilar Formoso","aliases":["vilar formoso","vilar","formoso","vilar-formoso","VF"]},{"code":"15205","name":"Ablaña","aliases":[]},{"code":"05019","name":"Antequera","aliases":[]},{"code":"79600","name":"Arenys de Mar","aliases":[]},{"code":"79606","name":"Blanes","aliases":[]},{"code":"50702","name":"Brenes","aliases":[]},{"code":"66206","name":"Buñol","aliases":[]},{"code":"51050","name":"Cartuja","aliases":[]},{"code":"72210","name":"Castellbisbal","aliases":[]},{"code":"67211","name":"Caudiel","aliases":[]},{"code":"94005","name":"Ciudad Real-Miguelturra","aliases":[]},{"code":"33013","name":"Ciudad Rodrigo","aliases":[]},{"code":"69104","name":"Cullera","aliases":[]},{"code":"71707","name":"El Prat de Llobregat","aliases":[]},{"code":"78802","name":"Fabra i Puig","aliases":[]},{"code":"33016","name":"Fuentes de Oñoro","aliases":[]},{"code":"69110","name":"Gandia","aliases":[]},{"code":"16008","name":"La Felguera","aliases":[]},{"code":"51415","name":"Las Aletas","aliases":[]},{"code":"72305","name":"L'Hospitalet de Llobregat","aliases":[]},{"code":"72209","name":"Martorell Central","aliases":[]},{"code":"79500","name":"Mataró","aliases":[]},{"code":"78800","name":"Montcada-Bifurcació","aliases":[]},{"code":"13100","name":"Orduña","aliases":[]},{"code":"51400","name":"Puerto de Santa María","aliases":[]},{"code":"67202","name":"Puerto Escandón","aliases":[]},{"code":"77309","name":"Puigcerdà","aliases":[]},{"code":"16405","name":"San Juan de Nieva","aliases":[]},{"code":"13405","name":"Santurtzi","aliases":[]},{"code":"15208","name":"Soto de Rey","aliases":[]},{"code":"77111","name":"Torelló","aliases":[]},{"code":"66200","name":"Utiel","aliases":[]},{"code":"66212","name":"Valencia-Sant Isidre","aliases":[]},{"code":"77109","name":"Vic","aliases":[]},{"code":"43003","name":"Villanueva del Ariscal y Olivares","aliases":[]},{"code":"51404","name":"Segunda Aguada","aliases":[]},{"code":"87751008","name":"Marseille Saint-Charles","aliases":[]},{"code":"15300","name":"Lugo de Llanera","aliases":["lugo de llanera","llanera"]},{"code":"13506","name":"Muskiz","aliases":["muskiz"]},{"code":"71708","name":"Bellvitge","aliases":["bellvitge"]},{"code":"51410","name":"San Fernando Bahía Sur","aliases":["bahia sur","bahía sur","san fernando bahia sur","san fernando bahía sur"]}];
-const $=id=>document.getElementById(id),
-      norm=s=>String(s??"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]/g,"").trim();
-const services=()=>{try{const v=JSON.parse(localStorage.getItem(KEY)||"[]");return Array.isArray(v)?v:[]}catch(e){return[]}};
-const saveServices=a=>localStorage.setItem(KEY,JSON.stringify(a));
-const esc=s=>String(s??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;");
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111111">
+<link rel="manifest" href="manifest.webmanifest">
+<title>ARGOS</title>
 
-function showScreen(id){
-  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
-  const target=$(id); if(!target)return;
-  target.classList.add("active");
-  window.scrollTo({top:0,behavior:"instant"});
-  if(id==="history")renderHistory();
-  if(id==="stats")renderStats();
-  refreshHome();
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+:root{
+--bg:#f3f4f7;--card:#fff;--card2:#f8f8fa;--text:#15151a;--muted:#747681;
+--line:#e3e4e9;--accent:#81005E;--accent2:#A30078;--accentSoft:#F2E5EE;
+--red:#e5484d;--green:#168a5b;--shadow:0 10px 30px rgba(26,20,35,.07)
 }
-window.showScreen=showScreen;
-document.querySelectorAll("[data-screen]").forEach(b=>b.addEventListener("click",()=>showScreen(b.dataset.screen)));
-document.querySelectorAll("[data-back]").forEach(b=>b.addEventListener("click",()=>showScreen("menu")));
-if($("openSettings")) $("openSettings").onclick=()=>showScreen("settings");
 
-function applyTheme(theme){
-  document.body.classList.toggle("dark",theme==="dark");
-  localStorage.setItem(THEME_KEY,theme);
-  if($("lightTheme"))$("lightTheme").classList.toggle("active",theme!=="dark");
-  if($("darkTheme"))$("darkTheme").classList.toggle("active",theme==="dark");
-  const meta=document.querySelector('meta[name="theme-color"]');
-  if(meta)meta.setAttribute("content",theme==="dark"?"#171717":"#8a005c");
+*{box-sizing:border-box}
+
+body{
+margin:0;
+background:var(--bg);
+color:var(--text);
+font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif
 }
-applyTheme(localStorage.getItem(THEME_KEY)||"light");
-if($("lightTheme"))$("lightTheme").onclick=()=>applyTheme("light");
-if($("darkTheme"))$("darkTheme").onclick=()=>applyTheme("dark");
 
-// ===== BASE DE MATERIAL ARGOS =====
-// Serie 100: datos aportados para ARGOS.
-const fleet = {
-  "100": {
-    "seriesName": "Serie 100",
-    "fabricante": "Alstom",
-    "numeroCoches": "10 (2 cabezas tractoras + 8 remolques)",
-    "tipoMaterial": "AVE / Alta Velocidad · evolución del TGV Atlantique",
-    "anchoVia": "1435 mm",
-    "modelo": "AVE Serie 100",
-    "apodo": "AVE",
-    "velocidadMaxima": "300 km/h",
-    "potencia": "8.800 kW",
-    "tension": "25 kV / 50 Hz y 3 kV CC",
-    "capacidad": "332 plazas tras la reforma",
-    "plazasSentadas": "329 (332 tras la reforma)",
-    "longitud": "200,150 m",
-    "peso": "392,6 t en vacío",
-    "señalizacion": "LZB y ASFA; parte de la flota adaptada con ERTMS",
-    "numeroUnidades": "18 composiciones originales de la serie 100",
-    "subseries": "100 / 100F (ramas 15–24)",
-    "generalNotes": [
-      "La serie 100 fue el primer tren de alta velocidad de Renfe y comenzó a circular en abril de 1992 con la inauguración de la línea Madrid-Sevilla.",
-      "Es una evolución del TGV Atlantique adaptada a las condiciones españolas, con modificaciones en climatización, presión en túneles y sistemas de control y señalización.",
-      "Cada composición está formada por 2 cabezas tractoras y 8 coches de viajeros, con cafetería y clases Preferente y Turista.",
-      "Velocidad máxima comercial: 300 km/h. Potencia total: 8.800 kW.",
-      "Ancho de vía: 1.435 mm. Alimentación: 25 kV / 50 Hz y 3 kV en corriente continua.",
-      "Tras unos 15 años de servicio, la flota recibió una importante remodelación técnica y estética iniciada en 2007 y finalizada progresivamente en 2009.",
-      "La serie tuvo un papel destacado en la expansión de la alta velocidad española y posteriormente fue adaptada para servicios internacionales hacia Francia.",
-      "Durante las pruebas de homologación, un S-100 alcanzó 356,8 km/h.",
-      "En 2011 se adjudicó la adaptación de 10 composiciones para su explotación internacional entre España y Francia."
-    ],
-    "units": {
-      "101": {
-        "rama": "1",
-        "numero": "9-100-101-5",
-        "ano": 1992,
-        "deposito": "Cerro Negro",
-        "ancho": "1435",
-        "notas": [
-          "Reformada interiormente. Colores Renfe Operadora.",
-          "Ex-La Sagra."
-        ]
-      },
-  "102": {
-        "rama": "2",
-        "numero": "9-100-102-3",
-        "ano": 1992,
-        "deposito": "Cerro Negro",
-        "ancho": "1435",
-        "notas": [
-          "Récord de España de velocidad durante breve tiempo: 330 km/h en 01/92.",
-          "Reformada interiormente. Colores Renfe Operadora.",
-          "Ex-La Sagra.",
-          "Vinilos aceite de oliva 04/19."
-        ]
-      },
-      "103": {
-        "rama": "3",
-        "numero": "9-100-103-1",
-        "ano": 1992,
-        "deposito": "Cerro Negro",
-        "ancho": "1435",
-        "notas": [
-          "Reformada interiormente. Colores Renfe Operadora.",
-          "Ex-La Sagra."
-        ]
-      },
-      "104": {
-        "rama": "4",
-        "numero": "9-100-104-9",
-        "ano": 1992,
-        "deposito": "Cerro Negro",
-        "ancho": "1435",
-        "notas": [
-          "Reformada interiormente. Colores Renfe Operadora.",
-          "Ex-La Sagra.",
-          "04/08/2017: accidente con topera en estación de Alicante."
-        ]
-      },
-      "105": {
-        "rama": "5",
-        "numero": "9-100-105-6",
-        "ano": 1992,
-        "deposito": "Cerro Negro",
-        "ancho": "1435",
-        "notas": [
-          "Reformada interiormente. Colores Renfe Operadora.",
-          "Ex-La Sagra."
-        ]
-      },
-      "106": {
-        "rama": "6",
-        "numero": "9-100-106-4",
-        "ano": 1992,
-        "deposito": "Cerro Negro",
-        "ancho": "1435",
-        "notas": [
-          "Reformada interiormente. Colores Renfe Operadora.",
-          "Ex-La Sagra."
-        ]
-      },
-      "107": {
-        "rama": "7",
-        "numero": "9-100-107-2",
-        "ano": 1992,
-        "deposito": "Cerro Negro",
-        "ancho": "1435",
-        "notas": [
-          "Reformada interiormente. Colores Renfe Operadora.",
-          "Ex-La Sagra."
-        ]
-      },
-      "108": {
-        "rama": "8",
-        "numero": "9-100-108-0",
-        "ano": 1992,
-        "deposito": "Cerro Negro",
-        "ancho": "1435",
-        "notas": [
-          "Reformada interiormente. Colores Renfe Operadora.",
-          "Ex-La Sagra.",
-          "Vinilos Copa del Rey 04/25."
-        ]
-      },
-      "109": {
-        "rama": "9",
-        "numero": "9-100-109-8",
-        "ano": 1993,
-        "deposito": "Cerro Negro",
-        "ancho": "1435",
-        "notas": [
-          "Reformada interiormente. Colores Renfe Operadora.",
-          "Ex-La Sagra."
-        ]
-      },
-      "110": {
-        "rama": "10",
-        "numero": "9-100-110-6",
-        "ano": 1993,
-        "deposito": "Cerro Negro",
-        "ancho": "1435",
-        "notas": [
-          "Reformada interiormente. Colores Renfe Operadora.",
-          "Ex-La Sagra.",
-          "02/07/2014: descarrilo en Alpera.",
-          "Vinilos Movistar 07/15."
-        ]
-      },
-      "111": {
-        "rama": "11",
-        "numero": "9-100-111-4",
-        "ano": 1993,
-        "deposito": "Cerro Negro",
-        "ancho": "1435",
-        "notas": [
-          "Rama 11. Reformada interiormente. Colores Renfe Operadora.",
-          "Ex-La Sagra.",
-          "Decoración original AVE desde 20/04/2017 por los 25 años AVE.",
-          "Nombre Miguel de Cervantes.",
-          "Posteriormente recuperó colores de Renfe Operadora."
-        ]
-      },
-      "119": {
-        "rama": "12",
-        "numero": "9-100-119-7",
-        "ano": 1996,
-        "deposito": "Can Tunis",
-        "ancho": "1435",
-        "notas": [
-          "Ex-rama 101.101 (GL01) y reformada a 100.019.",
-          "En 2011, las motrices 9-100-119-7 y 9-100-219-5, originales de la rama 19, fueron instaladas en la rama 12.",
-          "Ex-Cerro Negro. Nuevos logos AVE."
-        ]
-      },
-      "113": {
-        "rama": "13",
-        "numero": "9-100-113-0",
-        "ano": 1993,
-        "deposito": "Cerro Negro",
-        "ancho": "1435",
-        "notas": [
-          "Rama 13. Reformada interiormente. Colores Renfe Operadora.",
-          "Ex-La Sagra.",
-          "Logos 75 años Renfe.",
-          "Tren inaugural 3er carril Valencia-Castellón 22/01/2018.",
-          "Nombre Juan Sebastián Elcano."
-        ]
-      },
+body.dark{
+--bg:#0d0d10;--card:#17171b;--card2:#1d1d22;--text:#f6f6f8;--muted:#a7a7b0;
+--line:#2b2b32;--accent:#B85A9E;--accent2:#D07AB8;--accentSoft:#33212F;
+--shadow:0 12px 32px rgba(0,0,0,.28)
+}
 
-  "114": {
-        "rama": "14",
-        "numero": "9-100-114-8",
-        "ano": 1993,
-        "deposito": "Cerro Negro",
-        "ancho": "1435",
-        "notas": [
-          "Reformada interiormente. Colores Renfe Operadora.",
-          "Ex-La Sagra."
-        ]
-      },
-      "115": {
-        "rama": "15",
-        "numero": "9-100-115-5",
-        "ano": 1993,
-        "deposito": "Can Tunis",
-        "ancho": "1435",
-        "notas": [
-          "Reformada interiormente. Colores Renfe Operadora.",
-          "Ex-La Sagra >> Cerro Negro.",
-          "Pertenece a la subserie 100F.",
-          "Antiguo récord de España de velocidad: 356,8 km/h el 23/04/1993, pk 104 de la LAV Sevilla."
-        ]
-      },
-      "116": {
-        "rama": "16",
-        "numero": "9-100-116-3",
-        "ano": 1993,
-        "deposito": "Can Tunis",
-        "ancho": "1435",
-        "notas": [
-          "Reformada interiormente. Colores Renfe Operadora.",
-          "Ex-La Sagra >> Cerro Negro.",
-          "Pertenece a la subserie 100F."
-        ]
-      },
-      "117": {
-        "rama": "17",
-        "numero": "9-100-117-1",
-        "ano": 1996,
-        "deposito": "Can Tunis",
-        "ancho": "1435",
-        "notas": [
-          "Reformada interiormente. Colores Renfe Operadora.",
-          "Ex-La Sagra >> Cerro Negro.",
-          "Nuevos logos AVE 02/22.",
-          "Pertenece a la subserie 100F."
-        ]
-      },
-      "118": {
-        "rama": "18",
-        "numero": "9-100-118-9",
-        "ano": 1996,
-        "deposito": "Can Tunis",
-        "ancho": "1435",
-        "notas": [
-          "Reformada interiormente. Colores Renfe Operadora.",
-          "Ex-La Sagra >> Cerro Negro.",
-          "Pertenece a la subserie 100F."
-        ]
-      },
-      "112": {
-        "rama": "19",
-        "numero": "9-100-112-2",
-        "ano": 1993,
-        "deposito": "Cerro Negro",
-        "ancho": "1435",
-        "notas": [
-          "Procede de la serie 101 y se incorporó a la serie 100.",
-          "Reformada interiormente en 07/08. Colores Renfe Operadora.",
-          "En 2011 recibió las cabezas motrices originales de la rama 12; las ramas 12 y 19 intercambiaron cabezas motrices.",
-          "Pertenece a la subserie 100F."
-        ]
-      },
-      "120": {
-        "rama": "22",
-        "numero": "9-100-120-5",
-        "ano": 1996,
-        "deposito": "Can Tunis",
-        "ancho": "1435",
-        "notas": [
-          "Procede de la serie 101.102 (GL02), reformada en 2008 según placas.",
-          "Apartada por incendio 06/14. Tras el incendio, extremo 9-100-120-5 circuló en rama 22.",
-          "Circuló con motrices 100-220 y 224.",
-          "Nombre Marseille. Nuevos logos AVE 02/23.",
-          "Habilitación maquinistas Francia 2023 entre Barcelona y Lyon.",
-          "Pertenece a la subserie 100F."
-        ]
-      },
-      "121": {
-        "rama": "21",
-        "numero": "9-100-121-3",
-        "ano": 1997,
-        "deposito": "Can Tunis",
-        "ancho": "1435",
-        "notas": [
-          "Procede de la serie 101.103 (GL03).",
-          "Ex-La Sagra.",
-          "Nombre Marseille.",
-          "Pertenece a la subserie 100F."
-        ]
-      },
-      "122": {
-        "rama": "22",
-        "numero": "9-100-122-1",
-        "ano": 1997,
-        "deposito": "Can Tunis",
-        "ancho": "1435",
-        "notas": [
-          "Procede de la serie 101.104 (GL04).",
-          "Incendiado en Lunel 02/08/2015. Tras incendio, circuló con coches de la rama 20.",
-          "Circula con motrices 100-122 y 120. Con coches motores rama 20 y 24 en 02/24.",
-          "Pertenece a la subserie 100F."
-        ]
-      },
-      "123": {
-        "rama": "23",
-        "numero": "9-100-123-9",
-        "ano": 1997,
-        "deposito": "Can Tunis",
-        "ancho": "1435",
-        "notas": [
-          "Procede de la serie 101.105 (GL05).",
-          "Ex-La Sagra.",
-          "Pertenece a la subserie 100F."
-        ]
-      },
-      "124": {
-        "rama": "24",
-        "numero": "9-100-124-7",
-        "ano": 1997,
-        "deposito": "Can Tunis",
-        "ancho": "1435",
-        "notas": [
-          "Procede de la serie 101.106 (GL06). Último 101 en comenzar la reforma.",
-          "Primer AVE en salir de España, verano de 2012.",
-          "10/09/2014: colisión con una rama 736 de TGV en Marsella.",
-          "Ex-La Sagra.",
-          "Coche motor de rama 24 se instala en rama 22.",
-          "Pertenece a la subserie 100F."
-        ]
-      }
-    }
-  },
-  "106": {
-    "seriesName": "Serie 106",
-    "fabricante": "Talgo",
-    "modelo": "Talgo AVRIL F070",
-    "apodo": "AVRIL",
-    "anoPuestaServicio": "2020-2024 (según rama)",
-    "tipoMaterial": "Alta Velocidad · AVE / Avlo",
-    "numeroCoches": "14 vehículos: 2 cabezas motrices + 12 coches intermedios",
-    "anchoVia": "1435 mm (ancho fijo) / 1435-1668 mm (rodadura desplazable)",
-    "numeroRamas": "30 ramas: 1-15 de ancho fijo y 51-65 de ancho variable",
-    "velocidadMaxima": "330 km/h",
-    "plazasSentadas": "521 plazas + 2 espacios PMR",
-    "generalNotes": [
-      "Trenes de muy alta velocidad basados en el prototipo AVRIL de Talgo (Talgo F057 Modelo G3). El modelo adquirido por Renfe es F070.",
-      "Renfe dispone de 15 ramas de ancho fijo y otras 15 de rodadura desplazable.",
-      "Cada rama está formada por 2 cabezas motrices y 12 coches intermedios.",
-      "Configuración indicada en la documentación aportada: un extremo Preferente de 44 plazas, un Preferente de 36 plazas, un Turista de 25 plazas + 2 PMR, una cafetería, cuatro Turista de 49 plazas, tres Turista de 54 plazas y un cola Turista de 58 plazas.",
-      "Los coches Turista tienen distribución de asientos 3+2 y los Preferente 2+2.",
-      "Las ramas 1-15 son de ancho fijo 1.435 mm. Las ramas 51-65 son de rodadura desplazable y permiten ancho 1.435/1.668 mm.",
-      "La tabla aportada muestra las dos cabezas motrices de cada rama: 001-015/101-115 y 051-065/151-165. Las dos cabezas de cada pareja pertenecen a la misma rama."
-    ],
-    "units": {
-      "1": {
-        "rama": "1",
-        "numero": "9-106-001-3",
-        "vehiculoBase": "001",
-        "deposito": "Can Tunis",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [],
-        "ano": 2020
-      },
-      "2": {
-        "rama": "2",
-        "numero": "9-106-002-1",
-        "vehiculoBase": "002",
-        "deposito": "Can Tunis",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [],
-        "ano": 2024
-      },
-      "3": {
-        "rama": "3",
-        "numero": "9-106-003-9",
-        "vehiculoBase": "003",
-        "deposito": "Can Tunis",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [
-          "Primer 106 de ancho fijo en colores AVLO, 10/12/22."
-        ],
-        "ano": 2024
-      },
-      "4": {
-        "rama": "4",
-        "numero": "9-106-004-7",
-        "vehiculoBase": "004",
-        "deposito": "Can Tunis",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [],
-        "ano": 2024
-      },
-      "5": {
-        "rama": "5",
-        "numero": "9-106-005-4",
-        "vehiculoBase": "005",
-        "deposito": "Can Tunis",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [],
-        "ano": 2022
-      },
-      "6": {
-        "rama": "6",
-        "numero": "9-106-006-2",
-        "vehiculoBase": "006",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [
-          "Primera rama en salir de pruebas. Pruebas de homologación entre Olmedo y Otero de Sanabria en 02/21."
-        ],
-        "ano": 2020
-      },
-      "7": {
-        "rama": "7",
-        "numero": "9-106-007-0",
-        "vehiculoBase": "007",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [
-          "En pruebas de homologación línea Venta de Baños-Burgos, 04/21."
-        ],
-        "ano": 2020
-      },
-      "8": {
-        "rama": "8",
-        "numero": "9-106-008-8",
-        "vehiculoBase": "008",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [
-          "Traslado Ribavellosa-La Sagra 23/07/20. Incluye sistemas de seguridad Francia."
-        ],
-        "ano": 2020
-      },
-      "9": {
-        "rama": "9",
-        "numero": "9-106-009-6",
-        "vehiculoBase": "009",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [
-          "Traslado Ribavellosa-La Sagra 19/04/21. Trasladado a Francia para pruebas de homologación 04/10/22. Devuelta a España 13/05/26."
-        ],
-        "ano": 2024
-      },
-      "10": {
-        "rama": "10",
-        "numero": "9-106-010-4",
-        "vehiculoBase": "010",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [],
-        "ano": 2024
-      },
-      "11": {
-        "rama": "11",
-        "numero": "9-106-011-2",
-        "vehiculoBase": "011",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [],
-        "ano": 2024
-      },
-      "12": {
-        "rama": "12",
-        "numero": "9-106-012-0",
-        "vehiculoBase": "012",
-        "deposito": "Fuencarral",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [
-          "Morado AVLO desde 05/24."
-        ],
-        "ano": 2024
-      },
-      "13": {
-        "rama": "13",
-        "numero": "9-106-013-8",
-        "vehiculoBase": "013",
-        "deposito": "Fuencarral",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [
-          "Morado AVLO desde 05/24."
-        ],
-        "ano": 2024
-      },
-      "14": {
-        "rama": "14",
-        "numero": "9-106-014-6",
-        "vehiculoBase": "014",
-        "deposito": "Fuencarral",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [
-          "Morado AVLO desde 05/24."
-        ],
-        "ano": 2024
-      },
-      "15": {
-        "rama": "15",
-        "numero": "9-106-015-3",
-        "vehiculoBase": "015",
-        "deposito": "Fuencarral",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435",
-        "subserie": "Ancho fijo",
-        "notas": [
-          "Morado AVLO desde 05/24."
-        ],
-        "ano": 2024
-      },
-      "51": {
-        "rama": "51",
-        "numero": "9-106-051-8",
-        "vehiculoBase": "051",
-        "deposito": "Can Tunis",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [
-          "Primer 106 en colores AVLO, 09/12/22."
-        ],
-        "ano": 2021
-      },
-      "52": {
-        "rama": "52",
-        "numero": "9-106-052-6",
-        "vehiculoBase": "052",
-        "deposito": "Can Tunis",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [
-          "Pruebas entre Galicia y Madrid 07/23."
-        ],
-        "ano": 2021
-      },
-      "53": {
-        "rama": "53",
-        "numero": "9-106-053-4",
-        "vehiculoBase": "053",
-        "deposito": "Can Tunis",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [
-          "Traslado de Miranda de Ebro a Galicia 12/07/21."
-        ],
-        "ano": 2021
-      },
-      "54": {
-        "rama": "54",
-        "numero": "9-106-054-2",
-        "vehiculoBase": "054",
-        "deposito": "Can Tunis",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [],
-        "ano": 2022
-      },
-      "55": {
-        "rama": "55",
-        "numero": "9-106-055-9",
-        "vehiculoBase": "055",
-        "deposito": "Can Tunis",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [
-          "Traslado Ribavellosa-La Sagra 20/08/21."
-        ],
-        "ano": 2022
-      },
-      "56": {
-        "rama": "56",
-        "numero": "9-106-056-7",
-        "vehiculoBase": "056",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [],
-        "ano": 2021
-      },
-      "57": {
-        "rama": "57",
-        "numero": "9-106-057-5",
-        "vehiculoBase": "057",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [],
-        "ano": 2024
-      },
-      "58": {
-        "rama": "58",
-        "numero": "9-106-058-3",
-        "vehiculoBase": "058",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [],
-        "ano": 2024
-      },
-      "59": {
-        "rama": "59",
-        "numero": "9-106-059-1",
-        "vehiculoBase": "059",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [
-          "Logos Ave 02/24."
-        ],
-        "ano": 2024
-      },
-      "60": {
-        "rama": "60",
-        "numero": "9-106-060-9",
-        "vehiculoBase": "060",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [
-          "Primer tren de Alta Velocidad en realizar pruebas en la LAV: Plasencia-Badajoz."
-        ],
-        "ano": 2024
-      },
-      "61": {
-        "rama": "61",
-        "numero": "9-106-061-7",
-        "vehiculoBase": "061",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [],
-        "ano": 2024
-      },
-      "62": {
-        "rama": "62",
-        "numero": "9-106-062-5",
-        "vehiculoBase": "062",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [
-          "Presentación en Vigo 05/01/24. Primera rama con logos Ave 02/24."
-        ],
-        "ano": 2024
-      },
-      "63": {
-        "rama": "63",
-        "numero": "9-106-063-3",
-        "vehiculoBase": "063",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [],
-        "ano": 2024
-      },
-      "64": {
-        "rama": "64",
-        "numero": "9-106-064-1",
-        "vehiculoBase": "064",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [],
-        "ano": 2024
-      },
-      "65": {
-        "rama": "65",
-        "numero": "9-106-065-8",
-        "vehiculoBase": "065",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ancho": "1435/1668",
-        "subserie": "Ancho variable · Rodadura desplazable",
-        "notas": [],
-        "ano": 2024
-      }
-    }
-  },
-    "121": {
-  "seriesName": "Serie 121",
-  "fabricante": "CAF-Alstom",
-  "modelo": "CAF-Alstom S-121",
-  "apodo": "AVR (Ancho Variable Regional)",
-  "anoPuestaServicio": "enero de 2009",
-  "tipoMaterial": "Media Distancia · Alta Velocidad · AVANT",
-  "numeroCoches": "4 coches · Mc + M + M + Mc",
-  "anchoVia": "1435/1668 mm",
-  "numeroRamas": 29,
-  "velocidadMaxima": "250 km/h (25 kV c.a.) · 220 km/h (3 kV c.c.)",
-  "potencia": "4.000 kW (25 kV) · 2.500 kW (3 kV)",
-  "longitud": "107,36 m",
-  "peso": "251,3 t",
-  "tension": "25 kV c.a. / 3 kV c.c.",
-  "traccion": "Distribuida · 8 motores asíncronos Alstom",
-  "señalizacion": "ASFA y ERTMS",
-  "composicion": "Mc + M + M + Mc",
-  "capacidad": "281 plazas · 280 de clase única + 1 PMR",
-  "plazasSentadas": "281",
-  "numeroUnidades": "29 composiciones",
-  "generalNotes": [
-      "Trenes eléctricos de Media Distancia para servicios AVANT por líneas de Alta Velocidad y líneas convencionales.",
-      "La serie 121 es una evolución de la familia S-120, fabricada por el consorcio CAF-Alstom.",
-      "Las 29 unidades están formadas por cuatro coches motores en composición Mc + M + M + Mc.",
-      "Todos los asientos son de clase única y la capacidad total es de 281 plazas, incluyendo una plaza para personas con movilidad reducida.",
-      "Disponen de sistema de rodadura desplazable BRAVA, que permite circular por ancho internacional e ibérico.",
-      "Son bitensión: 25 kV en corriente alterna para líneas de Alta Velocidad y 3 kV en corriente continua para líneas convencionales.",
-      "La velocidad máxima comercial es de 250 km/h con 25 kV c.a. y 220 km/h con 3 kV c.c.",
-      "La serie dispone de tracción distribuida con ocho motores de tracción y cuatro coches motores.",
-      "Las ramas de la tabla aportada están numeradas del 1 al 29. Cada rama se identifica mediante sus dos coches extremos/cabezas y los dos coches motores intermedios asociados.",
-      "El sistema BRAVA permite realizar el cambio de ancho sin necesidad de maniobras convencionales, facilitando servicios que combinan líneas de ancho internacional e ibérico."
-  ],
-  "units": {
-      "1": {
-          "rama": "1",
-          "vehiculoBase": "001",
-          "numero": "9-121-001-2",
-          "vehiculosRama": [
-              "9-121-001-2",
-              "6-121-001-2",
-              "6-121-501-1",
-              "9-121-501-1"
-          ],
-          "searchCodes": [
-              "001",
-              "501"
-          ],
-          "deposito": "Santa Catalina",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-001-2 + 6-121-001-2 + 6-121-501-1 + 9-121-501-1",
-          "notas": [
-              "En pruebas desde 04/08. AVANT Madrid-Valladolid. Ex-Fuencarral → Sta. Catalina → Redondela 01/25 → Sta. Catalina."
-          ]
-      },
-      "2": {
-          "rama": "2",
-          "vehiculoBase": "002",
-          "numero": "9-121-002-0",
-          "vehiculosRama": [
-              "9-121-002-0",
-              "6-121-002-0",
-              "6-121-502-9",
-              "9-121-502-9"
-          ],
-          "searchCodes": [
-              "002",
-              "502"
-          ],
-          "deposito": "Redondela",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-002-0 + 6-121-002-0 + 6-121-502-9 + 9-121-502-9",
-          "notas": [
-              "En pruebas desde 08/08. AVANT Madrid-Valladolid. Ex-Logos Junta Andalucía. Ex-Can Tunis → Redondela."
-          ]
-      },
-      "3": {
-          "rama": "3",
-          "vehiculoBase": "003",
-          "numero": "9-121-003-8",
-          "vehiculosRama": [
-              "9-121-003-8",
-              "6-121-003-8",
-              "6-121-503-7",
-              "9-121-503-7"
-          ],
-          "searchCodes": [
-              "003",
-              "503"
-          ],
-          "deposito": "Redondela",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-003-8 + 6-121-003-8 + 6-121-503-7 + 9-121-503-7",
-          "notas": [
-              "En pruebas desde 09/08 → AVANT Madrid-Valladolid → Galicia desde 12/11."
-          ]
-      },
-      "4": {
-          "rama": "4",
-          "vehiculoBase": "004",
-          "numero": "9-121-004-6",
-          "vehiculosRama": [
-              "9-121-004-6",
-              "6-121-004-6",
-              "6-121-504-5",
-              "9-121-504-5"
-          ],
-          "searchCodes": [
-              "004",
-              "504"
-          ],
-          "deposito": "Redondela",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-004-6 + 6-121-004-6 + 6-121-504-5 + 9-121-504-5",
-          "notas": [
-              "AVANT Madrid-Valladolid → Galicia desde 12/11."
-          ]
-      },
-      "5": {
-          "rama": "5",
-          "vehiculoBase": "005",
-          "numero": "9-121-005-3",
-          "vehiculosRama": [
-              "9-121-005-3",
-              "6-121-005-3",
-              "6-121-505-2",
-              "9-121-505-2"
-          ],
-          "searchCodes": [
-              "005",
-              "505"
-          ],
-          "deposito": "Redondela",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-005-3 + 6-121-005-3 + 6-121-505-2 + 9-121-505-2",
-          "notas": [
-              "AVANT Madrid-Valladolid → Redondela."
-          ]
-      },
-      "6": {
-          "rama": "6",
-          "vehiculoBase": "006",
-          "numero": "9-121-006-1",
-          "vehiculosRama": [
-              "9-121-006-1",
-              "6-121-006-1",
-              "6-121-506-0",
-              "9-121-506-0"
-          ],
-          "searchCodes": [
-              "006",
-              "506"
-          ],
-          "deposito": "Santa Catalina",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-006-1 + 6-121-006-1 + 6-121-506-0 + 9-121-506-0",
-          "notas": [
-              "AVANT Madrid-Valladolid. Ex-Fuencarral → Redondela → Sta. Catalina."
-          ]
-      },
-      "7": {
-          "rama": "7",
-          "vehiculoBase": "007",
-          "numero": "9-121-007-9",
-          "vehiculosRama": [
-              "9-121-007-9",
-              "6-121-007-9",
-              "6-121-507-8",
-              "9-121-507-8"
-          ],
-          "searchCodes": [
-              "007",
-              "507"
-          ],
-          "deposito": "Redondela",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-007-9 + 6-121-007-9 + 6-121-507-8 + 9-121-507-8",
-          "notas": []
-      },
-      "8": {
-          "rama": "8",
-          "vehiculoBase": "008",
-          "numero": "9-121-008-7",
-          "vehiculosRama": [
-              "9-121-008-7",
-              "6-121-008-7",
-              "6-121-508-6",
-              "9-121-508-6"
-          ],
-          "searchCodes": [
-              "008",
-              "508"
-          ],
-          "deposito": "Santa Catalina",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-008-7 + 6-121-008-7 + 6-121-508-6 + 9-121-508-6",
-          "notas": [
-              "Ex-Fuencarral."
-          ]
-      },
-      "9": {
-          "rama": "9",
-          "vehiculoBase": "009",
-          "numero": "9-121-009-5",
-          "vehiculosRama": [
-              "9-121-009-5",
-              "6-121-009-5",
-              "6-121-509-4",
-              "9-121-509-4"
-          ],
-          "searchCodes": [
-              "009",
-              "509"
-          ],
-          "deposito": "Santa Catalina",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-009-5 + 6-121-009-5 + 6-121-509-4 + 9-121-509-4",
-          "notas": [
-              "Ex-Fuencarral."
-          ]
-      },
-      "10": {
-          "rama": "10",
-          "vehiculoBase": "010",
-          "numero": "9-121-010-3",
-          "vehiculosRama": [
-              "9-121-010-3",
-              "6-121-010-3",
-              "6-121-510-2",
-              "9-121-510-2"
-          ],
-          "searchCodes": [
-              "010",
-              "510"
-          ],
-          "deposito": "Santa Catalina",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-010-3 + 6-121-010-3 + 6-121-510-2 + 9-121-510-2",
-          "notas": [
-              "Ex-Fuencarral."
-          ]
-      },
-      "11": {
-          "rama": "11",
-          "vehiculoBase": "011",
-          "numero": "9-121-011-1",
-          "vehiculosRama": [
-              "9-121-011-1",
-              "6-121-011-1",
-              "6-121-511-0",
-              "9-121-511-0"
-          ],
-          "searchCodes": [
-              "011",
-              "511"
-          ],
-          "deposito": "Redondela",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-011-1 + 6-121-011-1 + 6-121-511-0 + 9-121-511-0",
-          "notas": [
-              "Ex-Can Tunis → Redondela → Sta. Catalina → Redondela."
-          ]
-      },
-      "12": {
-          "rama": "12",
-          "vehiculoBase": "012",
-          "numero": "9-121-012-7",
-          "vehiculosRama": [
-              "9-121-012-7",
-              "6-121-012-7",
-              "6-121-512-8",
-              "9-121-512-8"
-          ],
-          "searchCodes": [
-              "012",
-              "512"
-          ],
-          "deposito": "Redondela",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-012-7 + 6-121-012-7 + 6-121-512-8 + 9-121-512-8",
-          "notas": [
-              "Galicia desde 12/11. Accidente contra un tractor en Arbo (17/08/13)."
-          ]
-      },
-      "13": {
-          "rama": "13",
-          "vehiculoBase": "013",
-          "numero": "9-121-013-7",
-          "vehiculosRama": [
-              "9-121-013-7",
-              "6-121-013-7",
-              "6-121-513-6",
-              "9-121-513-6"
-          ],
-          "searchCodes": [
-              "013",
-              "513"
-          ],
-          "deposito": "Santa Catalina",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-013-7 + 6-121-013-7 + 6-121-513-6 + 9-121-513-6",
-          "notas": [
-              "Inauguró el servicio Salamanca - Madrid vía Medina - LAV Valladolid, 17/12/15. Ex-Fuencarral."
-          ]
-      },
-      "14": {
-          "rama": "14",
-          "vehiculoBase": "014",
-          "numero": "9-121-014-5",
-          "vehiculosRama": [
-              "9-121-014-5",
-              "6-121-014-5",
-              "6-121-514-4",
-              "9-121-514-4"
-          ],
-          "searchCodes": [
-              "014",
-              "514"
-          ],
-          "deposito": "Redondela",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-014-5 + 6-121-014-5 + 6-121-514-4 + 9-121-514-4",
-          "notas": [
-              "Galicia desde 12/11. Ex-Can Tunis."
-          ]
-      },
-      "15": {
-          "rama": "15",
-          "vehiculoBase": "015",
-          "numero": "9-121-015-2",
-          "vehiculosRama": [
-              "9-121-015-2",
-              "6-121-015-2",
-              "6-121-515-1",
-              "9-121-515-1"
-          ],
-          "searchCodes": [
-              "015",
-              "515"
-          ],
-          "deposito": "Santa Catalina",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-015-2 + 6-121-015-2 + 6-121-515-1 + 9-121-515-1",
-          "notas": [
-              "Ex-Fuencarral."
-          ]
-      },
-      "16": {
-          "rama": "16",
-          "vehiculoBase": "016",
-          "numero": "9-121-016-0",
-          "vehiculosRama": [
-              "9-121-016-0",
-              "6-121-016-0",
-              "6-121-516-9",
-              "9-121-516-9"
-          ],
-          "searchCodes": [
-              "016",
-              "516"
-          ],
-          "deposito": "Santa Catalina",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-016-0 + 6-121-016-0 + 6-121-516-9 + 9-121-516-9",
-          "notas": [
-              "En Ourense para formación maquinistas en LAV Ourense - Santiago 07/11. Ex-Can Tunis → Fuencarral."
-          ]
-      },
-      "17": {
-          "rama": "17",
-          "vehiculoBase": "017",
-          "numero": "9-121-017-8",
-          "vehiculosRama": [
-              "9-121-017-8",
-              "6-121-017-8",
-              "6-121-517-7",
-              "9-121-517-7"
-          ],
-          "searchCodes": [
-              "017",
-              "517"
-          ],
-          "deposito": "Santa Catalina",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-017-8 + 6-121-017-8 + 6-121-517-7 + 9-121-517-7",
-          "notas": [
-              "Ex-Fuencarral."
-          ]
-      },
-      "18": {
-          "rama": "18",
-          "vehiculoBase": "018",
-          "numero": "9-121-018-6",
-          "vehiculosRama": [
-              "9-121-018-6",
-              "6-121-018-6",
-              "6-121-518-5",
-              "9-121-518-5"
-          ],
-          "searchCodes": [
-              "018",
-              "518"
-          ],
-          "deposito": "Santa Catalina",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-018-6 + 6-121-018-6 + 6-121-518-5 + 9-121-518-5",
-          "notas": [
-              "Ex-Fuencarral."
-          ]
-      },
-      "19": {
-          "rama": "19",
-          "vehiculoBase": "019",
-          "numero": "9-121-019-4",
-          "vehiculosRama": [
-              "9-121-019-4",
-              "6-121-019-4",
-              "6-121-519-3",
-              "9-121-519-3"
-          ],
-          "searchCodes": [
-              "019",
-              "519"
-          ],
-          "deposito": "Santa Catalina",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-019-4 + 6-121-019-4 + 6-121-519-3 + 9-121-519-3",
-          "notas": [
-              "Ex-Fuencarral → Sta. Catalina → Redondela."
-          ]
-      },
-      "20": {
-          "rama": "20",
-          "vehiculoBase": "020",
-          "numero": "9-121-020-2",
-          "vehiculosRama": [
-              "9-121-020-2",
-              "6-121-020-2",
-              "6-121-520-1",
-              "9-121-520-1"
-          ],
-          "searchCodes": [
-              "020",
-              "520"
-          ],
-          "deposito": "Santa Catalina",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-020-2 + 6-121-020-2 + 6-121-520-1 + 9-121-520-1",
-          "notas": [
-              "Ex-Fuencarral. Descarrilo en cambiador de ancho Burgos 21/09/25."
-          ]
-      },
-      "21": {
-          "rama": "21",
-          "vehiculoBase": "021",
-          "numero": "9-121-021-0",
-          "vehiculosRama": [
-              "9-121-021-0",
-              "6-121-021-0",
-              "6-121-521-9",
-              "9-121-521-9"
-          ],
-          "searchCodes": [
-              "021",
-              "521"
-          ],
-          "deposito": "Santa Catalina",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-021-0 + 6-121-021-0 + 6-121-521-9 + 9-121-521-9",
-          "notas": [
-              "Ex-Fuencarral."
-          ]
-      },
-      "22": {
-          "rama": "22",
-          "vehiculoBase": "022",
-          "numero": "9-121-022-8",
-          "vehiculosRama": [
-              "9-121-022-8",
-              "6-121-022-8",
-              "6-121-522-7",
-              "9-121-522-7"
-          ],
-          "searchCodes": [
-              "022",
-              "522"
-          ],
-          "deposito": "Santa Catalina",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-022-8 + 6-121-022-8 + 6-121-522-7 + 9-121-522-7",
-          "notas": [
-              "Ex-Fuencarral."
-          ]
-      },
-      "23": {
-          "rama": "23",
-          "vehiculoBase": "023",
-          "numero": "9-121-023-6",
-          "vehiculosRama": [
-              "9-121-023-6",
-              "6-121-023-6",
-              "6-121-523-5",
-              "9-121-523-5"
-          ],
-          "searchCodes": [
-              "023",
-              "523"
-          ],
-          "deposito": "Santa Catalina",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-023-6 + 6-121-023-6 + 6-121-523-5 + 9-121-523-5",
-          "notas": [
-              "Ex-Fuencarral."
-          ]
-      },
-      "24": {
-          "rama": "24",
-          "vehiculoBase": "024",
-          "numero": "9-121-024-4",
-          "vehiculosRama": [
-              "9-121-024-4",
-              "6-121-024-4",
-              "6-121-524-3",
-              "9-121-524-3"
-          ],
-          "searchCodes": [
-              "024",
-              "524"
-          ],
-          "deposito": "Redondela",
-          "color": "Blanco",
-          "estado": "Incendiado",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-024-4 + 6-121-024-4 + 6-121-524-3 + 9-121-524-3",
-          "notas": [
-              "Incendio A Coruña 18/08/26."
-          ]
-      },
-      "25": {
-          "rama": "25",
-          "vehiculoBase": "025",
-          "numero": "9-121-025-1",
-          "vehiculosRama": [
-              "9-121-025-1",
-              "6-121-025-1",
-              "6-121-525-0",
-              "9-121-525-0"
-          ],
-          "searchCodes": [
-              "025",
-              "525"
-          ],
-          "deposito": "Redondela",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-025-1 + 6-121-025-1 + 6-121-525-0 + 9-121-525-0",
-          "notas": []
-      },
-      "26": {
-          "rama": "26",
-          "vehiculoBase": "026",
-          "numero": "9-121-026-9",
-          "vehiculosRama": [
-              "9-121-026-9",
-              "6-121-026-9",
-              "6-121-526-8",
-              "9-121-526-8"
-          ],
-          "searchCodes": [
-              "026",
-              "526"
-          ],
-          "deposito": "Redondela",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-026-9 + 6-121-026-9 + 6-121-526-8 + 9-121-526-8",
-          "notas": [
-              "Ex-Fuencarral."
-          ]
-      },
-      "27": {
-          "rama": "27",
-          "vehiculoBase": "027",
-          "numero": "9-121-027-7",
-          "vehiculosRama": [
-              "9-121-027-7",
-              "6-121-027-7",
-              "6-121-527-6",
-              "9-121-527-6"
-          ],
-          "searchCodes": [
-              "027",
-              "527"
-          ],
-          "deposito": "Santa Catalina",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-027-7 + 6-121-027-7 + 6-121-527-6 + 9-121-527-6",
-          "notas": [
-              "Ex-Fuencarral. Arrollamiento tractor S. Juan del Puerto 29/09/23. Reparación en Can Tunis.",
-              "Rama reparada desde julio de 2026."
-          ]
-      },
-      "28": {
-          "rama": "28",
-          "vehiculoBase": "028",
-          "numero": "9-121-028-5",
-          "vehiculosRama": [
-              "9-121-028-5",
-              "6-121-028-5",
-              "6-121-528-4",
-              "9-121-528-4"
-          ],
-          "searchCodes": [
-              "028",
-              "528"
-          ],
-          "deposito": "Redondela",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-028-5 + 6-121-028-5 + 6-121-528-4 + 9-121-528-4",
-          "notas": [
-              "Ex-Fuencarral → Redondela → Baja por avería 06/24, en reparación. En servicio."
-          ]
-      },
-      "29": {
-          "rama": "29",
-          "vehiculoBase": "029",
-          "numero": "9-121-029-3",
-          "vehiculosRama": [
-              "9-121-029-3",
-              "6-121-029-3",
-              "6-121-529-2",
-              "9-121-529-2"
-          ],
-          "searchCodes": [
-              "029",
-              "529"
-          ],
-          "deposito": "Santa Catalina",
-          "color": "Blanco",
-          "estado": "En servicio",
-          "servicio": "AVANT",
-          "ano": "2008–2010",
-          "ancho": "1435/1668",
-          "composicionRama": "9-121-029-3 + 6-121-029-3 + 6-121-529-2 + 9-121-529-2",
-          "notas": [
-              "Ex-Can Tunis → Fuencarral → Sta. Catalina → Redondela.",
-              "Circula con su composición original tras la reparación de la Rama 27."
-          ]
-      }
-  }
-},
-  "130": {
-  "seriesName": "Serie 130",
-  "fabricante": "Talgo / Bombardier",
-  "modelo": "Talgo 250",
-  "apodo": "Patito",
-  "anoPuestaServicio": "2007",
-  "tipoMaterial": "Alta Velocidad · Larga Distancia · Alvia",
-  "numeroCoches": "13 vehículos · 2 cabezas tractoras + 11 coches Talgo 7",
-  "anchoVia": "1435/1668 mm",
-  "numeroRamas": 45,
-  "velocidadMaxima": "250 km/h (25 kV c.a.) · 220 km/h (3 kV c.c.)",
-  "potencia": "4.800 kW (25 kV c.a.) · 4.000 kW (3 kV c.c.)",
-  "longitud": "aprox. 184 m",
-  "peso": "aprox. 312 t",
-  "tension": "25 kV c.a. / 3 kV c.c.",
-  "traccion": "2 cabezas tractoras Talgo-Bombardier",
-  "señalizacion": "ERTMS / LZB / ASFA según línea y unidad",
-  "composicion": "M + 11 coches Talgo 7 + M",
-  "capacidad": "299 plazas · 63 Preferente + 236 Turista",
-  "plazasSentadas": "299",
-  "numeroUnidades": "45 composiciones originales · 90 cabezas tractoras",
-  "generalNotes": [
-  "Automotores eléctricos formados por dos cabezas tractoras derivadas de la plataforma 'Travca' y una rama de 11 coches Talgo 7.",
-  "La serie está formada por 45 trenes, equivalentes a 90 locomotoras/cabezas tractoras.",
-  "Las 27 primeras composiciones se formaron a partir de ramas Talgo 7 existentes, adaptadas para servicio diurno y acopladas permanentemente a las nuevas cabezas tractoras.",
-  "Las ramas 28 a 45 fueron construidas de nueva planta para la serie 130.",
-  "La identificación por Ex-número es especialmente importante en esta serie: permite reconocer las ramas Talgo 7 de procedencia anterior. Cuando existe, se conserva el código 7B correspondiente.",
-  "Puede circular por ancho ibérico (1668 mm) y ancho estándar (1435 mm) gracias a la rodadura desplazable.",
-  "La potencia total es de 4.800 kW a 25 kV c.a. y 4.000 kW a 3 kV c.c.",
-  "La velocidad máxima es de 250 km/h en líneas de alta velocidad y 220 km/h en ancho ibérico.",
-  "La composición convencional de la serie es de dos cabezas tractoras y once coches Talgo 7, con 299 plazas.",
-  "Las ramas 11 a 25 fueron posteriormente transformadas en composiciones bimodales de la serie 730.",
-  "La serie comenzó oficialmente su servicio comercial el 6 de noviembre de 2007 en la relación Gijón–Madrid bajo la denominación Alvia."
-  ],
-  "units": {
-  "01": {
-  "rama": "01",
-  "vehiculoBase": "001",
-  "numero": "130-001-1",
-  "vehiculosRama": [
-  "130-001-1",
-  "130-002-9"
-  ],
-  "searchCodes": [
-  "001",
-  "002"
-  ],
-  "exNumero": "7B2",
-  "deposito": "Fuencarral",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Formado el 14/09/06. Reforma 08/22, segundo 130. Colisión con tractor en Arenas de Iguña 27/04/23. Reformado interiorismo y decoración 2024.",
-  "Formado en 10/06. Reforma 08/22, segundo 130. Colisión con tractor en Arenas de Iguña 27/04/23. Reformado interiorismo y decoración 2024."
-  ]
-  },
-  "02": {
-  "rama": "02",
-  "vehiculoBase": "003",
-  "numero": "130-003-7",
-  "vehiculosRama": [
-  "130-003-7",
-  "130-004-5"
-  ],
-  "searchCodes": [
-  "003",
-  "004"
-  ],
-  "exNumero": "7B5",
-  "deposito": "Fuencarral",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Formado en 11/06. Reforma interior pero no exterior, 2023.",
-  "Formada en 11/06. Reforma interior pero no exterior, 2023."
-  ]
-  },
-  "03": {
-  "rama": "03",
-  "vehiculoBase": "005",
-  "numero": "130-005-2",
-  "vehiculosRama": [
-  "130-005-2",
-  "130-006-0"
-  ],
-  "searchCodes": [
-  "005",
-  "006"
-  ],
-  "exNumero": "7B16",
-  "deposito": "Fuencarral",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Entra a reforma en 01/07. En pruebas desde 02/07. Nuevo interiorismo y decoración 05/26",
-  "Entra a reforma en 01/07. En pruebas desde 02/07. Nuevo interiorismo y decoración 05/26"
-  ]
-  },
-  "04": {
-  "rama": "04",
-  "vehiculoBase": "007",
-  "numero": "130-007-8",
-  "vehiculosRama": [
-  "130-007-8",
-  "130-008-6"
-  ],
-  "searchCodes": [
-  "007",
-  "008"
-  ],
-  "exNumero": "7B22",
-  "deposito": "Fuencarral",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Entra a reforma en 02/07. En pruebas en 07/07. Nuevo interiorismo y decoración 05/26.",
-  "Entra a reforma en 02/07. En pruebas en 07/07. Nuevo interiorismo y decoración 05/26."
-  ]
-  },
-  "05": {
-  "rama": "05",
-  "vehiculoBase": "009",
-  "numero": "130-009-4",
-  "vehiculosRama": [
-  "130-009-4",
-  "130-010-2"
-  ],
-  "searchCodes": [
-  "009",
-  "010"
-  ],
-  "exNumero": "7B26",
-  "deposito": "Fuencarral",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Reformada solo interiorismo 03/23.",
-  "Reformada solo interiorismo 03/23."
-  ]
-  },
-  "06": {
-  "rama": "06",
-  "vehiculoBase": "011",
-  "numero": "130-011-0",
-  "vehiculosRama": [
-  "130-011-0",
-  "130-012-8"
-  ],
-  "searchCodes": [
-  "011",
-  "012"
-  ],
-  "exNumero": "7B24",
-  "deposito": "Fuencarral",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Entra a reforma en 04/07. En pruebas desde 13/08/07. Logos 80 años Renfe",
-  "Entra a reforma en 04/07. En pruebas desde 13/08/07. Logos 80 años Renfe"
-  ]
-  },
-  "07": {
-  "rama": "07",
-  "vehiculoBase": "013",
-  "numero": "130-013-6",
-  "vehiculosRama": [
-  "130-013-6",
-  "130-014-4"
-  ],
-  "searchCodes": [
-  "013",
-  "014"
-  ],
-  "exNumero": "7B25",
-  "deposito": "Fuencarral",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Entra a reforma en 05/07. Piedra en Mont-Roig del Camp 15/03/16. Logos 75 años Renfe. Reformada interior 2023 sin decoración externa. Nueva decoración externa 05/26",
-  "Entra a reforma en 05/07. Piedra en Mont-Roig del Camp 15/03/16. Logos 75 años Renfe. Reformada interior 2023 sin decoración externa."
-  ]
-  },
-  "08": {
-  "rama": "08",
-  "vehiculoBase": "015",
-  "numero": "130-015-1",
-  "vehiculosRama": [
-  "130-015-1",
-  "130-016-9"
-  ],
-  "searchCodes": [
-  "015",
-  "016"
-  ],
-  "exNumero": "7B23",
-  "deposito": "Fuencarral",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Entra a reforma para 130 en 07/07. Reformado nuevo interiorismo y decoración 05/22 (Primer 130)",
-  "Entra a reforma para 130 en 07/07. Reformado nuevo interiorismo y decoración 05/22 (Primer 130)"
-  ]
-  },
-  "31": {
-  "rama": "31",
-  "vehiculoBase": "017",
-  "numero": "130-017-7",
-  "vehiculosRama": [
-  "130-017-7",
-  "130-018-5"
-  ],
-  "searchCodes": [
-  "017",
-  "018"
-  ],
-  "exNumero": "7B31",
-  "deposito": "Fuencarral",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Realizó pruebas LAV Valladolid. Descarrilo Freixeiro 26/08/22. Reformada interior y exterior xx/24.",
-  "Realizó pruebas LAV Valladolid. Descarrilo Freixeiro 26/08/22. Reformada interior/exterior xx/24."
-  ]
-  },
-  "29": {
-  "rama": "29",
-  "vehiculoBase": "019",
-  "numero": "130-019-3",
-  "vehiculosRama": [
-  "130-019-3",
-  "130-020-1"
-  ],
-  "searchCodes": [
-  "019",
-  "020"
-  ],
-  "exNumero": "7B29",
-  "deposito": "Can Tunis",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-Fuencarral. Reformado 04/23",
-  "Ex-Fuencarral. Reformado 04/23"
-  ]
-  },
-  "10": {
-  "rama": "10",
-  "vehiculoBase": "021",
-  "numero": "130-021-9",
-  "vehiculosRama": [
-  "130-021-9",
-  "130-022-7"
-  ],
-  "searchCodes": [
-  "021",
-  "022"
-  ],
-  "exNumero": "7B14",
-  "deposito": "Can Tunis",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-Fuencarral. Arrollamiento vehículo Husillos 26/11/24. Reformado, nuevo interiorismo y decoración 2024",
-  "Ex-Fuencarral. Arrollamiento vehículo Husillos 26/11/24. Reformado,nuevo interiorismo y decoración 2024"
-  ]
-  },
-  "32": {
-  "rama": "32",
-  "vehiculoBase": "023",
-  "numero": "130-023-5",
-  "vehiculosRama": [
-  "130-023-5",
-  "130-024-3"
-  ],
-  "searchCodes": [
-  "023",
-  "024"
-  ],
-  "exNumero": "",
-  "deposito": "Fuencarral",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Logos 80 años Renfe",
-  "Logos 80 años Renfe"
-  ]
-  },
-  "30": {
-  "rama": "30",
-  "vehiculoBase": "025",
-  "numero": "130-025-0",
-  "vehiculosRama": [
-  "130-025-0",
-  "130-026-8"
-  ],
-  "searchCodes": [
-  "025",
-  "026"
-  ],
-  "exNumero": "7B30",
-  "deposito": "Can Tunis",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "En pruebas desde 12/07. Primer 130 en llegar a Bilbao. Ex-Fuencarral",
-  "En pruebas desde 12/07. Primer 130 en llegar a Bilbao. Ex-Fuencarral"
-  ]
-  },
-  "34": {
-  "rama": "34",
-  "vehiculoBase": "027",
-  "numero": "130-027-6",
-  "vehiculosRama": [
-  "130-027-6",
-  "130-028-4"
-  ],
-  "searchCodes": [
-  "027",
-  "028"
-  ],
-  "exNumero": "",
-  "deposito": "Fuencarral",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "En pruebas desde 12/07. Descarrilo León 05/03/21. Reformada 10/22",
-  "En pruebas desde 12/07. Descarrilo León 05/03/21. Reformada 10/22"
-  ]
-  },
-  "09": {
-  "rama": "09",
-  "vehiculoBase": "029",
-  "numero": "130-029-2",
-  "vehiculosRama": [
-  "130-029-2",
-  "130-030-0"
-  ],
-  "searchCodes": [
-  "029",
-  "030"
-  ],
-  "exNumero": "7B15",
-  "deposito": "Fuencarral",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": []
-  },
-  "33": {
-  "rama": "33",
-  "vehiculoBase": "031",
-  "numero": "130-031-8",
-  "vehiculosRama": [
-  "130-031-8",
-  "130-032-6"
-  ],
-  "searchCodes": [
-  "031",
-  "032"
-  ],
-  "exNumero": "",
-  "deposito": "Fuencarral",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Logos \"80 Años RENFE\"",
-  "Logos \"80 Años RENFE\""
-  ]
-  },
-  "28": {
-  "rama": "28",
-  "vehiculoBase": "033",
-  "numero": "130-033-4",
-  "vehiculosRama": [
-  "130-033-4",
-  "130-034-2"
-  ],
-  "searchCodes": [
-  "033",
-  "034"
-  ],
-  "exNumero": "7B28",
-  "deposito": "Fuencarral",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Fabricado en el TCR de Málaga. Sale de talleres 19/12/07. Reformado, nuevo interiorismo y decoración 2024",
-  "Reformado, nuevo interiorismo y decoración 2024"
-  ]
-  },
-  "36": {
-  "rama": "36",
-  "vehiculoBase": "035",
-  "numero": "130-035-9",
-  "vehiculosRama": [
-  "130-035-9",
-  "130-036-7"
-  ],
-  "searchCodes": [
-  "035",
-  "036"
-  ],
-  "exNumero": "",
-  "deposito": "Can Tunis",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-Fuencarral. Reformado interior y exterior con librea nueva 03/25.",
-  "Ex-Fuencarral. Reformado interior y exterior con librea nueva 03/25."
-  ]
-  },
-  "38": {
-  "rama": "38",
-  "vehiculoBase": "037",
-  "numero": "130-037-5",
-  "vehiculosRama": [
-  "130-037-5",
-  "130-041-7"
-  ],
-  "searchCodes": [
-  "037",
-  "041"
-  ],
-  "exNumero": "",
-  "deposito": "Fuencarral",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": []
-  },
-  "13": {
-  "rama": "13",
-  "vehiculoBase": "038",
-  "numero": "130-038-3",
-  "vehiculosRama": [
-  "130-038-3",
-  "130-042-5"
-  ],
-  "searchCodes": [
-  "038",
-  "042"
-  ],
-  "exNumero": "7B10",
-  "deposito": "",
-  "color": "Blanco",
-  "estado": "Reformada",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-G.L. Fuencarral>> Reformada a 730-038.",
-  "Ex-G.L. Fuencarral>> Reformada a 730-042."
-  ]
-  },
-  "35": {
-  "rama": "35",
-  "vehiculoBase": "039",
-  "numero": "130-039-1",
-  "vehiculosRama": [
-  "130-039-1",
-  "130-040-9"
-  ],
-  "searchCodes": [
-  "039",
-  "040"
-  ],
-  "exNumero": "",
-  "deposito": "Can Tunis",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-Fuencarral. Reformado interior y exterior. Descarrilo Chamartín 12/06/25",
-  "Ex-Fuencarral. Reformada interior y exterior. Descarrilo Chamartín 12/06/25"
-  ]
-  },
-  "11": {
-  "rama": "11",
-  "vehiculoBase": "043",
-  "numero": "130-043-3",
-  "vehiculosRama": [
-  "130-043-3",
-  "130-044-1"
-  ],
-  "searchCodes": [
-  "043",
-  "044"
-  ],
-  "exNumero": "7B17",
-  "deposito": "",
-  "color": "Blanco",
-  "estado": "Reformada",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-G.L. Fuencarral>> Reformada a 730-043.",
-  "Ex-G.L. Fuencarral>> Reformada a 730-044. Vinilo Xacobeo 21-22, desde 28/05/21"
-  ]
-  },
-  "12": {
-  "rama": "12",
-  "vehiculoBase": "045",
-  "numero": "130-045-8",
-  "vehiculosRama": [
-  "130-045-8",
-  "130-046-6"
-  ],
-  "searchCodes": [
-  "045",
-  "046"
-  ],
-  "exNumero": "7B11",
-  "deposito": "",
-  "color": "Blanco",
-  "estado": "Desguazada",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-G.L. Fuencarral.>> Reformada a 730-045. Accidentada como 730 en Santiago, 24/07/13.",
-  "Ex-G.L. Fuencarral.>> Reformada a 730-046. Accidentada como 730 en Santiago, 24/07/13."
-  ]
-  },
-  "42": {
-  "rama": "42",
-  "vehiculoBase": "047",
-  "numero": "130-047-4",
-  "vehiculosRama": [
-  "130-047-4",
-  "130-048-2"
-  ],
-  "searchCodes": [
-  "047",
-  "048"
-  ],
-  "exNumero": "",
-  "deposito": "Can Tunis",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-Fuencarral. Reformado, nuevo interiorismo y decoración",
-  "Ex-Fuencarral. Reformado, nuevo interiorismo y decoración"
-  ]
-  },
-  "40": {
-  "rama": "40",
-  "vehiculoBase": "049",
-  "numero": "130-049-0",
-  "vehiculosRama": [
-  "130-049-0",
-  "130-054-0"
-  ],
-  "searchCodes": [
-  "049",
-  "054"
-  ],
-  "exNumero": "",
-  "deposito": "Fuencarral",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Choque con árbol en Villabona de Asturias 04/06/18. Reformado, nuevo interiorismo y decoración 2024",
-  "Vinilos USAL 03/18 Reformado, nuevo interiorismo y decoración 2024"
-  ]
-  },
-  "15": {
-  "rama": "15",
-  "vehiculoBase": "050",
-  "numero": "130-050-8",
-  "vehiculosRama": [
-  "130-050-8",
-  "130-053-2"
-  ],
-  "searchCodes": [
-  "050",
-  "053"
-  ],
-  "exNumero": "7B7",
-  "deposito": "",
-  "color": "Blanco",
-  "estado": "Reformada",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-G.L. Fuencarral>> Reformada a 730-050.",
-  "Ex-G.L. Fuencarral>> Reformada a 730-053."
-  ]
-  },
-  "37": {
-  "rama": "37",
-  "vehiculoBase": "051",
-  "numero": "130-051-6",
-  "vehiculosRama": [
-  "130-051-6",
-  "130-056-5"
-  ],
-  "searchCodes": [
-  "051",
-  "056"
-  ],
-  "exNumero": "",
-  "deposito": "Can Tunis",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-Fuencarral. Reformado,nuevo interiorismo y decoración 2024",
-  "Ex-Fuencarral. Reformado,nuevo interiorismo y decoración 2024"
-  ]
-  },
-  "39": {
-  "rama": "39",
-  "vehiculoBase": "052",
-  "numero": "130-052-4",
-  "vehiculosRama": [
-  "130-052-4",
-  "130-055-7"
-  ],
-  "searchCodes": [
-  "052",
-  "055"
-  ],
-  "exNumero": "",
-  "deposito": "Can Tunis",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Logos 75 años Renfe.Ex-Fuencarral. Logos 80 años",
-  "Logos 75 años Renfe.Ex-Fuencarral"
-  ]
-  },
-  "14": {
-  "rama": "14",
-  "vehiculoBase": "057",
-  "numero": "130-057-3",
-  "vehiculosRama": [
-  "130-057-3",
-  "130-058-1"
-  ],
-  "searchCodes": [
-  "057",
-  "058"
-  ],
-  "exNumero": "7B8",
-  "deposito": "",
-  "color": "Blanco",
-  "estado": "Reformada",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-G.L. Fuencarral>> Reformada a 730-057.",
-  "Ex-G.L. Fuencarral>> Reformada a 730-058."
-  ]
-  },
-  "41": {
-  "rama": "41",
-  "vehiculoBase": "059",
-  "numero": "130-059-9",
-  "vehiculosRama": [
-  "130-059-9",
-  "130-060-7"
-  ],
-  "searchCodes": [
-  "059",
-  "060"
-  ],
-  "exNumero": "",
-  "deposito": "Can Tunis",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-Fuencarral",
-  "Ex-Fuencarral"
-  ]
-  },
-  "43": {
-  "rama": "43",
-  "vehiculoBase": "061",
-  "numero": "130-061-5",
-  "vehiculosRama": [
-  "130-061-5",
-  "130-062-3"
-  ],
-  "searchCodes": [
-  "061",
-  "062"
-  ],
-  "exNumero": "",
-  "deposito": "Can Tunis",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Logos 75 años Renfe. Descarrilo Pajares 30/09/16. Ex-Fuencarral. Reformado interior y exterior."
-  ]
-  },
-  "16": {
-  "rama": "16",
-  "vehiculoBase": "063",
-  "numero": "130-063-1",
-  "vehiculosRama": [
-  "130-063-1",
-  "130-064-9"
-  ],
-  "searchCodes": [
-  "063",
-  "064"
-  ],
-  "exNumero": "7B6",
-  "deposito": "",
-  "color": "Blanco",
-  "estado": "Reformada",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-G.L. Fuencarral>> Reformada a 730-063.",
-  "Ex-G.L. Fuencarral>> Reformada a 730-064."
-  ]
-  },
-  "44": {
-  "rama": "44",
-  "vehiculoBase": "065",
-  "numero": "130-065-6",
-  "vehiculosRama": [
-  "130-065-6",
-  "130-066-4"
-  ],
-  "searchCodes": [
-  "065",
-  "066"
-  ],
-  "exNumero": "",
-  "deposito": "Can Tunis",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-Fuencarral. Nuevo interiorismo y decoración",
-  "Ex-Fuencarral. Nuevo interiorismo y decoración"
-  ]
-  },
-  "45": {
-  "rama": "45",
-  "vehiculoBase": "067",
-  "numero": "130-067-2",
-  "vehiculosRama": [
-  "130-067-2",
-  "130-068-0"
-  ],
-  "searchCodes": [
-  "067",
-  "068"
-  ],
-  "exNumero": "",
-  "deposito": "Can Tunis",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-Fuencarral. Reformada interiormente",
-  "Ex-Fuencarral"
-  ]
-  },
-  "17": {
-  "rama": "17",
-  "vehiculoBase": "069",
-  "numero": "130-069-8",
-  "vehiculosRama": [
-  "130-069-8",
-  "130-070-6"
-  ],
-  "searchCodes": [
-  "069",
-  "070"
-  ],
-  "exNumero": "7B12",
-  "deposito": "",
-  "color": "Blanco",
-  "estado": "Reformada",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-G.L. Fuencarral>> Reformada a 730-069.",
-  "Ex-G.L. Fuencarral>> Reformada a 730-070."
-  ]
-  },
-  "18": {
-  "rama": "18",
-  "vehiculoBase": "071",
-  "numero": "130-071-4",
-  "vehiculosRama": [
-  "130-071-4",
-  "130-072-2"
-  ],
-  "searchCodes": [
-  "071",
-  "072"
-  ],
-  "exNumero": "7B19",
-  "deposito": "",
-  "color": "Blanco",
-  "estado": "Reformada",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-G.L. Fuencarral>> Reformada a 730-071.",
-  "Ex-G.L. Fuencarral>> Reformada a 730-072."
-  ]
-  },
-  "19": {
-  "rama": "19",
-  "vehiculoBase": "073",
-  "numero": "130-073-0",
-  "vehiculosRama": [
-  "130-073-0",
-  "130-074-8"
-  ],
-  "searchCodes": [
-  "073",
-  "074"
-  ],
-  "exNumero": "7B20",
-  "deposito": "",
-  "color": "Blanco",
-  "estado": "Reformada",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-G.L. Fuencarral>> Reformada a 730-073.",
-  "Ex-G.L. Fuencarral>> Reformada a 730-074."
-  ]
-  },
-  "20": {
-  "rama": "20",
-  "vehiculoBase": "075",
-  "numero": "130-075-5",
-  "vehiculosRama": [
-  "130-075-5",
-  "130-076-3"
-  ],
-  "searchCodes": [
-  "075",
-  "076"
-  ],
-  "exNumero": "7B18",
-  "deposito": "",
-  "color": "Blanco",
-  "estado": "Reformada",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-G.L. Fuencarral>> Reformada a 730-075.",
-  "Ex-G.L. Fuencarral>> Reformada a 730-076."
-  ]
-  },
-  "21": {
-  "rama": "21",
-  "vehiculoBase": "077",
-  "numero": "130-077-1",
-  "vehiculosRama": [
-  "130-077-1",
-  "130-078-9"
-  ],
-  "searchCodes": [
-  "077",
-  "078"
-  ],
-  "exNumero": "7B13",
-  "deposito": "",
-  "color": "Blanco",
-  "estado": "Reformada",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-G.L. Fuencarral >> Reformada a 730-077.",
-  "Ex-G.L. Fuencarral >> Reformada a 730-078."
-  ]
-  },
-  "22": {
-  "rama": "22",
-  "vehiculoBase": "079",
-  "numero": "130-079-7",
-  "vehiculosRama": [
-  "130-079-7",
-  "130-080-5"
-  ],
-  "searchCodes": [
-  "079",
-  "080"
-  ],
-  "exNumero": "7B9",
-  "deposito": "",
-  "color": "Blanco",
-  "estado": "Reformada",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-G.L. Fuencarral >> Reformada a 730-079.",
-  "Ex-G.L. Fuencarral >> Reformada a 730-080."
-  ]
-  },
-  "23": {
-  "rama": "23",
-  "vehiculoBase": "081",
-  "numero": "130-081-3",
-  "vehiculosRama": [
-  "130-081-3",
-  "130-082-1"
-  ],
-  "searchCodes": [
-  "081",
-  "082"
-  ],
-  "exNumero": "7B1",
-  "deposito": "",
-  "color": "Blanco",
-  "estado": "Reformada",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-G.L. Fuencarral >> Reformada a 730-081.",
-  "Ex-G.L. Fuencarral >> Reformada a 730-082."
-  ]
-  },
-  "24": {
-  "rama": "24",
-  "vehiculoBase": "083",
-  "numero": "130-083-9",
-  "vehiculosRama": [
-  "130-083-9",
-  "130-084-7"
-  ],
-  "searchCodes": [
-  "083",
-  "084"
-  ],
-  "exNumero": "7B21",
-  "deposito": "",
-  "color": "Blanco",
-  "estado": "Reformada",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-G.L. Fuencarral >> Reformada a 730-083 desde 13/11/18.",
-  "Ex-G.L. Fuencarral >> Reformada a 730-084 desde 13/11/18."
-  ]
-  },
-  "25": {
-  "rama": "25",
-  "vehiculoBase": "085",
-  "numero": "130-085-4",
-  "vehiculosRama": [
-  "130-085-4",
-  "130-086-2"
-  ],
-  "searchCodes": [
-  "085",
-  "086"
-  ],
-  "exNumero": "7B4",
-  "deposito": "",
-  "color": "Blanco",
-  "estado": "Reformada",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Ex-G.L. Fuencarral. 10/19 comienza transformación a 730>> En servicio como 730-25 desde 15/08/20",
-  "Ex-G.L. Fuencarral. 10/19 comienza transformación a 730>> En servicio como 730-25 desde 15/08/20"
-  ]
-  },
-  "26": {
-  "rama": "26",
-  "vehiculoBase": "087",
-  "numero": "130-087-0",
-  "vehiculosRama": [
-  "130-087-0",
-  "130-088-8"
-  ],
-  "searchCodes": [
-  "087",
-  "088"
-  ],
-  "exNumero": "7B3",
-  "deposito": "Fuencarral",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Nuevo interiorismo y decoración 06/25",
-  "Nuevo interiorismo y decoración 06/25"
-  ]
-  },
-  "27": {
-  "rama": "27",
-  "vehiculoBase": "089",
-  "numero": "130-089-6",
-  "vehiculosRama": [
-  "130-089-6",
-  "130-090-4"
-  ],
-  "searchCodes": [
-  "089",
-  "090"
-  ],
-  "exNumero": "7B27",
-  "deposito": "Fuencarral",
-  "color": "Blanco",
-  "estado": "En servicio",
-  "servicio": "Alvia",
-  "ano": "2006–2010",
-  "ancho": "1435/1668",
-  "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
-  "notas": [
-  "Nuevo interiorismo y decoración 01/23.",
-  "Nuevo interiorismo y decoración 01/23."
-  ]
-  }
-  }
-  },
-  "730": {
-    "seriesName": "Serie 730",
-    "fabricante": "Talgo / Bombardier",
-    "modelo": "Talgo 250 Dual",
-    "apodo": "Frankenstein",
-    "anoPuestaServicio": "2012",
-    "tipoMaterial": "Alta Velocidad · Larga Distancia · Alvia · Híbrido diésel-eléctrico",
-    "numeroCoches": "13 vehículos · 2 cabezas tractoras + 2 furgones generadores diésel + 9 coches Talgo VII",
-    "anchoVia": "1435/1668 mm",
-    "numeroRamas": 15,
-    "velocidadMaxima": "250 km/h (alta velocidad) · 220 km/h (convencional electrificada) · 180 km/h (convencional sin electrificar)",
-    "potencia": "2 × 1.800 kW diésel de generación · 2 × 1.200 kW para tracción",
-    "longitud": "aprox. 186,5 m",
-    "peso": "aprox. 346 t",
-    "tension": "25 kV c.a. / 3 kV c.c. / diésel en líneas sin electrificar",
-    "traccion": "2 cabezas tractoras eléctricas S-130 + 2 grupos generadores diésel MTU",
-    "señalizacion": "ERTMS / LZB / ASFA Digital",
-    "composicion": "M + CET + 9 coches Talgo VII + CET + M",
-    "capacidad": "263 plazas · 47 Preferente + 216 Turista",
-    "plazasSentadas": "263",
-    "numeroUnidades": "15 composiciones híbridas · 30 cabezas tractoras de la S-130",
-    "generalNotes": [
-      "Trenes híbridos de alta velocidad y ancho variable derivados de la serie 130.",
-      "La serie está formada por 15 composiciones obtenidas mediante la transformación de las ramas 11 a 25 de la serie 130.",
-      "Cada tren incorpora dos cabezas tractoras de la S-130, dos furgones generadores diésel y nueve coches de viajeros Talgo VII.",
-      "Los dos furgones generadores sustituyen a los coches extremos originales y permiten alimentar eléctricamente la tracción y los servicios del tren en líneas sin electrificar.",
-      "Puede circular por ancho ibérico (1668 mm) y ancho estándar (1435 mm) gracias a la rodadura desplazable.",
-      "La velocidad máxima es de 250 km/h en alta velocidad, 220 km/h en líneas convencionales electrificadas y 180 km/h en líneas convencionales sin electrificar.",
-      "Cuenta con dos motores diésel MTU de 1.800 kW, uno en cada furgón generador, y dos cabezas tractoras eléctricas derivadas de la S-130.",
-      "Renfe inició el servicio comercial de la serie en junio de 2012 en la relación Madrid–Galicia.",
-      "La identificación mediante Ex-número permite conocer la rama original de la serie 130 de la que procede cada composición."
-    ],
-    "units": {
-      "11": {
-        "rama": "11",
-        "vehiculoBase": "043",
-        "numero": "730-043-7",
-        "vehiculosRama": [
-          "730-043-7",
-          "730-044-5"
-        ],
-        "searchCodes": [
-          "043",
-          "044"
-        ],
-        "exNumeros": {
-          "043": "130-043-3",
-          "044": "130-044-1"
-        },
-        "exNumero": "130-043-3",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2010–2012 (transformación a S-730)",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
-        "notasPorVehiculo": {
-          "043": "Logos 75 años Renfe. Logo Xacobeo 21-22.",
-          "044": "Logos 75 años Renfe. Logo Xacobeo 21-22."
-        },
-        "notas": [
-          "Logos 75 años Renfe. Logo Xacobeo 21-22."
-        ]
-      },
-      "12": {
-        "rama": "12",
-        "vehiculoBase": "045",
-        "numero": "730-045-2",
-        "vehiculosRama": [
-          "730-045-2",
-          "730-046-0"
-        ],
-        "searchCodes": [
-          "045",
-          "046"
-        ],
-        "exNumeros": {
-          "045": "130-045-8",
-          "046": "130-046-6"
-        },
-        "exNumero": "130-045-8",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "Desguazada",
-        "servicio": "Alvia",
-        "ano": "2010–2012 (transformación a S-730)",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
-        "notasPorVehiculo": {
-          "045": "Ex-Fuencarral. Accidente en Santiago de Compostela, 24/07/13. Custodiada en Grúas Padrón de A Escravitude. Desguazada verano 2020.",
-          "046": "Ex-Fuencarral. Accidente en Santiago de Compostela, 24/07/13. Custodiada en Grúas Padrón de A Escravitude. Desguazada verano 2020."
-        },
-        "notas": [
-          "Ex-Fuencarral. Accidente en Santiago de Compostela, 24/07/13. Custodiada en Grúas Padrón de A Escravitude. Desguazada verano 2020."
-        ]
-      },
-      "13": {
-        "rama": "13",
-        "vehiculoBase": "038",
-        "numero": "730-038-7",
-        "vehiculosRama": [
-          "730-038-7",
-          "730-042-9"
-        ],
-        "searchCodes": [
-          "038",
-          "042"
-        ],
-        "exNumeros": {
-          "038": "130-038-3",
-          "042": "130-042-5"
-        },
-        "exNumero": "130-038-3",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2010–2012 (transformación a S-730)",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
-        "notasPorVehiculo": {
-          "038": "Ex 130-038-3. Primer tren en pruebas variante Pajares 03/11/22, con ministra 09/11/22.",
-          "042": "Primer tren en pruebas variante Pajares 03/11/22, con ministra 09/11/22."
-        },
-        "notas": [
-          "Ex 130-038-3. Primer tren en pruebas variante Pajares 03/11/22, con ministra 09/11/22.",
-          "Primer tren en pruebas variante Pajares 03/11/22, con ministra 09/11/22."
-        ]
-      },
-      "14": {
-        "rama": "14",
-        "vehiculoBase": "057",
-        "numero": "730-057-7",
-        "vehiculosRama": [
-          "730-057-7",
-          "730-058-5"
-        ],
-        "searchCodes": [
-          "057",
-          "058"
-        ],
-        "exNumeros": {
-          "057": "130-057-3",
-          "058": "130-058-1"
-        },
-        "exNumero": "130-057-3",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "Reformada",
-        "servicio": "Alvia",
-        "ano": "2010–2012 (transformación a S-730)",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
-        "notasPorVehiculo": {
-          "057": "02/06/20 Accidente en Hiniesta (Zamora), tren de cola. En servicio 07/21, vinilos Xacobeo 21-22. Reformado. Colores AVE, 04/22.",
-          "058": "02/06/20 Accidente en Hiniesta (Zamora), tren de cola. En servicio 07/21, vinilos Xacobeo 21-22. Reformado. Colores AVE, 04/22."
-        },
-        "notas": [
-          "02/06/20 Accidente en Hiniesta (Zamora), tren de cola. En servicio 07/21, vinilos Xacobeo 21-22. Reformado. Colores AVE, 04/22."
-        ]
-      },
-      "15": {
-        "rama": "15",
-        "vehiculoBase": "050",
-        "numero": "730-050-2",
-        "vehiculosRama": [
-          "730-050-2",
-          "730-053-6"
-        ],
-        "searchCodes": [
-          "050",
-          "053"
-        ],
-        "exNumeros": {
-          "050": "130-050-8",
-          "053": "130-053-2"
-        },
-        "exNumero": "130-050-8",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En reparación",
-        "servicio": "Alvia",
-        "ano": "2010–2012 (transformación a S-730)",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
-        "notasPorVehiculo": {
-          "050": "Rama inaugural Alvia Cartagena-Madrid, 17/09/18. Incendio en motriz turista 06/09/24.",
-          "053": "Rama inaugural Alvia Cartagena-Madrid, 17/09/18. Incendio en motriz turista 06/09/24."
-        },
-        "notas": [
-          "Rama inaugural Alvia Cartagena-Madrid, 17/09/18. Incendio en motriz turista 06/09/24."
-        ]
-      },
-      "16": {
-        "rama": "16",
-        "vehiculoBase": "063",
-        "numero": "730-063-5",
-        "vehiculosRama": [
-          "730-063-5",
-          "730-064-3"
-        ],
-        "searchCodes": [
-          "063",
-          "064"
-        ],
-        "exNumeros": {
-          "063": "130-063-1",
-          "064": "130-064-9"
-        },
-        "exNumero": "130-063-1",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2010–2012 (transformación a S-730)",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
-        "notasPorVehiculo": {
-          "063": "Incendio CET 06/04/17 Puebla de Sanabria → en servicio 12/17. Logos Xacobeo 21-22 desde 06/21. Arrollamiento coche entre Montearagón y Talavera 05/06/25.",
-          "064": "Incendio CET 06/04/17 Puebla de Sanabria → en servicio 12/17. Logos Xacobeo 21-22 desde 06/21. Arrollamiento coche entre Montearagón y Talavera 05/06/25."
-        },
-        "notas": [
-          "Incendio CET 06/04/17 Puebla de Sanabria → en servicio 12/17. Logos Xacobeo 21-22 desde 06/21. Arrollamiento coche entre Montearagón y Talavera 05/06/25."
-        ]
-      },
-      "17": {
-        "rama": "17",
-        "vehiculoBase": "069",
-        "numero": "730-069-2",
-        "vehiculosRama": [
-          "730-069-2",
-          "730-070-0"
-        ],
-        "searchCodes": [
-          "069",
-          "070"
-        ],
-        "exNumeros": {
-          "069": "130-069-8",
-          "070": "130-070-6"
-        },
-        "exNumero": "130-069-8",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2010–2012 (transformación a S-730)",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
-        "notasPorVehiculo": {
-          "069": "Ex-Logos Xacobeo 21-22.",
-          "070": "Ex-Logos Xacobeo 21-22."
-        },
-        "notas": [
-          "Ex-Logos Xacobeo 21-22."
-        ]
-      },
-      "18": {
-        "rama": "18",
-        "vehiculoBase": "071",
-        "numero": "730-071-8",
-        "vehiculosRama": [
-          "730-071-8",
-          "730-072-6"
-        ],
-        "searchCodes": [
-          "071",
-          "072"
-        ],
-        "exNumeros": {
-          "071": "130-071-4",
-          "072": "130-072-2"
-        },
-        "exNumero": "130-071-4",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "Reformada",
-        "servicio": "Alvia",
-        "ano": "2010–2012 (transformación a S-730)",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
-        "notasPorVehiculo": {
-          "071": "Logos 75 años Renfe. Tren medicalizado 04/20. Tte. Covid-19. Reformado (excepto fundas asientos turista), tercero de la serie, sale 30/03/23. Incendio CET turista Puertollano 30/08/25 (intercambiado por CET turista rama 15). En servicio desde 10/25.",
-          "072": "Logos 75 años Renfe. Tren medicalizado 04/20. Tte. Covid-19. Reformado (excepto fundas asientos turista), tercero de la serie, sale 30/03/23. Incendio CET turista Puertollano 30/08/25 (intercambiado por CET turista rama 15). En servicio desde 10/25."
-        },
-        "notas": [
-          "Logos 75 años Renfe. Tren medicalizado 04/20. Tte. Covid-19. Reformado (excepto fundas asientos turista), tercero de la serie, sale 30/03/23. Incendio CET turista Puertollano 30/08/25 (intercambiado por CET turista rama 15). En servicio desde 10/25."
-        ]
-      },
-      "19": {
-        "rama": "19",
-        "vehiculoBase": "073",
-        "numero": "730-073-4",
-        "vehiculosRama": [
-          "730-073-4",
-          "730-074-2"
-        ],
-        "searchCodes": [
-          "073",
-          "074"
-        ],
-        "exNumeros": {
-          "073": "130-073-0",
-          "074": "130-074-8"
-        },
-        "exNumero": "130-073-0",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2010–2012 (transformación a S-730)",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
-        "notasPorVehiculo": {
-          "073": "-",
-          "074": "-"
-        },
-        "notas": [
-          "-"
-        ]
-      },
-      "20": {
-        "rama": "20",
-        "vehiculoBase": "075",
-        "numero": "730-075-9",
-        "vehiculosRama": [
-          "730-075-9",
-          "730-076-7"
-        ],
-        "searchCodes": [
-          "075",
-          "076"
-        ],
-        "exNumeros": {
-          "075": "130-075-5",
-          "076": "130-076-3"
-        },
-        "exNumero": "130-075-5",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2010–2012 (transformación a S-730)",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
-        "notasPorVehiculo": {
-          "075": "Logotipo de Xacobeo 21-22",
-          "076": "-"
-        },
-        "notas": [
-          "Logotipo de Xacobeo 21-22",
-          "-"
-        ]
-      },
-      "21": {
-        "rama": "21",
-        "vehiculoBase": "077",
-        "numero": "730-077-5",
-        "vehiculosRama": [
-          "730-077-5",
-          "730-078-3"
-        ],
-        "searchCodes": [
-          "077",
-          "078"
-        ],
-        "exNumeros": {
-          "077": "130-077-1",
-          "078": "130-078-9"
-        },
-        "exNumero": "130-077-1",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2010–2012 (transformación a S-730)",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
-        "notasPorVehiculo": {
-          "077": "Logos 75 años Renfe.",
-          "078": "Logos 75 años Renfe."
-        },
-        "notas": [
-          "Logos 75 años Renfe."
-        ]
-      },
-      "22": {
-        "rama": "22",
-        "vehiculoBase": "079",
-        "numero": "730-079-1",
-        "vehiculosRama": [
-          "730-079-1",
-          "730-080-9"
-        ],
-        "searchCodes": [
-          "079",
-          "080"
-        ],
-        "exNumeros": {
-          "079": "130-079-7",
-          "080": "130-080-5"
-        },
-        "exNumero": "130-079-7",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "Reformada",
-        "servicio": "Alvia",
-        "ano": "2010–2012 (transformación a S-730)",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
-        "notasPorVehiculo": {
-          "079": "Reformado desde 11/21, colores AVE. Descarrilo Badajoz 07/01/24. Primer tren Alvia en realizar el Badajoz-Madrid usando el bypass de Mérida y parando en Plasencia 09/05/2025",
-          "080": "Reformado desde 11/21, colores AVE. Descarrilo Badajoz 07/01/24."
-        },
-        "notas": [
-          "Reformado desde 11/21, colores AVE. Descarrilo Badajoz 07/01/24. Primer tren Alvia en realizar el Badajoz-Madrid usando el bypass de Mérida y parando en Plasencia 09/05/2025",
-          "Reformado desde 11/21, colores AVE. Descarrilo Badajoz 07/01/24."
-        ]
-      },
-      "23": {
-        "rama": "23",
-        "vehiculoBase": "081",
-        "numero": "730-081-7",
-        "vehiculosRama": [
-          "730-081-7",
-          "730-082-5"
-        ],
-        "searchCodes": [
-          "081",
-          "082"
-        ],
-        "exNumeros": {
-          "081": "130-081-3",
-          "082": "130-082-1"
-        },
-        "exNumero": "130-081-3",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "servicio": "Alvia",
-        "ano": "2010–2012 (transformación a S-730)",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
-        "notasPorVehiculo": {
-          "081": "02/06/20 Accidente en Hiniesta (Zamora), tren de cabeza. Motriz destruida, se construye una nueva. Terminada 05/24. En servicio 12/24",
-          "082": "02/06/20 Accidente en Hiniesta (Zamora), tren de cabeza. En reparación. En servicio 12/24"
-        },
-        "notas": [
-          "02/06/20 Accidente en Hiniesta (Zamora), tren de cabeza. Motriz destruida, se construye una nueva. Terminada 05/24. En servicio 12/24",
-          "02/06/20 Accidente en Hiniesta (Zamora), tren de cabeza. En reparación. En servicio 12/24"
-        ]
-      },
-      "24": {
-        "rama": "24",
-        "vehiculoBase": "083",
-        "numero": "730-083-3",
-        "vehiculosRama": [
-          "730-083-3",
-          "730-084-1"
-        ],
-        "searchCodes": [
-          "083",
-          "084"
-        ],
-        "exNumeros": {
-          "083": "130-083-9",
-          "084": "130-084-7"
-        },
-        "exNumero": "130-083-9",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "Reformada",
-        "servicio": "Alvia",
-        "ano": "2010–2012 (transformación a S-730)",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
-        "notasPorVehiculo": {
-          "083": "En transformación desde 13/11/18. En pruebas desde 10/06/19 → en servicio desde 07/19. Reformada interiormente 10/25",
-          "084": "En transformación desde 13/11/18. En pruebas desde 10/06/19 → en servicio desde 07/19. Reformada interiormente 10/25"
-        },
-        "notas": [
-          "En transformación desde 13/11/18. En pruebas desde 10/06/19 → en servicio desde 07/19. Reformada interiormente 10/25"
-        ]
-      },
-      "25": {
-        "rama": "25",
-        "vehiculoBase": "085",
-        "numero": "730-085-8",
-        "vehiculosRama": [
-          "730-085-8",
-          "730-086-6"
-        ],
-        "searchCodes": [
-          "085",
-          "086"
-        ],
-        "exNumeros": {
-          "085": "130-085-4",
-          "086": "130-086-2"
-        },
-        "exNumero": "130-085-4",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "Reformada",
-        "servicio": "Alvia",
-        "ano": "2010–2012 (transformación a S-730)",
-        "ancho": "1435/1668",
-        "composicionRama": "2 cabezas tractoras S-130 + 2 furgones generadores diésel + 9 coches Talgo VII",
-        "notasPorVehiculo": {
-          "085": "En transformación desde 10/19. En servicio 08/20. Logos Xacobeo 21-22. Reformada 03/26",
-          "086": "En transformación desde 10/19. En servicio 08/20. Logos Xacobeo 21-22. Reformada interior y exterior 03/26"
-        },
-        "notas": [
-          "En transformación desde 10/19. En servicio 08/20. Logos Xacobeo 21-22. Reformada 03/26",
-          "En transformación desde 10/19. En servicio 08/20. Logos Xacobeo 21-22. Reformada interior y exterior 03/26"
-        ]
-      }
-    }
-  },
-  "102": {
-    "seriesName": "Serie 102",
-    "fabricante": "Talgo-Bombardier",
-    "numeroCoches": "12 remolques Talgo + 2 cabezas tractoras",
-    "anoPuestaServicio": "2005",
-    "tipoMaterial": "AVE / Alta Velocidad",
-    "anchoVia": "1435 mm",
-    "numeroRamas": 16,
-    "modelo": "Talgo 350",
-    "apodo": "Pato",
-    "velocidadMaxima": "330 km/h",
-    "potencia": "8.000 kW",
-    "longitud": "200,244 m",
-    "capacidad": "316 plazas + 2 PMR",
-    "plazasSentadas": "316",
-    "generalNotes": [
-      "La serie 102 corresponde al Talgo 350, desarrollado por Talgo y Bombardier para los servicios AVE de alta velocidad.",
-      "Está formada por 16 ramas. Cada rama dispone de dos cabezas tractoras, un motor impar y un motor par, y doce remolques Talgo.",
-      "La puesta en servicio comercial comenzó el 26 de febrero de 2005 en la relación Madrid-Zaragoza-Lleida.",
-      "La velocidad máxima comercial es de 330 km/h y la potencia instalada es de 8.000 kW.",
-      "El tren es conocido popularmente como «Pato» por la forma aerodinámica de sus cabezas tractoras.",
-      "La serie fue la primera aplicación comercial del Talgo 350 en Renfe y posteriormente sirvió de base para la serie 112.",
-      "En junio de 2004, el Talgo 350 alcanzó 365 km/h en pruebas, estableciendo un récord español de velocidad con tracción eléctrica."
-    ],
-    "units": {
-      "1": {
-        "rama": "1",
-        "numero": "9-102-001-5",
-        "motorTipo": "impar",
-        "motorImpar": "9-102-001-5",
-        "motorPar": "9-102-002-3",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Ex-Cerro Negro."
-        ]
-      },
-      "2": {
-        "rama": "1",
-        "numero": "9-102-002-3",
-        "motorTipo": "par",
-        "motorImpar": "9-102-001-5",
-        "motorPar": "9-102-002-3",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Ex-Cerro Negro."
-        ]
-      },
-      "3": {
-        "rama": "2",
-        "numero": "9-102-003-1",
-        "motorTipo": "impar",
-        "motorImpar": "9-102-003-1",
-        "motorPar": "9-102-004-9",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Ex-Cerro Negro.",
-          "Primer vehículo con nuevos logos de Renfe AVE 20/04/22."
-        ]
-      },
-      "4": {
-        "rama": "2",
-        "numero": "9-102-004-9",
-        "motorTipo": "par",
-        "motorImpar": "9-102-003-1",
-        "motorPar": "9-102-004-9",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Ex-Cerro Negro.",
-          "Primer vehículo con nuevos logos de Renfe AVE 20/04/22."
-        ]
-      },
-      "5": {
-        "rama": "3",
-        "numero": "9-102-005-6",
-        "motorTipo": "impar",
-        "motorImpar": "9-102-005-6",
-        "motorPar": "9-102-006-4",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Accidentada en Urda al chocar con topera 13/02/04, en servicio.",
-          "Ex-Cerro Negro.",
-          "La caja accidentada está en Aranda-Chelva, preservada por ASAAT.",
-          "Vinilo Lego 07/21."
-        ]
-      },
-      "6": {
-        "rama": "3",
-        "numero": "9-102-006-4",
-        "motorTipo": "par",
-        "motorImpar": "9-102-005-6",
-        "motorPar": "9-102-006-4",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Accidentada en Urda al chocar con topera 13/02/04, en servicio.",
-          "Ex-Cerro Negro.",
-          "La caja accidentada está en Aranda-Chelva, preservada por ASAAT.",
-          "Vinilo Lego 07/21."
-        ]
-      },
-      "7": {
-        "rama": "4",
-        "numero": "9-102-007-2",
-        "motorTipo": "impar",
-        "motorImpar": "9-102-007-2",
-        "motorPar": "9-102-008-0",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Ex-Cerro Negro."
-        ]
-      },
-      "8": {
-        "rama": "4",
-        "numero": "9-102-008-0",
-        "motorTipo": "par",
-        "motorImpar": "9-102-007-2",
-        "motorPar": "9-102-008-0",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Ex-Cerro Negro."
-        ]
-      },
-      "9": {
-        "rama": "5",
-        "numero": "9-102-009-8",
-        "motorTipo": "impar",
-        "motorImpar": "9-102-009-8",
-        "motorPar": "9-102-010-6",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Ex-Cerro Negro."
-        ]
-      },
-      "10": {
-        "rama": "5",
-        "numero": "9-102-010-6",
-        "motorTipo": "par",
-        "motorImpar": "9-102-009-8",
-        "motorPar": "9-102-010-6",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Ex-Cerro Negro."
-        ]
-      },
-      "11": {
-        "rama": "6",
-        "numero": "9-102-011-4",
-        "motorTipo": "impar",
-        "motorImpar": "9-102-011-4",
-        "motorPar": "9-102-012-2",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Ex-Cerro Negro.",
-          "Tuvo vinilos APP Mapfre."
-        ]
-      },
-      "12": {
-        "rama": "6",
-        "numero": "9-102-012-2",
-        "motorTipo": "par",
-        "motorImpar": "9-102-011-4",
-        "motorPar": "9-102-012-2",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Ex-Cerro Negro.",
-          "Tuvo vinilos APP Mapfre."
-        ]
-      },
-      "13": {
-        "rama": "7",
-        "numero": "9-102-013-0",
-        "motorTipo": "impar",
-        "motorImpar": "9-102-013-0",
-        "motorPar": "9-102-014-8",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "4.º 102 en entrar en AV Valladolid, 14/12/07 hasta 13/05/08.",
-          "Vinilos «Tren del deporte Español» 04/12."
-        ]
-      },
-      "14": {
-        "rama": "7",
-        "numero": "9-102-014-8",
-        "motorTipo": "par",
-        "motorImpar": "9-102-013-0",
-        "motorPar": "9-102-014-8",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "4.º 102 en entrar en AV Valladolid, 14/12/07 hasta 13/05/08.",
-          "Vinilos «Tren del deporte Español» 04/12."
-        ]
-      },
-      "15": {
-        "rama": "8",
-        "numero": "9-102-015-5",
-        "motorTipo": "impar",
-        "motorImpar": "9-102-015-5",
-        "motorPar": "9-102-016-3",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Ex-Cerro Negro."
-        ]
-      },
-      "16": {
-        "rama": "8",
-        "numero": "9-102-016-3",
-        "motorTipo": "par",
-        "motorImpar": "9-102-015-5",
-        "motorPar": "9-102-016-3",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Ex-Cerro Negro."
-        ]
-      },
-      "17": {
-        "rama": "9",
-        "numero": "9-102-017-1",
-        "motorTipo": "impar",
-        "motorImpar": "9-102-017-1",
-        "motorPar": "9-102-018-9",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Ex-Cerro Negro.",
-          "Vinilos Expo Zaragoza 2008.",
-          "Logos 80 años Renfe (2021)."
-        ]
-      },
-      "18": {
-        "rama": "9",
-        "numero": "9-102-018-9",
-        "motorTipo": "par",
-        "motorImpar": "9-102-017-1",
-        "motorPar": "9-102-018-9",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Ex-Cerro Negro.",
-          "Vinilos Expo Zaragoza 2008.",
-          "Logos 80 años Renfe (2021)."
-        ]
-      },
-      "19": {
-        "rama": "10",
-        "numero": "9-102-019-7",
-        "motorTipo": "impar",
-        "motorImpar": "9-102-019-7",
-        "motorPar": "9-102-020-5",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Ex-Cerro Negro.",
-          "Vinilo Starlite 2024."
-        ]
-      },
-      "20": {
-        "rama": "10",
-        "numero": "9-102-020-5",
-        "motorTipo": "par",
-        "motorImpar": "9-102-019-7",
-        "motorPar": "9-102-020-5",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Ex-Cerro Negro.",
-          "Vinilo Starlite 2024."
-        ]
-      },
-      "21": {
-        "rama": "11",
-        "numero": "9-102-021-3",
-        "motorTipo": "impar",
-        "motorImpar": "9-102-021-3",
-        "motorPar": "9-102-022-1",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "2.º 102 en entrar en AV Valladolid, 02/12/07.",
-          "Tren inaugural 22/12/07.",
-          "Ex-Cerro Negro >> Fuencarral >> Málaga."
-        ]
-      },
-      "22": {
-        "rama": "11",
-        "numero": "9-102-022-1",
-        "motorTipo": "par",
-        "motorImpar": "9-102-021-3",
-        "motorPar": "9-102-022-1",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "2.º 102 en entrar en AV Valladolid, 02/12/07.",
-          "Tren inaugural 22/12/07.",
-          "Ex-Cerro Negro >> Fuencarral >> Málaga."
-        ]
-      },
-      "23": {
-        "rama": "12",
-        "numero": "9-102-023-9",
-        "motorTipo": "impar",
-        "motorImpar": "9-102-023-9",
-        "motorPar": "9-102-024-7",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Ex-Cerro Negro.",
-          "Logos 80 años Renfe (2021).",
-          "Vinilos final Copa del Rey de fútbol masculino 04/24."
-        ]
-      },
-      "24": {
-        "rama": "12",
-        "numero": "9-102-024-7",
-        "motorTipo": "par",
-        "motorImpar": "9-102-023-9",
-        "motorPar": "9-102-024-7",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Ex-Cerro Negro.",
-          "Logos 80 años Renfe (2021).",
-          "Vinilos final Copa del Rey de fútbol masculino 04/24."
-        ]
-      },
-      "25": {
-        "rama": "13",
-        "numero": "9-102-025-4",
-        "motorTipo": "impar",
-        "motorImpar": "9-102-025-4",
-        "motorPar": "9-102-026-2",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Primer 102 en entrar en AV Madrid-Valladolid 27/11/07.",
-          "Ex-Cerro Negro >> Fuencarral >> Málaga."
-        ]
-      },
-      "26": {
-        "rama": "13",
-        "numero": "9-102-026-2",
-        "motorTipo": "par",
-        "motorImpar": "9-102-025-4",
-        "motorPar": "9-102-026-2",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Primer 102 en entrar en AV Madrid-Valladolid 27/11/07.",
-          "Ex-Cerro Negro >> Fuencarral >> Málaga."
-        ]
-      },
-      "27": {
-        "rama": "14",
-        "numero": "9-102-027-0",
-        "motorTipo": "impar",
-        "motorImpar": "9-102-027-0",
-        "motorPar": "9-102-028-8",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Ex-Cerro Negro."
-        ]
-      },
-      "28": {
-        "rama": "14",
-        "numero": "9-102-028-8",
-        "motorTipo": "par",
-        "motorImpar": "9-102-027-0",
-        "motorPar": "9-102-028-8",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Ex-Cerro Negro."
-        ]
-      },
-      "29": {
-        "rama": "15",
-        "numero": "9-102-029-6",
-        "motorTipo": "impar",
-        "motorImpar": "9-102-029-6",
-        "motorPar": "9-102-030-4",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Ex-Cerro Negro >> Fuencarral.",
-          "Logos 75 años Renfe.",
-          "24/05/18: primer AVE en llegar en pruebas a Granada."
-        ]
-      },
-      "30": {
-        "rama": "15",
-        "numero": "9-102-030-4",
-        "motorTipo": "par",
-        "motorImpar": "9-102-029-6",
-        "motorPar": "9-102-030-4",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Colores Renfe Operadora.",
-          "Ex-Cerro Negro >> Fuencarral.",
-          "Logos 75 años Renfe.",
-          "24/05/18: primer AVE en llegar en pruebas a Granada."
-        ]
-      },
-      "31": {
-        "rama": "16",
-        "numero": "9-102-031-2",
-        "motorTipo": "impar",
-        "motorImpar": "9-102-031-2",
-        "motorPar": "9-102-032-0",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Fuencarral UIC.",
-          "Tercer 102 en entrar en AV Valladolid, 12/07 >> Málaga.",
-          "Vinilo final Copa del Rey de fútbol 05/23."
-        ]
-      },
-      "32": {
-        "rama": "16",
-        "numero": "9-102-032-0",
-        "motorTipo": "par",
-        "motorImpar": "9-102-031-2",
-        "motorPar": "9-102-032-0",
-        "deposito": "Málaga",
-        "ancho": "1435",
-        "notas": [
-          "Fuencarral UIC.",
-          "Tercer 102 en entrar en AV Valladolid, 12/07 >> Málaga.",
-          "Vinilo final Copa del Rey de fútbol 05/23."
-        ]
-      }
-    }
-  },
-  "103": {
-    "seriesName": "Serie 103",
-    "fabricante": "Siemens",
-    "numeroCoches": "8",
-    "tipoMaterial": "AVE / Alta Velocidad · Siemens Velaro E",
-    "anchoVia": "1435 mm",
-    "modelo": "Siemens Velaro E",
-    "familia": "Velaro / ICE 3",
-    "apodo": "Velaro",
-    "velocidadMaxima": "350 km/h",
-    "potencia": "8.800 kW",
-    "tension": "25 kV / 50 Hz",
-    "capacidad": "404/405 plazas",
-    "plazasSentadas": "404/405",
-    "longitud": "200 m",
-    "peso": "425 t",
-    "motores": "16 motores asíncronos",
-    "numeroUnidades": "26 composiciones",
-    "traccion": "Distribuida",
-    "señalizacion": "ERTMS niveles 1 y 2, ASFA y STM de LZB",
-    "composicion": "8 coches: Mc-R-M-R-R-M-R-Mc",
-    "generalNotes": [
-      "Unidades Siemens Velaro E de alta velocidad para los corredores AVE, con especial protagonismo en la línea Madrid-Barcelona.",
-      "La serie 103 fue presentada en enero de 2007 y está formada por 26 trenes adjudicados a Siemens en dos concursos.",
-      "Es un tren de tracción distribuida: no tiene cabezas tractoras convencionales y los equipos de tracción se reparten bajo los bastidores de la composición.",
-      "Cada unidad está formada por 8 coches. Los coches 1, 3, 6 y 8 disponen de bogies motores; el 50 % de los ejes están motorizados.",
-      "La potencia total es de 8.800 kW y la velocidad máxima de diseño es de 350 km/h.",
-      "La capacidad oficial es de 404/405 plazas según configuración; Renfe distribuye el interior entre Club, Preferente, cafetería y Turista.",
-      "La composición incorpora 2 plazas para viajeros en silla de ruedas y un aseo adaptado a PMR.",
-      "Está basada en la familia ICE 3 de Deutsche Bahn y corresponde a la variante española Siemens Velaro E.",
-      "La tracción distribuida mejora la adherencia, la aceleración y el aprovechamiento del espacio interior.",
-      "Dispone de ERTMS niveles 1 y 2, ASFA y STM de LZB para circular por distintos corredores de alta velocidad.",
-      "El tren puede circular en composición múltiple de dos unidades.",
-      "Los vehículos están equipados con sistemas de freno regenerativo, reostático y neumático, además de sistemas de protección contra incendios y antiacaballamiento.",
-    ],
-    "units": {
-      "1": {
-        "rama": "1",
-        "numero": "9-103-201",
-        "vehiculoBase": "201",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Vinilos Movistar, 07/15."]
-      },
-      "2": {
-        "rama": "2",
-        "numero": "9-103-202",
-        "vehiculoBase": "202",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Récord de España de velocidad: 390 km/h, 03/07/06."]
-      },
-      "3": {
-        "rama": "3",
-        "numero": "9-103-203",
-        "vehiculoBase": "203",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
-      },
-      "4": {
-        "rama": "4",
-        "numero": "9-103-204",
-        "vehiculoBase": "204",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
-      },
-      "5": {
-        "rama": "5",
-        "numero": "9-103-205",
-        "vehiculoBase": "205",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Récord de velocidad nocturno del 15 al 16/07/06: 403,7 km/h entre Alcalá de Henares y Calatayud, en la LAV Madrid-Lleida.", "Colores Renfe Operadora.", "Nuevo logo AVE 10/22.", "Ex-La Sagra → Can Tunis."]
-      },
-      "6": {
-        "rama": "6",
-        "numero": "9-103-206",
-        "vehiculoBase": "206",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Vinilos Feria del Libro 2023 en el coche 606."]
-      },
-      "7": {
-        "rama": "7",
-        "numero": "9-103-207",
-        "vehiculoBase": "207",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Nuevos logos AVE 10/22."]
-      },
-      "8": {
-        "rama": "8",
-        "numero": "9-103-208",
-        "vehiculoBase": "208",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
-      },
-      "9": {
-        "rama": "9",
-        "numero": "9-103-209",
-        "vehiculoBase": "209",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
-      },
-      "10": {
-        "rama": "10",
-        "numero": "9-103-210",
-        "vehiculoBase": "210",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Golpe con la rama 11 en talleres Cerro Negro, 08/10/13.", "Tras el accidente, circuló con coches de la rama 11.", "Vinilos Vuelta a España 08/23."]
-      },
-      "11": {
-        "rama": "11",
-        "numero": "9-103-211",
-        "vehiculoBase": "211",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Golpe con la rama 10 en talleres Cerro Negro, 08/10/13.", "Tras el accidente, por lo menos el coche Club (9-103-211-9) circuló en la rama 10.", "En servicio 05/21.", "Vinilo Vuelta a España 06/23."]
-      },
-      "12": {
-        "rama": "12",
-        "numero": "9-103-212",
-        "vehiculoBase": "212",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
-      },
-      "13": {
-        "rama": "13",
-        "numero": "9-103-213",
-        "vehiculoBase": "213",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Vinilos Fujitsu, 06/18.", "Vinilos PortAventura, 06/23."]
-      },
-      "14": {
-        "rama": "14",
-        "numero": "9-103-214",
-        "vehiculoBase": "214",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
-      },
-      "15": {
-        "rama": "15",
-        "numero": "9-103-215",
-        "vehiculoBase": "215",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
-      },
-      "16": {
-        "rama": "16",
-        "numero": "9-103-216",
-        "vehiculoBase": "216",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
-      },
-      "17": {
-        "rama": "17",
-        "numero": "9-103-217",
-        "vehiculoBase": "217",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Colisión con 120.60 en Santa Catalina, 13/05/17.", "En servicio 07/21."]
-      },
-      "18": {
-        "rama": "18",
-        "numero": "9-103-218",
-        "vehiculoBase": "218",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Vinilos Feria del Libro Madrid 05/26."]
-      },
-      "19": {
-        "rama": "19",
-        "numero": "9-103-219",
-        "vehiculoBase": "219",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
-      },
-      "20": {
-        "rama": "20",
-        "numero": "9-103-220",
-        "vehiculoBase": "220",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Vinilo Lola Índigo 06/25."]
-      },
-      "21": {
-        "rama": "21",
-        "numero": "9-103-221",
-        "vehiculoBase": "221",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
-      },
-      "22": {
-        "rama": "22",
-        "numero": "9-103-222",
-        "vehiculoBase": "222",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Vinilos 25 años Estopa desde 20/03/24."]
-      },
-      "23": {
-        "rama": "23",
-        "numero": "9-103-223",
-        "vehiculoBase": "223",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
-      },
-      "24": {
-        "rama": "24",
-        "numero": "9-103-224",
-        "vehiculoBase": "224",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis.", "Vinilos Correos, 07/16."]
-      },
-      "25": {
-        "rama": "25",
-        "numero": "9-103-225",
-        "vehiculoBase": "225",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
-      },
-      "26": {
-        "rama": "26",
-        "numero": "9-103-226",
-        "vehiculoBase": "226",
-        "deposito": "Santa Catalina",
-        "ancho": "1435",
-        "notas": ["Colores Renfe Operadora.", "Ex-La Sagra → Can Tunis."]
-      }
-    }
-  },
-  "104":{
-    "seriesName":"Serie 104",
-    "fabricante":"CAF-Alstom",
-    "modelo":"Serie 104 / Pendolino",
-    "apodo":"Avant",
-    "tipoMaterial":"Media Distancia · Alta Velocidad / Avant",
-    "numeroCoches":"4",
-    "unidades":"20",
-    "año":"2004",
-    "deposito":"Cerro Negro / Málaga",
-    "anchoVia":"1435 mm",
-    "velocidadMaxima":"270 km/h",
-    "velocidadComercial":"250 km/h",
-    "potencia":"4.000 kW",
-    "tension":"25 kV / 50 Hz",
-    "traccion":"Eléctrica · 8 motores asíncronos",
-    "composicion":"Mc + Mi + Mi + Mc",
-    "plazasSentadas":"236 + 1 PMR",
-    "capacidad":"237 plazas",
-    "longitud":"107,10 m",
-    "peso":"221,5 t",
-    "generalNotes":[
-      "Unidades construidas por CAF y Alstom para servicios regionales en líneas de Alta Velocidad.",
-      "Inicialmente pertenecieron a Regionales, aunque antes de iniciar servicio pasaron a Grandes Líneas.",
-      "Fueron diseñadas específicamente para prestar servicios de media distancia a alta velocidad.",
-      "El primer servicio comercial comenzó el 29 de diciembre de 2004 entre Madrid, Ciudad Real y Puertollano.",
-      "La serie está formada por 20 unidades de cuatro coches y puede circular en mando múltiple.",
-      "La plataforma pertenece a la familia Pendolino desarrollada originalmente por Fiat Ferroviaria y posteriormente integrada en Alstom."
-    ],
-    "units":{
-      "1":{
-        "rama":1,"vehiculoBase":"001","numero":"9-104-001-3",
-        "motor":"7-104-001-1","motorCentral":"6-104-501-2","cocheMotorFinal":"9-104-901-4",
-        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
-        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
-      },
-      "2":{
-        "rama":2,"vehiculoBase":"002","numero":"9-104-002-1",
-        "motor":"7-104-002-1","motorCentral":"6-104-502-0","cocheMotorFinal":"9-104-902-2",
-        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
-        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra. Logos 75 años Renfe."]
-      },
-      "3":{
-        "rama":3,"vehiculoBase":"003","numero":"9-104-003-9",
-        "motor":"7-104-003-9","motorCentral":"6-104-503-8","cocheMotorFinal":"9-104-903-0",
-        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
-        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
-      },
-      "4":{
-        "rama":4,"vehiculoBase":"004","numero":"9-104-004-7",
-        "motor":"7-104-004-7","motorCentral":"6-104-504-6","cocheMotorFinal":"9-104-904-8",
-        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
-        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
-      },
-      "5":{
-        "rama":5,"vehiculoBase":"005","numero":"9-104-005-4",
-        "motor":"7-104-005-5","motorCentral":"6-104-505-3","cocheMotorFinal":"9-104-905-5",
-        "deposito":"Málaga","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
-        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
-      },
-      "6":{
-        "rama":6,"vehiculoBase":"006","numero":"9-104-006-2",
-        "motor":"7-104-006-2","motorCentral":"6-104-506-1","cocheMotorFinal":"9-104-906-3",
-        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
-        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
-      },
-      "7":{
-        "rama":7,"vehiculoBase":"007","numero":"9-104-007-0",
-        "motor":"7-104-007-0","motorCentral":"6-104-507-9","cocheMotorFinal":"9-104-907-1",
-        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
-        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Estuvo en LAV Valladolid (único de su serie). Ex-Fuenlabrada."]
-      },
-      "8":{
-        "rama":8,"vehiculoBase":"008","numero":"9-104-008-8",
-        "motor":"7-104-008-8","motorCentral":"6-104-508-7","cocheMotorFinal":"9-104-908-9",
-        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
-        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
-      },
-      "9":{
-        "rama":9,"vehiculoBase":"009","numero":"9-104-009-6",
-        "motor":"7-104-009-6","motorCentral":"6-104-509-5","cocheMotorFinal":"9-104-909-7",
-        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
-        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra. Logos 75 años Renfe."]
-      },
-      "10":{
-        "rama":10,"vehiculoBase":"010","numero":"9-104-010-4",
-        "motor":"7-104-010-4","motorCentral":"6-104-510-3","cocheMotorFinal":"9-104-910-5",
-        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
-        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
-      },
-      "11":{
-        "rama":11,"vehiculoBase":"011","numero":"9-104-011-2",
-        "motor":"7-104-011-2","motorCentral":"6-104-511-1","cocheMotorFinal":"9-104-911-3",
-        "deposito":"Málaga","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
-        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
-      },
-      "12":{
-        "rama":12,"vehiculoBase":"012","numero":"9-104-012-0",
-        "motor":"7-104-012-0","motorCentral":"6-104-512-9","cocheMotorFinal":"9-104-912-1",
-        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
-        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
-      },
-      "13":{
-        "rama":13,"vehiculoBase":"013","numero":"9-104-013-8",
-        "motor":"7-104-013-8","motorCentral":"6-104-513-7","cocheMotorFinal":"9-104-913-9",
-        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
-        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
-      },
-      "14":{
-        "rama":14,"vehiculoBase":"014","numero":"9-104-014-6",
-        "motor":"7-104-014-6","motorCentral":"6-104-514-5","cocheMotorFinal":"9-104-914-7",
-        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
-        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra. Ex-Cerro Negro → Málaga."]
-      },
-      "15":{
-        "rama":15,"vehiculoBase":"015","numero":"9-104-015-3",
-        "motor":"7-104-015-3","motorCentral":"6-104-515-2","cocheMotorFinal":"9-104-915-4",
-        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
-        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
-      },
-      "16":{
-        "rama":16,"vehiculoBase":"016","numero":"9-104-016-1",
-        "motor":"7-104-016-1","motorCentral":"6-104-516-0","cocheMotorFinal":"9-104-916-2",
-        "deposito":"Málaga","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
-        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
-      },
-      "17":{
-        "rama":17,"vehiculoBase":"017","numero":"9-104-017-9",
-        "motor":"7-104-017-9","motorCentral":"6-104-517-8","cocheMotorFinal":"9-104-917-0",
-        "deposito":"Málaga","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
-        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra. Logos 75 años Renfe."]
-      },
-      "18":{
-        "rama":18,"vehiculoBase":"018","numero":"9-104-018-7",
-        "motor":"7-104-018-7","motorCentral":"6-104-518-6","cocheMotorFinal":"9-104-918-8",
-        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
-        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
-      },
-      "19":{
-        "rama":19,"vehiculoBase":"019","numero":"9-104-019-5",
-        "motor":"7-104-019-5","motorCentral":"6-104-519-4","cocheMotorFinal":"9-104-919-6",
-        "deposito":"Málaga","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
-        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
-      },
-      "20":{
-        "rama":20,"vehiculoBase":"020","numero":"9-104-020-3",
-        "motor":"7-104-020-3","motorCentral":"6-104-520-2","cocheMotorFinal":"9-104-920-4",
-        "deposito":"Cerro Negro","ano":"2004","anchoVia":"1435 mm","numeroCoches":"4",
-        "tipoMaterial":"Media Dist.","notas":["Colores Renfe Op. Logos Avant. Ex-La Sagra."]
-      }
-    }
-  },
+button,input,select,textarea{font:inherit}
+
+button{
+cursor:pointer;
+border:0
+}
+
+.app{
+max-width:720px;
+margin:auto;
+min-height:100vh;
+background:var(--bg)
+}
+
+header{
+position:sticky;
+top:0;
+z-index:10;
+background:#82005E;
+backdrop-filter:blur(16px);
+border-bottom:0;
+padding:13px 18px;
+display:grid;
+grid-template-columns:42px 1fr 42px;
+align-items:center;
+min-height:68px
+}
+
+body.dark header{
+background:#82005E
+}
+
+.brand-wrap{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:0;
+grid-column:2
+}
+
+.argos-mark{
+display:none
+}
+
+.brand{
+font-size:0;
+line-height:0;
+width:126px;
+height:48px;
+background-image:url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Logotipo_de_Renfe_Operadora.svg');
+background-repeat:no-repeat;
+background-position:center;
+background-size:contain;
+filter:brightness(0) invert(1)
+}
+
+.brand small{
+display:none
+}
+
+.iconbtn{
+width:42px;
+height:42px;
+border-radius:13px;
+background:transparent;
+color:#fff;
+border:1px solid rgba(255,255,255,.35);
+font-weight:900
+}
+
+.menu-wrap{
+grid-column:1;
+grid-row:1
+}
+
+header > .iconbtn{
+grid-column:3;
+grid-row:1
+}
+
+.menu-wrap{position:relative}
+.menu-btn{font-size:24px;line-height:1}
+.menu-panel{
+position:absolute;
+top:50px;
+left:0;
+width:230px;
+background:var(--card);
+border:1px solid var(--line);
+border-radius:16px;
+box-shadow:var(--shadow);
+padding:7px;
+z-index:30;
+display:none
+}
+.menu-panel.show{display:block}
+.menu-panel button{
+width:100%;
+background:none;
+color:var(--text);
+text-align:left;
+padding:12px;
+border-radius:11px;
+font-weight:750
+}
+.menu-panel button:hover{background:var(--accentSoft)}
+.menu-sep{height:1px;background:var(--line);margin:5px 4px}
+.update-list{margin:12px 0 0;padding-left:20px}
+.update-list li{margin:8px 0;color:var(--muted);line-height:1.4}
+.version-box{background:var(--accentSoft);border-radius:14px;padding:14px;margin-top:12px}
+
+/* =========================================================
+   CABECERA RENFE
+========================================================= */
+
+header{
+position:sticky;
+top:0;
+z-index:10;
+background:#82005E;
+backdrop-filter:blur(16px);
+border-bottom:0;
+padding:0 18px;
+display:grid;
+grid-template-columns:48px 1fr 48px;
+align-items:center;
+height:72px;
+box-shadow:0 3px 12px rgba(0,0,0,.12)
+}
+
+body.dark header{
+background:#82005E
+}
+
+.renfe-header{
+background:#82005E
+}
+
+.renfe-header .menu-wrap{
+position:relative;
+z-index:20
+}
+
+.header-menu-btn,
+.header-logout-btn{
+width:44px;
+height:44px;
+border-radius:13px;
+background:transparent;
+color:#fff;
+border:1px solid rgba(255,255,255,.38);
+display:flex;
+align-items:center;
+justify-content:center;
+padding:0
+}
+
+.header-menu-btn{
+font-size:29px;
+line-height:1
+}
+
+.header-logout-btn{
+font-size:24px;
+line-height:1
+}
+
+.renfe-logo-img{
+grid-column:2;
+justify-self:center;
+display:block;
+width:116px;
+height:auto;
+max-height:48px;
+object-fit:contain
+}
+
+.renfe-header .menu-panel{
+top:54px;
+left:0;
+background:var(--card);
+border:1px solid var(--line);
+border-radius:16px;
+box-shadow:var(--shadow);
+padding:7px;
+z-index:30
+}
+
+main{
+padding:18px 16px 18px
+}
+
+.screen{
+display:none
+}
+
+.screen.active{
+display:block
+}
+
+.hero{
+background:linear-gradient(135deg,var(--card),var(--accentSoft));
+border:1px solid var(--line);
+border-radius:24px;
+padding:22px;
+margin-bottom:14px;
+box-shadow:var(--shadow)
+}
+
+h1{
+font-size:28px;
+line-height:1.1;
+margin:3px 0 7px
+}
+
+h2{
+font-size:19px;
+margin:0 0 12px
+}
+
+h3{
+font-size:15px;
+margin:0 0 7px
+}
+
+.muted{
+color:var(--muted);
+font-size:13px;
+line-height:1.4
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:11px
+}
+
+.card{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:19px;
+padding:16px;
+margin-bottom:13px;
+box-shadow:var(--shadow)
+}
+
+.action-card{
+display:block;
+width:100%;
+text-align:left;
+min-height:112px
+}
+
+.action-icon{
+width:38px;
+height:38px;
+border-radius:12px;
+display:grid;
+place-items:center;
+background:var(--accentSoft);
+color:var(--accent);
+font-size:19px;
+margin-bottom:14px;
+font-weight:900
+}
+
+.badge{
+font-size:11px;
+font-weight:800;
+background:var(--accentSoft);
+color:var(--accent);
+padding:6px 9px;
+border-radius:999px
+}
+
+label{
+display:block;
+font-size:12px;
+font-weight:800;
+margin:0 0 6px;
+color:var(--muted)
+}
+
+input,select,textarea{
+width:100%;
+border:1px solid var(--line);
+background:var(--card2);
+color:var(--text);
+border-radius:12px;
+padding:12px;
+outline:none
+}
+
+input:focus,select:focus,textarea:focus{
+border-color:var(--accent)
+}
+
+textarea{
+min-height:90px;
+resize:vertical
+}
+
+.row{
+display:flex;
+gap:9px;
+align-items:center
+}
+
+.row>*{
+flex:1
+}
+
+.primary{
+width:100%;
+background:linear-gradient(135deg,var(--accent),var(--accent2));
+color:white;
+padding:13px;
+border-radius:12px;
+font-weight:850;
+margin-top:10px
+}
+
+.secondary{
+background:var(--card2);
+color:var(--text);
+border:1px solid var(--line);
+padding:10px 12px;
+border-radius:11px;
+font-weight:750
+}
+
+.link{
+background:none;
+color:var(--accent);
+padding:7px;
+font-weight:700
+}
+
+.danger{
+color:white;
+background:var(--red)
+}
+
+.auth{
+min-height:100vh;
+display:flex;
+align-items:center;
+padding:22px;
+background:radial-gradient(circle at 15% 10%,#efe8f6 0,#f3f4f7 35%,#f3f4f7 100%)
+}
+
+body.dark .auth{
+background:radial-gradient(circle at 15% 10%,#24172e 0,#0d0d10 38%,#0d0d10 100%)
+}
+
+.auth .card{
+width:100%;
+max-width:430px;
+margin:auto;
+text-align:center;
+padding:28px;
+border-radius:26px
+}
+
+.auth-logo{
+width:72px;
+height:72px;
+margin:0 auto 13px
+}
+
+.auth .logo{
+font-size:34px;
+font-weight:950;
+letter-spacing:.18em;
+margin:3px 0 6px
+}
+
+nav{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:7px;
+background:var(--card);
+border:1px solid var(--line);
+border-radius:18px;
+padding:7px;
+margin:0 16px 14px;
+box-shadow:var(--shadow)
+}
+
+nav button{
+background:none;
+color:var(--muted);
+padding:9px 3px;
+border-radius:13px;
+font-size:10px;
+font-weight:650
+}
+
+nav button.active{
+color:var(--accent);
+font-weight:900;
+background:var(--accentSoft)
+}
+
+.statgrid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px
+}
+
+.stat{
+padding:15px;
+background:var(--card);
+border:1px solid var(--line);
+border-radius:16px
+}
+
+.stat b{
+font-size:25px;
+display:block
+}
+
+.stat span{
+font-size:12px;
+color:var(--muted)
+}
+
+.service{
+display:flex;
+gap:12px;
+align-items:flex-start
+}
+
+.service .grow{
+flex:1
+}
+
+.service strong{
+display:block;
+font-size:15px;
+line-height:1.35
+}
+
+.service small{
+display:block;
+color:var(--muted);
+margin-top:4px
+}
+
+.actions{
+display:flex;
+gap:6px;
+margin-top:9px
+}
+
+.search{
+margin-bottom:10px
+}
+
+.empty{
+text-align:center;
+padding:32px;
+color:var(--muted)
+}
+
+.toast{
+position:fixed;
+left:50%;
+bottom:85px;
+transform:translateX(-50%);
+background:#16161a;
+color:#fff;
+padding:11px 15px;
+border-radius:12px;
+z-index:50;
+display:none;
+font-size:13px
+}
+
+.modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.58);
+display:none;
+align-items:flex-end;
+z-index:40
+}
+
+.modal.show{
+display:flex
+}
+
+.sheet{
+width:100%;
+max-width:720px;
+margin:auto auto 0;
+background:var(--card);
+border-radius:23px 23px 0 0;
+padding:18px;
+max-height:88vh;
+overflow:auto
+}
+
+.checkbox{
+display:flex;
+align-items:center;
+gap:8px;
+font-size:13px
+}
+
+.checkbox input{
+width:auto
+}
+
+.inc{
+border:1px solid var(--line);
+border-radius:12px;
+padding:10px;
+margin-top:8px
+}
+
+.kpi{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:11px 0;
+border-bottom:1px solid var(--line)
+}
+
+/* =========================================================
+   AUTOCOMPLETADO DE ESTACIONES RENFE
+========================================================= */
+
+.station-field{
+position:relative
+}
+
+.station-suggestions{
+position:absolute;
+left:0;
+right:0;
+top:calc(100% + 6px);
+z-index:100;
+background:var(--card);
+border:1px solid var(--line);
+border-radius:15px;
+box-shadow:0 14px 35px rgba(0,0,0,.16);
+overflow:hidden;
+display:none;
+max-height:290px;
+overflow-y:auto
+}
+
+.station-suggestions.show{
+display:block
+}
+
+.station-option{
+width:100%;
+text-align:left;
+border:0;
+background:transparent;
+color:var(--text);
+padding:12px 14px;
+cursor:pointer;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:12px;
+font:inherit
+}
+
+.station-option:hover,.station-option:focus{
+background:var(--accentSoft);
+outline:none
+}
+
+.station-option-name{
+font-weight:800;
+font-size:14px;
+line-height:1.2
+}
+
+.station-option-code{
+flex:0 0 auto;
+font-size:11px;
+font-weight:850;
+color:var(--accent);
+background:var(--accentSoft);
+padding:5px 8px;
+border-radius:999px
+}
+
+.station-loading{
+padding:13px 14px;
+font-size:12px;
+color:var(--muted)
+}
+
+.material-field{position:relative}
+.material-help{font-size:11px;color:var(--muted);margin-top:5px}
+.material-suggestions{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:120;background:var(--card);border:1px solid var(--line);border-radius:15px;box-shadow:0 14px 35px rgba(0,0,0,.16);overflow:hidden;display:none;max-height:280px;overflow-y:auto}
+.material-suggestions.show{display:block}
+.material-option{width:100%;text-align:left;border:0;background:transparent;color:var(--text);padding:12px 14px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;font:inherit}
+.material-option:hover,.material-option:focus{background:var(--accentSoft);outline:none}
+.material-option-name{font-weight:850;font-size:14px}
+.material-option-code{font-size:11px;font-weight:850;color:var(--accent);background:var(--accentSoft);padding:5px 8px;border-radius:999px}
+.branch-card{margin-top:9px;padding:11px 13px;border:1px solid var(--line);border-radius:13px;background:var(--card2);font-size:12px}
+.branch-card strong{font-size:14px}
+.branch-card.is-found{
+background:linear-gradient(135deg,var(--accentSoft),var(--card));
+border-color:#d99ac8;
+}
+.branch-card.is-found strong{
+color:var(--accent);
+font-size:16px;
+}
 
 
-  "120":{
-    "seriesName":"Serie 120",
-    "fabricante":"CAF-Alstom",
-    "numeroCoches":"4 coches · Cabina Preferente + Preferente/Cafetería + Turista + Cabina Turista",
-    "anoPuestaServicio":"2005 / 2009",
-    "tipoMaterial":"Alta Velocidad · Alvia",
-    "anchoVia":"1435/1668 mm",
-    "numeroRamas":28,
-    "modelo":"CAF-Alstom ATPRD",
-    "velocidadMaxima":"250 km/h (1.435 mm) · 220 km/h (1.668 mm)",
-    "potencia":"4.000 kW (25 kV) · 2.500 kW (3 kV)",
-    "longitud":"107,36 m",
-    "peso":"247 t",
-    "tension":"25 kV c.a. / 3 kV c.c.",
-    "traccion":"Distribuida · 8 motores asíncronos Alstom MTA/550 H",
-    "señalizacion":"ASFA, ERTMS y AVE",
-    "composicion":"Mc + M + M + Mc",
-    "capacidad":"238 plazas · 156 Turista + 81 Preferente + 1 PMR",
-    "plazasSentadas":"238",
-    "numeroUnidades":"12 ramas de primera subserie + 15 construidas de segunda subserie; la 66 (120.366) no fue construida",
-    "generalNotes":[
-      "La serie 120 de Renfe (ATPRD) es una familia de trenes de alta velocidad de ancho variable fabricados por CAF y Alstom.",
-      "Cada unidad está formada por cuatro coches: Cabina Preferente + Preferente/Cafetería + Turista + Cabina Turista.",
-      "El sistema de rodadura desplazable BRAVA, desarrollado por CAF, permite circular por ancho ibérico e internacional y realizar el cambio de ancho de forma continua.",
-      "La serie es bitensión: 25 kV en corriente alterna para ancho internacional y 3 kV en corriente continua para ancho ibérico.",
-      "La velocidad máxima comercial es de 250 km/h en ancho internacional y 220 km/h en ancho ibérico.",
-      "La S-120 cuenta con 238 plazas: 156 de Turista, 81 de Preferente y 1 plaza para personas con movilidad reducida.",
-      "La primera subserie comprende las ramas 1 a 12; la segunda subserie, correspondiente a la S-120.5, se desarrolló a partir del verano de 2009 y comprende las ramas 51 a 66, aunque la 66 no llegó a construirse.",
-      "La primera unidad de la serie inició el servicio comercial el 17 de mayo de 2006 en la relación Madrid-Barcelona bajo la denominación Alvia.",
-      "La segunda subserie incorporó equipos redundantes para mejorar la seguridad en el cruce de túneles de la LAV de Madrid a Valladolid.",
-      "El sistema de tracción está distribuido a lo largo de los cuatro coches y emplea ocho motores asíncronos."
-    ],
-    "units":{
-      "1":{"rama":"1","vehiculoBase":"301","subserie":"Primera subserie","numero":"9-120-301-7","vehiculosRama":["9-120-301-7","6-120-901-4","6-120-601-0","9-120-601-0"],"searchCodes":["301","901","601"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-301-7 + 6-120-901-4 + 6-120-601-0 + 9-120-601-0","notas":["Arrollamiento de tractor en Rincón de Soto, 13/05/16.", "Logos 75 años Renfe."]},
-      "2":{"rama":"2","vehiculoBase":"302","subserie":"Primera subserie","numero":"9-120-302-5","vehiculosRama":["9-120-302-5","6-120-902-2","6-120-602-8","9-120-602-8"],"searchCodes":["302","902","602"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-302-5 + 6-120-902-2 + 6-120-602-8 + 9-120-602-8","notas":["Logos 75 años Renfe."]},
-      "3":{"rama":"3","vehiculoBase":"303","subserie":"Primera subserie","numero":"9-120-303-3","vehiculosRama":["9-120-303-3","6-120-903-0","6-120-603-6","9-120-603-6"],"searchCodes":["303","903","603"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-303-3 + 6-120-903-0 + 6-120-603-6 + 9-120-603-6","notas":[]},
-      "4":{"rama":"4","vehiculoBase":"304","subserie":"Primera subserie","numero":"9-120-304-1","vehiculosRama":["9-120-304-1","6-120-904-8","6-120-604-4","9-120-604-4"],"searchCodes":["304","904","604"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-304-1 + 6-120-904-8 + 6-120-604-4 + 9-120-604-4","notas":["Ex-Madrid."]},
-      "5":{"rama":"5","vehiculoBase":"305","subserie":"Primera subserie","numero":"9-120-305-8","vehiculosRama":["9-120-305-8","6-120-905-5","6-120-605-1","9-120-605-1"],"searchCodes":["305","905","605"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-305-8 + 6-120-905-5 + 6-120-605-1 + 9-120-605-1","notas":["Apartada por accidente 09/09. Vuelve al servicio 07/10."]},
-      "6":{"rama":"6","vehiculoBase":"306","subserie":"Primera subserie","numero":"9-120-306-6","vehiculosRama":["9-120-306-6","6-120-906-3","6-120-606-9","9-120-606-9"],"searchCodes":["306","906","606"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-306-6 + 6-120-906-3 + 6-120-606-9 + 9-120-606-9","notas":["Ex-Madrid."]},
-      "7":{"rama":"7","vehiculoBase":"307","subserie":"Primera subserie","numero":"9-120-307-4","vehiculosRama":["9-120-307-4","6-120-907-1","6-120-607-7","9-120-607-7"],"searchCodes":["307","907","607"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-307-4 + 6-120-907-1 + 6-120-607-7 + 9-120-607-7","notas":["Ex-Madrid. Logos 75 años Renfe."]},
-      "8":{"rama":"8","vehiculoBase":"308","subserie":"Primera subserie","numero":"9-120-308-2","vehiculosRama":["9-120-308-2","6-120-908-9","6-120-608-5","9-120-608-5"],"searchCodes":["308","908","608"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-308-2 + 6-120-908-9 + 6-120-608-5 + 9-120-608-5","notas":["Ex-Madrid → Can Tunis."]},
-      "9":{"rama":"9","vehiculoBase":"309","subserie":"Primera subserie","numero":"9-120-309-0","vehiculosRama":["9-120-309-0","6-120-909-7","6-120-609-3","9-120-609-3"],"searchCodes":["309","909","609"],"deposito":"Can Tunis","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-309-0 + 6-120-909-7 + 6-120-609-3 + 9-120-609-3","notas":["Ex-Madrid."]},
-      "10":{"rama":"10","vehiculoBase":"310","subserie":"Primera subserie","numero":"9-120-310-8","vehiculosRama":["9-120-310-8","6-120-910-5","6-120-610-1","9-120-610-1"],"searchCodes":["310","910","610"],"deposito":"Can Tunis","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-310-8 + 6-120-910-5 + 6-120-610-1 + 9-120-610-1","notas":["Ex-Madrid."]},
-      "11":{"rama":"11","vehiculoBase":"311","subserie":"Primera subserie","numero":"9-120-311-6","vehiculosRama":["9-120-311-6","6-120-911-3","6-120-611-9","9-120-611-9"],"searchCodes":["311","911","611"],"deposito":"Can Tunis","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-311-6 + 6-120-911-3 + 6-120-611-9 + 9-120-611-9","notas":["Ex-Madrid."]},
-      "12":{"rama":"12","vehiculoBase":"312","subserie":"Primera subserie","numero":"9-120-312-4","vehiculosRama":["9-120-312-4","6-120-912-1","6-120-612-7","9-120-612-7"],"searchCodes":["312","912","612"],"deposito":"Can Tunis","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2005,"ancho":"1435/1668","composicionRama":"9-120-312-4 + 6-120-912-1 + 6-120-612-7 + 9-120-612-7","notas":["Amunt en testeros 04/08. Ex-Madrid."]},
-      "51":{"rama":"51","vehiculoBase":"351","subserie":"Segunda subserie","numero":"9-120-351-2","vehiculosRama":["9-120-351-2","6-120-951-9","6-120-651-5","9-120-651-5"],"searchCodes":["351","951","651"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-351-2 + 6-120-951-9 + 6-120-651-5 + 9-120-651-5","notas":["En pruebas 10/09. En servicio 11/09. Ex-Can Tunis → Fuencarral"]},
-      "52":{"rama":"52","vehiculoBase":"352","subserie":"Segunda subserie","numero":"9-120-352-0","vehiculosRama":["9-120-352-0","6-120-952-7","6-120-652-3","9-120-652-3"],"searchCodes":["352","952","652"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-352-0 + 6-120-952-7 + 6-120-652-3 + 9-120-652-3","notas":["En pruebas 10/09. En servicio 11/09. Descarrilo Artomaña 31/05/22. Ex-Fuencarral."]},
-      "53":{"rama":"53","vehiculoBase":"353","subserie":"Segunda subserie","numero":"9-120-353-8","vehiculosRama":["9-120-353-8","6-120-953-5","6-120-653-1","9-120-653-1"],"searchCodes":["353","953","653"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-353-8 + 6-120-953-5 + 6-120-653-1 + 9-120-653-1","notas":["En pruebas 10/09. En servicio. Ex-Sta. Catalina → Fuencarral"]},
-      "54":{"rama":"54","vehiculoBase":"354","subserie":"Segunda subserie","numero":"9-120-354-6","vehiculosRama":["9-120-354-6","6-120-954-3","6-120-654-9","9-120-654-9"],"searchCodes":["354","954","654"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-354-6 + 6-120-954-3 + 6-120-654-9 + 9-120-654-9","notas":["En pruebas 10/09. En servicio. Ex-Sta.Catalina. Incendio cambiador Córdoba 30/01/23. Ex-Fuencarral"]},
-      "55":{"rama":"55","vehiculoBase":"355","subserie":"Segunda subserie","numero":"9-120-355-3","vehiculosRama":["9-120-355-3","6-120-955-0","6-120-655-6","9-120-655-6"],"searchCodes":["355","955","655"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-355-3 + 6-120-955-0 + 6-120-655-6 + 9-120-655-6","notas":["Vinilo Los Señores del Tiempo en coche 3, 01/10/18. Descarrilamiento coche 3 en Villaquirán 07/01/19. Ex-Sta.Catalina → Fuencarral"]},
-      "56":{"rama":"56","vehiculoBase":"356","subserie":"Segunda subserie","numero":"9-120-356-1","vehiculosRama":["9-120-356-1","6-120-956-8","6-120-656-4","9-120-656-4"],"searchCodes":["356","956","656"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-356-1 + 6-120-956-8 + 6-120-656-4 + 9-120-656-4","notas":["Choque contra un remolque de camión en un paso a nivel entre Benacazón y Carrión de los Céspedes 2/19. Ex-Fuencarral"]},
-      "57":{"rama":"57","vehiculoBase":"357","subserie":"Segunda subserie","numero":"9-120-357-9","vehiculosRama":["9-120-357-9","6-120-957-6","6-120-657-2","9-120-657-2"],"searchCodes":["357","957","657"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-357-9 + 6-120-957-6 + 6-120-657-2 + 9-120-657-2","notas":["Arrollamiento de caballo entre Brinkola y Zegama, 29/10/14. Ex-Fuencarral"]},
-      "58":{"rama":"58","vehiculoBase":"358","subserie":"Segunda subserie","numero":"9-120-358-7","vehiculosRama":["9-120-358-7","6-120-958-4","6-120-658-0","9-120-658-0"],"searchCodes":["358","958","658"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-358-7 + 6-120-958-4 + 6-120-658-0 + 9-120-658-0","notas":["Logos 75 años Renfe. Ex-Fuencarral. Descarrilo Inoso-Oiardo 11/10/24."]},
-      "59":{"rama":"59","vehiculoBase":"359","subserie":"Segunda subserie","numero":"9-120-359-5","vehiculosRama":["9-120-359-5","6-120-959-2","6-120-659-8","9-120-659-8"],"searchCodes":["359","959","659"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-359-5 + 6-120-959-2 + 6-120-659-8 + 9-120-659-8","notas":["Ex-Fuencarral"]},
-      "60":{"rama":"60","vehiculoBase":"360","subserie":"Segunda subserie","numero":"9-120-360-3","vehiculosRama":["9-120-360-3","6-120-960-0","6-120-660-6","9-120-660-6"],"searchCodes":["360","960","660"],"deposito":"Santa Catalina","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-360-3 + 6-120-960-0 + 6-120-660-6 + 9-120-660-6","notas":["Colisión con 103.17 en Santa Catalina, 13/05/17. Apartado. En reparación desde 12/19. Vuelta al servicio 08/21. Ex-Fuencarral"]},
-      "61":{"rama":"61","vehiculoBase":"361","subserie":"Segunda subserie","numero":"9-120-361-1","vehiculosRama":["9-120-361-1","6-120-961-8","6-120-661-4","9-120-661-4"],"searchCodes":["361","961","661"],"deposito":"Can Tunis","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-361-1 + 6-120-961-8 + 6-120-661-4 + 9-120-661-4","notas":["Logos 75 años Renfe. Ex-Fuencarral. Descarrilo Adamuz 18/01/26."]},
-      "62":{"rama":"62","vehiculoBase":"362","subserie":"Segunda subserie","numero":"9-120-362-9","vehiculosRama":["9-120-362-9","6-120-962-6","6-120-662-2","9-120-662-2"],"searchCodes":["362","962","662"],"deposito":"Can Tunis","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-362-9 + 6-120-962-6 + 6-120-662-2 + 9-120-662-2","notas":["Ex-Fuencarral"]},
-      "63":{"rama":"63","vehiculoBase":"363","subserie":"Segunda subserie","numero":"9-120-363-7","vehiculosRama":["9-120-363-7","6-120-963-4","6-120-663-0","9-120-663-0"],"searchCodes":["363","963","663"],"deposito":"Can Tunis","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-363-7 + 6-120-963-4 + 6-120-663-0 + 9-120-663-0","notas":["Logos 75 años Renfe. Ex-Fuencarral"]},
-      "64":{"rama":"64","vehiculoBase":"364","subserie":"Segunda subserie","numero":"9-120-364-5","vehiculosRama":["9-120-364-5","6-120-964-2","6-120-664-8","9-120-664-8"],"searchCodes":["364","964","664"],"deposito":"Can Tunis","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-364-5 + 6-120-964-2 + 6-120-664-8 + 9-120-664-8","notas":["Ex-Sta.Catalina. Ex-Fuencarral"]},
-      "65":{"rama":"65","vehiculoBase":"365","subserie":"Segunda subserie","numero":"9-120-365-2","vehiculosRama":["9-120-365-2","6-120-965-9","6-120-665-5","9-120-665-5"],"searchCodes":["365","965","665"],"deposito":"Can Tunis","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-365-2 + 6-120-965-9 + 6-120-665-5 + 9-120-665-5","notas":["Ex-Fuencarral"]},
-      "66":{"rama":"66","vehiculoBase":"366","subserie":"Segunda subserie","numero":"9-120-366-0","vehiculosRama":["9-120-366-0","6-120-966-7","6-120-666-3","9-120-666-3"],"searchCodes":["366","966","666"],"deposito":"","color":"Blanco","estado":"No construido","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-366-0 + 6-120-966-7 + 6-120-666-3 + 9-120-666-3","notas":["No construido. En su lugar, y con el mismo contrato, se construyó el prototipo OARIS de la serie 105."]}
-    }
-  },
-  "114": {
-    "seriesName":"Serie 114",
-    "fabricante":"CAF-Alstom",
-    "numeroCoches":"4 coches · Mc + Mi + Mi + Mc",
-    "anoPuestaServicio":"2011",
-    "tipoMaterial":"Media Distancia · Alta Velocidad · Avant",
-    "anchoVia":"1435 mm",
-    "numeroRamas":13,
-    "velocidadMaxima":"250 km/h comercial · 270 km/h máxima",
-    "potencia":"4.000 kW",
-    "longitud":"107,9 m",
-    "peso":"221,5 t en vacío",
-    "tension":"25 kV / 50 Hz",
-    "señalizacion":"ERTMS, STM-LZB y ASFA Digital",
-    "traccion":"8 motores asíncronos trifásicos",
-    "composicion":"Mc + Mi + Mi + Mc",
-    "capacidad":"237 plazas · 236 + 1 PMR",
-    "plazasSentadas":"237",
-    "numeroUnidades":"13 composiciones",
-    "generalNotes":[
-      "Trenes de Media Distancia para servicios AVANT sobre líneas de Alta Velocidad.",
-      "La serie 114 es una evolución de la serie 104, con mejoras en tracción, frenado, eficiencia energética, confort e interiorismo.",
-      "Las 13 unidades fueron construidas por Alstom y CAF; Alstom realizó la construcción de la serie en su centro industrial de Santa Perpètua de Mogoda (Barcelona).",
-      "Cada composición está formada por cuatro coches: dos coches extremos con cabina y dos coches intermedios.",
-      "El tren es monotensión a 25 kV / 50 Hz y utiliza ancho internacional de 1.435 mm.",
-      "Dispone de 237 plazas: 236 plazas de clase única y una plaza adaptada para personas con movilidad reducida.",
-      "La velocidad comercial es de 250 km/h. Algunas fuentes técnicas sitúan la velocidad máxima del tren en 270 km/h.",
-      "Incorpora tomas de corriente en los asientos, zona de vending y espacio para bicicletas.",
-      "Los sistemas de señalización y protección incluyen ERTMS, STM-LZB y ASFA Digital.",
-      "La primera unidad de la serie entró en servicio comercial en junio de 2011 en servicios Avant entre Madrid, Segovia y Valladolid."
-    ],
-    "units": {
-      "1":{"rama":"1","vehiculoBase":"601","numero":"9-114-601-8","motorPar":"9-114-601-8","motorCentral1":"6-114-501-0","motorCentral2":"6-114-601-8","motorImpar":"9-114-602-6","composicionRama":"114 601 · Rama 1 formada por remolques 501 y 601 y motor impar 602","vehiculosRama":["9-114-601-8","9-114-602-6","601","602"],"deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["En pruebas desde 10/08.","Ex-Fuencarral → Can Tunis → 11/19 Cerro Negro → Fuencarral."]},
-      "2":{"rama":"2","vehiculoBase":"603","numero":"9-114-603-4","motorPar":"9-114-603-4","motorCentral1":"6-114-502-8","motorCentral2":"6-114-602-6","motorImpar":"9-114-604-2","composicionRama":"114 603 · Rama 2 formada por remolques 502 y 602 y motor impar 604","vehiculosRama":["9-114-603-4","9-114-604-2","603","604"],"deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["En servicio LAV Valladolid.","Desde 11/19 Cerro Negro para Avant Granada-Málaga → 06/20 Fuencarral."]},
-      "3":{"rama":"3","vehiculoBase":"605","numero":"9-114-605-9","motorPar":"9-114-605-9","motorCentral1":"6-114-503-6","motorCentral2":"6-114-603-4","motorImpar":"9-114-606-7","composicionRama":"114 605 · Rama 3 formada por remolques 503 y 603 y motor impar 606","vehiculosRama":["9-114-605-9","9-114-606-7","605","606"],"deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["En servicio LAV Valladolid."]},
-      "4":{"rama":"4","vehiculoBase":"607","numero":"9-114-607-5","motorPar":"9-114-607-5","motorCentral1":"6-114-504-4","motorCentral2":"6-114-604-2","motorImpar":"9-114-608-3","composicionRama":"114 607 · Rama 4 formada por remolques 504 y 604 y motor impar 608","vehiculosRama":["9-114-607-5","9-114-608-3","607","608"],"deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["En servicio LAV Valladolid.","Desde 11/19 Cerro Negro para Avant Granada-Málaga → Fuencarral."]},
-      "5":{"rama":"5","vehiculoBase":"609","numero":"9-114-609-1","motorPar":"9-114-609-1","motorCentral1":"6-114-505-1","motorCentral2":"6-114-605-9","motorImpar":"9-114-610-9","composicionRama":"114 609 · Rama 5 formada por remolques 505 y 605 y motor impar 610","vehiculosRama":["9-114-609-1","9-114-610-9","609","610"],"deposito":"Fuencarral","color":"Blanco","estado":"Desguazada","servicio":"","ano":"2008–2011","ancho":"1435","notas":["En pruebas en LAV Valladolid, 03/11.","Logos 75 años Renfe. Fuencarral → Desde 01/20 Cerro Negro para Avant Granada-Málaga → 06/20 Fuencarral.","Accidente y vuelco en Jardín Botánico (túnel urbano LAV Madrid Atocha - Chamartín) 19/10/24.","Desguazado in situ 15/12/24."]},
-      "6":{"rama":"6","vehiculoBase":"611","numero":"9-114-611-7","motorPar":"9-114-611-7","motorCentral1":"6-114-506-9","motorCentral2":"6-114-606-7","motorImpar":"9-114-612-5","composicionRama":"114 611 · Rama 6 formada por remolques 506 y 606 y motor impar 612","vehiculosRama":["9-114-611-7","9-114-612-5","611","612"],"deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["LAV Valladolid (Fuencarral) → Lleida, 06/13 → Cerro Negro 10/19.","Pruebas ERTMS LAV Antequera-Granada → Fuencarral."]},
-      "7":{"rama":"7","vehiculoBase":"613","numero":"9-114-613-3","motorPar":"9-114-613-3","motorCentral1":"6-114-507-7","motorCentral2":"6-114-607-5","motorImpar":"9-114-614-1","composicionRama":"114 613 · Rama 7 formada por remolques 507 y 607 y motor impar 614","vehiculosRama":["9-114-613-3","9-114-614-1","613","614"],"deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["Avant Madrid-Segovia-Valladolid → Pruebas en Zaragoza, 04/13.","Fuencarral → Can Tunis → 11/19 Fuencarral.","Logos 75 años Renfe → Cerro Negro → Fuencarral."]},
-      "8":{"rama":"8","vehiculoBase":"615","numero":"9-114-615-8","motorPar":"9-114-615-8","motorCentral1":"6-114-508-5","motorCentral2":"6-114-608-3","motorImpar":"9-114-616-6","composicionRama":"114 615 · Rama 8 formada por remolques 508 y 608 y motor impar 616","vehiculosRama":["9-114-615-8","9-114-616-6","615","616"],"deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["En servicio LAV Valladolid.","Fuencarral → Cerro Negro.","Vinilos Transporte Sostenible y 80 años Renfe."]},
-      "9":{"rama":"9","vehiculoBase":"617","numero":"9-114-617-4","motorPar":"9-114-617-4","motorCentral1":"6-114-509-3","motorCentral2":"6-114-609-1","motorImpar":"9-114-618-2","composicionRama":"114 617 · Rama 9 formada por remolques 509 y 609 y motor impar 618","vehiculosRama":["9-114-617-4","9-114-618-2","617","618"],"deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["En servicio LAV Valladolid → 06/20 Cerro Negro → Fuencarral."]},
-      "10":{"rama":"10","vehiculoBase":"619","numero":"9-114-619-0","motorPar":"9-114-619-0","motorCentral1":"6-114-510-1","motorCentral2":"6-114-610-9","motorImpar":"9-114-620-8","composicionRama":"114 619 · Rama 10 formada por remolques 510 y 610 y motor impar 620","vehiculosRama":["9-114-619-0","9-114-620-8","619","620"],"deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["Rama 10. Fuencarral → Cerro Negro."]},
-      "11":{"rama":"11","vehiculoBase":"621","numero":"9-114-621-6","motorPar":"9-114-621-6","motorCentral1":"6-114-511-9","motorCentral2":"6-114-611-7","motorImpar":"9-114-622-4","composicionRama":"114 621 · Rama 11 formada por remolques 511 y 611 y motor impar 622","vehiculosRama":["9-114-621-6","9-114-622-4","621","622"],"deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["Avant Madrid-Segovia-Valladolid → 06/20 Cerro Negro → Fuencarral."]},
-      "12":{"rama":"12","vehiculoBase":"623","numero":"9-114-623-2","motorPar":"9-114-623-2","motorCentral1":"6-114-512-7","motorCentral2":"6-114-612-5","motorImpar":"9-114-624-0","composicionRama":"114 623 · Rama 12 formada por remolques 512 y 612 y motor impar 624","vehiculosRama":["9-114-623-2","9-114-624-0","623","624"],"deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["Avant Madrid-Segovia-Valladolid → 06/20 Cerro Negro → Fuencarral → Cerro Negro."]},
-      "13":{"rama":"13","vehiculoBase":"625","numero":"9-114-625-7","motorPar":"9-114-625-7","motorCentral1":"6-114-513-5","motorCentral2":"6-114-613-3","motorImpar":"9-114-626-5","composicionRama":"114 625 · Rama 13 formada por remolques 513 y 613 y motor impar 626","vehiculosRama":["9-114-625-7","9-114-626-5","625","626"],"deposito":"Fuencarral","color":"Blanco","estado":"En servicio","servicio":"Media Dist.","ano":"2008–2011","ancho":"1435","notas":["Avant Madrid-Segovia-Valladolid.","Logos 75 años Renfe. Fuencarral → Cerro Negro."]}
-    }
-  },
+body.dark .station-suggestions{
+box-shadow:0 14px 35px rgba(0,0,0,.45)
+}
+
+body.dark .station-option:hover,body.dark .station-option:focus{
+background:#32152b
+}
+
+.input-counter{
+position:relative
+}
+
+.input-counter input{
+padding-right:64px
+}
+
+.input-counter span{
+position:absolute;
+right:13px;
+top:50%;
+transform:translateY(-50%);
+font-size:11px;
+color:var(--muted);
+font-weight:700
+}
+
+.incident-item{
+display:flex;
+align-items:flex-start;
+gap:8px;
+border:1px solid var(--line);
+border-radius:11px;
+padding:9px;
+margin-top:8px;
+background:var(--card2)
+}
+
+.incident-item span{
+flex:1;
+font-size:13px;
+line-height:1.35
+}
+
+.incident-item button{
+background:none;
+color:var(--red);
+font-weight:800;
+padding:2px 5px
+}
+
+.composition-box{
+border:1px solid #d99ac8;
+background:linear-gradient(135deg,var(--accentSoft),var(--card));
+border-radius:16px;
+padding:14px;
+display:flex;
+flex-direction:column;
+gap:13px
+}
+
+.composition-title{
+font-weight:900;
+color:var(--accent);
+font-size:14px
+}
+
+.subcard{
+margin:0;
+padding:14px
+}
+
+.add-line{
+width:100%;
+text-align:center
+}
+
+@media(min-width:700px){
+.app{
+border-left:1px solid var(--line);
+border-right:1px solid var(--line)
+}
+}
+
+/* =========================================================
+   HISTORIAL · REDISEÑO ARGOS / ESTILO RENFE
+========================================================= */
+
+.history-head{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(135deg,#82005E 0%,#9d0a72 58%,#b31b83 100%);
+  color:#fff;
+  border:0;
+  border-radius:24px;
+  padding:25px 22px 23px;
+  margin-bottom:14px;
+  box-shadow:0 14px 34px rgba(130,0,94,.20);
+}
+
+.history-head:after{
+  content:"";
+  position:absolute;
+  width:170px;
+  height:170px;
+  right:-65px;
+  top:-75px;
+  border:34px solid rgba(255,255,255,.08);
+  border-radius:50%;
+}
+
+.history-kicker{
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  opacity:.86;
+  margin-bottom:10px;
+}
+
+.history-kicker:before{
+  content:"";
+  width:22px;
+  height:3px;
+  border-radius:4px;
+  background:#fff;
+}
+
+.history-head h1{
+  position:relative;
+  z-index:1;
+  font-size:34px;
+  margin:0 0 7px;
+  letter-spacing:-.03em;
+}
+
+.history-head .history-sub{
+  position:relative;
+  z-index:1;
+  font-size:14px;
+  opacity:.86;
+}
+
+.history-summary{
+  position:relative;
+  z-index:1;
+  display:flex;
+  gap:8px;
+  margin-top:18px;
+  flex-wrap:wrap;
+}
+
+.history-stat{
+  background:rgba(255,255,255,.13);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:12px;
+  padding:8px 11px;
+  min-width:82px;
+}
+
+.history-stat b{
+  display:block;
+  font-size:18px;
+  line-height:1;
+}
+
+.history-stat span{
+  display:block;
+  margin-top:4px;
+  font-size:10px;
+  opacity:.78;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  font-weight:800;
+}
+
+.history-tools{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:10px;
+  margin-bottom:14px;
+  box-shadow:0 6px 20px rgba(26,20,35,.045);
+}
+
+.history-search-wrap{
+  position:relative;
+}
+
+.history-search-wrap:before{
+  content:"⌕";
+  position:absolute;
+  left:14px;
+  top:50%;
+  transform:translateY(-53%);
+  font-size:23px;
+  color:var(--muted);
+  z-index:1;
+}
+
+.history-search{
+  margin:0;
+  padding:13px 14px 13px 42px;
+  border-radius:13px;
+  background:var(--card2);
+  border-color:transparent;
+  font-size:14px;
+}
+
+.history-search:focus{
+  border-color:var(--accent);
+  background:var(--card);
+}
+
+.history-tool-row{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:8px;
+  margin-top:9px;
+}
+
+.history-select{
+  margin:0;
+  min-height:42px;
+  border-radius:12px;
+  font-size:13px;
+  font-weight:750;
+  background:var(--card2);
+}
+
+.history-export{
+  min-width:108px;
+  min-height:42px;
+  border-radius:12px;
+  background:#82005E;
+  color:#fff;
+  border:0;
+  font-weight:850;
+}
+
+.history-result-line{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin:15px 2px 9px;
+}
+
+.history-result-line strong{
+  font-size:13px;
+}
+
+.history-result-line span{
+  color:var(--muted);
+  font-size:11px;
+}
+
+.history-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.history-card{
+  position:relative;
+  overflow:hidden;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:18px;
+  margin:0;
+  padding:0;
+  box-shadow:0 7px 22px rgba(26,20,35,.055);
+  transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease;
+}
+
+.history-card:hover{
+  transform:translateY(-1px);
+  box-shadow:0 10px 26px rgba(26,20,35,.09);
+}
+
+.history-card-main{
+  display:grid;
+  grid-template-columns:6px 1fr;
+}
+
+.history-accent{
+  background:linear-gradient(180deg,#82005E,#b21b83);
+}
+
+.history-card-content{
+  padding:15px 16px 14px;
+}
+
+.history-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.history-train{
+  font-size:21px;
+  line-height:1;
+  font-weight:950;
+  letter-spacing:-.025em;
+}
+
+.history-material{
+  margin-top:5px;
+  color:var(--muted);
+  font-size:12px;
+  font-weight:750;
+}
+
+.history-type{
+  flex:0 0 auto;
+  color:#82005E;
+  background:#f4e4ef;
+  border-radius:999px;
+  padding:6px 9px;
+  font-size:10px;
+  line-height:1;
+  font-weight:900;
+  text-transform:uppercase;
+}
+
+.history-route{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin-top:15px;
+  font-size:14px;
+  font-weight:850;
+}
+
+.history-station{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.history-arrow{
+  color:#82005E;
+  font-size:18px;
+  font-weight:950;
+}
+
+.history-date{
+  margin-top:5px;
+  color:var(--muted);
+  font-size:11px;
+  font-weight:650;
+}
+
+.history-tags{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+
+.history-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:6px 8px;
+  border-radius:8px;
+  background:var(--card2);
+  border:1px solid var(--line);
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.2;
+  font-weight:750;
+}
+
+.history-tag.note{
+  color:#82005E;
+  background:#f8edf4;
+  border-color:#ecd5e3;
+}
+
+.history-tag.incident{
+  color:#b3262f;
+  background:#fff0f1;
+  border-color:#f4d1d4;
+}
+
+.history-actions{
+  display:flex;
+  gap:7px;
+  margin-top:13px;
+}
+
+.history-action{
+  flex:1;
+  min-height:38px;
+  border-radius:10px;
+  font-size:12px;
+  font-weight:850;
+}
+
+.history-action.edit{
+  background:var(--card2);
+  color:var(--text);
+  border:1px solid var(--line);
+}
+
+.history-action.delete{
+  background:#fff1f2;
+  color:#c42f36;
+  border:1px solid #f3d3d6;
+}
+
+.history-expand{
+  width:100%;
+  border-top:1px solid var(--line);
+  background:transparent;
+  color:var(--accent);
+  padding:9px 12px;
+  font-size:11px;
+  font-weight:850;
+}
+
+.history-details{
+  display:none;
+  border-top:1px solid var(--line);
+  background:var(--card2);
+  padding:13px 16px 15px;
+}
+
+.history-details.show{
+  display:block;
+}
+
+.history-detail-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+}
+
+.history-detail{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:9px;
+}
+
+.history-detail label{
+  margin:0 0 3px;
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+
+.history-detail b{
+  display:block;
+  font-size:12px;
+}
+
+.history-empty{
+  text-align:center;
+  padding:34px 18px;
+  background:var(--card);
+  border:1px dashed var(--line);
+  border-radius:18px;
+  color:var(--muted);
+}
+
+.history-empty-icon{
+  width:44px;
+  height:44px;
+  margin:0 auto 10px;
+  display:grid;
+  place-items:center;
+  border-radius:13px;
+  background:var(--accentSoft);
+  color:var(--accent);
+  font-size:22px;
+  font-weight:900;
+}
+
+@media(max-width:430px){
+  .history-head{padding:22px 18px}
+  .history-head h1{font-size:31px}
+  .history-tool-row{grid-template-columns:1fr}
+  .history-export{width:100%}
+  .history-top{gap:8px}
+  .history-train{font-size:19px}
+  .history-route{font-size:13px}
+}
 
 
-  "112": {
-    "seriesName":"Serie 112",
-    "fabricante":"Talgo-Bombardier",
-    "numeroCoches":"12 remolques Talgo + 2 cabezas tractoras",
-    "anoPuestaServicio":"2009",
-    "tipoMaterial":"AVE / Alta Velocidad",
-    "anchoVia":"1435 mm",
-    "numeroRamas":30,
-    "modelo":"Talgo 350",
-    "apodo":"Pato",
-    "velocidadMaxima":"330 km/h homologada",
-    "potencia":"8.000 kW",
-    "longitud":"200 m",
-    "peso":"332 t en vacío / 357 t cargado",
-    "tension":"25 kV / 50 Hz",
-    "señalizacion":"ERTMS, LZB-STM y ASFA",
-    "traccion":"2 cabezas tractoras Bombardier · 8 motores asíncronos trifásicos",
-    "composicion":"Motriz + 12 remolques Talgo + motriz",
-    "capacidad":"348 plazas",
-    "plazasSentadas":"348",
-    "numeroUnidades":"30 composiciones",
-    "generalNotes":[
-      "La serie 112 es una evolución de la serie 102 Talgo 350, fabricada por Talgo y Bombardier para los servicios de Alta Velocidad de Renfe.",
-      "Está formada por 30 composiciones, cada una con dos cabezas tractoras y doce remolques Talgo articulados.",
-      "La principal diferencia respecto a la serie 102 es el aumento de capacidad hasta 348 plazas mediante una nueva distribución interior.",
-      "La potencia total es de 8.000 kW, con ocho motores de tracción asíncronos trifásicos y alimentación a 25 kV / 50 Hz.",
-      "La velocidad máxima homologada es de 330 km/h; el diseño del Talgo 350 está preparado para velocidades de hasta 350 km/h.",
-      "La composición tiene aproximadamente 200 metros de longitud y emplea el sistema de rodadura propio de Talgo.",
-      "Los trenes disponen de cafetería y de tomas de corriente en los asientos.",
-      "Renfe transformó cinco composiciones de la serie 112 para el servicio Avlo, con configuración de clase única y 438 plazas.",
-      "Las 30 unidades fueron fabricadas en el periodo 2009-2010, con participación de los talleres de Renfe Integria en Los Prados (Málaga)."
-    ],
-    "units": {
-      "1": {
-        "rama": "1",
-        "numero": "9-112-001-3",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-001-3",
-        "motorPar": "9-112-002-1",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2008,
-        "ancho": "1435",
-        "notas": ["En pruebas 2008.", "Descarrilo de un rodal/coche 7 en Brazatortas, 12/05/17.", "Nuevos logos AVE 03/23.", "Vinilos #TotsAlValencia 2024.", "Vinilos 84ª Feria del Libro de Madrid 05/25.", "Ex-Málaga.", "Descarrilo en Fuencarral 31/12/25."]
-      },
-      "2": {
-        "rama": "1",
-        "numero": "9-112-002-1",
-        "motorTipo": "par",
-        "motorImpar": "9-112-001-3",
-        "motorPar": "9-112-002-1",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2008,
-        "ancho": "1435",
-        "notas": ["En pruebas 2008.", "Descarrilo de un rodal/coche 7 en Brazatortas, 12/05/17.", "Nuevos logos AVE 03/23.", "Vinilos #TotsAlValencia 2024.", "Vinilos 84ª Feria del Libro de Madrid 05/25.", "Ex-Málaga.", "Descarrilo en Fuencarral 31/12/25."]
-      },
-      "3": {
-        "rama": "2",
-        "numero": "9-112-003-9",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-003-9",
-        "motorPar": "9-112-004-7",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2008,
-        "ancho": "1435",
-        "notas": ["En pruebas 2009.", "Nuevos logos AVE.", "Ex-Santa Catalina."]
-      },
-      "4": {
-        "rama": "2",
-        "numero": "9-112-004-7",
-        "motorTipo": "par",
-        "motorImpar": "9-112-003-9",
-        "motorPar": "9-112-004-7",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2008,
-        "ancho": "1435",
-        "notas": ["En pruebas 2009.", "Nuevos logos AVE.", "Ex-Santa Catalina."]
-      },
-      "5": {
-        "rama": "3",
-        "numero": "9-112-005-4",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-005-4",
-        "motorPar": "9-112-006-2",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["En pruebas 2009.", "Nuevo logo AVE.", "Ex-Santa Catalina."]
-      },
-      "6": {
-        "rama": "3",
-        "numero": "9-112-006-2",
-        "motorTipo": "par",
-        "motorImpar": "9-112-005-4",
-        "motorPar": "9-112-006-2",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["En pruebas 2009.", "Nuevo logo AVE.", "Ex-Santa Catalina."]
-      },
-      "7": {
-        "rama": "4",
-        "numero": "9-112-007-0",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-007-0",
-        "motorPar": "9-112-008-8",
-        "deposito": "Málaga",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["En pruebas 2009.", "Línea AV Madrid-León 2015.", "Ex-Fuencarral.", "Servicio Avlo desde 03/23.", "Interiorismo de AVE."]
-      },
-      "8": {
-        "rama": "4",
-        "numero": "9-112-008-8",
-        "motorTipo": "par",
-        "motorImpar": "9-112-007-0",
-        "motorPar": "9-112-008-8",
-        "deposito": "Málaga",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["En pruebas 2009.", "Línea AV Madrid-León 2015.", "Ex-Fuencarral.", "Servicio Avlo desde 03/23.", "Interiorismo de AVE."]
-      },
-      "9": {
-        "rama": "5",
-        "numero": "9-112-009-6",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-009-6",
-        "motorPar": "9-112-010-4",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["En pruebas 2009.", "Vinilos Feria del Libro de Madrid 05/24.", "Ex-Santa Catalina."]
-      },
-      "10": {
-        "rama": "5",
-        "numero": "9-112-010-4",
-        "motorTipo": "par",
-        "motorImpar": "9-112-009-6",
-        "motorPar": "9-112-010-4",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["En pruebas 2009.", "Vinilos Feria del Libro de Madrid 05/24.", "Ex-Santa Catalina."]
-      },
-      "11": {
-        "rama": "6",
-        "numero": "9-112-011-2",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-011-2",
-        "motorPar": "9-112-012-0",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["En pruebas 2009.", "Ex-Santa Catalina."]
-      },
-      "12": {
-        "rama": "6",
-        "numero": "9-112-012-0",
-        "motorTipo": "par",
-        "motorImpar": "9-112-011-2",
-        "motorPar": "9-112-012-0",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["En pruebas 2009.", "Ex-Santa Catalina."]
-      },
-      "13": {
-        "rama": "7",
-        "numero": "9-112-013-8",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-013-8",
-        "motorPar": "9-112-014-6",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["En pruebas 2009; en servicio desde 04/10.", "Nuevo logo AVE.", "Ex-Santa Catalina."]
-      },
-      "14": {
-        "rama": "7",
-        "numero": "9-112-014-6",
-        "motorTipo": "par",
-        "motorImpar": "9-112-013-8",
-        "motorPar": "9-112-014-6",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["En pruebas 2009; en servicio desde 04/10.", "Nuevo logo AVE.", "Ex-Santa Catalina."]
-      },
-      "15": {
-        "rama": "8",
-        "numero": "9-112-015-3",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-015-3",
-        "motorPar": "9-112-016-1",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Pruebas ERTMS N2 en LAV Palencia-León y antena Wi-Fi.", "Ex-Fuencarral → Santa Catalina.", "Nuevo logo AVE."]
-      },
-      "16": {
-        "rama": "8",
-        "numero": "9-112-016-1",
-        "motorTipo": "par",
-        "motorImpar": "9-112-015-3",
-        "motorPar": "9-112-016-1",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Pruebas ERTMS N2 en LAV Palencia-León y antena Wi-Fi.", "Ex-Fuencarral → Santa Catalina.", "Nuevo logo AVE."]
-      },
-      "17": {
-        "rama": "9",
-        "numero": "9-112-017-9",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-017-9",
-        "motorPar": "9-112-018-7",
-        "deposito": "Málaga",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Vinilos AVLO de 03/23 a 11/24.", "Interiorismo AVE.", "Ex-Santa Catalina."]
-      },
-      "18": {
-        "rama": "9",
-        "numero": "9-112-018-7",
-        "motorTipo": "par",
-        "motorImpar": "9-112-017-9",
-        "motorPar": "9-112-018-7",
-        "deposito": "Málaga",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Vinilos AVLO de 03/23 a 11/24.", "Interiorismo AVE.", "Ex-Santa Catalina."]
-      },
-      "19": {
-        "rama": "10",
-        "numero": "9-112-019-5",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-019-5",
-        "motorPar": "9-112-020-3",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["En pruebas 2009.", "Pruebas LAV Galicia 08/21.", "Vinilos bandera de España 11/10/24."]
-      },
-      "20": {
-        "rama": "10",
-        "numero": "9-112-020-3",
-        "motorTipo": "par",
-        "motorImpar": "9-112-019-5",
-        "motorPar": "9-112-020-3",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["En pruebas 2009.", "Pruebas LAV Galicia 08/21.", "Vinilos bandera de España 11/10/24."]
-      },
-      "21": {
-        "rama": "11",
-        "numero": "9-112-021-1",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-021-1",
-        "motorPar": "9-112-022-9",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Ex-Santa Catalina."]
-      },
-      "22": {
-        "rama": "11",
-        "numero": "9-112-022-9",
-        "motorTipo": "par",
-        "motorImpar": "9-112-021-1",
-        "motorPar": "9-112-022-9",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Ex-Santa Catalina."]
-      },
-      "23": {
-        "rama": "12",
-        "numero": "9-112-023-7",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-023-7",
-        "motorPar": "9-112-024-5",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Ex-Santa Catalina."]
-      },
-      "24": {
-        "rama": "12",
-        "numero": "9-112-024-5",
-        "motorTipo": "par",
-        "motorImpar": "9-112-023-7",
-        "motorPar": "9-112-024-5",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Ex-Santa Catalina."]
-      },
-      "25": {
-        "rama": "13",
-        "numero": "9-112-025-2",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-025-2",
-        "motorPar": "9-112-026-0",
-        "deposito": "Málaga",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Vinilos AVLO provisionales, con interior AVE en 02/22.", "Ex-Santa Catalina."]
-      },
-      "26": {
-        "rama": "13",
-        "numero": "9-112-026-0",
-        "motorTipo": "par",
-        "motorImpar": "9-112-025-2",
-        "motorPar": "9-112-026-0",
-        "deposito": "Málaga",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Vinilos AVLO provisionales, con interior AVE en 02/22.", "Ex-Santa Catalina."]
-      },
-      "27": {
-        "rama": "14",
-        "numero": "9-112-027-8",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-027-8",
-        "motorPar": "9-112-028-6",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Nuevos logos AVE.", "Descarrilo por desprendimiento en Álora, 29/10/24.", "Ex-Santa Catalina.", "Vinilos LGTBQ+ 06/26."]
-      },
-      "28": {
-        "rama": "14",
-        "numero": "9-112-028-6",
-        "motorTipo": "par",
-        "motorImpar": "9-112-027-8",
-        "motorPar": "9-112-028-6",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Nuevos logos AVE.", "Descarrilo por desprendimiento en Álora, 29/10/24.", "Ex-Santa Catalina.", "Vinilos LGTBQ+ 06/26."]
-      },
-      "29": {
-        "rama": "15",
-        "numero": "9-112-029-4",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-029-4",
-        "motorPar": "9-112-030-2",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Ex-Santa Catalina → Fuencarral desde 08/22."]
-      },
-      "30": {
-        "rama": "15",
-        "numero": "9-112-030-2",
-        "motorTipo": "par",
-        "motorImpar": "9-112-029-4",
-        "motorPar": "9-112-030-2",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Ex-Santa Catalina → Fuencarral desde 08/22."]
-      },
-      "31": {
-        "rama": "16",
-        "numero": "9-112-031-0",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-031-0",
-        "motorPar": "9-112-032-8",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Ex-Santa Catalina."]
-      },
-      "32": {
-        "rama": "16",
-        "numero": "9-112-032-8",
-        "motorTipo": "par",
-        "motorImpar": "9-112-031-0",
-        "motorPar": "9-112-032-8",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Ex-Santa Catalina."]
-      },
-      "33": {
-        "rama": "17",
-        "numero": "9-112-033-6",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-033-6",
-        "motorPar": "9-112-034-4",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Vinilo 10 años AVE Madrid-Valencia."]
-      },
-      "34": {
-        "rama": "17",
-        "numero": "9-112-034-4",
-        "motorTipo": "par",
-        "motorImpar": "9-112-033-6",
-        "motorPar": "9-112-034-4",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Vinilo 10 años AVE Madrid-Valencia."]
-      },
-      "35": {
-        "rama": "18",
-        "numero": "9-112-035-1",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-035-1",
-        "motorPar": "9-112-036-9",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Logos 75 años Renfe.", "Tuvo vinilos en puertas APP Renfe.", "Vinilo 'Barcelona estrena Navidad, ¿vendrás?' en 2021.", "Nuevo logo AVE."]
-      },
-      "36": {
-        "rama": "18",
-        "numero": "9-112-036-9",
-        "motorTipo": "par",
-        "motorImpar": "9-112-035-1",
-        "motorPar": "9-112-036-9",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Logos 75 años Renfe.", "Tuvo vinilos en puertas APP Renfe.", "Vinilo 'Barcelona estrena Navidad, ¿vendrás?' en 2021.", "Nuevo logo AVE."]
-      },
-      "37": {
-        "rama": "19",
-        "numero": "9-112-037-7",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-037-7",
-        "motorPar": "9-112-038-5",
-        "deposito": "Málaga",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Ex-Cerro Negro → Fuencarral 2015 para Madrid-León.", "En reforma AVLO desde 03/02/20.", "Estreno servicio AVLO 23/06/21."]
-      },
-      "38": {
-        "rama": "19",
-        "numero": "9-112-038-5",
-        "motorTipo": "par",
-        "motorImpar": "9-112-037-7",
-        "motorPar": "9-112-038-5",
-        "deposito": "Málaga",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Ex-Cerro Negro → Fuencarral 2015 para Madrid-León.", "En reforma AVLO desde 03/02/20.", "Estreno servicio AVLO 23/06/21."]
-      },
-      "39": {
-        "rama": "20",
-        "numero": "9-112-039-3",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-039-3",
-        "motorPar": "9-112-040-1",
-        "deposito": "Málaga",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["En preparación en La Sagra para AVLO, 09/19.", "Presentación como AVLO, 11/12/19."]
-      },
-      "40": {
-        "rama": "20",
-        "numero": "9-112-040-1",
-        "motorTipo": "par",
-        "motorImpar": "9-112-039-3",
-        "motorPar": "9-112-040-1",
-        "deposito": "Málaga",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["En preparación en La Sagra para AVLO, 09/19.", "Presentación como AVLO, 11/12/19."]
-      },
-      "41": {
-        "rama": "21",
-        "numero": "9-112-041-9",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-041-9",
-        "motorPar": "9-112-042-7",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Ex-Santa Catalina → Fuencarral.", "Servicio AVLO (Morado) de 02/22 a 10/25."]
-      },
-      "42": {
-        "rama": "21",
-        "numero": "9-112-042-7",
-        "motorTipo": "par",
-        "motorImpar": "9-112-041-9",
-        "motorPar": "9-112-042-7",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Ex-Santa Catalina → Fuencarral.", "Servicio AVLO (Morado) de 02/22 a 10/25."]
-      },
-      "43": {
-        "rama": "22",
-        "numero": "9-112-043-5",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-043-5",
-        "motorPar": "9-112-044-3",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["25/06/19: tren inaugural AVE Madrid-Granada.", "Ex-Santa Catalina."]
-      },
-      "44": {
-        "rama": "22",
-        "numero": "9-112-044-3",
-        "motorTipo": "par",
-        "motorImpar": "9-112-043-5",
-        "motorPar": "9-112-044-3",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["25/06/19: tren inaugural AVE Madrid-Granada.", "Ex-Santa Catalina."]
-      },
-      "45": {
-        "rama": "23",
-        "numero": "9-112-045-0",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-045-0",
-        "motorPar": "9-112-046-8",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Nuevo logo AVE.", "Vinilos Sorolla 08/23.", "Ex-Santa Catalina."]
-      },
-      "46": {
-        "rama": "23",
-        "numero": "9-112-046-8",
-        "motorTipo": "par",
-        "motorImpar": "9-112-045-0",
-        "motorPar": "9-112-046-8",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Nuevo logo AVE.", "Vinilos Sorolla 08/23.", "Ex-Santa Catalina."]
-      },
-      "47": {
-        "rama": "24",
-        "numero": "9-112-047-6",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-047-6",
-        "motorPar": "9-112-048-4",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Ex-Málaga."]
-      },
-      "48": {
-        "rama": "24",
-        "numero": "9-112-048-4",
-        "motorTipo": "par",
-        "motorImpar": "9-112-047-6",
-        "motorPar": "9-112-048-4",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Ex-Málaga."]
-      },
-      "49": {
-        "rama": "25",
-        "numero": "9-112-049-2",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-049-2",
-        "motorPar": "9-112-050-0",
-        "deposito": "Málaga",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Logos 75 años Renfe.", "Ex-Santa Catalina.", "08/02/20: accidentada por invasión de vehículo en Villarrubia de Santiago.", "Transformación AVLO desde 21/03/20."]
-      },
-      "50": {
-        "rama": "25",
-        "numero": "9-112-050-0",
-        "motorTipo": "par",
-        "motorImpar": "9-112-049-2",
-        "motorPar": "9-112-050-0",
-        "deposito": "Málaga",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Logos 75 años Renfe.", "Ex-Santa Catalina.", "08/02/20: accidentada por invasión de vehículo en Villarrubia de Santiago.", "Transformación AVLO desde 21/03/20."]
-      },
-      "51": {
-        "rama": "26",
-        "numero": "9-112-051-8",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-051-8",
-        "motorPar": "9-112-052-6",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Nuevo logo AVE.", "Ex-Málaga."]
-      },
-      "52": {
-        "rama": "26",
-        "numero": "9-112-052-6",
-        "motorTipo": "par",
-        "motorImpar": "9-112-051-8",
-        "motorPar": "9-112-052-6",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Nuevo logo AVE.", "Ex-Málaga."]
-      },
-      "53": {
-        "rama": "27",
-        "numero": "9-112-053-4",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-053-4",
-        "motorPar": "9-112-054-2",
-        "deposito": "Málaga",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Tuvo vinilos Caballo Ganador.", "Transformación AVLO desde 09/03/20."]
-      },
-      "54": {
-        "rama": "27",
-        "numero": "9-112-054-2",
-        "motorTipo": "par",
-        "motorImpar": "9-112-053-4",
-        "motorPar": "9-112-054-2",
-        "deposito": "Málaga",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Tuvo vinilos Caballo Ganador.", "Transformación AVLO desde 09/03/20."]
-      },
-      "55": {
-        "rama": "28",
-        "numero": "9-112-055-9",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-055-9",
-        "motorPar": "9-112-056-7",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["—"]
-      },
-      "56": {
-        "rama": "28",
-        "numero": "9-112-056-7",
-        "motorTipo": "par",
-        "motorImpar": "9-112-055-9",
-        "motorPar": "9-112-056-7",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["—"]
-      },
-      "57": {
-        "rama": "29",
-        "numero": "9-112-057-5",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-057-5",
-        "motorPar": "9-112-058-3",
-        "deposito": "Málaga",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Transformación AVLO desde 09/03/20."]
-      },
-      "58": {
-        "rama": "29",
-        "numero": "9-112-058-3",
-        "motorTipo": "par",
-        "motorImpar": "9-112-057-5",
-        "motorPar": "9-112-058-3",
-        "deposito": "Málaga",
-        "color": "Morado",
-        "servicio": "AVLO",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Transformación AVLO desde 09/03/20."]
-      },
-      "59": {
-        "rama": "30",
-        "numero": "9-112-059-1",
-        "motorTipo": "impar",
-        "motorImpar": "9-112-059-1",
-        "motorPar": "9-112-060-9",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Ex-Málaga → Fuencarral 2020.", "Pruebas LAV Galicia 08/21.", "Nuevos logos Renfe AVE 07/22."]
-      },
-      "60": {
-        "rama": "30",
-        "numero": "9-112-060-9",
-        "motorTipo": "par",
-        "motorImpar": "9-112-059-1",
-        "motorPar": "9-112-060-9",
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "servicio": "AVE",
-        "ano": 2009,
-        "ancho": "1435",
-        "notas": ["Ex-Málaga → Fuencarral 2020.", "Pruebas LAV Galicia 08/21.", "Nuevos logos Renfe AVE 07/22."]
-      }
-    }
-  },
-  "449": {
-    "seriesName": "Serie 449",
-    "fabricante": "CAF",
-    "apodo": "Besugo",
-    "anoPuestaServicio": "2009",
-    "tipoMaterial": "Media Distancia",
-    "numeroCoches": "5 coches · 2 coches motor + 3 remolques",
-    "anchoVia": "1668 mm",
-    "numeroRamas": 57,
-    "velocidadMaxima": "160 km/h (3 kV c.c.)",
-    "potencia": "2.400 kW",
-    "longitud": "98.970 mm",
-    "peso": "172 t en tara",
-    "tension": "3.000 V c.c.",
-    "traccion": "6 motores eléctricos asíncronos · 400 kW por motor",
-    "señalizacion": "ASFA Digital · GSM-R · Tren-Tierra",
-    "composicion": "A1-A4-A3-A5-A2",
-    "capacidad": "260 plazas sentadas + 1 PMR",
-    "plazasSentadas": "260 + 1 PMR",
-    "numeroUnidades": "57 automotores eléctricos",
-    "generalNotes": [
-      "Automotores eléctricos de Media Distancia fabricados por CAF para servicios regionales en líneas electrificadas.",
-      "La serie está formada por 57 unidades de cinco coches con bogies compartidos y mando múltiple, pudiendo acoplarse hasta tres unidades (15 coches).",
-      "La composición mínima es A1-A4-A3-A5-A2. El coche intermedio A3 dispone de piso bajo y está adaptado para personas con movilidad reducida.",
-      "La alimentación es de 3.000 V c.c. y el ancho de vía de 1.668 mm. Las unidades incorporaron preinstalación para una posible adaptación a ancho UIC.",
-      "La velocidad máxima es de 160 km/h y la potencia total instalada de tracción es de 2.400 kW, mediante seis motores eléctricos de 400 kW.",
-      "La unidad dispone de 260 plazas sentadas más una plaza PMR, en clase única, además de espacio para bicicletas y servicios adaptados.",
-      "El contrato original contempló 23 unidades exclusivamente de ancho ibérico y otras 34 preparadas para ancho UIC; finalmente las 57 unidades quedaron configuradas de forma homogénea para ancho ibérico.",
-      "La serie 449 es una adaptación para Media Distancia de la plataforma Civia y comparte elementos de diseño y motorización con ella."
-    ],
-    "units": {
-      "1": {
-        "rama": "01",
-        "vehiculoBase": "001",
-        "numero": "9-449-001-7",
-        "vehiculosRama": [
-          "9-449-001-7",
-          "6-449-701-2",
-          "6-449-001-7",
-          "6-449-501-6",
-          "9-449-501-6"
-        ],
-        "remolquesRama": ["449-001", "449-701", "449-501"],
-        "searchCodes": [
-          "001",
-          "701",
-          "001",
-          "501",
-          "501"
-        ],
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "14/07/2009",
-        "ano": 2008,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "En pruebas desde 29/09/08."
-        ]
-      },
-      "2": {
-        "rama": "02",
-        "vehiculoBase": "002",
-        "numero": "9-449-002-5",
-        "vehiculosRama": [
-          "9-449-002-5",
-          "6-449-702-0",
-          "6-449-002-5",
-          "6-449-502-4",
-          "9-449-502-4"
-        ],
-        "remolquesRama": ["449-002", "449-702", "449-502"],
-        "searchCodes": [
-          "002",
-          "702",
-          "002",
-          "502",
-          "502"
-        ],
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "16/07/2009",
-        "ano": 2008,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "En pruebas desde 10/08. Ex-León"
-        ]
-      },
-      "3": {
-        "rama": "03",
-        "vehiculoBase": "003",
-        "numero": "9-449-003-3",
-        "vehiculosRama": [
-          "9-449-003-3",
-          "6-449-703-8",
-          "6-449-003-3",
-          "6-449-503-2",
-          "9-449-503-2"
-        ],
-        "remolquesRama": ["449-003", "449-703", "449-503"],
-        "searchCodes": [
-          "003",
-          "703",
-          "003",
-          "503",
-          "503"
-        ],
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2008,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "En pruebas desde 20/04/09."
-        ]
-      },
-      "4": {
-        "rama": "04",
-        "vehiculoBase": "004",
-        "numero": "9-449-004-1",
-        "vehiculosRama": [
-          "9-449-004-1",
-          "6-449-704-6",
-          "6-449-004-1",
-          "6-449-504-0",
-          "9-449-504-0"
-        ],
-        "remolquesRama": ["449-004", "449-704", "449-504"],
-        "searchCodes": [
-          "004",
-          "704",
-          "004",
-          "504",
-          "504"
-        ],
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "14/07/2009",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "-"
-        ]
-      },
-      "5": {
-        "rama": "05",
-        "vehiculoBase": "005",
-        "numero": "9-449-005-8",
-        "vehiculosRama": [
-          "9-449-005-8",
-          "6-449-705-3",
-          "6-449-005-8",
-          "6-449-505-7",
-          "9-449-505-7"
-        ],
-        "remolquesRama": ["449-005", "449-705", "449-505"],
-        "searchCodes": [
-          "005",
-          "705",
-          "005",
-          "505",
-          "505"
-        ],
-        "deposito": "Sevilla",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "14/07/2009",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Ex-Fuencarral"
-        ]
-      },
-      "6": {
-        "rama": "06",
-        "vehiculoBase": "006",
-        "numero": "9-449-006-6",
-        "vehiculosRama": [
-          "9-449-006-6",
-          "6-449-706-1",
-          "6-449-006-6",
-          "6-449-506-5",
-          "9-449-506-5"
-        ],
-        "remolquesRama": ["449-006", "449-706", "449-506"],
-        "searchCodes": [
-          "006",
-          "706",
-          "006",
-          "506",
-          "506"
-        ],
-        "deposito": "León",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "16/07/2009",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Logos 75 años Renfe."
-        ]
-      },
-      "7": {
-        "rama": "07",
-        "vehiculoBase": "007",
-        "numero": "9-449-007-4",
-        "vehiculosRama": [
-          "9-449-007-4",
-          "6-449-707-9",
-          "6-449-007-4",
-          "6-449-507-3",
-          "9-449-507-3"
-        ],
-        "remolquesRama": ["449-007", "449-707", "449-507"],
-        "searchCodes": [
-          "007",
-          "707",
-          "007",
-          "507",
-          "507"
-        ],
-        "deposito": "Sevilla",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "-"
-        ]
-      },
-      "8": {
-        "rama": "08",
-        "vehiculoBase": "008",
-        "numero": "9-449-008-2",
-        "vehiculosRama": [
-          "9-449-008-2",
-          "6-449-708-7",
-          "6-449-008-2",
-          "6-449-508-1",
-          "9-449-508-1"
-        ],
-        "remolquesRama": ["449-008", "449-708", "449-508"],
-        "searchCodes": [
-          "008",
-          "708",
-          "008",
-          "508",
-          "508"
-        ],
-        "deposito": "Sevilla",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Ex-Fuencarral"
-        ]
-      },
-      "9": {
-        "rama": "09",
-        "vehiculoBase": "009",
-        "numero": "9-449-009-0",
-        "vehiculosRama": [
-          "9-449-009-0",
-          "6-449-709-5",
-          "6-449-009-0",
-          "6-449-509-9",
-          "9-449-509-9"
-        ],
-        "remolquesRama": ["449-009", "449-709", "449-509"],
-        "searchCodes": [
-          "009",
-          "709",
-          "009",
-          "509",
-          "509"
-        ],
-        "deposito": "León",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "16/07/2009",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "1ª Unidad en hacer el trayecto Vigo-León"
-        ]
-      },
-      "10": {
-        "rama": "10",
-        "vehiculoBase": "010",
-        "numero": "9-449-010-8",
-        "vehiculosRama": [
-          "9-449-010-8",
-          "6-449-710-3",
-          "6-449-010-8",
-          "6-449-510-7",
-          "9-449-510-7"
-        ],
-        "remolquesRama": ["449-010", "449-710", "449-510"],
-        "searchCodes": [
-          "010",
-          "710",
-          "010",
-          "510",
-          "510"
-        ],
-        "deposito": "Sevilla",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "-"
-        ]
-      },
-      "11": {
-        "rama": "11",
-        "vehiculoBase": "011",
-        "numero": "9-449-011-6",
-        "vehiculosRama": [
-          "9-449-011-6",
-          "6-449-711-1",
-          "6-449-011-6",
-          "6-449-511-5",
-          "9-449-511-5"
-        ],
-        "remolquesRama": ["449-011", "449-711", "449-511"],
-        "searchCodes": [
-          "011",
-          "711",
-          "011",
-          "511",
-          "511"
-        ],
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "14/07/2009",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "-"
-        ]
-      },
-      "12": {
-        "rama": "12",
-        "vehiculoBase": "012",
-        "numero": "9-449-012-4",
-        "vehiculosRama": [
-          "9-449-012-4",
-          "6-449-712-9",
-          "6-449-012-4",
-          "6-449-512-3",
-          "9-449-512-3"
-        ],
-        "remolquesRama": ["449-012", "449-712", "449-512"],
-        "searchCodes": [
-          "012",
-          "712",
-          "012",
-          "512",
-          "512"
-        ],
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "14/07/2009",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Ex-Fuencarral>>Valencia"
-        ]
-      },
-      "13": {
-        "rama": "13",
-        "vehiculoBase": "013",
-        "numero": "9-449-013-2",
-        "vehiculosRama": [
-          "9-449-013-2",
-          "6-449-713-7",
-          "6-449-013-2",
-          "6-449-513-1",
-          "9-449-513-1"
-        ],
-        "remolquesRama": ["449-013", "449-713", "449-513"],
-        "searchCodes": [
-          "013",
-          "713",
-          "013",
-          "513",
-          "513"
-        ],
-        "deposito": "Sevilla",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Logos Junta Andalucía."
-        ]
-      },
-      "14": {
-        "rama": "14",
-        "vehiculoBase": "014",
-        "numero": "9-449-014-0",
-        "vehiculosRama": [
-          "9-449-014-0",
-          "6-449-714-5",
-          "6-449-014-0",
-          "6-449-514-9",
-          "9-449-514-9"
-        ],
-        "remolquesRama": ["449-014", "449-714", "449-514"],
-        "searchCodes": [
-          "014",
-          "714",
-          "014",
-          "514",
-          "514"
-        ],
-        "deposito": "BCN-SAC",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "14/07/2009",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": []
-      },
-      "15": {
-        "rama": "15",
-        "vehiculoBase": "015",
-        "numero": "9-449-015-7",
-        "vehiculosRama": [
-          "9-449-015-7",
-          "6-449-715-2",
-          "6-449-015-7",
-          "6-449-515-6",
-          "9-449-515-6"
-        ],
-        "remolquesRama": ["449-015", "449-715", "449-515"],
-        "searchCodes": [
-          "015",
-          "715",
-          "015",
-          "515",
-          "515"
-        ],
-        "deposito": "Sevilla",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "-"
-        ]
-      },
-      "16": {
-        "rama": "16",
-        "vehiculoBase": "016",
-        "numero": "9-449-016-5",
-        "vehiculosRama": [
-          "9-449-016-5",
-          "6-449-716-0",
-          "6-449-016-5",
-          "6-449-516-4",
-          "9-449-516-4"
-        ],
-        "remolquesRama": ["449-016", "449-716", "449-516"],
-        "searchCodes": [
-          "016",
-          "716",
-          "016",
-          "516",
-          "516"
-        ],
-        "deposito": "BCN-SAC",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Ex-Sevilla>> Barcelona 10/09."
-        ]
-      },
-      "17": {
-        "rama": "17",
-        "vehiculoBase": "017",
-        "numero": "9-449-017-3",
-        "vehiculosRama": [
-          "9-449-017-3",
-          "6-449-717-8",
-          "6-449-017-3",
-          "6-449-517-2",
-          "9-449-517-2"
-        ],
-        "remolquesRama": ["449-017", "449-717", "449-517"],
-        "searchCodes": [
-          "017",
-          "717",
-          "017",
-          "517",
-          "517"
-        ],
-        "deposito": "León",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "14/07/2009",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Logos Junta Andalucía. Ex-Sevilla>>Fuencarral 07/13"
-        ]
-      },
-      "18": {
-        "rama": "18",
-        "vehiculoBase": "018",
-        "numero": "9-449-018-1",
-        "vehiculosRama": [
-          "9-449-018-1",
-          "6-449-718-6",
-          "6-449-018-1",
-          "6-449-518-0",
-          "9-449-518-0"
-        ],
-        "remolquesRama": ["449-018", "449-718", "449-518"],
-        "searchCodes": [
-          "018",
-          "718",
-          "018",
-          "518",
-          "518"
-        ],
-        "deposito": "BCN-SAC",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "28/10/2009",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "-"
-        ]
-      },
-      "19": {
-        "rama": "19",
-        "vehiculoBase": "019",
-        "numero": "9-449-019-9",
-        "vehiculosRama": [
-          "9-449-019-9",
-          "6-449-719-4",
-          "6-449-019-9",
-          "6-449-519-8",
-          "9-449-519-8"
-        ],
-        "remolquesRama": ["449-019", "449-719", "449-519"],
-        "searchCodes": [
-          "019",
-          "719",
-          "019",
-          "519",
-          "519"
-        ],
-        "deposito": "Sevilla",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Apartada taller Humanes por accidente>> En servicio."
-        ]
-      },
-      "20": {
-        "rama": "20",
-        "vehiculoBase": "020",
-        "numero": "9-449-020-7",
-        "vehiculosRama": [
-          "9-449-020-7",
-          "6-449-720-2",
-          "6-449-020-7",
-          "6-449-520-6",
-          "9-449-520-6"
-        ],
-        "remolquesRama": ["449-020", "449-720", "449-520"],
-        "searchCodes": [
-          "020",
-          "720",
-          "020",
-          "520",
-          "520"
-        ],
-        "deposito": "BCN-SAC",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "-"
-        ]
-      },
-      "21": {
-        "rama": "21",
-        "vehiculoBase": "021",
-        "numero": "9-449-021-5",
-        "vehiculosRama": [
-          "9-449-021-5",
-          "6-449-721-0",
-          "6-449-021-5",
-          "6-449-521-4",
-          "9-449-521-4"
-        ],
-        "remolquesRama": ["449-021", "449-721", "449-521"],
-        "searchCodes": [
-          "021",
-          "721",
-          "021",
-          "521",
-          "521"
-        ],
-        "deposito": "Sevilla",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "-"
-        ]
-      },
-      "22": {
-        "rama": "22",
-        "vehiculoBase": "022",
-        "numero": "9-449-022-3",
-        "vehiculosRama": [
-          "9-449-022-3",
-          "6-449-722-8",
-          "6-449-022-3",
-          "6-449-522-2",
-          "9-449-522-2"
-        ],
-        "remolquesRama": ["449-022", "449-722", "449-522"],
-        "searchCodes": [
-          "022",
-          "722",
-          "022",
-          "522",
-          "522"
-        ],
-        "deposito": "BCN-SAC",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "28/10/2009",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Descarrilo haciendo maniobras en Barcelona-SAC (19/02/17)"
-        ]
-      },
-      "23": {
-        "rama": "23",
-        "vehiculoBase": "023",
-        "numero": "9-449-023-1",
-        "vehiculosRama": [
-          "9-449-023-1",
-          "6-449-723-6",
-          "6-449-023-1",
-          "6-449-523-0",
-          "9-449-523-0"
-        ],
-        "remolquesRama": ["449-023", "449-723", "449-523"],
-        "searchCodes": [
-          "023",
-          "723",
-          "023",
-          "523",
-          "523"
-        ],
-        "deposito": "BCN-SAC",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Logos 75 años Renfe."
-        ]
-      },
-      "24": {
-        "rama": "24",
-        "vehiculoBase": "024",
-        "numero": "9-449-024-9",
-        "vehiculosRama": [
-          "9-449-024-9",
-          "6-449-724-4",
-          "6-449-024-9",
-          "6-449-524-8",
-          "9-449-524-8"
-        ],
-        "remolquesRama": ["449-024", "449-724", "449-524"],
-        "searchCodes": [
-          "024",
-          "724",
-          "024",
-          "524",
-          "524"
-        ],
-        "deposito": "BCN-SAC",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": []
-      },
-      "25": {
-        "rama": "25",
-        "vehiculoBase": "025",
-        "numero": "9-449-025-6",
-        "vehiculosRama": [
-          "9-449-025-6",
-          "6-449-725-1",
-          "6-449-025-6",
-          "6-449-525-5",
-          "9-449-525-5"
-        ],
-        "remolquesRama": ["449-025", "449-725", "449-525"],
-        "searchCodes": [
-          "025",
-          "725",
-          "025",
-          "525",
-          "525"
-        ],
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Accidente en PN entre Bolaños y Almagro (Ciudad Real), 16/11/17. Apartado Fuencarral>> En servicio 12/18."
-        ]
-      },
-      "26": {
-        "rama": "26",
-        "vehiculoBase": "026",
-        "numero": "9-449-026-4",
-        "vehiculosRama": [
-          "9-449-026-4",
-          "6-449-726-9",
-          "6-449-026-4",
-          "6-449-526-3",
-          "9-449-526-3"
-        ],
-        "remolquesRama": ["449-026", "449-726", "449-526"],
-        "searchCodes": [
-          "026",
-          "726",
-          "026",
-          "526",
-          "526"
-        ],
-        "deposito": "BCN-SAC",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "-"
-        ]
-      },
-      "27": {
-        "rama": "27",
-        "vehiculoBase": "027",
-        "numero": "9-449-027-2",
-        "vehiculosRama": [
-          "9-449-027-2",
-          "6-449-727-7",
-          "6-449-027-2",
-          "6-449-527-1",
-          "9-449-527-1"
-        ],
-        "remolquesRama": ["449-027", "449-727", "449-527"],
-        "searchCodes": [
-          "027",
-          "727",
-          "027",
-          "527",
-          "527"
-        ],
-        "deposito": "BCN-SAC",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "-"
-        ]
-      },
-      "28": {
-        "rama": "28",
-        "vehiculoBase": "028",
-        "numero": "9-449-028-0",
-        "vehiculosRama": [
-          "9-449-028-0",
-          "6-449-728-5",
-          "6-449-028-0",
-          "6-449-528-9",
-          "9-449-528-9"
-        ],
-        "remolquesRama": ["449-028", "449-728", "449-528"],
-        "searchCodes": [
-          "028",
-          "728",
-          "028",
-          "528",
-          "528"
-        ],
-        "deposito": "BCN-SAC",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Ex-BCN SAC>> Valencia, desde 05/13>>>Bcn SAC."
-        ]
-      },
-      "29": {
-        "rama": "29",
-        "vehiculoBase": "029",
-        "numero": "9-449-029-8",
-        "vehiculosRama": [
-          "9-449-029-8",
-          "6-449-729-3",
-          "6-449-029-8",
-          "6-449-529-7",
-          "9-449-529-7"
-        ],
-        "remolquesRama": ["449-029", "449-729", "449-529"],
-        "searchCodes": [
-          "029",
-          "729",
-          "029",
-          "529",
-          "529"
-        ],
-        "deposito": "BCN-SAC",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Nuevo tapizado de asientos con piel sintética (2022)"
-        ]
-      },
-      "30": {
-        "rama": "30",
-        "vehiculoBase": "030",
-        "numero": "9-449-030-6",
-        "vehiculosRama": [
-          "9-449-030-6",
-          "6-449-730-1",
-          "6-449-030-6",
-          "6-449-530-5",
-          "9-449-530-5"
-        ],
-        "remolquesRama": ["449-030", "449-730", "449-530"],
-        "searchCodes": [
-          "030",
-          "730",
-          "030",
-          "530",
-          "530"
-        ],
-        "deposito": "BCN-SAC",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Ex-BCN SAC>> Valencia, desde 05/13. Logos 75 años Renfe.>> BCN-SAC."
-        ]
-      },
-      "31": {
-        "rama": "31",
-        "vehiculoBase": "031",
-        "numero": "9-449-031-4",
-        "vehiculosRama": [
-          "9-449-031-4",
-          "6-449-731-9",
-          "6-449-031-4",
-          "6-449-531-3",
-          "9-449-531-3"
-        ],
-        "remolquesRama": ["449-031", "449-731", "449-531"],
-        "searchCodes": [
-          "031",
-          "731",
-          "031",
-          "531",
-          "531"
-        ],
-        "deposito": "BCN-SAC",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Logos 75 años Renfe."
-        ]
-      },
-      "32": {
-        "rama": "32",
-        "vehiculoBase": "032",
-        "numero": "9-449-032-2",
-        "vehiculosRama": [
-          "9-449-032-2",
-          "6-449-732-7",
-          "6-449-032-2",
-          "6-449-532-1",
-          "9-449-532-1"
-        ],
-        "remolquesRama": ["449-032", "449-732", "449-532"],
-        "searchCodes": [
-          "032",
-          "732",
-          "032",
-          "532",
-          "532"
-        ],
-        "deposito": "BCN-SAC",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "-"
-        ]
-      },
-      "33": {
-        "rama": "33",
-        "vehiculoBase": "033",
-        "numero": "9-449-033-0",
-        "vehiculosRama": [
-          "9-449-033-0",
-          "6-449-733-5",
-          "6-449-033-0",
-          "6-449-533-9",
-          "9-449-533-9"
-        ],
-        "remolquesRama": ["449-033", "449-733", "449-533"],
-        "searchCodes": [
-          "033",
-          "733",
-          "033",
-          "533",
-          "533"
-        ],
-        "deposito": "BCN-SAC",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": []
-      },
-      "34": {
-        "rama": "34",
-        "vehiculoBase": "034",
-        "numero": "9-449-034-8",
-        "vehiculosRama": [
-          "9-449-034-8",
-          "6-449-734-3",
-          "6-449-034-8",
-          "6-449-534-7",
-          "9-449-534-7"
-        ],
-        "remolquesRama": ["449-034", "449-734", "449-534"],
-        "searchCodes": [
-          "034",
-          "734",
-          "034",
-          "534",
-          "534"
-        ],
-        "deposito": "BCN-SAC",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": []
-      },
-      "35": {
-        "rama": "35",
-        "vehiculoBase": "035",
-        "numero": "9-449-035-5",
-        "vehiculosRama": [
-          "9-449-035-5",
-          "6-449-735-0",
-          "6-449-035-5",
-          "6-449-535-4",
-          "9-449-535-4"
-        ],
-        "remolquesRama": ["449-035", "449-735", "449-535"],
-        "searchCodes": [
-          "035",
-          "735",
-          "035",
-          "535",
-          "535"
-        ],
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": []
-      },
-      "36": {
-        "rama": "36",
-        "vehiculoBase": "036",
-        "numero": "9-449-036-3",
-        "vehiculosRama": [
-          "9-449-036-3",
-          "6-449-736-8",
-          "6-449-036-3",
-          "6-449-536-2",
-          "9-449-536-2"
-        ],
-        "remolquesRama": ["449-036", "449-736", "449-536"],
-        "searchCodes": [
-          "036",
-          "736",
-          "036",
-          "536",
-          "536"
-        ],
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Ex-BCN-SAC"
-        ]
-      },
-      "37": {
-        "rama": "37",
-        "vehiculoBase": "037",
-        "numero": "9-449-037-1",
-        "vehiculosRama": [
-          "9-449-037-1",
-          "6-449-737-6",
-          "6-449-037-1",
-          "6-449-537-0",
-          "9-449-537-0"
-        ],
-        "remolquesRama": ["449-037", "449-737", "449-537"],
-        "searchCodes": [
-          "037",
-          "737",
-          "037",
-          "537",
-          "537"
-        ],
-        "deposito": "León",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Logos Junta Andalucía>>Sin logos. Ex-Sevilla>>Fuencarral. Descarrilo Robledo Chavela tras tormenta, 17/09/20"
-        ]
-      },
-      "38": {
-        "rama": "38",
-        "vehiculoBase": "038",
-        "numero": "9-449-038-9",
-        "vehiculosRama": [
-          "9-449-038-9",
-          "6-449-738-4",
-          "6-449-038-9",
-          "6-449-538-8",
-          "9-449-538-8"
-        ],
-        "remolquesRama": ["449-038", "449-738", "449-538"],
-        "searchCodes": [
-          "038",
-          "738",
-          "038",
-          "538",
-          "538"
-        ],
-        "deposito": "BCN-SAC",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "-"
-        ]
-      },
-      "39": {
-        "rama": "39",
-        "vehiculoBase": "039",
-        "numero": "9-449-039-7",
-        "vehiculosRama": [
-          "9-449-039-7",
-          "6-449-739-2",
-          "6-449-039-7",
-          "6-449-539-6",
-          "9-449-539-6"
-        ],
-        "remolquesRama": ["449-039", "449-739", "449-539"],
-        "searchCodes": [
-          "039",
-          "739",
-          "039",
-          "539",
-          "539"
-        ],
-        "deposito": "León",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Arrollamiento de árboles entre Zegama y Alsasua, 13/02/17. Visto coche 449-039-7 en 449.041 en sustitución de coche 449-041-3, 07/06/18. Ex-Fuencarral."
-        ]
-      },
-      "40": {
-        "rama": "40",
-        "vehiculoBase": "040",
-        "numero": "9-449-040-5",
-        "vehiculosRama": [
-          "9-449-040-5",
-          "6-449-740-0",
-          "6-449-040-5",
-          "6-449-540-4",
-          "9-449-540-4"
-        ],
-        "remolquesRama": ["449-040", "449-740", "449-540"],
-        "searchCodes": [
-          "040",
-          "740",
-          "040",
-          "540",
-          "540"
-        ],
-        "deposito": "BCN-SAC",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "-"
-        ]
-      },
-      "41": {
-        "rama": "41",
-        "vehiculoBase": "041",
-        "numero": "9-449-041-3",
-        "vehiculosRama": [
-          "9-449-041-3",
-          "6-449-741-8",
-          "6-449-041-3",
-          "6-449-541-2",
-          "9-449-541-2"
-        ],
-        "remolquesRama": ["449-041", "449-741", "449-541"],
-        "searchCodes": [
-          "041",
-          "741",
-          "041",
-          "541",
-          "541"
-        ],
-        "deposito": "Sevilla",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Visto coche 449-039-7 en sustitución de coche 449-041-3, 07/06/18. Arrollamiento Sanchidrian 19/10/17. Apartada Fuencarral. De nuevo en servicio, 09/20."
-        ]
-      },
-      "42": {
-        "rama": "42",
-        "vehiculoBase": "042",
-        "numero": "9-449-042-1",
-        "vehiculosRama": [
-          "9-449-042-1",
-          "6-449-742-6",
-          "6-449-042-1",
-          "6-449-542-0",
-          "9-449-542-0"
-        ],
-        "remolquesRama": ["449-042", "449-742", "449-542"],
-        "searchCodes": [
-          "042",
-          "742",
-          "042",
-          "542",
-          "542"
-        ],
-        "deposito": "BCN-SAC",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "-"
-        ]
-      },
-      "43": {
-        "rama": "43",
-        "vehiculoBase": "043",
-        "numero": "9-449-043-9",
-        "vehiculosRama": [
-          "9-449-043-9",
-          "6-449-743-4",
-          "6-449-043-9",
-          "6-449-543-8",
-          "9-449-543-8"
-        ],
-        "remolquesRama": ["449-043", "449-743", "449-543"],
-        "searchCodes": [
-          "043",
-          "743",
-          "043",
-          "543",
-          "543"
-        ],
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Ex-Sevilla. Apartada Sta. Justa desde 28/08/23 para reparación por colisión>> Traslado a Fuencarral>> En servicio 05/24."
-        ]
-      },
-      "44": {
-        "rama": "44",
-        "vehiculoBase": "044",
-        "numero": "9-449-044-7",
-        "vehiculosRama": [
-          "9-449-044-7",
-          "6-449-744-2",
-          "6-449-044-7",
-          "6-449-544-6",
-          "9-449-544-6"
-        ],
-        "remolquesRama": ["449-044", "449-744", "449-544"],
-        "searchCodes": [
-          "044",
-          "744",
-          "044",
-          "544",
-          "544"
-        ],
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Logos Junta Andalucía>>Sin logos.>>Ex-Sevilla>>Madrid desde 14/12/23"
-        ]
-      },
-      "45": {
-        "rama": "45",
-        "vehiculoBase": "045",
-        "numero": "9-449-045-4",
-        "vehiculosRama": [
-          "9-449-045-4",
-          "6-449-745-9",
-          "6-449-045-4",
-          "6-449-545-3",
-          "9-449-545-3"
-        ],
-        "remolquesRama": ["449-045", "449-745", "449-545"],
-        "searchCodes": [
-          "045",
-          "745",
-          "045",
-          "545",
-          "545"
-        ],
-        "deposito": "Sevilla",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Ex-León"
-        ]
-      },
-      "46": {
-        "rama": "46",
-        "vehiculoBase": "046",
-        "numero": "9-449-046-2",
-        "vehiculosRama": [
-          "9-449-046-2",
-          "6-449-746-7",
-          "6-449-046-2",
-          "6-449-546-1",
-          "9-449-546-1"
-        ],
-        "remolquesRama": ["449-046", "449-746", "449-546"],
-        "searchCodes": [
-          "046",
-          "746",
-          "046",
-          "546",
-          "546"
-        ],
-        "deposito": "León",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Ex-Fuencarral"
-        ]
-      },
-      "47": {
-        "rama": "47",
-        "vehiculoBase": "047",
-        "numero": "9-449-047-0",
-        "vehiculosRama": [
-          "9-449-047-0",
-          "6-449-747-5",
-          "6-449-047-0",
-          "6-449-547-9",
-          "9-449-547-9"
-        ],
-        "remolquesRama": ["449-047", "449-747", "449-547"],
-        "searchCodes": [
-          "047",
-          "747",
-          "047",
-          "547",
-          "547"
-        ],
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "-"
-        ]
-      },
-      "48": {
-        "rama": "48",
-        "vehiculoBase": "048",
-        "numero": "9-449-048-8",
-        "vehiculosRama": [
-          "9-449-048-8",
-          "6-449-748-3",
-          "6-449-048-8",
-          "6-449-548-7",
-          "9-449-548-7"
-        ],
-        "remolquesRama": ["449-048", "449-748", "449-548"],
-        "searchCodes": [
-          "048",
-          "748",
-          "048",
-          "548",
-          "548"
-        ],
-        "deposito": "Sevilla",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Logos Junta Andalucía. Ex-Sevilla>>Fuencarral 07/13>>Sevilla"
-        ]
-      },
-      "49": {
-        "rama": "49",
-        "vehiculoBase": "049",
-        "numero": "9-449-049-6",
-        "vehiculosRama": [
-          "9-449-049-6",
-          "6-449-749-1",
-          "6-449-049-6",
-          "6-449-549-5",
-          "9-449-549-5"
-        ],
-        "remolquesRama": ["449-049", "449-749", "449-549"],
-        "searchCodes": [
-          "049",
-          "749",
-          "049",
-          "549",
-          "549"
-        ],
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": []
-      },
-      "50": {
-        "rama": "50",
-        "vehiculoBase": "050",
-        "numero": "9-449-050-4",
-        "vehiculosRama": [
-          "9-449-050-4",
-          "6-449-750-9",
-          "6-449-050-4",
-          "6-449-550-3",
-          "9-449-550-3"
-        ],
-        "remolquesRama": ["449-050", "449-750", "449-550"],
-        "searchCodes": [
-          "050",
-          "750",
-          "050",
-          "550",
-          "550"
-        ],
-        "deposito": "Sevilla",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Ex-Sevilla>> Fuencarral>> Sevilla"
-        ]
-      },
-      "51": {
-        "rama": "51",
-        "vehiculoBase": "051",
-        "numero": "9-449-051-2",
-        "vehiculosRama": [
-          "9-449-051-2",
-          "6-449-751-7",
-          "6-449-051-2",
-          "6-449-551-1",
-          "9-449-551-1"
-        ],
-        "remolquesRama": ["449-051", "449-751", "449-551"],
-        "searchCodes": [
-          "051",
-          "751",
-          "051",
-          "551",
-          "551"
-        ],
-        "deposito": "León",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Ex-León>>Fuencarral"
-        ]
-      },
-      "52": {
-        "rama": "52",
-        "vehiculoBase": "052",
-        "numero": "9-449-052-0",
-        "vehiculosRama": [
-          "9-449-052-0",
-          "6-449-752-5",
-          "6-449-052-0",
-          "6-449-552-9",
-          "9-449-552-9"
-        ],
-        "remolquesRama": ["449-052", "449-752", "449-552"],
-        "searchCodes": [
-          "052",
-          "752",
-          "052",
-          "552",
-          "552"
-        ],
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Ex-Fuencarral>>BCN-SAC"
-        ]
-      },
-      "53": {
-        "rama": "53",
-        "vehiculoBase": "053",
-        "numero": "9-449-053-8",
-        "vehiculosRama": [
-          "9-449-053-8",
-          "6-449-753-3",
-          "6-449-053-8",
-          "6-449-553-7",
-          "9-449-553-7"
-        ],
-        "remolquesRama": ["449-053", "449-753", "449-553"],
-        "searchCodes": [
-          "053",
-          "753",
-          "053",
-          "553",
-          "553"
-        ],
-        "deposito": "Sevilla",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Logos 75 años Renfe."
-        ]
-      },
-      "54": {
-        "rama": "54",
-        "vehiculoBase": "054",
-        "numero": "9-449-054-6",
-        "vehiculosRama": [
-          "9-449-054-6",
-          "6-449-754-1",
-          "6-449-054-6",
-          "6-449-554-5",
-          "9-449-554-5"
-        ],
-        "remolquesRama": ["449-054", "449-754", "449-554"],
-        "searchCodes": [
-          "054",
-          "754",
-          "054",
-          "554",
-          "554"
-        ],
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": []
-      },
-      "55": {
-        "rama": "55",
-        "vehiculoBase": "055",
-        "numero": "9-449-055-3",
-        "vehiculosRama": [
-          "9-449-055-3",
-          "6-449-755-8",
-          "6-449-055-3",
-          "6-449-555-2",
-          "9-449-555-2"
-        ],
-        "remolquesRama": ["449-055", "449-755", "449-555"],
-        "searchCodes": [
-          "055",
-          "755",
-          "055",
-          "555",
-          "555"
-        ],
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "Descarrilo por inundación entre La Encina-Almansa 12/06/24."
-        ]
-      },
-      "56": {
-        "rama": "56",
-        "vehiculoBase": "056",
-        "numero": "9-449-056-1",
-        "vehiculosRama": [
-          "9-449-056-1",
-          "6-449-756-6",
-          "6-449-056-1",
-          "6-449-556-0",
-          "9-449-556-0"
-        ],
-        "remolquesRama": ["449-056", "449-756", "449-556"],
-        "searchCodes": [
-          "056",
-          "756",
-          "056",
-          "556",
-          "556"
-        ],
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": [
-          "-"
-        ]
-      },
-      "57": {
-        "rama": "57",
-        "vehiculoBase": "057",
-        "numero": "9-449-057-9",
-        "vehiculosRama": [
-          "9-449-057-9",
-          "6-449-757-4",
-          "6-449-057-9",
-          "6-449-557-8",
-          "9-449-557-8"
-        ],
-        "remolquesRama": ["449-057", "449-757", "449-557"],
-        "searchCodes": [
-          "057",
-          "757",
-          "057",
-          "557",
-          "557"
-        ],
-        "deposito": "Fuencarral",
-        "color": "Blanco",
-        "estado": "En servicio",
-        "puestaServicio": "",
-        "ano": 2009,
-        "ancho": "1668",
-        "composicionRama": "Coche motor A1 + remolque A4 + remolque A3 (piso bajo) + remolque A5 + coche motor A2",
-        "notas": []
-      }
-    }
-  }
+/* =========================================================
+   EXTRA · FICHA DE PRESENTACIÓN DEL MATERIAL
+   AÑADIDO: no modifica la base existente.
+========================================================= */
+.material-first-card{
+  padding:24px 20px 20px;
+  text-align:center
+}
+.material-first-icon{
+  width:58px;height:58px;border-radius:18px;
+  margin:0 auto 14px;
+  display:grid;place-items:center;
+  background:var(--accentSoft);color:var(--accent);
+  font-size:28px;font-weight:900
+}
+.material-first-card h2{margin:0 0 6px;font-size:22px}
+.material-first-branch{color:var(--accent);font-size:21px;font-weight:950}
+.material-first-sub{margin-top:7px;color:var(--muted);font-size:12px}
+.material-first-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.material-first-actions button{min-height:46px}
+.material-ficha{padding:20px}
+.material-ficha-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:18px}
+.material-ficha-title{font-size:24px;font-weight:950;line-height:1.1}
+.material-ficha-sub{margin-top:5px;color:var(--muted);font-size:12px}
+.material-ficha-badge{padding:7px 10px;border-radius:999px;background:var(--accentSoft);color:var(--accent);font-size:10px;font-weight:950;white-space:nowrap}
+.material-ficha-section{margin-top:18px}
+.material-ficha-section h3{margin:0 0 9px;font-size:13px}
+.material-ficha-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.material-ficha-item{padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:var(--card2)}
+.material-ficha-label{color:var(--muted);font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.05em}
+.material-ficha-value{margin-top:3px;font-size:13px;font-weight:800;word-break:break-word}
+.material-ficha-note{padding:11px 12px;border-left:3px solid var(--accent);border-radius:10px;background:var(--card2);margin-top:7px;font-size:12px;line-height:1.45}
+.material-ficha-empty{padding:12px;border:1px dashed var(--line);border-radius:11px;color:var(--muted);font-size:12px}
+@media(max-width:560px){.material-first-actions,.material-ficha-grid{grid-template-columns:1fr}}
+
+
+.history-action.material{
+  border-color:var(--accent);
+  color:var(--accent);
+}
+
+
+/* =========================================================
+   POKÉDEX FERROVIARIA · INTERFAZ APP
+========================================================= */
+.material-ficha{
+  padding:0;
+  background:var(--bg);
+}
+.pokedex-shell{
+  max-height:78vh;
+  overflow:auto;
+  padding:4px;
+  scrollbar-width:thin;
+}
+.pokedex-hero{
+  position:relative;
+  overflow:hidden;
+  padding:24px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:
+    radial-gradient(circle at 92% 8%,var(--accentSoft),transparent 32%),
+    linear-gradient(145deg,var(--card),var(--card2));
+  margin-bottom:14px;
+}
+.pokedex-hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.pokedex-kicker{font-size:9px;font-weight:950;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
+.pokedex-title{font-size:32px;font-weight:950;line-height:1.05;margin-top:7px}
+.pokedex-subtitle{font-size:14px;color:var(--muted);margin-top:7px}
+.pokedex-subtitle b{color:var(--text)}
+.pokedex-badges{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.pokedex-chip{padding:7px 10px;border-radius:999px;background:var(--accentSoft);color:var(--accent);font-size:10px;font-weight:950}
+.pokedex-status{
+  flex:0 0 auto;padding:8px 11px;border-radius:999px;background:rgba(16,185,129,.12);
+  color:#10b981;font-size:10px;font-weight:950;border:1px solid rgba(16,185,129,.22)
+}
+.pokedex-statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:17px}
+.pokedex-stat{
+  padding:12px 13px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.025)
+}
+.pokedex-stat-label{font-size:9px;color:var(--muted);font-weight:900;text-transform:uppercase}
+.pokedex-stat-value{font-size:14px;font-weight:900;margin-top:4px}
+.pokedex-layout{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pokedex-section{
+  padding:17px;border:1px solid var(--line);border-radius:16px;background:var(--card2);
+}
+.pokedex-section.full{grid-column:1/-1}
+.pokedex-section-title{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:950;margin-bottom:13px}
+.pokedex-section-title .pd-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accentSoft)}
+.pokedex-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.pokedex-card{
+  padding:10px 11px;border-bottom:1px solid var(--line);min-width:0
+}
+.pokedex-label{font-size:8px;color:var(--muted);font-weight:900;text-transform:uppercase;letter-spacing:.055em}
+.pokedex-value{font-size:12px;font-weight:800;margin-top:3px;word-break:break-word}
+.pokedex-timeline{position:relative;padding-left:19px}
+.pokedex-timeline:before{
+  content:"";position:absolute;left:5px;top:6px;bottom:7px;width:2px;background:var(--line)
+}
+.pokedex-event{position:relative;padding:0 0 14px 9px}
+.pokedex-event:before{
+  content:"";position:absolute;left:-17px;top:3px;width:9px;height:9px;border-radius:50%;
+  background:var(--accent);box-shadow:0 0 0 3px var(--accentSoft)
+}
+.pokedex-year{font-size:10px;font-weight:950;color:var(--accent)}
+.pokedex-event-text{font-size:12px;line-height:1.45;margin-top:2px}
+.pokedex-note{
+  padding:12px 13px;border:1px solid var(--line);border-radius:12px;background:var(--card);
+  font-size:12px;line-height:1.5;margin-bottom:8px
+}
+.pokedex-note strong{color:var(--accent)}
+.pokedex-source{font-size:9px;color:var(--muted);margin-top:9px}
+.pokedex-photo{
+  padding:13px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);font-size:10px;
+  background:rgba(255,255,255,.015)
+}
+.pokedex-divider{height:1px;background:var(--line);margin:15px 0}
+.pokedex-close{margin-top:14px}
+@media(max-width:680px){
+  .pokedex-layout{grid-template-columns:1fr}
+  .pokedex-section.full{grid-column:auto}
+  .pokedex-statrow{grid-template-columns:1fr}
+  .pokedex-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:460px){
+  .pokedex-hero{padding:18px}
+  .pokedex-title{font-size:26px}
+  .pokedex-grid{grid-template-columns:1fr}
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div id="auth" class="auth">
+<div class="card">
+
+<svg class="auth-logo" viewBox="0 0 64 64">
+<defs>
+<linearGradient id="ag2" x1="0" x2="1">
+<stop stop-color="#81005E"/>
+<stop offset="1" stop-color="#A30078"/>
+</linearGradient>
+</defs>
+
+<rect x="2" y="2" width="60" height="60" rx="18" fill="url(#ag2)"/>
+
+<path d="M17 45 28 17h8l11 28h-8l-2.3-6H27.3L25 45h-8Zm13.1-12h4.8l-2.4-7.1L30.1 33Z"
+fill="#fff"/>
+
+<path d="M20 50h24"
+stroke="#fff"
+stroke-width="3"
+stroke-linecap="round"
+opacity=".75"/>
+</svg>
+
+<div class="logo">ARGOS</div>
+
+<div class="muted">
+Aplicación de Registro y Gestión Operativa de Servicios
+</div>
+
+<div id="loginBox" style="margin-top:24px">
+
+<h2>Ingresar</h2>
+
+<label>Matrícula RENFE</label>
+
+<input
+id="loginUser"
+placeholder="Ej.: 2345678"
+inputmode="numeric"
+maxlength="7"
+autocomplete="username"
+>
+
+<label style="margin-top:12px">
+Contraseña
+</label>
+
+<input
+id="loginPass"
+type="password"
+placeholder="Contraseña"
+autocomplete="current-password"
+>
+
+<button class="primary" onclick="login()">
+Entrar
+</button>
+
+<button class="link" onclick="toggleAuth(false)">
+¿No tienes cuenta? Crear usuario
+</button>
+
+</div>
+
+<div id="registerBox" style="display:none;margin-top:24px">
+
+<h2>Crear usuario</h2>
+
+<label>Matrícula RENFE</label>
+
+<input
+id="regUser"
+placeholder="Ej.: 2345678"
+inputmode="numeric"
+maxlength="7"
+autocomplete="username"
+>
+
+<label style="margin-top:12px">
+Contraseña
+</label>
+
+<input
+id="regPass"
+type="password"
+placeholder="Mínimo 6 caracteres"
+autocomplete="new-password"
+>
+
+<button class="primary" onclick="register()">
+Crear cuenta
+</button>
+
+<button class="link" onclick="toggleAuth(true)">
+¿Ya tienes cuenta? Entrar
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<div id="app" class="app" style="display:none">
+
+<header class="renfe-header">
+
+<div class="menu-wrap">
+
+<button class="header-menu-btn" aria-label="Abrir menú" onclick="toggleMenu()">
+⋮
+</button>
+
+<div id="menuPanel" class="menu-panel">
+
+<button onclick="menuGo('home')">⌂ &nbsp; Inicio</button>
+<button onclick="menuGo('register')">＋ &nbsp; Registrar tren</button>
+<button onclick="menuGo('history')">☷ &nbsp; Historial</button>
+<button onclick="menuGo('stats')">◔ &nbsp; Estadísticas</button>
+<button onclick="menuGo('settings')">⚙ &nbsp; Ajustes</button>
+
+<div class="menu-sep"></div>
+
+<button onclick="menuGo('updates')">↻ &nbsp; Actualizaciones</button>
+
+</div>
+</div>
+
+<img class="renfe-logo-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVoAAACFCAYAAAAaTjA4AAAQAElEQVR4AeydCdxt1fjH3ytTMhT+mcpUCqFJKQ2GkiYkSWlQIaURlSJpVKh/pdAgiUKIJIlCaZLmkJQ0pz+VBgrJ/X+/b/dc5773DHt41nnPOXu9n/V71z57r/WsZz1rrWev/azpMRP5L0sgSyBLoKIEZs6cOQMsBtYHe4JjwI/AheA34FZwL/g30F3Cv8dVTG5ko2VFO7JFlxnPEpgeCaAoFwU7gdPh4G7we3AK2A+8H6wJVgRLgIXA08A84CGw2YwZMx7Gb5TLirZRxZ0zmyVQTQIo1eeCj4BLoXA9OAysAxYARd1uKNlriwYeunA1GMqKtobwctQsgXGXAIr1DcCe623k9WCwLKjifkykz4NGuqxoG1nsOdNZAr0lgHJdC1xGqJ8Be64z8Ku6e4i4Fb3ZmfiNdFnRNrLYc6azBDpLAOW6FDibp2eAZUBVdz8RVdTfxtcuewf+ELjpYSEr2umRe041S2CoJIByfSI4CKa0wa6GX8XdSqS9geaF+enBvhpsCFTa3G6uy4q2uWWfc54lMCkBFOzyXFwFPgqcHYBXymm/3ZQYL0ap7gMuB401EyCHuVxWtHOJJN/IEmiOBFCyO5Db88FioIpzgGtxFOtJ4N9VCFSIM3JRsqIduSLLDGcJ1JcACnZecDKUPgeqLCD4J/E2QrluDx7kOrseEsiKtodw8qMsgXGUAAr2GeTrLLAhqOJceLA2ClZFXSV+4+JkRdu4Is8ZbrIEULKu1LoQGawEqrj/EGkDlKzTvris7poUMyvaJpV2zmujJTBLyZ6DEKraY4k6sQtKtvGzCBREGWRFW0ZaOWyWwIhKACX7bFhXyS6CX9XZi3XpbdX4jY2XFW1jiz5nvCkSQMk+ibyeBuoo2X8Q/730ZuectsXN7PpLICva/jLKIbIERlYCKFmXzp5ABpYDddyRKNmb6hBoctysaJtc+jnvTZDArmRyA1DHOT/20DoEmh43K9qm14Cc/7GVAL1Z9yrYv38G+4b4Cb3ZRu9V0FdCfQJkRdtHQPlxlsAoSgAl+0T4/jqoshiBaHO4E+f4lX+UlkBWtKVFliNkCYyEBHaHy8VBXecKsFPrEml6/Kxom14Dcv7HRQKz80FvdlF+qGjxarvzMRu4Eqw2oSYTyIq2yaWf8z6uEvgUGXsCiHA/jSDSdBpZ0Ta9BuT8j5UE6M26F+w7AzOVFW2AMLOiDRBiJpElECWBADp7BtBokdBkcHnrR/arSyAr2uqyyzGzBIZKAvRm3cPgbYFMXYF91jm0gSSbSSor2maWe871eEpge7LlSjC8EOeZXyGEmk4kK9qm14Cc/3gJTANFerMOfm0SnPQlwfQaSy4r2sYWfc74mElAk8HTg/OUFW2QQLOiDRJkJpMlMM0SqHpaQje2XahwfbeH+X45CWRFW05eOXRjJDA6GcVs4HLbNYM5voaBsEeCaTaWXFa0jS36nPExksDq5GU+EOl+E0ms6bSyom16Dcj5HwcJvClBJrKiDRRqVrSBwsykhk4CTWFotQQZ/W0Cmo0lmRVtY4s+Z3wcJIB99lnkYwkQ7X4dTbDJ9LKibXLp57yPgwRWTJCJBxgIuyUB3caSzIq2sUU/OhnPnPaUQApFm3uzPUVe/mFWtOVllmNkCQyTBF6TgJlsnw0Wala0wQLN5LIEBiUB7LO2X7dFjE4yzzgIlqgFFUwyk8sS6CCBfCuFBBaB6JNBtMuKNliiA1e0vIWfD14PtgAfB0eCk8GPwDngCnANuAncA+7tg7/y3LAt/J7fV87Cxfhng++C48GhYG+wM9gSrA/eCJYFLwqWbV9ypPkEsARYC7wf7AWOBqeDC8Cvwc1AGeDN5bx/F3fNu2Ev4vp74CiwDzCPq+A/uy8zOcAoSmCpREz/mzrzQvAcMH8PzJso/VJk4e+JwHb0VvwPgv2A7eg0fHXAH/FtI7fj22bEQ1z/C3gt7uTaMOJSrn8IjgF7go3BcuCppRhrC5xM0cKUmV8Z34x/Ef98cB9p3wx+Do4H+4PtgOu0XUL4Oq6tPC/DfwFYADytD+bnuWFbcE/OJbknlsd3juHb8bcAO4NPgkPBl8EpwB3kL8X/Afw9Hj/cQXceYEXYHP9wcCa4kYQeBPYezsA/BuwDtgbrgNeCV4DnA2WAN5fz/jO4a94NuwLX64EPgL2AefwF/p9IT4Xsy0wFvBq/I05HhXRnB/2lwDi6R8iUHYGv4vtyfElnCQzkrm0lRULnQtT66RHjf+W6Gx5EBu3OtkbwNI6EHgeWBluBz4Nzwa2k5gbltqPvc/154ObntqO3cK0OsBNlG3kuv20zwmXLtgGvhdPkDCM0x6xN2PeD/YCnCf8K/z7SUxGfir87UL/Nw/2+LkzRkujjwRrgs+AiUr4fnAfM+Db4K4HKbwTipnRubrzpjBkz/hWRCPlXsa6Abw/1HGgqCyvCCVzvCN4MXgjC5A+tfk6F7MtMBXw2gVW8KguVMz+LuFJhXlUq9OgEtszsCGwGy74cr6OcLwd+JaX4jCeZru6VXZ8M/sHhtB87LWEpI1N1il+/9lDVKX+DuCc+HIf/QbAqWAgM0qmI3SntQBJVv/0FPu0993zpWWkIX82RwGPAuuCbUPgL+DHYBdh4fVtwORJubyrJlXU4RQa+bdfG9+13F7SsGPZQ7aU/id/D5nzpqSw0N2iyWSaYQXvYwSSHltzScOZXkr2dj1AHCvVyiFPXDcvL7HdkJOTUXWSnOW0DfL8274WuX7/2UNUpSb44SaOO86vb3rMmT00VL+1ErJKiRQjzgg9B8A/gB+BdwIaLN3Lul3B8EKjkkIM25/8l8u3gh2BjoDkDb2ScL4NLyIv26ygl0SRF2ypovxoO5of2dQequEzjKKunQNneFd60uodJfRM6Kv/Ar+zIz5LgSxD4M/g2WB8MhQ0YPoo6TRWOD2kOnSNOaUWLMN4KheuAykXbB5cj6/4O55tRSUpvB4ccXga+Rvw/Al86/4Mf6azAV0PwJ0Dbk/CT3+NF7DFzu5LrFsm6oP1ac0KEsm2iom3J1rmtDsLot+5F+8Mi30/Sfq6omjnakCa2M4nvF+V78aM7bI6DSNtxENuQ+BnpuChDkx6Xoc6TLhzgP7ydqo2r/XfXawSi3fEwAsjooOwiGuEvJk0FY7pCO+dUnEgYnwkLTWO+thwH3jSU87ij+wiVxF55x4edbiIHR2G/wDMLalP8CKUEmUnnjvbaUB0Imw/elgRvBuvNwpvwXw1U6s8khrYilX2t3gR02t27+XEUqOyUEZEXBk129m4duU7Vs50uRWt70UR4NIXrJ/1n8Es76sjC4FtE1MTmmAWXIe4/UNF2qilDu+lTaS9Lg3VAqx2txvWrgINgfhU4UO7X6EziRrkdyd/HW8QKKVoiqEy+SqSdQEqn8vo0CawFFkQQTwcrAAXTEtIW/J4Ke6Wt52vx/PVgWfBCoH3UQQorvMsV7d5rU9mOZ1YWkirmkIMV4hpCbwuUCV5tZ6/6EKi8BH6WB/uBi4A9Wm53djy/G5wGNieEI9++sbkMce8jrxvVoJRKCTiwqt27CjQP2cuwzJ2J4cBKjSwWiqqy/TayfGyh0OUCDWogTOXzI1izPtgmradrUu+2AQeAKl+DW0HP1WfvxI9yd0PoE+B58LQq+DS4CvTkj+e3gBPAusTV5n0VfpTbl7LXtjxRSNGS6t7Ang5eEuebzZ6ab5ndyfSZwMG1kMSg9XfwR/BLcDo4FtgrLUQfYc0ANm57y88pFKlYIBv9i+BlF2BPoVisiYmJ9oDEvY3fmnTs2XMZ4j5DnqsOPqRQtPZUdiWvDlxWwR7E3RmoILRJe76WL3R7ZyEC60LEgTKnCXV5XPn2IBStM2ZegczWBieDWm2S+uRAlx02Zw1oY66c+baIzhhyBoCdqv3h8c62Z6UuievMIBWjJrpScbsEVr9qYu2vaBGO89A+1oVQ3dvO07P3+S4yqe2xLr3w+OTf2RNWDj/po+hbYTUD2Oi9rk0X+fnmfh+EKits4rY7P/2d39x+r+h1CiXwB/LYywxUlLfJcNB6GPhCd8qbG2dbFyefJfjnIGPVl1Y3dlK8zNrT8tP7jcjIL7j2+5WuaUd+pmsCdKZLJRodIt3AveXg8WMg5AsFOprh7L1rtoR8bbcieV9JjduPkjaYIuH60Zn6XPvpa8iY9tSpz4biNwLSPODUNW2xUTy1KkfUW3M2X8jSA/UiX4rOJplNv8RFiv1R7W2UYKF4UORmWThwZdkUj1g85IIE1Z6OV99RL51cr42+PrHOFBy78NNbs0HnECXuwq8DXA7qOvZQImbPoM4WUsk60NUzYNmH1AfNEPaSy0btFn7DngoUAWmz8DOrG4Gq910Y8BYy5CdvVRqDiKd5wWkmUWm5x6c9eF8yExNRVOek811+/h+IcC4yqULHelMlXq842u97Pa/1bFZd1H7vKHUtWl0ib9LlfpXbKXuzmggmP3erMDY1DjpE+7TTtfwynvq46m9XaflFGNXr7MSHX7F+JXZ6Vvbeij0VLdScboEX7j5HxU7acOpyTAXxM9xBs7qkWvFtwNq6kr5ckKuVw0nerXTr+AsgB3sjhWkQ3mWOTuIuHKdgwGQ92lb6yM6J9y4Lb92K9N1To197K5peCtOMafv57VRFr6OgPNeIIgYd289bKSt55WcaB307K1E6atF+BR/2udMmDu1sB7T9HrpLlIWj+I5QR/L2IQrPkdZImt1oObe327Oy98suvkjV20quaGcJ5gh8Z4LghToHf7R7RxBNpWgPo47+KYJBadCOXCK7m9dB0JThUnmVYBDJnmSiTEkLdFW0CMn5ZaInJxUefofCdGldhagDi/I5UnJaGF4/V+i5PcxjC4WMCdRzaljJJLrWkS50Uihabc/Xd0kv9DZ1057S6aFE/0ssqqefQsZ+CdWaP/3fbE5MoD8cRJbejPb7Na+/SPkMckzHulCT5Uej92pE0WvfH01xYiJyClKLZphPBfEzx5HoKJq+hZ1WpB9Fsx+dyKWLTp/pl1778xT22d/RwFQE7emkvHaebQr689UlSv1UcaUYbDwLGbuMvC6LrfiaHd18p/W7ru/Ofy6QqEunTPyodvTPXorWbQbLMFUkrD2TQb6RivA0Nczs1RxTH1T8/S0qsEtpK0avFE07aaWIHSKVnX6WorcVZSvrkL2Ot6I+GacS79Xepobt9ttl77UVdgfip3W4V+kWLwMHwCJnv8jHUbSjlINfpjEVUaaeW3sVfApFeynCUtlOzdB0/55MnwriPpTalSZ/B/1zRVIQqcJknHRdOHCPgLeVKS/kZ316eQ96VR8NWtGmqqMPVBVAW7wULzLJn++/IKwPnSglBakJbeZu1uP1QEBdds+CqK+z62wY3RiPSqSdfuXNJ9qJJLx2w+xI8pegqMLn+fVikAriC3LRXmFKPHMdeongEy5zjvrcak93UANhrTT9PG9dD5ufYiDMGTGRJsSbMQAAEABJREFUA7UuUY+Um1POUmyk1ItHN9+P+nK4oqOipbG6N4CfKL0YqfJs0D2TwjySZ99gVSfod0vHJbbdnqW6/+FAwi7BLEMuVW9r0IrWBQFl8l00bMSIfgoZ/5YOgUuci+ajazjakT3Z6Ln3biLVNc1EDzyNJYr0eR0VLdT9/EvxVo/csAE253Q1f3l0Rak5o33ScynfyX3ChD6mkvsVErnEsezoe4re1n0oAY8rCZVVH2L2zPsEKf3YfERMS0qhaCPHENyPOVJ33ISk3Y0LbzCOduQeGKsEpebXwi+6KdoUhemo+6B7JmVkFT1n+GwURNj0kH4ZoXJYls79jark7iDmSrZ+Sbc/T6Fop+MryI5Ge74irt3DuRYdytgpUx138K9FeGIiUsbR7egU2pG6o2YWi0VHxpoL3CWuWIT+odzE6iEbZ6eg9ow63a9zz92zNGrXoZEkLsJVOUVO6ZLPsFFciRWAo7yvLxCuaBDPwyoathUuxQt6Ol7OKaZPRdhAVbKO6LfkHeWHfGnSjtwnOWogtpU3t2hsXQ/Ct95Hmk0n5893U7QpGkyxz5NBiHLuNJxtEGmX8w3sET9zp5TgDhXczzW3cYyi7qf6N8oQgwd3p3JFXZloRcIOVNGSDzcSUqEV4a1MmIheY4oXgHmI4E06q/Gvm07hUWnnZ3fkbIieDFD20dvBXkZv3A2Lum6T2DRFG228vxoBV94Xs2dtmPKQyqHR3kUgkRX8E/BfdoqTn9sqqSkc1v4ZpQSKMvJiAjowihfqIvKRwjRzB2XtblURmY38opKfn8Jb2XpovFKgDT0WeHrMJ0tF7B3YzpYn9U6GmqtxkqDbr0X27iYT4l/EpxNkkriqu1R1Yyb5ogzKaWlwFgx4+upc5cj9qs4l0lVGeVMoAfMQoaCkUxSpeo0RPfMUHaBI+UYrWjfaL1pulcLRht5ARHcDiz495iBeEtKF/ETHHm1AYU7SnvovskCn0q77e+W6BKbETzJKSqXwvLJN8N3b0zPRVp+Sbt2f7vH5nopEUtQbe1uDXg2U4oVxD40uYmpXCt5C2iV10o29F69Yd7pFS7IUGl4XAtsDDxtwM3JPwejGQ5X7nl3osTqz43bqCaUYCLP7H7Xz/2zmIy4QtvP+NOJHkGvRmP0ma90o68PXk8FyYHPgsTIqQSdtaybwRICyJPuFv5AAngWlXYzL0i6Foo3oBZbNSIp81FZm1IFUc9ujZOw4R1lZ9wrv9Ei3rewVpu8z5PZUsAzYBhwHPDHCMQh3aUuxn4tKdkNerHPszdFJ0aaoaNeScNnNSfoKMSiAK6mCSM0m43HDx1KoKsg98XcCW0zB1vzeGewKDgSG99RUj6m2IrhcU4XtZ/yuUPYEgBQ2UEhPfJ1/bqTsxh1cVnIpeltRSqBMhlLko7aiJQOpTBoRvMHehCfOTgT+zYDWybSLY8BBYHewLbAdbTzL99qeqc/2495h4HjggZiX4mt7tk7bc/0i9DwUMnKjG0jOdtpkPVj2Heg6DzaY/cCLToq2VaA+j0JUYUbx004nRQ/enfrdOFwFuR+JaWg/Hr8drhrTvupRQZ7PZHgXTbgT/UKEHYRzAv17qBibgKo9WbfE87PRL4Nongdab2iYzpxYLDoT0It4YaRol64Gq91rJH86B0P1o+CA5Dsg5sGWH8X3aBlPPLEN2THQF/ZMfebOXtpZtyDsBsAetgdwcpncuYWnHZXdaUdz9GRbKXdStCne6BEVrcVztB9tV4rmLwU93/JWzsWoGB7ZUTeNFF9B8jRQRUuCKosUXw0R9T9Fh+AGyt+N+Ml6bZdiSlxtphITcGbRLqThScE/xe/q5lC0vNHd6Nud4LtGqPggoqJVTLpvNKfz9A00JgGcy+xRJQvTwDw59P6gfKVQtJG9raLZTJEP0454YaTgLbJdRm1kpLyGHY5n+AXqEeeH0Jb+NdGH4zkULWFTFCZkQ5f4SS8S46xo7a34pnWP3ZdRIZYEHlei/TdShinqjSsJK5szKmYuxdfcLcg84oWWQsYRLwBNR37mp5gSWrEYw6M5MOdMHzspi1KeK4HjgIP8hRIbhKK9H4bKrpkvxHzdQPTg/Ux8Tl06QxBfQ7y74zutzHXa28DTimB+ZL86+BS4lt+pXAoFFaIESmY4hTKr3WuknjorJoUiq83bLPmmsM/PIj1QzyOgPG/PKV/afrcldcdMnkr7eTOwk1JpU/hBKNqowiTP4c7FGY5uRhG+B0Ia43fAd++Bz+IfBzwC3HPDLuHadeXuSHQz18ITDLSZOl/U30KlaDg/UVyU8D3COvvAwnf1iitO3NLRCeLuNPUEKsFCYFWwPTga/BLMNfoJnRQuxUDNdNSbYX1hpHgBWA+iXma+CKQXBQeXtoSYqx6dj3oI1612pBJ0Drntw0VQtpdO8HkLdkBcCuux5+49YLv0K2876L4TuD/DcyYmJmxHi9BuVgM7Ak91cE9pFTDBqrupijZFRZuOBlNUIiraomGLhLuVwjkBHAkOBLuB9wGnfLwRf3mwFHgR0L4jFuTanufT8f0t/Mw3nJ8oa3B/fbAFsPD3xfeQOo/IOZdrP7FrV4QimesUht7Ws7kfLUdIDtbcRD5SzZyIqP8p2qUv4ai57dHlfz31+ivgcLA/2AW02pFKcFl+2z4chLK9dILPW7AD4qwA57duTVzbpV95X+DalZAX498J/DK07oVjtqKlorkrUIo5ZhEVLTzjswhG7j87i2TjvBS9WYU46HqTQplF5SNFj9YDL6PmtkdPo5q2joMFlgKzFS3E3XnJeYRchrqoz5NQpmYR04g/6zLEs1cUQmiEiKRQUDY0Px8HKYYUysw5la5EqpuPFLxFtkv3ya2bx/b47Xqp/X6R66EM056hFIVppiMLVHqRiK4g80cyNyK0UvRor+EzLqq3VVSMKV4Y15EPP9GL8tAtXIq2qX2zW3pl77s8uGycXuE1R/V6PnLP2hVtioqm3cNlcMMqGHtOkby56UvkpsGRvKWilaLeDNpsoGxSKLPa+cCk90KYSzG3PbIDFL2h/2LkO3KQGhFOr0utaGtXtMTicX5cdBIu/YumOZT0ZjWGFD3a6ag3w/rCSPECsD5Fyjii1y5PLTyNixTjRZCdHteuaFMUaORbM4WE3A0rmu460QSHmJ4rCaM/G81upBKQXk/wwngeARYA0c6VeHVppmiXD2DScEpUXd5a8f/cugj01w+kNe2kJhUtFe1JcOJ8TLxQN9AGU4FzF1JET+nYEHk2xVabohdoMQ663qTolUflI4Wije4Auduc+Y3ElrQjZ0JF0pw2WpOKltTdTCOFTSS6QGE1zvFW95On0kqPHlz40nKxQo8gY/MohRKwt+WCjkEKKUU+XP7sKqO6+UjBW/SLzB3A5l4uXS/nLo13P4F6VIYkdkvRpihMe4oRU1tSiyrFsTMf5m28amrGh4B+inoTrQSKiClFPn7Li9yNcYqk3zEMdcgenZ2gjs9r3IyccTBBPp3G5p6vNVjqGPVgZJBi28qOiaW82VK0KbZgu5ECiB6NTCGLFOcSuYfCD6gk465sU5gOQpVAwQqTwnQQ8cJQyURPQVQkEbZj6bTDkwXaf0dczweRs2lHzvHncnRdS9GmaDBDbTZoK7LTuHa/AbxQ56qzn1NJ9gfzhlIeAmLkSQWQYg/SgdYb8qHJLIWijchHCr6sPSVeAgYvhG8QqlYPnvidnBvWXEY5eZKCda5TmKG/11K0ST6dhj73MEivWzvtUVymcMrXzStupaJ4JIfnfy3BtXbcFOlNblkH/eeCJcFa4APAYz5OwrfCnokvX3XTT9XbilBQZfLmzAl7TmXiFAkbkY8UHSDntofPtqEd3YFQ3LQFL9w5j9gNlWxHHhO1EXV4cZBiJesk89IGzwcrgPXBduBQ4JfqtfgnTQYs+O8xRHgGYVOsxEjx1oTVJO5gqFpR8JI4ZeyRHO7ApVz+jtz/Aq4GvwCng2+Ar8zCEfief9QNVjbDfp1wPwaej3Qz/t/g3rnBbpl4JddnAF8iHvPxbq6dm7gDjSKi55FCCcDihPLRHxRSdDLkPcIEkkLGES8A89cJe3DTQUC8JM6tIt1xy96zO9z9gzp/B7gcnANUgt/Et220cDi/p7Yjz+drPT+B56eCn4DzwK+BRzy516xT4C4iJ6eAI4G7ia2Lr+LfEb+ws2eTojBlIKKiSSc5UDxuzLwZCUUoIMgUcu54pOxXIbRzbzfC96hvsT3Xnn/UDVY2w21MuDWAiySej9+vZ+aZRlF7CKRQUH+mLFKYcRBNV5ciHx4vHvHijuKtPfMp7LOT9Cm7G7kopYAIX8dp9nE/6aUh8jqgEnT7UNtGC/IztR05m6H1fHPivQ28CawMlPmC+L3cluS11IrXVIrWUUjfOL2YHapnCM59LhX6IJXtIGVg/vz8ikrTChlFq0Vn0L1Z000xql+710ivSvOSU5zkMRLJFK1M0o6+hL8vGFd3BHn0tIVS+VPRpmgw7iep7bMUM9MdGAFqd7F3GW7Dmua8ubG4+9k65S6KlRQzVWorqAqZ86uiQrSeUSKUmWYe22fPhCo8jOCtZ7K0Izen11SW0ozQk4dED50vvFsV2hZkCkU7HT2TKvmfKw6VxOlejqbb+4uehD1XegO6sR35Clu9Q2/LZbdudhLN/kDrDflwGp4KLTofES+MuV4AAUy6I9pA5rZT3+zZmoeT4dsvXLyRdspuU/LlGEjpjKRStCNjn+0kMYR5N9C2o/1na8KcCkahl+uLwYbklDUH+OxVrExe7KmThTDn57b2sTCCswgNut74sojek9isRPQaU3SAfk9dGNiXJmndABx7WAih7Ao8KNQBWy6H1mk6vA3uLgAOun0Kfyvg6SgeocNleaeidXqLG2q0oFDc6q8MjNOK/ziEu3d5VoYvBvnwYMlj8d8OdxrI3XzEQw81uHtu117c9zBEZxM4YVs76K+4p7JzHwU/2S04bpVybt9oXDfrcOTTT5bzoeDZY555dBDXVlxtypo6HAx4JnzOB5YAbwO7gi8BKwzBQ509zzL1o1PY9jrTqjsXh3LZhxiycfm1I8im77lXnfiscu/SPkkXeZxC0Ua8AIrwPkcY5OyUsoPxV+eB+4Asiv9aYLvyIFFnxTiq/1Xu2Y48X08ZXsfvP4GqytmZA7Yj4Uwc661t1GlozsY5ANrOJNgU3/P3LOsnwufCwA7Ku/E/Do4HVxCmsnsMBO6dgtv5fVNJGKdFxy52ZYaGNSLymAnuAB566Hldntu1H789DFH753pce57Ra/BVdi/A9yywefDt/dmYO8HZAi2l82TDgscD4z4L3/OQXo6/CvDsMc882oNrK+7X8M8AV4JSo6B15ExaD4KydWRq+PY606o7VV5KdbLi8tG/kRfTvwt/Ko9Vf3f/VC7ObYrFCk75K85BgpDI+BFgT/ci/FPB0eAA4LTD9+DbjjxfbzmuFwfPBU8Bk7WaeXgAAATpSURBVA6WVNSd2lHr3uywRFBp2o7EQvx+JbCNenbYtlzvCTyX7CR8z9+zvO3kkEyss0cbSzFT6ygBCtLG3Ake6NhSOqOwZLlj/vLNOAlgO1aZ+PKNI/oopQsf9Ub3P+3oPtCpHbXuVe39JhVKVrRJxZuJZwlUkkCK3qw9tRQbv1TKYNMiZUXbtBLP+Q2QQHISjtZHJ3IFPcFxm24VLaNk9LKiTSbaTDhLoLIEUvRoR95sUFmaQxAxK9ohKITMQpbAFAmk6NE6kj8lmfxzUBLIinZQks7pDJsEhpmf6FV3zp11Dusw53msecuKdqyLN2du1CQwc+ZM52o7VSmS9fOwz+YZLZESLUkrK9qSAsvBswQSSyCF2eCHiXnO5PtIICvaPgLKj4dbAmPIXbTZwI2E3G9gDEU1OlnKinZ0yipz2gwJuJw6MqcXYDaI2Bs3kqfG0cqKtnFFnjM85BKIVrQnDnl+G8FeVrSNKOYhz2Rmb1ICDIS5wY1nsU3+DvjnclR3oAoglUnUkUBWtHWkl+NmCcRKwN6sGxBFUT0Rs4HHNEXRy3QqSiAr2oqCy9GyBBJIYIVgml8IppfJVZRAVrQVBZejTZVA/h0ggVUCaLRIfJ/ebMRJDy162a8hgaxoawgvR80SiJIA9lnb4kpR9KCzD8huSCRg4Q4JK5mNLIFGS8DjgaJWhNmbrXUiQKNLIkHms6JNINQRJplZnz4JrBWUtPsaeMxRELlMJkICWdFGSDHTyBKoL4F165OYpHAottnrJ6/yv6GRQFa0Q1MUmZGmSgD77DPI+8qgrrsRAvuB7IZMAlnRDlmBRLCTaYycBDaD47pt8T/Q2IzebN6lC0EMm6tbuMOWn8xPlsAoSuC9AUwfhJK9IIBOJpFAAlnRJhBqJpklUFQCmA3WJOwrQB13NpH3AtkNqQSyoh3SgpnIfI29BFCyLrc9sGZGbyD+u+jNPoKf3ZBKICvaIS2YzFYjJLANuVwKVHV3EXFdlOw9+NkNsQSyoh3iwsmsja8E6M26QOGQGjl0s5jVULLX1qCRow5IAlnRJhV0Jp4lMLcEULILcvc0MC+o4u4l0hoo2avxsxsBCWRFOwKFlFkcHwmgZJ0zewY5WgRUcbcTaRWU7MX42Y2IBLKiHZGCymyOvgRQsguRi3PAsqCK+x2RXouS/Q1+diMkgaxo+xdWDpElUFsCKNk1IHIZqDqV65vEXR4lewt+diMmgaxoR6zAMrujJQEU7AvA1+D6TKBtFq+U+yehd0DBbgw8moaf2Y2aBLKiHbUSy/wOvQRQrE8B64HvwewfwKbAObN4pdy5hH4lCvZI/OxGWAKNUbQjXEaZ9SGXAAr16WBf8B1wFez+Fahk18N/LCjr7iSCy3LfgJLNO3EhjFF3WdGOeglm/qdVAihWe6onwcQnwDvAq8A8oIq7j0h7gBejYL8MZnKd3RhIICvaMSjEnIVplcBOpO5+BXiV3XXE3BEsjHJ1c5iHuM5ujCQwWop2jASfszL6EqA36wyCT1fMieaFo4m7GngpCvYI8ADX2Y2hBLKiHcNCzVlKLwGU7ONI5QTweFDEuemLiwxUzE71ehaKdRvwM5BNBEUkOMJhsqId4cLLrE+rBHYj9WVAy3lWlzZW57k6IObWhc4WcOMYT0+YH4W6AtgdnAUebkXM/vhL4P8BAAD//4k3ZQAAAAAGSURBVAMAUrP0lw7FzlAAAAAASUVORK5CYII=" alt="Renfe">
+
+<button class="header-logout-btn" onclick="logout()" aria-label="Cerrar sesión">
+↪
+</button>
+
+</header>
+
+
+<main>
+
+<section id="home" class="screen active">
+
+<div class="hero">
+
+<div class="badge" style="display:inline-block;margin-bottom:10px">
+ARGOS · SERVICIOS
+</div>
+
+<h1 id="hello">Hola</h1>
+
+<div class="muted">
+Registra, consulta y controla tu actividad ferroviaria.
+</div>
+
+</div>
+
+
+<div class="grid">
+
+<button class="card action-card" onclick="show('register')">
+
+<div class="action-icon">＋</div>
+
+<h3>Registrar tren</h3>
+
+<div class="muted">
+Añade un nuevo servicio
+</div>
+
+</button>
+
+
+<button class="card action-card" onclick="show('history')">
+
+<div class="action-icon">☷</div>
+
+<h3>Ver historial</h3>
+
+<div class="muted">
+Consulta tus registros
+</div>
+
+</button>
+
+
+<button class="card action-card" onclick="show('stats')">
+
+<div class="action-icon">◔</div>
+
+<h3>Estadísticas</h3>
+
+<div class="muted">
+Resumen de tu actividad
+</div>
+
+</button>
+
+
+<button class="card action-card" onclick="lastService()">
+
+<div class="action-icon">↗</div>
+
+<h3>Último servicio</h3>
+
+<div class="muted" id="lastHome">
+Sin registros
+</div>
+
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h2>Última vez</h2>
+
+<div class="muted">
+¿Cuándo hiciste un trayecto?
+</div>
+
+<select id="routeSelect" onchange="lastRoute()">
+
+<option value="">
+Selecciona un trayecto
+</option>
+
+</select>
+
+<div id="routeResult" style="margin-top:10px"></div>
+
+</div>
+
+</section>
+
+
+<section id="register" class="screen">
+
+<div class="hero">
+
+<div class="badge" style="display:inline-block;margin-bottom:10px">
+NUEVO REGISTRO
+</div>
+
+<h1>Registrar tren</h1>
+
+<div class="muted">
+Introduce los datos del servicio realizado.
+</div>
+
+</div>
+
+
+<form class="card" onsubmit="saveService(event)">
+
+<label>Número de tren</label>
+
+<div class="input-counter">
+
+<input
+id="trainNo"
+maxlength="5"
+inputmode="numeric"
+placeholder="Ej.: 12345"
+>
+
+<span id="trainCounter">
+0 / 5
+</span>
+
+</div>
+
+
+<label class="checkbox" style="margin-top:10px">
+
+<input type="checkbox" id="noNumber">
+
+Sin número de tren
+
+</label>
+
+
+<label style="margin-top:15px">
+Serie
+</label>
+
+<div class="material-field">
+<div class="input-counter">
+<input
+id="series"
+maxlength="3"
+inputmode="numeric"
+autocomplete="off"
+placeholder="Ej.: 465"
+required
+>
+<span id="seriesCounter">0 / 3</span>
+</div>
+<div id="seriesSuggestions" class="material-suggestions"></div>
+</div>
+<div class="material-help">Escribe la serie o selecciónala de la lista.</div>
+
+
+<input type="hidden" id="branch" value="">
+
+<label style="margin-top:15px">
+Número de vehículo
+</label>
+
+<input
+id="branchVehicle"
+maxlength="3"
+inputmode="numeric"
+autocomplete="off"
+inputmode="numeric"
+placeholder="Ej.: 109"
+>
+
+<div class="material-help">
+Introduce cualquier matrícula corta de la composición.
+</div>
+
+<div id="branchInfo" class="branch-card">
+<strong>Rama</strong><br>
+<span class="muted">Se determinará automáticamente al introducir el vehículo.</span>
+</div>
+
+
+<label style="margin-top:15px">
+Fecha
+</label>
+
+<input
+id="date"
+type="date"
+required
+>
+
+
+<label style="margin-top:15px">
+Origen
+</label>
+
+<div class="muted" style="margin-top:5px;margin-bottom:7px">
+Escribe el nombre o código de la estación
+</div>
+
+<div class="station-field">
+<input
+id="origin"
+placeholder="Escribe estación o código…"
+autocomplete="off"
+required
+>
+<div id="originSuggestions" class="station-suggestions" role="listbox"></div>
+</div>
+
+
+<label style="margin-top:15px">
+Destino
+</label>
+
+<div class="station-field">
+<input
+id="destination"
+placeholder="Escribe estación o código…"
+autocomplete="off"
+required
+>
+<div id="destinationSuggestions" class="station-suggestions" role="listbox"></div>
+</div>
+
+
+<label style="margin-top:15px">
+Tipo de servicio
+</label>
+
+<select id="type" required>
+
+<option value="">
+Seleccionar
+</option>
+
+<option>Cercanías</option>
+<option>Cercanías AM</option>
+<option>Media Distancia</option>
+<option>Media Distancia AM</option>
+<option>Avant</option>
+<option>Alvia</option>
+<option>Intercity</option>
+<option>AVE</option>
+<option>Trambahia</option>
+<option>Euromed</option>
+<option>Regional</option>
+<option>Regional Exprés</option>
+<option>Proximidad</option>
+<option>Turístico</option>
+<option>Rodalies</option>
+<option>AVLO</option>
+<option>Otro</option>
+
+</select>
+
+
+<label class="checkbox" style="margin-top:15px">
+
+<input type="checkbox" id="double">
+
+Añadir doble composición
+
+</label>
+
+
+<div id="doubleBox"
+class="composition-box"
+style="display:none">
+
+<div class="composition-title">
+Segunda composición
+</div>
+
+<label>
+Serie
+</label>
+
+<div class="input-counter">
+
+<input
+id="series2"
+maxlength="3"
+inputmode="numeric"
+>
+
+<span id="series2Counter">
+0 / 3
+</span>
+
+</div>
+
+
+<label>
+Rama
+</label>
+
+<div class="input-counter">
+
+<input
+id="branch2"
+maxlength="3"
+inputmode="numeric"
+>
+
+<span id="branch2Counter">
+0 / 3
+</span>
+
+</div>
+
+</div>
+
+
+<div class="card subcard" style="margin-top:15px">
+
+<h3>Incidencias y anotaciones</h3>
+
+<label style="margin-top:8px">Anotaciones</label>
+<textarea id="annotations" placeholder="Añade cualquier anotación sobre el servicio…"></textarea>
+
+<label style="margin-top:12px">Incidencias</label>
+<div class="row">
+<input id="incidentInput" placeholder="Describe una incidencia…">
+<button type="button" class="secondary" onclick="addIncident()">Añadir</button>
+</div>
+<div id="incidentList"></div>
+
+</div>
+
+
+<button class="primary">
+Guardar registro
+</button>
+
+</form>
+
+</section>
+
+
+<section id="history" class="screen">
+
+<div class="history-head">
+
+<div class="history-kicker">
+ARGOS · REGISTROS
+</div>
+
+<h1>Historial</h1>
+
+<div class="history-sub" id="historySubtitle">
+Tu actividad ferroviaria, siempre a mano.
+</div>
+
+<div class="history-summary">
+
+<div class="history-stat">
+<b id="historyTotal">0</b>
+<span>Servicios</span>
+</div>
+
+<div class="history-stat">
+<b id="historySeries">0</b>
+<span>Series</span>
+</div>
+
+<div class="history-stat">
+<b id="historyRoutes">0</b>
+<span>Rutas</span>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="history-tools">
+
+<div class="history-search-wrap">
+
+<input
+class="history-search"
+id="search"
+oninput="renderHistory()"
+placeholder="Buscar tren, serie, rama, origen o destino..."
+autocomplete="off"
+>
+
+</div>
+
+<div class="history-tool-row">
+
+<select
+class="history-select"
+id="filterType"
+onchange="renderHistory()"
+>
+
+<option value="">
+Todos los tipos
+</option>
+
+</select>
+
+<button
+class="history-export"
+type="button"
+onclick="exportMenu()"
+>
+Exportar
+</button>
+
+</div>
+
+</div>
+
+
+<div class="history-result-line">
+<strong id="count">0 registros</strong>
+<span>Ordenado por fecha</span>
+</div>
+
+
+<div
+id="historyList"
+class="history-list"
+></div>
+
+</section>
+
+<section id="stats" class="screen">
+
+<div class="hero">
+
+<div class="badge">
+ANÁLISIS
+</div>
+
+<h1>
+Estadísticas
+</h1>
+
+<div class="muted">
+Resumen de tu actividad ferroviaria.
+</div>
+
+</div>
+
+
+<div class="statgrid">
+
+<div class="stat">
+<b id="sTotal">0</b>
+<span>Trenes totales</span>
+</div>
+
+<div class="stat">
+<b id="sMonth">0</b>
+<span>Este mes</span>
+</div>
+
+<div class="stat">
+<b id="sRoutes">0</b>
+<span>Rutas</span>
+</div>
+
+<div class="stat">
+<b id="sSeries">0</b>
+<span>Series distintas</span>
+</div>
+
+</div>
+
+
+<div class="card" style="margin-top:14px">
+
+<h2>
+Tipos de servicio
+</h2>
+
+<div id="typeStats"></div>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+Rutas realizadas
+</h2>
+
+<div id="routeStats"></div>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+Actividad mensual
+</h2>
+
+<div class="muted">
+Últimos 6 meses
+</div>
+
+<div
+id="monthStats"
+style="margin-top:10px"
+></div>
+
+</div>
+
+</section>
+
+
+<section id="updates" class="screen">
+
+<div class="hero">
+
+<div class="badge">
+ARGOS · ACTUALIZACIONES
+</div>
+
+<h1>Actualizaciones</h1>
+
+<div class="muted">
+Consulta las novedades y cambios de cada versión de ARGOS.
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Versión actual</h2>
+
+<div class="version-box">
+<strong id="currentVersionLabel">ARGOS 1.2.0</strong>
+<div class="muted" id="currentReleaseDate" style="margin-top:5px">Lanzada el 23/08/2026</div>
+</div>
+
+<ul class="update-list" id="changelogList"></ul>
+
+</div>
+
+</section>
+
+
+<section id="settings" class="screen">
+
+<div class="hero">
+
+<div class="badge">
+CONFIGURACIÓN
+</div>
+
+<h1>
+Ajustes
+</h1>
+
+<div class="muted">
+Personaliza tu perfil y la aplicación.
+</div>
+
+</div>
+
+
+<form class="card" onsubmit="saveProfile(event)">
+
+<h2>
+Perfil de usuario
+</h2>
+
+<label>
+Matrícula RENFE
+</label>
+
+<input id="profileUser" disabled>
+
+
+<label style="margin-top:10px">
+Nombre visible
+</label>
+
+<input
+id="displayName"
+placeholder="Ej.: Pablo"
+>
+
+
+<label style="margin-top:10px">
+Puesto
+</label>
+
+<input
+id="job"
+placeholder="Ej.: Maquinista"
+>
+
+
+<label style="margin-top:10px">
+Tipo de servicio
+</label>
+
+<input
+id="serviceType"
+placeholder="Ej.: Cercanías, Larga Distancia…"
+>
+
+
+<button class="primary">
+Guardar cambios
+</button>
+
+</form>
+
+
+<div class="card">
+
+<h2>
+Apariencia
+</h2>
+
+<label class="checkbox">
+
+<input
+id="dark"
+type="checkbox"
+onchange="toggleDark()"
+>
+
+Modo oscuro
+
+</label>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+Datos
+</h2>
+
+<button
+class="secondary"
+onclick="exportCSV()"
+>
+Exportar CSV
+</button>
+
+<button
+class="secondary"
+onclick="printHistory()"
+>
+PDF / Imprimir
+</button>
+
+</div>
+
+</section>
+
+</main>
+
+
+
+
+</div>
+
+
+<div id="toast" class="toast"></div>
+
+<div id="modal" class="modal">
+
+<div
+class="sheet"
+id="modalContent"
+></div>
+
+</div>
+
+
+<script>
+   /* =========================================================
+   SERVICIOS
+========================================================= */
+
+async function loadServices(){
+
+if(!currentUser){
+services=[];
+return;
+}
+
+const {data,error}=await db
+.from('services')
+.select('*')
+.eq('user_id',currentUser.id)
+.order('service_date',{ascending:false});
+
+if(error){
+console.error(error);
+services=[];
+alert('No se han podido cargar los servicios: '+error.message);
+return;
+}
+
+services=(data||[]).map(normalizeService);
+
+}
+
+
+function normalizeService(s){
+
+return {
+id:s.id,
+train:s.train_number||'',
+noNumber:!!s.no_train_number,
+series:s.series||'',
+branch:s.branch||'',
+date:s.service_date||'',
+origin:s.origin||'',
+destination:s.destination||'',
+type:s.service_type||'',
+double:s.double_composition||false,
+secondSeries:s.second_series||'',
+secondBranch:s.second_branch||'',
+annotations:typeof s.annotations==='string'?s.annotations:'',
+incidents:Array.isArray(s.incidents)?s.incidents:[]
 };
 
-// Datos técnicos comunes de la serie 100. Los datos específicos de cada rama pueden sobrescribirlos.
-Object.values(fleet["100"]?.units||{}).forEach(unit=>{
-  unit.fabricante=unit.fabricante||fleet["100"].fabricante;
-  unit.numeroCoches=unit.numeroCoches||fleet["100"].numeroCoches;
-  unit.anchoVia=unit.anchoVia||fleet["100"].anchoVia;
-});
-Object.values(fleet["102"]?.units||{}).forEach(unit=>{
-  unit.fabricante=unit.fabricante||fleet["102"].fabricante;
-  unit.numeroCoches=unit.numeroCoches||fleet["102"].numeroCoches;
-  unit.anchoVia=unit.anchoVia||fleet["102"].anchoVia;
-  unit.ano=unit.ano||fleet["102"].anoPuestaServicio;
-});
-Object.values(fleet["103"]?.units||{}).forEach(unit=>{
-  unit.fabricante=unit.fabricante||fleet["103"].fabricante;
-  unit.numeroCoches=unit.numeroCoches||fleet["103"].numeroCoches;
-  unit.anchoVia=unit.anchoVia||fleet["103"].anchoVia;
-  unit.ano=unit.ano||"2007";
-});
-Object.values(fleet["114"]?.units||{}).forEach(unit=>{
-  unit.fabricante=unit.fabricante||fleet["114"].fabricante;
-  unit.numeroCoches=unit.numeroCoches||fleet["114"].numeroCoches;
-  unit.anchoVia=unit.anchoVia||fleet["114"].anchoVia;
-  unit.ano=unit.ano||fleet["114"].anoPuestaServicio;
-});
-Object.values(fleet["112"]?.units||{}).forEach(unit=>{
-  unit.fabricante=unit.fabricante||fleet["112"].fabricante;
-  unit.numeroCoches=unit.numeroCoches||fleet["112"].numeroCoches;
-  unit.anchoVia=unit.anchoVia||fleet["112"].anchoVia;
-});
-
-function normalizeFleetValue(value){
-  return String(value ?? "").trim().replace(/\D/g,"").replace(/^0+/,"") || "";
 }
 
-// Serie 106: las matrículas de rama se agrupan en dos bloques.
-// 001–015 = ramas 1–15 (ancho fijo)
-// 051–065 = ramas 51–65 (ancho variable)
-// 101–115 y 151–165 = matrículas con dígito de coche adicional.
-// Ej.: 106.063 -> rama 63.
-function getS106Unit(vehicle){
-  const v=normalizeFleetValue(vehicle);
-  const n=Number(v);
-  if(!Number.isFinite(n)) return null;
 
-  let branch=null;
-  if(n>=1 && n<=15) branch=n;
-  else if(n>=51 && n<=65) branch=n;
-  else if(n>=101 && n<=115) branch=n-100;
-  else if(n>=151 && n<=165) branch=n-100;
-  else return null;
+/* =========================================================
+   INCIDENCIAS / ANOTACIONES
+========================================================= */
 
-  const base=fleet["106"]?.units?.[String(branch)];
-  if(!base) return null;
+let draftIncidents=[];
+let editIncidents=[];
 
-  const variable=branch>=51;
-  return {
-    ...base,
-    rama:String(branch),
-    // La ficha conserva como número completo la primera motriz de la rama.
-    // 063 y 163, por ejemplo, pertenecen ambos a la Rama 63.
-    vehiculoBase:base.vehiculoBase || String(branch).padStart(3,'0'),
-    vehiculoIntroducido:String(n).padStart(3,'0'),
-    vehiculoBuscado:v,
-    numero:base.numero,
-    ano:base.ano || 2024,
-    fabricante:fleet["106"].fabricante || 'Talgo',
-    numeroCoches:fleet["106"].numeroCoches || '14 vehículos: 2 cabezas motrices + 12 coches intermedios',
-    tipoMaterial:fleet["106"].tipoMaterial || 'Alta Velocidad · AVE / Avlo',
-    ancho:base.ancho || (variable?'1435/1668':'1435'),
-    subserie:base.subserie || (variable?'Ancho variable':'Ancho fijo'),
-    notas:Array.isArray(base.notas)?[...base.notas]:[]
-  };
+function renderIncidentList(){
+
+const box=document.getElementById('incidentList');
+if(!box)return;
+
+box.innerHTML=draftIncidents.map((item,i)=>`
+<div class="incident-item">
+<span>${escapeHtml(item)}</span>
+<button type="button" onclick="removeIncident(${i})">×</button>
+</div>
+`).join('');
 }
 
-function getFleetUnit(series, vehicle){
-  const s=normalizeFleetValue(series);
-  const v=normalizeFleetValue(vehicle);
-  const seriesData=fleet[s];
-  if(s==="106") return getS106Unit(v);
-  if(!seriesData) return null;
+function addIncident(){
+const input=document.getElementById('incidentInput');
+if(!input)return;
 
-  // Serie 104: cualquier coche se identifica por sus dos últimos dígitos.
-  // Ej.: 901 -> Rama 1 y se registra como 001; 506 -> Rama 6 y se registra como 006.
-  if(s==="104"){
-    const digits=v.padStart(3,"0");
-    const rama=Number(digits.slice(-2));
-    const base=seriesData.units?.[String(rama)];
-    if(!base) return null;
-    return {
-      ...base,
-      numero:base.numero,
-      vehiculoBase:base.vehiculoBase,
-      vehiculoIntroducido:base.vehiculoBase,
-      vehiculoBuscado:v,
-      cocheTipo:"Composición S-104"
-    };
-  }
+const value=input.value.trim();
+if(!value)return;
 
-  // Serie 103: cualquier coche se identifica por sus dos últimos dígitos.
-  // Ej.: 501 -> Rama 1, 521 -> Rama 21, 626 -> Rama 26.
-  if(s==="103"){
-    const digits=v.padStart(3,"0");
-    const rama=Number(digits.slice(-2));
-    const base=seriesData.units?.[String(rama)];
-    if(!base) return null;
-    const tipoCoche = v.startsWith("2") ? "Club" :
-                      v.startsWith("3") ? "Preferente" :
-                      v.startsWith("4") ? "Cafetería" :
-                      v.startsWith("5") ? "Turista" :
-                      v.startsWith("6") ? "Turista" : "Coche";
-    const vehiculoCanonico=base.vehiculoBase || String(200+rama);
-    return {
-      ...base,
-      numero:base.numero,
-      vehiculoBase:vehiculoCanonico,
-      vehiculoIntroducido:vehiculoCanonico,
-      vehiculoBuscado:v,
-      cocheTipo:tipoCoche
-    };
-  }
+draftIncidents.push(value);
+input.value='';
+renderIncidentList();
+input.focus();
+}
 
-  // Serie 121: cualquier coche/motor de la rama identifica la composición.
-  // Cada rama tiene dos códigos de búsqueda principales: 001-029 y 501-529.
-  // Ej.: 001 o 501 -> Rama 1; 029 o 529 -> Rama 29.
-  // Se acepta también la matrícula completa 9-121-XXX-X o 6-121-XXX-X.
-  if(s==="121"){
-    const raw=String(vehicle??"").trim();
-    const matriculaMatch=raw.match(/(?:^|-)121-(\d{3})(?:-|$)/i);
-    let code=matriculaMatch ? matriculaMatch[1] : v;
-    if(!matriculaMatch && /^121\d{3}$/.test(v)) code=v.slice(-3);
-    code=String(code).padStart(3,"0");
-    let base=null;
-    for(const candidate of Object.values(seriesData.units||{})){
-      if((candidate.searchCodes||[]).includes(code)){ base=candidate; break; }
-    }
-    if(!base) return null;
-    return {
-      ...base,
-      numero:base.numero,
-      vehiculoBase:base.vehiculoBase,
-      vehiculoIntroducido:raw,
-      vehiculoBuscado:code,
-      cocheTipo:code.startsWith("5") ? "Coche motor 500" : "Coche motor 000"
-    };
-  }
+function removeIncident(index){
+draftIncidents.splice(index,1);
+renderIncidentList();
+}
 
-  // Serie 730: cada rama se identifica por cualquiera de sus dos vehículos Talgo 730.
-  // Se acepta el código corto (038), la matrícula 730-038-7 y la matrícula completa Renfe.
-  // También se admite el Ex-número 130-038-3 para localizar la rama transformada.
-  if(s==="730"){
-    const raw=String(vehicle??"").trim();
-    const matriculaMatch=raw.match(/(?:^|-)730-(\d{3})(?:-|$)/i);
-    const exMatch=raw.match(/(?:^|-)130-(\d{3})(?:-|$)/i);
-    let code=matriculaMatch ? matriculaMatch[1] : (exMatch ? exMatch[1] : v);
-    if(!matriculaMatch && !exMatch && /^730\d{3}$/.test(v)) code=v.slice(-3);
-    code=String(code).padStart(3,"0");
-    let base=null;
-    for(const candidate of Object.values(seriesData.units||{})){
-      if((candidate.searchCodes||[]).includes(code)){ base=candidate; break; }
-      if(Object.values(candidate.exNumeros||{}).some(x=>String(x).split("-")[2]===code)){ base=candidate; break; }
-    }
-    if(!base) return null;
-    const idx=(base.searchCodes||[]).indexOf(code);
-    const canonicalVehicle=idx>=0 ? base.vehiculosRama[idx] : base.numero;
-    const matchedEx=(base.exNumeros||{})[code] || base.exNumero || "";
-    return {...base,numero:canonicalVehicle,vehiculoBase:code,vehiculoIntroducido:raw,vehiculoBuscado:code,exNumero:matchedEx,notas:(base.notasPorVehiculo||{})[code]?[ (base.notasPorVehiculo||{})[code] ]:(base.notas||[]),cocheTipo:"Vehículo Talgo 730"};
-  }
+function renderEditIncidents(){
+const box=document.getElementById('editIncidentList');
+if(!box)return;
 
-  // Serie 449: cada rama se identifica por cualquiera de sus cinco vehículos.
-  // Se acepta el código corto (001, 701, 501...), la matrícula 449-XXX-X
-  // y la matrícula completa Renfe.
-  if(s==="449"){
-    const raw=String(vehicle??"").trim();
-    const matriculaMatch=raw.match(/(?:^|-)449-(\d{3})(?:-|$)/i);
-    let code=matriculaMatch ? matriculaMatch[1] : v;
-    if(!matriculaMatch && /^449\d{3}$/.test(v)) code=v.slice(-3);
-    code=String(code).padStart(3,"0");
-    let base=null;
-    for(const candidate of Object.values(seriesData.units||{})){
-      if((candidate.searchCodes||[]).includes(code)){ base=candidate; break; }
-    }
-    if(!base) return null;
-    const idx=(base.searchCodes||[]).indexOf(code);
-    const canonicalVehicle=idx>=0 ? base.vehiculosRama[idx] : base.numero;
-    const tipos=["Coche motor A1","Remolque A4","Remolque A3 (piso bajo)","Remolque A5","Coche motor A2"];
-    return {...base,numero:canonicalVehicle,vehiculoBase:code,vehiculoIntroducido:raw,vehiculoBuscado:code,cocheTipo:tipos[idx]||"Vehículo Serie 449"};
-  }
+box.innerHTML=editIncidents.map((item,i)=>`
+<div class="incident-item">
+<span>${escapeHtml(item)}</span>
+<button type="button" onclick="removeEditIncident(${i})">×</button>
+</div>
+`).join('');
+}
 
-  // Serie 130: las dos cabezas tractoras de cada rama identifican la composición.
-  // Cada rama usa dos códigos de búsqueda: 001–045 y 001–045 de la segunda cabeza,
-  // representadas en los datos mediante los números reales 001–090.
-  // Se acepta el código corto (001, 002...), la matrícula 130-001-X
-  // y la matrícula completa Renfe (9-130-001-X / 9-130-501-X).
-  if(s==="130"){
-    const raw=String(vehicle??"").trim();
-    const matriculaMatch=raw.match(/(?:^|-)130-(\d{3})(?:-|$)/i);
-    let code=matriculaMatch ? matriculaMatch[1] : v;
-    if(!matriculaMatch && /^130\d{3}$/.test(v)) code=v.slice(-3);
-    code=String(code).padStart(3,"0");
+function addEditIncident(){
+const input=document.getElementById('e_incidentInput');
+if(!input)return;
 
-    let base=null;
-    for(const candidate of Object.values(seriesData.units||{})){
-      if((candidate.searchCodes||[]).includes(code)){ base=candidate; break; }
-      if((candidate.vehiculosRama||[]).some(x=>String(x).split("-")[2]===code)){ base=candidate; break; }
-    }
-    if(!base) return null;
+const value=input.value.trim();
+if(!value)return;
 
-    return {
-      ...base,
-      numero:base.numero,
-      vehiculoBase:base.vehiculoBase,
-      vehiculoIntroducido:raw,
-      vehiculoBuscado:code,
-      cocheTipo:"Cabeza tractora"
-    };
-  }
+editIncidents.push(value);
+input.value='';
+renderEditIncidents();
+input.focus();
+}
 
-  // Serie 120: cualquier vehículo de la rama identifica la composición.
-  // Primera subserie: ramas 1-12 -> códigos 301/901/601 ... 312/912/612.
-  // Segunda subserie: ramas 51-66 -> códigos 351/951/651 ... 366/966/666.
-  // Se acepta tanto el código corto (356) como la matrícula completa (9-120-356-1).
-  if(s==="120"){
-    const raw=String(vehicle??"").trim();
-    const matriculaMatch=raw.match(/(?:^|-)120-(\d{3})(?:-|$)/i);
-    let code=matriculaMatch ? matriculaMatch[1] : v;
-    if(!matriculaMatch && /^120\d{3}$/.test(v)) code=v.slice(-3);
-    code=String(code).padStart(3,"0");
-    let base=null;
-    for(const candidate of Object.values(seriesData.units||{})){
-      if((candidate.searchCodes||[]).includes(code)){ base=candidate; break; }
-    }
-    if(!base) return null;
-    const tipoCoche = code.startsWith("3") ? "Cabina Preferente" :
-                      code.startsWith("9") ? "Preferente / Cafetería" :
-                      code.startsWith("6") ? "Turista / Cabina Turista" : "Vehículo";
-    return {
-      ...base,
-      numero:base.numero,
-      vehiculoBase:base.vehiculoBase,
-      vehiculoIntroducido:raw,
-      vehiculoBuscado:code,
-      cocheTipo:tipoCoche,
-      subserie:base.subserie
-    };
-  }
+function removeEditIncident(index){
+editIncidents.splice(index,1);
+renderEditIncidents();
+}
 
-  // Serie 114: para evitar ambigüedades, SOLO se tienen en cuenta
-  // las dos cabezas motrices de cada rama:
-  //   - motor par (9-114-601, 603, 605...)
-  //   - motor impar (9-114-602, 604, 606...)
-  // Los dos remolques intermedios NO participan en la búsqueda.
-  //
-  // Ejemplo:
-  //   601 / 9-114-601-8 -> Rama 1
-  //   602 / 9-114-602-6 -> Rama 1
-  //   501 / 601 (remolques) -> NO identifica ninguna rama.
-  if(s==="114"){
-    const raw=String(vehicle??"").trim();
-    const normalized=v;
-    let base=null;
 
-    // La S-114 se identifica EXCLUSIVAMENTE por sus dos cabezas motrices.
-    // Nunca se usan los remolques 501/601, 502/602, etc. para localizar una rama.
-    // Importante: si se introduce la matrícula completa (9-114-602-6),
-    // extraemos correctamente el código de vehículo 602 antes de comparar.
-    const matriculaMatch=raw.match(/(?:^|-)114-(\d{3})(?:-|$)/i);
-    const motorShort=matriculaMatch ? matriculaMatch[1] : normalized;
+/* =========================================================
+   MATERIAL MOTOR · ARGOS 2.0.2
+   Rama automática a partir de serie + número de vehículo.
+========================================================= */
 
-    // 1) Coincidencia exacta con el código corto del motor par o impar.
-    for(const candidate of Object.values(seriesData.units||{})){
-      const motorParShort=String(candidate.motorPar||"").split("-")[2] || "";
-      const motorImparShort=String(candidate.motorImpar||"").split("-")[2] || "";
-      if(motorShort===motorParShort || motorShort===motorImparShort){
-        base=candidate;
-        break;
+/*
+La estructura es:
+serie -> vehículo -> rama
+
+El usuario NO introduce la rama.
+Puede introducir el número corto de cualquier vehículo de la
+composición. La base se irá ampliando con datos contrastados.
+*/
+let ARGOS_MATERIAL_DATA={
+'100':{
+label:'S-100',
+vehicles:{
+'109':{branch:'9',type:'motor'},
+'112':{branch:'12',type:'motor'},
+'119':{branch:'19',type:'motor'}
+}
+},
+'101':{
+label:'S-101',
+vehicles:{
+'101':{branch:'1',type:'motor'},
+'201':{branch:'2',type:'motor'},
+'301':{branch:'3',type:'motor'},
+'401':{branch:'4',type:'motor'},
+'501':{branch:'5',type:'motor'},
+'601':{branch:'6',type:'motor'},
+'701':{branch:'7',type:'motor'},
+'801':{branch:'8',type:'motor'}
+}
+},
+'450':{
+label:'S-450',
+vehicles:{
+'007':{branch:'7',type:'motor'},
+'059':{branch:'59',type:'motor'}
+}
+},
+'451':{label:'S-451',vehicles:{}},
+'462':{label:'Civia S-462',vehicles:{}},
+'463':{label:'Civia S-463',vehicles:{
+'001':{branch:'1',type:'Coche motor extremo',uic:'9-463-001-8',lote:'Primer lote · CAF',constructor:'CAF',aliases:["001","463-001","9-463-001-8","6-463-001-8"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["En servicio en Asturias desde 10/03/04. En Sevilla desde 10/02/08. Santander desde 10/09; Llanera desde 11/10. En reparación desde 08/22 hasta 13/02/23."],ramaComposicion:'9-463-001-8 + 6-463-001-8 + 9-463-501-7'},
+'R001':{branch:'1',type:'Remolque intermedio',uic:'6-463-001-8',lote:'Primer lote · CAF',constructor:'CAF',aliases:["R001","463-R001","6-463-001-8","9-463-001-8"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["En servicio en Asturias desde 10/03/04. En Sevilla desde 10/02/08. Santander desde 10/09; Llanera desde 11/10. En reparación desde 08/22 hasta 13/02/23."],ramaComposicion:'9-463-001-8 + 6-463-001-8 + 9-463-501-7'},
+'501':{branch:'1',type:'Coche motor extremo',uic:'9-463-501-7',lote:'Primer lote · CAF',constructor:'CAF',aliases:["501","463-501","9-463-501-7","9-463-001-8"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["En servicio en Asturias desde 10/03/04. En Sevilla desde 10/02/08. Santander desde 10/09; Llanera desde 11/10. En reparación desde 08/22 hasta 13/02/23."],ramaComposicion:'9-463-001-8 + 6-463-001-8 + 9-463-501-7'},
+'002':{branch:'2',type:'Coche motor extremo',uic:'9-463-002-6',lote:'Primer lote · CAF',constructor:'CAF',aliases:["002","463-002","9-463-002-6","6-463-002-6"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["En servicio en Asturias desde 19/03/04. Sevilla desde 10/02/08. Irún desde 13/03/09. Santander desde 10/09; Asturias desde 12/09; Santander 01/10; Asturias 10/10. Logos 75 años Renfe."],ramaComposicion:'9-463-002-6 + 6-463-002-6 + 9-463-502-5'},
+'R002':{branch:'2',type:'Remolque intermedio',uic:'6-463-002-6',lote:'Primer lote · CAF',constructor:'CAF',aliases:["R002","463-R002","6-463-002-6","9-463-002-6"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["En servicio en Asturias desde 19/03/04. Sevilla desde 10/02/08. Irún desde 13/03/09. Santander desde 10/09; Asturias desde 12/09; Santander 01/10; Asturias 10/10. Logos 75 años Renfe."],ramaComposicion:'9-463-002-6 + 6-463-002-6 + 9-463-502-5'},
+'502':{branch:'2',type:'Coche motor extremo',uic:'9-463-502-5',lote:'Primer lote · CAF',constructor:'CAF',aliases:["502","463-502","9-463-502-5","9-463-002-6"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["En servicio en Asturias desde 19/03/04. Sevilla desde 10/02/08. Irún desde 13/03/09. Santander desde 10/09; Asturias desde 12/09; Santander 01/10; Asturias 10/10. Logos 75 años Renfe."],ramaComposicion:'9-463-002-6 + 6-463-002-6 + 9-463-502-5'},
+'003':{branch:'3',type:'Coche motor extremo',uic:'9-463-003-4',lote:'Primer lote · CAF',constructor:'CAF',aliases:["003","463-003","9-463-003-4","6-463-003-4"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["En servicio en Asturias desde 03/04. Sevilla desde 10/02/08. Asturias 11/09. Vinilo 102 desde 02/16. Descarrilo por argayo en túnel de Olloniego 22/01/26."],ramaComposicion:'9-463-003-4 + 6-463-003-4 + 9-463-503-3'},
+'R003':{branch:'3',type:'Remolque intermedio',uic:'6-463-003-4',lote:'Primer lote · CAF',constructor:'CAF',aliases:["R003","463-R003","6-463-003-4","9-463-003-4"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["En servicio en Asturias desde 03/04. Sevilla desde 10/02/08. Asturias 11/09. Vinilo 102 desde 02/16. Descarrilo por argayo en túnel de Olloniego 22/01/26."],ramaComposicion:'9-463-003-4 + 6-463-003-4 + 9-463-503-3'},
+'503':{branch:'3',type:'Coche motor extremo',uic:'9-463-503-3',lote:'Primer lote · CAF',constructor:'CAF',aliases:["503","463-503","9-463-503-3","9-463-003-4"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["En servicio en Asturias desde 03/04. Sevilla desde 10/02/08. Asturias 11/09. Vinilo 102 desde 02/16. Descarrilo por argayo en túnel de Olloniego 22/01/26."],ramaComposicion:'9-463-003-4 + 6-463-003-4 + 9-463-503-3'},
+'004':{branch:'4',type:'Coche motor extremo',uic:'9-463-004-0',lote:'Primer lote · CAF',constructor:'CAF',aliases:["004","463-004","9-463-004-0","6-463-004-0"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Ex-462-001. En servicio desde 31/10/06. Ex-Sevilla; Asturias desde 11/09. Colores Renfe Operadora. Logos 75 años Renfe."],ramaComposicion:'9-463-004-0 + 6-463-004-0 + 9-463-504-9'},
+'R004':{branch:'4',type:'Remolque intermedio',uic:'6-463-004-0',lote:'Primer lote · CAF',constructor:'CAF',aliases:["R004","463-R004","6-463-004-0","9-463-004-0"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Ex-462-001. En servicio desde 31/10/06. Ex-Sevilla; Asturias desde 11/09. Colores Renfe Operadora. Logos 75 años Renfe."],ramaComposicion:'9-463-004-0 + 6-463-004-0 + 9-463-504-9'},
+'504':{branch:'4',type:'Coche motor extremo',uic:'9-463-504-9',lote:'Primer lote · CAF',constructor:'CAF',aliases:["504","463-504","9-463-504-9","9-463-004-0"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Ex-462-001. En servicio desde 31/10/06. Ex-Sevilla; Asturias desde 11/09. Colores Renfe Operadora. Logos 75 años Renfe."],ramaComposicion:'9-463-004-0 + 6-463-004-0 + 9-463-504-9'},
+'005':{branch:'5',type:'Coche motor extremo',uic:'9-463-005-9',lote:'Primer lote · CAF',constructor:'CAF',aliases:["005","463-005","9-463-005-9","6-463-005-9"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Ex-462-002. Colores Renfe Operadora. Asturias desde 10/02/08."],ramaComposicion:'9-463-005-9 + 6-463-005-9 + 9-463-505-8'},
+'R005':{branch:'5',type:'Remolque intermedio',uic:'6-463-005-9',lote:'Primer lote · CAF',constructor:'CAF',aliases:["R005","463-R005","6-463-005-9","9-463-005-9"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Ex-462-002. Colores Renfe Operadora. Asturias desde 10/02/08."],ramaComposicion:'9-463-005-9 + 6-463-005-9 + 9-463-505-8'},
+'505':{branch:'5',type:'Coche motor extremo',uic:'9-463-505-8',lote:'Primer lote · CAF',constructor:'CAF',aliases:["505","463-505","9-463-505-8","9-463-005-9"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Ex-462-002. Colores Renfe Operadora. Asturias desde 10/02/08."],ramaComposicion:'9-463-005-9 + 6-463-005-9 + 9-463-505-8'},
+'006':{branch:'6',type:'Coche motor extremo',uic:'9-463-006-7',lote:'Primer lote · CAF',constructor:'CAF',aliases:["006","463-006","9-463-006-7","6-463-006-7"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Ex-462-003. Colores Renfe Operadora. Asturias desde 10/02/08."],ramaComposicion:'9-463-006-7 + 6-463-006-7 + 9-463-506-6'},
+'R006':{branch:'6',type:'Remolque intermedio',uic:'6-463-006-7',lote:'Primer lote · CAF',constructor:'CAF',aliases:["R006","463-R006","6-463-006-7","9-463-006-7"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Ex-462-003. Colores Renfe Operadora. Asturias desde 10/02/08."],ramaComposicion:'9-463-006-7 + 6-463-006-7 + 9-463-506-6'},
+'506':{branch:'6',type:'Coche motor extremo',uic:'9-463-506-6',lote:'Primer lote · CAF',constructor:'CAF',aliases:["506","463-506","9-463-506-6","9-463-006-7"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Ex-462-003. Colores Renfe Operadora. Asturias desde 10/02/08."],ramaComposicion:'9-463-006-7 + 6-463-006-7 + 9-463-506-6'},
+'007':{branch:'7',type:'Coche motor extremo',uic:'9-463-007-5',lote:'Primer lote · CAF',constructor:'CAF',aliases:["007","463-007","9-463-007-5","6-463-007-5"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Colores Renfe Operadora. Testero carenado. Primer Civia fabricado en CAF-Santana."],ramaComposicion:'9-463-007-5 + 6-463-007-5 + 9-463-507-4'},
+'R007':{branch:'7',type:'Remolque intermedio',uic:'6-463-007-5',lote:'Primer lote · CAF',constructor:'CAF',aliases:["R007","463-R007","6-463-007-5","9-463-007-5"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Colores Renfe Operadora. Testero carenado. Primer Civia fabricado en CAF-Santana."],ramaComposicion:'9-463-007-5 + 6-463-007-5 + 9-463-507-4'},
+'507':{branch:'7',type:'Coche motor extremo',uic:'9-463-507-4',lote:'Primer lote · CAF',constructor:'CAF',aliases:["507","463-507","9-463-507-4","9-463-007-5"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Colores Renfe Operadora. Testero carenado. Primer Civia fabricado en CAF-Santana."],ramaComposicion:'9-463-007-5 + 6-463-007-5 + 9-463-507-4'},
+'008':{branch:'8',type:'Coche motor extremo',uic:'9-463-008-3',lote:'Primer lote · CAF',constructor:'CAF',aliases:["008","463-008","9-463-008-3","6-463-008-3"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["CAF-Santana. En Asturias desde 30/11/07. Vinilo 103 desde 02/16."],ramaComposicion:'9-463-008-3 + 6-463-008-3 + 9-463-508-2'},
+'R008':{branch:'8',type:'Remolque intermedio',uic:'6-463-008-3',lote:'Primer lote · CAF',constructor:'CAF',aliases:["R008","463-R008","6-463-008-3","9-463-008-3"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["CAF-Santana. En Asturias desde 30/11/07. Vinilo 103 desde 02/16."],ramaComposicion:'9-463-008-3 + 6-463-008-3 + 9-463-508-2'},
+'508':{branch:'8',type:'Coche motor extremo',uic:'9-463-508-2',lote:'Primer lote · CAF',constructor:'CAF',aliases:["508","463-508","9-463-508-2","9-463-008-3"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["CAF-Santana. En Asturias desde 30/11/07. Vinilo 103 desde 02/16."],ramaComposicion:'9-463-008-3 + 6-463-008-3 + 9-463-508-2'},
+'009':{branch:'9',type:'Coche motor extremo',uic:'9-463-009-1',lote:'Primer lote · CAF',constructor:'CAF',aliases:["009","463-009","9-463-009-1","6-463-009-1"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["CAF-Santana. En Asturias desde 03/01/08. Ex-Llanera. Descarrilo en Pola de Lena. Apartada en Puigverd de Lleida. Reparada y trasladada a Asturias 02/07/13. Modificado carenado Scharfenberg."],ramaComposicion:'9-463-009-1 + 6-463-009-1 + 9-463-509-0'},
+'R009':{branch:'9',type:'Remolque intermedio',uic:'6-463-009-1',lote:'Primer lote · CAF',constructor:'CAF',aliases:["R009","463-R009","6-463-009-1","9-463-009-1"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["CAF-Santana. En Asturias desde 03/01/08. Ex-Llanera. Descarrilo en Pola de Lena. Apartada en Puigverd de Lleida. Reparada y trasladada a Asturias 02/07/13. Modificado carenado Scharfenberg."],ramaComposicion:'9-463-009-1 + 6-463-009-1 + 9-463-509-0'},
+'509':{branch:'9',type:'Coche motor extremo',uic:'9-463-509-0',lote:'Primer lote · CAF',constructor:'CAF',aliases:["509","463-509","9-463-509-0","9-463-009-1"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["CAF-Santana. En Asturias desde 03/01/08. Ex-Llanera. Descarrilo en Pola de Lena. Apartada en Puigverd de Lleida. Reparada y trasladada a Asturias 02/07/13. Modificado carenado Scharfenberg."],ramaComposicion:'9-463-009-1 + 6-463-009-1 + 9-463-509-0'},
+'010':{branch:'10',type:'Coche motor extremo',uic:'9-463-010-9',lote:'Primer lote · CAF',constructor:'CAF',aliases:["010","463-010","9-463-010-9","6-463-010-9"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["En servicio 02/08. Colores Renfe Operadora. CAF-Santana. Descarrilo por desprendimiento en Pola de Lena en 03/13."],ramaComposicion:'9-463-010-9 + 6-463-010-9 + 9-463-510-8'},
+'R010':{branch:'10',type:'Remolque intermedio',uic:'6-463-010-9',lote:'Primer lote · CAF',constructor:'CAF',aliases:["R010","463-R010","6-463-010-9","9-463-010-9"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["En servicio 02/08. Colores Renfe Operadora. CAF-Santana. Descarrilo por desprendimiento en Pola de Lena en 03/13."],ramaComposicion:'9-463-010-9 + 6-463-010-9 + 9-463-510-8'},
+'510':{branch:'10',type:'Coche motor extremo',uic:'9-463-510-8',lote:'Primer lote · CAF',constructor:'CAF',aliases:["510","463-510","9-463-510-8","9-463-010-9"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["En servicio 02/08. Colores Renfe Operadora. CAF-Santana. Descarrilo por desprendimiento en Pola de Lena en 03/13."],ramaComposicion:'9-463-010-9 + 6-463-010-9 + 9-463-510-8'},
+'011':{branch:'11',type:'Coche motor extremo',uic:'9-463-011-7',lote:'Primer lote · CAF',constructor:'CAF',aliases:["011","463-011","9-463-011-7","6-463-011-7"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["En servicio desde 02/08. Descarrilo en Soto del Rey 23/01/25."],ramaComposicion:'9-463-011-7 + 6-463-011-7 + 9-463-511-6'},
+'R011':{branch:'11',type:'Remolque intermedio',uic:'6-463-011-7',lote:'Primer lote · CAF',constructor:'CAF',aliases:["R011","463-R011","6-463-011-7","9-463-011-7"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["En servicio desde 02/08. Descarrilo en Soto del Rey 23/01/25."],ramaComposicion:'9-463-011-7 + 6-463-011-7 + 9-463-511-6'},
+'511':{branch:'11',type:'Coche motor extremo',uic:'9-463-511-6',lote:'Primer lote · CAF',constructor:'CAF',aliases:["511","463-511","9-463-511-6","9-463-011-7"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["En servicio desde 02/08. Descarrilo en Soto del Rey 23/01/25."],ramaComposicion:'9-463-011-7 + 6-463-011-7 + 9-463-511-6'},
+'012':{branch:'12',type:'Coche motor extremo',uic:'9-463-012-5',lote:'Primer lote · CAF',constructor:'CAF',aliases:["012","463-012","9-463-012-5","6-463-012-5"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["En servicio desde 02/08."],ramaComposicion:'9-463-012-5 + 6-463-012-5 + 9-463-512-4'},
+'R012':{branch:'12',type:'Remolque intermedio',uic:'6-463-012-5',lote:'Primer lote · CAF',constructor:'CAF',aliases:["R012","463-R012","6-463-012-5","9-463-012-5"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["En servicio desde 02/08."],ramaComposicion:'9-463-012-5 + 6-463-012-5 + 9-463-512-4'},
+'512':{branch:'12',type:'Coche motor extremo',uic:'9-463-512-4',lote:'Primer lote · CAF',constructor:'CAF',aliases:["512","463-512","9-463-512-4","9-463-012-5"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["En servicio desde 02/08."],ramaComposicion:'9-463-012-5 + 6-463-012-5 + 9-463-512-4'},
+'013':{branch:'13',type:'Coche motor extremo',uic:'9-463-013-3',lote:'Primer lote · CAF',constructor:'CAF',aliases:["013","463-013","9-463-013-3","6-463-013-3"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Ex-Asturias desde 14/02/08. Zaragoza desde 06/08. Llanera 10/10. Llegó a tener la M en color amarillo. Descarrilo por argayo 29/12/17."],ramaComposicion:'9-463-013-3 + 6-463-013-3 + 9-463-513-2'},
+'R013':{branch:'13',type:'Remolque intermedio',uic:'6-463-013-3',lote:'Primer lote · CAF',constructor:'CAF',aliases:["R013","463-R013","6-463-013-3","9-463-013-3"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Ex-Asturias desde 14/02/08. Zaragoza desde 06/08. Llanera 10/10. Llegó a tener la M en color amarillo. Descarrilo por argayo 29/12/17."],ramaComposicion:'9-463-013-3 + 6-463-013-3 + 9-463-513-2'},
+'513':{branch:'13',type:'Coche motor extremo',uic:'9-463-513-2',lote:'Primer lote · CAF',constructor:'CAF',aliases:["513","463-513","9-463-513-2","9-463-013-3"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Ex-Asturias desde 14/02/08. Zaragoza desde 06/08. Llanera 10/10. Llegó a tener la M en color amarillo. Descarrilo por argayo 29/12/17."],ramaComposicion:'9-463-013-3 + 6-463-013-3 + 9-463-513-2'},
+'014':{branch:'14',type:'Coche motor extremo',uic:'9-463-014-1',lote:'Primer lote · CAF',constructor:'CAF',aliases:["014","463-014","9-463-014-1","6-463-014-1"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Entregado 03/08."],ramaComposicion:'9-463-014-1 + 6-463-014-1 + 9-463-514-0'},
+'R014':{branch:'14',type:'Remolque intermedio',uic:'6-463-014-1',lote:'Primer lote · CAF',constructor:'CAF',aliases:["R014","463-R014","6-463-014-1","9-463-014-1"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Entregado 03/08."],ramaComposicion:'9-463-014-1 + 6-463-014-1 + 9-463-514-0'},
+'514':{branch:'14',type:'Coche motor extremo',uic:'9-463-514-0',lote:'Primer lote · CAF',constructor:'CAF',aliases:["514","463-514","9-463-514-0","9-463-014-1"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Entregado 03/08."],ramaComposicion:'9-463-014-1 + 6-463-014-1 + 9-463-514-0'},
+'015':{branch:'15',type:'Coche motor extremo',uic:'9-463-015-8',lote:'Primer lote · CAF',constructor:'CAF',aliases:["015","463-015","9-463-015-8","6-463-015-8"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["CAF-Irún. Entregado 03/08. Asturias; Zaragoza desde 06/08; Llanera 10/10. Colisión con tronco en Serín 14/06/12. De nuevo en servicio 06/13."],ramaComposicion:'9-463-015-8 + 6-463-015-8 + 9-463-515-7'},
+'R015':{branch:'15',type:'Remolque intermedio',uic:'6-463-015-8',lote:'Primer lote · CAF',constructor:'CAF',aliases:["R015","463-R015","6-463-015-8","9-463-015-8"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["CAF-Irún. Entregado 03/08. Asturias; Zaragoza desde 06/08; Llanera 10/10. Colisión con tronco en Serín 14/06/12. De nuevo en servicio 06/13."],ramaComposicion:'9-463-015-8 + 6-463-015-8 + 9-463-515-7'},
+'515':{branch:'15',type:'Coche motor extremo',uic:'9-463-515-7',lote:'Primer lote · CAF',constructor:'CAF',aliases:["515","463-515","9-463-515-7","9-463-015-8"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["CAF-Irún. Entregado 03/08. Asturias; Zaragoza desde 06/08; Llanera 10/10. Colisión con tronco en Serín 14/06/12. De nuevo en servicio 06/13."],ramaComposicion:'9-463-015-8 + 6-463-015-8 + 9-463-515-7'},
+'199':{branch:'199',type:'Coche motor prototipo',uic:'9-463-199-0',lote:'Prototipo CAF · 199',constructor:'CAF',aliases:["199","463-199","9-463-199-0","7-463-199-0"],deposito:'Zaragoza',red:'Zaragoza',color:'Cercanías',notes:["Ex 462-004/504 (no circuló con esa numeración) → 462-099/599 «CAF Investigación». Ampliado a 463 en 2009. Autorizada su circulación comercial 09/03/10. Ex-Zaragoza; Asturias desde 09/10; Zaragoza desde 09/21. Cedida a CAF para investigación de hidrógeno 11/21, color azul. Devuelta a Renfe Operadora; decoración Cercanías con puertas PMR rojas 09/25."],ramaComposicion:'9-463-199-0 + 7-463-199-0 + 9-463-699-9'},
+'R199':{branch:'199',type:'Remolque intermedio prototipo',uic:'7-463-199-0',lote:'Prototipo CAF · 199',constructor:'CAF',aliases:["R199","463-R199","7-463-199-0","9-463-199-0"],deposito:'Zaragoza',red:'Zaragoza',color:'Cercanías',notes:["Mismo conjunto prototipo 199."],ramaComposicion:'9-463-199-0 + 7-463-199-0 + 9-463-699-9'},
+'699':{branch:'199',type:'Coche motor prototipo',uic:'9-463-699-9',lote:'Prototipo CAF · 199',constructor:'CAF',aliases:["699","463-699","9-463-699-9","9-463-199-0"],deposito:'Zaragoza',red:'Zaragoza',color:'Cercanías',notes:["Mismo conjunto prototipo 199."],ramaComposicion:'9-463-199-0 + 7-463-199-0 + 9-463-699-9'},
+'201':{branch:'1',type:'Coche motor extremo',uic:'9-463-201-4',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["201","463-201","9-463-201-4","6-463-201-4"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Colores Renfe Operadora. En servicio desde 01/07. Barcelona hasta 11/10; Zaragoza. Logos 75 años Renfe. Refuerzo Fallas 2017 y 2018. Pruebas en Bilbao (2018)."],ramaComposicion:'9-463-201-4 + 6-463-201-4 + 9-463-701-3'},
+'R201':{branch:'1',type:'Remolque intermedio',uic:'6-463-201-4',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["R201","463-R201","6-463-201-4","9-463-201-4"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Colores Renfe Operadora. En servicio desde 01/07. Barcelona hasta 11/10; Zaragoza. Logos 75 años Renfe. Refuerzo Fallas 2017 y 2018. Pruebas en Bilbao (2018)."],ramaComposicion:'9-463-201-4 + 6-463-201-4 + 9-463-701-3'},
+'701':{branch:'1',type:'Coche motor extremo',uic:'9-463-701-3',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["701","463-701","9-463-701-3","9-463-201-4"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Colores Renfe Operadora. En servicio desde 01/07. Barcelona hasta 11/10; Zaragoza. Logos 75 años Renfe. Refuerzo Fallas 2017 y 2018. Pruebas en Bilbao (2018)."],ramaComposicion:'9-463-201-4 + 6-463-201-4 + 9-463-701-3'},
+'202':{branch:'2',type:'Coche motor extremo',uic:'9-463-202-2',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["202","463-202","9-463-202-2","6-463-202-2"],color:'Cercanías',notes:["Colores Renfe Operadora. En servicio desde 01/07. Barcelona hasta 11/10; Zaragoza; Valencia 15/03/16–20/03/16 para refuerzos Fallas; Barcelona. Baja 12/16 para reforma a 464-230."],transformadaA:'464-230',situacionActual:'Actualmente serie 464, unidad 464-230',ramaComposicion:'9-463-202-2 + 6-463-202-2 + 9-463-702-1'},
+'R202':{branch:'2',type:'Remolque intermedio',uic:'6-463-202-2',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["R202","463-R202","6-463-202-2","9-463-202-2"],color:'Cercanías',notes:["Colores Renfe Operadora. En servicio desde 01/07. Barcelona hasta 11/10; Zaragoza; Valencia 15/03/16–20/03/16 para refuerzos Fallas; Barcelona. Baja 12/16 para reforma a 464-230."],transformadaA:'464-230',situacionActual:'Actualmente serie 464, unidad 464-230',ramaComposicion:'9-463-202-2 + 6-463-202-2 + 9-463-702-1'},
+'702':{branch:'2',type:'Coche motor extremo',uic:'9-463-702-1',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["702","463-702","9-463-702-1","9-463-202-2"],color:'Cercanías',notes:["Colores Renfe Operadora. En servicio desde 01/07. Barcelona hasta 11/10; Zaragoza; Valencia 15/03/16–20/03/16 para refuerzos Fallas; Barcelona. Baja 12/16 para reforma a 464-230."],transformadaA:'464-230',situacionActual:'Actualmente serie 464, unidad 464-230',ramaComposicion:'9-463-202-2 + 6-463-202-2 + 9-463-702-1'},
+'203':{branch:'3',type:'Coche motor extremo',uic:'9-463-203-0',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["203","463-203","9-463-203-0","7-463-203-0"],color:'Cercanías',notes:["Colores Renfe Operadora. Reforma a 464-229 entre 09 y 12/16. Ex-Cercanías Barcelona (Vilanova). Ex-Zaragoza; en Valencia desde 03/18. Baja 22/01/17 por transformación a 464-229."],transformadaA:'464-229',situacionActual:'Actualmente serie 464, unidad 464-229',ramaComposicion:'9-463-203-0 + 7-463-203-0 + 9-463-703-9'},
+'R203':{branch:'3',type:'Remolque intermedio',uic:'7-463-203-0',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["R203","463-R203","7-463-203-0","9-463-203-0"],color:'Cercanías',notes:["Colores Renfe Operadora. Reforma a 464-229 entre 09 y 12/16. Ex-Cercanías Barcelona (Vilanova). Ex-Zaragoza; en Valencia desde 03/18. Baja 22/01/17 por transformación a 464-229."],transformadaA:'464-229',situacionActual:'Actualmente serie 464, unidad 464-229',ramaComposicion:'9-463-203-0 + 7-463-203-0 + 9-463-703-9'},
+'703':{branch:'3',type:'Coche motor extremo',uic:'9-463-703-9',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["703","463-703","9-463-703-9","9-463-203-0"],color:'Cercanías',notes:["Colores Renfe Operadora. Reforma a 464-229 entre 09 y 12/16. Ex-Cercanías Barcelona (Vilanova). Ex-Zaragoza; en Valencia desde 03/18. Baja 22/01/17 por transformación a 464-229."],transformadaA:'464-229',situacionActual:'Actualmente serie 464, unidad 464-229',ramaComposicion:'9-463-203-0 + 7-463-203-0 + 9-463-703-9'},
+'204':{branch:'4',type:'Coche motor extremo',uic:'9-463-204-8',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["204","463-204","9-463-204-8","6-463-204-8"],color:'Cercanías',notes:["Colores Renfe Operadora. Ex-Valencia hasta 14/01/08; Sevilla/Cádiz hasta 10/10; Zaragoza hasta 11/10; Barcelona (Vilanova). Reforma para 464-228 desde 10/15."],transformadaA:'464-228',situacionActual:'Actualmente serie 464, unidad 464-228',ramaComposicion:'9-463-204-8 + 6-463-204-8 + 9-463-704-7'},
+'R204':{branch:'4',type:'Remolque intermedio',uic:'6-463-204-8',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["R204","463-R204","6-463-204-8","9-463-204-8"],color:'Cercanías',notes:["Colores Renfe Operadora. Ex-Valencia hasta 14/01/08; Sevilla/Cádiz hasta 10/10; Zaragoza hasta 11/10; Barcelona (Vilanova). Reforma para 464-228 desde 10/15."],transformadaA:'464-228',situacionActual:'Actualmente serie 464, unidad 464-228',ramaComposicion:'9-463-204-8 + 6-463-204-8 + 9-463-704-7'},
+'704':{branch:'4',type:'Coche motor extremo',uic:'9-463-704-7',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["704","463-704","9-463-704-7","9-463-204-8"],color:'Cercanías',notes:["Colores Renfe Operadora. Ex-Valencia hasta 14/01/08; Sevilla/Cádiz hasta 10/10; Zaragoza hasta 11/10; Barcelona (Vilanova). Reforma para 464-228 desde 10/15."],transformadaA:'464-228',situacionActual:'Actualmente serie 464, unidad 464-228',ramaComposicion:'9-463-204-8 + 6-463-204-8 + 9-463-704-7'},
+'205':{branch:'5',type:'Coche motor extremo',uic:'9-463-205-5',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["205","463-205","9-463-205-5","7-463-205-5"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Colores Renfe Operadora. Ex-Barcelona; Santander; Llanera desde 02/10; Vilanova (BCN); Llanera desde 09/21."],ramaComposicion:'9-463-205-5 + 7-463-205-5 + 9-463-705-4'},
+'R205':{branch:'5',type:'Remolque intermedio',uic:'7-463-205-5',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["R205","463-R205","7-463-205-5","9-463-205-5"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Colores Renfe Operadora. Ex-Barcelona; Santander; Llanera desde 02/10; Vilanova (BCN); Llanera desde 09/21."],ramaComposicion:'9-463-205-5 + 7-463-205-5 + 9-463-705-4'},
+'705':{branch:'5',type:'Coche motor extremo',uic:'9-463-705-4',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["705","463-705","9-463-705-4","9-463-205-5"],deposito:'Llanera',red:'Asturias',color:'Cercanías',notes:["Colores Renfe Operadora. Ex-Barcelona; Santander; Llanera desde 02/10; Vilanova (BCN); Llanera desde 09/21."],ramaComposicion:'9-463-205-5 + 7-463-205-5 + 9-463-705-4'},
+'206':{branch:'6',type:'Coche motor extremo',uic:'9-463-206-3',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["206","463-206","9-463-206-3","6-463-206-3"],color:'Cercanías',notes:["Colores Renfe Operadora. Barcelona; Santander; Sevilla; Zaragoza 06/12; Cádiz desde 09/12; Barcelona desde 04/14. Reformada a 464-226."],transformadaA:'464-226',situacionActual:'Actualmente serie 464, unidad 464-226',ramaComposicion:'9-463-206-3 + 6-463-206-3 + 9-463-706-2'},
+'R206':{branch:'6',type:'Remolque intermedio',uic:'6-463-206-3',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["R206","463-R206","6-463-206-3","9-463-206-3"],color:'Cercanías',notes:["Colores Renfe Operadora. Barcelona; Santander; Sevilla; Zaragoza 06/12; Cádiz desde 09/12; Barcelona desde 04/14. Reformada a 464-226."],transformadaA:'464-226',situacionActual:'Actualmente serie 464, unidad 464-226',ramaComposicion:'9-463-206-3 + 6-463-206-3 + 9-463-706-2'},
+'706':{branch:'6',type:'Coche motor extremo',uic:'9-463-706-2',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["706","463-706","9-463-706-2","9-463-206-3"],color:'Cercanías',notes:["Colores Renfe Operadora. Barcelona; Santander; Sevilla; Zaragoza 06/12; Cádiz desde 09/12; Barcelona desde 04/14. Reformada a 464-226."],transformadaA:'464-226',situacionActual:'Actualmente serie 464, unidad 464-226',ramaComposicion:'9-463-206-3 + 6-463-206-3 + 9-463-706-2'},
+'207':{branch:'7',type:'Coche motor extremo',uic:'9-463-207-1',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["207","463-207","9-463-207-1","6-463-207-1"],deposito:'Vilanova',red:'Barcelona',color:'Blanco/Naranja',notes:["Colores Renfe Operadora. Valencia hasta 14/01/08; Sevilla/Cádiz hasta 10/10; Zaragoza hasta 11/10; Barcelona. 1ª unidad en colores Rodalies 03/22."],ramaComposicion:'9-463-207-1 + 6-463-207-1 + 9-463-707-0'},
+'R207':{branch:'7',type:'Remolque intermedio',uic:'6-463-207-1',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["R207","463-R207","6-463-207-1","9-463-207-1"],deposito:'Vilanova',red:'Barcelona',color:'Blanco/Naranja',notes:["Colores Renfe Operadora. Valencia hasta 14/01/08; Sevilla/Cádiz hasta 10/10; Zaragoza hasta 11/10; Barcelona. 1ª unidad en colores Rodalies 03/22."],ramaComposicion:'9-463-207-1 + 6-463-207-1 + 9-463-707-0'},
+'707':{branch:'7',type:'Coche motor extremo',uic:'9-463-707-0',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["707","463-707","9-463-707-0","9-463-207-1"],deposito:'Vilanova',red:'Barcelona',color:'Blanco/Naranja',notes:["Colores Renfe Operadora. Valencia hasta 14/01/08; Sevilla/Cádiz hasta 10/10; Zaragoza hasta 11/10; Barcelona. 1ª unidad en colores Rodalies 03/22."],ramaComposicion:'9-463-207-1 + 6-463-207-1 + 9-463-707-0'},
+'208':{branch:'8',type:'Coche motor extremo',uic:'9-463-208-1',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["208","463-208","9-463-208-1","7-463-208-9"],deposito:'Vilanova',red:'Barcelona',color:'Blanco/Naranja',notes:["Colores Renfe Operadora. 2ª unidad en colores Rodalies 07/22."],ramaComposicion:'9-463-208-1 + 7-463-208-9 + 9-463-708-8'},
+'R208':{branch:'8',type:'Remolque intermedio',uic:'7-463-208-9',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["R208","463-R208","7-463-208-9","9-463-208-1"],deposito:'Vilanova',red:'Barcelona',color:'Blanco/Naranja',notes:["Colores Renfe Operadora. 2ª unidad en colores Rodalies 07/22."],ramaComposicion:'9-463-208-1 + 7-463-208-9 + 9-463-708-8'},
+'708':{branch:'8',type:'Coche motor extremo',uic:'9-463-708-8',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["708","463-708","9-463-708-8","9-463-208-1"],deposito:'Vilanova',red:'Barcelona',color:'Blanco/Naranja',notes:["Colores Renfe Operadora. 2ª unidad en colores Rodalies 07/22."],ramaComposicion:'9-463-208-1 + 7-463-208-9 + 9-463-708-8'},
+'209':{branch:'9',type:'Coche motor extremo',uic:'9-463-209-7',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["209","463-209","9-463-209-7","7-463-209-7"],color:'Cercanías',notes:["Entra en servicio 09/07. Ex-Cercanías Barcelona. Reformada a 464-231 desde 06/18."],transformadaA:'464-231',situacionActual:'Actualmente serie 464, unidad 464-231',ramaComposicion:'9-463-209-7 + 7-463-209-7 + 9-463-709-6'},
+'R209':{branch:'9',type:'Remolque intermedio',uic:'7-463-209-7',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["R209","463-R209","7-463-209-7","9-463-209-7"],color:'Cercanías',notes:["Entra en servicio 09/07. Ex-Cercanías Barcelona. Reformada a 464-231 desde 06/18."],transformadaA:'464-231',situacionActual:'Actualmente serie 464, unidad 464-231',ramaComposicion:'9-463-209-7 + 7-463-209-7 + 9-463-709-6'},
+'709':{branch:'9',type:'Coche motor extremo',uic:'9-463-709-6',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["709","463-709","9-463-709-6","9-463-209-7"],color:'Cercanías',notes:["Entra en servicio 09/07. Ex-Cercanías Barcelona. Reformada a 464-231 desde 06/18."],transformadaA:'464-231',situacionActual:'Actualmente serie 464, unidad 464-231',ramaComposicion:'9-463-209-7 + 7-463-209-7 + 9-463-709-6'},
+'210':{branch:'10',type:'Coche motor extremo',uic:'9-463-210-5',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["210","463-210","9-463-210-5","6-463-210-5"],deposito:'Vilanova',red:'Barcelona',color:'Blanco/Naranja',notes:["Colores Renfe Operadora. Ex-Barcelona; Sevilla 02/11; Barcelona."],ramaComposicion:'9-463-210-5 + 6-463-210-5 + 9-463-710-4'},
+'R210':{branch:'10',type:'Remolque intermedio',uic:'6-463-210-5',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["R210","463-R210","6-463-210-5","9-463-210-5"],deposito:'Vilanova',red:'Barcelona',color:'Blanco/Naranja',notes:["Colores Renfe Operadora. Ex-Barcelona; Sevilla 02/11; Barcelona."],ramaComposicion:'9-463-210-5 + 6-463-210-5 + 9-463-710-4'},
+'710':{branch:'10',type:'Coche motor extremo',uic:'9-463-710-4',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["710","463-710","9-463-710-4","9-463-210-5"],deposito:'Vilanova',red:'Barcelona',color:'Blanco/Naranja',notes:["Colores Renfe Operadora. Ex-Barcelona; Sevilla 02/11; Barcelona."],ramaComposicion:'9-463-210-5 + 6-463-210-5 + 9-463-710-4'},
+'211':{branch:'11',type:'Coche motor extremo',uic:'9-463-211-3',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["211","463-211","9-463-211-3","7-463-211-3"],deposito:'Vilanova',red:'Barcelona',color:'Blanco/Naranja',notes:["Colores Renfe Operadora. Entregado 10/07. Colores Rodalies 2022. Vinilos Turisme Barcelona 04/23."],ramaComposicion:'9-463-211-3 + 7-463-211-3 + 9-463-711-2'},
+'R211':{branch:'11',type:'Remolque intermedio',uic:'7-463-211-3',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["R211","463-R211","7-463-211-3","9-463-211-3"],deposito:'Vilanova',red:'Barcelona',color:'Blanco/Naranja',notes:["Colores Renfe Operadora. Entregado 10/07. Colores Rodalies 2022. Vinilos Turisme Barcelona 04/23."],ramaComposicion:'9-463-211-3 + 7-463-211-3 + 9-463-711-2'},
+'711':{branch:'11',type:'Coche motor extremo',uic:'9-463-711-2',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["711","463-711","9-463-711-2","9-463-211-3"],deposito:'Vilanova',red:'Barcelona',color:'Blanco/Naranja',notes:["Colores Renfe Operadora. Entregado 10/07. Colores Rodalies 2022. Vinilos Turisme Barcelona 04/23."],ramaComposicion:'9-463-211-3 + 7-463-211-3 + 9-463-711-2'},
+'212':{branch:'12',type:'Coche motor extremo',uic:'9-463-212-1',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["212","463-212","9-463-212-1","7-463-212-1"],deposito:'Vilanova',red:'Barcelona',color:'Blanco/Naranja',notes:["Colores Renfe Operadora. Colores Rodalies desde 02/23."],ramaComposicion:'9-463-212-1 + 7-463-212-1 + 9-463-712-0'},
+'R212':{branch:'12',type:'Remolque intermedio',uic:'7-463-212-1',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["R212","463-R212","7-463-212-1","9-463-212-1"],deposito:'Vilanova',red:'Barcelona',color:'Blanco/Naranja',notes:["Colores Renfe Operadora. Colores Rodalies desde 02/23."],ramaComposicion:'9-463-212-1 + 7-463-212-1 + 9-463-712-0'},
+'712':{branch:'12',type:'Coche motor extremo',uic:'9-463-712-0',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["712","463-712","9-463-712-0","9-463-212-1"],deposito:'Vilanova',red:'Barcelona',color:'Blanco/Naranja',notes:["Colores Renfe Operadora. Colores Rodalies desde 02/23."],ramaComposicion:'9-463-212-1 + 7-463-212-1 + 9-463-712-0'},
+'213':{branch:'13',type:'Coche motor extremo',uic:'9-463-213-9',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["213","463-213","9-463-213-9","7-463-213-9"],deposito:'Zaragoza',red:'Zaragoza',color:'Rojo/Blanco',notes:["Colores Renfe Operadora. En pruebas 11/07. Colores Rodalies desde 28/09/23. Asturias 10/10/23; vinilado colores Cercanías 13/10/23; Zaragoza 06/24. Pruebas en Bilbao al trasladarse a Zaragoza 06/24."],ramaComposicion:'9-463-213-9 + 7-463-213-9 + 9-463-713-8'},
+'R213':{branch:'13',type:'Remolque intermedio',uic:'7-463-213-9',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["R213","463-R213","7-463-213-9","9-463-213-9"],deposito:'Zaragoza',red:'Zaragoza',color:'Rojo/Blanco',notes:["Colores Renfe Operadora. En pruebas 11/07. Colores Rodalies desde 28/09/23. Asturias 10/10/23; vinilado colores Cercanías 13/10/23; Zaragoza 06/24. Pruebas en Bilbao al trasladarse a Zaragoza 06/24."],ramaComposicion:'9-463-213-9 + 7-463-213-9 + 9-463-713-8'},
+'713':{branch:'13',type:'Coche motor extremo',uic:'9-463-713-8',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["713","463-713","9-463-713-8","9-463-213-9"],deposito:'Zaragoza',red:'Zaragoza',color:'Rojo/Blanco',notes:["Colores Renfe Operadora. En pruebas 11/07. Colores Rodalies desde 28/09/23. Asturias 10/10/23; vinilado colores Cercanías 13/10/23; Zaragoza 06/24. Pruebas en Bilbao al trasladarse a Zaragoza 06/24."],ramaComposicion:'9-463-213-9 + 7-463-213-9 + 9-463-713-8'},
+'214':{branch:'14',type:'Coche motor extremo',uic:'9-463-214-7',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["214","463-214","9-463-214-7","7-463-214-7"],deposito:'Vilanova',red:'Barcelona',color:'Blanco/Naranja',notes:["Colores Renfe Operadora. En pruebas 11/07. Colores Rodalies 02/24."],ramaComposicion:'9-463-214-7 + 7-463-214-7 + 9-463-714-6'},
+'R214':{branch:'14',type:'Remolque intermedio',uic:'7-463-214-7',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["R214","463-R214","7-463-214-7","9-463-214-7"],deposito:'Vilanova',red:'Barcelona',color:'Blanco/Naranja',notes:["Colores Renfe Operadora. En pruebas 11/07. Colores Rodalies 02/24."],ramaComposicion:'9-463-214-7 + 7-463-214-7 + 9-463-714-6'},
+'714':{branch:'14',type:'Coche motor extremo',uic:'9-463-714-6',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["714","463-714","9-463-714-6","9-463-214-7"],deposito:'Vilanova',red:'Barcelona',color:'Blanco/Naranja',notes:["Colores Renfe Operadora. En pruebas 11/07. Colores Rodalies 02/24."],ramaComposicion:'9-463-214-7 + 7-463-214-7 + 9-463-714-6'},
+'215':{branch:'15',type:'Coche motor extremo',uic:'9-463-215-4',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["215","463-215","9-463-215-4","6-463-215-4"],deposito:'Vilanova',red:'Barcelona',color:'Blanco/Naranja',notes:["Colores Renfe Operadora. En pruebas 12/07. Ex-Sevilla; Vilanova. Colores Rodalies 01/24."],ramaComposicion:'9-463-215-4 + 6-463-215-4 + 9-463-715-3'},
+'R215':{branch:'15',type:'Remolque intermedio',uic:'6-463-215-4',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["R215","463-R215","6-463-215-4","9-463-215-4"],deposito:'Vilanova',red:'Barcelona',color:'Blanco/Naranja',notes:["Colores Renfe Operadora. En pruebas 12/07. Ex-Sevilla; Vilanova. Colores Rodalies 01/24."],ramaComposicion:'9-463-215-4 + 6-463-215-4 + 9-463-715-3'},
+'715':{branch:'15',type:'Coche motor extremo',uic:'9-463-715-3',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["715","463-715","9-463-715-3","9-463-215-4"],deposito:'Vilanova',red:'Barcelona',color:'Blanco/Naranja',notes:["Colores Renfe Operadora. En pruebas 12/07. Ex-Sevilla; Vilanova. Colores Rodalies 01/24."],ramaComposicion:'9-463-215-4 + 6-463-215-4 + 9-463-715-3'},
+'216':{branch:'16',type:'Coche motor extremo',uic:'9-463-216-2',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["216","463-216","9-463-216-2","6-463-216-2"],color:'Cercanías',notes:["Entregado 13/02/08. En servicio Sevilla. Transformado a 465-267 desde 27/11/11."],transformadaA:'465-267',situacionActual:'Actualmente serie 465, unidad 465-267',ramaComposicion:'9-463-216-2 + 6-463-216-2 + 9-463-716-1'},
+'R216':{branch:'16',type:'Remolque intermedio',uic:'6-463-216-2',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["R216","463-R216","6-463-216-2","9-463-216-2"],color:'Cercanías',notes:["Entregado 13/02/08. En servicio Sevilla. Transformado a 465-267 desde 27/11/11."],transformadaA:'465-267',situacionActual:'Actualmente serie 465, unidad 465-267',ramaComposicion:'9-463-216-2 + 6-463-216-2 + 9-463-716-1'},
+'716':{branch:'16',type:'Coche motor extremo',uic:'9-463-716-1',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["716","463-716","9-463-716-1","9-463-216-2"],color:'Cercanías',notes:["Entregado 13/02/08. En servicio Sevilla. Transformado a 465-267 desde 27/11/11."],transformadaA:'465-267',situacionActual:'Actualmente serie 465, unidad 465-267',ramaComposicion:'9-463-216-2 + 6-463-216-2 + 9-463-716-1'},
+'217':{branch:'17',type:'Coche motor extremo',uic:'9-463-217-0',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["217","463-217","9-463-217-0","6-463-217-0"],color:'Cercanías',notes:["Colores Renfe Operadora. Ex-Cádiz. Reformado a 464-227 en Vilanova 02/16."],transformadaA:'464-227',situacionActual:'Actualmente serie 464, unidad 464-227',ramaComposicion:'9-463-217-0 + 6-463-217-0 + 9-463-717-9'},
+'R217':{branch:'17',type:'Remolque intermedio',uic:'6-463-217-0',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["R217","463-R217","6-463-217-0","9-463-217-0"],color:'Cercanías',notes:["Colores Renfe Operadora. Ex-Cádiz. Reformado a 464-227 en Vilanova 02/16."],transformadaA:'464-227',situacionActual:'Actualmente serie 464, unidad 464-227',ramaComposicion:'9-463-217-0 + 6-463-217-0 + 9-463-717-9'},
+'717':{branch:'17',type:'Coche motor extremo',uic:'9-463-717-9',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["717","463-717","9-463-717-9","9-463-217-0"],color:'Cercanías',notes:["Colores Renfe Operadora. Ex-Cádiz. Reformado a 464-227 en Vilanova 02/16."],transformadaA:'464-227',situacionActual:'Actualmente serie 464, unidad 464-227',ramaComposicion:'9-463-217-0 + 6-463-217-0 + 9-463-717-9'},
+'218':{branch:'18',type:'Coche motor extremo',uic:'9-463-218-8',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["218","463-218","9-463-218-8","6-463-218-8"],deposito:'Zaragoza',red:'Zaragoza',color:'Cercanías',notes:["Colores Renfe Operadora. Jerez de la Frontera (Sevilla/Cádiz); Zaragoza. Refuerzo Fallas 2017 y 2018; Llanera 12/18; Zaragoza 04/24. Accidente en Cortes de Navarra 22/05/25."],ramaComposicion:'9-463-218-8 + 6-463-218-8 + 9-463-718-7'},
+'R218':{branch:'18',type:'Remolque intermedio',uic:'6-463-218-8',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["R218","463-R218","6-463-218-8","9-463-218-8"],deposito:'Zaragoza',red:'Zaragoza',color:'Cercanías',notes:["Colores Renfe Operadora. Jerez de la Frontera (Sevilla/Cádiz); Zaragoza. Refuerzo Fallas 2017 y 2018; Llanera 12/18; Zaragoza 04/24. Accidente en Cortes de Navarra 22/05/25."],ramaComposicion:'9-463-218-8 + 6-463-218-8 + 9-463-718-7'},
+'718':{branch:'18',type:'Coche motor extremo',uic:'9-463-718-7',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["718","463-718","9-463-718-7","9-463-218-8"],deposito:'Zaragoza',red:'Zaragoza',color:'Cercanías',notes:["Colores Renfe Operadora. Jerez de la Frontera (Sevilla/Cádiz); Zaragoza. Refuerzo Fallas 2017 y 2018; Llanera 12/18; Zaragoza 04/24. Accidente en Cortes de Navarra 22/05/25."],ramaComposicion:'9-463-218-8 + 6-463-218-8 + 9-463-718-7'},
+'219':{branch:'19',type:'Coche motor extremo',uic:'9-463-219-6',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["219","463-219","9-463-219-6","6-463-219-6"],color:'Cercanías',notes:["Jerez de la Frontera (Sevilla/Cádiz); 03/13 Barcelona. Reformada a 464-225."],transformadaA:'464-225',situacionActual:'Actualmente serie 464, unidad 464-225',ramaComposicion:'9-463-219-6 + 6-463-219-6 + 9-463-719-5'},
+'R219':{branch:'19',type:'Remolque intermedio',uic:'6-463-219-6',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["R219","463-R219","6-463-219-6","9-463-219-6"],color:'Cercanías',notes:["Jerez de la Frontera (Sevilla/Cádiz); 03/13 Barcelona. Reformada a 464-225."],transformadaA:'464-225',situacionActual:'Actualmente serie 464, unidad 464-225',ramaComposicion:'9-463-219-6 + 6-463-219-6 + 9-463-719-5'},
+'719':{branch:'19',type:'Coche motor extremo',uic:'9-463-719-5',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["719","463-719","9-463-719-5","9-463-219-6"],color:'Cercanías',notes:["Jerez de la Frontera (Sevilla/Cádiz); 03/13 Barcelona. Reformada a 464-225."],transformadaA:'464-225',situacionActual:'Actualmente serie 464, unidad 464-225',ramaComposicion:'9-463-219-6 + 6-463-219-6 + 9-463-719-5'},
+'220':{branch:'20',type:'Coche motor extremo',uic:'9-463-220-4',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["220","463-220","9-463-220-4","6-463-220-4"],color:'Cercanías',notes:["Ex-Sevilla; Barcelona. Circuló con 4 coches por Barcelona 03/13. Renumerado a 464-224."],transformadaA:'464-224',situacionActual:'Actualmente serie 464, unidad 464-224',ramaComposicion:'9-463-220-4 + 6-463-220-4 + 9-463-720-3'},
+'R220':{branch:'20',type:'Remolque intermedio',uic:'6-463-220-4',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["R220","463-R220","6-463-220-4","9-463-220-4"],color:'Cercanías',notes:["Ex-Sevilla; Barcelona. Circuló con 4 coches por Barcelona 03/13. Renumerado a 464-224."],transformadaA:'464-224',situacionActual:'Actualmente serie 464, unidad 464-224',ramaComposicion:'9-463-220-4 + 6-463-220-4 + 9-463-720-3'},
+'720':{branch:'20',type:'Coche motor extremo',uic:'9-463-720-3',lote:'Segundo lote · Alstom',constructor:'Alstom',aliases:["720","463-720","9-463-720-3","9-463-220-4"],color:'Cercanías',notes:["Ex-Sevilla; Barcelona. Circuló con 4 coches por Barcelona 03/13. Renumerado a 464-224."],transformadaA:'464-224',situacionActual:'Actualmente serie 464, unidad 464-224',ramaComposicion:'9-463-220-4 + 6-463-220-4 + 9-463-720-3'}
+}},
+'464':{label:'Civia S-464',vehicles:{}},
+'465':{label:'Civia S-465',vehicles:{}},
+'102':{
+label:'AVE S-102',
+vehicles:{
+'001':{branch:'1',type:'motor',uic:'9-102-001-5',renfe_number:'102-001',side:'motor impar'},
+'002':{branch:'1',type:'motor',uic:'9-102-002-3',renfe_number:'102-002',side:'motor par'},
+'003':{branch:'2',type:'motor',uic:'9-102-003-1',renfe_number:'102-003',side:'motor impar'},
+'004':{branch:'2',type:'motor',uic:'9-102-004-9',renfe_number:'102-004',side:'motor par'},
+'005':{branch:'3',type:'motor',uic:'9-102-005-6',renfe_number:'102-005',side:'motor impar'},
+'006':{branch:'3',type:'motor',uic:'9-102-006-4',renfe_number:'102-006',side:'motor par'},
+'007':{branch:'4',type:'motor',uic:'9-102-007-2',renfe_number:'102-007',side:'motor impar'},
+'008':{branch:'4',type:'motor',uic:'9-102-008-0',renfe_number:'102-008',side:'motor par'},
+'009':{branch:'5',type:'motor',uic:'9-102-009-8',renfe_number:'102-009',side:'motor impar'},
+'010':{branch:'5',type:'motor',uic:'9-102-010-6',renfe_number:'102-010',side:'motor par'},
+'011':{branch:'6',type:'motor',uic:'9-102-011-4',renfe_number:'102-011',side:'motor impar'},
+'012':{branch:'6',type:'motor',uic:'9-102-012-2',renfe_number:'102-012',side:'motor par'},
+'013':{branch:'7',type:'motor',uic:'9-102-013-0',renfe_number:'102-013',side:'motor impar'},
+'014':{branch:'7',type:'motor',uic:'9-102-014-8',renfe_number:'102-014',side:'motor par'},
+'015':{branch:'8',type:'motor',uic:'9-102-015-5',renfe_number:'102-015',side:'motor impar'},
+'016':{branch:'8',type:'motor',uic:'9-102-016-3',renfe_number:'102-016',side:'motor par'},
+'017':{branch:'9',type:'motor',uic:'9-102-017-1',renfe_number:'102-017',side:'motor impar'},
+'018':{branch:'9',type:'motor',uic:'9-102-018-9',renfe_number:'102-018',side:'motor par'},
+'019':{branch:'10',type:'motor',uic:'9-102-019-7',renfe_number:'102-019',side:'motor impar'},
+'020':{branch:'10',type:'motor',uic:'9-102-020-5',renfe_number:'102-020',side:'motor par'},
+'021':{branch:'11',type:'motor',uic:'9-102-021-3',renfe_number:'102-021',side:'motor impar'},
+'022':{branch:'11',type:'motor',uic:'9-102-022-1',renfe_number:'102-022',side:'motor par'},
+'023':{branch:'12',type:'motor',uic:'9-102-023-9',renfe_number:'102-023',side:'motor impar'},
+'024':{branch:'12',type:'motor',uic:'9-102-024-7',renfe_number:'102-024',side:'motor par'},
+'025':{branch:'13',type:'motor',uic:'9-102-025-4',renfe_number:'102-025',side:'motor impar'},
+'026':{branch:'13',type:'motor',uic:'9-102-026-2',renfe_number:'102-026',side:'motor par'},
+'027':{branch:'14',type:'motor',uic:'9-102-027-0',renfe_number:'102-027',side:'motor impar'},
+'028':{branch:'14',type:'motor',uic:'9-102-028-8',renfe_number:'102-028',side:'motor par'},
+'029':{branch:'15',type:'motor',uic:'9-102-029-6',renfe_number:'102-029',side:'motor impar'},
+'030':{branch:'15',type:'motor',uic:'9-102-030-4',renfe_number:'102-030',side:'motor par'},
+'031':{branch:'16',type:'motor',uic:'9-102-031-2',renfe_number:'102-031',side:'motor impar'},
+'032':{branch:'16',type:'motor',uic:'9-102-032-0',renfe_number:'102-032',side:'motor par'}
+}
+}
+};
+
+/*
+  Base completa externa.
+  ARGOS intenta primero /data/material.json (la carpeta que has
+  añadido al repositorio) y mantiene esta pequeña base como respaldo.
+*/
+async function loadMaterialData(){
+  const urls=[
+    './material.json?v=2.0',
+    './data/material.json?v=2.0',
+    './material/material.json?v=2.0',
+    './material_rico.json?v=2.0',
+    './data/material_rico.json?v=2.0'
+  ];
+
+  function mergePlain(base,incoming){
+    const out={...(base||{})};
+    for(const [key,value] of Object.entries(incoming||{})){
+      if(value===null||value===undefined)continue;
+      if(
+        value &&
+        typeof value==='object' &&
+        !Array.isArray(value) &&
+        out[key] &&
+        typeof out[key]==='object' &&
+        !Array.isArray(out[key])
+      ){
+        out[key]=mergePlain(out[key],value);
+      }else{
+        out[key]=value;
       }
     }
+    return out;
+  }
 
-    if(!base) return null;
-    return {
-      ...base,
-      numero:base.numero,
-      vehiculoBase:base.vehiculoBase,
-      vehiculoIntroducido:raw,
-      vehiculoBuscado:motorShort,
-      cocheTipo:"Motor",
-      composicionRama:base.composicionRama
+  for(const url of urls){
+    try{
+      const response=await fetch(url,{cache:'no-store'});
+      if(!response.ok)continue;
+
+      const raw=await response.json();
+      const normalized=normalizeMaterialData(raw);
+
+      if(normalized&&Object.keys(normalized).length){
+        const merged=JSON.parse(JSON.stringify(ARGOS_MATERIAL_DATA||{}));
+
+        for(const [seriesKey,seriesData] of Object.entries(normalized)){
+          const current=merged[seriesKey]||{};
+          merged[seriesKey]=mergePlain(current,seriesData);
+
+          merged[seriesKey].label=
+            seriesData.label ||
+            current.label ||
+            merged[seriesKey].name ||
+            `Serie ${seriesKey}`;
+
+          merged[seriesKey].vehicles={
+            ...(current.vehicles||{}),
+            ...(seriesData.vehicles||{})
+          };
+        }
+
+        ARGOS_MATERIAL_DATA=merged;
+
+        console.info(
+          'ARGOS: base de material cargada desde',
+          url,
+          '· series externas:',
+          Object.keys(normalized).length,
+          '· series finales:',
+          Object.keys(merged).length,
+          '· vehículos finales:',
+          Object.values(merged).reduce(
+            (total,item)=>total+Object.keys(item?.vehicles||{}).length,
+            0
+          )
+        );
+
+        return true;
+      }
+    }catch(error){
+      console.warn('ARGOS: no se pudo cargar',url,error);
+    }
+  }
+
+  console.warn('ARGOS: se utilizará la base local de respaldo.');
+  return false;
+}
+
+function normalizeMaterialData(raw){
+  if(!raw)return null;
+
+  let source=raw;
+
+  if(raw.series&&typeof raw.series==='object'){
+    source=raw.series;
+  }
+
+  const result={};
+
+  const addSeries=(seriesValue,seriesData)=>{
+    if(!seriesData||typeof seriesData!=='object')return;
+
+    const series=String(
+      seriesData.series ??
+      seriesData.serie ??
+      seriesValue ??
+      ''
+    ).replace(/\D/g,'').slice(0,3);
+
+    if(!series)return;
+
+    const current=result[series]||{};
+
+    const base={
+      ...current,
+      ...seriesData,
+      label:
+        seriesData.label ??
+        seriesData.name ??
+        current.label ??
+        `Serie ${series}`
     };
-  }
 
-  return seriesData?.units?.[v] || null;
-}
+    const vehiclesSource=
+      seriesData.vehicles ??
+      seriesData.vehiculos ??
+      seriesData.materials ??
+      seriesData.materiales ??
+      {};
 
-function getSeriesData(series){
-  return fleet[normalizeFleetValue(series)] || null;
-}
+    const vehicles={...(current.vehicles||{})};
 
-function updateBranchBox(){
-  const seriesEl=$("series"), vehicleEl=$("vehicle"), box=$("branchBox"), value=$("branchValue");
-  if(!seriesEl || !vehicleEl || !box || !value) return;
-  const unit=getFleetUnit(seriesEl.value, vehicleEl.value);
-  if(unit){ value.textContent=`Rama ${unit.rama}`; box.classList.add("visible"); }
-  else { value.textContent=""; box.classList.remove("visible"); }
-}
+    const putVehicle=(vehicleKey,item)=>{
+      if(!item||typeof item!=='object')return;
 
-function getCurrentFleetUnit(){
-  return getFleetUnit($("series")?.value||"",$("vehicle")?.value||"");
-}
+      const vehicle=String(
+        item.vehicle ??
+        item.vehiculo ??
+        item.numero ??
+        item.number ??
+        item.material ??
+        item.matricula ??
+        vehicleKey ??
+        ''
+      ).replace(/\D/g,'').padStart(3,'0');
 
-if($("series")) $("series").addEventListener("input",updateBranchBox);
-if($("vehicle")) $("vehicle").addEventListener("input",updateBranchBox);
+      if(!vehicle)return;
 
-function autocomplete(inputId,listId){
-  const input=$(inputId),list=$(listId); if(!input||!list)return;
-  const render=()=>{
-    const q=norm(input.value);
-    if(!q){list.classList.remove("show");list.innerHTML="";return}
-    const matches=stations.filter(s=>[s.code,s.name,...(s.aliases||[])].map(norm).some(x=>x.includes(q))).slice(0,8);
-    if(!matches.length){list.classList.remove("show");list.innerHTML="";return}
-    list.innerHTML=matches.map(s=>`<button type="button" class="suggestion" data-name="${esc(s.name)}" style="display:flex;align-items:baseline;gap:8px"><strong>${esc(s.name)}</strong>${s.code?`<small>${esc(s.code)}</small>`:""}</button>`).join("");
-    list.classList.add("show");
-    list.querySelectorAll(".suggestion").forEach(o=>o.onclick=()=>{input.value=o.dataset.name;list.classList.remove("show")});
+      const branch=String(
+        item.branch ??
+        item.rama ??
+        item.ramaNo ??
+        item.rama_numero ??
+        ''
+      ).replace(/\D/g,'');
+
+      vehicles[vehicle]={
+        ...item,
+        branch,
+        type:item.type ?? item.tipo ?? ''
+      };
+    };
+
+    if(Array.isArray(vehiclesSource)){
+      vehiclesSource.forEach((item,index)=>putVehicle(index,item));
+    }else if(vehiclesSource&&typeof vehiclesSource==='object'){
+      Object.entries(vehiclesSource).forEach(([key,item])=>{
+        putVehicle(key,item);
+      });
+    }
+
+    base.vehicles=vehicles;
+    result[series]=base;
   };
-  input.addEventListener("input",render);input.addEventListener("focus",render);
-  document.addEventListener("click",e=>{if(!input.contains(e.target)&&!list.contains(e.target))list.classList.remove("show")});
-}
-autocomplete("origin","originList");autocomplete("destination","destinationList");
-if($("date")&&!$("date").value)$("date").valueAsDate=new Date();
 
-function collectEntries(listId){
-  const list=$(listId); if(!list)return[];
-  return [...list.querySelectorAll(".entry-chip span")].map(x=>x.textContent.trim()).filter(Boolean);
-}
-function clearFormExtras(){
-  ["notesEntries","incidentsEntries"].forEach(id=>{const e=$(id);if(e)e.innerHTML=""});
-}
-
-function saveCurrentService(e){
-  e.preventDefault();
-  const service={
-    id:Date.now().toString(36)+Math.random().toString(36).slice(2,8),
-    train:$("train")?.value.trim()||"",
-    series:$("series")?.value.trim()||"",
-    vehicle:(()=>{
-      const entered=$("vehicle")?.value.trim()||"";
-      const unit=getFleetUnit($("series")?.value||"",entered);
-      return ["103","104"].includes(normalizeFleetValue($("series")?.value||"")) ? (unit?.vehiculoBase||entered) : entered;
-    })(),
-    branch:getFleetUnit($("series")?.value||"", $("vehicle")?.value||"")?.rama||"",
-    product:$("product")?.value||"",
-    origin:$("origin")?.value.trim()||"",
-    destination:$("destination")?.value.trim()||"",
-    date:$("date")?.value||"",
-    kilometres:$("kilometres")?.value?Number($("kilometres").value||0):0,
-    notes:$("notes")?.value.trim()||"",
-    notesEntries:collectEntries("notesEntries"),
-    incidents:$("incidents")?.value.trim()||"",
-    incidentsEntries:collectEntries("incidentsEntries"),
-    createdAt:Date.now()
-  };
-  if(!service.train && !$("noTrainNumber")?.checked){toast("Introduce el número de tren");return}
-  if(!service.series||!service.origin||!service.destination||!service.date){toast("Completa los campos obligatorios");return}
-  const a=services();a.push(service);saveServices(a);
-  e.target.reset();clearFormExtras();
-  if($("date"))$("date").valueAsDate=new Date();
-  if($("product"))$("product").selectedIndex=0;
-  if($("productSelectValue")){ $("productSelectValue").textContent="Selecciona un producto";$("productSelectValue").classList.add("product-select-placeholder"); }
-  refreshHome();renderHistory();renderStats();updateBranchBox();toast("Servicio guardado");showScreen("menu");
-}
-if($("serviceForm"))$("serviceForm").addEventListener("submit",saveCurrentService);
-
-function cancelCurrentService(){
-  const form=$("serviceForm");
-  if(form){form.reset();clearFormExtras();}
-  if($("date"))$("date").valueAsDate=new Date();
-  if($("product"))$("product").selectedIndex=0;
-  if($("productSelectValue")){
-    $("productSelectValue").textContent="Selecciona un producto";
-    $("productSelectValue").classList.add("product-select-placeholder");
-  }
-  updateBranchBox();
-  document.querySelectorAll(".suggestions.show").forEach(e=>e.classList.remove("show"));
-  showScreen("menu");
-}
-if($("cancelService"))$("cancelService").addEventListener("click",cancelCurrentService);
-
-function fleetFichaHtml(series,vehicle,service=null){
-  const unit=getFleetUnit(series,vehicle);
-  const seriesData=getSeriesData(series);
-  if(!unit){
-    return `<div class="ficha-empty"><strong>Ficha no disponible</strong><span>No hay información de material almacenada para Serie ${esc(series||"—")} · Vehículo ${esc(vehicle||"—")}.</span></div>`;
+  if(Array.isArray(source)){
+    source.forEach((item,index)=>{
+      if(item&&typeof item==='object'){
+        addSeries(
+          item.series ??
+          item.serie ??
+          item.serieUic ??
+          index,
+          {
+            ...item,
+            vehicles:[item]
+          }
+        );
+      }
+    });
+  }else if(source&&typeof source==='object'){
+    Object.entries(source).forEach(([seriesKey,seriesData])=>{
+      addSeries(seriesKey,seriesData);
+    });
   }
 
-  // Toda la información específica aportada para la rama forma parte de su ficha.
-  const notes=unit.notas||[];
-
-  // 1) Datos del servicio registrado.
-  const serviceBlock=service?`
-    <div class="ficha-section">
-      <div class="ficha-section-title">DATOS DEL SERVICIO</div>
-      <div class="ficha-grid">
-        <div><span>Nº de tren</span><strong>${esc(service.train||"—")}</strong></div>
-        <div><span>Producto</span><strong>${esc(service.product||"—")}</strong></div>
-        <div><span>Origen</span><strong>${esc(service.origin||"—")}</strong></div>
-        <div><span>Destino</span><strong>${esc(service.destination||"—")}</strong></div>
-        <div><span>Fecha</span><strong>${esc(service.date||"—")}</strong></div>
-      </div>
-    </div>`:"";
-
-  // 2) Identificación del tren.
-  const identification=`
-    <div class="ficha-section">
-      <div class="ficha-section-title">IDENTIFICACIÓN</div>
-      <div class="ficha-grid">
-        <div><span>Serie</span><strong>${esc(series)}</strong></div>
-        <div><span>Vehículo</span><strong>${esc(["103","104","120","121"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : vehicle)}</strong></div>
-        <div><span>Rama</span><strong>${esc(unit.rama)}</strong></div>
-        ${(["102","112"].includes(normalizeFleetValue(series)))?`
-        <div><span>Motor introducido</span><strong>${esc(unit.motorTipo||"—")}</strong></div>
-        <div><span>Motor impar</span><strong>${esc(unit.motorImpar||"—")}</strong></div>
-        <div><span>Motor par</span><strong>${esc(unit.motorPar||"—")}</strong></div>`:""}
-        <div><span>Número completo</span><strong>${esc(unit.numero||"—")}</strong></div>
-        <div><span>Fabricante</span><strong>${esc(unit.fabricante||seriesData?.fabricante||"—")}</strong></div>
-        <div><span>Número de coches</span><strong>${esc(unit.numeroCoches||seriesData?.numeroCoches||"—")}</strong></div>
-        <div><span>Año</span><strong>${esc(unit.ano||"—")}</strong></div>
-        ${["130","730"].includes(normalizeFleetValue(series)) && unit.exNumero?`<div><span>${normalizeFleetValue(series)==="730"?"Ex-número · procedencia S-130":"Ex-número"}</span><strong>${esc(unit.exNumero)}</strong></div>`:""}
-        <div><span>Depósito / base</span><strong>${esc(unit.deposito||"—")}</strong></div>
-        <div><span>Ancho de vía</span><strong>${esc(unit.ancho||seriesData?.anchoVia||"—")} ${unit.ancho?"mm":""}</strong></div>
-        ${(unit.subserie||seriesData?.subseries)?`<div><span>Subserie</span><strong>${esc(unit.subserie||seriesData.subseries)}</strong></div>`:""}
-        ${seriesData?.modelo?`<div><span>Modelo</span><strong>${esc(seriesData.modelo)}</strong></div>`:""}
-        ${seriesData?.apodo?`<div><span>Apodo</span><strong>${esc(seriesData.apodo)}</strong></div>`:""}
-        ${seriesData?.tipoMaterial?`<div><span>Tipo de material</span><strong>${esc(seriesData.tipoMaterial)}</strong></div>`:""}
-        ${normalizeFleetValue(series)==="114"?`
-        <div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||"—")}</strong></div>`:""}
-        ${["120","121","730"].includes(normalizeFleetValue(series))?`<div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||"—")}</strong></div>`:""}
-        ${normalizeFleetValue(series)==="449"?`<div><span>Remolques de la rama</span><strong>${esc((unit.remolquesRama||[]).join(" · ")||"—")}</strong></div>`:""}
-        ${normalizeFleetValue(series)==="103"?`
-        <div><span>Coche introducido</span><strong>${esc(unit.vehiculoBase||vehicle)}</strong></div>
-        <div><span>Tipo de coche</span><strong>${esc(unit.cocheTipo||"—")}</strong></div>
-        <div><span>Composición</span><strong>8 coches · Mc-R-M-R-R-M-R-Mc</strong></div>`:""}
-        ${seriesData?.velocidadMaxima?`<div><span>Velocidad máxima</span><strong>${esc(seriesData.velocidadMaxima)}</strong></div>`:""}
-        ${seriesData?.potencia?`<div><span>Potencia</span><strong>${esc(seriesData.potencia)}</strong></div>`:""}
-        ${seriesData?.plazasSentadas?`<div><span>Plazas sentadas</span><strong>${esc(seriesData.plazasSentadas)}</strong></div>`:""}
-         ${["112","121","730"].includes(normalizeFleetValue(series))?`
-         <div><span>Longitud</span><strong>${esc(seriesData.longitud||"—")}</strong></div>
-         <div><span>Peso</span><strong>${esc(seriesData.peso||"—")}</strong></div>
-         <div><span>Tensión</span><strong>${esc(seriesData.tension||"—")}</strong></div>
-         <div><span>Tracción</span><strong>${esc(seriesData.traccion||"—")}</strong></div>
-         <div><span>Señalización</span><strong>${esc(seriesData.señalizacion||"—")}</strong></div>
-         <div><span>Composición</span><strong>${esc(seriesData.composicion||"—")}</strong></div>`:""}
-      </div>
-    </div>`;
-
-  // 3) Datos destacados de la rama.
-  const highlights=notes.length?`
-    <div class="ficha-section">
-      <div class="ficha-section-title">DATOS DESTACADOS DE LA RAMA</div>
-      <div class="ficha-notes${normalizeFleetValue(series)==="121"?" ficha-notes-121":""}">${notes.map(n=>`<div class="ficha-note">${esc(n)}</div>`).join("")}</div>
-    </div>`:`
-    <div class="ficha-section">
-      <div class="ficha-section-title">DATOS DESTACADOS DE LA RAMA</div>
-      <div class="ficha-empty-inline">No hay acontecimientos destacados registrados para esta rama.</div>
-    </div>`;
-
-  // 4) Información general de la serie.
-  const general=Array.isArray(seriesData?.generalNotes)?seriesData.generalNotes.flat(Infinity).filter(Boolean):[];
-  const generalBlock=general.length?`
-    <div class="ficha-section ficha-general-section">
-      <div class="ficha-section-title">INFORMACIÓN GENERAL DE LA SERIE ${esc(series)}</div>
-      <div class="ficha-general-grid">${general.map((n,i)=>`<div class="ficha-general-item"><span class="ficha-general-number">${String(i+1).padStart(2,"0")}</span><div>${esc(n)}</div></div>`).join("")}</div>
-    </div>`:"";
-
-  const vehiculoFicha=["103","104","120","121"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : (normalizeFleetValue(series)==="730" ? (unit.numero||vehicle) : vehicle);
-  const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>Serie ${esc(series)}${unit.subserie?` · ${esc(unit.subserie)}`:""} · Rama ${esc(unit.rama)}</h3><p>Vehículo ${esc(vehiculoFicha)} · ${esc(unit.numero||"—")}</p></div>`;
-
-  return `${hero}
-    ${serviceBlock}
-    ${identification}
-    ${highlights}
-    ${generalBlock}`;
-}
-function openFicha(series,vehicle,service=null){
-  if($("fichaContent")) $("fichaContent").innerHTML=fleetFichaHtml(series,vehicle,service);
-  showScreen("ficha");
+  return Object.keys(result).length?result:null;
 }
 
-function card(s){
-  const notes=[...(s.notesEntries||[]),s.notes||""].filter(Boolean);
-  const incidents=[...(s.incidentsEntries||[]),s.incidents||""].filter(Boolean);
-  const label=s.train?`Tren ${esc(s.train)}`:"Sin número de tren";
-  return `<article class="history-card history-card-clickable" data-service-id="${esc(s.id||"")}" tabindex="0" role="button" aria-label="Ver ficha de ${label}"><div class="history-top"><span class="train-number">${label}</span><span class="service-date">${esc(s.date)}</span></div><div class="route">${esc(s.origin)} → ${esc(s.destination)}</div><div class="service-meta">Serie ${esc(s.series)}${s.vehicle?" · Vehículo "+esc(s.vehicle):""}${s.branch?" · Rama "+esc(s.branch):""}${s.product?" · "+esc(s.product):""}${s.kilometres?" · "+esc(s.kilometres)+" km":""}</div>${notes.length?`<div class="service-meta"><b>Anotaciones:</b> ${notes.map(esc).join(" · ")}</div>`:""}${incidents.length?`<div class="service-meta"><b>Incidencias:</b> ${incidents.map(esc).join(" · ")}</div>`:""}<div class="history-open-hint">Toca para ver ficha ›</div></article>`;
+function materialSearchText(value){
+return String(value||'')
+.normalize('NFD')
+.replace(/[\u0300-\u036f]/g,'')
+.toUpperCase()
+.replace(/[^A-Z0-9]+/g,' ')
+.trim();
 }
+
+function getMaterialEntries(){
+return Object.entries(ARGOS_MATERIAL_DATA)
+.map(([series,data])=>({series,label:data.label}));
+}
+
+function findMaterialByInput(value){
+const q=materialSearchText(value);
+if(!q)return null;
+
+return getMaterialEntries().find(e=>
+materialSearchText(e.series)===q ||
+materialSearchText(e.label)===q
+)||null;
+}
+
+function lookupMaterialVehicle(series,vehicle){
+const data=ARGOS_MATERIAL_DATA[series];
+if(!data)return null;
+
+const q=String(vehicle||'')
+.replace(/\D/g,'')
+.padStart(3,'0');
+
+let found=data.vehicles[q];
+let resolvedVehicle=q;
+
+if(!found){
+for(const [key,item] of Object.entries(data.vehicles||{})){
+const aliases=Array.isArray(item?.aliases) ? item.aliases.map(v=>String(v).replace(/\D/g,'').padStart(3,'0')) : [];
+if(aliases.includes(q)){
+found=item;
+resolvedVehicle=key;
+break;
+}
+}
+}
+
+return found ? {
+series,
+vehicle:resolvedVehicle,
+inputVehicle:q,
+...found
+}:null;
+}
+
+function renderMaterialSuggestions(){
+const input=document.getElementById('series');
+const box=document.getElementById('seriesSuggestions');
+
+if(!input||!box)return;
+
+const q=materialSearchText(input.value);
+
+if(!q){
+box.classList.remove('show');
+box.innerHTML='';
+return;
+}
+
+const matches=getMaterialEntries().filter(e=>
+materialSearchText(e.series).includes(q) ||
+materialSearchText(e.label).includes(q)
+);
+
+if(!matches.length){
+box.classList.remove('show');
+box.innerHTML='';
+return;
+}
+
+box.innerHTML=matches.map((e,i)=>`
+<button type="button"
+class="material-option"
+data-index="${i}">
+<span class="material-option-name">${escapeHtml(e.label)}</span>
+<span class="material-option-code">${escapeHtml(e.series)}</span>
+</button>
+`).join('');
+
+box.classList.add('show');
+
+box.querySelectorAll('.material-option').forEach((button,index)=>{
+button.addEventListener('mousedown',event=>{
+event.preventDefault();
+selectMaterialSeries(matches[index].series);
+});
+});
+}
+
+function renderBranchInfo(){
+const series=findMaterialByInput(
+document.getElementById('series')?.value
+);
+
+const vehicle=document.getElementById('branchVehicle')?.value;
+const branch=document.getElementById('branch');
+const info=document.getElementById('branchInfo');
+
+if(!branch||!info)return;
+
+branch.value='';
+info.classList.remove('is-found');
+
+if(!series){
+info.innerHTML=`
+<strong>Rama</strong><br>
+<span class="muted">Introduce primero la serie.</span>
+`;
+return;
+}
+
+if(!vehicle){
+info.innerHTML=`
+<strong>${escapeHtml(series.label)}</strong><br>
+<span class="muted">Introduce el número del vehículo para determinar la rama.</span>
+`;
+return;
+}
+
+const found=lookupMaterialVehicle(series.series,vehicle);
+
+if(!found){
+info.innerHTML=`
+<strong>Vehículo no encontrado</strong><br>
+<span class="muted">
+No existe ${escapeHtml(String(vehicle).padStart(3,'0'))} en la base de datos de ${escapeHtml(series.label)}.
+</span>
+`;
+return;
+}
+
+branch.value=found.branch || '';
+info.classList.add('is-found');
+
+const typeLabels={
+motor:'Motor',
+cabina:'Remolque con cabina',
+intermedio:'Remolque intermedio',
+remolque:'Remolque'
+};
+
+info.innerHTML=`
+<strong>${found.branch ? `Rama ${escapeHtml(found.branch)}` : 'Vehículo identificado'}</strong><br>
+<span class="muted">
+${escapeHtml(series.label)} · vehículo ${escapeHtml(found.vehicle)}
+${found.inputVehicle && found.inputVehicle!==found.vehicle ? ` · entrada ${escapeHtml(found.inputVehicle)}` : ''}
+${found.type ? ' · '+escapeHtml(typeLabels[found.type]||found.type) : ''}
+</span>
+`;
+}
+
+function selectMaterialSeries(series){
+const input=document.getElementById('series');
+
+if(!input)return;
+
+input.value=series;
+
+document.getElementById('seriesSuggestions')
+?.classList.remove('show');
+
+renderBranchInfo();
+updateCounters();
+}
+
+function initMaterialSelector(){
+const series=document.getElementById('series');
+const vehicle=document.getElementById('branchVehicle');
+
+if(series){
+series.addEventListener('input',()=>{
+renderMaterialSuggestions();
+renderBranchInfo();
+});
+
+series.addEventListener('focus',renderMaterialSuggestions);
+
+series.addEventListener('blur',()=>{
+setTimeout(()=>{
+document.getElementById('seriesSuggestions')
+?.classList.remove('show');
+},180);
+});
+}
+
+if(vehicle){
+vehicle.addEventListener('input',()=>{
+renderBranchInfo();
+updateCounters();
+});
+
+vehicle.addEventListener('change',()=>{
+renderBranchInfo();
+updateCounters();
+});
+}
+}
+
+/* =========================================================
+   ESTACIONES RENFE · AUTOCOMPLETADO
+========================================================= */
+
+const RENFE_STATIONS_API=
+'https://data.renfe.com/es/api/3/action/datastore_search';
+
+const RENFE_STATIONS_RESOURCE=
+'783e0626-6fa8-4ac7-a880-fa53144654ff';
+
+const RENFE_STATIONS_CACHE_KEY=
+'argos_renfe_stations_v6';
+
+const RENFE_STATIONS_CACHE_TTL=
+7*24*60*60*1000;
+
+/*
+FUENTE DE RESPALDO
+Copia normalizada del listado completo de estaciones Renfe.
+Se utiliza como respaldo cuando el recurso oficial de Renfe está
+incompleto, no responde o devuelve un catálogo antiguo.
+*/
+const RENFE_FALLBACK_CSV_URL=
+'https://gist.githubusercontent.com/Codelaby/f4ba468d63cd7037b038006727b37fbf/raw/listado-estaciones-completo-normalizado.csv';
+
+/*
+Estaciones que deben estar disponibles siempre en ARGOS.
+Códigos contrastados con Renfe/Adif.
+*/
+const ARGOS_CRITICAL_STATIONS=[
+{code:'17001',name:'FUENCARRAL',population:'MADRID'},
+{code:'17005',name:'COLMENAR VIEJO',population:'COLMENAR VIEJO'},
+{code:'35010',name:'LA SERNA-FUENLABRADA',population:'FUENLABRADA'},
+{code:'35001',name:'LEGANÉS',population:'LEGANÉS'},
+{code:'35002',name:'FUENLABRADA',population:'FUENLABRADA'},
+{code:'35009',name:'ZARZAQUEMADA',population:'LEGANÉS'},
+{code:'35011',name:'PARQUE POLVORANCA',population:'LEGANÉS'},
+{code:'35012',name:'HUMANES',population:'HUMANES DE MADRID'},
+{code:'35600',name:'ALUCHE',population:'MADRID'},
+{code:'35601',name:'FANJUL',population:'MADRID'},
+{code:'35602',name:'LAS ÁGUILAS',population:'MADRID'},
+{code:'35603',name:'CUATRO VIENTOS',population:'MADRID'},
+{code:'35604',name:'SAN JOSÉ DE VALDERAS',population:'ALCORCÓN'},
+{code:'35605',name:'ALCORCÓN',population:'ALCORCÓN'},
+{code:'35606',name:'MÓSTOLES',population:'MÓSTOLES'},
+{code:'35607',name:'MÓSTOLES-EL SOTO',population:'MÓSTOLES'},
+{code:'35608',name:'LAGUNA',population:'MADRID'},
+{code:'35609',name:'EMBAJADORES',population:'MADRID'},
+{code:'35610',name:'LAS RETAMAS',population:'ALCORCÓN'},
+{code:'35701',name:'MÉNDEZ ÁLVARO',population:'MADRID'},
+{code:'35702',name:'DOCE DE OCTUBRE',population:'MADRID'},
+{code:'35703',name:'ORCASITAS',population:'MADRID'},
+{code:'35704',name:'PUENTE ALCOCER',population:'MADRID'},
+{code:'37001',name:'VILLAVERDE ALTO',population:'MADRID'},
+{code:'37002',name:'GETAFE-CENTRO',population:'GETAFE'},
+{code:'37010',name:'LAS MARGARITAS',population:'GETAFE'},
+{code:'37011',name:'GETAFE-SECTOR 3',population:'GETAFE'},
+{code:'37012',name:'PARLA',population:'PARLA'},
+{code:'60100',name:'VILLAVERDE BAJO',population:'MADRID'},
+{code:'60101',name:'SAN CRISTÓBAL INDUSTRIAL',population:'MADRID'},
+{code:'60102',name:'GETAFE-INDUSTRIAL',population:'GETAFE'},
+{code:'60103',name:'PINTO',population:'PINTO'},
+{code:'60104',name:'VALDEMORO',population:'VALDEMORO'},
+{code:'60105',name:'CIEMPOZUELOS',population:'CIEMPOZUELOS'},
+{code:'60107',name:'SAN CRISTÓBAL DE LOS ÁNGELES',population:'MADRID'},
+{code:'60109',name:'EL CASAR',population:'GETAFE'},
+{code:'60200',name:'ARANJUEZ',population:'ARANJUEZ'},
+{code:'97100',name:'PITIS',population:'MADRID'},
+{code:'97200',name:'MIRASIERRA-PACO DE LUCÍA',population:'MADRID'},
+{code:'97201',name:'RAMÓN Y CAJAL',population:'MADRID'},
+{code:'98003',name:'FUENTE DE LA MORA',population:'MADRID'},
+{code:'98304',name:'VALDEBEBAS',population:'MADRID'},
+{code:'98305',name:'AEROPUERTO T-4',population:'MADRID'}
+];
+
+let renfeStations=[];
+let stationCatalogReady=false;
+let stationCatalogPromise=null;
+
+/*
+CATALOGO COMPLEMENTARIO ARGOS
+Mantiene entradas que pueden no aparecer en el listado general de Renfe
+pero que son útiles para el registro operativo.
+*/
+const ARGOS_SUPPLEMENTAL_STATIONS=[  {code:'51419',name:'RÍO ARILLO',population:'SAN FERNANDO'},
+  {code:'51450',name:'PELAGATOS',population:'CHICLANA DE LA FRONTERA'},
+  {code:'51451',name:'LA HOYA',population:'CHICLANA DE LA FRONTERA'},
+  {code:'51452',name:'REYES CATÓLICOS',population:'CHICLANA DE LA FRONTERA'}
+];
+
+function mergeSupplementalStations(){
+const extras=[
+...ARGOS_SUPPLEMENTAL_STATIONS,
+...ARGOS_CRITICAL_STATIONS
+];
+
+const existing=new Set(
+renfeStations.map(s=>s.code+'|'+normalizeStationText(s.name))
+);
+
+extras.forEach(s=>{
+const normalized=stationRecord(s);
+if(!normalized || !normalized.code || !normalized.name)return;
+const key=normalized.code+'|'+normalizeStationText(normalized.name);
+if(!existing.has(key)){
+renfeStations.push(normalized);
+existing.add(key);
+}
+});
+
+try{
+localStorage.setItem(
+RENFE_STATIONS_CACHE_KEY,
+JSON.stringify({updated:Date.now(),stations:renfeStations})
+);
+}catch(e){
+console.warn('No se pudo actualizar la caché complementaria:',e);
+}
+}
+
+function normalizeStationText(value){
+return String(value||'')
+.normalize('NFD')
+.replace(/[\u0300-\u036f]/g,'')
+.toUpperCase()
+.replace(/[^A-Z0-9]+/g,' ')
+.trim();
+}
+
+function stationRecord(record){
+if(!record)return null;
+
+const code=String(
+record.CODIGO ??
+record.codigo ??
+record.code ??
+record.station_code ??
+record.stop_id ??
+''
+).trim().replace(/\.0$/,'').padStart(5,'0');
+
+const name=String(
+record.DESCRIPCION ??
+record.descripcion ??
+record.name ??
+record.nombre ??
+record.stopName ??
+record.stopname ??
+record.station_name ??
+record.label ??
+''
+).trim();
+
+const population=String(
+record.POBLACION ??
+record.poblacion ??
+record.population ??
+''
+).trim();
+
+return {
+code,
+name,
+population,
+search:normalizeStationText(name+' '+population)
+};
+}
+
+function setStationCatalog(records){
+const seen=new Set();
+
+renfeStations=records
+.map(stationRecord)
+.filter(s=>s.code && s.name)
+.filter(s=>{
+const key=s.code+'|'+normalizeStationText(s.name);
+if(seen.has(key))return false;
+seen.add(key);
+return true;
+});
+
+stationCatalogReady=true;
+
+try{
+localStorage.setItem(
+RENFE_STATIONS_CACHE_KEY,
+JSON.stringify({
+updated:Date.now(),
+stations:renfeStations
+})
+);
+}catch(e){
+console.warn('No se pudo guardar la caché de estaciones:',e);
+}
+}
+
+function loadStationsFromCache(){
+try{
+const raw=localStorage.getItem(RENFE_STATIONS_CACHE_KEY);
+if(!raw)return false;
+
+const cached=JSON.parse(raw);
+
+if(!cached?.stations?.length)return false;
+
+if(Date.now()-Number(cached.updated||0)>RENFE_STATIONS_CACHE_TTL){
+return false;
+}
+
+const normalized=cached.stations
+.map(stationRecord)
+.filter(s=>s && s.code && s.name);
+
+if(!normalized.length)return false;
+
+const hasCore=normalized.some(s=>s.code==='17001') && normalized.some(s=>s.code==='17005') && normalized.some(s=>s.code==='35010');
+if(!hasCore)return false;
+
+renfeStations=normalized;
+mergeSupplementalStations();
+stationCatalogReady=true;
+return true;
+}catch(e){
+console.warn('No se pudo leer la caché de estaciones:',e);
+return false;
+}
+}
+
+function parseRenfeFallbackCSV(text){
+const lines=text.split(/\r?\n/).filter(Boolean);
+if(!lines.length)return[];
+
+const records=[];
+for(let i=1;i<lines.length;i++){
+const line=lines[i].trim();
+if(!line)continue;
+
+/*
+El formato del respaldo es:
+code;stopName;latitud;longitude;address;postalCode;city;...
+*/
+const parts=line.split(';');
+if(parts.length<2)continue;
+
+const code=String(parts[0]||'').trim();
+const name=String(parts[1]||'').trim();
+
+if(!code || !name)continue;
+
+records.push({
+code,
+name,
+population:String(parts[6]||'').trim()
+});
+}
+
+return records;
+}
+
+async function loadRenfeFallback(){
+const response=await fetch(RENFE_FALLBACK_CSV_URL,{
+method:'GET',
+cache:'no-store',
+headers:{Accept:'text/csv'}
+});
+
+if(!response.ok)throw new Error('HTTP '+response.status);
+
+const csv=await response.text();
+const records=parseRenfeFallbackCSV(csv);
+
+if(!records.length)throw new Error('El respaldo no contiene estaciones');
+
+return records;
+}
+
+function loadRenfeStations(){
+if(stationCatalogReady)return Promise.resolve(renfeStations);
+if(stationCatalogPromise)return stationCatalogPromise;
+
+stationCatalogPromise=(async()=>{
+let officialRecords=[];
+
+try{
+const params=new URLSearchParams({
+resource_id:RENFE_STATIONS_RESOURCE,
+limit:'5000'
+});
+
+const response=await fetch(
+RENFE_STATIONS_API+'?'+params.toString(),
+{
+method:'GET',
+cache:'no-store',
+headers:{Accept:'application/json'}
+}
+);
+
+if(response.ok){
+const payload=await response.json();
+
+if(payload?.success && Array.isArray(payload?.result?.records)){
+officialRecords=payload.result.records;
+}
+}
+}catch(error){
+console.warn('No se pudo cargar el catálogo oficial de Renfe:',error);
+}
+
+/*
+No confiamos ciegamente en el recurso oficial: comprobamos que
+contenga estaciones que sabemos que deben existir.
+Si faltan, añadimos el respaldo completo.
+*/
+setStationCatalog(officialRecords);
+
+const requiredCodes=['17001','17005','35010'];
+
+const officialHasRequired=requiredCodes.every(code=>
+renfeStations.some(s=>s.code===code)
+);
+
+if(!officialHasRequired || renfeStations.length<1200){
+try{
+const fallbackRecords=await loadRenfeFallback();
+
+const byKey=new Map(
+renfeStations.map(s=>[
+s.code+'|'+normalizeStationText(s.name),
+s
+])
+);
+
+fallbackRecords
+.map(stationRecord)
+.filter(s=>s && s.code && s.name)
+.forEach(s=>{
+const key=s.code+'|'+normalizeStationText(s.name);
+if(!byKey.has(key)){
+renfeStations.push(s);
+byKey.set(key,s);
+}
+});
+}catch(error){
+console.warn('No se pudo cargar el catálogo de respaldo:',error);
+}
+}
+
+mergeSupplementalStations();
+
+stationCatalogReady=true;
+
+try{
+localStorage.setItem(
+RENFE_STATIONS_CACHE_KEY,
+JSON.stringify({
+updated:Date.now(),
+stations:renfeStations
+})
+);
+}catch(e){}
+
+return renfeStations;
+})();
+
+return stationCatalogPromise.finally(()=>{
+stationCatalogPromise=null;
+});
+}
+
+function stationMatches(query){
+const q=normalizeStationText(query);
+if(!q)return[];
+
+const numeric=/^\d+$/.test(q.replace(/\s/g,''));
+
+return renfeStations
+.map(station=>{
+const code=station.code;
+const name=station.search;
+let score=999;
+
+if(code===q)score=0;
+else if(code.startsWith(q))score=1;
+else if(name.startsWith(q))score=2;
+else if(name.split(' ').some(word=>word.startsWith(q)))score=3;
+else if(name.includes(q))score=4;
+else if(!numeric && code.includes(q))score=5;
+
+return {station,score};
+})
+.filter(x=>x.score<999)
+.sort((a,b)=>a.score-b.score || a.station.name.localeCompare(b.station.name,'es'))
+.slice(0,8)
+.map(x=>x.station);
+}
+
+function renderStationSuggestions(inputId){
+const input=document.getElementById(inputId);
+if(!input)return;
+
+const box=document.getElementById(
+inputId==='origin'?'originSuggestions':'destinationSuggestions'
+);
+if(!box)return;
+
+const value=input.value.trim();
+
+if(!value){
+box.classList.remove('show');
+box.innerHTML='';
+return;
+}
+
+if(!stationCatalogReady){
+box.innerHTML='<div class="station-loading">Cargando estaciones Renfe…</div>';
+box.classList.add('show');
+loadRenfeStations()
+.then(()=>renderStationSuggestions(inputId))
+.catch(()=>{
+box.innerHTML='<div class="station-loading">No se ha podido cargar el listado. Puedes escribir la estación manualmente.</div>';
+box.classList.add('show');
+});
+return;
+}
+
+const matches=stationMatches(value);
+
+if(!matches.length){
+box.innerHTML='<div class="station-loading">No se encontraron estaciones.</div>';
+box.classList.add('show');
+return;
+}
+
+box.innerHTML=matches.map((station,index)=>`
+<button
+ type="button"
+ class="station-option"
+ role="option"
+ data-index="${index}"
+>
+<span class="station-option-name">${escapeHtml(station.name || station.nombre || station.label || ('ESTACIÓN '+station.code))}</span>
+<span class="station-option-code">${escapeHtml(station.code)}${station.population && normalizeStationText(station.population)!==normalizeStationText(station.name) ? ' · '+escapeHtml(station.population) : ''}</span>
+</button>
+`).join('');
+
+box.classList.add('show');
+
+box.querySelectorAll('.station-option').forEach((button,index)=>{
+button.addEventListener('mousedown',event=>{
+event.preventDefault();
+selectStation(inputId,matches[index]);
+});
+});
+}
+
+function selectStation(inputId,station){
+const input=document.getElementById(inputId);
+const box=document.getElementById(
+inputId==='origin'?'originSuggestions':'destinationSuggestions'
+);
+
+if(!input)return;
+
+input.value=station.name;
+input.dataset.stationCode=station.code;
+
+if(box){
+box.classList.remove('show');
+box.innerHTML='';
+}
+}
+
+function initStationAutocomplete(inputId){
+const input=document.getElementById(inputId);
+if(!input)return;
+
+input.addEventListener('input',()=>{
+delete input.dataset.stationCode;
+renderStationSuggestions(inputId);
+});
+
+input.addEventListener('focus',()=>{
+if(input.value.trim())renderStationSuggestions(inputId);
+});
+
+input.addEventListener('keydown',event=>{
+if(event.key==='Escape'){
+const box=document.getElementById(
+inputId==='origin'?'originSuggestions':'destinationSuggestions'
+);
+if(box)box.classList.remove('show');
+}
+});
+}
+
+document.addEventListener('click',event=>{
+['origin','destination'].forEach(inputId=>{
+const input=document.getElementById(inputId);
+const box=document.getElementById(
+inputId==='origin'?'originSuggestions':'destinationSuggestions'
+);
+if(input && box && !input.contains(event.target) && !box.contains(event.target)){
+box.classList.remove('show');
+}
+});
+});
+
+initStationAutocomplete('origin');
+initStationAutocomplete('destination');
+
+/* =========================================================
+   GUARDAR SERVICIO
+========================================================= */
+
+async function saveService(e){
+
+e.preventDefault();
+
+if(!currentUser){
+alert('No hay ningún usuario conectado');
+return;
+}
+
+const train=document.getElementById('trainNo').value.trim();
+const noNumber=document.getElementById('noNumber').checked;
+const series=document.getElementById('series').value.trim();
+const branchInput=document.getElementById('branch');
+const date=document.getElementById('date').value;
+const origin=document.getElementById('origin').value.trim();
+const destination=document.getElementById('destination').value.trim();
+const type=document.getElementById('type').value;
+const doubleComposition=document.getElementById('double').checked;
+
+const secondSeries=document.getElementById('series2').value.trim();
+const secondBranch=document.getElementById('branch2').value.trim();
+const annotations=document.getElementById('annotations').value.trim();
+const incidents=[...draftIncidents];
+
+
+if(!noNumber && !/^\d{1,5}$/.test(train)){
+alert('Introduce un número de tren válido');
+return;
+}
+
+if(!/^\d{3}$/.test(series)){
+alert('La serie debe tener 3 números');
+return;
+}
+
+const vehicle=document.getElementById('branchVehicle').value.trim();
+
+if(!/^\d{1,3}$/.test(vehicle)){
+alert('Introduce un número de vehículo válido');
+return;
+}
+
+const materialMatch=lookupMaterialVehicle(series,vehicle);
+
+if(!materialMatch){
+alert('No se ha encontrado ese vehículo en la base de datos para la serie '+series);
+return;
+}
+
+const branch=materialMatch.branch;
+branchInput.value=branch;
+
+if(!date){
+alert('Selecciona una fecha');
+return;
+}
+
+if(!origin || !destination){
+alert('Introduce origen y destino');
+return;
+}
+
+if(!type){
+alert('Selecciona el tipo de servicio');
+return;
+}
+
+if(doubleComposition){
+
+if(!/^\d{3}$/.test(secondSeries)){
+alert('Introduce la serie de la segunda composición');
+return;
+}
+
+if(!/^\d{3}$/.test(secondBranch)){
+alert('Introduce la rama de la segunda composición');
+return;
+}
+
+}
+
+
+/*
+   Las columnas annotations e incidents ya existen en Supabase.
+   Las guardamos junto al resto del servicio.
+*/
+
+const payload={
+
+user_id:currentUser.id,
+
+train_number:noNumber ? null : train,
+
+no_train_number:noNumber,
+
+series:series,
+
+branch:branch,
+
+service_date:date,
+
+origin:origin,
+
+destination:destination,
+
+service_type:type,
+
+double_composition:doubleComposition,
+
+second_series:doubleComposition ? secondSeries : null,
+
+second_branch:doubleComposition ? secondBranch : null,
+
+annotations:annotations,
+
+incidents:incidents
+
+};
+
+
+const firstTimeBranch=!services.some(s=>
+String(s.series||'')===String(series) &&
+String(s.branch||'')===String(branch)
+);
+
+const {data,error}=await db
+.from('services')
+.insert(payload)
+.select()
+.single();
+
+
+if(error){
+
+console.error('ERROR GUARDANDO SERVICIO:',error);
+
+alert(
+'No se pudo guardar el servicio:\n\n'+
+error.message
+);
+
+return;
+
+}
+
+
+services.unshift(normalizeService(data));
+
+renderAll();
+
+resetServiceForm();
+
+show('history');
+
+toast('Servicio guardado correctamente');
+
+if(firstTimeBranch){
+  const ficha=argosMaterialFichaData(series,vehicle,branch);
+  setTimeout(()=>argosMostrarPrimeraVezMaterial(ficha),250);
+}
+
+}
+
+
+/* =========================================================
+   RESET FORMULARIO
+========================================================= */
+
+function resetServiceForm(){
+
+document.getElementById('trainNo').value='';
+
+document.getElementById('noNumber').checked=false;
+
+document.getElementById('series').value='';
+
+document.getElementById('branch').value='';
+document.getElementById('branchVehicle').value='';
+document.getElementById('branchInfo').innerHTML=`
+<strong>Rama</strong><br>
+<span class="muted">Se determinará automáticamente al introducir el vehículo.</span>
+`;
+
+document.getElementById('origin').value='';
+
+document.getElementById('destination').value='';
+
+document.getElementById('type').value='';
+
+document.getElementById('double').checked=false;
+
+document.getElementById('doubleBox').style.display='none';
+
+document.getElementById('series2').value='';
+
+document.getElementById('branch2').value='';
+document.getElementById('annotations').value='';
+draftIncidents=[];
+renderIncidentList();
+
+setToday();
+
+updateCounters();
+
+}
+
+
+/* =========================================================
+   EDITAR SERVICIO
+========================================================= */
+
+function openEdit(id){
+
+const s=services.find(x=>x.id===id);
+
+if(!s)return;
+
+editIncidents=Array.isArray(s.incidents)?[...s.incidents]:[];
+
+document.getElementById('modalContent').innerHTML=`
+
+<h2>Editar servicio</h2>
+
+<label>Número de tren</label>
+
+<input
+id="e_train"
+value="${escapeHtml(s.train)}"
+${s.noNumber?'disabled':''}
+>
+
+<label class="checkbox" style="margin-top:9px">
+
+<input
+id="e_noNumber"
+type="checkbox"
+${s.noNumber?'checked':''}
+>
+
+Sin número de tren
+
+</label>
+
+
+<label style="margin-top:12px">
+Serie
+</label>
+
+<input
+id="e_series"
+maxlength="3"
+value="${escapeHtml(s.series)}"
+>
+
+
+<label style="margin-top:12px">
+Rama
+</label>
+
+<input
+id="e_branch"
+maxlength="3"
+value="${escapeHtml(s.branch)}"
+>
+
+
+<label style="margin-top:12px">
+Fecha
+</label>
+
+<input
+id="e_date"
+type="date"
+value="${escapeHtml(s.date)}"
+>
+
+
+<label style="margin-top:12px">
+Origen
+</label>
+
+<input
+id="e_origin"
+value="${escapeHtml(s.origin)}"
+>
+
+
+<label style="margin-top:12px">
+Destino
+</label>
+
+<input
+id="e_destination"
+value="${escapeHtml(s.destination)}"
+>
+
+
+<label style="margin-top:12px">
+Tipo de servicio
+</label>
+
+<input
+id="e_type"
+value="${escapeHtml(s.type)}"
+>
+
+
+<label class="checkbox" style="margin-top:12px">
+
+<input
+id="e_double"
+type="checkbox"
+${s.double?'checked':''}
+>
+
+Doble composición
+
+</label>
+
+
+<div
+class="composition-box"
+style="margin-top:12px"
+>
+
+<label>
+Serie segunda composición
+</label>
+
+<input
+id="e_series2"
+maxlength="3"
+value="${escapeHtml(s.secondSeries)}"
+>
+
+
+<label style="margin-top:10px">
+Rama segunda composición
+</label>
+
+<input
+id="e_branch2"
+maxlength="3"
+value="${escapeHtml(s.secondBranch)}"
+>
+
+</div>
+
+
+<div class="card" style="margin-top:10px">
+
+<h3>Incidencias y anotaciones</h3>
+
+<label>Anotaciones</label>
+<textarea id="e_annotations" placeholder="Añade cualquier anotación…">${escapeHtml(s.annotations)}</textarea>
+
+<label style="margin-top:10px">Incidencias</label>
+<div class="row">
+<input id="e_incidentInput" placeholder="Describe una incidencia…">
+<button type="button" class="secondary" onclick="addEditIncident()">Añadir</button>
+</div>
+<div id="editIncidentList"></div>
+
+</div>
+
+
+<div class="row" style="margin-top:12px">
+
+<button
+class="secondary"
+onclick="closeModal()"
+>
+Cancelar
+</button>
+
+<button
+class="primary"
+style="margin-top:0"
+onclick="updateService('${id}')"
+>
+Guardar
+</button>
+
+</div>
+
+`;
+
+document.getElementById('modal').classList.add('show');
+renderEditIncidents();
+
+}
+
+
+/* =========================================================
+   ACTUALIZAR SERVICIO
+========================================================= */
+
+async function updateService(id){
+
+const s=services.find(x=>x.id===id);
+
+if(!s)return;
+
+
+const noNumber=document.getElementById('e_noNumber').checked;
+
+const train=document.getElementById('e_train').value.trim();
+
+const series=document.getElementById('e_series').value.trim();
+
+const branch=document.getElementById('e_branch').value.trim();
+
+const date=document.getElementById('e_date').value;
+
+const origin=document.getElementById('e_origin').value.trim();
+
+const destination=document.getElementById('e_destination').value.trim();
+
+const type=document.getElementById('e_type').value.trim();
+
+const doubleComposition=document.getElementById('e_double').checked;
+
+const secondSeries=document.getElementById('e_series2').value.trim();
+
+const secondBranch=document.getElementById('e_branch2').value.trim();
+
+const annotations=document.getElementById('e_annotations').value.trim();
+const incidents=[...editIncidents];
+
+
+if(!noNumber && !/^\d{1,5}$/.test(train)){
+alert('Número de tren no válido');
+return;
+}
+
+if(!/^\d{3}$/.test(series)){
+alert('La serie debe tener 3 números');
+return;
+}
+
+if(!/^\d{3}$/.test(branch)){
+alert('La rama debe tener 3 números');
+return;
+}
+
+if(!date){
+alert('Selecciona una fecha');
+return;
+}
+
+if(!origin || !destination){
+alert('Origen y destino son obligatorios');
+return;
+}
+
+if(!type){
+alert('El tipo de servicio es obligatorio');
+return;
+}
+
+if(doubleComposition){
+
+if(!/^\d{3}$/.test(secondSeries)){
+alert('Serie de segunda composición no válida');
+return;
+}
+
+if(!/^\d{3}$/.test(secondBranch)){
+alert('Rama de segunda composición no válida');
+return;
+}
+
+}
+
+
+const updateData={
+
+train_number:noNumber ? null : train,
+
+no_train_number:noNumber,
+
+series:series,
+
+branch:branch,
+
+service_date:date,
+
+origin:origin,
+
+destination:destination,
+
+service_type:type,
+
+double_composition:doubleComposition,
+
+second_series:doubleComposition ? secondSeries : null,
+
+second_branch:doubleComposition ? secondBranch : null,
+
+annotations:annotations,
+
+incidents:incidents
+
+};
+
+
+const {data,error}=await db
+.from('services')
+.update(updateData)
+.eq('id',id)
+.eq('user_id',currentUser.id)
+.select()
+.single();
+
+
+if(error){
+
+console.error(error);
+
+alert(
+'No se pudo actualizar el registro:\n\n'+
+error.message
+);
+
+return;
+
+}
+
+
+const index=services.findIndex(x=>x.id===id);
+
+if(index!==-1){
+
+services[index]=normalizeService(data);
+
+}
+
+
+closeModal();
+
+await loadServices();
+
+renderAll();
+
+toast('Registro actualizado');
+
+}
+
+
+/* =========================================================
+   BORRAR SERVICIO
+========================================================= */
+
+async function deleteService(id){
+
+if(!confirm('¿Borrar este registro?'))return;
+
+
+const {error}=await db
+.from('services')
+.delete()
+.eq('id',id)
+.eq('user_id',currentUser.id);
+
+
+if(error){
+
+alert(error.message);
+
+return;
+
+}
+
+
+services=services.filter(x=>x.id!==id);
+
+renderAll();
+
+toast('Registro borrado');
+
+}
+
+
+/* =========================================================
+   HISTORIAL
+========================================================= */
+
+function myServices(){
+
+return services;
+
+}
+
+
+function updateTypeFilter(all){
+
+const sel=document.getElementById('filterType');
+
+if(!sel)return;
+
+const current=sel.value;
+
+const types=[
+...new Set(
+all
+.map(s=>s.type)
+.filter(Boolean)
+)
+].sort(
+(a,b)=>a.localeCompare(b,'es')
+);
+
+
+sel.innerHTML=
+'<option value="">Todos los tipos</option>'+
+types
+.map(
+t=>
+`<option value="${escapeHtml(t)}">${escapeHtml(t)}</option>`
+)
+.join('');
+
+
+if(types.includes(current)){
+
+sel.value=current;
+
+}
+
+}
+
+
 function renderHistory(){
-  const list=$("historyList");if(!list)return;
-  const a=services().slice().reverse();
-  list.innerHTML=a.length?a.map(card).join(""):"<div class=\"empty\">Todavía no hay servicios registrados.</div>";
-  list.querySelectorAll("[data-service-id]").forEach(el=>{
-    const open=()=>{const service=services().find(s=>s.id===el.dataset.serviceId);if(service)openFicha(service.series,service.vehicle,service)};
-    el.addEventListener("click",open);
-    el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}});
-  });
+
+const all=myServices();
+
+updateTypeFilter(all);
+
+const q=(
+document.getElementById('search')?.value||''
+).toLowerCase().trim();
+
+const t=
+document.getElementById('filterType')?.value||'';
+
+const arr=all.filter(s=>{
+
+if(t && s.type!==t)return false;
+
+if(!q)return true;
+
+const text=(
+(s.train||'')+' '+
+(s.series||'')+' '+
+(s.branch||'')+' '+
+(s.origin||'')+' '+
+(s.destination||'')+' '+
+(s.type||'')+' '+
+(s.date||'')
+).toLowerCase();
+
+return text.includes(q);
+
+});
+
+
+const total=document.getElementById('historyTotal');
+const series=document.getElementById('historySeries');
+const routes=document.getElementById('historyRoutes');
+
+if(total)total.textContent=all.length;
+
+if(series){
+series.textContent=
+new Set(
+all.map(s=>(s.series||'').trim()).filter(Boolean)
+).size;
+}
+
+if(routes){
+routes.textContent=
+new Set(
+all.map(s=>
+`${s.origin||''}→${s.destination||''}`
+).filter(x=>x!=='→')
+).size;
+}
+
+
+document.getElementById('count').textContent=
+arr.length+
+(arr.length===1?' registro':' registros');
+
+
+const box=document.getElementById('historyList');
+
+
+if(!arr.length){
+
+box.innerHTML=`
+<div class="history-empty">
+
+<div class="history-empty-icon">⌕</div>
+
+<strong>No hay registros que coincidan</strong>
+
+<div class="muted" style="margin-top:5px">
+Prueba con otro tren, serie, ruta o tipo de servicio.
+</div>
+
+</div>
+`;
+
+return;
+
+}
+
+
+box.innerHTML=arr.map(s=>{
+
+const train=s.noNumber
+?'Sin número'
+:(s.train||'—');
+
+const material=
+`${s.series||''}${s.branch||''}`;
+
+const double=s.double
+?`
+<div class="history-tag">
+⇄ Doble composición:
+${escapeHtml(s.secondSeries||'')}
+${escapeHtml(s.secondBranch||'')}
+</div>
+`
+:'';
+
+const annotation=s.annotations
+?`
+<div class="history-tag note">
+✎ ${escapeHtml(s.annotations)}
+</div>
+`
+:'';
+
+const incidentCount=
+Array.isArray(s.incidents)
+?s.incidents.length
+:0;
+
+const incidents=incidentCount
+?`
+<div class="history-tag incident">
+⚠ ${incidentCount}
+${incidentCount===1?'incidencia':'incidencias'}
+</div>
+`
+:'';
+
+const detailIncidents=incidentCount
+?s.incidents.map(x=>`<div style="margin-top:5px">• ${escapeHtml(x)}</div>`).join('')
+:'Sin incidencias';
+
+return `
+
+<article class="history-card" id="history-${escapeHtml(s.id)}">
+
+<div class="history-card-main">
+
+<div class="history-accent"></div>
+
+<div class="history-card-content">
+
+<div class="history-top">
+
+<div>
+
+<div class="history-train">
+${escapeHtml(train)}
+</div>
+
+<div class="history-material">
+Material · ${escapeHtml(material||'Sin material')}
+</div>
+
+</div>
+
+<div class="history-type">
+${escapeHtml(s.type||'Servicio')}
+</div>
+
+</div>
+
+
+<div class="history-route">
+
+<span class="history-station">
+${escapeHtml(s.origin||'—')}
+</span>
+
+<span class="history-arrow">→</span>
+
+<span class="history-station">
+${escapeHtml(s.destination||'—')}
+</span>
+
+</div>
+
+
+<div class="history-date">
+${escapeHtml(formatDate(s.date))}
+</div>
+
+
+<div class="history-tags">
+${double}
+${annotation}
+${incidents}
+</div>
+
+
+<div class="history-actions">
+
+<button
+class="history-action edit"
+type="button"
+onclick="openEdit('${s.id}')"
+>
+Editar
+</button>
+
+<button
+class="history-action material"
+type="button"
+onclick="argosAbrirFichaDesdeHistorial('${s.series}','${s.branch}')"
+>
+Ficha material
+</button>
+
+<button
+class="history-action delete"
+type="button"
+onclick="deleteService('${s.id}')"
+>
+Borrar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<button
+class="history-expand"
+type="button"
+onclick="toggleHistoryDetails('${s.id}')"
+id="history-toggle-${escapeHtml(s.id)}"
+>
+Ver detalles del servicio ＋
+</button>
+
+
+<div
+class="history-details"
+id="history-details-${escapeHtml(s.id)}"
+>
+
+<div class="history-detail-grid">
+
+<div class="history-detail">
+<label>Nº de tren</label>
+<b>${escapeHtml(train)}</b>
+</div>
+
+<div class="history-detail">
+<label>Serie</label>
+<b>${escapeHtml(s.series||'—')}</b>
+</div>
+
+<div class="history-detail">
+<label>Rama</label>
+<b>${escapeHtml(s.branch||'—')}</b>
+</div>
+
+<div class="history-detail">
+<label>Tipo</label>
+<b>${escapeHtml(s.type||'—')}</b>
+</div>
+
+<div class="history-detail">
+<label>Origen</label>
+<b>${escapeHtml(s.origin||'—')}</b>
+</div>
+
+<div class="history-detail">
+<label>Destino</label>
+<b>${escapeHtml(s.destination||'—')}</b>
+</div>
+
+<div class="history-detail">
+<label>Fecha</label>
+<b>${escapeHtml(formatDate(s.date))}</b>
+</div>
+
+<div class="history-detail">
+<label>Doble composición</label>
+<b>${s.double?'Sí':'No'}</b>
+</div>
+
+</div>
+
+
+<div style="margin-top:10px">
+
+<div class="history-detail">
+
+<label>Anotaciones</label>
+
+<b>
+${s.annotations
+?escapeHtml(s.annotations)
+:'Sin anotaciones'}
+</b>
+
+</div>
+
+</div>
+
+
+<div style="margin-top:10px">
+
+<div class="history-detail">
+
+<label>Incidencias</label>
+
+<b>
+${detailIncidents}
+</b>
+
+</div>
+
+</div>
+
+</div>
+
+</article>
+
+`;
+
+}).join('');
+
+}
+
+
+function toggleHistoryDetails(id){
+
+const details=
+document.getElementById(
+'history-details-'+id
+);
+
+const button=
+document.getElementById(
+'history-toggle-'+id
+);
+
+if(!details)return;
+
+const open=
+details.classList.toggle('show');
+
+if(button){
+
+button.textContent=
+open
+?'Ocultar detalles −'
+:'Ver detalles del servicio ＋';
+
+}
+
 }
 
 function renderStats(){
-  const a=services();
-  if($("statServices"))$("statServices").textContent=a.length;
-  if($("statKm"))$("statKm").textContent=a.reduce((n,s)=>n+Number(s.kilometres||0),0).toLocaleString("es-ES");
-  if($("statSeries"))$("statSeries").textContent=new Set(a.map(s=>norm(s.series)).filter(Boolean)).size;
-  if($("statLast"))$("statLast").textContent=a.length?(a[a.length-1].train||"Sin número"):"—";
-}
-function refreshHome(){
-  const a=services(),latest=a.length?a[a.length-1]:null;
-  if($("latestService")){
-    $("latestService").textContent=latest?[latest.train?"Tren "+latest.train:"Sin número",latest.origin&&latest.destination?latest.origin+" → "+latest.destination:"",latest.date].filter(Boolean).join(" · "):"Aún no hay servicios registrados";
-  }
-  const select=$("lastTripSelect");if(!select)return;
-  const current=select.value;while(select.options.length>1)select.remove(1);
-  a.slice().reverse().forEach((s,i)=>{const o=document.createElement("option");o.value=String(i);o.textContent=[s.train?"Tren "+s.train:"Sin número",s.origin&&s.destination?s.origin+" → "+s.destination:"",s.date].filter(Boolean).join(" · ");select.appendChild(o)});
-  if(current)select.value=current;
-}
-function toast(t){
-  const e=$("toast");if(!e)return;
-  e.textContent=t;e.classList.add("show");clearTimeout(window.__argosToast);window.__argosToast=setTimeout(()=>e.classList.remove("show"),1800);
-}
-window.renderHistory=renderHistory;window.renderStats=renderStats;window.refreshHome=refreshHome;window.toast=toast;
-if($("viewFichaFromForm")) $("viewFichaFromForm").addEventListener("click",()=>{
-  const series=$("series")?.value.trim()||"", vehicle=$("vehicle")?.value.trim()||"";
-  if(!series||!vehicle){toast("Introduce serie y vehículo para ver la ficha");return;}
-  openFicha(series,vehicle,null);
+
+const a=myServices();
+
+const now=new Date();
+
+const month=
+now.getFullYear()+
+'-'+
+String(now.getMonth()+1).padStart(2,'0');
+
+
+const routes=new Set(
+a.map(s=>s.origin+' → '+s.destination)
+);
+
+
+const series=new Set(
+a.map(s=>s.series)
+);
+
+
+document.getElementById('sTotal').textContent=
+a.length;
+
+
+document.getElementById('sMonth').textContent=
+a.filter(
+s=>s.date.startsWith(month)
+).length;
+
+
+document.getElementById('sRoutes').textContent=
+routes.size;
+
+
+document.getElementById('sSeries').textContent=
+series.size;
+
+
+/* TIPOS */
+
+const types={};
+
+a.forEach(s=>{
+
+const type=s.type||'Sin tipo';
+
+types[type]=(types[type]||0)+1;
+
 });
 
 
+document.getElementById('typeStats').innerHTML=
 
-document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();renderStats()});
+Object.entries(types)
 
+.sort(
+(a,b)=>b[1]-a[1]
+)
+
+.map(x=>`
+
+<div
+class="row"
+style="margin:7px 0"
+>
+
+<span>
+${escapeHtml(x[0])}
+</span>
+
+<b>
+${x[1]}
+</b>
+
+</div>
+
+`)
+
+.join('')
+
+||
+
+'<div class="empty">Sin datos</div>';
+
+
+/* RUTAS */
+
+const routeCounts={};
+
+a.forEach(s=>{
+
+const route=
+(s.origin||'')+
+' → '+
+(s.destination||'');
+
+routeCounts[route]=
+(routeCounts[route]||0)+1;
+
+});
+
+
+document.getElementById('routeStats').innerHTML=
+
+Object.entries(routeCounts)
+
+.sort(
+(a,b)=>b[1]-a[1]
+)
+
+.slice(0,10)
+
+.map(x=>`
+
+<div
+class="row"
+style="margin:7px 0"
+>
+
+<span>
+${escapeHtml(x[0])}
+</span>
+
+<b>
+${x[1]}
+</b>
+
+</div>
+
+`)
+
+.join('')
+
+||
+
+'<div class="empty">Sin datos</div>';
+
+
+/* ACTIVIDAD MENSUAL */
+
+const months=[];
+
+for(let i=5;i>=0;i--){
+
+const d=new Date();
+
+d.setDate(1);
+
+d.setMonth(d.getMonth()-i);
+
+const key=
+d.getFullYear()+
+'-'+
+String(d.getMonth()+1).padStart(2,'0');
+
+
+months.push([
+key,
+a.filter(
+s=>s.date.startsWith(key)
+).length
+]);
+
+}
+
+
+document.getElementById('monthStats').innerHTML=
+
+months.map(x=>`
+
+<div
+class="row"
+style="margin:7px 0"
+>
+
+<span>
+${escapeHtml(x[0])}
+</span>
+
+<b>
+${x[1]}
+</b>
+
+</div>
+
+`)
+
+.join('');
+
+}
+
+
+/* =========================================================
+   RUTAS
+========================================================= */
+
+function renderRoutes(){
+
+const a=myServices();
+
+const sel=
+document.getElementById('routeSelect');
+
+if(!sel)return;
+
+const current=sel.value;
+
+
+const routes=[
+...new Set(
+a
+.map(
+s=>
+(s.origin||'')+
+'|||'+
+(s.destination||'')
+)
+)
+];
+
+
+sel.innerHTML=
+'<option value="">Selecciona un trayecto</option>'+
+routes
+.map(r=>{
+
+const parts=r.split('|||');
+
+const origin=parts[0]||'';
+
+const destination=parts[1]||'';
+
+return `
+
+<option value="${escapeHtml(r)}">
+
+${escapeHtml(origin)}
+ →
+${escapeHtml(destination)}
+
+</option>
+
+`;
+
+})
+.join('');
+
+
+if(
+routes.includes(current)
+){
+
+sel.value=current;
+
+}
+
+}
+
+
+/* =========================================================
+   ÚLTIMO SERVICIO DE UNA RUTA
+========================================================= */
+
+function lastRoute(){
+
+const v=
+document.getElementById('routeSelect').value;
+
+
+if(!v){
+
+document.getElementById(
+'routeResult'
+).innerHTML='';
+
+return;
+
+}
+
+
+const parts=v.split('|||');
+
+const origin=parts[0];
+
+const destination=parts[1];
+
+
+const a=myServices()
+
+.filter(
+s=>
+s.origin===origin &&
+s.destination===destination
+)
+
+.sort(
+(x,y)=>
+y.date.localeCompare(x.date)
+);
+
+
+document.getElementById(
+'routeResult'
+).innerHTML=
+
+a.length
+
+?
+
+`
+
+<b>
+${escapeHtml(formatDate(a[0].date))}
+</b>
+
+<div class="muted">
+
+${escapeHtml(a[0].series)}
+
+ · Rama
+${escapeHtml(a[0].branch)}
+
+ ·
+${escapeHtml(a[0].train||'Sin Nº')}
+
+</div>
+
+`
+
+:
+
+'Sin datos';
+
+}
+
+
+/* =========================================================
+   ÚLTIMO SERVICIO
+========================================================= */
+
+function lastService(){
+
+if(!services.length){
+
+alert('Sin registros');
+
+return;
+
+}
+
+
+const s=services[0];
+
+
+alert(
+
+`Último servicio
+
+${s.noNumber?'Sin número':(s.train||'Sin Nº')}
+ · ${s.series}${s.branch}
+
+${s.origin} → ${s.destination}
+
+${formatDate(s.date)}`
+
+);
+
+}
+
+
+/* =========================================================
+   INTERFAZ GENERAL
+========================================================= */
+
+function renderAll(){
+
+renderHistory();
+
+renderStats();
+
+renderRoutes();
+renderUpdates();
+
+
+const a=myServices();
+
+document.getElementById(
+'lastHome'
+).textContent=
+
+a.length
+
+?
+
+`${a[0].series}${a[0].branch} · ${a[0].origin} → ${a[0].destination}`
+
+:
+
+'Sin registros';
+
+}
+
+
+const ARGOS_VERSION='2.0.1';
+const ARGOS_RELEASE_DATE='23/08/2026';
+const ARGOS_CHANGELOG=[
+'Nuevo menú principal en la parte superior.',
+'Se elimina la barra de navegación inferior.',
+'Nuevo apartado de Actualizaciones con historial de cambios.',
+'La aplicación avisa cuando se instala una nueva versión.',
+'Historial rediseñado con estilo ARGOS / Renfe.',
+'Logo Renfe oficial integrado en la cabecera.',
+'El nombre y datos de perfil se guardan localmente sin depender de columnas inexistentes en Supabase.',
+'Autocompletado de estaciones Renfe por nombre o código.',
+'El listado oficial incluye las estaciones donde opera Renfe y se actualiza automáticamente.',
+'Catálogo de estaciones Renfe actualizado desde el listado oficial (1072 registros) y complementos Trambahía.',
+'Nuevo selector preliminar de series, ramas y vehículos.',
+];
+
+function toggleMenu(){
+const panel=document.getElementById('menuPanel');
+if(panel)panel.classList.toggle('show');
+}
+
+function closeMenu(){
+const panel=document.getElementById('menuPanel');
+if(panel)panel.classList.remove('show');
+}
+
+function menuGo(id){
+closeMenu();
+show(id);
+}
+
+function renderUpdates(){
+const v=document.getElementById('currentVersionLabel');
+const d=document.getElementById('currentReleaseDate');
+const list=document.getElementById('changelogList');
+if(v)v.textContent='ARGOS '+ARGOS_VERSION;
+if(d)d.textContent='Lanzada el '+ARGOS_RELEASE_DATE;
+if(list)list.innerHTML=ARGOS_CHANGELOG.map(x=>`<li>${x}</li>`).join('');
+}
+
+function checkForUpdateNotice(){
+const key='argos_seen_version';
+const previous=localStorage.getItem(key);
+
+if(!previous){
+localStorage.setItem(key,ARGOS_VERSION);
+return;
+}
+
+if(previous!==ARGOS_VERSION){
+localStorage.setItem(key,ARGOS_VERSION);
+
+setTimeout(()=>{
+openModal();
+document.getElementById('modalContent').innerHTML=`
+<div class="badge">ARGOS · ACTUALIZADO</div>
+<h2 style="margin-top:10px">ARGOS se ha actualizado</h2>
+<div class="muted">Ahora estás usando la versión <strong>${ARGOS_VERSION}</strong>.</div>
+<div class="version-box">
+<strong>Novedades</strong>
+<ul class="update-list">
+${ARGOS_CHANGELOG.map(x=>`<li>${x}</li>`).join('')}
+</ul>
+</div>
+<button class="primary" onclick="closeModal()">Entendido</button>
+`;
+},350);
+}
+}
+
+/* =========================================================
+   NAVEGACIÓN
+========================================================= */
+
+function show(id){
+
+document.querySelectorAll(
+'.screen'
+)
+.forEach(
+x=>x.classList.remove('active')
+);
+
+
+const screen=
+document.getElementById(id);
+
+if(!screen)return;
+
+screen.classList.add('active');
+
+
+document.querySelectorAll(
+'[data-nav]'
+)
+.forEach(
+x=>
+x.classList.toggle(
+'active',
+x.dataset.nav===id
+)
+);
+
+
+renderAll();
+
+window.scrollTo(
+{
+top:0,
+behavior:'smooth'
+}
+);
+
+}
+
+
+/* =========================================================
+   APARIENCIA
+========================================================= */
+
+function toggleDark(){
+
+const enabled=
+document.getElementById('dark').checked;
+
+
+document.body.classList.toggle(
+'dark',
+enabled
+);
+
+
+localStorage.setItem(
+'argos_dark',
+enabled?'1':'0'
+);
+
+}
+
+
+/* =========================================================
+   EXPORTAR CSV
+========================================================= */
+
+function exportCSV(){
+
+const a=myServices();
+
+
+const rows=[
+
+[
+'Fecha',
+'Nº Tren',
+'Serie',
+'Rama',
+'2ª Serie',
+'2ª Rama',
+'Origen',
+'Destino',
+'Tipo',
+'Anotaciones',
+'Incidencias'
+],
+
+
+...a.map(
+s=>[
+
+s.date,
+
+s.noNumber
+?''
+:(s.train||''),
+
+s.series,
+
+s.branch,
+
+s.secondSeries||'',
+
+s.secondBranch||'',
+
+s.origin,
+
+s.destination,
+
+s.type,
+
+s.annotations||'',
+
+(Array.isArray(s.incidents)?s.incidents:[]).join(' | ')
+
+]
+)
+
+];
+
+
+const csv=
+rows
+
+.map(
+r=>
+r
+.map(
+v=>
+`"${String(v??'').replaceAll('"','""')}"`
+)
+.join(';')
+)
+
+.join('\n');
+
+
+const blob=
+new Blob(
+[
+'\ufeff'+csv
+],
+{
+type:'text/csv;charset=utf-8'
+}
+);
+
+
+download(
+blob,
+'argos_historial.csv'
+);
+
+}
+
+
+/* =========================================================
+   MENÚ EXPORTAR
+========================================================= */
+
+function exportMenu(){
+
+document.getElementById(
+'modalContent'
+).innerHTML=`
+
+<h2>
+Exportar historial
+</h2>
+
+<p class="muted">
+Elige el formato
+</p>
+
+<div class="row">
+
+<button
+class="secondary"
+onclick="exportCSV();closeModal()"
+>
+CSV
+</button>
+
+<button
+class="secondary"
+onclick="printHistory();closeModal()"
+>
+PDF
+</button>
+
+</div>
+
+`;
+
+
+openModal();
+
+}
+
+
+/* =========================================================
+   IMPRIMIR / PDF
+========================================================= */
+
+function printHistory(){
+
+const a=myServices();
+
+
+const w=
+window.open(
+'',
+'_blank'
+);
+
+
+if(!w){
+
+alert(
+'El navegador ha bloqueado la ventana de impresión.'
+);
+
+return;
+
+}
+
+
+w.document.write(`
+
+<html>
+
+<head>
+
+<title>
+ARGOS - Historial
+</title>
+
+<style>
+
+body{
+font-family:Arial,sans-serif;
+padding:25px;
+color:#111;
+}
+
+table{
+border-collapse:collapse;
+width:100%;
+}
+
+td,th{
+border:1px solid #ccc;
+padding:6px;
+font-size:11px;
+}
+
+th{
+background:#eee;
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<h1>
+ARGOS
+</h1>
+
+<p>
+Historial de servicios
+</p>
+
+<table>
+
+<tr>
+
+<th>Fecha</th>
+<th>Nº</th>
+<th>Serie</th>
+<th>Rama</th>
+<th>Origen</th>
+<th>Destino</th>
+<th>Tipo</th>
+<th>Anotaciones</th>
+<th>Incidencias</th>
+
+</tr>
+
+
+${a.map(s=>`
+
+<tr>
+
+<td>
+${escapeHtml(s.date)}
+</td>
+
+<td>
+${escapeHtml(
+s.noNumber?'':(s.train||'')
+)}
+</td>
+
+<td>
+${escapeHtml(s.series)}
+</td>
+
+<td>
+${escapeHtml(s.branch)}
+</td>
+
+<td>
+${escapeHtml(s.origin)}
+</td>
+
+<td>
+${escapeHtml(s.destination)}
+</td>
+
+<td>
+${escapeHtml(s.type)}
+</td>
+
+<td>
+${escapeHtml(s.annotations||'')}
+</td>
+
+<td>
+${escapeHtml((Array.isArray(s.incidents)?s.incidents:[]).join(' | '))}
+</td>
+
+</tr>
+
+`).join('')}
+
+
+</table>
+
+<script>
+
+window.onload=function(){
+window.print();
+};
+
+<\/script>
+
+</body>
+
+</html>
+
+`);
+
+
+w.document.close();
+
+}
+
+
+/* =========================================================
+   DESCARGAS
+========================================================= */
+
+function download(blob,name){
+
+const a=
+document.createElement('a');
+
+
+a.href=
+URL.createObjectURL(blob);
+
+
+a.download=name;
+
+
+document.body.appendChild(a);
+
+a.click();
+
+a.remove();
+
+
+setTimeout(
+()=>{
+URL.revokeObjectURL(a.href);
+},
+1000
+);
+
+}
+
+
+/* =========================================================
+   UTILIDADES
+========================================================= */
+
+function formatDate(d){
+
+if(!d)return'';
+
+
+const parts=d.split('-');
+
+if(parts.length!==3)return d;
+
+
+return parts[2]+
+'/'+
+parts[1]+
+'/'+
+parts[0];
+
+}
+
+
+function escapeHtml(v){
+
+return String(v??'')
+
+.replaceAll(
+'&',
+'&amp;'
+)
+
+.replaceAll(
+'<',
+'&lt;'
+)
+
+.replaceAll(
+'>',
+'&gt;'
+)
+
+.replaceAll(
+'"',
+'&quot;'
+)
+
+.replaceAll(
+"'",
+'&#039;'
+);
+
+}
+
+
+/* =========================================================
+   CONTADORES
+========================================================= */
+
+function updateCounters(){
+
+const fields=[
+
+['trainNo','trainCounter'],
+
+['series','seriesCounter'],
+
+['branch','branchCounter'],
+
+['series2','series2Counter'],
+
+['branch2','branch2Counter']
+
+];
+
+
+fields.forEach(
+([id,counter])=>{
+
+const el=
+document.getElementById(id);
+
+const c=
+document.getElementById(counter);
+
+
+if(!el||!c)return;
+
+
+c.textContent=
+el.value.length+
+' / '+
+el.maxLength;
+
+}
+);
+
+}
+
+
+function addCounter(id,counter){
+
+const el=
+document.getElementById(id);
+
+const c=
+document.getElementById(counter);
+
+
+if(!el||!c)return;
+
+
+el.addEventListener(
+'input',
+updateCounters
+);
+
+}
+
+
+[
+'trainNo',
+'series',
+'branch',
+'series2',
+'branch2'
+]
+.forEach(
+id=>
+addCounter(
+id,
+id+'Counter'
+)
+);
+
+
+/* =========================================================
+   DOBLE COMPOSICIÓN
+========================================================= */
+
+document.getElementById(
+'double'
+).addEventListener(
+'change',
+e=>{
+
+document.getElementById(
+'doubleBox'
+).style.display=
+e.target.checked
+?'flex'
+:'none';
+
+}
+);
+
+
+/* =========================================================
+   FECHA ACTUAL
+========================================================= */
+
+function setToday(){
+
+const el=
+document.getElementById('date');
+
+if(!el)return;
+
+
+const d=
+new Date();
+
+
+const local=
+new Date(
+d.getTime()-
+d.getTimezoneOffset()*60000
+);
+
+
+el.value=
+local
+.toISOString()
+.slice(0,10);
+
+}
+
+
+/* =========================================================
+   MODALES
+========================================================= */
+
+function openModal(){
+
+document.getElementById(
+'modal'
+)
+.classList.add('show');
+
+}
+
+
+function closeModal(){
+
+document.getElementById(
+'modal'
+)
+.classList.remove('show');
+
+}
+
+/* =========================================================
+   EXTRA · FICHA DE PRESENTACIÓN DEL MATERIAL
+   Este módulo es independiente de login, Supabase y material.json.
+========================================================= */
+function argosMaterialFichaData(series, vehicle, branch){
+  const data=(typeof ARGOS_MATERIAL_DATA!=='undefined' && ARGOS_MATERIAL_DATA)
+    ? ARGOS_MATERIAL_DATA[String(series)] : null;
+  const vehicles=data && data.vehicles ? data.vehicles : {};
+  const record=vehicles[String(vehicle)] || vehicles[String(vehicle).padStart(3,'0')] || null;
+  return {data:data, record:record, series:String(series||''), vehicle:String(vehicle||''), branch:String(branch||'')};
+}
+
+function argosMaterialFieldLabel(key){
+  const labels={
+    uic:'Matrícula UIC', renfe_number:'Número Renfe', number:'Número',
+    type:'Tipo de vehículo', branch:'Rama', year:'Año', depot:'Depósito',
+    manufacturer:'Fabricante', fabricante:'Fabricante', color:'Color',
+    width:'Ancho de vía (mm)', ancho_via:'Ancho de vía (mm)',
+    source:'Fuente', source_note:'Notas de fuente', side:'Lado / motor',
+    position:'Posición', notes:'Notas', observations:'Observaciones',
+    lote:'Lote', constructor:'Constructor', deposito:'Depósito', red:'Red',
+    ramaComposicion:'Composición de la rama', transformadaA:'Transformada a',
+    situacionActual:'Situación actual'
+  };
+  return labels[key] || String(key).replaceAll('_',' ');
+}
+
+function argosMaterialFieldValue(value){
+  if(value===null || value===undefined || value==='') return '—';
+  if(Array.isArray(value)) return value.join(', ');
+  if(typeof value==='object') return JSON.stringify(value);
+  return String(value);
+}
+
+function argosMaterialFichaAnnotations(series, branch){
+  if(typeof services==='undefined' || !Array.isArray(services)) return [];
+  return services
+    .filter(s=>String(s.series||'')===String(series||'') && String(s.branch||'')===String(branch||''))
+    .flatMap(s=>{
+      const result=[];
+      if(String(s.annotations||'').trim()) result.push({date:s.date||'', text:String(s.annotations).trim()});
+      if(Array.isArray(s.incidents)) s.incidents.forEach(x=>{
+        if(String(x||'').trim()) result.push({date:s.date||'', text:String(x).trim()});
+      });
+      return result;
+    })
+    .sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+}
+
+
+function argosPokedexData(series,branch,vehicle){
+  const base={
+    category:'',
+    nickname:'',
+    manufacturer:'',
+    seriesYear:'',
+    maxSpeed:'',
+    formation:'',
+    track:'',
+    description:'',
+    events:[],
+    notes:[]
+  };
+
+  const map={
+    '100':{
+      category:'Alta Velocidad · AVE',
+      nickname:'AVE S-100',
+      manufacturer:'Alstom',
+      seriesYear:'1992–1997',
+      maxSpeed:'300 km/h',
+      formation:'2 cabezas tractoras + 8 coches de viajeros',
+      track:'1435 mm',
+      description:'Primera serie de alta velocidad de Renfe. Derivada del TGV Atlántico y adaptada a las condiciones españolas.',
+      events:[
+        {year:'1992',text:'Comienzan los servicios comerciales de la serie 100.'},
+        {year:'2009',text:'Finaliza la remodernización técnica y estética de la serie.'}
+      ],
+      notes:[
+        {title:'Origen',text:'La serie 100 fue una evolución del TGV Atlántico con modificaciones para su explotación en España.'},
+        {title:'Una rama con historia',text:'La rama 12 (9-100-119-7) procede de la antigua serie 101 y sus motrices fueron intercambiadas con las originales de la rama 19.'}
+      ]
+    },
+    '463':{
+      category:'Cercanías · Civia',
+      nickname:'Civia',
+      manufacturer:'CAF (primer lote) / Alstom (segundo lote)',
+      seriesYear:'2004–2010',
+      maxSpeed:'120 km/h',
+      formation:'2 coches motores extremos + 1 remolque intermedio (M-R-M)',
+      track:'1668 mm',
+      description:'Tren eléctrico Civia de tres coches. El primer lote comprende las ramas 001–015 y está construido por CAF; el segundo lote comprende las ramas 201–220 y está construido por Alstom. La ficha distingue expresamente ambos lotes. Algunas unidades del segundo lote fueron transformadas a la serie 464 y otras a la 465, quedando identificada en la ficha su numeración posterior.',
+      events:[
+        {year:'2004',text:'Entrada en servicio de las primeras unidades Civia de tres coches.'},
+        {year:'2007–2010',text:'Entrada progresiva de las unidades del segundo lote Alstom.'}
+      ],
+      notes:[
+        {title:'Primer lote · CAF',text:'Ramas 001–015. Composición de tres coches: coche motor + remolque intermedio + coche motor.'},
+        {title:'Segundo lote · Alstom',text:'Ramas 201–220. La numeración 201–220 corresponde al segundo lote y no debe confundirse con las ramas 001–015 del primer lote.'},
+        {title:'Transformaciones',text:'Las unidades 202, 203, 204, 206, 209, 216, 217, 219 y 220 registran transformaciones posteriores a otras series Civia; la ficha de cada rama identifica expresamente su nueva numeración.'}
+      ]
+    },
+    '102':{
+      category:'Alta Velocidad · AVE',
+      nickname:'Pato · Talgo 350',
+      manufacturer:'Talgo / Bombardier',
+      seriesYear:'2004–2007',
+      maxSpeed:'330 km/h en explotación comercial',
+      formation:'2 cabezas tractoras + 12 coches Talgo',
+      track:'1435 mm',
+      description:'Talgo 350 de Renfe, desarrollado por Talgo con tecnología de tracción de Bombardier.',
+      events:[
+        {year:'2002',text:'Renfe adjudica a Talgo el suministro de las primeras unidades.'},
+        {year:'2004',text:'Comienzan las entregas de las primeras ramas.'},
+        {year:'2005',text:'La serie 102 inicia sus servicios comerciales.'}
+      ],
+      notes:[
+        {title:'El Pato',text:'Su característico frontal aerodinámico dio lugar al apodo popular “Pato”.'},
+        {title:'Récord de pruebas',text:'El Talgo 350 alcanzó velocidades superiores a 350 km/h durante las pruebas.'}
+      ]
+    }
+  };
+
+  const out=map[String(series)]||base;
+  return Object.assign({},base,out);
+}
+
+function argosMaterialFichaHTML(ctx){
+  const title=(ctx.data && (ctx.data.label || ctx.data.name)) || ('Serie '+ctx.series);
+  const entries=[];
+  const record=ctx.record || {};
+  const pd=argosPokedexData(ctx.series,ctx.branch,ctx.vehicle);
+
+  Object.entries(record).forEach(([key,value])=>{
+    if(['branch'].includes(key) || value===null || value===undefined || value==='') return;
+    entries.push(`<div class="pokedex-card"><div class="pokedex-label">${escapeHtml(argosMaterialFieldLabel(key))}</div><div class="pokedex-value">${escapeHtml(argosMaterialFieldValue(value))}</div></div>`);
+  });
+
+  if(pd.manufacturer) entries.unshift(`<div class="pokedex-card"><div class="pokedex-label">Fabricante</div><div class="pokedex-value">${escapeHtml(pd.manufacturer)}</div></div>`);
+  if(pd.seriesYear) entries.push(`<div class="pokedex-card"><div class="pokedex-label">Periodo de fabricación</div><div class="pokedex-value">${escapeHtml(pd.seriesYear)}</div></div>`);
+  if(pd.maxSpeed) entries.push(`<div class="pokedex-card"><div class="pokedex-label">Velocidad máxima</div><div class="pokedex-value">${escapeHtml(pd.maxSpeed)}</div></div>`);
+  if(pd.formation) entries.push(`<div class="pokedex-card"><div class="pokedex-label">Composición</div><div class="pokedex-value">${escapeHtml(pd.formation)}</div></div>`);
+  if(pd.track) entries.push(`<div class="pokedex-card"><div class="pokedex-label">Ancho de vía</div><div class="pokedex-value">${escapeHtml(pd.track)}</div></div>`);
+
+  const timeline=(pd.events||[]).map(item=>
+    `<div class="pokedex-event"><div class="pokedex-year">${escapeHtml(item.year)}</div><div class="pokedex-event-text">${escapeHtml(item.text)}</div></div>`
+  ).join('');
+
+  const selectedNotes=(pd.notes||[]).map(item=>
+    `<div class="pokedex-note"><strong>${escapeHtml(item.title)}</strong><br>${escapeHtml(item.text)}</div>`
+  ).join('');
+
+  const userNotes=argosMaterialFichaAnnotations(ctx.series,ctx.branch).map(item=>
+    `<div class="pokedex-note"><strong>${escapeHtml(item.date || 'Anotación personal')}</strong><br>${escapeHtml(item.text)}</div>`
+  ).join('');
+
+  return `<div class="material-ficha">
+    <div class="pokedex-shell">
+      <div class="pokedex-hero">
+        <div class="pokedex-hero-top">
+          <div>
+            <div class="pokedex-kicker">ARGOS · FICHA DE MATERIAL</div>
+            <div class="pokedex-title">${escapeHtml(title)}</div>
+            <div class="pokedex-subtitle">Rama <b>${escapeHtml(ctx.branch||'—')}</b>${ctx.record?.lote?` · <b>${escapeHtml(String(ctx.record.lote))}</b>`:''} · vehículo <b>${escapeHtml(ctx.vehicle||'—')}</b></div>
+          </div>
+          <div class="pokedex-status">● EN REGISTRO</div>
+        </div>
+
+        <div class="pokedex-badges">
+          ${pd.nickname ? `<span class="pokedex-chip">${escapeHtml(pd.nickname)}</span>` : ''}
+          ${pd.category ? `<span class="pokedex-chip">${escapeHtml(pd.category)}</span>` : ''}
+          ${record.type ? `<span class="pokedex-chip">${escapeHtml(record.type)}</span>` : ''}
+        </div>
+
+        <div class="pokedex-statrow">
+          <div class="pokedex-stat"><div class="pokedex-stat-label">Serie</div><div class="pokedex-stat-value">${escapeHtml(ctx.series)}</div></div>
+          <div class="pokedex-stat"><div class="pokedex-stat-label">Vehículo</div><div class="pokedex-stat-value">${escapeHtml(ctx.vehicle||'—')}</div></div>
+          <div class="pokedex-stat"><div class="pokedex-stat-label">Rama</div><div class="pokedex-stat-value">${escapeHtml(ctx.branch||'—')}</div></div>
+        </div>
+      </div>
+
+      <div class="pokedex-layout">
+        <section class="pokedex-section">
+          <div class="pokedex-section-title"><span class="pd-dot"></span>Identificación</div>
+          <div class="pokedex-grid">${entries.join('')}</div>
+        </section>
+
+        ${pd.description ? `<section class="pokedex-section"><div class="pokedex-section-title"><span class="pd-dot"></span>Sobre esta serie</div><div class="pokedex-note">${escapeHtml(pd.description)}</div></section>` : ''}
+
+        ${timeline ? `<section class="pokedex-section"><div class="pokedex-section-title"><span class="pd-dot"></span>Historia del material</div><div class="pokedex-timeline">${timeline}</div></section>` : ''}
+
+        ${selectedNotes ? `<section class="pokedex-section"><div class="pokedex-section-title"><span class="pd-dot"></span>⭐ Curiosidades</div>${selectedNotes}<div class="pokedex-source">Selección de hechos relevantes de las fichas y notas de Listadotren.</div></section>` : ''}
+
+        <section class="pokedex-section full">
+          <div class="pokedex-section-title"><span class="pd-dot"></span>📝 Tus anotaciones e incidencias</div>
+          ${userNotes || '<div class="pokedex-note">Todavía no hay anotaciones personales para esta rama.</div>'}
+        </section>
+      </div>
+
+      <div class="pokedex-divider"></div>
+      <div class="pokedex-photo">📷 Galería de fotos · preparada para añadir fotografías del vehículo y material histórico.</div>
+      <div class="row pokedex-close"><button type="button" class="secondary" onclick="closeModal()">Cerrar ficha</button></div>
+    </div>
+  </div>`;
+}
+
+function argosAbrirFichaDesdeHistorial(series, branch){
+  const s=String(series||'');
+  const b=String(branch||'');
+  if(!s || !b){
+    alert('Este servicio no tiene una serie o rama asociada.');
+    return;
+  }
+
+  const data=(typeof ARGOS_MATERIAL_DATA!=='undefined' && ARGOS_MATERIAL_DATA)
+    ? ARGOS_MATERIAL_DATA[s] : null;
+
+  if(!data){
+    alert('No hay una ficha de material cargada para la serie '+s+'.');
+    return;
+  }
+
+  const vehicles=data.vehicles||{};
+  let vehicle='';
+  let record=null;
+
+  for(const [number,item] of Object.entries(vehicles)){
+    if(String(item?.branch||'')===b){
+      vehicle=String(number);
+      record=item;
+      break;
+    }
+  }
+
+  argosMostrarFichaMaterial({
+    data:data,
+    record:record,
+    series:s,
+    vehicle:vehicle,
+    branch:b
+  });
+}
+
+function argosMostrarFichaMaterial(ctx){
+  document.getElementById('modalContent').innerHTML=argosMaterialFichaHTML(ctx);
+  openModal();
+}
+
+function argosMostrarPrimeraVezMaterial(ctx){
+  const title=(ctx.data && (ctx.data.label || ctx.data.name)) || ('Serie '+ctx.series);
+  document.getElementById('modalContent').innerHTML=`<div class="material-first-card">
+    <div class="material-first-icon">🚆</div>
+    <div class="muted" style="font-size:11px;font-weight:900;letter-spacing:.05em">NUEVO MATERIAL EN TU HISTORIAL</div>
+    <h2>Primera vez que subes en la</h2>
+    <div class="material-first-branch">Rama ${escapeHtml(ctx.branch)}</div>
+    <div class="material-first-sub">${escapeHtml(title)} · vehículo ${escapeHtml(ctx.vehicle)}</div>
+    <div class="material-first-actions">
+      <button type="button" class="secondary" onclick="closeModal()">Aceptar</button>
+      <button type="button" onclick='argosMostrarFichaMaterial(${JSON.stringify(ctx).replace(/</g,'\\u003c')})'>Ver ficha completa</button>
+    </div>
+  </div>`;
+  openModal();
+}
+
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function toast(message){
+
+const el=
+document.getElementById('toast');
+
+
+el.textContent=
+message;
+
+
+el.style.display=
+'block';
+
+
+setTimeout(
+()=>{
+el.style.display='none';
+},
+2200
+);
+
+}
+   /* =========================================================
+   SUPABASE
+========================================================= */
+
+const SUPABASE_URL =
+'https://dngzwdhcdwqujdwjmqsx.supabase.co';
+
+const SUPABASE_KEY =
+'sb_publishable_m2t3iB8nN0c5dJC6-HMbhA_yE7kNKTj';
+
+const db=
+window.supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+
+
+let currentUser=null;
+
+let currentProfile=null;
+
+let services=[];
+
+
+/* =========================================================
+   AUTENTICACIÓN
+========================================================= */
+
+function usernameEmail(username){
+
+return username
+.toLowerCase()
+.replace(/\s+/g,'')
++'@argos-app.local';
+
+}
+
+
+function toggleAuth(login){
+
+document.getElementById(
+'loginBox'
+).style.display=
+login
+?'block'
+:'none';
+
+
+document.getElementById(
+'registerBox'
+).style.display=
+login
+?'none'
+:'block';
+
+}
+
+
+/* =========================================================
+   REGISTRO
+========================================================= */
+
+async function register(){
+
+const username=
+document
+.getElementById('regUser')
+.value
+.trim();
+
+const password=
+document
+.getElementById('regPass')
+.value;
+
+
+if(!/^\d{7}$/.test(username)){
+
+alert(
+'La matrícula RENFE debe tener exactamente 7 números'
+);
+
+return;
+
+}
+
+
+if(password.length<6){
+
+alert(
+'La contraseña debe tener al menos 6 caracteres'
+);
+
+return;
+
+}
+
+
+const email=
+usernameEmail(username);
+
+
+const {data,error}=
+await db.auth.signUp({
+
+email:email,
+
+password:password,
+
+options:{
+data:{
+username:username
+}
+}
+
+});
+
+
+if(error){
+
+console.error(error);
+
+alert(
+'No se pudo crear la cuenta:\n\n'+
+error.message
+);
+
+return;
+
+}
+
+
+if(!data.user){
+
+alert(
+'No se pudo crear el usuario.'
+);
+
+return;
+
+}
+
+
+/*
+   Si Supabase tiene confirmación de email activada,
+   no habrá sesión todavía.
+*/
+
+if(!data.session){
+
+alert(
+'Cuenta creada correctamente.\n\n'+
+'Ya puedes iniciar sesión con tu matrícula y contraseña.'
+);
+
+toggleAuth(true);
+
+return;
+
+}
+
+
+currentUser=data.user;
+
+await loadProfile();
+
+await boot();
+
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+async function login(){
+
+const username=
+document
+.getElementById('loginUser')
+.value
+.trim();
+
+const password=
+document
+.getElementById('loginPass')
+.value;
+
+
+if(!/^\d{7}$/.test(username)){
+
+alert(
+'Introduce una matrícula RENFE válida de 7 números'
+);
+
+return;
+
+}
+
+
+if(!password){
+
+alert(
+'Introduce tu contraseña'
+);
+
+return;
+
+}
+
+
+const {data,error}=
+await db.auth.signInWithPassword({
+
+email:usernameEmail(username),
+
+password:password
+
+});
+
+
+if(error){
+
+console.error(error);
+
+alert(
+'Matrícula o contraseña incorrectas'
+);
+
+return;
+
+}
+
+
+currentUser=data.user;
+
+await loadProfile();
+
+await boot();
+
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+async function logout(){
+
+await db.auth.signOut();
+
+currentUser=null;
+
+currentProfile=null;
+
+services=[];
+
+
+document.getElementById(
+'app'
+).style.display='none';
+
+
+document.getElementById(
+'auth'
+).style.display='flex';
+
+
+toggleAuth(true);
+
+}
+
+
+/* =========================================================
+   PERFIL
+========================================================= */
+
+async function loadProfile(){
+
+if(!currentUser)return;
+
+
+const {data,error}=
+await db
+
+.from('profiles')
+
+.select('*')
+
+.eq(
+'id',
+currentUser.id
+)
+
+.maybeSingle();
+
+
+if(error){
+
+console.error(
+'Error cargando perfil:',
+error
+);
+
+return;
+
+}
+
+
+currentProfile=data;
+
+
+if(!data){
+
+const username=
+currentUser
+.user_metadata
+?.username||'';
+
+
+const {
+data:newProfile,
+error:createError
+}=
+await db
+
+.from('profiles')
+
+.insert({
+
+id:currentUser.id,
+
+username:username
+
+})
+
+.select()
+
+.single();
+
+
+if(createError){
+
+console.error(
+'Error creando perfil:',
+createError
+);
+
+return;
+
+}
+
+
+currentProfile=
+newProfile;
+
+}
+
+
+/*
+   Recuperamos los datos de perfil guardados localmente.
+   Esto evita depender de columnas que no existen en
+   la tabla profiles actual.
+*/
+const profileKey='argos_profile_'+currentUser.id;
+const savedProfile=
+localStorage.getItem(profileKey);
+
+if(savedProfile){
+
+try{
+
+const localProfile=
+JSON.parse(savedProfile);
+
+currentProfile={
+...(currentProfile||{}),
+...localProfile
+};
+
+}catch(e){
+
+console.warn(
+'No se pudieron leer los datos locales del perfil:',
+e
+);
+
+}
+
+}
+
+}
+
+
+/* =========================================================
+   GUARDAR PERFIL
+========================================================= */
+
+async function saveProfile(e){
+
+e.preventDefault();
+
+if(!currentUser)return;
+
+const name=
+document
+.getElementById('displayName')
+.value
+.trim();
+
+const job=
+document
+.getElementById('job')
+.value
+.trim();
+
+const serviceType=
+document
+.getElementById('serviceType')
+.value
+.trim();
+
+/*
+   Estos campos NO se guardan en Supabase porque la tabla
+   profiles actual no tiene las columnas display_name, job
+   ni service_type. Se guardan localmente en este dispositivo.
+*/
+const profileKey='argos_profile_'+currentUser.id;
+
+localStorage.setItem(
+profileKey,
+JSON.stringify({
+display_name:name,
+job:job,
+service_type:serviceType
+})
+);
+
+currentProfile={
+...(currentProfile||{}),
+display_name:name,
+job:job,
+service_type:serviceType
+};
+
+document.getElementById(
+'hello'
+).textContent=
+'Hola '+(name||currentProfile?.username||'Usuario');
+
+toast(
+'Cambios guardados'
+);
+
+}
+
+
+
+document.addEventListener('click',e=>{
+const wrap=document.querySelector('.menu-wrap');
+if(wrap && !wrap.contains(e.target))closeMenu();
+});
+
+/* =========================================================
+   ARRANQUE DE LA APLICACIÓN
+========================================================= */
+
+async function boot(){
+
+document.getElementById(
+'auth'
+).style.display='none';
+
+
+document.getElementById(
+'app'
+).style.display='block';
+
+
+await loadServices();
+
+
+const username=
+currentProfile?.username||
+
+currentUser
+?.user_metadata
+?.username||
+
+'Usuario';
+
+
+document.getElementById(
+'profileUser'
+).value=
+username;
+
+
+document.getElementById(
+'displayName'
+).value=
+currentProfile
+?.display_name||'';
+
+
+document.getElementById(
+'job'
+).value=
+currentProfile
+?.job||'';
+
+
+document.getElementById(
+'serviceType'
+).value=
+currentProfile
+?.service_type||'';
+
+
+document.getElementById(
+'hello'
+).textContent=
+'Hola '+
+(
+currentProfile
+?.display_name||
+username
+);
+
+
+setToday();
+
+draftIncidents=[];
+renderIncidentList();
+
+updateCounters();
+
+await loadMaterialData();
+initMaterialSelector();
+
+renderAll();
+checkForUpdateNotice();
+
+}
+
+
+/* =========================================================
+   INICIALIZACIÓN DEL MODO OSCURO
+========================================================= */
+
+const savedDark=
+localStorage.getItem(
+'argos_dark'
+)==='1';
+
+
+document.body.classList.toggle(
+'dark',
+savedDark
+);
+
+
+document.getElementById(
+'dark'
+).checked=
+savedDark;
+
+
+/* =========================================================
+   COMPROBAR SESIÓN EXISTENTE
+========================================================= */
+
+db.auth
+.getSession()
+.then(
+async({data})=>{
+
+if(data?.session){
+
+currentUser=
+data.session.user;
+
+await loadProfile();
+
+await boot();
+
+}
+
+}
+);
+
+
+/* =========================================================
+   CAMBIOS DE SESIÓN
+========================================================= */
+
+db.auth.onAuthStateChange(
+async(event,session)=>{
+
+if(
+event==='SIGNED_IN' &&
+session
+){
+
+currentUser=
+session.user;
+
+await loadProfile();
+
+await boot();
+
+}
+
+if(
+event==='SIGNED_OUT'
+){
+
+currentUser=null;
+
+currentProfile=null;
+
+services=[];
+
+}
+
+}
+);
+
+
+/* =========================================================
+   SERVICE WORKER
+========================================================= */
+
+/*
+   Mantenemos el Service Worker existente.
+   Importante: después de desplegar esta versión,
+   si el navegador muestra código antiguo, habrá que
+   actualizar/desregistrar el SW antiguo una sola vez.
+*/
+
+if(
+'serviceWorker'
+in navigator
+){
+
+window.addEventListener(
+'load',
+()=>{
+
+navigator.serviceWorker
+
+.register('sw.js?v=15')
+
+.catch(
+error=>
+console.error(
+'Service Worker:',
+error
+)
+);
+
+}
+);
+
+}
+
+
+/* =========================================================
+   EXTRA · SUPER FICHA MULTIVEHÍCULO POR RAMA · ARGOS
+   ---------------------------------------------------------
+   Esta ampliación NO modifica ni elimina ninguna función
+   existente. Añade una ruta específica para las fichas
+   abiertas desde el historial cuando una rama contiene
+   varios vehículos (ej. S-102: 001 + 002).
+========================================================= */
+
+function argosObtenerVehiculosDeRama(series, branch){
+  const data=(typeof ARGOS_MATERIAL_DATA!=='undefined' && ARGOS_MATERIAL_DATA)
+    ? ARGOS_MATERIAL_DATA[String(series)] : null;
+
+  if(!data || !data.vehicles) return [];
+
+  const target=String(branch||'').replace(/\D/g,'');
+
+  return Object.entries(data.vehicles)
+    .filter(([number,item])=>String(item?.branch||'').replace(/\D/g,'')===target)
+    .map(([number,item])=>({
+      number:String(number),
+      record:item||{}
+    }));
+}
+
+function argosMaterialRamaHTML(series, branch, vehicles){
+  const data=ARGOS_MATERIAL_DATA[String(series)]||{};
+  const pd=argosPokedexData(String(series),String(branch),'');
+  const title=data.label || data.name || ('Serie '+series);
+
+  const vehicleCards=vehicles.map(({number,record})=>{
+    const fields=[];
+
+    Object.entries(record||{}).forEach(([key,value])=>{
+      if(['branch'].includes(key) || value===null || value===undefined || value==='') return;
+      fields.push(`
+        <div class="pokedex-card">
+          <div class="pokedex-label">${escapeHtml(argosMaterialFieldLabel(key))}</div>
+          <div class="pokedex-value">${escapeHtml(argosMaterialFieldValue(value))}</div>
+        </div>`);
+    });
+
+    return `
+      <div class="pokedex-vehicle-block">
+        <div class="pokedex-vehicle-head">
+          <div>
+            <div class="pokedex-kicker">VEHÍCULO</div>
+            <div class="pokedex-vehicle-title">${escapeHtml(number)}</div>
+          </div>
+          ${record.side ? `<div class="pokedex-chip">${escapeHtml(record.side)}</div>` : ''}
+        </div>
+        <div class="pokedex-grid">${fields.join('') || '<div class="pokedex-note">Sin datos adicionales del vehículo.</div>'}</div>
+      </div>`;
+  }).join('');
+
+  const timeline=(pd.events||[]).map(item=>
+    `<div class="pokedex-event"><div class="pokedex-year">${escapeHtml(item.year)}</div><div class="pokedex-event-text">${escapeHtml(item.text)}</div></div>`
+  ).join('');
+
+  const selectedNotes=(pd.notes||[]).map(item=>
+    `<div class="pokedex-note"><strong>${escapeHtml(item.title)}</strong><br>${escapeHtml(item.text)}</div>`
+  ).join('');
+
+  const userNotes=argosMaterialFichaAnnotations(String(series),String(branch)).map(item=>
+    `<div class="pokedex-note"><strong>${escapeHtml(item.date || 'Anotación personal')}</strong><br>${escapeHtml(item.text)}</div>`
+  ).join('');
+
+  return `<div class="material-ficha">
+    <div class="pokedex-shell">
+      <div class="pokedex-hero">
+        <div class="pokedex-hero-top">
+          <div>
+            <div class="pokedex-kicker">ARGOS · FICHA DE MATERIAL</div>
+            <div class="pokedex-title">${escapeHtml(title)}</div>
+            <div class="pokedex-subtitle">Rama <b>${escapeHtml(branch||'—')}</b> · <b>${vehicles.length}</b> vehículo${vehicles.length===1?'':'s'} registrado${vehicles.length===1?'':'s'}</div>
+          </div>
+          <div class="pokedex-status">● EN REGISTRO</div>
+        </div>
+
+        <div class="pokedex-badges">
+          ${pd.nickname ? `<span class="pokedex-chip">${escapeHtml(pd.nickname)}</span>` : ''}
+          ${pd.category ? `<span class="pokedex-chip">${escapeHtml(pd.category)}</span>` : ''}
+          ${pd.manufacturer ? `<span class="pokedex-chip">${escapeHtml(pd.manufacturer)}</span>` : ''}
+        </div>
+
+        <div class="pokedex-statrow">
+          <div class="pokedex-stat"><div class="pokedex-stat-label">Serie</div><div class="pokedex-stat-value">${escapeHtml(series)}</div></div>
+          <div class="pokedex-stat"><div class="pokedex-stat-label">Rama</div><div class="pokedex-stat-value">${escapeHtml(branch||'—')}</div></div>
+          <div class="pokedex-stat"><div class="pokedex-stat-label">Vehículos</div><div class="pokedex-stat-value">${escapeHtml(String(vehicles.length))}</div></div>
+        </div>
+      </div>
+
+      <div class="pokedex-layout">
+        ${pd.description ? `<section class="pokedex-section"><div class="pokedex-section-title"><span class="pd-dot"></span>Sobre esta serie</div><div class="pokedex-note">${escapeHtml(pd.description)}</div></section>` : ''}
+
+        ${(pd.seriesYear||pd.maxSpeed||pd.formation||pd.track) ? `
+        <section class="pokedex-section">
+          <div class="pokedex-section-title"><span class="pd-dot"></span>Datos de la serie</div>
+          <div class="pokedex-grid">
+            ${pd.seriesYear ? `<div class="pokedex-card"><div class="pokedex-label">Periodo de fabricación</div><div class="pokedex-value">${escapeHtml(pd.seriesYear)}</div></div>` : ''}
+            ${pd.maxSpeed ? `<div class="pokedex-card"><div class="pokedex-label">Velocidad máxima</div><div class="pokedex-value">${escapeHtml(pd.maxSpeed)}</div></div>` : ''}
+            ${pd.formation ? `<div class="pokedex-card"><div class="pokedex-label">Composición</div><div class="pokedex-value">${escapeHtml(pd.formation)}</div></div>` : ''}
+            ${pd.track ? `<div class="pokedex-card"><div class="pokedex-label">Ancho de vía</div><div class="pokedex-value">${escapeHtml(pd.track)}</div></div>` : ''}
+          </div>
+        </section>` : ''}
+
+        <section class="pokedex-section full">
+          <div class="pokedex-section-title"><span class="pd-dot"></span>Vehículos de la rama</div>
+          ${vehicleCards || '<div class="pokedex-note">No hay vehículos registrados para esta rama.</div>'}
+        </section>
+
+        ${timeline ? `<section class="pokedex-section"><div class="pokedex-section-title"><span class="pd-dot"></span>Historia del material</div><div class="pokedex-timeline">${timeline}</div></section>` : ''}
+
+        ${selectedNotes ? `<section class="pokedex-section"><div class="pokedex-section-title"><span class="pd-dot"></span>⭐ Curiosidades</div>${selectedNotes}<div class="pokedex-source">Selección de hechos relevantes de las fichas y notas de Listadotren.</div></section>` : ''}
+
+        <section class="pokedex-section full">
+          <div class="pokedex-section-title"><span class="pd-dot"></span>📝 Tus anotaciones e incidencias</div>
+          ${userNotes || '<div class="pokedex-note">Todavía no hay anotaciones personales para esta rama.</div>'}
+        </section>
+      </div>
+
+      <div class="pokedex-divider"></div>
+      <div class="pokedex-photo">📷 Galería de fotos · preparada para añadir fotografías del vehículo y material histórico.</div>
+      <div class="row pokedex-close"><button type="button" class="secondary" onclick="closeModal()">Cerrar ficha</button></div>
+    </div>
+  </div>`;
+}
+
+function argosMostrarFichaRamaMaterial(series, branch){
+  const vehicles=argosObtenerVehiculosDeRama(series,branch);
+  const data=(typeof ARGOS_MATERIAL_DATA!=='undefined' && ARGOS_MATERIAL_DATA)
+    ? ARGOS_MATERIAL_DATA[String(series)] : null;
+
+  if(!data){
+    alert('No hay una ficha de material cargada para la serie '+String(series||'')+'.');
+    return;
+  }
+
+  document.getElementById('modalContent').innerHTML=
+    argosMaterialRamaHTML(String(series),String(branch),vehicles);
+  openModal();
+}
+
+/*
+   Nueva entrada para el historial.
+   Se instala al final para conservar intacta la función
+   original y sustituir únicamente el comportamiento público
+   cuando el usuario pulsa una ficha desde el historial.
+*/
+window.argosAbrirFichaDesdeHistorial=function(series,branch){
+  const s=String(series||'');
+  const b=String(branch||'');
+
+  if(!s || !b){
+    alert('Este servicio no tiene una serie o rama asociada.');
+    return;
+  }
+
+  const data=(typeof ARGOS_MATERIAL_DATA!=='undefined' && ARGOS_MATERIAL_DATA)
+    ? ARGOS_MATERIAL_DATA[s] : null;
+
+  if(!data){
+    alert('No hay una ficha de material cargada para la serie '+s+'.');
+    return;
+  }
+
+  argosMostrarFichaRamaMaterial(s,b);
+};
+
+/* =========================================================
+   FIN EXTRA · SUPER FICHA MULTIVEHÍCULO POR RAMA
+========================================================= */
+
+</script>
+
+</body>
+
+</html>
+<!-- =========================================================
+     ARGOS · POKÉDEX FERROVIARIA · AMPLIACIÓN DE INFORMACIÓN
+     AÑADIDO: no elimina ni sustituye la base maestra.
+     Lee información enriquecida desde material.json.
+     Si un dato no existe, no se muestra.
+========================================================= -->
+<style>
+.argos-rich-wrap{padding:0 0 4px}
+.argos-rich-section{margin-top:16px}
+.argos-rich-section-title{display:flex;align-items:center;gap:8px;margin:0 0 9px;font-size:13px;font-weight:950}
+.argos-rich-section-title .pd-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block}
+.argos-rich-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.argos-rich-card{padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:var(--card2)}
+.argos-rich-label{color:var(--muted);font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.05em}
+.argos-rich-value{margin-top:4px;font-size:13px;font-weight:800;line-height:1.35;word-break:break-word}
+.argos-rich-text{padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--card2);font-size:12px;line-height:1.55;white-space:pre-wrap}
+.argos-rich-timeline{display:grid;gap:8px}
+.argos-rich-event{display:grid;grid-template-columns:62px 1fr;gap:9px;align-items:start;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--card2)}
+.argos-rich-year{font-weight:950;color:var(--accent)}
+.argos-rich-vehicle{border:1px solid var(--line);border-radius:13px;background:var(--card2);padding:12px;margin-top:8px}
+.argos-rich-vehicle-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:9px}
+.argos-rich-vehicle-title{font-weight:950;font-size:14px}
+.argos-rich-chip{display:inline-flex;align-items:center;padding:5px 8px;border-radius:999px;background:var(--accentSoft);color:var(--accent);font-size:9px;font-weight:950}
+.argos-rich-source{margin-top:12px;color:var(--muted);font-size:10px;line-height:1.4}
+@media(max-width:560px){.argos-rich-grid{grid-template-columns:1fr}.argos-rich-event{grid-template-columns:1fr}}
+</style>
+<script>
 (function(){
-  if(document.getElementById("argos-general-ficha-clean")) return;
-  const s=document.createElement("style");
-  s.id="argos-general-ficha-clean";
-  s.textContent=`.ficha-general-grid{display:grid;grid-template-columns:1fr;gap:10px}.ficha-general-item{display:flex;gap:12px;align-items:flex-start;padding:13px 14px;border:1px solid rgba(120,120,120,.16);border-radius:12px;background:rgba(128,128,128,.045);line-height:1.45}.ficha-general-number{font-weight:800;font-size:12px;opacity:.55;min-width:24px;padding-top:2px}@media(min-width:760px){.ficha-general-grid{grid-template-columns:1fr 1fr}}`;
-  document.head.appendChild(s);
+'use strict';
+
+function argosRichValue(v){
+  if(v===null||v===undefined||v==='')return '';
+  if(Array.isArray(v))return v.map(argosRichValue).filter(Boolean).join(', ');
+  if(typeof v==='object')return Object.entries(v).map(([k,x])=>`${k}: ${argosRichValue(x)}`).filter(Boolean).join(' · ');
+  return String(v);
+}
+
+function argosRichLabel(key){
+  const labels={
+    name:'Denominación',label:'Denominación',nickname:'Apodo',category:'Categoría',
+    manufacturer:'Constructor / fabricante',constructors:'Constructores',
+    units:'Unidades construidas',units_built:'Unidades construidas',
+    construction_years:'Años de construcción',year:'Año',in_service:'Entrada en servicio',
+    status:'Estado',composition:'Composición',traction:'Tracción',voltage:'Tensión',
+    gauge:'Ancho de vía',track:'Ancho de vía',power:'Potencia',max_speed:'Velocidad máxima',
+    effort:'Esfuerzo de tracción',motors:'Motores',bogies:'Bogies',
+    wheel_diameter:'Diámetro de ruedas',length:'Longitud',width:'Anchura',height:'Altura',
+    weight:'Peso',axle_load:'Peso por eje',brakes:'Frenos',multiple_control:'Mando múltiple',
+    coupling:'Enganche',signalling:'Señalización',equipment:'Equipamiento',comfort:'Confort',
+    passengers:'Plazas',description:'Descripción',historical_review:'Reseña histórica',
+    history:'Historia',notes:'Notas',observations:'Observaciones',source:'Fuente',
+    source_note:'Notas de fuente',state:'Estado',depot:'Depósito',color:'Color',
+    constructor:'Constructor',construction_number:'Nº de construcción',uic:'Matrícula UIC',
+    renfe_number:'Número Renfe',branch:'Rama',type:'Tipo',side:'Lado / motor',
+    position:'Posición',vehicle:'Vehículo'
+  };
+  return labels[key]||String(key).replaceAll('_',' ');
+}
+
+function argosRichObjectCards(obj,excluded){
+  if(!obj||typeof obj!=='object'||Array.isArray(obj))return '';
+  const skip=new Set(excluded||[]);
+  return Object.entries(obj).filter(([k,v])=>!skip.has(k)&&v!==null&&v!==undefined&&v!==''&&typeof v!=='object'&&!Array.isArray(v))
+    .map(([k,v])=>`<div class="argos-rich-card"><div class="argos-rich-label">${escapeHtml(argosRichLabel(k))}</div><div class="argos-rich-value">${escapeHtml(argosRichValue(v))}</div></div>`).join('');
+}
+
+function argosRichArrayText(arr){
+  if(!Array.isArray(arr)||!arr.length)return '';
+  return arr.map(item=>{
+    if(typeof item==='string'||typeof item==='number')return `<div class="argos-rich-text">${escapeHtml(String(item))}</div>`;
+    if(item&&typeof item==='object'){
+      const title=item.title||item.name||item.year||'';
+      const text=item.text||item.description||item.note||'';
+      return `<div class="argos-rich-text">${title?`<b>${escapeHtml(String(title))}</b>`:''}${text?`<br>${escapeHtml(String(text))}`:''}</div>`;
+    }
+    return '';
+  }).join('');
+}
+
+function argosRichTimeline(arr){
+  if(!Array.isArray(arr)||!arr.length)return '';
+  const rows=arr.map(item=>{
+    if(!item||typeof item!=='object')return '';
+    const year=item.year||item.date||'';
+    const text=item.text||item.description||item.event||item.note||'';
+    if(!year&&!text)return '';
+    return `<div class="argos-rich-event"><div class="argos-rich-year">${escapeHtml(String(year))}</div><div>${escapeHtml(String(text))}</div></div>`;
+  }).join('');
+  return rows?`<div class="argos-rich-timeline">${rows}</div>`:'';
+}
+
+function argosRichSection(title,body){
+  if(!body)return '';
+  return `<section class="argos-rich-section"><div class="argos-rich-section-title"><span class="pd-dot"></span>${escapeHtml(title)}</div>${body}</section>`;
+}
+
+function argosRichVehicles(data,branch){
+  const vehicles=(data&&data.vehicles)||{};
+  const list=Object.entries(vehicles).filter(([n,v])=>String(v?.branch||'')===String(branch||''));
+  if(!list.length)return '';
+  return list.map(([number,record])=>{
+    const cards=argosRichObjectCards(record,['branch','events','history','notes','description','series_info','branch_info']);
+    const events=argosRichTimeline(record.events);
+    const notes=argosRichArrayText(record.notes);
+    return `<div class="argos-rich-vehicle">
+      <div class="argos-rich-vehicle-head">
+        <div><div class="argos-rich-vehicle-title">Vehículo ${escapeHtml(String(number))}</div>${record.renfe_number?`<div class="argos-rich-label">${escapeHtml(String(record.renfe_number))}</div>`:''}</div>
+        ${record.side?`<span class="argos-rich-chip">${escapeHtml(String(record.side))}</span>`:''}
+      </div>
+      ${cards?`<div class="argos-rich-grid">${cards}</div>`:''}
+      ${events?argosRichSection('Historia del vehículo',events):''}
+      ${notes?argosRichSection('Notas del vehículo',notes):''}
+    </div>`;
+  }).join('');
+}
+
+function argosRichFichaHTML(ctx){
+  const data=ctx.data||{};
+  const rich=data.series_info||data.info||data.general||{};
+  const branchInfo=(data.branches&&data.branches[String(ctx.branch)])||(data.branch_info&&data.branch_info[String(ctx.branch)])||{};
+  const title=data.label||data.name||`Serie ${ctx.series}`;
+  const vehicles=data.vehicles||{};
+  const branchVehicles=Object.entries(vehicles).filter(([n,v])=>String(v?.branch||'')===String(ctx.branch||''));
+
+  const generalCards=argosRichObjectCards(rich,['description','historical_review','history','events','notes','technical','technical_data','source','source_note']);
+  const technical=rich.technical||rich.technical_data||{};
+  const technicalCards=argosRichObjectCards(technical,[]);
+  const generalHistory=rich.historical_review||rich.history||rich.description||'';
+  const generalEvents=argosRichTimeline(rich.events);
+  const generalNotes=argosRichArrayText(rich.notes);
+
+  const branchCards=argosRichObjectCards(branchInfo,['description','history','events','notes','vehicles','source','source_note']);
+  const branchHistory=branchInfo.history||branchInfo.description||'';
+  const branchEvents=argosRichTimeline(branchInfo.events);
+  const branchNotes=argosRichArrayText(branchInfo.notes);
+
+  return `<div class="material-ficha"><div class="pokedex-shell">
+    <div class="pokedex-hero">
+      <div class="pokedex-hero-top"><div>
+        <div class="pokedex-kicker">ARGOS · FICHA DE MATERIAL</div>
+        <div class="pokedex-title">${escapeHtml(title)}</div>
+        <div class="pokedex-subtitle">Rama <b>${escapeHtml(ctx.branch||'—')}</b>${branchVehicles.length?` · ${branchVehicles.length} vehículo${branchVehicles.length===1?'':'s'} identificado${branchVehicles.length===1?'':'s'}`:''}</div>
+      </div><div class="pokedex-status">● EN REGISTRO</div></div>
+      <div class="pokedex-badges">
+        ${rich.nickname?`<span class="pokedex-chip">${escapeHtml(String(rich.nickname))}</span>`:''}
+        ${rich.category?`<span class="pokedex-chip">${escapeHtml(String(rich.category))}</span>`:''}
+      </div>
+      <div class="pokedex-statrow">
+        <div class="pokedex-stat"><div class="pokedex-stat-label">Serie</div><div class="pokedex-stat-value">${escapeHtml(ctx.series)}</div></div>
+        <div class="pokedex-stat"><div class="pokedex-stat-label">Rama</div><div class="pokedex-stat-value">${escapeHtml(ctx.branch||'—')}</div></div>
+        <div class="pokedex-stat"><div class="pokedex-stat-label">Vehículos</div><div class="pokedex-stat-value">${branchVehicles.length||1}</div></div>
+      </div>
+    </div>
+    <div class="pokedex-layout argos-rich-wrap">
+      ${argosRichSection('Información general',generalCards?`<div class="argos-rich-grid">${generalCards}</div>`:'')}
+      ${argosRichSection('Historia de la serie',generalHistory?`<div class="argos-rich-text">${escapeHtml(String(generalHistory))}</div>`:'')}
+      ${argosRichSection('Características técnicas',technicalCards?`<div class="argos-rich-grid">${technicalCards}</div>`:'')}
+      ${argosRichSection('Eventos de la serie',generalEvents)}
+      ${argosRichSection('Curiosidades y notas',generalNotes)}
+      ${argosRichSection(`Rama ${ctx.branch||'—'} · información específica`,branchCards?`<div class="argos-rich-grid">${branchCards}</div>`:'')}
+      ${argosRichSection(`Historia de la rama ${ctx.branch||'—'}`,branchHistory?`<div class="argos-rich-text">${escapeHtml(String(branchHistory))}</div>`:'')}
+      ${argosRichSection(`Eventos de la rama ${ctx.branch||'—'}`,branchEvents)}
+      ${argosRichSection(`Notas de la rama ${ctx.branch||'—'}`,branchNotes)}
+      ${branchVehicles.length?`<section class="argos-rich-section"><div class="argos-rich-section-title"><span class="pd-dot"></span>Vehículos de la rama</div>${argosRichVehicles(data,ctx.branch)}</section>`:''}
+      <section class="pokedex-section full">
+        <div class="pokedex-section-title"><span class="pd-dot"></span>📝 Tus anotaciones e incidencias</div>
+        ${argosMaterialFichaAnnotations(ctx.series,ctx.branch).map(item=>`<div class="pokedex-note"><strong>${escapeHtml(item.date||'Anotación personal')}</strong><br>${escapeHtml(item.text)}</div>`).join('')||'<div class="pokedex-note">Todavía no hay anotaciones personales para esta rama.</div>'}
+      </section>
+      ${rich.source?`<div class="argos-rich-source">Fuente: ${escapeHtml(String(rich.source))}${rich.last_checked?` · comprobado: ${escapeHtml(String(rich.last_checked))}`:''}</div>`:''}
+    </div>
+    <div class="pokedex-divider"></div>
+    <div class="row pokedex-close"><button type="button" class="secondary" onclick="closeModal()">Cerrar ficha</button></div>
+  </div></div>`;
+}
+
+window.argosMostrarFichaMaterial=function(ctx){
+  document.getElementById('modalContent').innerHTML=argosRichFichaHTML(ctx);
+  openModal();
+};
+
+window.argosAbrirFichaDesdeHistorial=function(series,branch){
+  const s=String(series||''),b=String(branch||'');
+  if(!s||!b){alert('Este servicio no tiene una serie o rama asociada.');return;}
+  const data=(typeof ARGOS_MATERIAL_DATA!=='undefined'&&ARGOS_MATERIAL_DATA)?ARGOS_MATERIAL_DATA[s]:null;
+  if(!data){alert('No hay una ficha de material cargada para la serie '+s+'.');return;}
+  const matches=Object.entries(data.vehicles||{}).filter(([number,item])=>String(item?.branch||'')===b);
+  const first=matches[0]||['',null];
+  window.argosMostrarFichaMaterial({data,record:first[1],series:s,vehicle:first[0],branch:b,branchVehicles:matches.map(([number,record])=>({number,record}))});
+};
 })();
+</script>
 
+<!-- =========================================================
+     ARGOS · POKÉDEX · PATCH V2
+     Recupera la información técnica/histórica que ya existía
+     en argosPokedexData() y la integra con la nueva ficha.
+========================================================= -->
+<script>
 (function(){
-  if(document.getElementById("argos-s121-notes-separated")) return;
-  const s=document.createElement("style");
-  s.id="argos-s121-notes-separated";
-  s.textContent=`
-    .ficha-notes-121{display:grid;grid-template-columns:1fr;gap:10px}
-    .ficha-notes-121 .ficha-note{padding:13px 14px;border:1px solid rgba(120,120,120,.16);border-radius:12px;background:rgba(128,128,128,.045);line-height:1.45}
+'use strict';
+
+const _argosFichaBase = window.argosMostrarFichaMaterial;
+
+function argosPokedexRichFichaHTML(ctx){
+  const data=ctx.data||{};
+  const record=ctx.record||{};
+  const pd=(typeof argosPokedexData==='function')
+    ? argosPokedexData(ctx.series,ctx.branch,ctx.vehicle)
+    : {};
+
+  const title=data.label||data.name||`Serie ${ctx.series}`;
+
+  const entries=[];
+  Object.entries(record).forEach(([key,value])=>{
+    if(['branch','events','history','notes','description'].includes(key)) return;
+    if(value===null||value===undefined||value==='') return;
+    entries.push(`<div class="pokedex-card">
+      <div class="pokedex-label">${escapeHtml(argosMaterialFieldLabel(key))}</div>
+      <div class="pokedex-value">${escapeHtml(argosMaterialFieldValue(value))}</div>
+    </div>`);
+  });
+
+  const pdFields=[
+    ['Fabricante',pd.manufacturer],
+    ['Periodo de fabricación',pd.seriesYear],
+    ['Velocidad máxima',pd.maxSpeed],
+    ['Composición',pd.formation],
+    ['Ancho de vía',pd.track]
+  ];
+  pdFields.forEach(([label,value])=>{
+    if(value) entries.push(`<div class="pokedex-card">
+      <div class="pokedex-label">${escapeHtml(label)}</div>
+      <div class="pokedex-value">${escapeHtml(String(value))}</div>
+    </div>`);
+  });
+
+  const description=pd.description||'';
+  const events=(pd.events||[]).map(item=>`
+    <div class="pokedex-event">
+      <div class="pokedex-year">${escapeHtml(String(item.year||''))}</div>
+      <div class="pokedex-event-text">${escapeHtml(String(item.text||''))}</div>
+    </div>`).join('');
+
+  const notes=(pd.notes||[]).map(item=>`
+    <div class="pokedex-note">
+      ${item.title?`<strong>${escapeHtml(String(item.title))}</strong><br>`:''}
+      ${escapeHtml(String(item.text||''))}
+    </div>`).join('');
+
+  const branchInfo=(data.branches&&data.branches[String(ctx.branch)])||{};
+  const branchEvents=(branchInfo.events||[]).map(item=>`
+    <div class="pokedex-event">
+      <div class="pokedex-year">${escapeHtml(String(item.year||''))}</div>
+      <div class="pokedex-event-text">${escapeHtml(String(item.text||''))}</div>
+    </div>`).join('');
+
+  const vehicles=Object.entries(data.vehicles||{})
+    .filter(([n,v])=>String(v?.branch||'')===String(ctx.branch||''));
+
+  const vehicleCards=vehicles.map(([number,v])=>`
+    <div class="argos-rich-vehicle">
+      <div class="argos-rich-vehicle-head">
+        <div>
+          <div class="argos-rich-vehicle-title">Vehículo ${escapeHtml(number)}</div>
+          ${v.renfe_number?`<div class="argos-rich-label">${escapeHtml(v.renfe_number)}</div>`:''}
+        </div>
+        ${v.side?`<span class="argos-rich-chip">${escapeHtml(v.side)}</span>`:''}
+      </div>
+      <div class="argos-rich-grid">
+        ${argosRichObjectCards(v,['branch','events','history','notes'])}
+      </div>
+    </div>`).join('');
+
+  return `<div class="material-ficha"><div class="pokedex-shell">
+    <div class="pokedex-hero">
+      <div class="pokedex-hero-top">
+        <div>
+          <div class="pokedex-kicker">ARGOS · FICHA DE MATERIAL</div>
+          <div class="pokedex-title">${escapeHtml(title)}</div>
+          <div class="pokedex-subtitle">Rama <b>${escapeHtml(ctx.branch||'—')}</b> · ${vehicles.length||1} vehículo${(vehicles.length||1)===1?'':'s'} identificado${(vehicles.length||1)===1?'':'s'}</div>
+        </div>
+        <div class="pokedex-status">● EN REGISTRO</div>
+      </div>
+      <div class="pokedex-badges">
+        ${pd.category?`<span class="pokedex-chip">${escapeHtml(pd.category)}</span>`:''}
+        ${pd.nickname?`<span class="pokedex-chip">${escapeHtml(pd.nickname)}</span>`:''}
+      </div>
+      <div class="pokedex-statrow">
+        <div class="pokedex-stat"><div class="pokedex-stat-label">Serie</div><div class="pokedex-stat-value">${escapeHtml(ctx.series)}</div></div>
+        <div class="pokedex-stat"><div class="pokedex-stat-label">Rama</div><div class="pokedex-stat-value">${escapeHtml(ctx.branch||'—')}</div></div>
+        <div class="pokedex-stat"><div class="pokedex-stat-label">Vehículos</div><div class="pokedex-stat-value">${vehicles.length||1}</div></div>
+      </div>
+    </div>
+
+    <div class="pokedex-layout argos-rich-wrap">
+
+      ${entries.length?`
+      <section class="pokedex-section full">
+        <div class="pokedex-section-title"><span class="pd-dot"></span>Identificación y características</div>
+        <div class="pokedex-grid">${entries.join('')}</div>
+      </section>`:''}
+
+      ${description?`
+      <section class="pokedex-section full">
+        <div class="pokedex-section-title"><span class="pd-dot"></span>Sobre la serie</div>
+        <div class="pokedex-note">${escapeHtml(description)}</div>
+      </section>`:''}
+
+      ${events?`
+      <section class="pokedex-section full">
+        <div class="pokedex-section-title"><span class="pd-dot"></span>Historia</div>
+        <div class="pokedex-timeline">${events}</div>
+      </section>`:''}
+
+      ${branchEvents?`
+      <section class="pokedex-section full">
+        <div class="pokedex-section-title"><span class="pd-dot"></span>Historia de la rama ${escapeHtml(ctx.branch||'')}</div>
+        <div class="pokedex-timeline">${branchEvents}</div>
+      </section>`:''}
+
+      ${notes?`
+      <section class="pokedex-section full">
+        <div class="pokedex-section-title"><span class="pd-dot"></span>⭐ Curiosidades y notas</div>
+        ${notes}
+      </section>`:''}
+
+      ${vehicleCards?`
+      <section class="pokedex-section full">
+        <div class="pokedex-section-title"><span class="pd-dot"></span>Vehículos de la rama</div>
+        ${vehicleCards}
+      </section>`:''}
+
+      <section class="pokedex-section full">
+        <div class="pokedex-section-title"><span class="pd-dot"></span>📝 Tus anotaciones e incidencias</div>
+        ${argosMaterialFichaAnnotations(ctx.series,ctx.branch).map(item=>
+          `<div class="pokedex-note"><strong>${escapeHtml(item.date||'Anotación personal')}</strong><br>${escapeHtml(item.text)}</div>`
+        ).join('')||'<div class="pokedex-note">Todavía no hay anotaciones personales para esta rama.</div>'}
+      </section>
+
+      <div class="argos-rich-source">
+        Información técnica e histórica integrada desde la base de ARGOS. Los datos de material identificados proceden del JSON de material; la información de serie procede de la base Pokédex ya existente en el proyecto.
+      </div>
+    </div>
+
+    <div class="pokedex-divider"></div>
+    <div class="row pokedex-close">
+      <button type="button" class="secondary" onclick="closeModal()">Cerrar ficha</button>
+    </div>
+  </div></div>`;
+}
+
+window.argosMostrarFichaMaterial=function(ctx){
+  document.getElementById('modalContent').innerHTML=argosPokedexRichFichaHTML(ctx);
+  openModal();
+};
+})();
+</script>
+
+<style>
+.argos-pd-v3 .pokedex-layout{display:block}
+.argos-pd-v3 .pokedex-section.full{width:100%}
+.argos-pd-v3 .pokedex-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.argos-pd-v3 .pd-empty{padding:14px 16px;border:1px dashed var(--line);border-radius:14px;color:var(--muted);font-size:12px;line-height:1.45;background:var(--card2)}
+.argos-pd-v3 .pd-hero-note{margin-top:12px;padding:11px 13px;border-radius:12px;background:var(--accentSoft);font-size:11px;line-height:1.45}
+.argos-pd-v3 .pd-vehicle-list{display:grid;grid-template-columns:1fr;gap:10px}
+.argos-pd-v3 .argos-rich-vehicle{width:100%;box-sizing:border-box}
+@media(max-width:700px){.argos-pd-v3 .pokedex-grid,.argos-pd-v3 .argos-rich-grid{grid-template-columns:1fr}}
+</style>
+<script>
+(function(){
+'use strict';
+function argosPDV3SeriesData(series){
+  const s=String(series||'');
+  let data=null;
+  if(typeof ARGOS_MATERIAL_DATA!=='undefined'&&ARGOS_MATERIAL_DATA)data=ARGOS_MATERIAL_DATA[s]||ARGOS_MATERIAL_DATA[s.replace(/^0+/,'')];
+  if(!data)data={label:`Serie ${s}`,vehicles:{}};
+  if(!data.label&&!data.name)data.label=`Serie ${s}`;
+  if(!data.vehicles)data.vehicles={};
+  return data;
+}
+function argosPDV3Vehicles(data,branch){
+  if(!branch)return [];
+  return Object.entries(data.vehicles||{}).filter(([n,v])=>String(v?.branch??'')===String(branch));
+}
+function argosPDV3Ficha(ctx){
+  const series=String(ctx?.series||''),branch=String(ctx?.branch||''),vehicle=String(ctx?.vehicle||'');
+  const data=argosPDV3SeriesData(series),record=ctx?.record||{};
+  const pd=(typeof argosPokedexData==='function')?argosPokedexData(series,branch,vehicle):{};
+  const branchVehicles=argosPDV3Vehicles(data,branch);
+  const title=data.label||data.name||`Serie ${series}`;
+  const entries=[];
+  Object.entries(record).forEach(([key,value])=>{
+    if(['branch','events','history','notes','description'].includes(key)||value===null||value===undefined||value==='')return;
+    entries.push(`<div class="pokedex-card"><div class="pokedex-label">${escapeHtml(argosMaterialFieldLabel(key))}</div><div class="pokedex-value">${escapeHtml(argosMaterialFieldValue(value))}</div></div>`);
+  });
+  [['Fabricante',pd.manufacturer],['Periodo de fabricación',pd.seriesYear],['Velocidad máxima',pd.maxSpeed],['Composición',pd.formation],['Ancho de vía',pd.track]].forEach(([label,value])=>{
+    if(value)entries.push(`<div class="pokedex-card"><div class="pokedex-label">${escapeHtml(label)}</div><div class="pokedex-value">${escapeHtml(String(value))}</div></div>`);
+  });
+  const seriesEvents=Array.isArray(pd.events)?pd.events.map(item=>`<div class="pokedex-event"><div class="pokedex-year">${escapeHtml(String(item?.year||''))}</div><div class="pokedex-event-text">${escapeHtml(String(item?.text||''))}</div></div>`).join(''):'';
+  const notes=Array.isArray(pd.notes)?pd.notes.map(item=>`<div class="pokedex-note">${item?.title?`<strong>${escapeHtml(String(item.title))}</strong><br>`:''}${escapeHtml(String(item?.text||''))}</div>`).join(''):'';
+  const branchInfo=(data.branches&&data.branches[String(branch)])||{};
+  const branchEvents=Array.isArray(branchInfo.events)?branchInfo.events.map(item=>`<div class="pokedex-event"><div class="pokedex-year">${escapeHtml(String(item?.year||''))}</div><div class="pokedex-event-text">${escapeHtml(String(item?.text||''))}</div></div>`).join(''):'';
+  const vehiclesHTML=branchVehicles.map(([number,v])=>{
+    const cards=argosRichObjectCards(v,['branch','events','history','notes','description']);
+    const events=argosRichTimeline(v.events),notesV=argosRichArrayText(v.notes);
+    return `<article class="argos-rich-vehicle"><div class="argos-rich-vehicle-head"><div><div class="argos-rich-vehicle-title">Vehículo ${escapeHtml(String(number))}</div>${v.renfe_number?`<div class="argos-rich-label">${escapeHtml(String(v.renfe_number))}</div>`:''}</div>${v.side?`<span class="argos-rich-chip">${escapeHtml(String(v.side))}</span>`:''}</div>${cards?`<div class="argos-rich-grid">${cards}</div>`:''}${events?`<div class="argos-rich-section"><div class="argos-rich-section-title"><span class="pd-dot"></span>Historia del vehículo</div>${events}</div>`:''}${notesV?`<div class="argos-rich-section"><div class="argos-rich-section-title"><span class="pd-dot"></span>Notas</div>${notesV}</div>`:''}</article>`;
+  }).join('');
+  const userNotes=argosMaterialFichaAnnotations(series,branch).map(item=>`<div class="pokedex-note"><strong>${escapeHtml(item.date||'Anotación personal')}</strong><br>${escapeHtml(item.text)}</div>`).join('');
+  return `<div class="material-ficha argos-pd-v3"><div class="pokedex-shell">
+    <div class="pokedex-hero"><div class="pokedex-hero-top"><div><div class="pokedex-kicker">ARGOS · FICHA DE MATERIAL</div><div class="pokedex-title">${escapeHtml(title)}</div><div class="pokedex-subtitle">${escapeHtml(branch||'Sin rama asociada')}${branchVehicles.length?` · ${branchVehicles.length} vehículo${branchVehicles.length===1?'':'s'} identificado${branchVehicles.length===1?'':'s'}`:''}</div></div><div class="pokedex-status">● EN REGISTRO</div></div>
+      <div class="pokedex-badges">${pd.category?`<span class="pokedex-chip">${escapeHtml(String(pd.category))}</span>`:''}${pd.nickname?`<span class="pokedex-chip">${escapeHtml(String(pd.nickname))}</span>`:''}${record.type?`<span class="pokedex-chip">${escapeHtml(String(record.type))}</span>`:''}</div>
+      <div class="pokedex-statrow"><div class="pokedex-stat"><div class="pokedex-stat-label">Serie</div><div class="pokedex-stat-value">${escapeHtml(series||'—')}</div></div><div class="pokedex-stat"><div class="pokedex-stat-label">Rama</div><div class="pokedex-stat-value">${escapeHtml(branch||'—')}</div></div><div class="pokedex-stat"><div class="pokedex-stat-label">Vehículos</div><div class="pokedex-stat-value">${branchVehicles.length}</div></div></div>
+      ${!branch?`<div class="pd-hero-note">Esta entrada no tiene una rama asociada. Se muestra la información disponible de la serie.</div>`:''}
+    </div>
+    <div class="pokedex-layout">
+      ${entries.length?`<section class="pokedex-section full"><div class="pokedex-section-title"><span class="pd-dot"></span>Identificación y datos del material</div><div class="pokedex-grid">${entries.join('')}</div></section>`:''}
+      ${pd.description?`<section class="pokedex-section full"><div class="pokedex-section-title"><span class="pd-dot"></span>Información general de la serie</div><div class="pokedex-note">${escapeHtml(String(pd.description))}</div></section>`:''}
+      ${seriesEvents?`<section class="pokedex-section full"><div class="pokedex-section-title"><span class="pd-dot"></span>Historia de la serie</div><div class="pokedex-timeline">${seriesEvents}</div></section>`:''}
+      ${notes?`<section class="pokedex-section full"><div class="pokedex-section-title"><span class="pd-dot"></span>⭐ Curiosidades</div>${notes}</section>`:''}
+      ${branch?`<section class="pokedex-section full"><div class="pokedex-section-title"><span class="pd-dot"></span>Rama ${escapeHtml(branch)}</div>${branchInfo.description?`<div class="pokedex-note">${escapeHtml(String(branchInfo.description))}</div>`:''}${branchEvents?`<div class="pokedex-timeline">${branchEvents}</div>`:''}${!branchInfo.description&&!branchEvents?'<div class="pd-empty">No hay información específica de esta rama en la base actual.</div>':''}</section>`:''}
+      ${branch&&!branchVehicles.length?`<section class="pokedex-section full"><div class="pd-empty">La serie está registrada, pero no hay vehículos asociados a la rama ${escapeHtml(branch)} en la base actual. La ficha de la serie sigue disponible.</div></section>`:''}
+      ${vehiclesHTML?`<section class="pokedex-section full"><div class="pokedex-section-title"><span class="pd-dot"></span>Vehículos de la rama</div><div class="pd-vehicle-list">${vehiclesHTML}</div></section>`:''}
+      <section class="pokedex-section full"><div class="pokedex-section-title"><span class="pd-dot"></span>📝 Tus anotaciones e incidencias</div>${userNotes||'<div class="pd-empty">Todavía no hay anotaciones personales para esta rama.</div>'}</section>
+      ${!entries.length&&!pd.description&&!seriesEvents&&!notes&&!branchEvents&&!vehiclesHTML?`<section class="pokedex-section full"><div class="pd-empty">La serie existe en ARGOS, pero todavía no tiene información técnica cargada en la Pokédex.</div></section>`:''}
+    </div>
+    <div class="pokedex-divider"></div><div class="row pokedex-close"><button type="button" class="secondary" onclick="closeModal()">Cerrar ficha</button></div>
+  </div></div>`;
+}
+window.argosAbrirFichaDesdeHistorial=function(series,branch){
+  const s=String(series||'').trim(),b=String(branch||'').trim();
+  if(!s){alert('Este servicio no tiene una serie de material asociada.');return;}
+  const data=argosPDV3SeriesData(s);
+  const matches=argosPDV3Vehicles(data,b);
+  let record=null,vehicle='';
+  if(matches.length){vehicle=String(matches[0][0]);record=matches[0][1];}
+  else if(b&&data.vehicles){
+    const first=Object.entries(data.vehicles)[0];
+    if(first){vehicle=String(first[0]);record=first[1];}
+  }
+  try{
+    document.getElementById('modalContent').innerHTML=argosPDV3Ficha({data,record:record||{},series:s,vehicle,branch:b});
+    openModal();
+  }catch(error){
+    console.error('ARGOS · error de ficha:',error);
+    document.getElementById('modalContent').innerHTML=`<div class="material-ficha"><div class="pokedex-shell"><div class="pokedex-title">${escapeHtml(data.label||data.name||('Serie '+s))}</div><div class="pd-empty">La ficha no ha podido cargarse completa. El historial sigue intacto.</div><div class="row pokedex-close"><button type="button" class="secondary" onclick="closeModal()">Cerrar</button></div></div></div>`;
+    openModal();
+  }
+};
+})();
+</script>
+
+<!-- =========================================================
+     ARGOS · FICHA MATERIAL · V4
+     Corrección definitiva de apertura.
+
+     La V3 introducía una segunda plantilla que podía fallar
+     por dependencias entre módulos. V4 vuelve a utilizar la
+     plantilla maestra argosMaterialFichaHTML(), que ya existe
+     en la base y funciona, y solo corrige la selección del
+     material desde el historial.
+========================================================= -->
+<style>
+/* Ficha material: presentación más limpia sin cambiar la base */
+.material-ficha .pokedex-shell{
+  width:100%;
+  max-width:1100px;
+  margin:0 auto;
+}
+.material-ficha .pokedex-layout{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  padding:18px;
+}
+.material-ficha .pokedex-section{
+  min-width:0;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--card2);
+  padding:15px;
+}
+.material-ficha .pokedex-section.full{
+  grid-column:1 / -1;
+}
+.material-ficha .pokedex-section-title{
+  margin-bottom:12px;
+}
+.material-ficha .pokedex-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+}
+.material-ficha .pokedex-card{
+  min-width:0;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:11px 12px;
+  background:var(--card);
+}
+.material-ficha .pokedex-value{
+  overflow-wrap:anywhere;
+}
+.material-ficha .pokedex-note{
+  line-height:1.55;
+}
+.material-ficha .pokedex-timeline{
+  display:grid;
+  gap:8px;
+}
+.material-ficha .pokedex-event{
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:11px 12px;
+  background:var(--card);
+}
+.material-ficha .pokedex-close{
+  padding:0 18px 18px;
+}
+.material-ficha .pokedex-photo{
+  display:none !important;
+}
+/* Si una ficha no tiene datos específicos, sigue teniendo aspecto
+   de ficha y no de error. */
+.material-ficha .pokedex-grid:empty::after{
+  content:'Información específica del vehículo no disponible';
+  display:block;
+  grid-column:1/-1;
+  padding:12px;
+  border:1px dashed var(--line);
+  border-radius:12px;
+  color:var(--muted);
+  font-size:12px;
+}
+@media(max-width:760px){
+  .material-ficha .pokedex-layout{
+    grid-template-columns:1fr;
+    padding:12px;
+  }
+  .material-ficha .pokedex-section.full{
+    grid-column:auto;
+  }
+  .material-ficha .pokedex-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+
+<script>
+(function(){
+'use strict';
+
+/*
+ * V4 NO sustituye la plantilla maestra.
+ * Solo hace robusta la búsqueda desde el historial.
+ */
+
+function argosFichaV4Data(series){
+  const s=String(series||'').trim();
+
+  if(typeof ARGOS_MATERIAL_DATA!=='undefined' && ARGOS_MATERIAL_DATA){
+    return ARGOS_MATERIAL_DATA[s]
+      || ARGOS_MATERIAL_DATA[s.replace(/^0+/,'')]
+      || {label:'Serie '+s,vehicles:{}};
+  }
+
+  return {label:'Serie '+s,vehicles:{}};
+}
+
+function argosFichaV4FindVehicle(data,branch){
+  const vehicles=(data && data.vehicles) ? data.vehicles : {};
+  const wanted=String(branch||'').trim();
+
+  /* Primero: vehículo que pertenece exactamente a la rama. */
+  if(wanted){
+    for(const [number,item] of Object.entries(vehicles)){
+      if(String(item?.branch||'').trim()===wanted){
+        return {
+          vehicle:String(number),
+          record:item
+        };
+      }
+    }
+  }
+
+  /* Segundo: si no hay rama coincidente, no inventamos una.
+     Dejamos la ficha general de la serie. */
+  return {
+    vehicle:'',
+    record:null
+  };
+}
+
+/*
+ * Esta es la función que usa el botón "Ficha material".
+ * No depende de la nueva plantilla V3.
+ */
+window.argosMostrarFichaMaterial=function(ctx){
+  const safeCtx=ctx||{};
+  const series=String(safeCtx.series||'').trim();
+  const branch=String(safeCtx.branch||'').trim();
+  const data=safeCtx.data || argosFichaV4Data(series);
+
+  const finalCtx={
+    data:data,
+    record:safeCtx.record||null,
+    series:series,
+    vehicle:String(safeCtx.vehicle||''),
+    branch:branch
+  };
+
+  /*
+   * La plantilla original ya forma parte de la base maestra.
+   * Si existe, es la que renderizamos.
+   */
+  try{
+    document.getElementById('modalContent').innerHTML=
+      argosMaterialFichaHTML(finalCtx);
+
+    openModal();
+    return;
+  }catch(error){
+    console.error('ARGOS · Ficha material V4 · error de plantilla:',error);
+  }
+
+  /*
+   * Fallback muy sencillo: incluso si hubiera un problema en
+   * la plantilla, nunca dejamos la ventana vacía.
+   */
+  const title=(data && (data.label||data.name))
+    ||('Serie '+series);
+
+  document.getElementById('modalContent').innerHTML=`
+    <div class="material-ficha">
+      <div class="pokedex-shell">
+        <div class="pokedex-hero">
+          <div class="pokedex-kicker">ARGOS · FICHA DE MATERIAL</div>
+          <div class="pokedex-title">${escapeHtml(title)}</div>
+          <div class="pokedex-subtitle">
+            ${branch?'Rama '+escapeHtml(branch):'Información general de la serie'}
+          </div>
+        </div>
+
+        <div class="pokedex-layout">
+          <section class="pokedex-section full">
+            <div class="pokedex-section-title">
+              <span class="pd-dot"></span>Información del material
+            </div>
+            <div class="pokedex-note">
+              La serie está registrada en ARGOS.
+              ${branch?'No hay datos específicos cargados para esta rama.':''}
+            </div>
+          </section>
+
+          <section class="pokedex-section full">
+            <div class="pokedex-section-title">
+              <span class="pd-dot"></span>Identificación
+            </div>
+            <div class="pokedex-grid">
+              <div class="pokedex-card">
+                <div class="pokedex-label">Serie</div>
+                <div class="pokedex-value">${escapeHtml(series||'—')}</div>
+              </div>
+              <div class="pokedex-card">
+                <div class="pokedex-label">Rama</div>
+                <div class="pokedex-value">${escapeHtml(branch||'—')}</div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="pokedex-divider"></div>
+        <div class="row pokedex-close">
+          <button type="button" class="secondary" onclick="closeModal()">Cerrar ficha</button>
+        </div>
+      </div>
+    </div>`;
+
+  openModal();
+};
+
+/*
+ * Apertura desde el historial:
+ * - ya NO exige rama
+ * - busca el vehículo correcto si existe
+ * - si no lo encuentra, abre la ficha general de la serie
+ * - nunca hace alert simplemente porque falte una rama
+ */
+window.argosAbrirFichaDesdeHistorial=function(series,branch){
+  const s=String(series||'').trim();
+  const b=String(branch||'').trim();
+
+  if(!s){
+    alert('Este servicio no tiene una serie de material asociada.');
+    return;
+  }
+
+  const data=argosFichaV4Data(s);
+  const found=argosFichaV4FindVehicle(data,b);
+
+  argosMostrarFichaMaterial({
+    data:data,
+    record:found.record,
+    series:s,
+    vehicle:found.vehicle,
+    branch:b
+  });
+};
+
+})();
+</script>
+
+<!-- =========================================================
+     ARGOS · POKÉDEX · V5
+     Corrección histórica S-100 / S-101.
+
+     Regla:
+     - La información general de una serie NO se aplica
+       automáticamente a todas sus ramas.
+     - La procedencia histórica se resuelve por rama.
+     - Se elimina la nota genérica errónea sobre la rama 12.
+========================================================= -->
+<script>
+(function(){
+'use strict';
+
+const argosPokedexDataBase = window.argosPokedexData;
+
+window.argosPokedexData = function(series, branch, vehicle){
+  const s=String(series||'');
+  const b=String(branch||'');
+
+  const base=typeof argosPokedexDataBase==='function'
+    ?argosPokedexDataBase(s,b,vehicle)
+    :{
+      category:'',
+      nickname:'',
+      manufacturer:'',
+      seriesYear:'',
+      maxSpeed:'',
+      formation:'',
+      track:'',
+      description:'',
+      events:[],
+      notes:[]
+    };
+
+  const result={
+    ...base,
+    events:Array.isArray(base.events)?[...base.events]:[],
+    notes:Array.isArray(base.notes)?[...base.notes]:[]
+  };
+
+  /*
+   * La nota antigua decía:
+   * "La rama 12 procede de la antigua serie 101..."
+   *
+   * Eso era demasiado genérico y provocaba que ARGOS pudiera
+   * mostrarlo en cualquier rama de la S-100.
+   */
+  if(s==='100'){
+    result.notes=result.notes.filter(item=>{
+      const text=String(item?.text||'').toLowerCase();
+      return !text.includes('rama 12')
+        && !text.includes('antigua serie 101')
+        && !text.includes('antigua s-101');
+    });
+
+    /*
+     * Las seis ramas de la antigua S-101 se reformaron y
+     * pasaron a la S-100 como 100.019 a 100.024.
+     * Por tanto, la rama 6 no debe aparecer como procedente
+     * de la S-101.
+     */
+    const former101={
+      '19':'101.101 → S-100 100.019',
+      '20':'101.102 → S-100 100.020',
+      '21':'101.103 → S-100 100.021',
+      '22':'101.104 → S-100 100.022',
+      '23':'101.105 → S-100 100.023',
+      '24':'101.106 → S-100 100.024'
+    };
+
+    if(former101[b]){
+      result.notes.unshift({
+        title:'Procedencia histórica',
+        text:`Esta rama procede de la antigua S-101: ${former101[b]}.`
+      });
+    }
+
+    /*
+     * Rama 12: el dato correcto es más concreto.
+     * El vehículo 9-100-119-7 figura en Listadotren como
+     * antiguo 101.101, pero la propia ficha explica que en
+     * 2011 las motrices 119 y 219, originales de la rama 19,
+     * fueron instaladas en la rama 12.
+     *
+     * No afirmamos que "la rama 12 completa" sea una antigua
+     * rama S-101.
+     */
+    if(b==='12'){
+      result.notes.unshift({
+        title:'Historia de la rama 12',
+        text:'La rama 12 no debe considerarse sin más una antigua rama S-101. La ficha de Listadotren del 9-100-119-7 indica que esta motriz fue originalmente de la rama 19 y que en 2011 las motrices 9-100-119-7 y 9-100-219-5, originales de la rama 19, fueron instaladas en la rama 12.'
+      });
+    }
+  }
+
+  return result;
+};
+
+})();
+</script>
+
+<!-- =========================================================
+ ARGOS · PECULIARIDADES POR RAMA · V6
+
+ La ficha ya tenía información general de serie. Esta capa añade
+ información HISTÓRICA/OPERATIVA específica de cada rama.
+
+ Importante:
+ - Una peculiaridad de una rama nunca se muestra en otra.
+ - Solo se introducen hechos que podemos respaldar.
+ - La estructura queda preparada para seguir ampliando todas
+   las series sin tocar la plantilla ni el historial.
+========================================================= -->
+<script>
+(function(){
+'use strict';
+
+const argosPokedexAnterior = window.argosPokedexData;
+
+const ARGOS_BRANCH_PECULIARITIES = {
+  '100': {
+    '1': [
+      {
+        title:'Primera rama de la serie',
+        text:'La rama 01 fue una de las primeras unidades construidas y estuvo a cargo del segundo servicio del primer día de explotación comercial del AVE Madrid-Sevilla, el 21 de abril de 1992.'
+      }
+    ],
+    '2': [
+      {
+        title:'Pruebas de velocidad',
+        text:'La rama 02 alcanzó casi 330 km/h durante las pruebas realizadas en la nueva línea de alta velocidad española en enero de 1992.'
+      }
+    ],
+    '12': [
+      {
+        title:'Intercambio de cabezas tractoras',
+        text:'Esta rama tiene una historia especialmente singular: sus cabezas tractoras fueron intercambiadas con las de la rama 19. La 9-100-119-7 procede originalmente de la antigua S-101.101 y en 2011 las motrices 9-100-119-7 y 9-100-219-5, originales de la rama 19, fueron instaladas en la rama 12.'
+      }
+    ],
+    '13': [
+      {
+        title:'Juan Sebastián Elcano',
+        text:'La unidad 100.013 fue bautizada «Juan Sebastián Elcano» con motivo de la inauguración del AVE Madrid-Castellón el 22 de enero de 2018. Fue la unidad utilizada para realizar el primer recorrido inaugural de este servicio.'
+      }
+    ],
+    '15': [
+      {
+        title:'Récord de velocidad',
+        text:'La rama 15 alcanzó 357 km/h durante las pruebas realizadas en la LAV Madrid-Sevilla el 23 de abril de 1993, uno de los hitos de velocidad más destacados de la serie 100.'
+      },
+      {
+        title:'Subserie 100F',
+        text:'La rama 15 forma parte de las ramas 15 a 24 adaptadas para circular por la red francesa, conocidas como subserie 100F.'
+      }
+    ],
+    '16': [
+      {
+        title:'Subserie 100F',
+        text:'La rama 16 pertenece al grupo de ramas 15 a 24 adaptadas para la explotación internacional con Francia.'
+      }
+    ],
+    '17': [
+      {
+        title:'Origen del pedido original',
+        text:'La rama 17 pertenece a las dos unidades que completaron posteriormente el parque de S-100 original junto con la rama 18, dentro del pedido inicial de 24 trenes.'
+      },
+      {
+        title:'Subserie 100F',
+        text:'La rama 17 fue incluida posteriormente entre las ramas adaptadas para circulación por Francia.'
+      }
+    ],
+    '18': [
+      {
+        title:'Origen del pedido original',
+        text:'La rama 18 fue una de las dos unidades que se incorporaron al parque S-100 después de las primeras 16 ramas.'
+      },
+      {
+        title:'Subserie 100F',
+        text:'La rama 18 fue incluida posteriormente entre las ramas adaptadas para circulación por Francia.'
+      }
+    ],
+    '19': [
+      {
+        title:'Procedencia de la antigua S-101',
+        text:'La rama 19 procede de la antigua S-101.101 (GL01), transformada a ancho internacional e integrada de nuevo en la serie 100.'
+      },
+      {
+        title:'Subserie 100F',
+        text:'La rama 19 forma parte de las ramas 15 a 24 adaptadas para circular por Francia.'
+      }
+    ],
+    '20': [
+      {
+        title:'Procedencia de la antigua S-101',
+        text:'La rama 20 procede de la antigua S-101.102 (GL02), posteriormente reformada a S-100.020.'
+      },
+      {
+        title:'Subserie 100F',
+        text:'La rama 20 forma parte de las ramas adaptadas para circulación por Francia.'
+      }
+    ],
+    '21': [
+      {
+        title:'Procedencia de la antigua S-101',
+        text:'La rama 21 procede de la antigua S-101.103 (GL03), posteriormente reformada a S-100.021.'
+      },
+      {
+        title:'Subserie 100F',
+        text:'La rama 21 forma parte de las ramas adaptadas para circulación por Francia.'
+      }
+    ],
+    '22': [
+      {
+        title:'Procedencia de la antigua S-101',
+        text:'La rama 22 procede de la antigua S-101.104 (GL04), posteriormente reformada a S-100.022.'
+      },
+      {
+        title:'Subserie 100F',
+        text:'La rama 22 forma parte de las ramas adaptadas para circulación por Francia.'
+      }
+    ],
+    '23': [
+      {
+        title:'Procedencia de la antigua S-101',
+        text:'La rama 23 procede de la antigua S-101.105 (GL05), posteriormente reformada a S-100.023.'
+      },
+      {
+        title:'Subserie 100F',
+        text:'La rama 23 forma parte de las ramas adaptadas para circulación por Francia y llegó a realizar viajes de pruebas hasta Lyon.'
+      }
+    ],
+    '24': [
+      {
+        title:'Procedencia de la antigua S-101',
+        text:'La rama 24 procede de la antigua S-101.106 (GL06), posteriormente reformada a S-100.024.'
+      },
+      {
+        title:'Subserie 100F',
+        text:'La rama 24 forma parte de las ramas adaptadas para circulación por Francia.'
+      }
+    ]
+  }
+};
+
+function argosBranchKey(value){
+  return String(value||'').replace(/^0+/,'') || '0';
+}
+
+window.argosPokedexData=function(series,branch,vehicle){
+  const base=typeof argosPokedexAnterior==='function'
+    ?argosPokedexAnterior(series,branch,vehicle)
+    :{events:[],notes:[]};
+
+  const result={
+    ...base,
+    events:Array.isArray(base.events)?[...base.events]:[],
+    notes:Array.isArray(base.notes)?[...base.notes]:[]
+  };
+
+  const serie=String(series||'');
+  const rama=argosBranchKey(branch);
+  const extras=(ARGOS_BRANCH_PECULIARITIES[serie]||{})[rama]||[];
+
+  /* Evita duplicar la información histórica que ya añadimos en V5. */
+  const existing=result.notes.map(x=>String(x?.text||'').toLowerCase());
+
+  extras.forEach(item=>{
+    const text=String(item.text||'');
+    if(!existing.includes(text.toLowerCase())){
+      result.notes.unshift({
+        title:item.title,
+        text
+      });
+    }
+  });
+
+  return result;
+};
+
+window.ARGOS_BRANCH_PECULIARITIES=ARGOS_BRANCH_PECULIARITIES;
+
+})();
+</script>
+
+<!-- =========================================================
+ ARGOS · PECULIARIDADES AUTOMÁTICAS DESDE MATERIAL.JSON · V7
+
+ Además de las peculiaridades históricas verificadas que ARGOS
+ lleva incorporadas por rama, esta capa recoge automáticamente
+ cualquier nota/observación específica que venga en material.json.
+ Así no hay que programar manualmente cada vehículo si la fuente
+ ya contiene la información.
+========================================================= -->
+<script>
+(function(){
+'use strict';
+
+const argosPokedexV6=window.argosPokedexData;
+
+function argosFindRecordForPokedex(series,branch,vehicle){
+  const data=(typeof ARGOS_MATERIAL_DATA!=='undefined')
+    ?ARGOS_MATERIAL_DATA?.[String(series)]
+    :null;
+
+  if(!data || !data.vehicles)return null;
+
+  const wantedVehicle=String(vehicle||'').replace(/\D/g,'').padStart(3,'0');
+  let record=data.vehicles[wantedVehicle]||null;
+
+  if(!record && branch){
+    const wantedBranch=String(branch||'').replace(/\D/g,'');
+    for(const item of Object.values(data.vehicles)){
+      if(String(item?.branch||'').replace(/\D/g,'')===wantedBranch){
+        record=item;
+        break;
+      }
+    }
+  }
+  return record;
+}
+
+function argosPeculiarityText(value){
+  if(value===null || value===undefined || value==='')return '';
+  if(Array.isArray(value))return value.filter(Boolean).map(String).join(' · ');
+  if(typeof value==='object'){
+    if(value.text)return String(value.text);
+    return Object.values(value).filter(Boolean).map(String).join(' · ');
+  }
+  return String(value);
+}
+
+window.argosPokedexData=function(series,branch,vehicle){
+  const base=typeof argosPokedexV6==='function'
+    ?argosPokedexV6(series,branch,vehicle)
+    :{notes:[],events:[]};
+
+  const result={
+    ...base,
+    notes:Array.isArray(base.notes)?[...base.notes]:[],
+    events:Array.isArray(base.events)?[...base.events]:[]
+  };
+
+  const record=argosFindRecordForPokedex(series,branch,vehicle);
+  if(!record)return result;
+
+  const additions=[];
+  if(record.notes){
+    const text=argosPeculiarityText(record.notes);
+    if(text)additions.push({
+      title:'Peculiaridad de esta rama',
+      text
+    });
+  }
+
+  if(record.observations){
+    const text=argosPeculiarityText(record.observations);
+    if(text)additions.push({
+      title:'Observaciones del vehículo',
+      text
+    });
+  }
+
+  if(record.source_note){
+    const text=argosPeculiarityText(record.source_note);
+    if(text)additions.push({
+      title:'Nota de la fuente',
+      text
+    });
+  }
+
+  const existing=result.notes.map(x=>String(x?.text||'').trim().toLowerCase());
+
+  additions.reverse().forEach(item=>{
+    if(!existing.includes(item.text.trim().toLowerCase())){
+      result.notes.unshift(item);
+    }
+  });
+
+  return result;
+};
+
+})();
+</script>
+
+<!-- =========================================================
+     ARGOS · FICHA UNIVERSAL · FINAL
+     Una sola ficha para cualquier serie/rama/vehículo.
+     No inventa datos: muestra lo que exista en ARGOS/material.json
+     y mantiene las peculiaridades históricas de la Pokédex.
+========================================================= -->
+<style>
+.argos-universal-ficha .pokedex-layout{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  padding:18px;
+}
+.argos-universal-ficha .pokedex-section{
+  min-width:0;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--card2);
+  padding:15px;
+}
+.argos-universal-ficha .pokedex-section.full{grid-column:1/-1}
+.argos-universal-ficha .pokedex-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+}
+.argos-universal-ficha .pokedex-card{
+  min-width:0;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:11px 12px;
+  background:var(--card);
+}
+.argos-universal-ficha .pokedex-value{
+  overflow-wrap:anywhere;
+  line-height:1.35;
+}
+.argos-universal-ficha .pokedex-note{line-height:1.55}
+.argos-universal-ficha .pokedex-timeline{display:grid;gap:8px}
+.argos-universal-ficha .pokedex-event{
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:11px 12px;
+  background:var(--card);
+}
+.argos-universal-ficha .pd-empty{
+  padding:14px 16px;
+  border:1px dashed var(--line);
+  border-radius:14px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.5;
+  background:var(--card);
+}
+.argos-universal-ficha .argos-rich-vehicle{
+  width:100%;
+  box-sizing:border-box;
+  margin-top:10px;
+}
+.argos-universal-ficha .argos-rich-vehicle:first-child{margin-top:0}
+@media(max-width:760px){
+  .argos-universal-ficha .pokedex-layout{
+    grid-template-columns:1fr;
+    padding:12px;
+  }
+  .argos-universal-ficha .pokedex-section.full{grid-column:auto}
+  .argos-universal-ficha .pokedex-grid{grid-template-columns:1fr}
+}
+</style>
+
+<script>
+(function(){
+'use strict';
+
+function argosUniversalDigits(value){
+  return String(value??'').replace(/\D/g,'');
+}
+
+function argosUniversalSeriesKey(value){
+  const digits=argosUniversalDigits(value);
+  return digits ? digits.slice(0,3) : '';
+}
+
+function argosUniversalBranchKey(value){
+  const digits=argosUniversalDigits(value);
+  return digits.replace(/^0+/,'') || (digits ? '0' : '');
+}
+
+function argosUniversalData(series){
+  const key=argosUniversalSeriesKey(series);
+
+  if(typeof ARGOS_MATERIAL_DATA!=='undefined'&&ARGOS_MATERIAL_DATA){
+    return ARGOS_MATERIAL_DATA[key] ||
+      ARGOS_MATERIAL_DATA[String(series||'').trim()] ||
+      {label:key?`Serie ${key}`:`Serie ${series||'—'}`,vehicles:{}};
+  }
+
+  return {
+    label:key?`Serie ${key}`:`Serie ${series||'—'}`,
+    vehicles:{}
+  };
+}
+
+function argosUniversalBranchInfo(data,branch){
+  if(!data||!branch)return {};
+
+  const target=argosUniversalBranchKey(branch);
+  const branches=data.branches||data.ramas||{};
+
+  for(const [key,value] of Object.entries(branches)){
+    if(argosUniversalBranchKey(key)===target){
+      return value&&typeof value==='object'?value:{};
+    }
+  }
+
+  return {};
+}
+
+function argosUniversalVehicles(data,branch){
+  const vehicles=data&&data.vehicles?data.vehicles:{};
+
+  if(!branch){
+    return Object.entries(vehicles).map(([number,record])=>({
+      number:String(number),
+      record:record||{}
+    }));
+  }
+
+  const target=argosUniversalBranchKey(branch);
+
+  return Object.entries(vehicles)
+    .filter(([number,record])=>{
+      return argosUniversalBranchKey(record?.branch)===target;
+    })
+    .map(([number,record])=>({
+      number:String(number),
+      record:record||{}
+    }));
+}
+
+function argosUniversalScalarCards(obj,excluded){
+  if(!obj||typeof obj!=='object'||Array.isArray(obj))return '';
+
+  const skip=new Set(excluded||[]);
+
+  return Object.entries(obj)
+    .filter(([key,value])=>{
+      if(skip.has(key))return false;
+      if(value===null||value===undefined||value==='')return false;
+      return typeof value!=='object'&&!Array.isArray(value);
+    })
+    .map(([key,value])=>`
+      <div class="pokedex-card">
+        <div class="pokedex-label">${escapeHtml(argosMaterialFieldLabel(key))}</div>
+        <div class="pokedex-value">${escapeHtml(argosMaterialFieldValue(value))}</div>
+      </div>
+    `)
+    .join('');
+}
+
+function argosUniversalTimeline(items){
+  if(!Array.isArray(items)||!items.length)return '';
+
+  return items.map(item=>{
+    if(!item||typeof item!=='object')return '';
+
+    const year=item.year||item.date||'';
+    const text=item.text||item.description||item.event||item.note||'';
+
+    if(!year&&!text)return '';
+
+    return `
+      <div class="pokedex-event">
+        <div class="pokedex-year">${escapeHtml(String(year))}</div>
+        <div class="pokedex-event-text">${escapeHtml(String(text))}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+function argosUniversalNotes(items){
+  if(!Array.isArray(items)||!items.length)return '';
+
+  return items.map(item=>{
+    if(typeof item==='string'||typeof item==='number'){
+      return `<div class="pokedex-note">${escapeHtml(String(item))}</div>`;
+    }
+
+    if(!item||typeof item!=='object')return '';
+
+    const title=item.title||item.name||'';
+    const text=item.text||item.description||item.note||'';
+
+    return `
+      <div class="pokedex-note">
+        ${title?`<strong>${escapeHtml(String(title))}</strong><br>`:''}
+        ${escapeHtml(String(text))}
+      </div>
+    `;
+  }).join('');
+}
+
+function argosUniversalRender(ctx){
+  const series=String(ctx?.series||'').trim();
+  const branch=String(ctx?.branch||'').trim();
+
+  const data=ctx?.data||argosUniversalData(series);
+  const vehicles=argosUniversalVehicles(data,branch);
+  const branchInfo=argosUniversalBranchInfo(data,branch);
+
+  let pd={};
+  try{
+    if(typeof argosPokedexData==='function'){
+      pd=argosPokedexData(series,branch,ctx?.vehicle||'')||{};
+    }
+  }catch(error){
+    console.warn('ARGOS: no se pudo ampliar la Pokédex',error);
+  }
+
+  const rich=
+    data.series_info||
+    data.info||
+    data.general||
+    {};
+
+  const technical=
+    rich.technical||
+    rich.technical_data||
+    data.technical||
+    data.technical_data||
+    {};
+
+  const title=
+    data.label||
+    data.name||
+    rich.name||
+    `Serie ${series||'—'}`;
+
+  const category=
+    rich.category||
+    data.category||
+    pd.category||
+    '';
+
+  const nickname=
+    rich.nickname||
+    data.nickname||
+    pd.nickname||
+    '';
+
+  const generalCards=argosUniversalScalarCards(
+    rich,
+    [
+      'name',
+      'category',
+      'nickname',
+      'description',
+      'historical_review',
+      'history',
+      'events',
+      'notes',
+      'technical',
+      'technical_data',
+      'source',
+      'source_note'
+    ]
+  );
+
+  const technicalCards=argosUniversalScalarCards(technical,[]);
+
+  const fallbackSeriesCards=argosUniversalScalarCards(
+    data,
+    [
+      'label',
+      'name',
+      'vehicles',
+      'vehiculos',
+      'materials',
+      'materiales',
+      'branches',
+      'ramas',
+      'series_info',
+      'info',
+      'general',
+      'technical',
+      'technical_data'
+    ]
+  );
+
+  const description=
+    rich.historical_review||
+    rich.history||
+    rich.description||
+    data.description||
+    pd.description||
+    '';
+
+  const generalEvents=argosUniversalTimeline(
+    rich.events||
+    data.events||
+    pd.events||
+    []
+  );
+
+  const generalNotes=argosUniversalNotes(
+    rich.notes||
+    data.notes||
+    pd.notes||
+    []
+  );
+
+  const branchDescription=
+    branchInfo.description||
+    branchInfo.history||
+    branchInfo.notes||
+    '';
+
+  const branchEvents=argosUniversalTimeline(branchInfo.events||[]);
+  const branchNotes=argosUniversalNotes(branchInfo.notes||[]);
+
+  const vehicleBlocks=vehicles.map(({number,record})=>{
+    const cards=argosUniversalScalarCards(
+      record,
+      [
+        'branch',
+        'events',
+        'history',
+        'notes',
+        'description'
+      ]
+    );
+
+    const events=argosUniversalTimeline(record.events);
+    const notes=argosUniversalNotes(record.notes);
+
+    return `
+      <article class="argos-rich-vehicle">
+        <div class="argos-rich-vehicle-head">
+          <div>
+            <div class="argos-rich-vehicle-title">
+              Vehículo ${escapeHtml(number)}
+            </div>
+            ${record.renfe_number?
+              `<div class="argos-rich-label">${escapeHtml(String(record.renfe_number))}</div>`
+              :''
+            }
+          </div>
+
+          ${record.side?
+            `<span class="argos-rich-chip">${escapeHtml(String(record.side))}</span>`
+            :''
+          }
+        </div>
+
+        ${cards?
+          `<div class="argos-rich-grid">${cards}</div>`
+          :''
+        }
+
+        ${events?
+          `<div class="argos-rich-section">
+             <div class="argos-rich-section-title">
+               <span class="pd-dot"></span>Historia del vehículo
+             </div>
+             ${events}
+           </div>`
+          :''
+        }
+
+        ${notes?
+          `<div class="argos-rich-section">
+             <div class="argos-rich-section-title">
+               <span class="pd-dot"></span>Notas del vehículo
+             </div>
+             ${notes}
+           </div>`
+          :''
+        }
+
+        ${!cards&&!events&&!notes?
+          `<div class="pd-empty">No hay más datos registrados para este vehículo.</div>`
+          :''
+        }
+      </article>
+    `;
+  }).join('');
+
+  const userNotes=argosMaterialFichaAnnotations(series,branch)
+    .map(item=>`
+      <div class="pokedex-note">
+        <strong>${escapeHtml(item.date||'Anotación personal')}</strong><br>
+        ${escapeHtml(item.text)}
+      </div>
+    `)
+    .join('');
+
+  return `
+    <div class="material-ficha argos-universal-ficha">
+      <div class="pokedex-shell">
+
+        <div class="pokedex-hero">
+          <div class="pokedex-hero-top">
+            <div>
+              <div class="pokedex-kicker">ARGOS · FICHA DE MATERIAL</div>
+              <div class="pokedex-title">${escapeHtml(title)}</div>
+              <div class="pokedex-subtitle">
+                ${branch
+                  ? `Rama <b>${escapeHtml(branch)}</b>`
+                  : 'Información general de la serie'
+                }
+                ${vehicles.length
+                  ? ` · ${vehicles.length} vehículo${vehicles.length===1?'':'s'} identificado${vehicles.length===1?'':'s'}`
+                  : ''
+                }
+              </div>
+            </div>
+
+            <div class="pokedex-status">● EN REGISTRO</div>
+          </div>
+
+          <div class="pokedex-badges">
+            ${nickname?
+              `<span class="pokedex-chip">${escapeHtml(String(nickname))}</span>`
+              :''
+            }
+            ${category?
+              `<span class="pokedex-chip">${escapeHtml(String(category))}</span>`
+              :''
+            }
+          </div>
+
+          <div class="pokedex-statrow">
+            <div class="pokedex-stat">
+              <div class="pokedex-stat-label">Serie</div>
+              <div class="pokedex-stat-value">${escapeHtml(series||'—')}</div>
+            </div>
+
+            <div class="pokedex-stat">
+              <div class="pokedex-stat-label">Rama</div>
+              <div class="pokedex-stat-value">${escapeHtml(branch||'—')}</div>
+            </div>
+
+            <div class="pokedex-stat">
+              <div class="pokedex-stat-label">Vehículos</div>
+              <div class="pokedex-stat-value">${vehicles.length}</div>
+            </div>
+          </div>
+
+          ${!branch?
+            `<div class="pd-hero-note">
+              Esta entrada no tiene una rama asociada.
+              Se muestra toda la información disponible de la serie.
+            </div>`
+            :''
+          }
+        </div>
+
+        <div class="pokedex-layout">
+
+          ${generalCards?
+            `<section class="pokedex-section">
+              <div class="pokedex-section-title">
+                <span class="pd-dot"></span>Información general
+              </div>
+              <div class="pokedex-grid">${generalCards}</div>
+            </section>`
+            :''
+          }
+
+          ${technicalCards?
+            `<section class="pokedex-section">
+              <div class="pokedex-section-title">
+                <span class="pd-dot"></span>Características técnicas
+              </div>
+              <div class="pokedex-grid">${technicalCards}</div>
+            </section>`
+            :''
+          }
+
+          ${fallbackSeriesCards?
+            `<section class="pokedex-section full">
+              <div class="pokedex-section-title">
+                <span class="pd-dot"></span>Datos de la serie
+              </div>
+              <div class="pokedex-grid">${fallbackSeriesCards}</div>
+            </section>`
+            :''
+          }
+
+          ${description?
+            `<section class="pokedex-section full">
+              <div class="pokedex-section-title">
+                <span class="pd-dot"></span>Sobre esta serie
+              </div>
+              <div class="pokedex-note">${escapeHtml(String(description))}</div>
+            </section>`
+            :''
+          }
+
+          ${generalEvents?
+            `<section class="pokedex-section full">
+              <div class="pokedex-section-title">
+                <span class="pd-dot"></span>Historia de la serie
+              </div>
+              <div class="pokedex-timeline">${generalEvents}</div>
+            </section>`
+            :''
+          }
+
+          ${generalNotes?
+            `<section class="pokedex-section full">
+              <div class="pokedex-section-title">
+                <span class="pd-dot"></span>⭐ Curiosidades y notas
+              </div>
+              ${generalNotes}
+            </section>`
+            :''
+          }
+
+          ${branch?
+            `<section class="pokedex-section full">
+              <div class="pokedex-section-title">
+                <span class="pd-dot"></span>Rama ${escapeHtml(branch)}
+              </div>
+
+              ${branchInfo.name?
+                `<div class="pokedex-note"><strong>${escapeHtml(String(branchInfo.name))}</strong></div>`
+                :''
+              }
+
+              ${branchDescription?
+                `<div class="pokedex-note">${escapeHtml(String(branchDescription))}</div>`
+                :''
+              }
+
+              ${branchEvents?
+                `<div class="pokedex-timeline">${branchEvents}</div>`
+                :''
+              }
+
+              ${branchNotes?
+                `<div>${branchNotes}</div>`
+                :''
+              }
+
+              ${!branchInfo.name&&!branchDescription&&!branchEvents&&!branchNotes?
+                `<div class="pd-empty">
+                  No hay información específica de esta rama en la base actual.
+                  La información general de la serie sigue disponible.
+                </div>`
+                :''
+              }
+            </section>`
+            :''
+          }
+
+          ${vehicleBlocks?
+            `<section class="pokedex-section full">
+              <div class="pokedex-section-title">
+                <span class="pd-dot"></span>Vehículos de la rama
+              </div>
+              <div class="pd-vehicle-list">${vehicleBlocks}</div>
+            </section>`
+            :''
+          }
+
+          ${branch&&!vehicleBlocks?
+            `<section class="pokedex-section full">
+              <div class="pd-empty">
+                La serie está registrada, pero no hay vehículos asociados a
+                la rama ${escapeHtml(branch)} en la base actual.
+                No se inventan datos.
+              </div>
+            </section>`
+            :''
+          }
+
+          <section class="pokedex-section full">
+            <div class="pokedex-section-title">
+              <span class="pd-dot"></span>📝 Tus anotaciones e incidencias
+            </div>
+
+            ${userNotes||
+              '<div class="pd-empty">Todavía no hay anotaciones personales para esta rama.</div>'
+            }
+          </section>
+
+          ${!generalCards&&!technicalCards&&!fallbackSeriesCards&&!description&&!generalEvents&&!generalNotes&&!branchInfo.name&&!branchDescription&&!branchEvents&&!branchNotes&&!vehicleBlocks?
+            `<section class="pokedex-section full">
+              <div class="pd-empty">
+                La serie ${escapeHtml(series||'')} está registrada en ARGOS,
+                pero todavía no tiene información técnica cargada.
+              </div>
+            </section>`
+            :''
+          }
+
+        </div>
+
+        <div class="pokedex-divider"></div>
+
+        <div class="row pokedex-close">
+          <button type="button" class="secondary" onclick="closeModal()">
+            Cerrar ficha
+          </button>
+        </div>
+
+      </div>
+    </div>
   `;
-  document.head.appendChild(s);
+}
+
+window.argosMostrarFichaMaterial=function(ctx){
+  const safeCtx=ctx||{};
+  const series=String(safeCtx.series||'').trim();
+  const branch=String(safeCtx.branch||'').trim();
+  const data=safeCtx.data||argosUniversalData(series);
+
+  try{
+    document.getElementById('modalContent').innerHTML=
+      argosUniversalRender({
+        ...safeCtx,
+        data,
+        series,
+        branch
+      });
+
+    openModal();
+  }catch(error){
+    console.error('ARGOS · ficha universal · error:',error);
+
+    const title=data?.label||data?.name||`Serie ${series||'—'}`;
+
+    document.getElementById('modalContent').innerHTML=`
+      <div class="material-ficha argos-universal-ficha">
+        <div class="pokedex-shell">
+          <div class="pokedex-hero">
+            <div class="pokedex-kicker">ARGOS · FICHA DE MATERIAL</div>
+            <div class="pokedex-title">${escapeHtml(String(title))}</div>
+            <div class="pokedex-subtitle">
+              ${branch?`Rama ${escapeHtml(branch)}`:'Información general de la serie'}
+            </div>
+          </div>
+
+          <div class="pokedex-layout">
+            <section class="pokedex-section full">
+              <div class="pd-empty">
+                No se ha podido cargar la ficha completa, pero la entrada
+                del material sigue disponible.
+              </div>
+            </section>
+          </div>
+
+          <div class="row pokedex-close">
+            <button type="button" class="secondary" onclick="closeModal()">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    openModal();
+  }
+};
+
+window.argosAbrirFichaDesdeHistorial=function(series,branch){
+  const s=String(series||'').trim();
+  const b=String(branch||'').trim();
+
+  if(!s){
+    alert('Este servicio no tiene una serie de material asociada.');
+    return;
+  }
+
+  const data=argosUniversalData(s);
+
+  const vehicles=argosUniversalVehicles(data,b);
+
+  const first=vehicles[0]||{
+    number:'',
+    record:null
+  };
+
+  window.argosMostrarFichaMaterial({
+    data,
+    record:first.record,
+    series:argosUniversalSeriesKey(s)||s,
+    vehicle:first.number,
+    branch:b,
+    branchVehicles:vehicles
+  });
+};
+
 })();
+</script>
+
