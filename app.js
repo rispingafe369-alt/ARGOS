@@ -6029,6 +6029,1187 @@ const fleet = {
     }
   }
 },
+  "464": {
+  "seriesName": "Serie 464 · Civia",
+  "fabricante": "Alstom",
+  "apodo": "Civia",
+  "anoPuestaServicio": "2003-2010",
+  "tipoMaterial": "Cercanías · Civia de 4 coches",
+  "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+  "anchoVia": "1668 mm",
+  "numeroRamas": 37,
+  "velocidadMaxima": "120 km/h",
+  "potencia": "2.100 kW",
+  "longitud": "80,30 m",
+  "peso": "131,5 t",
+  "tension": "3.000 V cc",
+  "traccion": "6 motores de tracción · 320 kW por motor",
+  "señalizacion": "ASFA digital / ERTMS / preinstalación LZB",
+  "composicion": "A1-A2-A3-A1",
+  "capacidad": "832 plazas · 223 sentadas + 4 PMR",
+  "plazasSentadas": "223 + 4 PMR",
+  "numeroUnidades": "37 ramas: 6 preserie CAF + 31 ramas registradas en las tablas de la subserie 200.",
+  "lotes": "Primer lote CAF: 001-006 (todas transformadas a 465) · Segundo lote Alstom: 201-231, incluyendo ramas procedentes de 463",
+  "generalNotes": [
+    "Unidades CIVIA de cuatro coches, con dos coches motores extremos y dos remolques intermedios.",
+    "PRIMER LOTE · CAF: ramas 001 a 006, preserie. Todas fueron posteriormente transformadas a la serie 465 mediante el añadido de un coche intermedio.",
+    "SEGUNDO LOTE · ALSTOM: subserie 200. Las tablas aportadas registran las ramas 201 a 231.",
+    "La composición de la serie 464 es A1-A2-A3-A1. El remolque A3 dispone de piso bajo y facilita el acceso de personas con movilidad reducida.",
+    "Ancho de vía: 1.668 mm. Alimentación: 3.000 V en corriente continua. Velocidad máxima comercial: 120 km/h.",
+    "Longitud aproximada: 80,30 m. Masa: 131,5 t. Potencia nominal: 2.100 kW. Capacidad aproximada: 832 plazas, 223 sentadas.",
+    "Las ramas 224 a 231 de las tablas proceden de la transformación de unidades de la serie 463 mediante el añadido del remolque intermedio correspondiente.",
+    "La rama 215 fue transformada posteriormente a la serie 465 como 465-268."
+  ],
+  "units": {
+    "001": {
+      "rama": "01",
+      "lote": "Primer lote",
+      "vehiculoBase": "001",
+      "numero": "9-464-001-7",
+      "vehiculosRama": [
+        "9-464-001-7",
+        "7-464-001-7",
+        "7-464-501-6",
+        "9-464-501-6"
+      ],
+      "searchCodes": [
+        "001",
+        "001",
+        "501",
+        "501"
+      ],
+      "fabricante": "CAF",
+      "ano": 2003,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Ex-Madrid. Reformado en 465-004 mediante el añadido de un coche intermedio."
+      ],
+      "transformadaA": "465-004",
+      "estadoActual": "Transformada a la serie 465, unidad 465-004."
+    },
+    "002": {
+      "rama": "02",
+      "lote": "Primer lote",
+      "vehiculoBase": "002",
+      "numero": "9-464-002-5",
+      "vehiculosRama": [
+        "9-464-002-5",
+        "7-464-002-5",
+        "7-464-502-4",
+        "9-464-502-4"
+      ],
+      "searchCodes": [
+        "002",
+        "002",
+        "502",
+        "502"
+      ],
+      "fabricante": "CAF",
+      "ano": 2003,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Ex-Madrid. Reformado en 465-005 mediante el añadido de un remolque intermedio."
+      ],
+      "transformadaA": "465-005",
+      "estadoActual": "Transformada a la serie 465, unidad 465-005."
+    },
+    "003": {
+      "rama": "03",
+      "lote": "Primer lote",
+      "vehiculoBase": "003",
+      "numero": "9-464-003-3",
+      "vehiculosRama": [
+        "9-464-003-3",
+        "7-464-003-3",
+        "7-464-503-2",
+        "9-464-503-2"
+      ],
+      "searchCodes": [
+        "003",
+        "003",
+        "503",
+        "503"
+      ],
+      "fabricante": "CAF",
+      "ano": 2003,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Ex-Madrid. Reformado en 465-006 mediante el añadido de un coche intermedio."
+      ],
+      "transformadaA": "465-006",
+      "estadoActual": "Transformada a la serie 465, unidad 465-006."
+    },
+    "004": {
+      "rama": "04",
+      "lote": "Primer lote",
+      "vehiculoBase": "004",
+      "numero": "9-464-004-1",
+      "vehiculosRama": [
+        "9-464-004-1",
+        "7-464-004-1",
+        "7-464-504-0",
+        "9-464-504-0"
+      ],
+      "searchCodes": [
+        "004",
+        "004",
+        "504",
+        "504"
+      ],
+      "fabricante": "CAF",
+      "ano": 2003,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Ex-Madrid. Reformado en 465-007 mediante el añadido de un coche intermedio."
+      ],
+      "transformadaA": "465-007",
+      "estadoActual": "Transformada a la serie 465, unidad 465-007."
+    },
+    "005": {
+      "rama": "05",
+      "lote": "Primer lote",
+      "vehiculoBase": "005",
+      "numero": "9-464-005-8",
+      "vehiculosRama": [
+        "9-464-005-8",
+        "7-464-005-8",
+        "7-464-505-7",
+        "9-464-505-7"
+      ],
+      "searchCodes": [
+        "005",
+        "005",
+        "505",
+        "505"
+      ],
+      "fabricante": "CAF",
+      "ano": 2003,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Ex-Madrid. Reformado en 465-008 mediante el añadido de un coche intermedio."
+      ],
+      "transformadaA": "465-008",
+      "estadoActual": "Transformada a la serie 465, unidad 465-008."
+    },
+    "006": {
+      "rama": "06",
+      "lote": "Primer lote",
+      "vehiculoBase": "006",
+      "numero": "9-464-006-6",
+      "vehiculosRama": [
+        "9-464-006-6",
+        "7-464-006-6",
+        "7-464-506-5",
+        "9-464-506-5"
+      ],
+      "searchCodes": [
+        "006",
+        "006",
+        "506",
+        "506"
+      ],
+      "fabricante": "CAF",
+      "ano": 2003,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Reformada para la 465-003 mediante el añadido de un coche. Ex-Cercanías Atocha."
+      ],
+      "transformadaA": "465-003",
+      "estadoActual": "Transformada a la serie 465, unidad 465-003."
+    },
+    "201": {
+      "rama": "01",
+      "lote": "Segundo lote",
+      "vehiculoBase": "201",
+      "numero": "9-464-201-3",
+      "vehiculosRama": [
+        "9-464-201-3",
+        "7-464-201-3",
+        "7-464-701-2",
+        "9-464-701-2"
+      ],
+      "searchCodes": [
+        "201",
+        "201",
+        "701",
+        "701"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Málaga",
+      "color": "Cercanías",
+      "red": "Málaga",
+      "estado": "En servicio",
+      "ano": 2007,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Colores Renfe Op. Entra en servicio 01/07. Ex-Barcelona>>Sevilla>>Zaragoza>>Málaga 2019. M amarilla"
+      ]
+    },
+    "202": {
+      "rama": "02",
+      "lote": "Segundo lote",
+      "vehiculoBase": "202",
+      "numero": "9-464-202-1",
+      "vehiculosRama": [
+        "9-464-202-1",
+        "7-464-202-1",
+        "7-464-702-0",
+        "9-464-702-0"
+      ],
+      "searchCodes": [
+        "202",
+        "202",
+        "702",
+        "702"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Sevilla",
+      "color": "Cercanías",
+      "red": "Sevilla",
+      "estado": "En servicio",
+      "ano": 2007,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Colores Renfe Op. En servicio 01/07. Ex-BCN>>Málaga>>Sevilla 2019"
+      ]
+    },
+    "203": {
+      "rama": "03",
+      "lote": "Segundo lote",
+      "vehiculoBase": "203",
+      "numero": "9-464-203-9",
+      "vehiculosRama": [
+        "9-464-203-9",
+        "7-464-203-9",
+        "7-464-703-8",
+        "9-464-703-8"
+      ],
+      "searchCodes": [
+        "203",
+        "203",
+        "703",
+        "703"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Málaga",
+      "color": "Cercanías",
+      "red": "Málaga",
+      "estado": "En servicio",
+      "ano": 2007,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Colores Renfe Op. Ex-Mataró>>Sevilla>>Málaga 2019"
+      ]
+    },
+    "204": {
+      "rama": "04",
+      "lote": "Segundo lote",
+      "vehiculoBase": "204",
+      "numero": "9-464-204-7",
+      "vehiculosRama": [
+        "9-464-204-7",
+        "7-464-204-7",
+        "7-464-704-6",
+        "9-464-704-6"
+      ],
+      "searchCodes": [
+        "204",
+        "204",
+        "704",
+        "704"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Valencia",
+      "color": "Cercanías",
+      "red": "Valencia",
+      "estado": "En servicio",
+      "ano": 2007,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Colores Renfe Op. Ex-Mataró>>Sevilla desde 12/17>>Zaragoza desde 03/18>>Valencia desde 04/18"
+      ]
+    },
+    "205": {
+      "rama": "05",
+      "lote": "Segundo lote",
+      "vehiculoBase": "205",
+      "numero": "9-464-205-4",
+      "vehiculosRama": [
+        "9-464-205-4",
+        "7-464-205-4",
+        "7-464-705-3",
+        "9-464-705-3"
+      ],
+      "searchCodes": [
+        "205",
+        "205",
+        "705",
+        "705"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Valencia",
+      "color": "Cercanías",
+      "red": "Valencia",
+      "estado": "En servicio",
+      "ano": 2007,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Colores Renfe Op. (C) Ex-Mataró. Ex-Sevilla>>Valencia desde 12/17>>Cedida a Zaragoza desde 03/24 a 03/04/24>>De nuevo en Valencia."
+      ]
+    },
+    "206": {
+      "rama": "06",
+      "lote": "Segundo lote",
+      "vehiculoBase": "206",
+      "numero": "9-464-206-2",
+      "vehiculosRama": [
+        "9-464-206-2",
+        "7-464-206-2",
+        "7-464-706-1",
+        "9-464-706-1"
+      ],
+      "searchCodes": [
+        "206",
+        "206",
+        "706",
+        "706"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Sevilla",
+      "color": "Cercanías",
+      "red": "Sevilla",
+      "estado": "En servicio",
+      "ano": 2007,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Colores Renfe Op. (C). Mataró hasta 27/04/18. Estuvo de pruebas de gálibo en la C-5 madrileña del 27 al 30/04/18. Ex-Sevilla>>Cádiz"
+      ]
+    },
+    "207": {
+      "rama": "07",
+      "lote": "Segundo lote",
+      "vehiculoBase": "207",
+      "numero": "9-464-207-0",
+      "vehiculosRama": [
+        "9-464-207-0",
+        "7-464-207-0",
+        "7-464-707-9",
+        "9-464-707-9"
+      ],
+      "searchCodes": [
+        "207",
+        "207",
+        "707",
+        "707"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Málaga",
+      "color": "Cercanías",
+      "red": "Málaga",
+      "estado": "En servicio",
+      "ano": 2007,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Colores Renfe Op. (C) Ex-Mataró>>Málaga 2019"
+      ]
+    },
+    "208": {
+      "rama": "08",
+      "lote": "Segundo lote",
+      "vehiculoBase": "208",
+      "numero": "9-464-208-8",
+      "vehiculosRama": [
+        "9-464-208-8",
+        "7-464-208-8",
+        "7-464-708-7",
+        "9-464-708-7"
+      ],
+      "searchCodes": [
+        "208",
+        "208",
+        "708",
+        "708"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Sevilla",
+      "color": "Cercanías",
+      "red": "Sevilla",
+      "estado": "En servicio",
+      "ano": 2007,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Colores Renfe Op. (C) Ex-Mataró. Trasladado a Zaragoza 19/12/18. Visto realizando Regionales entre Zaragoza y Vitoria, 23/12/18. Sevilla 2019"
+      ]
+    },
+    "209": {
+      "rama": "09",
+      "lote": "Segundo lote",
+      "vehiculoBase": "209",
+      "numero": "9-464-209-6",
+      "vehiculosRama": [
+        "9-464-209-6",
+        "6-464-209-6",
+        "6-464-709-5",
+        "9-464-709-5"
+      ],
+      "searchCodes": [
+        "209",
+        "209",
+        "709",
+        "709"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Valencia",
+      "color": "Cercanías",
+      "red": "Valencia",
+      "estado": "En servicio",
+      "ano": 2007,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Colores Renfe Op. (C). Ex-Mataró. Ex-Sevilla>>Valencia 12/17"
+      ]
+    },
+    "210": {
+      "rama": "10",
+      "lote": "Segundo lote",
+      "vehiculoBase": "210",
+      "numero": "9-464-210-4",
+      "vehiculosRama": [
+        "9-464-210-4",
+        "6-464-210-4",
+        "6-464-710-3",
+        "9-464-710-3"
+      ],
+      "searchCodes": [
+        "210",
+        "210",
+        "710",
+        "710"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Málaga",
+      "color": "Cercanías",
+      "red": "Málaga",
+      "estado": "En servicio",
+      "ano": 2007,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Colores Renfe Op. (C) Ex-Mataró"
+      ]
+    },
+    "211": {
+      "rama": "11",
+      "lote": "Segundo lote",
+      "vehiculoBase": "211",
+      "numero": "9-464-211-2",
+      "vehiculosRama": [
+        "9-464-211-2",
+        "6-464-211-2",
+        "6-464-711-1",
+        "9-464-711-1"
+      ],
+      "searchCodes": [
+        "211",
+        "211",
+        "711",
+        "711"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Sevilla",
+      "color": "Cercanías",
+      "red": "Sevilla",
+      "estado": "En servicio",
+      "ano": 2007,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Comenzó pruebas en 09/07. Colores Renfe Op. (C). Ex-Mataró>>Sevilla>>Cádiz"
+      ]
+    },
+    "212": {
+      "rama": "12",
+      "lote": "Segundo lote",
+      "vehiculoBase": "212",
+      "numero": "9-464-212-0",
+      "vehiculosRama": [
+        "9-464-212-0",
+        "7-464-212-0",
+        "7-464-712-9",
+        "9-464-712-9"
+      ],
+      "searchCodes": [
+        "212",
+        "212",
+        "712",
+        "712"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Valencia",
+      "color": "Cercanías",
+      "red": "Valencia",
+      "estado": "En servicio",
+      "ano": 2007,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Ex-Valencia. Colores Renfe Op. En servicio. Ex-Málaga>>Valencia desde 02/18."
+      ]
+    },
+    "213": {
+      "rama": "13",
+      "lote": "Segundo lote",
+      "vehiculoBase": "213",
+      "numero": "9-464-213-8",
+      "vehiculosRama": [
+        "9-464-213-8",
+        "7-464-213-8",
+        "7-464-713-7",
+        "9-464-713-7"
+      ],
+      "searchCodes": [
+        "213",
+        "213",
+        "713",
+        "713"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Cádiz",
+      "color": "Cercanías",
+      "red": "Cádiz",
+      "estado": "En servicio",
+      "ano": 2007,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Ex-Valencia. Colores Renfe Op. En servicio. Ex-Málaga>>Sevilla. Logos 75 años Renfe. Ex-Cádiz"
+      ]
+    },
+    "214": {
+      "rama": "14",
+      "lote": "Segundo lote",
+      "vehiculoBase": "214",
+      "numero": "9-464-214-6",
+      "vehiculosRama": [
+        "9-464-214-6",
+        "7-464-214-6",
+        "7-464-714-5",
+        "9-464-714-5"
+      ],
+      "searchCodes": [
+        "214",
+        "214",
+        "714",
+        "714"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Sevilla",
+      "color": "Cercanías",
+      "red": "Sevilla",
+      "estado": "En servicio",
+      "ano": 2007,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Colores Renfe Op. En servicio. Ex-Valencia desde 05/09>>Sevilla-Málaga>>Sevilla>>Valencia. Ex-Valencia (en Zaragoza desde 03/18). Pruebas gálibo C-5 Madrid de 27 a 30/04/18."
+      ]
+    },
+    "215": {
+      "rama": "15",
+      "lote": "Segundo lote",
+      "vehiculoBase": "215",
+      "numero": "9-464-215-3",
+      "vehiculosRama": [
+        "9-464-215-3",
+        "6-464-215-3",
+        "6-464-715-2",
+        "9-464-715-2"
+      ],
+      "searchCodes": [
+        "215",
+        "215",
+        "715",
+        "715"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Sevilla",
+      "color": "Cercanías",
+      "red": "Sevilla",
+      "estado": "En servicio",
+      "ano": 2007,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Colores Renfe Op. Ex-Sevilla/Málaga>>Mataró. Transformado a 465-268, otoño 2012."
+      ],
+      "transformadaA": "465-268",
+      "estadoActual": "Transformada a la serie 465, unidad 465-268."
+    },
+    "216": {
+      "rama": "16",
+      "lote": "Segundo lote",
+      "vehiculoBase": "216",
+      "numero": "9-464-216-1",
+      "vehiculosRama": [
+        "9-464-216-1",
+        "6-464-216-1",
+        "6-464-716-0",
+        "9-464-716-0"
+      ],
+      "searchCodes": [
+        "216",
+        "216",
+        "716",
+        "716"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Málaga",
+      "color": "Cercanías",
+      "red": "Málaga",
+      "estado": "En servicio",
+      "ano": 2007,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Colores Renfe Op. En servicio. Ex-Sevilla>>Málaga>>Sevilla"
+      ]
+    },
+    "217": {
+      "rama": "17",
+      "lote": "Segundo lote",
+      "vehiculoBase": "217",
+      "numero": "9-464-217-9",
+      "vehiculosRama": [
+        "9-464-217-9",
+        "7-464-217-9",
+        "7-464-717-8",
+        "9-464-717-8"
+      ],
+      "searchCodes": [
+        "217",
+        "217",
+        "717",
+        "717"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Málaga",
+      "color": "Cercanías",
+      "red": "Málaga",
+      "estado": "En servicio",
+      "ano": 2007,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Colores Renfe Op. Ex-Valencia>>Málaga>>Refuerzo Fallas Valencia 01/03/24>>Málaga 05/03/24"
+      ]
+    },
+    "218": {
+      "rama": "18",
+      "lote": "Segundo lote",
+      "vehiculoBase": "218",
+      "numero": "9-464-218-7",
+      "vehiculosRama": [
+        "9-464-218-7",
+        "7-464-218-7",
+        "7-464-718-6",
+        "9-464-718-6"
+      ],
+      "searchCodes": [
+        "218",
+        "218",
+        "718",
+        "718"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Cádiz",
+      "color": "Cercanías",
+      "red": "Cádiz",
+      "estado": "En servicio",
+      "ano": 2007,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Colores Renfe Op. En servicio. Ex-Barcelona>>Sevilla>>Málaga"
+      ]
+    },
+    "219": {
+      "rama": "19",
+      "lote": "Segundo lote",
+      "vehiculoBase": "219",
+      "numero": "9-464-219-5",
+      "vehiculosRama": [
+        "9-464-219-5",
+        "7-464-219-5",
+        "7-464-719-4",
+        "9-464-719-4"
+      ],
+      "searchCodes": [
+        "219",
+        "219",
+        "719",
+        "719"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Valencia",
+      "color": "Cercanías",
+      "red": "Valencia",
+      "estado": "En servicio",
+      "ano": 2007,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Colores Renfe Op. (C). Ex-Barcelona>>Sevilla desde 05/17>>Valencia desde 01/18>>Zaragoza desde 16/01/25>>Valencia desde 15/05/26"
+      ]
+    },
+    "220": {
+      "rama": "20",
+      "lote": "Segundo lote",
+      "vehiculoBase": "220",
+      "numero": "9-464-220-3",
+      "vehiculosRama": [
+        "9-464-220-3",
+        "7-464-220-3",
+        "7-464-720-2",
+        "9-464-720-2"
+      ],
+      "searchCodes": [
+        "220",
+        "220",
+        "720",
+        "720"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Málaga",
+      "color": "Cercanías",
+      "red": "Málaga",
+      "estado": "En servicio",
+      "ano": 2007,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Colores Renfe Op. En servicio. Ex-Barcelona. Ex-Valencia desde 05/09. Logos 75 años Renfe. Málaga>>Sevilla desde 10/21."
+      ]
+    },
+    "221": {
+      "rama": "21",
+      "lote": "Segundo lote",
+      "vehiculoBase": "221",
+      "numero": "9-464-221-1",
+      "vehiculosRama": [
+        "9-464-221-1",
+        "7-464-221-1",
+        "7-464-721-0",
+        "9-464-721-0"
+      ],
+      "searchCodes": [
+        "221",
+        "221",
+        "721",
+        "721"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Málaga",
+      "color": "Cercanías",
+      "red": "Málaga",
+      "estado": "En servicio",
+      "ano": 2007,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Colores Renfe Op. Ex-Barcelona desde 03/18>>Sevilla>>Málaga 2019"
+      ]
+    },
+    "222": {
+      "rama": "22",
+      "lote": "Segundo lote",
+      "vehiculoBase": "222",
+      "numero": "9-464-222-9",
+      "vehiculosRama": [
+        "9-464-222-9",
+        "7-464-222-9",
+        "7-464-722-8",
+        "9-464-722-8"
+      ],
+      "searchCodes": [
+        "222",
+        "222",
+        "722",
+        "722"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Cádiz",
+      "color": "Cercanías",
+      "red": "Cádiz",
+      "estado": "En servicio",
+      "ano": 2007,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Colores Renfe Op. Ex-Mataró>>Cádiz"
+      ]
+    },
+    "223": {
+      "rama": "23",
+      "lote": "Segundo lote",
+      "vehiculoBase": "223",
+      "numero": "9-464-223-7",
+      "vehiculosRama": [
+        "9-464-223-7",
+        "7-464-223-7",
+        "7-464-723-6",
+        "9-464-723-6"
+      ],
+      "searchCodes": [
+        "223",
+        "223",
+        "723",
+        "723"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Sevilla",
+      "color": "Cercanías",
+      "red": "Sevilla",
+      "estado": "En servicio",
+      "ano": 2007,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Colores Renfe Op. Accidente con Talgo en Clot 19/01/12. (C). Ex-Barcelona desde 03/18. Ex-Sevilla"
+      ]
+    },
+    "224": {
+      "rama": "24",
+      "lote": "Segundo lote",
+      "vehiculoBase": "224",
+      "numero": "9-464-224-5",
+      "vehiculosRama": [
+        "9-464-224-5",
+        "6-464-224-5",
+        "6-464-724-4",
+        "9-464-724-4"
+      ],
+      "searchCodes": [
+        "224",
+        "224",
+        "724",
+        "724"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Málaga",
+      "color": "Cercanías",
+      "red": "Málaga",
+      "estado": "En servicio",
+      "ano": 2013,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Ex-463-220, añadido remolque intermedio (6-464-724-4), 2013. Colores Renfe Op. Barcelona>>Sevilla, desde 04/14>>Málaga, se añaden plazas poniendo todos los asientos en composición 2+2"
+      ],
+      "procedencia": "463-220",
+      "estadoActual": "Procede de la serie 463; transformada a la serie 464, unidad 464-224."
+    },
+    "225": {
+      "rama": "25",
+      "lote": "Segundo lote",
+      "vehiculoBase": "225",
+      "numero": "9-464-225-2",
+      "vehiculosRama": [
+        "9-464-225-2",
+        "6-464-225-2",
+        "6-464-725-1",
+        "9-464-725-1"
+      ],
+      "searchCodes": [
+        "225",
+        "225",
+        "725",
+        "725"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Cádiz",
+      "color": "Cercanías",
+      "red": "Cádiz",
+      "estado": "En servicio",
+      "ano": 2013,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Ex-463-219, añadido remolque intermedio (6-464-725-1, del 2011), 10/13. Ex-Letra amarilla. Barcelona, hasta 28/10/14>>Zaragoza>>Cádiz>>Málaga desde 02/16>>Cádiz 2019>>Zaragoza desde 09/21>>Cádiz desde 10/24"
+      ],
+      "procedencia": "463-219",
+      "estadoActual": "Procede de la serie 463; transformada a la serie 464, unidad 464-225."
+    },
+    "226": {
+      "rama": "26",
+      "lote": "Segundo lote",
+      "vehiculoBase": "226",
+      "numero": "9-464-226-0",
+      "vehiculosRama": [
+        "9-464-226-0",
+        "6-464-226-0",
+        "6-464-726-9",
+        "9-464-726-9"
+      ],
+      "searchCodes": [
+        "226",
+        "226",
+        "726",
+        "726"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Cádiz",
+      "color": "Cercanías",
+      "red": "Cádiz",
+      "estado": "En servicio",
+      "ano": 2013,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Ex-463-206, añadido remolque intermedio (6-464-726-9) Ex-Cádiz"
+      ],
+      "procedencia": "463-206",
+      "estadoActual": "Procede de la serie 463; transformada a la serie 464, unidad 464-226."
+    },
+    "227": {
+      "rama": "27",
+      "lote": "Segundo lote",
+      "vehiculoBase": "227",
+      "numero": "9-464-227-8",
+      "vehiculosRama": [
+        "9-464-227-8",
+        "6-464-227-8",
+        "6-464-727-7",
+        "9-464-727-7"
+      ],
+      "searchCodes": [
+        "227",
+        "227",
+        "727",
+        "727"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Málaga",
+      "color": "Cercanías",
+      "red": "Málaga",
+      "estado": "En servicio",
+      "ano": 2013,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Ex-463-217, añadido remolque intermedio (6-464-727-7) 02/16. Ex-Vilanova. Logos 75 aniversario. Ex-Cádiz>>Málaga 03/24"
+      ],
+      "procedencia": "463-217",
+      "estadoActual": "Procede de la serie 463; transformada a la serie 464, unidad 464-227."
+    },
+    "228": {
+      "rama": "28",
+      "lote": "Segundo lote",
+      "vehiculoBase": "228",
+      "numero": "9-464-228-6",
+      "vehiculosRama": [
+        "9-464-228-6",
+        "6-464-228-6",
+        "6-464-728-5",
+        "9-464-728-5"
+      ],
+      "searchCodes": [
+        "228",
+        "228",
+        "728",
+        "728"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Sevilla",
+      "color": "Cercanías",
+      "red": "Sevilla",
+      "estado": "En servicio",
+      "ano": 2013,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Ex-463-204, añadido remolque intermedio (6-464-728-5) Ex-Barcelona>>Sevilla>>Málaga, se añaden plazas poniendo todos los asientos en composición 2+2"
+      ],
+      "procedencia": "463-204",
+      "estadoActual": "Procede de la serie 463; transformada a la serie 464, unidad 464-228."
+    },
+    "229": {
+      "rama": "29",
+      "lote": "Segundo lote",
+      "vehiculoBase": "229",
+      "numero": "9-464-229-4",
+      "vehiculosRama": [
+        "9-464-229-4",
+        "6-464-229-4",
+        "6-464-729-3",
+        "9-464-729-3"
+      ],
+      "searchCodes": [
+        "229",
+        "229",
+        "729",
+        "729"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Valencia",
+      "color": "Cercanías",
+      "red": "Valencia",
+      "estado": "En servicio",
+      "ano": 2013,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Ex-463-203, añadido remolque intermedio (6-464-729-3). Ex-Barcelona>>Sevilla desde 12/16>>Valencia desde 02/18."
+      ],
+      "procedencia": "463-203",
+      "estadoActual": "Procede de la serie 463; transformada a la serie 464, unidad 464-229."
+    },
+    "230": {
+      "rama": "30",
+      "lote": "Segundo lote",
+      "vehiculoBase": "230",
+      "numero": "9-464-230-2",
+      "vehiculosRama": [
+        "9-464-230-2",
+        "6-464-230-2",
+        "6-464-730-1",
+        "9-464-730-1"
+      ],
+      "searchCodes": [
+        "230",
+        "230",
+        "730",
+        "730"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Valencia",
+      "color": "Cercanías",
+      "red": "Valencia",
+      "estado": "En servicio",
+      "ano": 2013,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Ex-463-202, añadido remolque intermedio (6-464-730-1) desde 04/17. Ex-Barcelona hasta 05/17>>Sevilla>>Valencia desde 12/17. Logos 75 años Renfe."
+      ],
+      "procedencia": "463-202",
+      "estadoActual": "Procede de la serie 463; transformada a la serie 464, unidad 464-230."
+    },
+    "231": {
+      "rama": "31",
+      "lote": "Segundo lote",
+      "vehiculoBase": "231",
+      "numero": "9-464-231-0",
+      "vehiculosRama": [
+        "9-464-231-0",
+        "7-464-231-0",
+        "7-464-731-9",
+        "9-464-731-9"
+      ],
+      "searchCodes": [
+        "231",
+        "231",
+        "731",
+        "731"
+      ],
+      "fabricante": "Alstom",
+      "une": "Cercanías",
+      "deposito": "Zaragoza",
+      "color": "Cercanías",
+      "red": "Zaragoza",
+      "estado": "En servicio",
+      "ano": 2013,
+      "ancho": "1668",
+      "numeroCoches": "4 coches · 2 coches motor extremos + 2 remolques intermedios",
+      "composicionRama": "Coche motor + remolque + remolque + coche motor",
+      "notas": [
+        "Ex-463-209 hasta 06/18. Vilanova>>Mataró>>Zaragoza>>Asturias>>Zaragoza 01/11/23. Pruebas en Bilbao 10/24.>>Valencia 16/01/25>>Zaragoza 11/05/26"
+      ],
+      "procedencia": "463-209",
+      "estadoActual": "Procede de la serie 463; transformada a la serie 464, unidad 464-231."
+    }
+  }
+},
   "449": {
     "seriesName": "Serie 449",
     "fabricante": "CAF",
@@ -7932,6 +9113,29 @@ function getFleetUnit(series, vehicle){
     return {...base,numero:canonicalVehicle,vehiculoBase:code,vehiculoIntroducido:raw,vehiculoBuscado:code,exNumero:matchedEx,notas:(base.notasPorVehiculo||{})[code]?[ (base.notasPorVehiculo||{})[code] ]:(base.notas||[]),cocheTipo:"Vehículo Talgo 730"};
   }
 
+  // Serie 464 Civia: cualquiera de sus cuatro vehículos identifica la rama.
+  // Se distinguen expresamente primer lote (CAF) y segundo lote (Alstom).
+  // También se conserva la procedencia de las ramas 224-231 transformadas desde la 463.
+  if(s==="464"){
+    const raw=String(vehicle??"").trim();
+    const full=raw.match(/(?:^|-)464-(\d{3})(?:-|$)/i);
+    let code=full ? full[1] : v;
+    if(!full && /^464\d{3}$/.test(v)) code=v.slice(-3);
+    code=String(code).padStart(3,"0");
+
+    let base=null;
+    for(const candidate of Object.values(seriesData.units||{})){
+      if((candidate.searchCodes||[]).includes(code)){ base=candidate; break; }
+      if((candidate.vehiculosRama||[]).some(x=>String(x).split("-")[2]===code)){ base=candidate; break; }
+    }
+    if(!base) return null;
+
+    const idx=(base.searchCodes||[]).indexOf(code);
+    const canonicalVehicle=idx>=0 ? base.vehiculosRama[idx] : base.numero;
+    const tipoCoche=["Coche motor extremo A1","Remolque intermedio A2","Remolque intermedio A3 (piso bajo)","Coche motor extremo A1"][idx]||"Vehículo Serie 464";
+    return {...base,numero:canonicalVehicle,vehiculoBase:code,vehiculoIntroducido:raw,vehiculoBuscado:code,cocheTipo:tipoCoche,fabricante:base.lote==="Primer lote"?"CAF":"Alstom"};
+  }
+
   // Serie 463 Civia: cualquiera de sus tres vehículos identifica la rama.
   // Se aceptan códigos cortos (001/501, 201/701, 199/699), 463-XXX-X y matrículas completas Renfe.
   // En el segundo lote, 217 significa Rama 17 del Segundo lote.
@@ -8209,7 +9413,7 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Serie</span><strong>${esc(series)}</strong></div>
         <div><span>Vehículo</span><strong>${esc(["103","104","120","121"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : vehicle)}</strong></div>
         <div><span>Rama</span><strong>${esc(unit.rama)}</strong></div>
-        ${normalizeFleetValue(series)==="463"?`<div><span>Lote</span><strong>${esc(unit.lote||"—")}</strong></div>`:""}
+        ${["463","464"].includes(normalizeFleetValue(series))?`<div><span>Lote</span><strong>${esc(unit.lote||"—")}</strong></div>`:""}
         ${(["102","112"].includes(normalizeFleetValue(series)))?`
         <div><span>Motor introducido</span><strong>${esc(unit.motorTipo||"—")}</strong></div>
         <div><span>Motor impar</span><strong>${esc(unit.motorImpar||"—")}</strong></div>
@@ -8231,8 +9435,9 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||"—")}</strong></div>`:""}
         ${["120","121","730"].includes(normalizeFleetValue(series))?`<div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||"—")}</strong></div>`:""}
         ${normalizeFleetValue(series)==="449"?`<div><span>Remolques de la rama</span><strong>${esc((unit.remolquesRama||[]).join(" · ")||"—")}</strong></div>`:""}
-        ${normalizeFleetValue(series)==="463"?`<div><span>Vehículos de la rama</span><strong>${esc((unit.vehiculosRama||[]).join(" · ")||"—")}</strong></div>
+        ${["463","464"].includes(normalizeFleetValue(series))?`<div><span>Vehículos de la rama</span><strong>${esc((unit.vehiculosRama||[]).join(" · ")||"—")}</strong></div>
         <div><span>Composición</span><strong>${esc(unit.composicionRama||seriesData?.composicion||"—")}</strong></div>
+        ${unit.procedencia?`<div><span>Procedencia</span><strong>${esc(unit.procedencia)}</strong></div>`:""}
         ${unit.transformadaA?`<div><span>Transformación</span><strong>${esc(unit.transformadaA)}</strong></div>`:""}
         ${unit.estadoActual?`<div><span>Situación actual</span><strong>${esc(unit.estadoActual)}</strong></div>`:""}`:""}
         ${normalizeFleetValue(series)==="103"?`
@@ -8242,7 +9447,7 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${seriesData?.velocidadMaxima?`<div><span>Velocidad máxima</span><strong>${esc(seriesData.velocidadMaxima)}</strong></div>`:""}
         ${seriesData?.potencia?`<div><span>Potencia</span><strong>${esc(seriesData.potencia)}</strong></div>`:""}
         ${seriesData?.plazasSentadas?`<div><span>Plazas sentadas</span><strong>${esc(seriesData.plazasSentadas)}</strong></div>`:""}
-         ${["112","121","730"].includes(normalizeFleetValue(series))?`
+         ${["112","121","464","730"].includes(normalizeFleetValue(series))?`
          <div><span>Longitud</span><strong>${esc(seriesData.longitud||"—")}</strong></div>
          <div><span>Peso</span><strong>${esc(seriesData.peso||"—")}</strong></div>
          <div><span>Tensión</span><strong>${esc(seriesData.tension||"—")}</strong></div>
