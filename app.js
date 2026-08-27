@@ -9125,7 +9125,7 @@ const fleet = {
     "composicion": "Mc-R-R-Mc",
     "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
     "plazasSentadas": "252",
-    "capacidad": "912 plazas (252 sentadas + 664 de pie, según ficha aportada)",
+    "capacidad": "912 plazas (252 sentadas + 675 de pie)",
     "frenos": "Eléctrico reostático y regenerativo · neumático",
     "mandoMultiple": "3 unidades máximo",
     "enganche": "Scharfenberg",
@@ -9838,7 +9838,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -9846,8 +9846,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -9901,7 +9901,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -9909,8 +9909,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -9964,7 +9964,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -9972,8 +9972,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -10027,7 +10027,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -10035,8 +10035,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -10090,7 +10090,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -10098,8 +10098,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -10153,7 +10153,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -10161,8 +10161,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -10216,7 +10216,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -10224,8 +10224,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -10279,7 +10279,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -10287,8 +10287,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -10342,7 +10342,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -10350,8 +10350,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -10405,7 +10405,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -10413,8 +10413,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -10468,7 +10468,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -10476,8 +10476,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -10531,7 +10531,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -10539,8 +10539,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -10594,7 +10594,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -10602,8 +10602,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -10657,7 +10657,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -10665,8 +10665,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -10720,7 +10720,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -10728,8 +10728,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -10783,7 +10783,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -10791,8 +10791,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -10846,7 +10846,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -10854,8 +10854,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -10909,7 +10909,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -10917,8 +10917,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -10972,7 +10972,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -10980,8 +10980,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -11035,7 +11035,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -11043,8 +11043,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -11098,7 +11098,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -11106,8 +11106,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -11161,7 +11161,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -11169,8 +11169,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -11224,7 +11224,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -11232,8 +11232,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -11287,7 +11287,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -11295,8 +11295,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -11350,7 +11350,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -11358,8 +11358,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -11413,7 +11413,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -11421,8 +11421,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -11476,7 +11476,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -11484,8 +11484,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -11539,7 +11539,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -11547,8 +11547,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -11602,7 +11602,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -11610,8 +11610,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -11665,7 +11665,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -11673,8 +11673,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -11728,7 +11728,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -11736,8 +11736,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -11791,7 +11791,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -11799,8 +11799,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -11854,7 +11854,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -11862,8 +11862,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -11917,7 +11917,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -11925,8 +11925,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -11980,7 +11980,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -11988,8 +11988,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -12043,7 +12043,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -12051,8 +12051,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -12106,7 +12106,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -12114,8 +12114,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -12169,7 +12169,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -12177,8 +12177,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -12232,7 +12232,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -12240,8 +12240,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -12295,7 +12295,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -12303,8 +12303,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -12358,7 +12358,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -12366,8 +12366,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -12421,7 +12421,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -12429,8 +12429,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -12484,7 +12484,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -12492,8 +12492,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -12547,7 +12547,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -12555,8 +12555,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -12610,7 +12610,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -12618,8 +12618,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -12673,7 +12673,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -12681,8 +12681,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -12736,7 +12736,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -12744,8 +12744,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -12799,7 +12799,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -12807,8 +12807,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -12862,7 +12862,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -12870,8 +12870,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -12925,7 +12925,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -12933,8 +12933,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -12988,7 +12988,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -12996,8 +12996,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -13051,7 +13051,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -13059,8 +13059,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -13114,7 +13114,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -13122,8 +13122,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -13177,7 +13177,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -13185,8 +13185,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -13240,7 +13240,7 @@ const fleet = {
           "composicion": "Mc-R(2 pisos)-R(2 pisos)-Mi-Mi-R(2 pisos)-R(2 pisos)-Mc",
           "rodaje": "Bo'Bo' + 2'2' + 2'2' + Bo'Bo' + Bo'Bo' + 2'2' + 2'2' + Bo'Bo'",
           "plazasSentadas": "524",
-          "capacidad": "2.378 plazas máximas · 524 sentadas · 1.359 de pie · +2 espacios PMR",
+          "capacidad": "1.884 plazas máximas · 524 sentadas · 1.360 de pie · +2 espacios PMR",
           "frenos": "Eléctrico reostático y regenerativo · neumático",
           "mandoMultiple": "3 unidades máximo",
           "enganche": "Scharfenberg"
@@ -13248,8 +13248,8 @@ const fleet = {
         "generalNotes": [
           "Serie de trenes modulares fabricados por Stadler para servicios de Cercanías, versión de ocho coches TL200 (subserie 453.6), con 55 trenes encargados.",
           "La composición del TL200 es Mc-R-R-Mi-Mi-R-R-Mc: dos motores cabina y dos motores intermedios de un piso, junto con cuatro remolques de dos pisos.",
-          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de mayor longitud o reducirse a una configuración T160 de seis coches.",
-          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 2.378 plazas, con 524 sentadas.",
+          "El diseño es modular y permite adaptar la longitud de la composición. El T200 puede evolucionar a una configuración T240 de 10 coches o reducirse a una configuración T160 de seis coches.",
+          "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico de 1.668 mm, con velocidad máxima de 140 km/h. El TL200 tiene una longitud de 191,16 m y una capacidad máxima de 1.884 plazas, con 524 sentadas.",
           "La tracción utiliza 16 motores de 500 kW, con una potencia nominal total de 8.000 kW y un esfuerzo de tracción de 637 kN. Dispone de frenado eléctrico reostático y regenerativo y freno neumático.",
           "El equipamiento de seguridad y señalización incluye ASFA Digital, ERTMS niveles 1 y 2 y PUC para comunicaciones ferroviarias mediante GSM-R y Tren-Tierra.",
           "Los dos coches motores cabina incorporan los pantógrafos del tren. El motor cabina par integra espacio PMR y aseo accesible, mientras que el motor cabina impar dispone de espacios para bicicletas.",
@@ -14193,7 +14193,7 @@ function fleetFichaHtml(series,vehicle,service=null){
       <div class="ficha-grid">
         <div><span>Serie</span><strong>${esc(series)}</strong></div>
         <div><span>Vehículo</span><strong>${esc(["103","104","120","121"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : vehicle)}</strong></div>
-        <div><span>Rama</span><strong>${esc(normalizeFleetValue(series)==="453" ? String(unit.rama||"").replace(/^0+(?=\d)/,"") : unit.rama)}</strong></div>
+        <div><span>Rama</span><strong>${esc(unit.rama)}</strong></div>
         ${["463","464"].includes(normalizeFleetValue(series))?`<div><span>Lote</span><strong>${esc(unit.lote||"—")}</strong></div>`:""}
         ${(["102","112"].includes(normalizeFleetValue(series)))?`
         <div><span>Motor introducido</span><strong>${esc(unit.motorTipo||"—")}</strong></div>
@@ -14213,9 +14213,9 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Red</span><strong>${esc(unit.red||"—")}</strong></div>`:""}
         <div><span>Ancho de vía</span><strong>${esc(unit.ancho||tech?.anchoVia||"—")} ${unit.ancho?"mm":""}</strong></div>
         ${(unit.subserie||seriesData?.subseries)?`<div><span>Subserie</span><strong>${esc(unit.subserie||seriesData.subseries)}</strong></div>`:""}
-        ${(unit.modelo||tech?.modelo)?`<div><span>Modelo</span><strong>${esc(seriesData.modelo)}</strong></div>`:""}
+        ${(unit.modelo||tech?.modelo||seriesData?.modelo)?`<div><span>Modelo</span><strong>${esc(unit.modelo||tech?.modelo||seriesData.modelo)}</strong></div>`:""}
         ${(unit.apodo||tech?.apodo)?`<div><span>Apodo</span><strong>${esc(seriesData.apodo)}</strong></div>`:""}
-        ${(unit.tipoMaterial||tech?.tipoMaterial)?`<div><span>Tipo de material</span><strong>${esc(seriesData.tipoMaterial)}</strong></div>`:""}
+        ${(unit.tipoMaterial||tech?.tipoMaterial||seriesData?.tipoMaterial)?`<div><span>Tipo de material</span><strong>${esc(unit.tipoMaterial||tech?.tipoMaterial||seriesData.tipoMaterial)}</strong></div>`:""}
         ${normalizeFleetValue(series)==="114"?`
         <div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||"—")}</strong></div>`:""}
         ${["120","121","730"].includes(normalizeFleetValue(series))?`<div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||"—")}</strong></div>`:""}
@@ -14232,9 +14232,9 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${["453","801"].includes(normalizeFleetValue(series))?`
         <div><span>Vehículos de la rama</span><strong>${esc((unit.vehiculosRama||[]).join(" · ")||"—")}</strong></div>
         <div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||seriesData?.composicion||"—")}</strong></div>`:""}
-        ${tech?.velocidadMaxima?`<div><span>Velocidad máxima</span><strong>${esc(seriesData.velocidadMaxima)}</strong></div>`:""}
-        ${tech?.potencia?`<div><span>Potencia</span><strong>${esc(seriesData.potencia)}</strong></div>`:""}
-        ${tech?.plazasSentadas?`<div><span>Plazas sentadas</span><strong>${esc(seriesData.plazasSentadas)}</strong></div>`:""}
+        ${tech?.velocidadMaxima?`<div><span>Velocidad máxima</span><strong>${esc(tech.velocidadMaxima||seriesData.velocidadMaxima)}</strong></div>`:""}
+        ${tech?.potencia?`<div><span>Potencia</span><strong>${esc(tech.potencia||seriesData.potencia)}</strong></div>`:""}
+        ${tech?.plazasSentadas?`<div><span>Plazas sentadas</span><strong>${esc(tech.plazasSentadas||seriesData.plazasSentadas)}</strong></div>`:""}
          ${["112","121","453","464","730","801"].includes(normalizeFleetValue(series))?`
          <div><span>Longitud</span><strong>${esc(tech.longitud||"—")}</strong></div>
          <div><span>Peso</span><strong>${esc(tech.peso||"—")}</strong></div>
@@ -14272,15 +14272,7 @@ function fleetFichaHtml(series,vehicle,service=null){
     </div>`:"";
 
   const vehiculoFicha=["103","104","120","121"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : (normalizeFleetValue(series)==="730" ? (unit.numero||vehicle) : vehicle);
-  const heroBranch=String(unit.rama||"").replace(/^0+(?=\d)/,"") || "0";
-  let heroTitle;
-  if(normalizeFleetValue(series)==="453"){
-    const isTL200=String(unit.subserie||"").includes("453.6") || /^6\d{2}$/.test(String(unit.vehiculoBase||"")) || /(?:^|-)453-6\d{2}(?:-|$)/.test(String(unit.numero||""));
-    heroTitle=`Serie 453 · ${isTL200 ? "453.6 · TL200 · 8 coches" : "453.0 · TL100 · 4 coches"} · Rama ${heroBranch}`;
-  }else{
-    heroTitle=`Serie ${esc(series)}${unit.subserie?` · ${esc(unit.subserie)}`:""} · Rama ${esc(unit.rama)}${unit.lote?` · ${esc(unit.lote)}`:""}`;
-  }
-  const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>${esc(heroTitle)}</h3><p>Vehículo ${esc(vehiculoFicha)} · ${esc(unit.numero||"—")}</p></div>`;
+  const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>Serie ${esc(series)}${unit.subserie?` · ${esc(unit.subserie)}`:""} · Rama ${esc(unit.rama)}${unit.lote?` · ${esc(unit.lote)}`:""}</h3><p>Vehículo ${esc(vehiculoFicha)} · ${esc(unit.numero||"—")}</p></div>`;
 
   return `${hero}
     ${serviceBlock}
