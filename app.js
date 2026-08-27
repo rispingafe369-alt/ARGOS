@@ -14193,7 +14193,7 @@ function fleetFichaHtml(series,vehicle,service=null){
       <div class="ficha-grid">
         <div><span>Serie</span><strong>${esc(series)}</strong></div>
         <div><span>Vehículo</span><strong>${esc(["103","104","120","121"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : vehicle)}</strong></div>
-        <div><span>Rama</span><strong>${esc(unit.rama)}</strong></div>
+        <div><span>Rama</span><strong>${esc(normalizeFleetValue(series)==="453" ? String(unit.rama||"").replace(/^0+(?=\d)/,"") : unit.rama)}</strong></div>
         ${["463","464"].includes(normalizeFleetValue(series))?`<div><span>Lote</span><strong>${esc(unit.lote||"—")}</strong></div>`:""}
         ${(["102","112"].includes(normalizeFleetValue(series)))?`
         <div><span>Motor introducido</span><strong>${esc(unit.motorTipo||"—")}</strong></div>
@@ -14272,7 +14272,15 @@ function fleetFichaHtml(series,vehicle,service=null){
     </div>`:"";
 
   const vehiculoFicha=["103","104","120","121"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : (normalizeFleetValue(series)==="730" ? (unit.numero||vehicle) : vehicle);
-  const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>Serie ${esc(series)}${unit.subserie?` · ${esc(unit.subserie)}`:""} · Rama ${esc(unit.rama)}${unit.lote?` · ${esc(unit.lote)}`:""}</h3><p>Vehículo ${esc(vehiculoFicha)} · ${esc(unit.numero||"—")}</p></div>`;
+  const heroBranch=String(unit.rama||"").replace(/^0+(?=\d)/,"") || "0";
+  let heroTitle;
+  if(normalizeFleetValue(series)==="453"){
+    const isTL200=String(unit.subserie||"").includes("453.6") || /^6\d{2}$/.test(String(unit.vehiculoBase||"")) || /(?:^|-)453-6\d{2}(?:-|$)/.test(String(unit.numero||""));
+    heroTitle=`Serie 453 · ${isTL200 ? "453.6 · TL200 · 8 coches" : "453.0 · TL100 · 4 coches"} · Rama ${heroBranch}`;
+  }else{
+    heroTitle=`Serie ${esc(series)}${unit.subserie?` · ${esc(unit.subserie)}`:""} · Rama ${esc(unit.rama)}${unit.lote?` · ${esc(unit.lote)}`:""}`;
+  }
+  const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>${esc(heroTitle)}</h3><p>Vehículo ${esc(vehiculoFicha)} · ${esc(unit.numero||"—")}</p></div>`;
 
   return `${hero}
     ${serviceBlock}
