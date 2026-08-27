@@ -8934,7 +8934,296 @@ const fleet = {
         "notas": []
       }
     }
-  }
+  },
+  "465": (() => {
+    // Serie 465 Civia · 5 coches: 2 motores + 3 remolques.
+    // La búsqueda acepta cualquiera de los cinco vehículos de la rama.
+    // El dígito de autocontrol se calcula según la matrícula nacional Renfe 465XXX.
+    const check = order => {
+      const ds = Array.from(("465" + String(order).padStart(3,"0")), Number);
+      let sum = 0;
+      ds.forEach((d,i) => {
+        const p = d * (i % 2 === 0 ? 1 : 2);
+        sum += Math.floor(p / 10) + (p % 10);
+      });
+      return String((10 - (sum % 10)) % 10);
+    };
+    const car = (type, order, forcedCheck=null) =>
+      `${type}-465-${String(order).padStart(3,"0")}-${forcedCheck ?? check(order)}`;
+
+    const units = {};
+    const vehicleIndex = {};
+    const notes = {
+    1: "Preserie. Ex-colores originales pero sin logotipos. Ex-Madrid >> Valencia para Fallas 2011 >> Sevilla. Última en tener colores Renfe Op. (2013).",
+    2: "Preserie. Colores Renfe Op. en 2013. Ex-Madrid >> Sevilla. Refuerzo Fallas 2024.",
+    3: "Ex-464-006 con un remolque intermedio añadido. Colores Renfe Op. Ex-Madrid hasta 08/10 >> Sevilla hasta 09/11.",
+    4: "Ex-464-001 con un remolque intermedio añadido. Colores Renfe Op. Ex-Madrid >> Sevilla hasta 09/11.",
+    5: "Ex-464-002 con un remolque intermedio añadido. Colores Renfe Op. Ex-Madrid hasta 08/10 >> Sevilla hasta 08/11.",
+    6: "Ex-464-003 con un remolque intermedio añadido. Colores Renfe Op. Ex-Madrid hasta 08/10 >> Sevilla hasta 09/11.",
+    7: "Ex-464-004 con un remolque intermedio añadido. Colores Renfe Op. Nuevo esquema de pintura para los preserie. Refuerzo Fallas 2024.",
+    8: "Ex-464-005 con un remolque intermedio añadido. Colores Renfe Op. Ex-Madrid hasta 03/11 >> Sevilla hasta 09/11. Nuevo esquema de pintura para los preserie.",
+    9: "Colores Renfe Op. En servicio desde 07/06. Ex-Barcelona desde 15/09/08.",
+    10: "Colores Renfe Op. En servicio desde 07/06. Madrid >> Barcelona desde 15/09/08 >> Madrid desde 04/11 >> Sevilla >> Madrid desde 09/11.",
+    11: "Colores Renfe Op. Entregado en Atocha 04/07/06.",
+    12: "En servicio desde 25/08/06. Colores Renfe Op. Pegatinas Marea azul en 2008.",
+    13: "Colores Renfe Op. Ex-BCN hasta 12/08.",
+    14: "Colores Renfe Op. Ex-Barcelona hasta 12/08. Logos LGTBIQ+ 06/23.",
+    15: "En servicio en C-4 Madrid desde 10/06/08. Colores Renfe Op. Refuerzo fallas 2018 y 2024.",
+    16: "En servicio desde 11/06. Colores Renfe Op. Modificado carenado Scharfenberg.",
+    17: "En servicio en C-4 Madrid desde 12/06. Colores Renfe Op.",
+    18: "En servicio desde 11/06. Colores Renfe Op. Pegatinas aeropuerto.",
+    19: "En servicio en C-4 Madrid desde 01/07. Colores Renfe Op.",
+    20: "En servicio en C-1. Pegatinas aeropuerto.",
+    21: "Colores Renfe Op. Incendio en Valdemoro en 2019. Coche 021 acoplado a la 050. Resto de la composición, más coche 050M, apartados Cerro Negro. Canibalizado para repuestos. En pruebas y de nuevo en servicio 10/23.",
+    22: "En servicio en C-4 Madrid desde 01/07. Colores Renfe Op. Modificado carenado Scharfenberg.",
+    23: "En servicio en C-4 Madrid desde 02/07. Colores Renfe Op.",
+    24: "En servicio en C-4 Madrid desde 03/07. Colores Renfe Op.",
+    25: "Colores Renfe Op. Pegatinas Marea azul en 2008. Refuerzo fallas 2023.",
+    26: "Colores Renfe Op. Pegatinas Marea azul en 2008.",
+    30: "Colores Renfe Op. Pegatinas Marea azul en 2008. Madrid >> Valencia desde 14/08/26.",
+    32: "Colores Renfe Op. Prototipo 03/15 protector Scharfenberg. Modificado carenado Scharfenberg.",
+    34: "Colores Renfe Op. Refuerzo Fallas 2024.",
+    37: "Colores Renfe Op. Valencia en Fallas 2010. Modificado carenado Scharfenberg.",
+    44: "Colores Renfe Op. Ex-Madrid >> Valencia desde 14/08/26.",
+    45: "Colores Renfe Op. Modificado carenado Scharfenberg. Refuerzo Regionales Navarra San Fermín 2022.",
+    46: "Colores Renfe Op. Modificado carenado Scharfenberg.",
+    47: "Colores Renfe Op. Pruebas en Zaragoza 05/08.",
+    48: "Colores Renfe Op.",
+    49: "En servicio 07/08. Colores Renfe Op.",
+    50: "Incendio en Azuqueca en 2019. Coche 050 afectado; recibe coche motor de la unidad 021 para formar una nueva unidad. Resto de la composición, más coche 050M, apartados Cerro Negro.",
+    52: "Nuevo interiorismo, 2021.",
+    54: "Modificado carenado Scharfenberg.",
+    56: "Caf Santana. Fallas 2023.",
+    60: "Modificado carenado Scharfenberg.",
+    61: "Modificado carenado Scharfenberg.",
+    62: "Modificado carenado Scharfenberg.",
+    63: "Modificado carenado Scharfenberg.",
+    64: "Modificado carenado Scharfenberg.",
+    65: "Modificado carenado Scharfenberg.",
+    69: "Modificado carenado Scharfenberg.",
+    70: "Modificado carenado Scharfenberg.",
+    74: "Modificado carenado Scharfenberg.",
+    75: "Refuerzo corredor Zaragoza-Pamplona fiestas del Pilar, 10/18.",
+    77: "Modificado carenado Scharfenberg.",
+    78: "Modificado carenado Scharfenberg.",
+    79: "Modificado carenado Scharfenberg.",
+    80: "Modificado carenado Scharfenberg. Refuerzo Regionales Navarra San Fermín 2022.",
+    81: "Modificado carenado Scharfenberg.",
+    82: "Modificado carenado Scharfenberg. Alcance con Mercancías entre Meco y Azuqueca 13/03/23.",
+    83: "Bandas amarillas y luces en puertas. Distinto sonido de apertura/cierre de puertas. Modificado carenado Scharfenberg.",
+    84: "Modificado carenado Scharfenberg.",
+    85: "En pruebas 04/10. Bandas amarillas y luces en puertas. Distinto sonido de apertura/cierre de puertas.",
+    86: "Modificado carenado Scharfenberg.",
+    89: "Bandas amarillas y luces en puertas. Distinto sonido de apertura/cierre de puertas. Modificado carenado Scharfenberg.",
+    92: "Vinilos AVE 102 (promoción +Renfe), desde 01/16. Modificado carenado Scharfenberg.",
+    95: "Vinilos AVE 103 (promoción +Renfe), desde 01/16.",
+    96: "Modificado carenado Scharfenberg.",
+    101: "Inauguración línea T4 23/09/11.",
+    103: "Inauguración ramal T4 23/09/11. Modificado carenado Scharfenberg.",
+    104: "Modificado carenado Scharfenberg.",
+    106: "En pruebas 10/11.",
+    107: "En servicio desde 30/03/12, Atocha. Modificado carenado Scharfenberg.",
+    108: "En servicio desde 05/12. Modificado carenado Scharfenberg.",
+    109: "En servicio desde 06/12.",
+    110: "En servicio desde 06/12.",
+    111: "Modificado carenado Scharfenberg.",
+    112: "Modificado carenado Scharfenberg.",
+    201: "C2 de BCN >> Sevilla >> Jerez de La Frontera.",
+    202: "Colores Renfe Op. Ex-Barcelona. Ex-Sevilla >> Refuerzo Fallas 2017, en Valencia desde 03/17 >> Sevilla desde 03/18. Fallas 2023.",
+    203: "Colores Renfe Op. Ex-Barcelona >> Sevilla >> Valencia, desde 11/16. Refuerzo San Fermines, 07/17. Ex-Valencia >> Sevilla desde 12/17. Refuerzo fallas 03/18.",
+    204: "C2 BCN. Colores Renfe Op. Ex-BCN. Ex-Sevilla >> Valencia desde 03/17 >> Sevilla desde 12/17 >> Vilanova 10/18 >> Sevilla.",
+    205: "Colores Renfe Op. Ex-Barcelona >> Sevilla hasta 01/17. Colores Rodalies 11/21.",
+    206: "Colores Renfe Op. Ex-Barcelona >> Sevilla. Simulacro La Sagrera 08/12/20. Rodalies 11/21.",
+    207: "Colores Renfe Op. Ex-Barcelona >> Sevilla >> Barcelona. Colores Rodalies 11/21.",
+    208: "En pruebas 10/08. Colores Renfe Op. Ex-Barcelona. Refuerzo Fallas 2017. Ex-Sevilla >> Valencia desde 03/17 >> Sevilla/Cádiz desde 12/17.",
+    209: "En pruebas 10/08. Colores Renfe Op. Colores Rodalies desde 25/10/16 (pintura, no vinilos).",
+    210: "En pruebas 10/08. Colores Renfe Op. Colores Rodalies desde 17/11/16. Choque contra topera Estació de França 28/07/17, apartado desde 12/02/18. Ex-Montcada.",
+    211: "En pruebas 11/08. En servicio C2 Sur de Barcelona. Colores Rodalies (pintura, no vinilos).",
+    212: "Refuerzo fallas Valencia 03/13. Colores Rodalies desde 15/12/12 (pintura, no vinilos).",
+    213: "Refuerzo fallas Valencia 03/13. Colores Rodalies desde 15/12/12 (pintura, no vinilos).",
+    214: "Colores Rodalies (pintura, no vinilos).",
+    215: "Colores Rodalies (pintura, no vinilos).",
+    216: "Colores Rodalies (pintura, no vinilos).",
+    217: "Primera 465 pintada en colores Rodalies en vez de vinilos, 02/16.",
+    218: "Colores Rodalies. Naranja/Blanco.",
+    219: "Colores Rodalies (vinilo).",
+    220: "Ex-Barcelona desde 08/11. Colores Rodalies.",
+    221: "(C) >> Colores Rodalies (pintura, no vinilos).",
+    222: "Unidad entregada 03/09. (C) >> Colores Rodalies (pintura, no vinilos).",
+    223: "Entregado 04/09. (C) >> Colores Rodalies (pintura, no vinilos).",
+    224: "Ex-Valencia >> Sevilla de 03/17 a 03/18. Colores Rodalies.",
+    225: "Vinilo AVE 103 desde 01/16. Ex-Valencia >> Sevilla desde 03/17.",
+    226: "Ex-Barcelona >> Valencia. Colores Rodalies (pintura, no vinilos). Barcelona 02/17. Reformado nuevo interior 03/22.",
+    227: "Ex-Barcelona >> Sevilla hasta 12/16. Colores Rodalies (pintura, no vinilos).",
+    228: "Ex-Barcelona >> Sevilla hasta 12/16. Colores Rodalies (pintura, no vinilos).",
+    229: "Ex-Barcelona. Ex-Valencia >> Sevilla desde 03/17.",
+    230: "Vinilo AVE 102 desde 01/16. Ex-Valencia >> Sevilla desde 12/17 >> Barcelona 02/18. Vinilos Rodalies.",
+    231: "Vinilo AVE 102 desde 01/16. Ex-Valencia >> Sevilla desde 03/17 >> Mataró desde 03/18. Vinilos Rodalies.",
+    232: "Ex-Sevilla hasta 12/16. Colores Rodalies 08/17.",
+    233: "Ex-Sevilla hasta 12/16. Colores Rodalies 08/17. Colisión topera Mataró 16/06/20.",
+    234: "Ex-Sevilla >> Barcelona desde 29/12/16. Colores Rodalies (pintura, no vinilos) >> Incendiado en Maçanet-Massanes 30/01/22.",
+    235: "Ex-Sevilla/Cádiz hasta 29/12/16 >> Barcelona. Colores Rodalies (pintura, no vinilos).",
+    236: "Ex-Sevilla hasta 12/16. Colores Rodalies (pintura, no vinilos).",
+    237: "Primer tren con decoración Rodalies Catalunya. Entrada en servicio 18/02/10. En servicio en C1. Repintado a colores Rodalies (no vinilos).",
+    238: "2º tren con decoración Rodalies. Inicio servicio 18/02/10. Vinilos Canet Rock 2015, entre 01/06/15 y 15/07/15. Repintada colores Rodalies 12/17.",
+    239: "Colores Rodalies.",
+    240: "Decoración Rodalies. Ex-color Renfe Op. Colores Rodalies (no vinilos).",
+    241: "Colores Rodalies C.",
+    242: "Decoración Rodalies.",
+    243: "Colores Renfe Op. Colores Rodalies (5ª unidad). Logos 75 años Renfe. Repintado a colores Rodalies (no vinilos).",
+    244: "Colores Rodalies. Logos 75 años Renfe. Ex-Montcada hasta 11/18.",
+    245: "Colores Renfe Op. >> Color Rodalies 12/10. Repintado a Rodalies (no vinilos) 04/18. Ex-Montcada hasta 11/18.",
+    246: "Color Rodalies de Catalunya. Ex-Montcada hasta 11/18.",
+    247: "Color de Rodalies Catalunya. Repintado a colores Rodalies, no vinilos 04/18. Ex-Montcada hasta 11/18.",
+    248: "Colores Rodalies de Catalunya. Ex-Montcada hasta 11/18.",
+    249: "En servicio desde 07/10. Colores Renfe Op. >> Color Rodalies.",
+    250: "Colores Renfe Op. >> Rodalies. Con LED debajo de puertas para alumbrar peldaños.",
+    251: "Colores Rodalies de Catalunya. Repintado colores Rodalies, no vinilos 05/18.",
+    252: "Colores Rodalies de Catalunya.",
+    253: "Colores Rodalies de Catalunya.",
+    254: "Colores Renfe Op. Colores Rodalies (8ª unidad). Logos 75 años Renfe.",
+    255: "Colores Rodalies de Catalunya.",
+    256: "Colores Rodalies de Catalunya (26/02/11).",
+    257: "Colores Rodalies de Catalunya. Accidente en Montcada i Reixac - Manresa 07/12/22. En circulación tras el choque 09/23.",
+    258: "Colores Rodalies de Catalunya.",
+    259: "Colores Rodalies de Catalunya.",
+    260: "Colores Rodalies de Catalunya.",
+    261: "Colores Rodalies de Catalunya.",
+    262: "Colores Rodalies de Catalunya. Vinilos \"175 Anys del Tren Barcelona-Mataró\" 10/23.",
+    263: "Colores Rodalies de Catalunya. Primera unidad con nuevo interiorismo en los asientos para PMR (02/18).",
+    264: "Colores Renfe Op. >> Rodalies. Circuló mal numerado como 465-264M/265R/864R/964R/764M. Incendio en techo C4 Maçanet-Massanes, 12/02.",
+    265: "Colores Rodalies de Catalunya. Circuló mal numerado como 465-265M/265R/865R/965R/765M. 28/07/17, unidad de cola del choque contra topera BCN Francia, acoplada con 465-210. De nuevo en servicio desde 01/18.",
+    266: "Colores Rodalies Cat.",
+    267: "Ex-463-216 (465 desde 27/11/11).",
+    268: "Ex-464-215 (465 desde otoño de 2012).",
+    };
+
+    const depot = {
+      1:"Atocha", 2:"Atocha", 3:"Atocha", 4:"Atocha", 5:"Atocha", 6:"Atocha", 7:"Atocha", 8:"Atocha", 9:"Atocha", 10:"Atocha", 11:"Atocha", 12:"Atocha", 13:"Atocha", 14:"Atocha", 15:"Atocha", 16:"Atocha", 17:"Atocha", 18:"Atocha", 19:"Atocha", 20:"Atocha", 21:"Madrid", 22:"Madrid", 23:"Madrid", 24:"Madrid", 25:"Madrid", 26:"Madrid", 27:"Madrid", 28:"Madrid", 29:"Madrid", 30:"Valencia", 31:"Madrid", 32:"Madrid", 33:"Madrid", 34:"Madrid", 35:"Madrid", 36:"Madrid", 37:"Madrid", 38:"Madrid", 39:"Madrid", 40:"Madrid", 41:"Madrid", 42:"Madrid", 43:"Madrid", 44:"Valencia", 45:"Madrid", 46:"Madrid", 47:"Madrid", 48:"Madrid", 49:"Madrid", 50:"Madrid", 51:"Madrid", 52:"Madrid", 53:"Madrid", 54:"Madrid", 55:"Madrid", 56:"Madrid", 57:"Madrid", 58:"Madrid", 59:"Madrid", 60:"Madrid", 61:"Madrid", 62:"Madrid", 63:"Madrid", 64:"Madrid", 65:"Madrid", 66:"Madrid", 67:"Madrid", 68:"Madrid", 69:"Madrid", 70:"Madrid", 71:"Madrid", 72:"Madrid", 73:"Madrid", 74:"Madrid", 75:"Madrid", 76:"Madrid", 77:"Madrid", 78:"Madrid", 79:"Madrid", 80:"Madrid", 81:"Madrid", 82:"Atocha", 83:"Cerro Negro", 84:"Cerro Negro", 85:"Cerro Negro", 86:"Cerro Negro", 87:"Madrid", 88:"Madrid", 89:"Madrid", 90:"Madrid", 91:"Madrid", 92:"Madrid", 93:"Cerro Negro", 94:"Cerro Negro", 95:"Madrid", 96:"Madrid", 97:"Cerro Negro", 98:"Cerro Negro", 99:"Cerro Negro", 100:"Cerro Negro", 101:"Cerro Negro", 102:"Cerro Negro", 103:"Cerro Negro", 104:"Atocha", 105:"Cerro Negro", 106:"Atocha", 107:"Cerro Negro", 108:"Cerro Negro", 109:"Cerro Negro", 110:"Cerro Negro", 111:"Cerro Negro", 112:"Cerro Negro", 201:"Sevilla", 202:"Sevilla", 203:"Sevilla", 204:"Sevilla", 205:"Mataró", 206:"Mataró", 207:"Mataró", 208:"Sevilla", 209:"Mataró", 210:"Barcelona", 211:"Vilanova", 212:"Vilanova", 213:"Vilanova", 214:"Vilanova", 215:"Vilanova", 216:"Vilanova", 217:"Vilanova", 218:"Vilanova", 219:"Vilanova", 220:"Vilanova", 221:"Mataró", 222:"Mataró", 223:"Mataró", 224:"Mataró", 225:"Sevilla", 226:"Mataró", 227:"Vilanova", 228:"Mataró", 229:"Sevilla", 230:"Mataró", 231:"Mataró", 232:"Mataró", 233:"Mataró", 234:"Mataró", 235:"Mataró", 236:"Mataró", 237:"Mataró", 238:"Mataró", 239:"Mataró", 240:"Mataró", 241:"Mataró", 242:"Mataró", 243:"Mataró", 244:"Mataró", 245:"Mataró", 246:"Mataró", 247:"Mataró", 248:"Mataró", 249:"Mataró", 250:"Montcada", 251:"Montcada", 252:"Montcada", 253:"Montcada", 254:"Montcada", 255:"Montcada", 256:"Montcada", 257:"Montcada", 258:"Montcada", 259:"Montcada", 260:"Montcada", 261:"Montcada", 262:"Montcada", 263:"Montcada", 264:"Montcada", 265:"Montcada", 266:"Montcada", 267:"Sevilla", 268:"Sevilla"
+    };
+
+    const red = {
+      1:"Madrid", 2:"Madrid", 3:"Madrid", 4:"Madrid", 5:"Madrid", 6:"Madrid", 7:"Madrid", 8:"Madrid", 9:"Madrid", 10:"Madrid", 11:"Madrid", 12:"Madrid", 13:"Madrid", 14:"Madrid", 15:"Madrid", 16:"Madrid", 17:"Madrid", 18:"Madrid", 19:"Madrid", 20:"Madrid", 21:"Madrid", 22:"Madrid", 23:"Madrid", 24:"Madrid", 25:"Madrid", 26:"Madrid", 27:"Madrid", 28:"Madrid", 29:"Madrid", 30:"Valencia", 31:"Madrid", 32:"Madrid", 33:"Madrid", 34:"Madrid", 35:"Madrid", 36:"Madrid", 37:"Madrid", 38:"Madrid", 39:"Madrid", 40:"Madrid", 41:"Madrid", 42:"Madrid", 43:"Madrid", 44:"Valencia", 45:"Madrid", 46:"Madrid", 47:"Madrid", 48:"Madrid", 49:"Madrid", 50:"Madrid", 51:"Madrid", 52:"Madrid", 53:"Madrid", 54:"Madrid", 55:"Madrid", 56:"Madrid", 57:"Madrid", 58:"Madrid", 59:"Madrid", 60:"Madrid", 61:"Madrid", 62:"Madrid", 63:"Madrid", 64:"Madrid", 65:"Madrid", 66:"Madrid", 67:"Madrid", 68:"Madrid", 69:"Madrid", 70:"Madrid", 71:"Madrid", 72:"Madrid", 73:"Madrid", 74:"Madrid", 75:"Madrid", 76:"Madrid", 77:"Madrid", 78:"Madrid", 79:"Madrid", 80:"Madrid", 81:"Madrid", 82:"Madrid", 83:"Madrid", 84:"Madrid", 85:"Madrid", 86:"Madrid", 87:"Madrid", 88:"Madrid", 89:"Madrid", 90:"Madrid", 91:"Madrid", 92:"Madrid", 93:"Madrid", 94:"Madrid", 95:"Madrid", 96:"Madrid", 97:"Madrid", 98:"Madrid", 99:"Madrid", 100:"Madrid", 101:"Madrid", 102:"Madrid", 103:"Madrid", 104:"Madrid", 105:"Madrid", 106:"Madrid", 107:"Madrid", 108:"Madrid", 109:"Madrid", 110:"Madrid", 111:"Madrid", 112:"Madrid", 113:"Madrid", 114:"Madrid", 115:"Madrid", 116:"Madrid", 117:"Madrid", 118:"Madrid", 119:"Madrid", 120:"Madrid", 121:"Madrid", 122:"Madrid", 123:"Madrid", 124:"Madrid", 125:"Madrid", 126:"Madrid", 127:"Madrid", 128:"Madrid", 129:"Madrid", 130:"Madrid", 131:"Madrid", 132:"Madrid", 133:"Madrid", 134:"Madrid", 135:"Madrid", 136:"Madrid", 137:"Madrid", 138:"Madrid", 139:"Madrid", 140:"Madrid", 141:"Madrid", 142:"Madrid", 143:"Madrid", 144:"Madrid", 145:"Madrid", 146:"Madrid", 147:"Madrid", 148:"Madrid", 149:"Madrid", 150:"Madrid", 151:"Madrid", 152:"Madrid", 153:"Madrid", 154:"Madrid", 155:"Madrid", 156:"Madrid", 157:"Madrid", 158:"Madrid", 159:"Madrid", 160:"Madrid", 161:"Madrid", 162:"Madrid", 163:"Madrid", 164:"Madrid", 165:"Madrid", 166:"Madrid", 167:"Madrid", 168:"Madrid", 169:"Madrid", 170:"Madrid", 171:"Madrid", 172:"Madrid", 173:"Madrid", 174:"Madrid", 175:"Madrid", 176:"Madrid", 177:"Madrid", 178:"Madrid", 179:"Madrid", 180:"Madrid", 181:"Madrid", 182:"Madrid", 183:"Madrid", 184:"Madrid", 185:"Madrid", 186:"Madrid", 187:"Madrid", 188:"Madrid", 189:"Madrid", 190:"Madrid", 191:"Madrid", 192:"Madrid", 193:"Madrid", 194:"Madrid", 195:"Madrid", 196:"Madrid", 197:"Madrid", 198:"Madrid", 199:"Madrid", 201:"Sevilla/Cádiz", 202:"Sevilla", 203:"Sevilla", 204:"Sevilla", 205:"Barcelona", 206:"Barcelona", 207:"Barcelona", 208:"Barcelona", 210:"Rodalies", 211:"Barcelona", 212:"Barcelona", 213:"Barcelona", 214:"Barcelona", 215:"Barcelona", 216:"Barcelona", 217:"Barcelona", 218:"Barcelona", 219:"Barcelona", 220:"Barcelona", 221:"Barcelona", 222:"Barcelona", 223:"Barcelona", 224:"Barcelona", 225:"Sevilla", 226:"Barcelona", 227:"Barcelona", 228:"Barcelona", 229:"Sevilla", 230:"Barcelona", 231:"Barcelona", 232:"Barcelona", 233:"Barcelona", 234:"Barcelona", 235:"Barcelona", 236:"Barcelona", 237:"Barcelona", 238:"Barcelona", 239:"Barcelona", 240:"Barcelona", 241:"Barcelona", 242:"Barcelona", 243:"Barcelona", 244:"Barcelona", 245:"Barcelona", 246:"Barcelona", 247:"Barcelona", 248:"Barcelona", 249:"Barcelona", 250:"Barcelona", 251:"Barcelona", 252:"Barcelona", 253:"Barcelona", 254:"Barcelona", 255:"Barcelona", 256:"Barcelona", 257:"Barcelona", 258:"Barcelona", 259:"Barcelona", 260:"Barcelona", 261:"Barcelona", 262:"Barcelona", 263:"Barcelona", 264:"Barcelona", 265:"Barcelona", 266:"Barcelona", 267:"Sevilla", 268:"Sevilla"
+    };
+
+    const makeUnit = (n, lote, subserie, fabricante, year, special={}) => {
+      const branch = String(n).padStart(3,"0");
+      let orders;
+      if(n <= 99){
+        orders = [n, 700+n, n, 500+n, 500+n];
+      }else if(n <= 112){
+        orders = [n, 400+2*n, n, 401+2*n, 500+n];
+      }else{
+        orders = [n, 700+n, n, 600+n, 500+n];
+      }
+
+      let types = ["9","6","6","6","9"];
+
+      // Excepciones que figuran en la tabla aportada.
+      if(n === 48) types = ["9","9","9","9","9"];
+      if(n === 49) types[1] = "9";
+      if(n === 218) types = ["9","9","9","9","9"];
+
+      const forced = {};
+      if(n === 93) forced[2] = "5"; // 6-465-093-5, tal como figura en la tabla.
+
+      const vehiculosRama = orders.map((order,i) => car(types[i], order, forced[i] || null));
+      const baseNotes = notes[n] || (n < 201 ? "Colores Renfe Op." : "Colores Rodalies.");
+
+      const unit = {
+        rama: branch,
+        lote,
+        subserie,
+        vehiculoBase: branch,
+        numero: vehiculosRama[0],
+        vehiculosRama,
+        searchCodes: orders.map(String),
+        fabricante,
+        ano: year,
+        ancho: "1668",
+        numeroCoches: "5 coches · 2 coches motor extremos + 3 remolques intermedios",
+        composicionRama: "Coche motor + remolque + remolque + remolque + coche motor",
+        deposito: depot[n] || depot[branch] || "",
+        color: n >= 201 ? (red[n] === "Sevilla/Cádiz" || red[n] === "Sevilla" ? "Cercanías" : "Blanco/Naranja") : "Cercanías",
+        red: red[n] || (n < 201 ? "Madrid" : "Barcelona"),
+        estado: "En servicio",
+        notas: [baseNotes]
+      };
+
+      if(special.procedencia){
+        unit.procedencia = special.procedencia;
+        unit.historialTransformacion = special.historialTransformacion;
+        unit.estadoActual = `Actualmente: Serie 465, unidad 465-${branch}.`;
+        unit.cadenaProcedencia = special.cadenaProcedencia || special.procedencia;
+      }
+      units[branch] = unit;
+      orders.forEach((order,i) => {
+        const padded=String(order).padStart(3,"0");
+        const typedKey=`${types[i]}-${padded}`;
+        if(vehicleIndex[typedKey]===undefined) vehicleIndex[typedKey]=branch;
+        if(vehicleIndex[padded]===undefined) vehicleIndex[padded]=branch;
+      });
+    };
+
+    const transform = {
+      3: {procedencia:"464-006", historialTransformacion:"464-006 → 465-003 · añadido de un remolque intermedio"},
+      4: {procedencia:"464-001", historialTransformacion:"464-001 → 465-004 · añadido de un remolque intermedio"},
+      5: {procedencia:"464-002", historialTransformacion:"464-002 → 465-005 · añadido de un remolque intermedio"},
+      6: {procedencia:"464-003", historialTransformacion:"464-003 → 465-006 · añadido de un remolque intermedio"},
+      7: {procedencia:"464-004", historialTransformacion:"464-004 → 465-007 · añadido de un remolque intermedio"},
+      8: {procedencia:"464-005", historialTransformacion:"464-005 → 465-008 · añadido de un remolque intermedio"},
+      267:{procedencia:"463-216", cadenaProcedencia:"463-216 → 465-267", historialTransformacion:"463-216 → 465-267 · transformación con dos remolques intermedios A4 y A5"},
+      268:{procedencia:"464-215", cadenaProcedencia:"464-215 → 465-268", historialTransformacion:"464-215 → 465-268 · añadido de un remolque intermedio"}
+    };
+
+    for(let n=1;n<=8;n++) makeUnit(n,"Primer lote","Civia I","CAF","2003",transform[n]||{});
+    for(let n=9;n<=112;n++){
+      const sub = n<=42 ? "Civia II" : (n<=82 ? "Civia III" : "Civia IV");
+      const year = n<=42 ? "2006-2008" : (n<=82 ? "2008-2010" : "2010-2012");
+      makeUnit(n,"Segundo lote",sub,"CAF",year,{});
+    }
+    for(let n=201;n<=268;n++){
+      const sub = n<=236 ? "Modular 2 · equivalente a Civia III" :
+                  (n<=266 ? "Modular 3 · equivalente a Civia IV" : "Transformación · tercer lote");
+      const year = n<=236 ? "2008-2009" : (n<=266 ? "2009-2010" : (n===267 ? "2011" : "2012"));
+      makeUnit(n,"Tercer lote",sub,"Alstom",year,transform[n]||{});
+    }
+
+    return {
+      seriesName: "Serie 465 · Civia",
+      fabricante: "CAF / Alstom",
+      apodo: "Civia",
+      anoPuestaServicio: "2003-2012",
+      tipoMaterial: "Cercanías · Civia de 5 coches",
+      numeroCoches: "5 coches · 2 coches motor + 3 remolques",
+      anchoVia: "1668 mm",
+      numeroRamas: 180,
+      velocidadMaxima: "120 km/h",
+      potencia: "2.200 kW",
+      longitud: "98,05 m",
+      peso: "157,3 t",
+      tension: "3.000 V cc",
+      traccion: "8 motores de tracción",
+      señalizacion: "ASFA / ASFA Digital · ERTMS según unidad",
+      composicion: "A1-A4-A3-A4-A2",
+      capacidad: "997 plazas · 277 sentadas",
+      plazasSentadas: "277",
+      lotes: "PRIMER LOTE · CAF: 001-008 · SEGUNDO LOTE · CAF: 009-112 · TERCER LOTE · ALSTOM: 201-268",
+      generalNotes: [
+        "Unidades CIVIA de cinco coches: dos coches motores extremos y tres remolques intermedios.",
+        "PRIMER LOTE · CAF · 001-008: las 001 y 002 son preserie; las 003-008 proceden de transformar seis unidades de la serie 464 mediante el añadido de un remolque intermedio.",
+        "SEGUNDO LOTE · CAF · 009-112: 009-042 Civia II; 043-082 Civia III; 083-112 Civia IV. Las unidades CAF del núcleo de Cercanías de Madrid tienen como base Atocha.",
+        "TERCER LOTE · ALSTOM · 201-268: 201-236 Modular 2 (equivalente a Civia III) y 237-266 Modular 3 (equivalente a Civia IV).",
+        "La 465-267 procede directamente de la 463-216, transformada con la construcción de dos remolques intermedios A4 y A5.",
+        "La 465-268 procede de la 464-215, transformada mediante el añadido de un remolque intermedio.",
+        "Ancho de vía: 1.668 mm. Alimentación: 3.000 V en corriente continua. Velocidad máxima: 120 km/h.",
+        "Longitud aproximada: 98,05 m. Masa: 157,3 t. Potencia nominal: 2.200 kW. Capacidad aproximada: 997 plazas, 277 sentadas.",
+        "La numeración de cada rama se puede localizar mediante cualquiera de sus cinco vehículos."
+      ],
+      units,
+      vehicleIndex
+    };
+  })(),
 };
 
 // Fabricante de la S-463: se determina automáticamente por el lote de la rama.
@@ -9132,6 +9421,48 @@ function getFleetUnit(series, vehicle){
     const canonicalVehicle=idx>=0 ? base.vehiculosRama[idx] : base.numero;
     const tipoCoche=["Coche motor extremo A1","Remolque intermedio A2","Remolque intermedio A3 (piso bajo)","Coche motor extremo A1"][idx]||"Vehículo Serie 464";
     return {...base,numero:canonicalVehicle,vehiculoBase:code,vehiculoIntroducido:raw,vehiculoBuscado:code,cocheTipo:tipoCoche,fabricante:base.lote==="Primer lote"?"CAF":"Alstom"};
+  }
+
+  // Serie 465 Civia: cualquiera de sus cinco vehículos identifica la rama.
+  // Se aceptan códigos cortos, 465-XXX-X y 6/9-465-XXX-X.
+  if(s==="465"){
+    const raw=String(vehicle??"").trim();
+    const typed=raw.match(/(?:^|[-\s])([69])[-\s.]?465[-\s.]?(\d{3})/i);
+    const match=raw.match(/465[\s.-]?(\d{3})/i);
+    const code=String(typed ? typed[2] : (match ? match[1] : v)).padStart(3,"0");
+    const typedKey=typed ? `${typed[1]}-${code}` : null;
+
+    const branch=seriesData.vehicleIndex?.[typedKey] || seriesData.vehicleIndex?.[code];
+    const base=branch ? seriesData.units?.[branch] : null;
+    if(!base) return null;
+
+    let idx=(base.searchCodes||[]).findIndex((x,i)=>{
+      const padded=String(x).padStart(3,"0");
+      if(padded!==code) return false;
+      if(!typed) return true;
+      const expectedType=String(base.vehiculosRama?.[i]||"").split("-")[0];
+      return expectedType===typed[1];
+    });
+    if(idx<0) idx=(base.searchCodes||[]).findIndex(x=>String(x).padStart(3,"0")===code);
+
+    const canonicalVehicle=idx>=0 ? base.vehiculosRama[idx] : base.numero;
+    const tipoCoche=[
+      "Coche motor extremo A1",
+      "Remolque intermedio A4",
+      "Remolque intermedio A3 (piso bajo)",
+      "Remolque intermedio A4",
+      "Coche motor extremo A2"
+    ][idx] || "Vehículo Serie 465";
+
+    return {
+      ...base,
+      numero:canonicalVehicle,
+      vehiculoBase:code,
+      vehiculoIntroducido:raw,
+      vehiculoBuscado:code,
+      cocheTipo:tipoCoche,
+      fabricante:base.fabricante
+    };
   }
 
   // Serie 463 Civia: cualquiera de sus tres vehículos identifica la rama.
