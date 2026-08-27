@@ -5022,7 +5022,7 @@ const fleet = {
   },
   "463": {
   "seriesName": "Serie 463 · Civia",
-  "fabricante": "CAF (primer lote) / Alstom (segundo lote)",
+  "fabricante": "",
   "apodo": "Civia",
   "anoPuestaServicio": "2004-2008",
   "tipoMaterial": "Cercanías · Civia de 3 coches",
@@ -5044,8 +5044,6 @@ const fleet = {
   "generalNotes": [
     "Tren de Cercanías CIVIA formado por dos coches motores extremos y un remolque intermedio.",
     "El primer lote corresponde a CAF y comprende las ramas 001 a 015, además del prototipo 199 procedente de CAF Investigación.",
-    "El segundo lote corresponde a Alstom y comprende las ramas 201 a 220. En la ficha se identifica siempre como «Segundo lote · Rama XX»; por ejemplo, el vehículo 217 corresponde a la rama 17 del segundo lote.",
-    "La identificación de una rama se realiza mediante cualquiera de sus tres vehículos: los dos coches motores extremos y el remolque intermedio.",
     "Composición 463: A1-A3-A1. El coche intermedio A3 es de piso bajo y está adaptado para el acceso de personas con movilidad reducida.",
     "Ancho de vía: 1.668 mm. Alimentación: 3.000 V en corriente continua. Velocidad máxima comercial: 120 km/h.",
     "Longitud aproximada: 65,55 m. Masa: 105,8 t. Potencia: 1.400 kW.",
@@ -7760,6 +7758,12 @@ const fleet = {
   }
 };
 
+// Fabricante de la S-463: se determina automáticamente por el lote de la rama.
+Object.values(fleet["463"]?.units||{}).forEach(unit=>{
+  // Primer lote (001-015) y prototipo 199: CAF. Segundo lote (201-220): Alstom.
+  unit.fabricante = unit.lote === "Segundo lote" ? "Alstom" : "CAF";
+});
+
 // Datos técnicos comunes de la serie 100. Los datos específicos de cada rama pueden sobrescribirlos.
 Object.values(fleet["100"]?.units||{}).forEach(unit=>{
   unit.fabricante=unit.fabricante||fleet["100"].fabricante;
@@ -7948,7 +7952,8 @@ function getFleetUnit(series, vehicle){
     const idx=(base.searchCodes||[]).indexOf(code);
     const canonicalVehicle=idx>=0 ? base.vehiculosRama[idx] : base.numero;
     const tipoCoche=["Coche motor extremo A1","Remolque intermedio A3","Coche motor extremo A1"][idx]||"Vehículo Serie 463";
-    return {...base,numero:canonicalVehicle,vehiculoBase:code,vehiculoIntroducido:raw,vehiculoBuscado:code,cocheTipo:tipoCoche};
+    const fabricante = base.lote === "Segundo lote" ? "Alstom" : "CAF";
+    return {...base,numero:canonicalVehicle,vehiculoBase:code,vehiculoIntroducido:raw,vehiculoBuscado:code,cocheTipo:tipoCoche,fabricante};
   }
 
   // Serie 449: cada rama se identifica por cualquiera de sus cinco vehículos.
