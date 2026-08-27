@@ -291,7 +291,7 @@ const fleet = {
         "ancho": "1435",
         "notas": [
           "Procede de la serie 101 y se incorporó a la serie 100.",
-          "Reformada interiormente en 07/,
+          "Reformada interiormente en 07/08. Colores Renfe Operadora.",
           "En 2011 recibió las cabezas motrices originales de la rama 12; las ramas 12 y 19 intercambiaron cabezas motrices.",
           "Pertenece a la subserie 100F."
         ]
@@ -304,7 +304,7 @@ const fleet = {
         "ancho": "1435",
         "notas": [
           "Procede de la serie 101.102 (GL02), reformada en 2008 según placas.",
-          "Apartada por incendio 06/, extremo 9-100-120-5 circuló en rama 22.",
+          "Apartada por incendio 06/14. Tras el incendio, extremo 9-100-120-5 circuló en rama 22.",
           "Circuló con motrices 100-220 y 224.",
           "Nombre Marseille. Nuevos logos AVE 02/23.",
           "Habilitación maquinistas Francia 2023 entre Barcelona y Lyon.",
@@ -1647,7 +1647,7 @@ const fleet = {
   "ancho": "1435/1668",
   "composicionRama": "2 cabezas tractoras + 11 coches Talgo 7",
   "notas": [
-  "Entra a reforma en 01/,
+  "Entra a reforma en 01/07. En pruebas desde 02/07. Nuevo interiorismo y decoración 05/26",
   "Entra a reforma en 01/07. En pruebas desde 02/07. Nuevo interiorismo y decoración 05/26"
   ]
   },
@@ -4153,7 +4153,9 @@ const fleet = {
       "63":{"rama":"63","vehiculoBase":"363","subserie":"Segunda subserie","numero":"9-120-363-7","vehiculosRama":["9-120-363-7","6-120-963-4","6-120-663-0","9-120-663-0"],"searchCodes":["363","963","663"],"deposito":"Can Tunis","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-363-7 + 6-120-963-4 + 6-120-663-0 + 9-120-663-0","notas":["Logos 75 años Renfe. Ex-Fuencarral"]},
       "64":{"rama":"64","vehiculoBase":"364","subserie":"Segunda subserie","numero":"9-120-364-5","vehiculosRama":["9-120-364-5","6-120-964-2","6-120-664-8","9-120-664-8"],"searchCodes":["364","964","664"],"deposito":"Can Tunis","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-364-5 + 6-120-964-2 + 6-120-664-8 + 9-120-664-8","notas":["Ex-Sta.Catalina. Ex-Fuencarral"]},
       "65":{"rama":"65","vehiculoBase":"365","subserie":"Segunda subserie","numero":"9-120-365-2","vehiculosRama":["9-120-365-2","6-120-965-9","6-120-665-5","9-120-665-5"],"searchCodes":["365","965","665"],"deposito":"Can Tunis","color":"Blanco","estado":"En servicio","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-365-2 + 6-120-965-9 + 6-120-665-5 + 9-120-665-5","notas":["Ex-Fuencarral"]},
-      "66":{"rama":"66","vehiculoBase":"366","subserie":"Segunda subserie","numero":"9-120-366-0","vehiculosRama":["9-120-366-0","6-120-966-7","6-120-666-3","9-120-666-3"],"searchCodes":["366","966","666"],"deposito":"","color":"Blanco","estado":"No construido","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-366-0 + 6-120-966-7 + 6-120-666-3 + 9-120-666-3","notas":["No construido. En su lugar, y con el mismo contrato, se construyó el prototipo OARIS de la serie 1,
+      "66":{"rama":"66","vehiculoBase":"366","subserie":"Segunda subserie","numero":"9-120-366-0","vehiculosRama":["9-120-366-0","6-120-966-7","6-120-666-3","9-120-666-3"],"searchCodes":["366","966","666"],"deposito":"","color":"Blanco","estado":"No construido","servicio":"Grandes Líneas","ano":2009,"ancho":"1435/1668","composicionRama":"9-120-366-0 + 6-120-966-7 + 6-120-666-3 + 9-120-666-3","notas":["No construido. En su lugar, y con el mismo contrato, se construyó el prototipo OARIS de la serie 105."]}
+    }
+  },
   "114": {
     "seriesName":"Serie 114",
     "fabricante":"CAF-Alstom",
@@ -9130,18 +9132,13 @@ const fleet = {
     "generalNotes": [
       "Serie de trenes modulares fabricados por Stadler para Cercanías, versión de cuatro coches TL100 (subserie 453.0), concebida como sustituta de material de Cercanías más antiguo.",
       "El modelo 453.0 está formado por cuatro coches: Mc-R-R-Mc. Los dos coches extremos son motores de piso bajo con cabina y los dos coches centrales son remolques de dos pisos.",
-      "La serie 453 forma parte de la nueva familia modular de Stadler para Renfe. El pedido inicial comprendió 24 trenes T100 de cuatro coches y 55 T200 de ocho coches, dentro de un total de 79 trenes contratados.",
-      "El diseño es modular y permite ampliar las composiciones: el T100 de cuatro coches puede evolucionar a configuraciones de mayor longitud. Stadler denomina TL100 a la configuración de cuatro coches y unos 100 metros.",
-      "La numeración NEV completa mantiene los cuatro primeros dígitos comunes 94-71, que se omiten en la tabla. Ejemplo de la primera rama: 94-71-1-453-001-9 + 94-71-3-453-001-5 + 94-71-3-453-002-3 + 94-71-2-453-001-7.",
+      "La serie 453 forma parte de la nueva familia modular de Stadler para Renfe: el diseño permite ampliar las composiciones y el pedido inicial comprendió 24 trenes TL100 de cuatro coches y 55 TL200 de ocho coches, dentro de un total de 79 trenes contratados. Stadler denomina TL100 a la configuración de cuatro coches y unos 100 metros.",
       "Renfe utiliza una rotulación simplificada de cuatro cifras: 1001 + 3001 + 3002 + 2001 para la primera rama. El primer dígito identifica el tipo de coche, el segundo la subserie (0 en la 453.0) y los dos últimos el número de la rama.",
-      "Para identificar una rama se admiten el motor cabina impar, el remolque 1 y el motor cabina par. El remolque 2 se conserva en la composición pero no se utiliza como código de búsqueda para evitar ambigüedades.",
-      "En el campo Vehículo, la Serie 453.0 admite excepcionalmente códigos simplificados de cuatro cifras como 1001, 3001 o 2001, que remiten a la rama correspondiente.",
       "Los trenes son eléctricos de 3.000 Vcc y ancho ibérico fijo de 1.668 mm, con una velocidad máxima de 140 km/h. El T100 alcanza aproximadamente 100 metros de longitud y hasta 912 plazas.",
       "La tracción del T100 utiliza ocho motores de 500 kW, con una potencia nominal total de 4.000 kW. El tren dispone además de frenado eléctrico reostático y regenerativo y freno neumático.",
       "El equipamiento de seguridad y señalización incluye ASFA Digital y ERTMS niveles 1 y 2, además de PUC para comunicaciones ferroviarias (GSM-R y Tren-Tierra), según la ficha técnica aportada.",
       "Los coches motores extremos incorporan los pantógrafos, dos por tren. El coche motor de cabina par integra el espacio PMR y aseo accesible; el motor impar dispone de espacios para bicicletas. El tren dispone de puertas a nivel en los coches de piso bajo.",
-      "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios accesibles. También dispone de baterías 'last mile' para pequeños desplazamientos sin alimentación de catenaria en maniobras o taller.",
-      "Las primeras unidades comenzaron las pruebas en 2024 y la 453-003 inició el servicio comercial el 24 de agosto de 2026, según la tabla incorporada al proyecto."
+      "Cuenta con WiFi, enchufes USB, videovigilancia, información al viajero y espacios accesibles. También dispone de baterías 'last mile' para pequeños desplazamientos sin alimentación de catenaria en maniobras o taller."
 ],
     "units": {
       "1": {
@@ -9825,7 +9822,8 @@ const fleet = {
     10: "Colores Renfe Op. En servicio desde 07/06. Madrid >> Barcelona desde 15/09/08 >> Madrid desde 04/11 >> Sevilla >> Madrid desde 09/11.",
     11: "Colores Renfe Op. Entregado en Atocha 04/07/06.",
     12: "En servicio desde 25/08/06. Colores Renfe Op. Pegatinas Marea azul en 2008.",
-    13: "Colores Renfe Op. Ex-BCN hasta 12/08.",,
+    13: "Colores Renfe Op. Ex-BCN hasta 12/08.",
+    14: "Colores Renfe Op. Ex-Barcelona hasta 12/08. Logos LGTBIQ+ 06/23.",
     15: "En servicio en C-4 Madrid desde 10/06/08. Colores Renfe Op. Refuerzo fallas 2018 y 2024.",
     16: "En servicio desde 11/06. Colores Renfe Op. Modificado carenado Scharfenberg.",
     17: "En servicio en C-4 Madrid desde 12/06. Colores Renfe Op.",
@@ -9880,8 +9878,8 @@ const fleet = {
     103: "Inauguración ramal T4 23/09/11. Modificado carenado Scharfenberg.",
     104: "Modificado carenado Scharfenberg.",
     106: "En pruebas 10/11.",
-    1,
-    1,
+    107: "En servicio desde 30/03/12, Atocha. Modificado carenado Scharfenberg.",
+    108: "En servicio desde 05/12. Modificado carenado Scharfenberg.",
     109: "En servicio desde 06/12.",
     110: "En servicio desde 06/12.",
     111: "Modificado carenado Scharfenberg.",
@@ -9890,7 +9888,7 @@ const fleet = {
     202: "Colores Renfe Op. Ex-Barcelona. Ex-Sevilla >> Refuerzo Fallas 2017, en Valencia desde 03/17 >> Sevilla desde 03/18. Fallas 2023.",
     203: "Colores Renfe Op. Ex-Barcelona >> Sevilla >> Valencia, desde 11/16. Refuerzo San Fermines, 07/17. Ex-Valencia >> Sevilla desde 12/17. Refuerzo fallas 03/18.",
     204: "C2 BCN. Colores Renfe Op. Ex-BCN. Ex-Sevilla >> Valencia desde 03/17 >> Sevilla desde 12/17 >> Vilanova 10/18 >> Sevilla.",
-    2,
+    205: "Colores Renfe Op. Ex-Barcelona >> Sevilla hasta 01/17. Colores Rodalies 11/21.",
     206: "Colores Renfe Op. Ex-Barcelona >> Sevilla. Simulacro La Sagrera 08/12/20. Rodalies 11/21.",
     207: "Colores Renfe Op. Ex-Barcelona >> Sevilla >> Barcelona. Colores Rodalies 11/21.",
     208: "En pruebas 10/08. Colores Renfe Op. Ex-Barcelona. Refuerzo Fallas 2017. Ex-Sevilla >> Valencia desde 03/17 >> Sevilla/Cádiz desde 12/17.",
