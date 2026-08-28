@@ -9108,7 +9108,7 @@ const fleet = {
     "fabricante": "Stadler Rail",
     "modelo": "FLIRT / KISS · TL100",
     "apodo": "Cercanías Stadler",
-    "subseries": "453.0",
+    "subseries": "453.0 · TL100 · 4 coches",
     "anoPuestaServicio": "2026",
     "tipoMaterial": "Cercanías · Tren modular de gran capacidad · T100",
     "numeroCoches": "4 coches · 2 motores cabina + 2 remolques de dos pisos",
@@ -9142,7 +9142,7 @@ const fleet = {
 ],
     "units": {
       "1": {
-            "rama": "001",
+            "rama": "1",
             "vehiculoBase": "001",
             "numero": "1-453-001-9",
             "vehiculosRama": [
@@ -9169,7 +9169,7 @@ const fleet = {
             ]
       },
       "2": {
-            "rama": "002",
+            "rama": "2",
             "vehiculoBase": "002",
             "numero": "1-453-002-7",
             "vehiculosRama": [
@@ -9196,7 +9196,7 @@ const fleet = {
             ]
       },
       "3": {
-            "rama": "003",
+            "rama": "3",
             "vehiculoBase": "003",
             "numero": "1-453-003-5",
             "vehiculosRama": [
@@ -9223,7 +9223,7 @@ const fleet = {
             ]
       },
       "4": {
-            "rama": "004",
+            "rama": "4",
             "vehiculoBase": "004",
             "numero": "1-453-004-3",
             "vehiculosRama": [
@@ -9250,7 +9250,7 @@ const fleet = {
             ]
       },
       "5": {
-            "rama": "005",
+            "rama": "5",
             "vehiculoBase": "005",
             "numero": "1-453-005-1",
             "vehiculosRama": [
@@ -9277,7 +9277,7 @@ const fleet = {
             ]
       },
       "6": {
-            "rama": "006",
+            "rama": "6",
             "vehiculoBase": "006",
             "numero": "1-453-006-9",
             "vehiculosRama": [
@@ -9304,7 +9304,7 @@ const fleet = {
             ]
       },
       "7": {
-            "rama": "007",
+            "rama": "7",
             "vehiculoBase": "007",
             "numero": "1-453-007-7",
             "vehiculosRama": [
@@ -9331,7 +9331,7 @@ const fleet = {
             ]
       },
       "8": {
-            "rama": "008",
+            "rama": "8",
             "vehiculoBase": "008",
             "numero": "1-453-008-5",
             "vehiculosRama": [
@@ -9358,7 +9358,7 @@ const fleet = {
             ]
       },
       "9": {
-            "rama": "009",
+            "rama": "9",
             "vehiculoBase": "009",
             "numero": "1-453-009-3",
             "vehiculosRama": [
@@ -9385,7 +9385,7 @@ const fleet = {
             ]
       },
       "10": {
-            "rama": "010",
+            "rama": "10",
             "vehiculoBase": "010",
             "numero": "1-453-010-0",
             "vehiculosRama": [
@@ -9412,7 +9412,7 @@ const fleet = {
             ]
       },
       "11": {
-            "rama": "011",
+            "rama": "11",
             "vehiculoBase": "011",
             "numero": "1-453-011-8",
             "vehiculosRama": [
@@ -9439,7 +9439,7 @@ const fleet = {
             ]
       },
       "12": {
-            "rama": "012",
+            "rama": "12",
             "vehiculoBase": "012",
             "numero": "1-453-012-6",
             "vehiculosRama": [
@@ -9466,7 +9466,7 @@ const fleet = {
             ]
       },
       "13": {
-            "rama": "013",
+            "rama": "13",
             "vehiculoBase": "013",
             "numero": "1-453-013-4",
             "vehiculosRama": [
@@ -9493,7 +9493,7 @@ const fleet = {
             ]
       },
       "14": {
-            "rama": "014",
+            "rama": "14",
             "vehiculoBase": "014",
             "numero": "1-453-014-2",
             "vehiculosRama": [
@@ -9520,7 +9520,7 @@ const fleet = {
             ]
       },
       "15": {
-            "rama": "015",
+            "rama": "15",
             "vehiculoBase": "015",
             "numero": "1-453-015-0",
             "vehiculosRama": [
@@ -9547,7 +9547,7 @@ const fleet = {
             ]
       },
       "16": {
-            "rama": "016",
+            "rama": "16",
             "vehiculoBase": "016",
             "numero": "1-453-016-8",
             "vehiculosRama": [
@@ -9574,7 +9574,7 @@ const fleet = {
             ]
       },
       "17": {
-            "rama": "017",
+            "rama": "17",
             "vehiculoBase": "017",
             "numero": "1-453-017-6",
             "vehiculosRama": [
@@ -9601,7 +9601,7 @@ const fleet = {
             ]
       },
       "18": {
-            "rama": "018",
+            "rama": "18",
             "vehiculoBase": "018",
             "numero": "1-453-018-4",
             "vehiculosRama": [
@@ -9628,7 +9628,7 @@ const fleet = {
             ]
       },
       "19": {
-            "rama": "019",
+            "rama": "19",
             "vehiculoBase": "019",
             "numero": "1-453-019-2",
             "vehiculosRama": [
@@ -9655,7 +9655,7 @@ const fleet = {
             ]
       },
       "20": {
-            "rama": "020",
+            "rama": "20",
             "vehiculoBase": "020",
             "numero": "1-453-020-9",
             "vehiculosRama": [
@@ -9682,7 +9682,7 @@ const fleet = {
             ]
       },
       "21": {
-            "rama": "021",
+            "rama": "21",
             "vehiculoBase": "021",
             "numero": "1-453-021-7",
             "vehiculosRama": [
@@ -9709,7 +9709,7 @@ const fleet = {
             ]
       },
       "22": {
-            "rama": "022",
+            "rama": "22",
             "vehiculoBase": "022",
             "numero": "1-453-022-5",
             "vehiculosRama": [
@@ -9736,7 +9736,7 @@ const fleet = {
             ]
       },
       "23": {
-            "rama": "023",
+            "rama": "23",
             "vehiculoBase": "023",
             "numero": "1-453-023-3",
             "vehiculosRama": [
@@ -9763,7 +9763,7 @@ const fleet = {
             ]
       },
       "24": {
-            "rama": "024",
+            "rama": "24",
             "vehiculoBase": "024",
             "numero": "1-453-024-1",
             "vehiculosRama": [
@@ -9792,7 +9792,7 @@ const fleet = {
 },
     "unitsTL200": {
       "1": {
-        "rama": "001",
+        "rama": "1",
         "vehiculoBase": "001",
         "numero": "1-453-601-6",
         "vehiculosRama": [
@@ -9861,7 +9861,7 @@ const fleet = {
         ]
       },
       "2": {
-        "rama": "002",
+        "rama": "2",
         "vehiculoBase": "002",
         "numero": "1-453-602-4",
         "vehiculosRama": [
@@ -9930,7 +9930,7 @@ const fleet = {
         ]
       },
       "3": {
-        "rama": "003",
+        "rama": "3",
         "vehiculoBase": "003",
         "numero": "1-453-603-2",
         "vehiculosRama": [
@@ -9999,7 +9999,7 @@ const fleet = {
         ]
       },
       "4": {
-        "rama": "004",
+        "rama": "4",
         "vehiculoBase": "004",
         "numero": "1-453-604-0",
         "vehiculosRama": [
@@ -10068,7 +10068,7 @@ const fleet = {
         ]
       },
       "5": {
-        "rama": "005",
+        "rama": "5",
         "vehiculoBase": "005",
         "numero": "1-453-605-7",
         "vehiculosRama": [
@@ -10137,7 +10137,7 @@ const fleet = {
         ]
       },
       "6": {
-        "rama": "006",
+        "rama": "6",
         "vehiculoBase": "006",
         "numero": "1-453-606-5",
         "vehiculosRama": [
@@ -10206,7 +10206,7 @@ const fleet = {
         ]
       },
       "7": {
-        "rama": "007",
+        "rama": "7",
         "vehiculoBase": "007",
         "numero": "1-453-607-3",
         "vehiculosRama": [
@@ -10275,7 +10275,7 @@ const fleet = {
         ]
       },
       "8": {
-        "rama": "008",
+        "rama": "8",
         "vehiculoBase": "008",
         "numero": "1-453-608-1",
         "vehiculosRama": [
@@ -10344,7 +10344,7 @@ const fleet = {
         ]
       },
       "9": {
-        "rama": "009",
+        "rama": "9",
         "vehiculoBase": "009",
         "numero": "1-453-609-9",
         "vehiculosRama": [
@@ -10413,7 +10413,7 @@ const fleet = {
         ]
       },
       "10": {
-        "rama": "010",
+        "rama": "10",
         "vehiculoBase": "010",
         "numero": "1-453-610-7",
         "vehiculosRama": [
@@ -10482,7 +10482,7 @@ const fleet = {
         ]
       },
       "11": {
-        "rama": "011",
+        "rama": "11",
         "vehiculoBase": "011",
         "numero": "1-453-611-5",
         "vehiculosRama": [
@@ -10551,7 +10551,7 @@ const fleet = {
         ]
       },
       "12": {
-        "rama": "012",
+        "rama": "12",
         "vehiculoBase": "012",
         "numero": "1-453-612-3",
         "vehiculosRama": [
@@ -10620,7 +10620,7 @@ const fleet = {
         ]
       },
       "13": {
-        "rama": "013",
+        "rama": "13",
         "vehiculoBase": "013",
         "numero": "1-453-613-1",
         "vehiculosRama": [
@@ -10689,7 +10689,7 @@ const fleet = {
         ]
       },
       "14": {
-        "rama": "014",
+        "rama": "14",
         "vehiculoBase": "014",
         "numero": "1-453-614-9",
         "vehiculosRama": [
@@ -10758,7 +10758,7 @@ const fleet = {
         ]
       },
       "15": {
-        "rama": "015",
+        "rama": "15",
         "vehiculoBase": "015",
         "numero": "1-453-615-6",
         "vehiculosRama": [
@@ -10827,7 +10827,7 @@ const fleet = {
         ]
       },
       "16": {
-        "rama": "016",
+        "rama": "16",
         "vehiculoBase": "016",
         "numero": "1-453-616-4",
         "vehiculosRama": [
@@ -10896,7 +10896,7 @@ const fleet = {
         ]
       },
       "17": {
-        "rama": "017",
+        "rama": "17",
         "vehiculoBase": "017",
         "numero": "1-453-617-2",
         "vehiculosRama": [
@@ -10965,7 +10965,7 @@ const fleet = {
         ]
       },
       "18": {
-        "rama": "018",
+        "rama": "18",
         "vehiculoBase": "018",
         "numero": "1-453-618-0",
         "vehiculosRama": [
@@ -11034,7 +11034,7 @@ const fleet = {
         ]
       },
       "19": {
-        "rama": "019",
+        "rama": "19",
         "vehiculoBase": "019",
         "numero": "1-453-619-8",
         "vehiculosRama": [
@@ -11103,7 +11103,7 @@ const fleet = {
         ]
       },
       "20": {
-        "rama": "020",
+        "rama": "20",
         "vehiculoBase": "020",
         "numero": "1-453-620-6",
         "vehiculosRama": [
@@ -11172,7 +11172,7 @@ const fleet = {
         ]
       },
       "21": {
-        "rama": "021",
+        "rama": "21",
         "vehiculoBase": "021",
         "numero": "1-453-621-4",
         "vehiculosRama": [
@@ -11241,7 +11241,7 @@ const fleet = {
         ]
       },
       "22": {
-        "rama": "022",
+        "rama": "22",
         "vehiculoBase": "022",
         "numero": "1-453-622-2",
         "vehiculosRama": [
@@ -11310,7 +11310,7 @@ const fleet = {
         ]
       },
       "23": {
-        "rama": "023",
+        "rama": "23",
         "vehiculoBase": "023",
         "numero": "1-453-623-0",
         "vehiculosRama": [
@@ -11379,7 +11379,7 @@ const fleet = {
         ]
       },
       "24": {
-        "rama": "024",
+        "rama": "24",
         "vehiculoBase": "024",
         "numero": "1-453-624-8",
         "vehiculosRama": [
@@ -11448,7 +11448,7 @@ const fleet = {
         ]
       },
       "25": {
-        "rama": "025",
+        "rama": "25",
         "vehiculoBase": "025",
         "numero": "1-453-625-5",
         "vehiculosRama": [
@@ -11517,7 +11517,7 @@ const fleet = {
         ]
       },
       "26": {
-        "rama": "026",
+        "rama": "26",
         "vehiculoBase": "026",
         "numero": "1-453-626-3",
         "vehiculosRama": [
@@ -11586,7 +11586,7 @@ const fleet = {
         ]
       },
       "27": {
-        "rama": "027",
+        "rama": "27",
         "vehiculoBase": "027",
         "numero": "1-453-627-1",
         "vehiculosRama": [
@@ -11655,7 +11655,7 @@ const fleet = {
         ]
       },
       "28": {
-        "rama": "028",
+        "rama": "28",
         "vehiculoBase": "028",
         "numero": "1-453-628-9",
         "vehiculosRama": [
@@ -11724,7 +11724,7 @@ const fleet = {
         ]
       },
       "29": {
-        "rama": "029",
+        "rama": "29",
         "vehiculoBase": "029",
         "numero": "1-453-629-7",
         "vehiculosRama": [
@@ -11793,7 +11793,7 @@ const fleet = {
         ]
       },
       "30": {
-        "rama": "030",
+        "rama": "30",
         "vehiculoBase": "030",
         "numero": "1-453-630-5",
         "vehiculosRama": [
@@ -11862,7 +11862,7 @@ const fleet = {
         ]
       },
       "31": {
-        "rama": "031",
+        "rama": "31",
         "vehiculoBase": "031",
         "numero": "1-453-631-3",
         "vehiculosRama": [
@@ -11931,7 +11931,7 @@ const fleet = {
         ]
       },
       "32": {
-        "rama": "032",
+        "rama": "32",
         "vehiculoBase": "032",
         "numero": "1-453-632-1",
         "vehiculosRama": [
@@ -12000,7 +12000,7 @@ const fleet = {
         ]
       },
       "33": {
-        "rama": "033",
+        "rama": "33",
         "vehiculoBase": "033",
         "numero": "1-453-633-9",
         "vehiculosRama": [
@@ -12069,7 +12069,7 @@ const fleet = {
         ]
       },
       "34": {
-        "rama": "034",
+        "rama": "34",
         "vehiculoBase": "034",
         "numero": "1-453-634-7",
         "vehiculosRama": [
@@ -12138,7 +12138,7 @@ const fleet = {
         ]
       },
       "35": {
-        "rama": "035",
+        "rama": "35",
         "vehiculoBase": "035",
         "numero": "1-453-635-4",
         "vehiculosRama": [
@@ -12207,7 +12207,7 @@ const fleet = {
         ]
       },
       "36": {
-        "rama": "036",
+        "rama": "36",
         "vehiculoBase": "036",
         "numero": "1-453-636-2",
         "vehiculosRama": [
@@ -12276,7 +12276,7 @@ const fleet = {
         ]
       },
       "37": {
-        "rama": "037",
+        "rama": "37",
         "vehiculoBase": "037",
         "numero": "1-453-637-2",
         "vehiculosRama": [
@@ -12345,7 +12345,7 @@ const fleet = {
         ]
       },
       "38": {
-        "rama": "038",
+        "rama": "38",
         "vehiculoBase": "038",
         "numero": "1-453-638-8",
         "vehiculosRama": [
@@ -12414,7 +12414,7 @@ const fleet = {
         ]
       },
       "39": {
-        "rama": "039",
+        "rama": "39",
         "vehiculoBase": "039",
         "numero": "1-453-639-6",
         "vehiculosRama": [
@@ -12483,7 +12483,7 @@ const fleet = {
         ]
       },
       "40": {
-        "rama": "040",
+        "rama": "40",
         "vehiculoBase": "040",
         "numero": "1-453-640-4",
         "vehiculosRama": [
@@ -12552,7 +12552,7 @@ const fleet = {
         ]
       },
       "41": {
-        "rama": "041",
+        "rama": "41",
         "vehiculoBase": "041",
         "numero": "1-453-641-2",
         "vehiculosRama": [
@@ -12621,7 +12621,7 @@ const fleet = {
         ]
       },
       "42": {
-        "rama": "042",
+        "rama": "42",
         "vehiculoBase": "042",
         "numero": "1-453-642-0",
         "vehiculosRama": [
@@ -12690,7 +12690,7 @@ const fleet = {
         ]
       },
       "43": {
-        "rama": "043",
+        "rama": "43",
         "vehiculoBase": "043",
         "numero": "1-453-643-8",
         "vehiculosRama": [
@@ -12759,7 +12759,7 @@ const fleet = {
         ]
       },
       "44": {
-        "rama": "044",
+        "rama": "44",
         "vehiculoBase": "044",
         "numero": "1-453-644-6",
         "vehiculosRama": [
@@ -12828,7 +12828,7 @@ const fleet = {
         ]
       },
       "45": {
-        "rama": "045",
+        "rama": "45",
         "vehiculoBase": "045",
         "numero": "1-453-645-3",
         "vehiculosRama": [
@@ -12897,7 +12897,7 @@ const fleet = {
         ]
       },
       "46": {
-        "rama": "046",
+        "rama": "46",
         "vehiculoBase": "046",
         "numero": "1-453-646-8",
         "vehiculosRama": [
@@ -12966,7 +12966,7 @@ const fleet = {
         ]
       },
       "47": {
-        "rama": "047",
+        "rama": "47",
         "vehiculoBase": "047",
         "numero": "1-453-647-6",
         "vehiculosRama": [
@@ -13035,7 +13035,7 @@ const fleet = {
         ]
       },
       "48": {
-        "rama": "048",
+        "rama": "48",
         "vehiculoBase": "048",
         "numero": "1-453-648-4",
         "vehiculosRama": [
@@ -13104,7 +13104,7 @@ const fleet = {
         ]
       },
       "49": {
-        "rama": "049",
+        "rama": "49",
         "vehiculoBase": "049",
         "numero": "1-453-649-2",
         "vehiculosRama": [
@@ -13173,7 +13173,7 @@ const fleet = {
         ]
       },
       "50": {
-        "rama": "050",
+        "rama": "50",
         "vehiculoBase": "050",
         "numero": "1-453-650-0",
         "vehiculosRama": [
@@ -13242,7 +13242,7 @@ const fleet = {
         ]
       },
       "51": {
-        "rama": "051",
+        "rama": "51",
         "vehiculoBase": "051",
         "numero": "1-453-651-8",
         "vehiculosRama": [
@@ -13311,7 +13311,7 @@ const fleet = {
         ]
       },
       "52": {
-        "rama": "052",
+        "rama": "52",
         "vehiculoBase": "052",
         "numero": "1-453-652-6",
         "vehiculosRama": [
@@ -13380,7 +13380,7 @@ const fleet = {
         ]
       },
       "53": {
-        "rama": "053",
+        "rama": "53",
         "vehiculoBase": "053",
         "numero": "1-453-653-4",
         "vehiculosRama": [
@@ -13449,7 +13449,7 @@ const fleet = {
         ]
       },
       "54": {
-        "rama": "054",
+        "rama": "54",
         "vehiculoBase": "054",
         "numero": "1-453-654-2",
         "vehiculosRama": [
@@ -13518,7 +13518,7 @@ const fleet = {
         ]
       },
       "55": {
-        "rama": "055",
+        "rama": "55",
         "vehiculoBase": "055",
         "numero": "1-453-655-9",
         "vehiculosRama": [
@@ -14602,7 +14602,11 @@ function fleetFichaHtml(series,vehicle,service=null){
     </div>`:"";
 
   const vehiculoFicha=["103","104","120","121"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : (normalizeFleetValue(series)==="730" ? (unit.numero||vehicle) : vehicle);
-  const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>Serie ${esc(series)}${unit.subserie?` · ${esc(unit.subserie)}`:""} · Rama ${esc(unit.rama)}${unit.lote?` · ${esc(unit.lote)}`:""}</h3><p>Vehículo ${esc(vehiculoFicha)} · ${esc(unit.numero||"—")}</p></div>`;
+  const fichaRama = normalizeFleetValue(series)==="453" ? String(Number(unit.rama||0)) : String(unit.rama||"");
+  const fichaSubserie = normalizeFleetValue(series)==="453"
+    ? (String(unit.numeroCoches||"").startsWith("8 coches") || String(unit.subserie||"").includes("453.6") ? "453.6 · TL200 · 8 coches" : "453.0 · TL100 · 4 coches")
+    : (unit.subserie||"");
+  const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>Serie ${esc(series)}${fichaSubserie?` · ${esc(fichaSubserie)}`:""} · Rama ${esc(fichaRama)}${unit.lote?` · ${esc(unit.lote)}`:""}</h3><p>Vehículo ${esc(vehiculoFicha)} · ${esc(unit.numero||"—")}</p></div>`;
 
   return `${hero}
     ${serviceBlock}
