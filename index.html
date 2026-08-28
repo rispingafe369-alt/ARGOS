@@ -2735,6 +2735,34 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
   // Fallback for the most useful ARGOS stations if the Renfe catalogue
   // is temporarily unavailable.
+  const FALLBACK_EXTRA=[
+    ["03200","CUENCA","CUENCA"],
+    ["03201","CUENCA FERNANDO ZÓBEL","CUENCA"],
+    ["42001","HUELVA","HUELVA"],
+    ["03216","VALÈNCIA-JOAQUÍN SOROLLA","VALENCIA"],
+    ["03213","REQUENA-UTIEL","REQUENA"],
+    ["03217","VALENCIA NORD","VALENCIA"],
+    ["35406","VALENCIA DE ALCÁNTARA","VALENCIA DE ALCÁNTARA"],
+    ["08001","MADRID-PUERTA DE ATOCHA","MADRID"],
+    ["08002","MADRID-CHAMARTÍN-CLARA CAMPOAMOR","MADRID"],
+    ["60000","SEVILLA-SANTA JUSTA","SEVILLA"],
+    ["60001","SEVILLA-SAN BERNARDO","SEVILLA"],
+    ["51000","CÓRDOBA","CÓRDOBA"],
+    ["50500","MÁLAGA-MARÍA ZAMBRANO","MÁLAGA"],
+    ["70000","ZARAGOZA-DELICIAS","ZARAGOZA"],
+    ["71000","VALLADOLID","VALLADOLID"],
+    ["72000","SALAMANCA","SALAMANCA"],
+    ["80000","BARCELONA-SANTS","BARCELONA"],
+    ["82000","TARRAGONA","TARRAGONA"],
+    ["90000","ALICANTE-TERMINAL","ALICANTE"],
+    ["94000","MURCIA","MURCIA"],
+    ["95000","CARTAGENA","CARTAGENA"],
+    ["10000","BILBAO-ABANDO","BILBAO"],
+    ["11000","VIGO-GUIXAR","VIGO"],
+    ["12000","A CORUÑA","A CORUÑA"],
+    ["13000","SANTIAGO DE COMPOSTELA","SANTIAGO DE COMPOSTELA"]
+  ];
+
   const FALLBACK=[
     ["17001","FUENCARRAL","MADRID"],
     ["17005","COLMENAR VIEJO","COLMENAR VIEJO"],
@@ -2793,7 +2821,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
   }[c]));
 
-  let stations = FALLBACK.map(([code,name,population]) => ({
+  let stations = FALLBACK.concat(FALLBACK_EXTRA).map(([code,name,population]) => ({
     code,name,population,search:normalize(name+" "+population)
   }));
   let loaded = false;
@@ -2856,11 +2884,12 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     return stations.map(station=>{
       let score=999;
       if(station.code===q) score=0;
-      else if(station.code.startsWith(q)) score=1;
-      else if(station.search.startsWith(q)) score=2;
-      else if(station.search.split(" ").some(w=>w.startsWith(q))) score=3;
-      else if(station.search.includes(q)) score=4;
-      else if(!numeric && station.code.includes(q)) score=5;
+      else if(station.search===q) score=1;
+      else if(station.code.startsWith(q)) score=2;
+      else if(station.search.startsWith(q)) score=3;
+      else if(station.search.split(" ").some(w=>w.startsWith(q))) score=4;
+      else if(station.search.includes(q)) score=5;
+      else if(!numeric && station.code.includes(q)) score=6;
       return {station,score};
     })
     .filter(x=>x.score<999)
@@ -2912,6 +2941,40 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       });
     }
 
+    async function queryRenfeDirect(value){
+      const controller=new AbortController();
+      const timeout=setTimeout(()=>controller.abort(),5000);
+      try{
+        const params=new URLSearchParams({
+          resource_id:RESOURCE,
+          limit:"30",
+          q:value
+        });
+        const response=await fetch(API+"?"+params.toString(),{
+          method:"GET",
+          cache:"no-store",
+          headers:{Accept:"application/json"},
+          signal:controller.signal
+        });
+        if(!response.ok) return [];
+        const payload=await response.json();
+        if(!payload?.success || !Array.isArray(payload?.result?.records)) return [];
+        addStations(payload.result.records);
+        return payload.result.records.map(r=>{
+          const code=String(r.CODIGO ?? r.codigo ?? r.code ?? r.station_code ?? "")
+            .trim().replace(/\\.0$/,"").padStart(5,"0");
+          const name=String(r.DESCRIPCION ?? r.descripcion ?? r.name ?? r.nombre ?? "")
+            .trim();
+          const population=String(r.POBLACION ?? r.poblacion ?? r.population ?? "").trim();
+          return {code,name,population,search:normalize(name+" "+population)};
+        }).filter(s=>s.code && s.name);
+      }catch(e){
+        return [];
+      }finally{
+        clearTimeout(timeout);
+      }
+    }
+
     input.addEventListener("input",async()=>{
       const value=input.value.trim();
       delete input.dataset.stationCode;
@@ -2922,16 +2985,41 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       }
 
       const id=++requestId;
+
+      // First show an immediate local result, so the interface never feels
+      // empty while the official catalogue is being consulted.
       const local=matches(value);
-      if(local.length) render(local);
-      else{
-        box.innerHTML='<div class="station-loading">Buscando estaciones…</div>';
+      if(local.length){
+        render(local);
+      }else{
+        box.innerHTML='<div class="station-loading">Buscando estaciones Renfe…</div>';
         box.classList.add("show");
       }
 
+      // Load/refresh the full catalogue.
       await loadStations();
       if(id!==requestId) return;
-      render(matches(value));
+
+      let result=matches(value);
+
+      // Important: if the catalogue loaded but the station is absent from
+      // it, query the Renfe Data API specifically for what the user typed.
+      if(!result.length){
+        box.innerHTML='<div class="station-loading">Buscando “'+escapeHtml(value)+'” en Renfe…</div>';
+        box.classList.add("show");
+
+        const direct=await queryRenfeDirect(value);
+        if(id!==requestId) return;
+
+        if(direct.length){
+          addStations(direct);
+          result=matches(value);
+        }
+      }
+
+      // Final fallback: allow useful city/station aliases even when the
+      // remote service is temporarily unavailable.
+      render(result);
     });
 
     input.addEventListener("focus",()=>{
