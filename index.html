@@ -618,6 +618,37 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
 }
 </style>
 
+
+<style id="argos-dex-v3">
+.argosdex-branch{
+  display:flex;flex-direction:column;gap:4px;margin-top:12px;padding:12px 14px;
+  border:1px solid var(--line);border-radius:14px;background:var(--page);
+  transition:.18s ease;
+}
+.argosdex-branch-label{
+  color:var(--muted);font-size:10px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;
+}
+.argosdex-branch strong{font-size:14px;color:var(--muted)}
+.argosdex-branch.located{
+  background:var(--soft);border-color:rgba(138,0,92,.22);
+}
+.argosdex-branch.located strong{color:var(--renfe)}
+.argosdex-branch.invalid{
+  background:#fff4f4;border-color:rgba(170,30,30,.18);
+}
+.argosdex-branch.invalid strong{color:#a22}
+.argosdex-exit{
+  width:100%;height:50px;margin-top:9px;border:1px solid var(--line);
+  border-radius:15px;background:var(--card);color:var(--renfe);
+  font-weight:900;font-size:14px;
+}
+.argosdex-exit:active{transform:translateY(1px)}
+@media(max-width:600px){
+  .argosdex-branch{padding:13px 14px}
+  .argosdex-exit{height:50px}
+}
+</style>
+
 </head>
 
 <body>
@@ -796,7 +827,6 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
 </section>
 
 <section id="argosdex" class="screen argosdex-screen" aria-label="ArgosDex">
-  <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">CONSULTA</div><h2>ArgosDex</h2></div></div>
   <div class="argosdex-shell">
     <div class="argosdex-hero">
       <span class="argosdex-kicker">ARGOS · CONSULTA DE MATERIAL</span>
@@ -817,7 +847,14 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
           <span id="argosDexVehicleHint" class="argosdex-hint">Hasta 3 cifras.</span>
         </div>
       </div>
-      <button id="argosDexSearch" class="argosdex-button" type="button">⌕ Consultar rama</button>
+
+      <div id="argosDexBranch" class="argosdex-branch" role="status" aria-live="polite" aria-atomic="true">
+        <span class="argosdex-branch-label">Rama localizada</span>
+        <strong id="argosDexBranchValue">Introduce serie y vehículo</strong>
+      </div>
+
+      <button id="argosDexSearch" class="argosdex-button" type="button" disabled>⌕ Consultar rama</button>
+      <button id="argosDexExit" class="argosdex-exit" type="button">Salir</button>
       <div id="argosDexStatus" class="argosdex-status" role="status" aria-live="polite"></div>
     </div>
     <div id="argosDexResult" class="argosdex-card argosdex-result">
@@ -1162,6 +1199,9 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
   const seriesInput=$('argosDexSeries');
   const vehicleInput=$('argosDexVehicle');
   const searchButton=$('argosDexSearch');
+  const exitButton=$('argosDexExit');
+  const branchBox=$('argosDexBranch');
+  const branchValue=$('argosDexBranchValue');
   const status=$('argosDexStatus');
   const result=$('argosDexResult');
   const ficha=$('argosDexFicha');
@@ -1171,7 +1211,11 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
   const seriesHint=$('argosDexSeriesHint');
   const vehicleHint=$('argosDexVehicleHint');
 
-  if(!seriesInput||!vehicleInput||!searchButton)return;
+  if(!seriesInput||!vehicleInput||!searchButton||!branchBox||!branchValue)return;
+
+  let locatedBranch='';
+  let locatedVehicle='';
+  let validationTimer=null;
 
   const digits=v=>String(v??'').replace(/\D/g,'');
   const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -1187,6 +1231,14 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
     vehicleInput.placeholder=is453?'0000':'000';
     if(seriesHint)seriesHint.textContent='Hasta 3 cifras.';
     if(vehicleHint)vehicleHint.textContent=is453?'Serie 453: hasta 4 cifras en el vehículo.':'Hasta 3 cifras.';
+  }
+
+  function resetLocation(message='Introduce serie y vehículo'){
+    locatedBranch='';
+    locatedVehicle='';
+    searchButton.disabled=true;
+    branchBox.classList.remove('located','invalid');
+    branchValue.textContent=message;
   }
 
   function showStatus(message,type){
@@ -1206,159 +1258,195 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
   }
 
   /*
-   * ESTE ES EL PUNTO CLAVE:
-   * ArgosDex NO mantiene una segunda base de datos ni inventa una lógica
-   * paralela. Reutiliza los mismos campos de "Añadir servicio" y dispara
-   * sus mismos eventos. Así, la identificación de rama procede del mismo
-   * código que ya funciona en ARGOS.
+   * Reutiliza la misma identificación de rama que ARGOS usa en "Añadir servicio".
+   * No se guarda ningún servicio. Solo se rellenan temporalmente los campos
+   * existentes y se disparan sus eventos para que su lógica haga la identificación.
    */
-  function consultUsingExistingArgosLogic(series,vehicle){
+  function readBranchFromExistingArgos(series,vehicle){
     const realSeries=$('series');
     const realVehicle=$('vehicle');
     const realBranchBox=$('branchBox');
     const realBranchValue=$('branchValue');
-    const viewFicha=$('viewFichaFromForm');
-    const fichaContent=$('fichaContent');
 
-    if(!realSeries||!realVehicle){
-      throw new Error('No están disponibles los campos de material de ARGOS.');
+    if(!realSeries||!realVehicle||!realBranchValue){
+      return {branch:'',found:false};
     }
 
     const previous={
       series:realSeries.value,
       vehicle:realVehicle.value,
-      branchBoxClass:realBranchBox?realBranchBox.className:'',
-      branchValue:realBranchValue?realBranchValue.textContent:'',
-      ficha: fichaContent?fichaContent.innerHTML:''
+      boxClass:realBranchBox?realBranchBox.className:'',
+      branch:realBranchValue.textContent
     };
 
     realSeries.value=series;
     realVehicle.value=vehicle;
 
-    // Reproducimos exactamente la interacción del formulario existente.
     realSeries.dispatchEvent(new Event('input',{bubbles:true}));
     realSeries.dispatchEvent(new Event('change',{bubbles:true}));
     realVehicle.dispatchEvent(new Event('input',{bubbles:true}));
     realVehicle.dispatchEvent(new Event('change',{bubbles:true}));
 
-    const readBranch=()=>{
-      const value=String(realBranchValue?.textContent||'').trim();
-      const visible=!!(realBranchBox && realBranchBox.classList.contains('visible'));
-      return visible && value ? value : value;
-    };
+    const branch=String(realBranchValue.textContent||'').trim();
 
-    const branch=readBranch();
-
-    // Si "Ver ficha" está implementado por la lógica actual de ARGOS,
-    // la usamos para obtener exactamente la misma ficha que ya funciona.
-    let fichaHtml='';
-    if(viewFicha){
-      try{
-        viewFicha.click();
-        fichaHtml=String(fichaContent?.innerHTML||'').trim();
-      }catch(e){
-        console.warn('ARGOSDEX: no se pudo reutilizar Ver ficha',e);
-      }
-    }
-
-    // Recuperamos el estado previo del formulario para que ArgosDex sea
-    // completamente independiente y no altere Añadir servicio.
+    // Restaurar inmediatamente los campos del formulario real.
     realSeries.value=previous.series;
     realVehicle.value=previous.vehicle;
-    if(realBranchBox)realBranchBox.className=previous.branchBoxClass;
-    if(realBranchValue)realBranchValue.textContent=previous.branchValue;
+    if(realBranchBox)realBranchBox.className=previous.boxClass;
+    realBranchValue.textContent=previous.branch;
 
-    return {branch,fichaHtml};
+    return {branch,found:!!branch};
   }
 
-  function renderFallback(series,vehicle,branch){
-    return `
-      <div class="ficha-hero">
-        <div class="ficha-kicker">MATERIAL RENFE</div>
-        <h3>Serie ${esc(series)} · Rama ${esc(branch)}</h3>
-        <p>Vehículo ${esc(vehicle)} · Consulta sin registro de servicio</p>
-      </div>
-      <div class="ficha-section">
-        <div class="ficha-section-title">IDENTIFICACIÓN</div>
-        <div class="ficha-grid">
-          <div><span>Serie</span><strong>${esc(series)}</strong></div>
-          <div><span>Vehículo</span><strong>${esc(vehicle)}</strong></div>
-          <div><span>Rama</span><strong>${esc(branch)}</strong></div>
-        </div>
-      </div>`;
-  }
+  function validateMaterial(){
+    clearTimeout(validationTimer);
 
-  function consult(){
     const series=digits(seriesInput.value).slice(0,3);
     const vehicle=digits(vehicleInput.value);
     seriesInput.value=series;
     setLimits();
 
-    if(!series){
-      showStatus('Introduce una serie para comenzar la consulta.','error');
-      seriesInput.focus();
+    resetLocation('Buscando vehículo…');
+    hideStatus();
+
+    if(!series || !vehicle){
+      resetLocation('Introduce serie y vehículo');
       return;
     }
 
     const max=series==='453'?4:3;
-    if(!vehicle){
-      showStatus('Introduce el vehículo que quieres consultar.','error');
-      vehicleInput.focus();
+    if(vehicle.length<1){
+      resetLocation('Introduce el vehículo');
       return;
     }
 
     if(vehicle.length>max){
-      showStatus('El vehículo admite un máximo de '+max+' cifras para esta serie.','error');
       vehicleInput.value=vehicle.slice(0,max);
+      resetLocation('Máximo '+max+' cifras para esta serie');
+      return;
+    }
+
+    validationTimer=setTimeout(()=>{
+      const found=readBranchFromExistingArgos(series,vehicle);
+
+      if(found.found){
+        locatedBranch=found.branch;
+        locatedVehicle=vehicle;
+        branchBox.classList.add('located');
+        branchBox.classList.remove('invalid');
+        branchValue.textContent='Rama '+found.branch;
+        searchButton.disabled=false;
+      }else{
+        resetLocation('Vehículo no localizado');
+        branchBox.classList.add('invalid');
+        showStatus(
+          'Ese vehículo no existe para la serie indicada. Corrige los datos antes de consultar.',
+          'error'
+        );
+      }
+    },60);
+  }
+
+  function consult(){
+    const series=digits(seriesInput.value).slice(0,3);
+    const vehicle=digits(vehicleInput.value);
+
+    if(!locatedBranch || locatedVehicle!==vehicle || searchButton.disabled){
+      showStatus('Primero introduce un vehículo válido y espera a que aparezca la rama localizada.','error');
       return;
     }
 
     hideStatus();
-    resetResult();
     searchButton.disabled=true;
     searchButton.textContent='Consultando…';
 
     try{
-      const found=consultUsingExistingArgosLogic(series,vehicle);
-      const branch=String(found.branch||'').trim();
+      // Volvemos a pedir la ficha mediante la lógica existente de ARGOS.
+      // "Ver ficha" sigue siendo solo lectura; no se pulsa Guardar.
+      const realSeries=$('series');
+      const realVehicle=$('vehicle');
+      const viewFicha=$('viewFichaFromForm');
+      const fichaContent=$('fichaContent');
 
-      if(!branch){
-        showStatus(
-          'No se ha podido identificar la rama con la misma lógica de Añadir servicio. Comprueba la serie y el vehículo.',
-          'error'
-        );
-        return;
+      let html='';
+
+      if(realSeries&&realVehicle){
+        const prevSeries=realSeries.value;
+        const prevVehicle=realVehicle.value;
+
+        realSeries.value=series;
+        realVehicle.value=vehicle;
+        realSeries.dispatchEvent(new Event('input',{bubbles:true}));
+        realVehicle.dispatchEvent(new Event('input',{bubbles:true}));
+
+        if(viewFicha){
+          try{
+            viewFicha.click();
+            html=String(fichaContent?.innerHTML||'').trim();
+          }catch(e){
+            console.warn('ARGOSDEX: Ver ficha no disponible',e);
+          }
+        }
+
+        realSeries.value=prevSeries;
+        realVehicle.value=prevVehicle;
       }
 
-      title.textContent='Serie '+series+' · Rama '+branch;
+      title.textContent='Serie '+series+' · Rama '+locatedBranch;
       sub.textContent='Vehículo '+vehicle+' · Consulta sin registro de servicio';
-      badge.textContent='RAMA '+branch;
+      badge.textContent='RAMA '+locatedBranch;
 
-      ficha.innerHTML=found.fichaHtml || renderFallback(series,vehicle,branch);
+      if(html){
+        ficha.innerHTML=html;
+      }else{
+        ficha.innerHTML=`
+          <div class="ficha-hero">
+            <div class="ficha-kicker">MATERIAL RENFE</div>
+            <h3>Serie ${esc(series)} · Rama ${esc(locatedBranch)}</h3>
+            <p>Vehículo ${esc(vehicle)} · Consulta sin registro de servicio</p>
+          </div>
+          <div class="ficha-section">
+            <div class="ficha-section-title">IDENTIFICACIÓN</div>
+            <div class="ficha-grid">
+              <div><span>Serie</span><strong>${esc(series)}</strong></div>
+              <div><span>Vehículo</span><strong>${esc(vehicle)}</strong></div>
+              <div><span>Rama</span><strong>${esc(locatedBranch)}</strong></div>
+            </div>
+          </div>`;
+      }
+
       result.classList.add('show');
       result.scrollIntoView({behavior:'smooth',block:'start'});
 
+      // Tras consultar, limpiar los campos como pidió el usuario.
+      seriesInput.value='';
+      vehicleInput.value='';
+      setLimits();
+      resetLocation('Nueva consulta');
+      hideStatus();
+
     }catch(error){
       console.error('ARGOSDEX:',error);
-      showStatus(
-        'No se ha podido realizar la consulta. La base de material de ARGOS no ha sido modificada.',
-        'error'
-      );
+      showStatus('No se ha podido realizar la consulta. No se ha guardado ni modificado ningún dato.','error');
     }finally{
-      searchButton.disabled=false;
       searchButton.textContent='⌕ Consultar rama';
+      // Queda desactivado porque los campos se han limpiado.
+      searchButton.disabled=true;
     }
   }
 
-  seriesInput.addEventListener('input',()=>{
-    seriesInput.value=digits(seriesInput.value).slice(0,3);
+  function exit(){
+    resetResult();
+    hideStatus();
+    seriesInput.value='';
+    vehicleInput.value='';
+    resetLocation('Introduce serie y vehículo');
     setLimits();
-  });
+    showScreen('menu');
+  }
 
-  vehicleInput.addEventListener('input',()=>{
-    setLimits();
-    vehicleInput.value=digits(vehicleInput.value).slice(0,vehicleInput.maxLength);
-  });
+  seriesInput.addEventListener('input',validateMaterial);
+  vehicleInput.addEventListener('input',validateMaterial);
 
   seriesInput.addEventListener('keydown',e=>{
     if(e.key==='Enter'){
@@ -1370,31 +1458,37 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
   vehicleInput.addEventListener('keydown',e=>{
     if(e.key==='Enter'){
       e.preventDefault();
-      consult();
+      if(!searchButton.disabled)consult();
     }
   });
 
   searchButton.addEventListener('click',consult);
+  exitButton?.addEventListener('click',exit);
 
   $('argosDexNewSearch')?.addEventListener('click',()=>{
     resetResult();
     hideStatus();
-    vehicleInput.value='';
     seriesInput.value='';
+    vehicleInput.value='';
+    resetLocation('Introduce serie y vehículo');
     setLimits();
-    seriesInput.focus();
   });
 
   setLimits();
+  resetLocation();
 
+  // IMPORTANTE: no hacemos focus() al entrar.
+  // En móvil el teclado solo aparecerá cuando el usuario toque un campo.
   const oldShow=window.showScreen;
   window.showScreen=function(id){
     if(typeof oldShow==='function')oldShow(id);
     if(id==='argosdex'){
       resetResult();
       hideStatus();
+      seriesInput.value='';
+      vehicleInput.value='';
       setLimits();
-      setTimeout(()=>seriesInput.focus(),80);
+      resetLocation();
     }
   };
 })();
