@@ -3058,11 +3058,14 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   }
 
   function init(){
+    // The existing ARGOS HTML uses originList/destinationList.
+    // Clone the inputs first so the old autocomplete listeners are removed,
+    // then attach this single, complete station engine to the real lists.
     replaceInput("origin");
     replaceInput("destination");
 
-    setup("origin","originSuggestions");
-    setup("destination","destinationSuggestions");
+    setup("origin","originList");
+    setup("destination","destinationList");
   }
 
   if(document.readyState==="loading"){
