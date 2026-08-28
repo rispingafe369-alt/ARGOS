@@ -649,6 +649,80 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
 }
 </style>
 
+
+<style id="argos-branch-v4-css">
+/* Rama editable: ARGOS / ArgosDex */
+#new-service .branch-box{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  justify-content:flex-start;
+  gap:7px;
+}
+#new-service .branch-box-input{
+  width:100%;
+  box-sizing:border-box;
+  min-height:48px;
+  border:1px solid rgba(138,0,92,.18);
+  border-radius:13px;
+  background:var(--card);
+  color:var(--ink);
+  padding:11px 13px;
+  font-size:18px;
+  font-weight:900;
+  outline:none;
+}
+#new-service .branch-box-input:focus{
+  border-color:var(--renfe);
+  box-shadow:0 0 0 3px rgba(138,0,92,.10);
+}
+#new-service .branch-box-input.manual{
+  background:var(--card);
+}
+#new-service .branch-mode-hint{
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.35;
+}
+.argosdex-branch{
+  align-items:stretch!important;
+}
+.argosdex-branch-input{
+  width:100%;
+  box-sizing:border-box;
+  min-height:48px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:var(--page);
+  color:var(--text);
+  padding:11px 13px;
+  font-size:20px;
+  font-weight:900;
+  text-align:center;
+  outline:none;
+}
+.argosdex-branch-input:focus{
+  border-color:var(--renfe);
+  box-shadow:0 0 0 3px rgba(138,0,92,.10);
+}
+.argosdex-branch-input.located{
+  border-color:rgba(138,0,92,.25);
+  background:var(--soft);
+}
+.argosdex-branch-hint{
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.35;
+}
+.argosdex-branch strong{
+  padding-top:2px;
+}
+@media(max-width:600px){
+  #new-service .branch-box-input,
+  .argosdex-branch-input{min-height:50px;font-size:19px}
+}
+</style>
+
 </head>
 
 <body>
@@ -736,8 +810,10 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
     </div>
 
     <div id="branchBox" class="branch-box" aria-live="polite">
-      <span class="branch-box-label">Rama identificada</span>
-      <strong id="branchValue" class="branch-box-value"></strong>
+      <label class="branch-box-label" for="branchValue">Rama</label>
+      <input id="branchValue" class="branch-box-input" type="tel" inputmode="numeric"
+             pattern="[0-9]*" maxlength="3" autocomplete="off" placeholder="Automática / escribe rama">
+      <span id="branchModeHint" class="branch-mode-hint">Se detecta automáticamente al introducir el vehículo · también puedes escribirla directamente.</span>
     </div>
 
     <div class="form-group">
@@ -831,7 +907,7 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
     <div class="argosdex-hero">
       <span class="argosdex-kicker">ARGOS · CONSULTA DE MATERIAL</span>
       <h3>ArgosDex</h3>
-      <p>Consulta directamente una rama del material sin registrar ningún servicio. Introduce la serie y el vehículo para abrir su información.</p>
+      <p>Consulta directamente una rama del material sin registrar ningún servicio. Puedes localizarla por vehículo o escribir directamente la rama.</p>
     </div>
     <div class="argosdex-card">
       <div class="argosdex-card-title">IDENTIFICACIÓN DEL MATERIAL</div>
@@ -848,9 +924,14 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
         </div>
       </div>
 
-      <div id="argosDexBranch" class="argosdex-branch" role="status" aria-live="polite" aria-atomic="true">
-        <span class="argosdex-branch-label">Rama localizada</span>
-        <strong id="argosDexBranchValue">Introduce serie y vehículo</strong>
+      <div id="argosDexBranch" class="argosdex-branch" aria-live="polite">
+        <label class="argosdex-branch-label" for="argosDexBranchInput">Rama</label>
+        <input id="argosDexBranchInput" class="argosdex-branch-input" type="tel"
+               inputmode="numeric" pattern="[0-9]*" maxlength="3"
+               autocomplete="off" placeholder="000"
+               aria-describedby="argosDexBranchHint">
+        <span id="argosDexBranchHint" class="argosdex-branch-hint">Puedes escribir la rama directamente.</span>
+        <strong id="argosDexBranchValue">Introduce serie y vehículo, o escribe una rama</strong>
       </div>
 
       <button id="argosDexSearch" class="argosdex-button" type="button" disabled>⌕ Consultar rama</button>
@@ -1198,6 +1279,7 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
   const $=id=>document.getElementById(id);
   const seriesInput=$('argosDexSeries');
   const vehicleInput=$('argosDexVehicle');
+  const branchInput=$('argosDexBranchInput');
   const searchButton=$('argosDexSearch');
   const exitButton=$('argosDexExit');
   const branchBox=$('argosDexBranch');
@@ -1211,11 +1293,11 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
   const seriesHint=$('argosDexSeriesHint');
   const vehicleHint=$('argosDexVehicleHint');
 
-  if(!seriesInput||!vehicleInput||!searchButton||!branchBox||!branchValue)return;
+  if(!seriesInput||!vehicleInput||!branchInput||!searchButton||!branchBox)return;
 
   let locatedBranch='';
   let locatedVehicle='';
-  let validationTimer=null;
+  let locatedBy='';
 
   const digits=v=>String(v??'').replace(/\D/g,'');
   const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -1229,15 +1311,18 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
     vehicleInput.setAttribute('maxlength',String(max));
     vehicleInput.value=digits(vehicleInput.value).slice(0,max);
     vehicleInput.placeholder=is453?'0000':'000';
+    branchInput.value=digits(branchInput.value).slice(0,3);
     if(seriesHint)seriesHint.textContent='Hasta 3 cifras.';
     if(vehicleHint)vehicleHint.textContent=is453?'Serie 453: hasta 4 cifras en el vehículo.':'Hasta 3 cifras.';
   }
 
-  function resetLocation(message='Introduce serie y vehículo'){
+  function resetLocation(message='Introduce serie y vehículo, o escribe una rama'){
     locatedBranch='';
     locatedVehicle='';
+    locatedBy='';
     searchButton.disabled=true;
     branchBox.classList.remove('located','invalid');
+    branchInput.classList.remove('located');
     branchValue.textContent=message;
   }
 
@@ -1257,26 +1342,19 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
     badge.textContent='CONSULTA';
   }
 
-  /*
-   * Reutiliza la misma identificación de rama que ARGOS usa en "Añadir servicio".
-   * No se guarda ningún servicio. Solo se rellenan temporalmente los campos
-   * existentes y se disparan sus eventos para que su lógica haga la identificación.
-   */
   function readBranchFromExistingArgos(series,vehicle){
     const realSeries=$('series');
     const realVehicle=$('vehicle');
     const realBranchBox=$('branchBox');
     const realBranchValue=$('branchValue');
 
-    if(!realSeries||!realVehicle||!realBranchValue){
-      return {branch:'',found:false};
-    }
+    if(!realSeries||!realVehicle||!realBranchValue)return {branch:'',found:false};
 
     const previous={
       series:realSeries.value,
       vehicle:realVehicle.value,
       boxClass:realBranchBox?realBranchBox.className:'',
-      branch:realBranchValue.textContent
+      branch:realBranchValue.value
     };
 
     realSeries.value=series;
@@ -1287,72 +1365,108 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
     realVehicle.dispatchEvent(new Event('input',{bubbles:true}));
     realVehicle.dispatchEvent(new Event('change',{bubbles:true}));
 
-    const branch=String(realBranchValue.textContent||'').trim();
+    const branch=String(realBranchValue.value||'').trim();
 
-    // Restaurar inmediatamente los campos del formulario real.
     realSeries.value=previous.series;
     realVehicle.value=previous.vehicle;
     if(realBranchBox)realBranchBox.className=previous.boxClass;
-    realBranchValue.textContent=previous.branch;
+    realBranchValue.value=previous.branch;
 
     return {branch,found:!!branch};
   }
 
-  function validateMaterial(){
-    clearTimeout(validationTimer);
+  function findBranchDirect(series,branch){
+    const s=digits(series);
+    const b=digits(branch);
+    if(!s||!b)return null;
 
+    // Reutiliza la flota global que ya utiliza ARGOS. No crea ni modifica datos.
+    try{
+      const data=(typeof fleet!=='undefined') ? fleet[s] : null;
+      const units=data?.units||{};
+      for(const [key,unit] of Object.entries(units)){
+        if(String(unit?.rama??'').replace(/\D/g,'')===b){
+          return {branch:String(unit.rama),vehicle:String(unit.vehiculoBase||key),record:unit};
+        }
+      }
+    }catch(e){
+      console.warn('ARGOSDEX: no se pudo consultar fleet directamente',e);
+    }
+    return null;
+  }
+
+  function validateMaterial(){
     const series=digits(seriesInput.value).slice(0,3);
     const vehicle=digits(vehicleInput.value);
+    const manualBranch=digits(branchInput.value).slice(0,3);
+
     seriesInput.value=series;
     setLimits();
 
-    resetLocation('Buscando vehículo…');
-    hideStatus();
+    // Rama manual tiene prioridad. Es la alternativa a introducir vehículo.
+    if(manualBranch){
+      const direct=findBranchDirect(series,manualBranch);
+      if(direct){
+        locatedBranch=direct.branch;
+        locatedVehicle='';
+        locatedBy='branch';
+        branchBox.classList.add('located');
+        branchBox.classList.remove('invalid');
+        branchInput.classList.add('located');
+        branchValue.textContent='Rama '+direct.branch+' localizada';
+        searchButton.disabled=false;
+        hideStatus();
+        return;
+      }
+
+      resetLocation('Rama no localizada');
+      branchBox.classList.add('invalid');
+      showStatus('No existe esa rama para la serie indicada. Corrige la rama antes de consultar.','error');
+      return;
+    }
+
+    branchInput.classList.remove('located');
 
     if(!series || !vehicle){
-      resetLocation('Introduce serie y vehículo');
+      resetLocation('Introduce serie y vehículo, o escribe una rama');
+      hideStatus();
       return;
     }
 
     const max=series==='453'?4:3;
-    if(vehicle.length<1){
-      resetLocation('Introduce el vehículo');
-      return;
-    }
-
     if(vehicle.length>max){
       vehicleInput.value=vehicle.slice(0,max);
       resetLocation('Máximo '+max+' cifras para esta serie');
       return;
     }
 
-    validationTimer=setTimeout(()=>{
-      const found=readBranchFromExistingArgos(series,vehicle);
+    const found=readBranchFromExistingArgos(series,vehicle);
 
-      if(found.found){
-        locatedBranch=found.branch;
-        locatedVehicle=vehicle;
-        branchBox.classList.add('located');
-        branchBox.classList.remove('invalid');
-        branchValue.textContent='Rama '+found.branch;
-        searchButton.disabled=false;
-      }else{
-        resetLocation('Vehículo no localizado');
-        branchBox.classList.add('invalid');
-        showStatus(
-          'Ese vehículo no existe para la serie indicada. Corrige los datos antes de consultar.',
-          'error'
-        );
-      }
-    },60);
+    if(found.found){
+      locatedBranch=found.branch;
+      locatedVehicle=vehicle;
+      locatedBy='vehicle';
+      branchBox.classList.add('located');
+      branchBox.classList.remove('invalid');
+      branchInput.classList.add('located');
+      branchInput.value=digits(found.branch).slice(0,3);
+      branchValue.textContent='Rama '+found.branch+' localizada';
+      searchButton.disabled=false;
+      hideStatus();
+    }else{
+      resetLocation('Vehículo no localizado');
+      branchBox.classList.add('invalid');
+      showStatus('Ese vehículo no existe para la serie indicada. Corrige los datos o escribe directamente una rama válida.','error');
+    }
   }
 
   function consult(){
     const series=digits(seriesInput.value).slice(0,3);
     const vehicle=digits(vehicleInput.value);
+    const manualBranch=digits(branchInput.value).slice(0,3);
 
-    if(!locatedBranch || locatedVehicle!==vehicle || searchButton.disabled){
-      showStatus('Primero introduce un vehículo válido y espera a que aparezca la rama localizada.','error');
+    if(!locatedBranch||searchButton.disabled){
+      showStatus('Introduce un vehículo válido o una rama válida antes de consultar.','error');
       return;
     }
 
@@ -1361,21 +1475,31 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
     searchButton.textContent='Consultando…';
 
     try{
-      // Volvemos a pedir la ficha mediante la lógica existente de ARGOS.
-      // "Ver ficha" sigue siendo solo lectura; no se pulsa Guardar.
+      let html='';
+      let effectiveVehicle=locatedVehicle||'';
+
+      // Si se ha escrito una rama directamente, buscamos su unidad real para
+      // poder abrir la ficha existente de esa rama.
+      if(locatedBy==='branch'){
+        const direct=findBranchDirect(series,manualBranch);
+        if(!direct){
+          showStatus('No se ha encontrado la rama indicada.','error');
+          return;
+        }
+        effectiveVehicle=direct.vehicle;
+      }
+
       const realSeries=$('series');
       const realVehicle=$('vehicle');
       const viewFicha=$('viewFichaFromForm');
       const fichaContent=$('fichaContent');
-
-      let html='';
 
       if(realSeries&&realVehicle){
         const prevSeries=realSeries.value;
         const prevVehicle=realVehicle.value;
 
         realSeries.value=series;
-        realVehicle.value=vehicle;
+        realVehicle.value=effectiveVehicle;
         realSeries.dispatchEvent(new Event('input',{bubbles:true}));
         realVehicle.dispatchEvent(new Event('input',{bubbles:true}));
 
@@ -1383,9 +1507,7 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
           try{
             viewFicha.click();
             html=String(fichaContent?.innerHTML||'').trim();
-          }catch(e){
-            console.warn('ARGOSDEX: Ver ficha no disponible',e);
-          }
+          }catch(e){ console.warn('ARGOSDEX: Ver ficha no disponible',e); }
         }
 
         realSeries.value=prevSeries;
@@ -1393,34 +1515,34 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
       }
 
       title.textContent='Serie '+series+' · Rama '+locatedBranch;
-      sub.textContent='Vehículo '+vehicle+' · Consulta sin registro de servicio';
+      sub.textContent=effectiveVehicle
+        ? 'Vehículo '+effectiveVehicle+' · Consulta sin registro de servicio'
+        : 'Consulta por rama · Sin registro de servicio';
       badge.textContent='RAMA '+locatedBranch;
 
-      if(html){
-        ficha.innerHTML=html;
-      }else{
-        ficha.innerHTML=`
-          <div class="ficha-hero">
-            <div class="ficha-kicker">MATERIAL RENFE</div>
-            <h3>Serie ${esc(series)} · Rama ${esc(locatedBranch)}</h3>
-            <p>Vehículo ${esc(vehicle)} · Consulta sin registro de servicio</p>
+      if(html) ficha.innerHTML=html;
+      else ficha.innerHTML=`
+        <div class="ficha-hero">
+          <div class="ficha-kicker">MATERIAL RENFE</div>
+          <h3>Serie ${esc(series)} · Rama ${esc(locatedBranch)}</h3>
+          <p>${effectiveVehicle?'Vehículo '+esc(effectiveVehicle)+' · ':''}Consulta sin registro de servicio</p>
+        </div>
+        <div class="ficha-section">
+          <div class="ficha-section-title">IDENTIFICACIÓN</div>
+          <div class="ficha-grid">
+            <div><span>Serie</span><strong>${esc(series)}</strong></div>
+            <div><span>Vehículo</span><strong>${effectiveVehicle?esc(effectiveVehicle):'No necesario'}</strong></div>
+            <div><span>Rama</span><strong>${esc(locatedBranch)}</strong></div>
           </div>
-          <div class="ficha-section">
-            <div class="ficha-section-title">IDENTIFICACIÓN</div>
-            <div class="ficha-grid">
-              <div><span>Serie</span><strong>${esc(series)}</strong></div>
-              <div><span>Vehículo</span><strong>${esc(vehicle)}</strong></div>
-              <div><span>Rama</span><strong>${esc(locatedBranch)}</strong></div>
-            </div>
-          </div>`;
-      }
+        </div>`;
 
       result.classList.add('show');
       result.scrollIntoView({behavior:'smooth',block:'start'});
 
-      // Tras consultar, limpiar los campos como pidió el usuario.
+      // Nueva consulta limpia.
       seriesInput.value='';
       vehicleInput.value='';
+      branchInput.value='';
       setLimits();
       resetLocation('Nueva consulta');
       hideStatus();
@@ -1430,7 +1552,6 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
       showStatus('No se ha podido realizar la consulta. No se ha guardado ni modificado ningún dato.','error');
     }finally{
       searchButton.textContent='⌕ Consultar rama';
-      // Queda desactivado porque los campos se han limpiado.
       searchButton.disabled=true;
     }
   }
@@ -1440,55 +1561,60 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
     hideStatus();
     seriesInput.value='';
     vehicleInput.value='';
-    resetLocation('Introduce serie y vehículo');
+    branchInput.value='';
     setLimits();
+    resetLocation();
     showScreen('menu');
   }
 
   seriesInput.addEventListener('input',validateMaterial);
-  vehicleInput.addEventListener('input',validateMaterial);
-
-  seriesInput.addEventListener('keydown',e=>{
-    if(e.key==='Enter'){
-      e.preventDefault();
-      vehicleInput.focus();
+  vehicleInput.addEventListener('input',()=>{
+    // Al escribir vehículo, borramos la rama manual para volver al modo automático.
+    if(branchInput.value){
+      branchInput.value='';
+      branchInput.classList.remove('located');
     }
+    validateMaterial();
+  });
+  branchInput.addEventListener('input',()=>{
+    branchInput.value=digits(branchInput.value).slice(0,3);
+    // Rama manual sustituye al vehículo.
+    if(branchInput.value){
+      vehicleInput.value='';
+    }
+    validateMaterial();
   });
 
+  seriesInput.addEventListener('keydown',e=>{
+    if(e.key==='Enter'){e.preventDefault();vehicleInput.focus();}
+  });
   vehicleInput.addEventListener('keydown',e=>{
-    if(e.key==='Enter'){
-      e.preventDefault();
-      if(!searchButton.disabled)consult();
-    }
+    if(e.key==='Enter'){e.preventDefault();if(!searchButton.disabled)consult();}
+  });
+  branchInput.addEventListener('keydown',e=>{
+    if(e.key==='Enter'){e.preventDefault();if(!searchButton.disabled)consult();}
   });
 
   searchButton.addEventListener('click',consult);
   exitButton?.addEventListener('click',exit);
 
   $('argosDexNewSearch')?.addEventListener('click',()=>{
-    resetResult();
-    hideStatus();
-    seriesInput.value='';
-    vehicleInput.value='';
-    resetLocation('Introduce serie y vehículo');
-    setLimits();
+    resetResult();hideStatus();
+    seriesInput.value='';vehicleInput.value='';branchInput.value='';
+    setLimits();resetLocation();
   });
 
   setLimits();
   resetLocation();
 
-  // IMPORTANTE: no hacemos focus() al entrar.
-  // En móvil el teclado solo aparecerá cuando el usuario toque un campo.
+  // No focus automático: el teclado móvil solo aparece cuando el usuario toca un campo.
   const oldShow=window.showScreen;
   window.showScreen=function(id){
     if(typeof oldShow==='function')oldShow(id);
     if(id==='argosdex'){
-      resetResult();
-      hideStatus();
-      seriesInput.value='';
-      vehicleInput.value='';
-      setLimits();
-      resetLocation();
+      resetResult();hideStatus();
+      seriesInput.value='';vehicleInput.value='';branchInput.value='';
+      setLimits();resetLocation();
     }
   };
 })();
@@ -1523,5 +1649,210 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
   window.addEventListener("storage",render);document.addEventListener("DOMContentLoaded",boot);const oldShow=window.showScreen;window.showScreen=function(id){if(typeof oldShow==="function")oldShow(id);if(id==="stats")setTimeout(render,0)};
 })();
 </script>
+
+<script id="argos-branch-manual-registration">
+(function(){
+  'use strict';
+
+  /*
+   * Extensión de Registro:
+   * - El vehículo sigue siendo el camino automático habitual.
+   * - La misma casilla Rama permite introducirla manualmente.
+   * - Si hay rama manual, el vehículo deja de ser obligatorio.
+   * - No modifica fleet ni la base de material.
+   * - Interceptamos el submit en captura para no ejecutar el guardado antiguo
+   *   antes de aplicar la rama manual.
+   */
+  document.addEventListener('DOMContentLoaded',function(){
+    const form=document.getElementById('serviceForm');
+    const series=document.getElementById('series');
+    const vehicle=document.getElementById('vehicle');
+    const branch=document.getElementById('branchValue');
+    const box=document.getElementById('branchBox');
+    const hint=document.getElementById('branchModeHint');
+    if(!form||!series||!vehicle||!branch)return;
+
+    const digits=v=>String(v??'').replace(/\D/g,'');
+    let manual=false;
+
+    function setBranchManualUI(){
+      const b=digits(branch.value).slice(0,3);
+      branch.value=b;
+      manual=!!b;
+      vehicle.required=!manual;
+      if(manual){
+        vehicle.value='';
+        branch.classList.add('manual');
+        if(box)box.classList.add('visible');
+        if(hint)hint.textContent='Rama introducida manualmente · no es necesario indicar vehículo.';
+        validateManualBranch();
+      }else{
+        branch.classList.remove('manual');
+        if(hint)hint.textContent='Se detecta automáticamente al introducir el vehículo · también puedes escribirla directamente.';
+        automaticBranch();
+      }
+    }
+
+    function findBranchUnit(seriesValue,branchValue){
+      try{
+        const s=digits(seriesValue);
+        const b=digits(branchValue);
+        const data=(typeof fleet!=='undefined')?fleet[s]:null;
+        const units=data?.units||{};
+        for(const [key,unit] of Object.entries(units)){
+          if(digits(unit?.rama)===b){
+            return {branch:String(unit.rama),vehicle:String(unit.vehiculoBase||key)};
+          }
+        }
+      }catch(e){}
+      return null;
+    }
+
+    // Sustituimos únicamente la función de presentación de rama del formulario.
+    // La lógica de getFleetUnit/fleet sigue siendo la original.
+    window.updateBranchBox=function(){
+      const s=series.value.trim();
+      const v=vehicle.value.trim();
+      if(manual)return;
+      let unit=null;
+      try{
+        if(typeof getFleetUnit==='function')unit=getFleetUnit(s,v);
+      }catch(e){}
+      if(unit){
+        branch.value=String(unit.rama);
+        branch.classList.remove('manual');
+        if(box)box.classList.add('visible');
+        if(hint)hint.textContent='Rama detectada automáticamente · puedes modificarla manualmente.';
+      }else{
+        branch.value='';
+        branch.classList.remove('manual');
+        if(box)box.classList.remove('visible');
+        if(hint)hint.textContent='Se detecta automáticamente al introducir el vehículo · también puedes escribirla directamente.';
+      }
+    };
+
+    function automaticBranch(){
+      if(manual)return;
+      if(typeof window.updateBranchBox==='function')window.updateBranchBox();
+    }
+
+    function validateManualBranch(){
+      if(!manual)return;
+      const found=findBranchUnit(series.value,branch.value);
+      if(found){
+        if(box)box.classList.add('visible');
+        branch.classList.add('manual');
+        if(hint)hint.textContent='Rama introducida manualmente · no es necesario indicar vehículo.';
+      }else{
+        if(box)box.classList.add('visible');
+        branch.classList.add('manual');
+        if(hint)hint.textContent='Rama no encontrada para esta serie.';
+      }
+    }
+
+    branch.addEventListener('input',setBranchManualUI);
+
+    vehicle.addEventListener('input',function(){
+      if(manual && digits(this.value)){
+        manual=false;
+        branch.value='';
+        branch.classList.remove('manual');
+        vehicle.required=true;
+        if(hint)hint.textContent='Se detecta automáticamente al introducir el vehículo · también puedes escribirla directamente.';
+      }
+      setTimeout(automaticBranch,0);
+    });
+
+    series.addEventListener('input',function(){
+      if(manual) validateManualBranch();
+      else setTimeout(automaticBranch,0);
+    });
+
+    /*
+     * Capturamos el submit antes del listener original de app.js.
+     * Si no hay rama manual, dejamos pasar el funcionamiento original intacto.
+     */
+    document.addEventListener('submit',function(ev){
+      if(ev.target!==form || !manual)return;
+
+      ev.preventDefault();
+      ev.stopImmediatePropagation();
+
+      const train=document.getElementById('train')?.value.trim()||'';
+      const s=series.value.trim();
+      const b=digits(branch.value).slice(0,3);
+      const product=document.getElementById('product')?.value||'';
+      const origin=document.getElementById('origin')?.value.trim()||'';
+      const destination=document.getElementById('destination')?.value.trim()||'';
+      const date=document.getElementById('date')?.value||'';
+      const kilometres=document.getElementById('kilometres')?.value
+        ? Number(document.getElementById('kilometres').value||0):0;
+
+      if(!train && !document.getElementById('noTrainNumber')?.checked){
+        if(typeof toast==='function')toast('Introduce el número de tren');
+        return;
+      }
+      if(!s||!origin||!destination||!date||!b){
+        if(typeof toast==='function')toast('Completa los campos obligatorios');
+        return;
+      }
+
+      const validBranch=findBranchUnit(s,b);
+      if(!validBranch){
+        if(typeof toast==='function')toast('La rama indicada no existe para esta serie');
+        return;
+      }
+
+      const service={
+        id:Date.now().toString(36)+Math.random().toString(36).slice(2,8),
+        train:train,
+        series:s,
+        vehicle:'',
+        branch:b,
+        product:product,
+        origin:origin,
+        destination:destination,
+        date:date,
+        kilometres:kilometres,
+        notes:document.getElementById('notes')?.value.trim()||'',
+        notesEntries:typeof collectEntries==='function'?collectEntries('notesEntries'):[],
+        incidents:document.getElementById('incidents')?.value.trim()||'',
+        incidentsEntries:typeof collectEntries==='function'?collectEntries('incidentsEntries'):[],
+        createdAt:Date.now()
+      };
+
+      try{
+        const list=typeof services==='function'?services():[];
+        list.push(service);
+        if(typeof saveServices==='function')saveServices(list);
+
+        if(typeof clearFormExtras==='function')clearFormExtras();
+        form.reset();
+        manual=false;
+        vehicle.required=false;
+        if(document.getElementById('date'))document.getElementById('date').valueAsDate=new Date();
+        if(document.getElementById('product'))document.getElementById('product').selectedIndex=0;
+        if(document.getElementById('productSelectValue')){
+          document.getElementById('productSelectValue').textContent='Selecciona un producto';
+          document.getElementById('productSelectValue').classList.add('product-select-placeholder');
+        }
+        if(typeof refreshHome==='function')refreshHome();
+        if(typeof renderHistory==='function')renderHistory();
+        if(typeof renderStats==='function')renderStats();
+        if(typeof updateBranchBox==='function')updateBranchBox();
+        if(typeof toast==='function')toast('Servicio guardado');
+        if(typeof showScreen==='function')showScreen('menu');
+      }catch(error){
+        console.error('ARGOS · rama manual:',error);
+        if(typeof toast==='function')toast('No se ha podido guardar el servicio');
+      }
+    },true);
+
+    // Estado inicial: vehículo sigue siendo opcional como antes.
+    vehicle.required=false;
+  });
+})();
+</script>
+
 </body>
 </html>
