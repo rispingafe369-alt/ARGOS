@@ -2487,7 +2487,7 @@ function quarterData(a,year){
 function renderQuarterView(a){
   const y=currentYear();
   const qs=quarterData(a,y);
-  const qIndex=Math.max(0,Math.min(3,window.__argosQuarterIndex||0));
+  const defaultQuarter=Math.floor(new Date().getMonth()/3);const qIndex=Math.max(0,Math.min(3,window.__argosQuarterIndex??defaultQuarter));
   window.__argosQuarterIndex=qIndex;
   const names=["1.º trimestre","2.º trimestre","3.º trimestre","4.º trimestre"];
   const mons=[["Enero","Febrero","Marzo"],["Abril","Mayo","Junio"],["Julio","Agosto","Septiembre"],["Octubre","Noviembre","Diciembre"]];
@@ -2556,12 +2556,12 @@ $("statsFilterToggle")?.addEventListener("click",filterToggle);
 $("statsModalClose")?.addEventListener("click",modalClose);
 $("statsModal")?.addEventListener("click",e=>{if(e.target.id==="statsModal")modalClose()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")modalClose()});
-["statsYear","statsMonth","statsProduct","statsSeries"].forEach(id=>$(id)?.addEventListener("change",()=>{window.__argosQuarterIndex=0;updateBadge();setTimeout(()=>renderQuarterView(filtered()),0)}));
+["statsYear","statsMonth","statsProduct","statsSeries"].forEach(id=>$(id)?.addEventListener("change",()=>{window.__argosQuarterIndex=Math.floor(new Date().getMonth()/3);updateBadge();setTimeout(()=>renderQuarterView(filtered()),0)}));
 $("quarterPrev")?.addEventListener("click",()=>{window.__argosQuarterIndex=Math.max(0,(window.__argosQuarterIndex||0)-1);renderQuarterView(filtered())});
 $("quarterNext")?.addEventListener("click",()=>{window.__argosQuarterIndex=Math.min(3,(window.__argosQuarterIndex||0)+1);renderQuarterView(filtered())});
 const oldRender=window.renderStats;
 window.renderStats=function(){if(typeof oldRender==="function")oldRender();const a=filtered();renderQuarterView(a);updateBadge()};
-document.addEventListener("DOMContentLoaded",()=>{setTimeout(()=>{renderQuarterView(filtered());updateBadge()},50)});
+document.addEventListener("DOMContentLoaded",()=>{window.__argosQuarterIndex=Math.floor(new Date().getMonth()/3);setTimeout(()=>{renderQuarterView(filtered());updateBadge()},50)});
 window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered());updateBadge()},30));
 })();
 </script>
