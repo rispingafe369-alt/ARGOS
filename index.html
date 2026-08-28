@@ -1854,5 +1854,186 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
 })();
 </script>
 
+
+<script id="argos-history-branch-fix-v5">
+(function(){
+  'use strict';
+
+  /*
+   * V5 — Compatibilidad con servicios registrados escribiendo la rama.
+   *
+   * El historial antiguo abría la ficha con:
+   *   openFicha(service.series, service.vehicle, service)
+   *
+   * En un registro por rama, vehicle puede estar vacío. En ese caso buscamos
+   * la unidad de esa rama dentro de la misma flota y usamos su vehículo base
+   * únicamente para abrir la ficha. No se modifica la base de material.
+   */
+
+  const digits=v=>String(v??'').replace(/\D/g,'');
+  const normSeries=v=>digits(v).replace(/^0+/,'')||'';
+
+  function findUnitByBranch(series, branch){
+    const s=normSeries(series);
+    const b=digits(branch);
+    if(!s||!b)return null;
+
+    try{
+      if(typeof fleet==='undefined')return null;
+      const data=fleet[s];
+      const units=data?.units||{};
+
+      for(const [key,unit] of Object.entries(units)){
+        if(digits(unit?.rama)===b){
+          return {
+            unit,
+            vehicle:String(unit?.vehiculoBase||key||'')
+          };
+        }
+      }
+    }catch(e){
+      console.warn('ARGOS V5 · búsqueda de rama:',e);
+    }
+    return null;
+  }
+
+  function openServiceFicha(service){
+    if(!service)return;
+
+    const series=String(service.series||'').trim();
+    let vehicle=String(service.vehicle||'').trim();
+
+    // Camino normal: el registro ya tiene vehículo.
+    if(vehicle){
+      if(typeof openFicha==='function'){
+        openFicha(series,vehicle,service);
+      }
+      return;
+    }
+
+    // Camino nuevo: servicio registrado directamente por rama.
+    const found=findUnitByBranch(series,service.branch);
+    if(found?.vehicle){
+      if(typeof openFicha==='function'){
+        openFicha(series,found.vehicle,service);
+      }
+      return;
+    }
+
+    // Si la rama no existe en la flota, no bloqueamos el historial:
+    // mostramos la ficha de servicio mínima con los datos que sí existen.
+    const content=document.getElementById('fichaContent');
+    if(content){
+      const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({
+        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+      }[c]));
+      content.innerHTML=`
+        <div class="ficha-hero">
+          <div class="ficha-kicker">REGISTRO ARGOS</div>
+          <h3>Serie ${esc(series)} · Rama ${esc(service.branch||'—')}</h3>
+          <p>Ficha consultada desde el historial</p>
+        </div>
+        <div class="ficha-section">
+          <div class="ficha-section-title">IDENTIFICACIÓN</div>
+          <div class="ficha-grid">
+            <div><span>Serie</span><strong>${esc(series||'—')}</strong></div>
+            <div><span>Vehículo</span><strong>No indicado</strong></div>
+            <div><span>Rama</span><strong>${esc(service.branch||'—')}</strong></div>
+          </div>
+        </div>`;
+      if(typeof showScreen==='function')showScreen('ficha');
+    }
+  }
+
+  function renderHistoryBranchCompatible(){
+    const list=document.getElementById('historyList');
+    if(!list || typeof services!=='function')return;
+
+    const a=services().slice().reverse();
+
+    if(typeof card==='function'){
+      try{
+        list.innerHTML=a.length
+          ? a.map(card).join("")
+          : '<div class="empty">Todavía no hay servicios registrados.</div>';
+      }catch(e){
+        console.warn('ARGOS V5 · card original no disponible:',e);
+      }
+    }
+
+    // Reemplaza los listeners anteriores de las tarjetas.
+    list.querySelectorAll('[data-service-id]').forEach(el=>{
+      const replacement=el.cloneNode(true);
+      el.replaceWith(replacement);
+
+      const open=()=>{
+        const service=services().find(s=>s.id===replacement.dataset.serviceId);
+        if(service)openServiceFicha(service);
+      };
+
+      replacement.addEventListener('click',open);
+      replacement.addEventListener('keydown',e=>{
+        if(e.key==='Enter'||e.key===' '){
+          e.preventDefault();
+          open();
+        }
+      });
+    });
+  }
+
+  /*
+   * app.js expone renderHistory en window. Lo envolvemos después de cargar
+   * todos los scripts para que tanto los registros antiguos como los nuevos
+   * utilicen la misma lógica.
+   */
+  function install(){
+    if(typeof window.renderHistory==='function'){
+      window.renderHistory=renderHistoryBranchCompatible;
+    }
+
+    // "Ver ficha" desde Registrar servicio también acepta Rama manual.
+    const view=document.getElementById('viewFichaFromForm');
+    if(view){
+      const clone=view.cloneNode(true);
+      view.replaceWith(clone);
+
+      clone.addEventListener('click',()=>{
+        const series=document.getElementById('series')?.value.trim()||'';
+        const vehicle=document.getElementById('vehicle')?.value.trim()||'';
+        const branch=digits(document.getElementById('branchValue')?.value||'');
+
+        if(vehicle){
+          if(typeof openFicha==='function')openFicha(series,vehicle,null);
+          return;
+        }
+
+        if(series&&branch){
+          const found=findUnitByBranch(series,branch);
+          if(found?.vehicle){
+            if(typeof openFicha==='function'){
+              openFicha(series,found.vehicle,{series,vehicle:'',branch});
+            }
+          }else if(typeof toast==='function'){
+            toast('No se ha encontrado esa rama en la serie indicada');
+          }
+          return;
+        }
+
+        if(typeof toast==='function')toast('Introduce serie y vehículo, o una rama');
+      });
+    }
+
+    // Si ya hay historial pintado, lo re-renderizamos con compatibilidad V5.
+    renderHistoryBranchCompatible();
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',install,{once:true});
+  }else{
+    install();
+  }
+})();
+</script>
+
 </body>
 </html>
