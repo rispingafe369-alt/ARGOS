@@ -559,6 +559,65 @@ body.dark .stats-hero{box-shadow:0 12px 30px rgba(0,0,0,.25)}
 @media(max-width:800px){.stats-kpis{grid-template-columns:repeat(3,1fr)}.stats-filters{grid-template-columns:repeat(2,1fr)}.stats-reset{width:100%}.stats-grid-pro{grid-template-columns:1fr}.details-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.stats-screen{padding:16px 12px 40px!important}.stats-hero{padding:18px;border-radius:19px}.stats-hero h3{font-size:23px}.stats-hero-badge{width:48px;height:48px;font-size:25px}.stats-filters{grid-template-columns:1fr 1fr;padding:11px}.stats-filter select,.stats-reset{min-height:44px}.stats-kpis{grid-template-columns:1fr 1fr}.stats-kpi{padding:13px}.stats-kpi strong{font-size:25px}.stats-panel{padding:15px;border-radius:18px}.monthly-chart{gap:5px}.bar-track{max-width:28px}.records-grid{grid-template-columns:1fr}.details-grid{grid-template-columns:1fr 1fr}.weekday-chart{gap:4px}.day-track{height:100px}}
 </style>
+
+<style id="argos-dex-v1">
+/* =========================================================
+   ARGOSDEX · CONSULTA DE RAMA
+   Función independiente: no guarda ni modifica servicios.
+========================================================= */
+.argosdex-screen{padding-bottom:44px!important}
+.argosdex-shell{width:min(900px,100%);margin:0 auto}
+.argosdex-hero{
+  position:relative;overflow:hidden;margin-bottom:16px;padding:24px;
+  border-radius:24px;color:#fff;background:linear-gradient(135deg,#8a005c 0%,#b20b76 58%,#6e0049 100%);
+  box-shadow:0 12px 34px rgba(138,0,92,.22)
+}
+.argosdex-hero::after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;right:-55px;top:-65px;background:rgba(255,255,255,.09)}
+.argosdex-kicker{position:relative;z-index:1;font-size:11px;font-weight:900;letter-spacing:.13em;opacity:.82}
+.argosdex-hero h3{position:relative;z-index:1;margin:5px 0 5px;font-size:30px;line-height:1.05}
+.argosdex-hero p{position:relative;z-index:1;margin:0;max-width:650px;font-size:14px;line-height:1.45;opacity:.9}
+.argosdex-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:var(--shadow);margin-bottom:14px}
+.argosdex-card-title{color:var(--renfe);font-size:11px;font-weight:900;letter-spacing:.1em;margin-bottom:12px}
+.argosdex-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.argosdex-field label{display:block;font-size:13px;font-weight:800;margin-bottom:7px}
+.argosdex-field input{
+  width:100%;height:56px;border:1px solid var(--line);border-radius:16px;background:var(--page);color:var(--ink);
+  padding:12px 15px;font-size:23px;font-weight:900;letter-spacing:.08em;outline:none;text-align:center;
+  -webkit-appearance:none;appearance:none
+}
+.argosdex-field input:focus{border-color:var(--renfe);box-shadow:0 0 0 3px rgba(138,0,92,.10);background:var(--card)}
+.argosdex-hint{display:block;margin-top:6px;color:var(--muted);font-size:11px;line-height:1.35}
+.argosdex-button{width:100%;height:54px;margin-top:15px;border:0;border-radius:16px;background:var(--renfe);color:#fff;font-weight:900;font-size:15px;box-shadow:0 8px 18px rgba(138,0,92,.18)}
+.argosdex-button:active{transform:translateY(1px)}
+.argosdex-button:disabled{opacity:.55;box-shadow:none}
+.argosdex-status{display:none;margin-top:12px;padding:12px 14px;border-radius:14px;font-size:13px;font-weight:700;line-height:1.4}
+.argosdex-status.show{display:block}
+.argosdex-status.error{background:#fff0f0;color:#a22;border:1px solid rgba(170,30,30,.14)}
+.argosdex-status.info{background:var(--soft);color:var(--renfe);border:1px solid rgba(138,0,92,.12)}
+.argosdex-result{display:none}
+.argosdex-result.show{display:block}
+.argosdex-result-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:14px}
+.argosdex-result-kicker{font-size:11px;font-weight:900;letter-spacing:.1em;color:var(--renfe)}
+.argosdex-result-title{margin:3px 0 0;font-size:25px;line-height:1.12}
+.argosdex-result-sub{margin:4px 0 0;color:var(--muted);font-size:13px;font-weight:700}
+.argosdex-badge{flex:0 0 auto;padding:9px 11px;border-radius:12px;background:var(--soft);color:var(--renfe);font-size:11px;font-weight:900;white-space:nowrap}
+.argosdex-ficha-wrap{border-top:1px solid var(--line);padding-top:14px}
+.argosdex-ficha-wrap .ficha-card,.argosdex-ficha-wrap .material-ficha,.argosdex-ficha-wrap .argos-universal-ficha{box-shadow:none!important;border:0!important;padding:0!important;background:transparent!important}
+.argosdex-ficha-wrap .ficha-hero{margin-bottom:12px}
+.argosdex-back{margin-top:12px;width:100%;height:48px;border:0;border-radius:14px;background:var(--soft);color:var(--renfe);font-weight:900}
+body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:rgba(255,150,150,.14)}
+@media(max-width:600px){
+  .argosdex-screen{padding:16px 16px 40px!important}
+  .argosdex-hero{padding:21px;border-radius:21px}
+  .argosdex-hero h3{font-size:27px}
+  .argosdex-fields{grid-template-columns:1fr;gap:12px}
+  .argosdex-field input{height:58px;font-size:24px}
+  .argosdex-card{padding:17px;border-radius:20px}
+  .argosdex-result-head{flex-direction:column}
+  .argosdex-badge{align-self:flex-start}
+}
+</style>
+
 </head>
 
 <body>
@@ -731,6 +790,42 @@ body.dark .stats-hero{box-shadow:0 12px 30px rgba(0,0,0,.25)}
   <div class="ficha-shell"><div id="fichaContent" class="ficha-card"></div></div>
 </section>
 
+<section id="argosdex" class="screen argosdex-screen" aria-label="ArgosDex">
+  <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">CONSULTA</div><h2>ArgosDex</h2></div></div>
+  <div class="argosdex-shell">
+    <div class="argosdex-hero">
+      <span class="argosdex-kicker">ARGOS · CONSULTA DE MATERIAL</span>
+      <h3>ArgosDex</h3>
+      <p>Consulta directamente una rama del material sin registrar ningún servicio. Introduce la serie y el vehículo para abrir su información.</p>
+    </div>
+    <div class="argosdex-card">
+      <div class="argosdex-card-title">IDENTIFICACIÓN DEL MATERIAL</div>
+      <div class="argosdex-fields">
+        <div class="argosdex-field">
+          <label for="argosDexSeries">Serie</label>
+          <input id="argosDexSeries" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="3" autocomplete="off" enterkeyhint="next" placeholder="000" aria-describedby="argosDexSeriesHint">
+          <span id="argosDexSeriesHint" class="argosdex-hint">Hasta 3 cifras.</span>
+        </div>
+        <div class="argosdex-field">
+          <label for="argosDexVehicle">Vehículo</label>
+          <input id="argosDexVehicle" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="3" autocomplete="off" enterkeyhint="search" placeholder="000" aria-describedby="argosDexVehicleHint">
+          <span id="argosDexVehicleHint" class="argosdex-hint">Hasta 3 cifras.</span>
+        </div>
+      </div>
+      <button id="argosDexSearch" class="argosdex-button" type="button">⌕ Consultar rama</button>
+      <div id="argosDexStatus" class="argosdex-status" role="status" aria-live="polite"></div>
+    </div>
+    <div id="argosDexResult" class="argosdex-card argosdex-result">
+      <div class="argosdex-result-head">
+        <div><div class="argosdex-result-kicker">FICHA CONSULTADA</div><h3 id="argosDexResultTitle" class="argosdex-result-title">—</h3><p id="argosDexResultSub" class="argosdex-result-sub">—</p></div>
+        <span id="argosDexBadge" class="argosdex-badge">CONSULTA</span>
+      </div>
+      <div id="argosDexFicha" class="argosdex-ficha-wrap"></div>
+      <button id="argosDexNewSearch" class="argosdex-back" type="button">⌕ Nueva consulta</button>
+    </div>
+  </div>
+</section>
+
 <section id="stats" class="screen stats-screen">
   <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">DATOS</div><h2>Estadísticas</h2></div></div>
   <div class="stats-dashboard">
@@ -778,6 +873,7 @@ body.dark .stats-hero{box-shadow:0 12px 30px rgba(0,0,0,.25)}
       <button class="drawer-item" data-screen="new-service" type="button"><span class="drawer-icon">＋</span>Añadir un servicio</button>
       <button class="drawer-item" data-screen="history" type="button"><span class="drawer-icon">☷</span>Ver historial</button>
       <button class="drawer-item" data-screen="stats" type="button"><span class="drawer-icon">◔</span>Estadísticas</button>
+      <button class="drawer-item" data-screen="argosdex" type="button"><span class="drawer-icon">⌕</span>ArgosDex</button>
       <button id="openSettings" class="drawer-item" data-screen="settings" type="button"><span class="drawer-icon">⚙</span>Ajustes</button>
     </nav>
   </aside>
@@ -1050,6 +1146,114 @@ body.dark .stats-hero{box-shadow:0 12px 30px rgba(0,0,0,.25)}
   document.addEventListener("DOMContentLoaded",function(){
     setActiveScreen(document.querySelector(".screen.active")?.id || "menu");
   });
+})();
+</script>
+
+<script id="argos-dex-engine">
+(function(){
+  'use strict';
+  const $=id=>document.getElementById(id);
+  const seriesInput=$('argosDexSeries');
+  const vehicleInput=$('argosDexVehicle');
+  const searchButton=$('argosDexSearch');
+  const status=$('argosDexStatus');
+  const result=$('argosDexResult');
+  const ficha=$('argosDexFicha');
+  const title=$('argosDexResultTitle');
+  const sub=$('argosDexResultSub');
+  const badge=$('argosDexBadge');
+  const seriesHint=$('argosDexSeriesHint');
+  const vehicleHint=$('argosDexVehicleHint');
+  if(!seriesInput||!vehicleInput||!searchButton)return;
+
+  function digits(v){return String(v??'').replace(/\D/g,'')}
+  function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+  function branchKey(v){const d=digits(v);return d.replace(/^0+/,'') || (d?'0':'')}
+  function seriesData(series){
+    const s=digits(series).slice(0,3);
+    if(typeof ARGOS_MATERIAL_DATA!=='undefined'&&ARGOS_MATERIAL_DATA){
+      return ARGOS_MATERIAL_DATA[s]||ARGOS_MATERIAL_DATA[s.replace(/^0+/,'')]||null;
+    }
+    return null;
+  }
+  function findVehicle(data,vehicle){
+    if(!data||!data.vehicles)return null;
+    const wanted=digits(vehicle);
+    const entries=Object.entries(data.vehicles);
+    for(const [number,record] of entries){
+      const candidates=[number,record?.vehicle,record?.numero,record?.number,record?.matricula,record?.matriculaRenfe,record?.renfe,record?.UIC,record?.uic,record?.numeroUIC,record?.numeroRenfe];
+      if(candidates.some(v=>digits(v)===wanted))return {number:String(number),record:record||{}};
+    }
+    return null;
+  }
+  function showStatus(message,type){status.textContent=message;status.className='argosdex-status show '+(type||'info')}
+  function hideStatus(){status.className='argosdex-status';status.textContent=''}
+  function setLimits(){
+    const is453=digits(seriesInput.value)==='453';
+    vehicleInput.maxLength=is453?4:3;
+    vehicleInput.setAttribute('maxlength',is453?'4':'3');
+    vehicleInput.placeholder=is453?'0000':'000';
+    vehicleHint.textContent=is453?'Serie 453: hasta 4 cifras en el vehículo.':'Hasta 3 cifras.';
+    if(!is453&&vehicleInput.value.length>3)vehicleInput.value=vehicleInput.value.slice(0,3);
+  }
+  function resetResult(){result.classList.remove('show');ficha.innerHTML='';title.textContent='—';sub.textContent='—';badge.textContent='CONSULTA'}
+  function renderFallback(data,series,vehicle,found){
+    const record=found?.record||{};
+    const branch=record.branch||record.rama||'';
+    const label=data?.label||data?.name||('Serie '+series);
+    const rows=[];
+    Object.entries(record).forEach(([k,v])=>{
+      if(['branch','rama'].includes(k)||v===null||v===undefined||v==='')return;
+      if(typeof v==='object')return;
+      rows.push('<div><span>'+esc(k)+'</span><strong>'+esc(v)+'</strong></div>');
+    });
+    return '<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>'+esc(label)+' · Rama '+esc(branch||'—')+'</h3><p>Vehículo '+esc(vehicle)+'</p></div><div class="ficha-section"><div class="ficha-section-title">IDENTIFICACIÓN</div><div class="ficha-grid"><div><span>Serie</span><strong>'+esc(series)+'</strong></div><div><span>Vehículo</span><strong>'+esc(vehicle)+'</strong></div><div><span>Rama</span><strong>'+esc(branch||'—')+'</strong></div></div></div>'+(rows.length?'<div class="ficha-section"><div class="ficha-section-title">DATOS DEL VEHÍCULO</div><div class="ficha-grid">'+rows.join('')+'</div></div>':'');
+  }
+  function consult(){
+    const series=digits(seriesInput.value).slice(0,3);
+    const vehicle=digits(vehicleInput.value);
+    setLimits();
+    if(!series){showStatus('Introduce una serie para comenzar la consulta.','error');seriesInput.focus();return}
+    const max=series==='453'?4:3;
+    if(!vehicle){showStatus('Introduce el vehículo que quieres consultar.','error');vehicleInput.focus();return}
+    if(vehicle.length>max){showStatus('El vehículo admite un máximo de '+max+' cifras para esta serie.','error');vehicleInput.value=vehicle.slice(0,max);return}
+    hideStatus();resetResult();searchButton.disabled=true;searchButton.textContent='Consultando…';
+    try{
+      const data=seriesData(series);
+      if(!data){showStatus('No existe una ficha registrada para la serie '+series+'.','error');return}
+      const found=findVehicle(data,vehicle);
+      if(!found){showStatus('No se ha encontrado el vehículo '+vehicle+' dentro de la serie '+series+'. Comprueba los datos e inténtalo de nuevo.','error');return}
+      const branch=String(found.record?.branch??found.record?.rama??'').trim();
+      if(!branch){showStatus('El vehículo está registrado, pero no tiene una rama asociada en la base de material.','error');return}
+      title.textContent=(data.label||data.name||('Serie '+series))+' · Rama '+branch;
+      sub.textContent='Vehículo '+vehicle+' · Consulta sin registro de servicio';
+      badge.textContent='RAMA '+branch;
+      let html='';
+      try{
+        if(typeof argosUniversalFichaHTML==='function'){
+          html=argosUniversalFichaHTML({series,branch,vehicle,data,record:found.record});
+        }else if(typeof argosMaterialFichaHTML==='function'){
+          html=argosMaterialFichaHTML({series,branch,vehicle,data,record:found.record});
+        }else if(typeof fleetFichaHtml==='function'){
+          html=fleetFichaHtml(series,vehicle,null);
+        }
+      }catch(e){console.warn('ARGOSDEX · plantilla de ficha no disponible:',e)}
+      ficha.innerHTML=html||renderFallback(data,series,vehicle,found);
+      result.classList.add('show');
+      result.scrollIntoView({behavior:'smooth',block:'start'});
+    }finally{
+      searchButton.disabled=false;searchButton.textContent='⌕ Consultar rama';
+    }
+  }
+  seriesInput.addEventListener('input',()=>{seriesInput.value=digits(seriesInput.value).slice(0,3);setLimits()});
+  vehicleInput.addEventListener('input',()=>{setLimits();vehicleInput.value=digits(vehicleInput.value).slice(0,vehicleInput.maxLength)});
+  seriesInput.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();vehicleInput.focus()}});
+  vehicleInput.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();consult()}});
+  searchButton.addEventListener('click',consult);
+  $('argosDexNewSearch')?.addEventListener('click',()=>{resetResult();hideStatus();vehicleInput.value='';seriesInput.focus();setLimits()});
+  setLimits();
+  const oldShow=window.showScreen;
+  window.showScreen=function(id){if(typeof oldShow==='function')oldShow(id);if(id==='argosdex'){resetResult();hideStatus();setLimits();setTimeout(()=>seriesInput.focus(),80)}};
 })();
 </script>
 
