@@ -2947,7 +2947,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       try{
         const params=new URLSearchParams({
           resource_id:RESOURCE,
-          limit:"30",
+          limit:"5000",
           q:value
         });
         const response=await fetch(API+"?"+params.toString(),{
@@ -2959,8 +2959,15 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
         if(!response.ok) return [];
         const payload=await response.json();
         if(!payload?.success || !Array.isArray(payload?.result?.records)) return [];
-        addStations(payload.result.records);
-        return payload.result.records.map(r=>{
+
+        const records=payload.result.records;
+
+        // Some versions of the Renfe datastore do not reliably apply q to
+        // every field. Keep the returned records and also let the local
+        // matcher decide what is a real name/city/code match.
+        addStations(records);
+
+        return records.map(r=>{
           const code=String(r.CODIGO ?? r.codigo ?? r.code ?? r.station_code ?? "")
             .trim().replace(/\\.0$/,"").padStart(5,"0");
           const name=String(r.DESCRIPCION ?? r.descripcion ?? r.name ?? r.nombre ?? "")
@@ -3035,9 +3042,27 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     });
   }
 
+  function replaceInput(id){
+    const oldInput=document.getElementById(id);
+    if(!oldInput)return null;
+
+    // Clone the real input to remove the original autocomplete listeners
+    // without changing its id, name, styling, validation or form behavior.
+    const newInput=oldInput.cloneNode(true);
+    newInput.value=oldInput.value;
+    if(oldInput.dataset.stationCode){
+      newInput.dataset.stationCode=oldInput.dataset.stationCode;
+    }
+    oldInput.replaceWith(newInput);
+    return newInput;
+  }
+
   function init(){
-    setup("origin","originList");
-    setup("destination","destinationList");
+    replaceInput("origin");
+    replaceInput("destination");
+
+    setup("origin","originSuggestions");
+    setup("destination","destinationSuggestions");
   }
 
   if(document.readyState==="loading"){
