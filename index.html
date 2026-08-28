@@ -803,6 +803,52 @@ body.dark .stats-hero{box-shadow:0 12px 30px rgba(0,0,0,.25)}
   </div>
 </section>
 
+<!-- =========================================================
+     ARGOSDEX · PANTALLA DE CONSULTA
+     No guarda ni modifica servicios ni material.
+     ========================================================= -->
+<section id="argosdex" class="screen">
+  <div class="argosdex-wrap">
+    <div class="argosdex-hero">
+      <div class="argosdex-kicker">ARGOS · MATERIAL RENFE</div>
+      <div class="argosdex-title">ArgosDex</div>
+      <div class="argosdex-subtitle">Consulta una rama y su vehículo sin añadir nada a ARGOS.</div>
+    </div>
+
+    <div class="argosdex-card">
+      <div class="argosdex-form">
+        <div class="argosdex-field">
+          <label for="argosdexSeries">Serie</label>
+          <input id="argosdexSeries" class="argosdex-input" type="tel" inputmode="numeric"
+                 pattern="[0-9]*" maxlength="3" autocomplete="off"
+                 placeholder="000" aria-label="Serie">
+          <div class="argosdex-hint">Hasta 3 cifras.</div>
+        </div>
+
+        <div class="argosdex-field">
+          <label for="argosdexVehicle">Vehículo</label>
+          <input id="argosdexVehicle" class="argosdex-input" type="tel" inputmode="numeric"
+                 pattern="[0-9]*" maxlength="3" autocomplete="off"
+                 placeholder="000" aria-label="Vehículo">
+          <div id="argosdexVehicleHint" class="argosdex-hint">Hasta 3 cifras.</div>
+        </div>
+      </div>
+
+      <button id="argosdexSearchBtn" class="argosdex-action" type="button">
+        CONSULTAR MATERIAL
+      </button>
+
+      <div class="argosdex-note">
+        ArgosDex es exclusivamente de consulta. La búsqueda no crea servicios,
+        no guarda vehículos y no modifica la base de datos de material.
+      </div>
+    </div>
+
+    <div id="argosdexResult" class="argosdex-result"></div>
+    <button class="argosdex-back" type="button" onclick="showScreen('menu')">← Volver</button>
+  </div>
+</section>
+
 <!-- MENÚ DE LOS TRES PUNTOS -->
 <div id="menuDrawer" class="menu-drawer" aria-hidden="true">
   <div id="drawerBackdrop" class="drawer-backdrop"></div>
@@ -813,7 +859,7 @@ body.dark .stats-hero{box-shadow:0 12px 30px rgba(0,0,0,.25)}
       <button class="drawer-item" data-screen="history" type="button"><span class="drawer-icon">☷</span>Ver historial</button>
       <button class="drawer-item" data-screen="stats" type="button"><span class="drawer-icon">◔</span>Estadísticas</button>
       <button id="openSettings" class="drawer-item" data-screen="settings" type="button"><span class="drawer-icon">⚙</span>Ajustes</button>
-<button type="button" onclick="argosDexOpen()">🚆 ArgosDex</button>
+<button class="drawer-item" data-screen="argosdex" type="button"><span class="drawer-icon">🚆</span>ArgosDex</button>
     </nav>
   </aside>
 </div>
@@ -1118,51 +1164,7 @@ body.dark .stats-hero{box-shadow:0 12px 30px rgba(0,0,0,.25)}
 })();
 </script>
 
-<!-- =========================================================
-     ARGOSDEX · PANTALLA DE CONSULTA
-     No guarda ni modifica servicios ni material.
-     ========================================================= -->
-<section id="screen-argosdex" class="screen" style="display:none">
-  <div class="argosdex-wrap">
-    <div class="argosdex-hero">
-      <div class="argosdex-kicker">ARGOS · MATERIAL RENFE</div>
-      <div class="argosdex-title">ArgosDex</div>
-      <div class="argosdex-subtitle">Consulta una rama y su vehículo sin añadir nada a ARGOS.</div>
-    </div>
 
-    <div class="argosdex-card">
-      <div class="argosdex-form">
-        <div class="argosdex-field">
-          <label for="argosdexSeries">Serie</label>
-          <input id="argosdexSeries" class="argosdex-input" type="tel" inputmode="numeric"
-                 pattern="[0-9]*" maxlength="3" autocomplete="off"
-                 placeholder="000" aria-label="Serie">
-          <div class="argosdex-hint">Hasta 3 cifras.</div>
-        </div>
-
-        <div class="argosdex-field">
-          <label for="argosdexVehicle">Vehículo</label>
-          <input id="argosdexVehicle" class="argosdex-input" type="tel" inputmode="numeric"
-                 pattern="[0-9]*" maxlength="3" autocomplete="off"
-                 placeholder="000" aria-label="Vehículo">
-          <div id="argosdexVehicleHint" class="argosdex-hint">Hasta 3 cifras.</div>
-        </div>
-      </div>
-
-      <button id="argosdexSearchBtn" class="argosdex-action" type="button">
-        CONSULTAR MATERIAL
-      </button>
-
-      <div class="argosdex-note">
-        ArgosDex es exclusivamente de consulta. La búsqueda no crea servicios,
-        no guarda vehículos y no modifica la base de datos de material.
-      </div>
-    </div>
-
-    <div id="argosdexResult" class="argosdex-result"></div>
-    <button class="argosdex-back" type="button" onclick="showScreen('home')">← Volver</button>
-  </div>
-</section>
 
 
 <script id="argosdex-js">
