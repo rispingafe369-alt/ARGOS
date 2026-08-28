@@ -2713,7 +2713,7 @@ const RENFE_STATIONS_RESOURCE=
 '783e0626-6fa8-4ac7-a880-fa53144654ff';
 
 const RENFE_STATIONS_CACHE_KEY=
-'argos_renfe_stations_v6';
+'argos_renfe_stations_v7';
 
 const RENFE_STATIONS_CACHE_TTL=
 7*24*60*60*1000;
@@ -3077,20 +3077,35 @@ function stationMatches(query){
 const q=normalizeStationText(query);
 if(!q)return[];
 
-const numeric=/^\d+$/.test(q.replace(/\s/g,''));
+const compact=q.replace(/\s/g,'');
+const numeric=/^\d+$/.test(compact);
+const words=q.split(/\s+/).filter(Boolean);
 
 return renfeStations
 .map(station=>{
-const code=station.code;
-const name=station.search;
+const code=normalizeStationText(station.code);
+const name=normalizeStationText(station.name);
+const population=normalizeStationText(station.population);
+const searchable=normalizeStationText(
+(station.name||'')+' '+(station.population||'')+' '+(station.code||'')
+);
 let score=999;
 
-if(code===q)score=0;
-else if(code.startsWith(q))score=1;
+/*
+   Prioridad de búsqueda:
+   1. Código exacto
+   2. Nombre exacto / empieza por el nombre
+   3. Todas las palabras introducidas aparecen en la estación
+   4. Coincidencia parcial
+   5. Código parcial
+*/
+if(code===q || code===compact)score=0;
+else if(name===q)score=1;
 else if(name.startsWith(q))score=2;
-else if(name.split(' ').some(word=>word.startsWith(q)))score=3;
-else if(name.includes(q))score=4;
-else if(!numeric && code.includes(q))score=5;
+else if(words.length && words.every(word=>searchable.includes(word)))score=3;
+else if(name.split(' ').some(word=>word.startsWith(q)))score=4;
+else if(searchable.includes(q))score=5;
+else if(!numeric && code.includes(compact))score=6;
 
 return {station,score};
 })
