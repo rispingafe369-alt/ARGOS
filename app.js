@@ -9157,6 +9157,4634 @@ const fleet = {
       }
     }
   },
+  "446": {
+  "seriesName": "Serie 446 · Cercanías · 3 coches",
+  "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+  "modelo": "Unidad eléctrica de cercanías",
+  "apodo": "Dodotis",
+  "subseries": "446 · 3 coches",
+  "anoPuestaServicio": "1989–1992",
+  "tipoMaterial": "Cercanías · Tren eléctrico M-R-M · Gran capacidad de aceleración",
+  "numeroCoches": "3 coches · 2 coches motor con cabina + 1 remolque intermedio",
+  "anchoVia": "1668 mm",
+  "numeroRamas": 170,
+  "velocidadMaxima": "100 km/h",
+  "potencia": "2.400 kW",
+  "longitud": "76 m",
+  "peso": "166,6 t",
+  "tension": "3.000 Vcc",
+  "traccion": "8 motores de tracción GEE-326 A2 · 300 kW por motor",
+  "tipoBogies": "Bimotor y monorreductor",
+  "anchoCaja": "2.940 mm",
+  "alturaTecho": "4.185 mm",
+  "longitudMotor": "25.479 mm",
+  "pesoPorEje": "15,3 t",
+  "frenos": "Eléctrico reostático y recuperación · neumático por aire comprimido",
+  "mandoMultiple": "3 unidades",
+  "enganche": "Scharfenberg",
+  "composicion": "Bo’Bo’ + 2’2’ + Bo’Bo’",
+  "senalizacion": "ASFA · LZB en las unidades indicadas en la ficha",
+  "generalNotes": [
+    "Para el número de cada unidad se toma como referencia la numeración del remolque intermedio, puesto que los motores van correlativos. La rama también puede identificarse mediante la mitad del número del coche motor par.",
+    "La serie 446 está formada por tres coches: dos coches motores con cabina en los extremos y un remolque intermedio.",
+    "Se construyeron 170 unidades para servicios de Cercanías de alta frecuencia y numerosas paradas. La serie fue pionera del material específicamente diseñado para estos tráficos y posteriormente convivió con las series 447 y Civia.",
+    "Prestan servicio en distintos núcleos de Cercanías. La ficha aportada recoge unidades con bases en Madrid, Sevilla, Irun, Fuencarral, Humanes, Cerro Negro y Ollargan, entre otras.",
+    "La tabla se divide en tres lotes: 1.º lote (ramas 01–50), 2.º lote (ramas 51–100) y 3.º lote (ramas 101–170).",
+    "La indicación LZB se ha asociado individualmente según la columna de Notas de la tabla aportada. Cuando la nota no indica LZB, la ficha muestra “No”."
+  ],
+  "units": {
+    "1": {
+      "rama": "01",
+      "lote": "Primer lote",
+      "vehiculoBase": "001",
+      "numero": "9-446-001-0",
+      "vehiculosRama": [
+        "9-446-001-0",
+        "7-446-001-0",
+        "9-446-002-8"
+      ],
+      "searchCodes": [
+        "001",
+        "002"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[99 Con LZB. En origen blanca/gris.Colores Renfe Op. Ex-Móstoles>> 11/13 P.Pío >>Móstoles 02/16. Reformada nuevo interior 02/18. Tapizado de asientos diferente. Faros LEDs. (Espacio PMR en Remolque)"
+      ]
+    },
+    "2": {
+      "rama": "02",
+      "lote": "Primer lote",
+      "vehiculoBase": "003",
+      "numero": "9-446-003-6",
+      "vehiculosRama": [
+        "9-446-003-6",
+        "7-446-002-8",
+        "9-446-004-4"
+      ],
+      "searchCodes": [
+        "003",
+        "004"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[99 Con LZB. Colores Renfe Op. Reformada. Ex-Móstoles>> 11/13 P.Pío>> Móstoles 02/16. Vinilos cercanias"
+      ]
+    },
+    "3": {
+      "rama": "03",
+      "lote": "Primer lote",
+      "vehiculoBase": "005",
+      "numero": "9-446-005-1",
+      "vehiculosRama": [
+        "9-446-005-1",
+        "7-446-003-6",
+        "9-446-006-9"
+      ],
+      "searchCodes": [
+        "005",
+        "006"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "48 Con LZB. Colores Renfe Op. Ex- Moéstoles>> 11/13 P.Pío>> Mdstoles 02/16. Nuevo interiorismo 2018, vinilos cercanias"
+      ]
+    },
+    "4": {
+      "rama": "04",
+      "lote": "Primer lote",
+      "vehiculoBase": "007",
+      "numero": "9-446-007-7",
+      "vehiculosRama": [
+        "9-446-007-7",
+        "7-446-004-4",
+        "9-446-008-5"
+      ],
+      "searchCodes": [
+        "007",
+        "008"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[559 Con LZB. Colores Renfe Op. Reformada. Ex-Móstoles>> 11/13 P.Pío>> Móstoles 02/16"
+      ]
+    },
+    "5": {
+      "rama": "05",
+      "lote": "Primer lote",
+      "vehiculoBase": "009",
+      "numero": "9-446-009-3",
+      "vehiculosRama": [
+        "9-446-009-3",
+        "7-446-005-1",
+        "9-446-010-1"
+      ],
+      "searchCodes": [
+        "009",
+        "010"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "Con LZB. Accidente en Fuencarral, 02/03. Remodelada (suelo y pintura interior nuevos, asientos pintados). Fuencarral >> Cercanías Santander 08/09 >> Fuencarral >> Apartada en Villaseca-Mocejón >> En servicio Madrid, 07/12 >> Trasladada a La Sagra 25/04/13 >> En servicio, 09/14 P.Pío >> Móstoles 02/16. Nuevo interiorismo 2018, vinilos cercanías."
+      ]
+    },
+    "6": {
+      "rama": "06",
+      "lote": "Primer lote",
+      "vehiculoBase": "011",
+      "numero": "9-446-011-9",
+      "vehiculosRama": [
+        "9-446-011-9",
+        "7-446-006-9",
+        "9-446-012-7"
+      ],
+      "searchCodes": [
+        "011",
+        "012"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[99 Colores Renfe Op. Reformada, con LZB. Ex-Móstoles>> 11/13 P.Pío>> Móstoles 02/16. Nuevo interiorismo, vinilos cercanias. (Espacio PMR en Remolque)"
+      ]
+    },
+    "7": {
+      "rama": "07",
+      "lote": "Primer lote",
+      "vehiculoBase": "013",
+      "numero": "9-446-013-5",
+      "vehiculosRama": [
+        "9-446-013-5",
+        "7-446-007-7",
+        "9-446-014-3"
+      ],
+      "searchCodes": [
+        "013",
+        "014"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[599 Colores Renfe Op. Reformada, Con LZB. Ex-Móstoles hasta 11/13>>P.Pío>> Móstoles 02/16. Nuevo interiorismo, vinilos cercanias. Descarrilo Humanes 16/11/23."
+      ]
+    },
+    "8": {
+      "rama": "08",
+      "lote": "Primer lote",
+      "vehiculoBase": "015",
+      "numero": "9-446-015-0",
+      "vehiculosRama": [
+        "9-446-015-0",
+        "7-446-008-5",
+        "9-446-016-8"
+      ],
+      "searchCodes": [
+        "015",
+        "016"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[99 Colores Renfe Op. Reformada, Con LZB. Ex-Apartada Móstoles>>P.Pío>> Móstoles 02/16"
+      ]
+    },
+    "9": {
+      "rama": "09",
+      "lote": "Primer lote",
+      "vehiculoBase": "017",
+      "numero": "9-446-017-6",
+      "vehiculosRama": [
+        "9-446-017-6",
+        "7-446-009-3",
+        "9-446-018-4"
+      ],
+      "searchCodes": [
+        "017",
+        "018"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[599 Ex-Madrid>> Santander desde verano 2009>>Madrid>> Apartada Villaseca-Mocejón desde 07/11>> Apartada en Madrid 06/12. Traslada a la Sagra 25/04/13. De nuevo en servicio verano 2017 con techo blanco y nuevo interiorismo. Nuevos tapizados de polipiel en los asientos."
+      ]
+    },
+    "10": {
+      "rama": "10",
+      "lote": "Primer lote",
+      "vehiculoBase": "019",
+      "numero": "9-446-019-2",
+      "vehiculosRama": [
+        "9-446-019-2",
+        "7-446-010-1",
+        "9-446-020-0"
+      ],
+      "searchCodes": [
+        "019",
+        "020"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Madrid",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "E559 Colores Renfe Op.Reformada.Apartada en Villaseca-Mocejón. Ex-Madrid. De nuevo en servicio 03/16 Fuencarral. Nuevo interior 03/16. Luces LED, Sevilla desde 07/23>> Madrid 07/25 i —"
+      ]
+    },
+    "11": {
+      "rama": "11",
+      "lote": "Primer lote",
+      "vehiculoBase": "021",
+      "numero": "9-446-021-8",
+      "vehiculosRama": [
+        "9-446-021-8",
+        "7-446-011-9",
+        "9-446-022-6"
+      ],
+      "searchCodes": [
+        "021",
+        "022"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "Rama 11. 021M afectado en el atentado de Téllez del 11/03/04 y dado de baja; 022M quedó intacto y posteriormente fue utilizado para recomponer la unidad 446-035. El remolque 011R pertenece a esta rama."
+      ]
+    },
+    "12": {
+      "rama": "12",
+      "lote": "Primer lote",
+      "vehiculoBase": "023",
+      "numero": "9-446-023-4",
+      "vehiculosRama": [
+        "9-446-023-4",
+        "7-446-012-7",
+        "9-446-024-2"
+      ],
+      "searchCodes": [
+        "023",
+        "024"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "E599 1994 concurso Grand Slam con 446.021M. Ex-Apartada en Miranda, 2011>> Madrid, 2012. Apartada en Villaseca-Mocejón>> En servicio Madrid 07/18. Remolque con espacio PMR. Incendio bogie en Chamartin 09/08/24. En servicio 03/26"
+      ]
+    },
+    "13": {
+      "rama": "13",
+      "lote": "Primer lote",
+      "vehiculoBase": "025",
+      "numero": "9-446-025-9",
+      "vehiculosRama": [
+        "9-446-025-9",
+        "7-446-013-5",
+        "9-446-026-7"
+      ],
+      "searchCodes": [
+        "025",
+        "026"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "09 Ex-Madrid>> 06/09 Santander>> Irun 04/10 >> Apartada en Miranda de Ebro 09/11>> Cercanias Madrid 06/12"
+      ]
+    },
+    "14": {
+      "rama": "14",
+      "lote": "Primer lote",
+      "vehiculoBase": "027",
+      "numero": "9-446-027-5",
+      "vehiculosRama": [
+        "9-446-027-5",
+        "7-446-014-3",
+        "9-446-028-3"
+      ],
+      "searchCodes": [
+        "027",
+        "028"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "HI&HA Colores Renfe Op. Reformada. Ex- Madrid.Ex-malaga Apartada en Villaseca- Mocejón. De nuevo en servicio 07/15>>Irun 09/19>> Madrid"
+      ]
+    },
+    "15": {
+      "rama": "15",
+      "lote": "Primer lote",
+      "vehiculoBase": "029",
+      "numero": "9-446-029-1",
+      "vehiculosRama": [
+        "9-446-029-1",
+        "7-446-015-0",
+        "9-446-030-9"
+      ],
+      "searchCodes": [
+        "029",
+        "030"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Sevilla",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[99 Reformada.Sin logos Renfe. Ex- Madrid>> 14/03/09 Santander>> 12/09 Llanera>> Irun 04/10 >> Apartada en Iruin >> Madrid 11/12"
+      ]
+    },
+    "16": {
+      "rama": "16",
+      "lote": "Primer lote",
+      "vehiculoBase": "031",
+      "numero": "9-446-031-7",
+      "vehiculosRama": [
+        "9-446-031-7",
+        "7-446-016-8",
+        "9-446-032-5"
+      ],
+      "searchCodes": [
+        "031",
+        "032"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "La Sagra",
+      "estado": "Apartada",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "EG Ex-Madrid>> 05/09 Irn>>Madrid. Colores Renfe Op. Ex-Principe Pio>> Trasladada a La Sagra el 12/06/13 desde Fuencarral."
+      ]
+    },
+    "17": {
+      "rama": "17",
+      "lote": "Primer lote",
+      "vehiculoBase": "033",
+      "numero": "9-446-033-3",
+      "vehiculosRama": [
+        "9-446-033-3",
+        "7-446-017-6",
+        "9-446-034-1"
+      ],
+      "searchCodes": [
+        "033",
+        "034"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "09 Colores Renfe Op.Reformada, Ex- Bilbao>>Irun>>Madrid>>apartada en Valencia tras averia en servicio de fallas>>de nuevo en servicio 07/15. Nuevo interiorismo, 06/16."
+      ]
+    },
+    "18": {
+      "rama": "18",
+      "lote": "Primer lote",
+      "vehiculoBase": "035",
+      "numero": "9-446-035-8",
+      "vehiculosRama": [
+        "9-446-035-8",
+        "7-446-018-4",
+        "9-446-036-6"
+      ],
+      "searchCodes": [
+        "035",
+        "036"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "",
+      "estado": "Desguazada",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "Atentado en Atocha, 11/03/04. Desguazada."
+      ]
+    },
+    "19": {
+      "rama": "19",
+      "lote": "Primer lote",
+      "vehiculoBase": "037",
+      "numero": "9-446-037-4",
+      "vehiculosRama": [
+        "9-446-037-4",
+        "7-446-019-2",
+        "9-446-038-2"
+      ],
+      "searchCodes": [
+        "037",
+        "038"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[S09 Colores Renfe Op. Reformada, Ex- Madrid>> Santander>> Apartada en Villaseca- Mocej6n desde 07/11>> P.Pío 2012. Trasladada a La Sagra 12/06/13 desde Fuencarral. En servicio en Madrid con nuevo interiorismo, Vista en Irun 10/19>>Fuencarral."
+      ]
+    },
+    "20": {
+      "rama": "20",
+      "lote": "Primer lote",
+      "vehiculoBase": "039",
+      "numero": "9-446-039-0",
+      "vehiculosRama": [
+        "9-446-039-0",
+        "7-446-020-0",
+        "9-446-040-8"
+      ],
+      "searchCodes": [
+        "039",
+        "040"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "EZ504 Colores Renfe Op. Reformada. Ex- Madrid>> Irun >>P. Pio>>Sevilla>> Madrid desde 07/18>> Irun 03/22 >> Madrid desde 08/22."
+      ]
+    },
+    "21": {
+      "rama": "21",
+      "lote": "Primer lote",
+      "vehiculoBase": "041",
+      "numero": "9-446-041-6",
+      "vehiculosRama": [
+        "9-446-041-6",
+        "7-446-021-8",
+        "9-446-042-4"
+      ],
+      "searchCodes": [
+        "041",
+        "042"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "EE Ex- Valencia>>Madrid>>Apartada>>De nuevo en servicio con nuevo interiorismo (01/17). Colores Renfe Op."
+      ]
+    },
+    "22": {
+      "rama": "22",
+      "lote": "Primer lote",
+      "vehiculoBase": "043",
+      "numero": "9-446-043-2",
+      "vehiculosRama": [
+        "9-446-043-2",
+        "7-446-022-6",
+        "9-446-044-0"
+      ],
+      "searchCodes": [
+        "043",
+        "044"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "E09 Choque y descarrilo en Atocha 05/01/05. Vinilos Renfe Op. Ex-Madrid>>Apartada La Sagra>> En servicio, colores Renfe Op. y nuevo interiorismo"
+      ]
+    },
+    "23": {
+      "rama": "23",
+      "lote": "Primer lote",
+      "vehiculoBase": "045",
+      "numero": "9-446-045-7",
+      "vehiculosRama": [
+        "9-446-045-7",
+        "7-446-023-4",
+        "9-446-046-5"
+      ],
+      "searchCodes": [
+        "045",
+        "046"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Irun",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "E599 Colores Renfe Op. Logos 75 años Renfe. Ex-Cerro Negro>> Irun 25/08/23"
+      ]
+    },
+    "24": {
+      "rama": "24",
+      "lote": "Primer lote",
+      "vehiculoBase": "047",
+      "numero": "9-446-047-3",
+      "vehiculosRama": [
+        "9-446-047-3",
+        "7-446-024-2",
+        "9-446-048-1"
+      ],
+      "searchCodes": [
+        "047",
+        "048"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Irun",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "99 Colores Renfe Op. Nuevo interiorismo. Ex-Cerro Negro>> Irun 25/08/23"
+      ]
+    },
+    "25": {
+      "rama": "25",
+      "lote": "Primer lote",
+      "vehiculoBase": "049",
+      "numero": "9-446-049-9",
+      "vehiculosRama": [
+        "9-446-049-9",
+        "7-446-025-9",
+        "9-446-050-7"
+      ],
+      "searchCodes": [
+        "049",
+        "050"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Cerro Negro",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "E599 Ex-Madrid>>Valencia. Con nuevo interiorismo"
+      ]
+    },
+    "26": {
+      "rama": "26",
+      "lote": "Primer lote",
+      "vehiculoBase": "051",
+      "numero": "9-446-051-5",
+      "vehiculosRama": [
+        "9-446-051-5",
+        "7-446-026-7",
+        "9-446-052-3"
+      ],
+      "searchCodes": [
+        "051",
+        "052"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Madrid",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[S99 Reformada. Ex-Principe Pio. Ex- Sevilla>> Fuencarral>> Sevilla 07/23 (Para servicios Córdoba)>>Madrid 12/25"
+      ]
+    },
+    "27": {
+      "rama": "27",
+      "lote": "Primer lote",
+      "vehiculoBase": "053",
+      "numero": "9-446-053-1",
+      "vehiculosRama": [
+        "9-446-053-1",
+        "7-446-027-5",
+        "9-446-054-9"
+      ],
+      "searchCodes": [
+        "053",
+        "054"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Cerro Negro",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "4 Ex-Valencia >> Bilbao, Colores Renfe Op >>Irun desde 09/19>> Fuencarral"
+      ]
+    },
+    "28": {
+      "rama": "28",
+      "lote": "Primer lote",
+      "vehiculoBase": "055",
+      "numero": "9-446-055-4",
+      "vehiculosRama": [
+        "9-446-055-4",
+        "7-446-028-3",
+        "9-446-056-6"
+      ],
+      "searchCodes": [
+        "055",
+        "056"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Cerro Negro",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "E99 Ex-Valencia >> Colores Renfe Op."
+      ]
+    },
+    "29": {
+      "rama": "29",
+      "lote": "Primer lote",
+      "vehiculoBase": "057",
+      "numero": "9-446-057-2",
+      "vehiculosRama": [
+        "9-446-057-2",
+        "7-446-029-1",
+        "9-446-058-0"
+      ],
+      "searchCodes": [
+        "057",
+        "058"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[99 Ex-Barcelona. Colores Renfe Op. Reformada. Nuevo interiorismo. (Espacio PMR en Remolque)"
+      ]
+    },
+    "30": {
+      "rama": "30",
+      "lote": "Primer lote",
+      "vehiculoBase": "059",
+      "numero": "9-446-059-8",
+      "vehiculosRama": [
+        "9-446-059-8",
+        "7-446-030-9",
+        "9-446-060-6"
+      ],
+      "searchCodes": [
+        "059",
+        "060"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Cerro Negro",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[E99 Colores Renfe Op. Nuevo interior, 11/12/17."
+      ]
+    },
+    "31": {
+      "rama": "31",
+      "lote": "Primer lote",
+      "vehiculoBase": "061",
+      "numero": "9-446-061-4",
+      "vehiculosRama": [
+        "9-446-061-4",
+        "7-446-031-7",
+        "9-446-062-2"
+      ],
+      "searchCodes": [
+        "061",
+        "062"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Cerro Negro",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "E93 Colores Renfe Op. Reformada. Ex- Valencia>>Madrid>> Santander, 02/11. Madrid. Reformada"
+      ]
+    },
+    "32": {
+      "rama": "32",
+      "lote": "Primer lote",
+      "vehiculoBase": "063",
+      "numero": "9-446-063-0",
+      "vehiculosRama": [
+        "9-446-063-0",
+        "7-446-032-5",
+        "9-446-064-8"
+      ],
+      "searchCodes": [
+        "063",
+        "064"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "09 Ex-Valencia. Colores Renfe Op."
+      ]
+    },
+    "33": {
+      "rama": "33",
+      "lote": "Primer lote",
+      "vehiculoBase": "065",
+      "numero": "9-446-065-5",
+      "vehiculosRama": [
+        "9-446-065-5",
+        "7-446-033-3",
+        "9-446-066-3"
+      ],
+      "searchCodes": [
+        "065",
+        "066"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Cerro Negro",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "Ea -"
+      ]
+    },
+    "34": {
+      "rama": "34",
+      "lote": "Primer lote",
+      "vehiculoBase": "067",
+      "numero": "9-446-067-1",
+      "vehiculosRama": [
+        "9-446-067-1",
+        "7-446-034-1",
+        "9-446-068-9"
+      ],
+      "searchCodes": [
+        "067",
+        "068"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Cerro Negro",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[9 Ex-Barcelona. Colores Renfe Op. Reformada"
+      ]
+    },
+    "35": {
+      "rama": "35",
+      "lote": "Primer lote",
+      "vehiculoBase": "069",
+      "numero": "9-446-069-7",
+      "vehiculosRama": [
+        "9-446-069-7",
+        "7-446-035-8",
+        "9-446-022-6"
+      ],
+      "searchCodes": [
+        "069",
+        "022"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Cerro Negro",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "E94 Atentado en Atocha (11/03/04), desguazado 070M original, sustituido por 022M. Primer 446 en colores Renfe Op. Descarrilo El Espinar (03/06/16). Espacio PMR en Remolque"
+      ]
+    },
+    "36": {
+      "rama": "36",
+      "lote": "Primer lote",
+      "vehiculoBase": "071",
+      "numero": "9-446-071-3",
+      "vehiculosRama": [
+        "9-446-071-3",
+        "7-446-036-6",
+        "9-446-072-1"
+      ],
+      "searchCodes": [
+        "071",
+        "072"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "E99 Colores Renfe Op. Reformada"
+      ]
+    },
+    "37": {
+      "rama": "37",
+      "lote": "Primer lote",
+      "vehiculoBase": "073",
+      "numero": "9-446-073-9",
+      "vehiculosRama": [
+        "9-446-073-9",
+        "7-446-037-4",
+        "9-446-074-7"
+      ],
+      "searchCodes": [
+        "073",
+        "074"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Cerro Negro",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[9 Ex-Valencia. Colores Renfe Op.Reformada"
+      ]
+    },
+    "38": {
+      "rama": "38",
+      "lote": "Primer lote",
+      "vehiculoBase": "075",
+      "numero": "9-446-075-4",
+      "vehiculosRama": [
+        "9-446-075-4",
+        "7-446-038-2",
+        "9-446-076-2"
+      ],
+      "searchCodes": [
+        "075",
+        "076"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Cerro Negro",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "E99 Colores Renfe Op.Reformada."
+      ]
+    },
+    "39": {
+      "rama": "39",
+      "lote": "Primer lote",
+      "vehiculoBase": "077",
+      "numero": "9-446-077-0",
+      "vehiculosRama": [
+        "9-446-077-0",
+        "7-446-039-0",
+        "9-446-078-8"
+      ],
+      "searchCodes": [
+        "077",
+        "078"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Cerro Negro",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "E99 Colores Renfe Op. Reformada. Descarrilo de bogie en Atocha 04/06/23."
+      ]
+    },
+    "40": {
+      "rama": "40",
+      "lote": "Primer lote",
+      "vehiculoBase": "079",
+      "numero": "9-446-079-6",
+      "vehiculosRama": [
+        "9-446-079-6",
+        "7-446-040-8",
+        "9-446-080-4"
+      ],
+      "searchCodes": [
+        "079",
+        "080"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "99 Colores Renfe Op.Reformada. Ex- Cerro Negro"
+      ]
+    },
+    "41": {
+      "rama": "41",
+      "lote": "Primer lote",
+      "vehiculoBase": "081",
+      "numero": "9-446-081-2",
+      "vehiculosRama": [
+        "9-446-081-2",
+        "7-446-041-6",
+        "9-446-082-0"
+      ],
+      "searchCodes": [
+        "081",
+        "082"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Cerro Negro",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[E599 Colores Renfe Op. Nuevo interiorismo"
+      ]
+    },
+    "42": {
+      "rama": "42",
+      "lote": "Primer lote",
+      "vehiculoBase": "083",
+      "numero": "9-446-083-8",
+      "vehiculosRama": [
+        "9-446-083-8",
+        "7-446-042-4",
+        "9-446-084-6"
+      ],
+      "searchCodes": [
+        "083",
+        "084"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Cerro Negro",
+      "estado": "Accidentada",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[9% Colores Renfe Op. Reforma interior y LEDs. Descarrilo talleres 18/10/23. De nuevo en servicio 11/24. Tapizado de polipiel. Descarrilo 084M S. Fernando de Henares 27/10/25 Apartada en BMI Villaverde, canibalizada."
+      ]
+    },
+    "43": {
+      "rama": "43",
+      "lote": "Primer lote",
+      "vehiculoBase": "085",
+      "numero": "9-446-085-3",
+      "vehiculosRama": [
+        "9-446-085-3",
+        "7-446-043-2",
+        "9-446-086-1"
+      ],
+      "searchCodes": [
+        "085",
+        "086"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "99 Colores Renfe Op. Ex-Cerro Negro"
+      ]
+    },
+    "44": {
+      "rama": "44",
+      "lote": "Primer lote",
+      "vehiculoBase": "087",
+      "numero": "9-446-087-9",
+      "vehiculosRama": [
+        "9-446-087-9",
+        "7-446-044-0",
+        "9-446-088-1"
+      ],
+      "searchCodes": [
+        "087",
+        "088"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "E99 Colores Renfe Op.Reformada. Ex- Cerro Negro. (Espacio PMR en Remolque)"
+      ]
+    },
+    "45": {
+      "rama": "45",
+      "lote": "Primer lote",
+      "vehiculoBase": "089",
+      "numero": "9-446-089-5",
+      "vehiculosRama": [
+        "9-446-089-5",
+        "7-446-045-7",
+        "9-446-090-3"
+      ],
+      "searchCodes": [
+        "089",
+        "090"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Sevilla",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[99 Reformada. Colores Renfe Op. Ex- Cerro Negro>> Sevilla desde 2022."
+      ]
+    },
+    "46": {
+      "rama": "46",
+      "lote": "Primer lote",
+      "vehiculoBase": "091",
+      "numero": "9-446-091-1",
+      "vehiculosRama": [
+        "9-446-091-1",
+        "7-446-046-5",
+        "9-446-092-9"
+      ],
+      "searchCodes": [
+        "091",
+        "092"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[99 Atentado en Atocha, 11/03/04. Colores Renfe Op. Reformada."
+      ]
+    },
+    "47": {
+      "rama": "47",
+      "lote": "Primer lote",
+      "vehiculoBase": "093",
+      "numero": "9-446-093-7",
+      "vehiculosRama": [
+        "9-446-093-7",
+        "7-446-047-3",
+        "9-446-094-5"
+      ],
+      "searchCodes": [
+        "093",
+        "094"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "E94 Choque y descarrilo en Atocha 05/01/05,Colores Renfe Op.Reformada. Ex-Cerro Negro. Negro."
+      ]
+    },
+    "48": {
+      "rama": "48",
+      "lote": "Primer lote",
+      "vehiculoBase": "095",
+      "numero": "9-446-095-2",
+      "vehiculosRama": [
+        "9-446-095-2",
+        "7-446-048-1",
+        "9-446-096-0"
+      ],
+      "searchCodes": [
+        "095",
+        "096"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "559 Colores Renfe Op. Ex-Cerro Negro. Reformada. Fuencarral>>Irun 14/08/20>>Fuencarral 09/20"
+      ]
+    },
+    "49": {
+      "rama": "49",
+      "lote": "Primer lote",
+      "vehiculoBase": "097",
+      "numero": "9-446-097-8",
+      "vehiculosRama": [
+        "9-446-097-8",
+        "7-446-049-9",
+        "9-446-098-6"
+      ],
+      "searchCodes": [
+        "097",
+        "098"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Madrid",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[599 Colores Renfe Op. desde 15/06/05,Reformada. Ex-Cerro Negro>>Irun 01/20>>Madrid 17/01/25."
+      ]
+    },
+    "50": {
+      "rama": "50",
+      "lote": "Primer lote",
+      "vehiculoBase": "099",
+      "numero": "9-446-099-4",
+      "vehiculosRama": [
+        "9-446-099-4",
+        "7-446-050-7",
+        "9-446-100-0"
+      ],
+      "searchCodes": [
+        "099",
+        "100"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Primer lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "599 Colores Renfe Op.Reformada. Ex- Cerro Negro>> Fuencarral>> Irun 16/09/19>> Fuencarral J Motor impar Remolque 1 Motor par Depésito Estado Notas"
+      ]
+    },
+    "51": {
+      "rama": "51",
+      "lote": "Segundo lote",
+      "vehiculoBase": "101",
+      "numero": "9-446-101-8",
+      "vehiculosRama": [
+        "9-446-101-8",
+        "7-446-051-5",
+        "9-446-102-6"
+      ],
+      "searchCodes": [
+        "101",
+        "102"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "E509 Colores Renfe Op. Ex-Cerro Negro"
+      ]
+    },
+    "52": {
+      "rama": "52",
+      "lote": "Segundo lote",
+      "vehiculoBase": "103",
+      "numero": "9-446-103-4",
+      "vehiculosRama": [
+        "9-446-103-4",
+        "7-446-052-3",
+        "9-446-104-2"
+      ],
+      "searchCodes": [
+        "103",
+        "104"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "E509 Colores Renfe Op. Ex-Cerro Negro"
+      ]
+    },
+    "53": {
+      "rama": "53",
+      "lote": "Segundo lote",
+      "vehiculoBase": "105",
+      "numero": "9-446-105-9",
+      "vehiculosRama": [
+        "9-446-105-9",
+        "7-446-053-1",
+        "9-446-106-7"
+      ],
+      "searchCodes": [
+        "105",
+        "106"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Cerro Negro",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "E559 Colores Renfe Op.,Reformada."
+      ]
+    },
+    "54": {
+      "rama": "54",
+      "lote": "Segundo lote",
+      "vehiculoBase": "107",
+      "numero": "9-446-107-5",
+      "vehiculosRama": [
+        "9-446-107-5",
+        "7-446-054-9",
+        "9-446-108-3"
+      ],
+      "searchCodes": [
+        "107",
+        "108"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Ollargan",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "99 Colores Renfe Op. (solo pegatinas) reformada con nuevo interior blanco"
+      ]
+    },
+    "55": {
+      "rama": "55",
+      "lote": "Segundo lote",
+      "vehiculoBase": "109",
+      "numero": "9-446-109-1",
+      "vehiculosRama": [
+        "9-446-109-1",
+        "7-446-055-6",
+        "9-446-110-9"
+      ],
+      "searchCodes": [
+        "109",
+        "110"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Irun",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "99 Colores Renfe Op. (Ex-Pegatinas) Ex- Bilbao>>Málaga 25/10/08>> Bilbao desde 2010>> Choque con topera en Abando 14/09/15>> Reformada con nuevo interior blanco 2017>> Irun refuerzo carnavales Tolosa 01/03/25>> Ollargan 04/03/25 >> Irun 08/26"
+      ]
+    },
+    "56": {
+      "rama": "56",
+      "lote": "Segundo lote",
+      "vehiculoBase": "111",
+      "numero": "9-446-111-7",
+      "vehiculosRama": [
+        "9-446-111-7",
+        "7-446-056-4",
+        "9-446-112-5"
+      ],
+      "searchCodes": [
+        "111",
+        "112"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "",
+      "estado": "Desguazada",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "Colores Renfe Op. (solo pegatinas) >> Colores Renfe Op. Adaptada a andenes altos. Ex-Bilbao >> Apartada Santurce >> Traslado Miranda de Ebro 2018 >> Traslado TCR Valladolid. Apartada en TCR de Valladolid desde 12/18. Desguazada finales 2022."
+      ]
+    },
+    "57": {
+      "rama": "57",
+      "lote": "Segundo lote",
+      "vehiculoBase": "113",
+      "numero": "9-446-113-3",
+      "vehiculosRama": [
+        "9-446-113-3",
+        "7-446-057-2",
+        "9-446-114-1"
+      ],
+      "searchCodes": [
+        "113",
+        "114"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "",
+      "estado": "Apartada",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "Colores Renfe Op. (solo pegatinas). Ex-Bilbao >> Destacada en Irun 01/09. Apartada en Irun."
+      ]
+    },
+    "58": {
+      "rama": "58",
+      "lote": "Segundo lote",
+      "vehiculoBase": "115",
+      "numero": "9-446-115-8",
+      "vehiculosRama": [
+        "9-446-115-8",
+        "7-446-058-0",
+        "9-446-116-6"
+      ],
+      "searchCodes": [
+        "115",
+        "116"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Miranda de Ebro",
+      "estado": "Apartada",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[99 Adaptada andenes altos. Ex-Bilbao>> 04/09 Irun>> Bilbao 02/10>> Apartada Santurce>> Traslado Miranda de Ebro. Mal estado de conservacién>> Coche motor usado para reconstruir 446.083"
+      ]
+    },
+    "59": {
+      "rama": "59",
+      "lote": "Segundo lote",
+      "vehiculoBase": "117",
+      "numero": "9-446-117-4",
+      "vehiculosRama": [
+        "9-446-117-4",
+        "7-446-059-8",
+        "9-446-118-2"
+      ],
+      "searchCodes": [
+        "117",
+        "118"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Ollargan",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "EBA Colores Renfe Op.(Ex-Pegatinas) Destacada en Irun 01/09>> Ollargan. Reformada con interior blanco (05/17)>>Irun 10/08/20>> Bilbao 02/24."
+      ]
+    },
+    "60": {
+      "rama": "60",
+      "lote": "Segundo lote",
+      "vehiculoBase": "119",
+      "numero": "9-446-119-0",
+      "vehiculosRama": [
+        "9-446-119-0",
+        "7-446-060-6",
+        "9-446-120-8"
+      ],
+      "searchCodes": [
+        "119",
+        "120"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Sevilla",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "E99 Colores Renfe Op. Ex- Sevilla>>Apartada La Sagra, 23/06/15>> En servicio Sevilla."
+      ]
+    },
+    "61": {
+      "rama": "61",
+      "lote": "Segundo lote",
+      "vehiculoBase": "121",
+      "numero": "9-446-121-6",
+      "vehiculosRama": [
+        "9-446-121-6",
+        "7-446-061-4",
+        "9-446-122-4"
+      ],
+      "searchCodes": [
+        "121",
+        "122"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[09 Colores Renfe Op.Madrid>> Santander 02/11 >> Madrid P.P{fo 2012. Trasladada a La Sagra el 12/06/13 desde Fuencarral>> Reformado con nuevo interiorismo (01/17)"
+      ]
+    },
+    "62": {
+      "rama": "62",
+      "lote": "Segundo lote",
+      "vehiculoBase": "123",
+      "numero": "9-446-123-2",
+      "vehiculosRama": [
+        "9-446-123-2",
+        "7-446-062-2",
+        "9-446-124-0"
+      ],
+      "searchCodes": [
+        "123",
+        "124"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "E99 Atentado en Atocha, 11/03/04. Colores Renfe Op. Ex-Principe Pio>>Hibernada>> Vuelta a servicio 22/01/19"
+      ]
+    },
+    "63": {
+      "rama": "63",
+      "lote": "Segundo lote",
+      "vehiculoBase": "125",
+      "numero": "9-446-125-7",
+      "vehiculosRama": [
+        "9-446-125-7",
+        "7-446-063-0",
+        "9-446-126-5"
+      ],
+      "searchCodes": [
+        "125",
+        "126"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "IBA Colores Renfe Op. Logos 75 años Renfe. Reformada con nuevo interiorismo en sevilla (05/17). Ex-Fuencarral>> Irun 16/09/19>>Fuencarral"
+      ]
+    },
+    "64": {
+      "rama": "64",
+      "lote": "Segundo lote",
+      "vehiculoBase": "127",
+      "numero": "9-446-127-3",
+      "vehiculosRama": [
+        "9-446-127-3",
+        "7-446-064-8",
+        "9-446-128-1"
+      ],
+      "searchCodes": [
+        "127",
+        "128"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Sevilla",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[ESHA Ex-Madrid>> Málaga>>Sevilla. Colores Renfe Op. Interior reformado"
+      ]
+    },
+    "65": {
+      "rama": "65",
+      "lote": "Segundo lote",
+      "vehiculoBase": "129",
+      "numero": "9-446-129-9",
+      "vehiculosRama": [
+        "9-446-129-9",
+        "7-446-065-5",
+        "9-446-130-7"
+      ],
+      "searchCodes": [
+        "129",
+        "130"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Madrid",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[E599 Colores Renfe Op. Ex-Madrid>> 05/09 Irun>> Madrid>> Sevilla>> Fuencarral>> La Sagra 25/04/13>> Málaga para preparaci6n al servicio desde 02/17>> De nuevo en servicio en 09/22"
+      ]
+    },
+    "66": {
+      "rama": "66",
+      "lote": "Segundo lote",
+      "vehiculoBase": "131",
+      "numero": "9-446-131-5",
+      "vehiculosRama": [
+        "9-446-131-5",
+        "7-446-066-3",
+        "9-446-132-3"
+      ],
+      "searchCodes": [
+        "131",
+        "132"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[S99 Colores Renfe Op. Ex-Madrid>> 05/09 Irun>> Fuencarral>> Apartada La Sagra 25/04/13>>A Málaga para puesta en servicio en 02/17>>De nuevo en servicio 09/20"
+      ]
+    },
+    "67": {
+      "rama": "67",
+      "lote": "Segundo lote",
+      "vehiculoBase": "133",
+      "numero": "9-446-133-1",
+      "vehiculosRama": [
+        "9-446-133-1",
+        "7-446-067-1",
+        "9-446-134-9"
+      ],
+      "searchCodes": [
+        "133",
+        "134"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "",
+      "estado": "Desguazada",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "Adaptada a andenes altos. Colores Renfe Op. (solo pegatinas). Ex-Bilbao >> Apartada Santurce >> 2018 Miranda de Ebro >> TCR Valladolid desde 12/18. Puerta de 134M para exposición feria ARCO. Desguazada 12/22."
+      ]
+    },
+    "68": {
+      "rama": "68",
+      "lote": "Segundo lote",
+      "vehiculoBase": "135",
+      "numero": "9-446-135-6",
+      "vehiculosRama": [
+        "9-446-135-6",
+        "7-446-068-9",
+        "9-446-136-4"
+      ],
+      "searchCodes": [
+        "135",
+        "136"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Madrid",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "Colores Renfe Op. (solo pegatinas), reformada. Descarrilo talleres Málaga 07/18. Ex-Ollargan >> Madrid."
+      ]
+    },
+    "69": {
+      "rama": "69",
+      "lote": "Segundo lote",
+      "vehiculoBase": "137",
+      "numero": "9-446-137-2",
+      "vehiculosRama": [
+        "9-446-137-2",
+        "7-446-069-7",
+        "9-446-138-0"
+      ],
+      "searchCodes": [
+        "137",
+        "138"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Ollargan",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "99 Colores Renfe Op. (solo pegatinas). Ex-Bilbao. De baja verano 2010, apartada Fuencarral>> Trasladada TCR Valladolid 04/12/18. >>Irun 07/08/19>>Choque con baterias de 447-145 en Andoain 08/20, reparada en Ollargan>> Ollargan 09/20"
+      ]
+    },
+    "70": {
+      "rama": "70",
+      "lote": "Segundo lote",
+      "vehiculoBase": "139",
+      "numero": "9-446-139-8",
+      "vehiculosRama": [
+        "9-446-139-8",
+        "7-446-070-5",
+        "9-446-140-6"
+      ],
+      "searchCodes": [
+        "139",
+        "140"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Sevilla",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[S99 Colores Renfe Op. Ex-Málaga>> 05/09 Irun>> Madrid>> Sevilla. Faros LEDs"
+      ]
+    },
+    "71": {
+      "rama": "71",
+      "lote": "Segundo lote",
+      "vehiculoBase": "141",
+      "numero": "9-446-141-4",
+      "vehiculosRama": [
+        "9-446-141-4",
+        "7-446-071-3",
+        "9-446-142-2"
+      ],
+      "searchCodes": [
+        "141",
+        "142"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Ollargan",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[4 Unidad con estribos condenados (C1 y C2 de Bilbao). Colores Renfe Op.(solo pegatinas).Logos 75 años Renfe."
+      ]
+    },
+    "72": {
+      "rama": "72",
+      "lote": "Segundo lote",
+      "vehiculoBase": "143",
+      "numero": "9-446-143-0",
+      "vehiculosRama": [
+        "9-446-143-0",
+        "7-446-072-1",
+        "9-446-144-8"
+      ],
+      "searchCodes": [
+        "143",
+        "144"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Ollargan",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[99 Estribos condenados (C-1 y C-2 Bilbao). Colores Renfe Op. Reformada. Ex- Bilbao>>Madrid>> Bilbao 10/12."
+      ]
+    },
+    "73": {
+      "rama": "73",
+      "lote": "Segundo lote",
+      "vehiculoBase": "145",
+      "numero": "9-446-145-5",
+      "vehiculosRama": [
+        "9-446-145-5",
+        "7-446-073-9",
+        "9-446-146-3"
+      ],
+      "searchCodes": [
+        "145",
+        "146"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Ollargan",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "G9 Colores Renfe Op. C3 de 03/25 a 03/26 (Sin condena de estribos)"
+      ]
+    },
+    "74": {
+      "rama": "74",
+      "lote": "Segundo lote",
+      "vehiculoBase": "147",
+      "numero": "9-446-147-1",
+      "vehiculosRama": [
+        "9-446-147-1",
+        "7-446-074-7",
+        "9-446-148-9"
+      ],
+      "searchCodes": [
+        "147",
+        "148"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Ollargan",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "E599 Colores Renfe Op.Reformada. Ex- Ollargan Apartada>> Trasladada a Valladolid (30/01/17)>> En servicio Madrid 09/02/18>> Bilbao con nuevo interior blanco 02/18>> Irun 05/25>> Ollargan 06/25"
+      ]
+    },
+    "75": {
+      "rama": "75",
+      "lote": "Segundo lote",
+      "vehiculoBase": "149",
+      "numero": "9-446-149-7",
+      "vehiculosRama": [
+        "9-446-149-7",
+        "7-446-075-4",
+        "9-446-150-5"
+      ],
+      "searchCodes": [
+        "149",
+        "150"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Ollargan",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "Unidad con estribos condenados (C1 y C2 de Bilbao). Colores Renfe Op."
+      ]
+    },
+    "76": {
+      "rama": "76",
+      "lote": "Segundo lote",
+      "vehiculoBase": "151",
+      "numero": "9-446-151-3",
+      "vehiculosRama": [
+        "9-446-151-3",
+        "7-446-076-2",
+        "9-446-152-1"
+      ],
+      "searchCodes": [
+        "151",
+        "152"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Ollargan",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[94 Unidad con estribos condenados (C1 y C2 de Bilbao). Colores Renfe Op. (C). Descarrilo Sestao por desprendimiento 03/02/18. En servicio desde 06/18"
+      ]
+    },
+    "77": {
+      "rama": "77",
+      "lote": "Segundo lote",
+      "vehiculoBase": "153",
+      "numero": "9-446-153-9",
+      "vehiculosRama": [
+        "9-446-153-9",
+        "7-446-077-0",
+        "9-446-154-7"
+      ],
+      "searchCodes": [
+        "153",
+        "154"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Ollargan",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[4 Unidad con estribos condenados (C1 y C2 de Bilbao). Colores Renfe Op. (solo pegatinas)"
+      ]
+    },
+    "78": {
+      "rama": "78",
+      "lote": "Segundo lote",
+      "vehiculoBase": "155",
+      "numero": "9-446-155-4",
+      "vehiculosRama": [
+        "9-446-155-4",
+        "7-446-078-8",
+        "9-446-156-2"
+      ],
+      "searchCodes": [
+        "155",
+        "156"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "",
+      "estado": "Apartada",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "Colores Renfe Op. Reformada. Apartada Miranda de Ebro >> Apartada en TCR Málaga."
+      ]
+    },
+    "79": {
+      "rama": "79",
+      "lote": "Segundo lote",
+      "vehiculoBase": "157",
+      "numero": "9-446-157-0",
+      "vehiculosRama": [
+        "9-446-157-0",
+        "7-446-079-6",
+        "9-446-158-8"
+      ],
+      "searchCodes": [
+        "157",
+        "158"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Ollargan",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "Unidad con estribos condenados (C1 y C2 de Bilbao). Colores Renfe Op. Reformada. Descarrilo Bilbao-Abando 01/02/25 >> En servicio."
+      ]
+    },
+    "80": {
+      "rama": "80",
+      "lote": "Segundo lote",
+      "vehiculoBase": "159",
+      "numero": "9-446-159-6",
+      "vehiculosRama": [
+        "9-446-159-6",
+        "7-446-080-4",
+        "9-446-160-4"
+      ],
+      "searchCodes": [
+        "159",
+        "160"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Ollargan",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "0A Unidad con estribos condenados (C1 y C2 de Bilbao). Colores Renfe Op. Reformada."
+      ]
+    },
+    "81": {
+      "rama": "81",
+      "lote": "Segundo lote",
+      "vehiculoBase": "161",
+      "numero": "9-446-161-2",
+      "vehiculosRama": [
+        "9-446-161-2",
+        "7-446-081-2",
+        "9-446-162-0"
+      ],
+      "searchCodes": [
+        "161",
+        "162"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Ollargan",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        ". Unidad con estribos condenados (C1 y C2 de Bilbao). Ultimo tren de Bilbao-La Naja. Colores Renfe Op. Reformada"
+      ]
+    },
+    "82": {
+      "rama": "82",
+      "lote": "Segundo lote",
+      "vehiculoBase": "163",
+      "numero": "9-446-163-8",
+      "vehiculosRama": [
+        "9-446-163-8",
+        "7-446-082-0",
+        "9-446-164-6"
+      ],
+      "searchCodes": [
+        "163",
+        "164"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Ollargan",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "ESHA Unidad con estribos condenados (C1 y C2 de Bilbao) Ultimo tren en efectuar servicio Olabeaga-Bilbao Parke. Colores Renfe Op. Nuevo interiorismo 07/22."
+      ]
+    },
+    "83": {
+      "rama": "83",
+      "lote": "Segundo lote",
+      "vehiculoBase": "165",
+      "numero": "9-446-165-3",
+      "vehiculosRama": [
+        "9-446-165-3",
+        "7-446-083-8",
+        "9-446-166-1"
+      ],
+      "searchCodes": [
+        "165",
+        "166"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Ollargan",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "E503 Colores Renfe Op. Ex-Valencia>> Barcelona>> Madrid>> Bilbao, 2010>>Iruin 2018>> Bilbao 2021>> Topetazo via 13 Bilbao 11/23>> Reconstruida usando caja de 446 apartada en Miranda>> En servicio 01/25."
+      ]
+    },
+    "84": {
+      "rama": "84",
+      "lote": "Segundo lote",
+      "vehiculoBase": "167",
+      "numero": "9-446-167-9",
+      "vehiculosRama": [
+        "9-446-167-9",
+        "7-446-084-6",
+        "9-446-168-7"
+      ],
+      "searchCodes": [
+        "167",
+        "168"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Ollargan",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "99 Ex-Barcelona>> Ex-Madrid>> Bilbao desde 2010. Colores Renfe Op. Nuevo interiorismo (Espacio PMR en Remolque)"
+      ]
+    },
+    "85": {
+      "rama": "85",
+      "lote": "Segundo lote",
+      "vehiculoBase": "169",
+      "numero": "9-446-169-5",
+      "vehiculosRama": [
+        "9-446-169-5",
+        "7-446-085-3",
+        "9-446-170-3"
+      ],
+      "searchCodes": [
+        "169",
+        "170"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Ollargan",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[99 Atentado en Atocha, 11/03/04. Ex- Barcelona>> Bilbao>> Madrid>> Bilbao>> Málaga>>Bilbao. Colores Renfe Op. (pegatinas). Reformada con nuevo interior blanco"
+      ]
+    },
+    "86": {
+      "rama": "86",
+      "lote": "Segundo lote",
+      "vehiculoBase": "171",
+      "numero": "9-446-171-1",
+      "vehiculosRama": [
+        "9-446-171-1",
+        "7-446-086-1",
+        "9-446-172-9"
+      ],
+      "searchCodes": [
+        "171",
+        "172"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Ollargan",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "E98 Ex-Valencia>> Barcelona. Colores Renfe Op. Unidad con estribos condenados (C1 y C2 de Bilbao). Descarrilo 1 eje Zabalburu 18/02/26."
+      ]
+    },
+    "87": {
+      "rama": "87",
+      "lote": "Segundo lote",
+      "vehiculoBase": "173",
+      "numero": "9-446-173-7",
+      "vehiculosRama": [
+        "9-446-173-7",
+        "7-446-087-9",
+        "9-446-174-5"
+      ],
+      "searchCodes": [
+        "173",
+        "174"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "S89 Ex-Barcelona>> Madrid>> 04/09 Irun/Bilbao>> Madrid. Colores Renfe Op. Nuevo interiorismo, 01/17. Incendio en Soto del Henares 03/22. Nuevo tapizado de asientos de cuero duro."
+      ]
+    },
+    "88": {
+      "rama": "88",
+      "lote": "Segundo lote",
+      "vehiculoBase": "175",
+      "numero": "9-446-175-2",
+      "vehiculosRama": [
+        "9-446-175-2",
+        "7-446-088-7",
+        "9-446-176-0"
+      ],
+      "searchCodes": [
+        "175",
+        "176"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Sevilla",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "99 Ex-Barcelona>> Colores Renfe Op. Ex-Sevilla>> Trasladada a la Sagra 23/11/15. Ex- apartada>> 10/19 Sevilla"
+      ]
+    },
+    "89": {
+      "rama": "89",
+      "lote": "Segundo lote",
+      "vehiculoBase": "177",
+      "numero": "9-446-177-8",
+      "vehiculosRama": [
+        "9-446-177-8",
+        "7-446-089-5",
+        "9-446-178-6"
+      ],
+      "searchCodes": [
+        "177",
+        "178"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Ollargan",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "G09 Descarrilo puente de Tordera (01/94). Ex-Barcelona>> Colores Renfe Op. Ex-Málaga>> Bilbao 06/11>>Santander >>Bilbao >> Logos 75 años Renfe."
+      ]
+    },
+    "90": {
+      "rama": "90",
+      "lote": "Segundo lote",
+      "vehiculoBase": "179",
+      "numero": "9-446-179-4",
+      "vehiculosRama": [
+        "9-446-179-4",
+        "7-446-090-3",
+        "9-446-180-2"
+      ],
+      "searchCodes": [
+        "179",
+        "180"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Ollargan",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "99 Ex-Barcelona >> Ex-Madrid >> Ollargan 2010. Colores Renfe Op. Iruin 07/23 >> Ollargan 01/25."
+      ]
+    },
+    "91": {
+      "rama": "91",
+      "lote": "Segundo lote",
+      "vehiculoBase": "181",
+      "numero": "9-446-181-0",
+      "vehiculosRama": [
+        "9-446-181-0",
+        "7-446-091-1",
+        "9-446-182-8"
+      ],
+      "searchCodes": [
+        "181",
+        "182"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Sevilla",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[203 Ex-Barcelona>> En colores Renfe Op. desde 12/07. Ex-Málaga>> Irn desde 05/09>> Bilbao>> Sevilla/Córdoba."
+      ]
+    },
+    "92": {
+      "rama": "92",
+      "lote": "Segundo lote",
+      "vehiculoBase": "183",
+      "numero": "9-446-183-6",
+      "vehiculosRama": [
+        "9-446-183-6",
+        "7-446-092-9",
+        "9-446-184-4"
+      ],
+      "searchCodes": [
+        "183",
+        "184"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Sevilla",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "E99 Ex-Barcelona. Asientos tapizados. Colores Renfe Op. Ex-Principe Pio>>Sevilla>> Irun. \"C\" volteada al estado original de los años 90. 90."
+      ]
+    },
+    "93": {
+      "rama": "93",
+      "lote": "Segundo lote",
+      "vehiculoBase": "185",
+      "numero": "9-446-185-1",
+      "vehiculosRama": [
+        "9-446-185-1",
+        "7-446-093-7",
+        "9-446-186-9"
+      ],
+      "searchCodes": [
+        "185",
+        "186"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "",
+      "estado": "Apartada",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "Ex-Barcelona >> Ex-Madrid >> Irun >> Príncipe Pío. Colores Renfe Op. Apartada en Fuencarral desde 02/15 >> Trasladada a La Sagra 24/06/21."
+      ]
+    },
+    "94": {
+      "rama": "94",
+      "lote": "Segundo lote",
+      "vehiculoBase": "187",
+      "numero": "9-446-187-7",
+      "vehiculosRama": [
+        "9-446-187-7",
+        "7-446-094-5",
+        "9-446-188-5"
+      ],
+      "searchCodes": [
+        "187",
+        "188"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Irun",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "Ex-Barcelona >> Ex-Madrid >> Irun. Colores Renfe Op. Bilbao >> Irun. Incendiada en Beasain, 20/05/20, en reparación Nuevo Valladolid. Reformada nuevo interior blanco 12/20."
+      ]
+    },
+    "95": {
+      "rama": "95",
+      "lote": "Segundo lote",
+      "vehiculoBase": "189",
+      "numero": "9-446-189-3",
+      "vehiculosRama": [
+        "9-446-189-3",
+        "7-446-095-2",
+        "9-446-190-1"
+      ],
+      "searchCodes": [
+        "189",
+        "190"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Cerro Negro",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[99 Ex-Barcelona. Atentado en Santa Eugenia, 11/03/04. Explosi6n coche 190M. Apartada en Vicalvaro 12/03/04>> Reparada de nuevo en servicio 05/06/05. Colores Renfe Op. Reformada. Logos 75 años Renfe."
+      ]
+    },
+    "96": {
+      "rama": "96",
+      "lote": "Segundo lote",
+      "vehiculoBase": "191",
+      "numero": "9-446-191-9",
+      "vehiculosRama": [
+        "9-446-191-9",
+        "7-446-096-0",
+        "9-446-192-7"
+      ],
+      "searchCodes": [
+        "191",
+        "192"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "",
+      "estado": "Desguazada",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "Ex-Valencia >> Barcelona >> Madrid. Atentado en Téllez, 11/03/04. Ex-Madrid >> Desguazada."
+      ]
+    },
+    "97": {
+      "rama": "97",
+      "lote": "Segundo lote",
+      "vehiculoBase": "193",
+      "numero": "9-446-193-5",
+      "vehiculosRama": [
+        "9-446-193-5",
+        "7-446-097-8",
+        "9-446-194-3"
+      ],
+      "searchCodes": [
+        "193",
+        "194"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "Ex-Valencia >> Barcelona >> Madrid. Afectada pasivamente en los atentados de Madrid, 11/03/04. Colores Renfe Op. Ex-Madrid >> Irun desde 2014 >> Madrid desde 03/18 >> Sevilla 06/20."
+      ]
+    },
+    "98": {
+      "rama": "98",
+      "lote": "Segundo lote",
+      "vehiculoBase": "195",
+      "numero": "9-446-195-0",
+      "vehiculosRama": [
+        "9-446-195-0",
+        "7-446-098-6",
+        "9-446-196-8"
+      ],
+      "searchCodes": [
+        "195",
+        "196"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Sevilla",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "EE Ex- Valencia>>Barcelona>>Madrid>>Málaga. Colores Renfe Op. Servicio Cordoba-Rabanales 2010. >> Servicio Alcolea de Córdoba-Villarrubia de Córdoba 2019"
+      ]
+    },
+    "99": {
+      "rama": "99",
+      "lote": "Segundo lote",
+      "vehiculoBase": "197",
+      "numero": "9-446-197-6",
+      "vehiculosRama": [
+        "9-446-197-6",
+        "7-446-099-4",
+        "9-446-198-4"
+      ],
+      "searchCodes": [
+        "197",
+        "198"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[ESHA Ex-Barcelona>> Colores Renfe Op. Ex-Principe Pio, Apartada en La Sagra>> De nuevo en servicio (Madrid), 10/15. Nuevo interiorismo."
+      ]
+    },
+    "100": {
+      "rama": "100",
+      "lote": "Segundo lote",
+      "vehiculoBase": "199",
+      "numero": "9-446-199-2",
+      "vehiculosRama": [
+        "9-446-199-2",
+        "7-446-100-0",
+        "9-446-200-8"
+      ],
+      "searchCodes": [
+        "199",
+        "200"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Segundo lote",
+      "deposito": "Fuencarral",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "No",
+      "notas": [
+        "[99 Estrenada en Barcelona. Colores Renfe Op. Reformada. Ex-Principe Pio>>Irun>> Madrid 08/19 J Motor impar Remolque 1 Motor par Deposito Estado Notas"
+      ]
+    },
+    "101": {
+      "rama": "101",
+      "lote": "Tercer lote",
+      "vehiculoBase": "201",
+      "numero": "9-446-201-6",
+      "vehiculosRama": [
+        "9-446-201-6",
+        "7-446-101-8",
+        "9-446-202-4"
+      ],
+      "searchCodes": [
+        "201",
+        "202"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "208 Con LZB. Colores Renfe Op. (ex- pegatinas)"
+      ]
+    },
+    "102": {
+      "rama": "102",
+      "lote": "Tercer lote",
+      "vehiculoBase": "203",
+      "numero": "9-446-203-2",
+      "vehiculosRama": [
+        "9-446-203-2",
+        "7-446-102-6",
+        "9-446-204-0"
+      ],
+      "searchCodes": [
+        "203",
+        "204"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "99 Con LZB. Colores Renfe Op."
+      ]
+    },
+    "103": {
+      "rama": "103",
+      "lote": "Tercer lote",
+      "vehiculoBase": "205",
+      "numero": "9-446-205-7",
+      "vehiculosRama": [
+        "9-446-205-7",
+        "7-446-103-4",
+        "9-446-206-5"
+      ],
+      "searchCodes": [
+        "205",
+        "206"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[248 Con LZB. Colores Renfe Op."
+      ]
+    },
+    "104": {
+      "rama": "104",
+      "lote": "Tercer lote",
+      "vehiculoBase": "207",
+      "numero": "9-446-207-3",
+      "vehiculosRama": [
+        "9-446-207-3",
+        "7-446-104-2",
+        "9-446-208-1"
+      ],
+      "searchCodes": [
+        "207",
+        "208"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[93 Con LZB. Colores Renfe Op. (Espacio PMR en Remolque)"
+      ]
+    },
+    "105": {
+      "rama": "105",
+      "lote": "Tercer lote",
+      "vehiculoBase": "209",
+      "numero": "9-446-209-9",
+      "vehiculosRama": [
+        "9-446-209-9",
+        "7-446-105-9",
+        "9-446-210-7"
+      ],
+      "searchCodes": [
+        "209",
+        "210"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[09 Con LZB. Colores Renfe Op."
+      ]
+    },
+    "106": {
+      "rama": "106",
+      "lote": "Tercer lote",
+      "vehiculoBase": "211",
+      "numero": "9-446-211-5",
+      "vehiculosRama": [
+        "9-446-211-5",
+        "7-446-106-7",
+        "9-446-212-3"
+      ],
+      "searchCodes": [
+        "211",
+        "212"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[99 Con LZB. Colores Renfe Op. (Espacio PMR en Remolque)"
+      ]
+    },
+    "107": {
+      "rama": "107",
+      "lote": "Tercer lote",
+      "vehiculoBase": "213",
+      "numero": "9-446-213-1",
+      "vehiculosRama": [
+        "9-446-213-1",
+        "7-446-107-5",
+        "9-446-214-9"
+      ],
+      "searchCodes": [
+        "213",
+        "214"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[09 Con LZB. Colores Renfe Op. Nuevo interiorismo. Nuevo tapizado (08/23)."
+      ]
+    },
+    "108": {
+      "rama": "108",
+      "lote": "Tercer lote",
+      "vehiculoBase": "215",
+      "numero": "9-446-215-6",
+      "vehiculosRama": [
+        "9-446-215-6",
+        "7-446-108-3",
+        "9-446-216-4"
+      ],
+      "searchCodes": [
+        "215",
+        "216"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[99 Con LZB. Colores Renfe Op (ex- pegatinas)."
+      ]
+    },
+    "109": {
+      "rama": "109",
+      "lote": "Tercer lote",
+      "vehiculoBase": "217",
+      "numero": "9-446-217-2",
+      "vehiculosRama": [
+        "9-446-217-2",
+        "7-446-109-1",
+        "9-446-218-0"
+      ],
+      "searchCodes": [
+        "217",
+        "218"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "EMA Con LZB. Colores Renfe Op. (Ex- pegatinas). Nuevo interiorismo, 09/16. Descarrilo Humanes 16/11/23. De vuelta al servicio 02/25."
+      ]
+    },
+    "110": {
+      "rama": "110",
+      "lote": "Tercer lote",
+      "vehiculoBase": "219",
+      "numero": "9-446-219-8",
+      "vehiculosRama": [
+        "9-446-219-8",
+        "7-446-110-9",
+        "9-446-220-6"
+      ],
+      "searchCodes": [
+        "219",
+        "220"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[9 Con LZB. Colores Renfe Op. Nuevo interiorismo, 01/16. Faros LED."
+      ]
+    },
+    "111": {
+      "rama": "111",
+      "lote": "Tercer lote",
+      "vehiculoBase": "221",
+      "numero": "9-446-221-4",
+      "vehiculosRama": [
+        "9-446-221-4",
+        "7-446-111-7",
+        "9-446-222-2"
+      ],
+      "searchCodes": [
+        "221",
+        "222"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[9 Con LZB. Colores Renfe Op. Faros LED"
+      ]
+    },
+    "112": {
+      "rama": "112",
+      "lote": "Tercer lote",
+      "vehiculoBase": "223",
+      "numero": "9-446-223-0",
+      "vehiculosRama": [
+        "9-446-223-0",
+        "7-446-112-5",
+        "9-446-224-8"
+      ],
+      "searchCodes": [
+        "223",
+        "224"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[59 Con LZB. Colores Renfe Op. Patrociné en 1994 el anuncio de \"Besos\" de Cercanias. Reformado interior 12/23."
+      ]
+    },
+    "113": {
+      "rama": "113",
+      "lote": "Tercer lote",
+      "vehiculoBase": "225",
+      "numero": "9-446-225-5",
+      "vehiculosRama": [
+        "9-446-225-5",
+        "7-446-113-3",
+        "9-446-226-3"
+      ],
+      "searchCodes": [
+        "225",
+        "226"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[9 Con LZB. Colores Renfe Op. Nuevo interiorismo, 2016."
+      ]
+    },
+    "114": {
+      "rama": "114",
+      "lote": "Tercer lote",
+      "vehiculoBase": "227",
+      "numero": "9-446-227-1",
+      "vehiculosRama": [
+        "9-446-227-1",
+        "7-446-114-1",
+        "9-446-228-9"
+      ],
+      "searchCodes": [
+        "227",
+        "228"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[09 Con LZB. Colores Renfe Op. Nuevo interiorismo, 05/16."
+      ]
+    },
+    "115": {
+      "rama": "115",
+      "lote": "Tercer lote",
+      "vehiculoBase": "229",
+      "numero": "9-446-229-7",
+      "vehiculosRama": [
+        "9-446-229-7",
+        "7-446-115-8",
+        "9-446-230-5"
+      ],
+      "searchCodes": [
+        "229",
+        "230"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "509 Con LZB. Colores Renfe Op."
+      ]
+    },
+    "116": {
+      "rama": "116",
+      "lote": "Tercer lote",
+      "vehiculoBase": "231",
+      "numero": "9-446-231-3",
+      "vehiculosRama": [
+        "9-446-231-3",
+        "7-446-116-6",
+        "9-446-232-1"
+      ],
+      "searchCodes": [
+        "231",
+        "232"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[09 Con LZB. Colores Renfe Op (ex pegatinas). Accidente en Aluche, 06/09. Ex- Madrid>> Apartada en Móstoles-El Soto>> En servicio, 04/13. Nuevo interiorismo."
+      ]
+    },
+    "117": {
+      "rama": "117",
+      "lote": "Tercer lote",
+      "vehiculoBase": "233",
+      "numero": "9-446-233-9",
+      "vehiculosRama": [
+        "9-446-233-9",
+        "7-446-117-4",
+        "9-446-234-7"
+      ],
+      "searchCodes": [
+        "233",
+        "234"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[99 Con LZB. Ex-Apartada en Humanes. Colores Renfe Op., desde 20/03/13."
+      ]
+    },
+    "118": {
+      "rama": "118",
+      "lote": "Tercer lote",
+      "vehiculoBase": "235",
+      "numero": "9-446-235-4",
+      "vehiculosRama": [
+        "9-446-235-4",
+        "7-446-118-2",
+        "9-446-236-2"
+      ],
+      "searchCodes": [
+        "235",
+        "236"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[59 Con LZB. Colores Renfe Op.(Ex- pegatinas) Ex-Madrid, apartada taller Humanes >> Madrid 02/13"
+      ]
+    },
+    "119": {
+      "rama": "119",
+      "lote": "Tercer lote",
+      "vehiculoBase": "237",
+      "numero": "9-446-237-0",
+      "vehiculosRama": [
+        "9-446-237-0",
+        "7-446-119-0",
+        "9-446-238-8"
+      ],
+      "searchCodes": [
+        "237",
+        "238"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[99 Con LZB. Ex-Apartada en Humanes, 2011.>> Trasladada a Valladolid, 10/07/13. Colores Renfe Op. Ultima 446 en colores originales."
+      ]
+    },
+    "120": {
+      "rama": "120",
+      "lote": "Tercer lote",
+      "vehiculoBase": "239",
+      "numero": "9-446-239-6",
+      "vehiculosRama": [
+        "9-446-239-6",
+        "7-446-120-8",
+        "9-446-240-4"
+      ],
+      "searchCodes": [
+        "239",
+        "240"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "559 Con LZB. Colores Renfe Op. (Ex- Pegatinas) IS"
+      ]
+    },
+    "121": {
+      "rama": "121",
+      "lote": "Tercer lote",
+      "vehiculoBase": "241",
+      "numero": "9-446-241-2",
+      "vehiculosRama": [
+        "9-446-241-2",
+        "7-446-121-6",
+        "9-446-242-0"
+      ],
+      "searchCodes": [
+        "241",
+        "242"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "99 Con LZB. Colores Renfe Op. (ex- pegatinas). Nuevo interiorismo (Espacio PMR en Remolque)"
+      ]
+    },
+    "122": {
+      "rama": "122",
+      "lote": "Tercer lote",
+      "vehiculoBase": "243",
+      "numero": "9-446-243-8",
+      "vehiculosRama": [
+        "9-446-243-8",
+        "7-446-122-4",
+        "9-446-244-6"
+      ],
+      "searchCodes": [
+        "243",
+        "244"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "99 Con LZB. Colores Renfe Op. Faros LED. (Espacio PMR en Remolque)"
+      ]
+    },
+    "123": {
+      "rama": "123",
+      "lote": "Tercer lote",
+      "vehiculoBase": "245",
+      "numero": "9-446-245-3",
+      "vehiculosRama": [
+        "9-446-245-3",
+        "7-446-123-2",
+        "9-446-246-1"
+      ],
+      "searchCodes": [
+        "245",
+        "246"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "99 Con LZB, colores Renfe Op."
+      ]
+    },
+    "124": {
+      "rama": "124",
+      "lote": "Tercer lote",
+      "vehiculoBase": "247",
+      "numero": "9-446-247-9",
+      "vehiculosRama": [
+        "9-446-247-9",
+        "7-446-124-0",
+        "9-446-248-7"
+      ],
+      "searchCodes": [
+        "247",
+        "248"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "09 Con LZB. Colores Renfe Op. (Ex- pegatinas)"
+      ]
+    },
+    "125": {
+      "rama": "125",
+      "lote": "Tercer lote",
+      "vehiculoBase": "249",
+      "numero": "9-446-249-5",
+      "vehiculosRama": [
+        "9-446-249-5",
+        "7-446-125-7",
+        "9-446-250-3"
+      ],
+      "searchCodes": [
+        "249",
+        "250"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "09 Con LZB. Colores Renfe Op. Con luces LED."
+      ]
+    },
+    "126": {
+      "rama": "126",
+      "lote": "Tercer lote",
+      "vehiculoBase": "251",
+      "numero": "9-446-251-1",
+      "vehiculosRama": [
+        "9-446-251-1",
+        "7-446-126-5",
+        "9-446-252-9"
+      ],
+      "searchCodes": [
+        "251",
+        "252"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "04 Con LZB. Colores Renfe Op."
+      ]
+    },
+    "127": {
+      "rama": "127",
+      "lote": "Tercer lote",
+      "vehiculoBase": "253",
+      "numero": "9-446-253-7",
+      "vehiculosRama": [
+        "9-446-253-7",
+        "7-446-127-3",
+        "9-446-254-5"
+      ],
+      "searchCodes": [
+        "253",
+        "254"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "99 Con LZB. Colores Renfe Op."
+      ]
+    },
+    "128": {
+      "rama": "128",
+      "lote": "Tercer lote",
+      "vehiculoBase": "255",
+      "numero": "9-446-255-2",
+      "vehiculosRama": [
+        "9-446-255-2",
+        "7-446-128-1",
+        "9-446-256-0"
+      ],
+      "searchCodes": [
+        "255",
+        "256"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "09 Con LZB. Colores Renfe Op. Faros LED. (Espacio PMR en Remolque)"
+      ]
+    },
+    "129": {
+      "rama": "129",
+      "lote": "Tercer lote",
+      "vehiculoBase": "257",
+      "numero": "9-446-257-8",
+      "vehiculosRama": [
+        "9-446-257-8",
+        "7-446-129-9",
+        "9-446-258-6"
+      ],
+      "searchCodes": [
+        "257",
+        "258"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "09 Con LZB. Colores Renfe Op. Nuevo interiorismo, 05/16."
+      ]
+    },
+    "130": {
+      "rama": "130",
+      "lote": "Tercer lote",
+      "vehiculoBase": "259",
+      "numero": "9-446-259-4",
+      "vehiculosRama": [
+        "9-446-259-4",
+        "7-446-130-7",
+        "9-446-260-2"
+      ],
+      "searchCodes": [
+        "259",
+        "260"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "93 Con LZB. Colores Renfe Op. (Espacio PMR en Remolque)"
+      ]
+    },
+    "131": {
+      "rama": "131",
+      "lote": "Tercer lote",
+      "vehiculoBase": "261",
+      "numero": "9-446-261-0",
+      "vehiculosRama": [
+        "9-446-261-0",
+        "7-446-131-5",
+        "9-446-262-8"
+      ],
+      "searchCodes": [
+        "261",
+        "262"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "44 Con LZB. Colores Renfe Op."
+      ]
+    },
+    "132": {
+      "rama": "132",
+      "lote": "Tercer lote",
+      "vehiculoBase": "263",
+      "numero": "9-446-263-6",
+      "vehiculosRama": [
+        "9-446-263-6",
+        "7-446-132-3",
+        "9-446-264-4"
+      ],
+      "searchCodes": [
+        "263",
+        "264"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "09 Con LZB. Colores Renfe Op. Nuevo tapizado de asientos de cuero, 20/09/23"
+      ]
+    },
+    "133": {
+      "rama": "133",
+      "lote": "Tercer lote",
+      "vehiculoBase": "265",
+      "numero": "9-446-265-1",
+      "vehiculosRama": [
+        "9-446-265-1",
+        "7-446-133-1",
+        "9-446-266-9"
+      ],
+      "searchCodes": [
+        "265",
+        "266"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "04 Con LZB. Colores Renfe Op. Nuevo interiorismo, 01/16. Arrollamiento arbol 21/09/24 entre Leganés y Zarzaquemada."
+      ]
+    },
+    "134": {
+      "rama": "134",
+      "lote": "Tercer lote",
+      "vehiculoBase": "267",
+      "numero": "9-446-267-7",
+      "vehiculosRama": [
+        "9-446-267-7",
+        "7-446-134-9",
+        "9-446-268-5"
+      ],
+      "searchCodes": [
+        "267",
+        "268"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "04 Con LZB. Colores Renfe Op. Nuevo interiorismo, 2016."
+      ]
+    },
+    "135": {
+      "rama": "135",
+      "lote": "Tercer lote",
+      "vehiculoBase": "269",
+      "numero": "9-446-269-3",
+      "vehiculosRama": [
+        "9-446-269-3",
+        "7-446-135-6",
+        "9-446-270-1"
+      ],
+      "searchCodes": [
+        "269",
+        "270"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[04 Con LZB. Techo de 135R sin color. Colores Renfe Op. y pintura de recho 135R 12/09."
+      ]
+    },
+    "136": {
+      "rama": "136",
+      "lote": "Tercer lote",
+      "vehiculoBase": "271",
+      "numero": "9-446-271-9",
+      "vehiculosRama": [
+        "9-446-271-9",
+        "7-446-136-4",
+        "9-446-272-7"
+      ],
+      "searchCodes": [
+        "271",
+        "272"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "Con LZB. Colores Renfe Op."
+      ]
+    },
+    "137": {
+      "rama": "137",
+      "lote": "Tercer lote",
+      "vehiculoBase": "273",
+      "numero": "9-446-273-5",
+      "vehiculosRama": [
+        "9-446-273-5",
+        "7-446-137-2",
+        "9-446-274-3"
+      ],
+      "searchCodes": [
+        "273",
+        "274"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "204 Con LZB. Colores Renfe Op."
+      ]
+    },
+    "138": {
+      "rama": "138",
+      "lote": "Tercer lote",
+      "vehiculoBase": "275",
+      "numero": "9-446-275-0",
+      "vehiculosRama": [
+        "9-446-275-0",
+        "7-446-138-0",
+        "9-446-276-8"
+      ],
+      "searchCodes": [
+        "275",
+        "276"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[204 Ex-Barcelona>> Con LZB. Colores Renfe Op."
+      ]
+    },
+    "139": {
+      "rama": "139",
+      "lote": "Tercer lote",
+      "vehiculoBase": "277",
+      "numero": "9-446-277-6",
+      "vehiculosRama": [
+        "9-446-277-6",
+        "7-446-139-8",
+        "9-446-278-4"
+      ],
+      "searchCodes": [
+        "277",
+        "278"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[204 Ex-Barcelona>> Con LZB. Colores Renfe Op. Nuevo interiorismo, 11/17."
+      ]
+    },
+    "140": {
+      "rama": "140",
+      "lote": "Tercer lote",
+      "vehiculoBase": "279",
+      "numero": "9-446-279-2",
+      "vehiculosRama": [
+        "9-446-279-2",
+        "7-446-140-6",
+        "9-446-280-0"
+      ],
+      "searchCodes": [
+        "279",
+        "280"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "24 Ex-Barcelona. Con LZB. Colores Renfe Op. Reformada interiorismo 07/20"
+      ]
+    },
+    "141": {
+      "rama": "141",
+      "lote": "Tercer lote",
+      "vehiculoBase": "281",
+      "numero": "9-446-281-8",
+      "vehiculosRama": [
+        "9-446-281-8",
+        "7-446-141-4",
+        "9-446-282-6"
+      ],
+      "searchCodes": [
+        "281",
+        "282"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "99 Ex-Barcelona. Con LZB. Colores Renfe Op. (Ex-pegatinas)"
+      ]
+    },
+    "142": {
+      "rama": "142",
+      "lote": "Tercer lote",
+      "vehiculoBase": "283",
+      "numero": "9-446-283-4",
+      "vehiculosRama": [
+        "9-446-283-4",
+        "7-446-142-2",
+        "9-446-284-2"
+      ],
+      "searchCodes": [
+        "283",
+        "284"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "599 Ex-Barcelona. Con LZB. Colores Renfe Op."
+      ]
+    },
+    "143": {
+      "rama": "143",
+      "lote": "Tercer lote",
+      "vehiculoBase": "285",
+      "numero": "9-446-285-9",
+      "vehiculosRama": [
+        "9-446-285-9",
+        "7-446-143-0",
+        "9-446-286-7"
+      ],
+      "searchCodes": [
+        "285",
+        "286"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "99 Ex-Barcelona. Con LZB. Colores Renfe Op. wens SP"
+      ]
+    },
+    "144": {
+      "rama": "144",
+      "lote": "Tercer lote",
+      "vehiculoBase": "287",
+      "numero": "9-446-287-5",
+      "vehiculosRama": [
+        "9-446-287-5",
+        "7-446-144-8",
+        "9-446-288-3"
+      ],
+      "searchCodes": [
+        "287",
+        "288"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[99 Ex-Barcelona. Con LZB. Colores Renfe Op. (ex-pegatinas)"
+      ]
+    },
+    "145": {
+      "rama": "145",
+      "lote": "Tercer lote",
+      "vehiculoBase": "289",
+      "numero": "9-446-289-1",
+      "vehiculosRama": [
+        "9-446-289-1",
+        "7-446-145-5",
+        "9-446-290-9"
+      ],
+      "searchCodes": [
+        "289",
+        "290"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "E98 Ex-Barcelona. Con LZB. Colores Renfe Op (ex-pegatinas). Luces LED en 289M. Descarrilamiento puente de Tordera (01/94)."
+      ]
+    },
+    "146": {
+      "rama": "146",
+      "lote": "Tercer lote",
+      "vehiculoBase": "291",
+      "numero": "9-446-291-7",
+      "vehiculosRama": [
+        "9-446-291-7",
+        "7-446-146-3",
+        "9-446-292-5"
+      ],
+      "searchCodes": [
+        "291",
+        "292"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[9 Ex-Barcelona >> Con LZB. Colores Renfe Op. Faros LED"
+      ]
+    },
+    "147": {
+      "rama": "147",
+      "lote": "Tercer lote",
+      "vehiculoBase": "293",
+      "numero": "9-446-293-3",
+      "vehiculosRama": [
+        "9-446-293-3",
+        "7-446-147-1",
+        "9-446-294-1"
+      ],
+      "searchCodes": [
+        "293",
+        "294"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[99 Ex-Barcelona >> Con LZB. Colores Renfe Op."
+      ]
+    },
+    "148": {
+      "rama": "148",
+      "lote": "Tercer lote",
+      "vehiculoBase": "295",
+      "numero": "9-446-295-8",
+      "vehiculosRama": [
+        "9-446-295-8",
+        "7-446-148-9",
+        "9-446-296-6"
+      ],
+      "searchCodes": [
+        "295",
+        "296"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[99 Ex-Barcelona >> Con LZB. Colores Renfe Op."
+      ]
+    },
+    "149": {
+      "rama": "149",
+      "lote": "Tercer lote",
+      "vehiculoBase": "297",
+      "numero": "9-446-297-4",
+      "vehiculosRama": [
+        "9-446-297-4",
+        "7-446-149-7",
+        "9-446-298-2"
+      ],
+      "searchCodes": [
+        "297",
+        "298"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[99 Ex-Barcelona >> Con LZB. Colores Renfe Op (ex-pegatinas)."
+      ]
+    },
+    "150": {
+      "rama": "150",
+      "lote": "Tercer lote",
+      "vehiculoBase": "299",
+      "numero": "9-446-299-0",
+      "vehiculosRama": [
+        "9-446-299-0",
+        "7-446-150-5",
+        "9-446-300-6"
+      ],
+      "searchCodes": [
+        "299",
+        "300"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "E98 Ex-Barcelona >> Con LZB. Colores Renfe Op. (Ex-pegatinas). Ex-Málaga"
+      ]
+    },
+    "151": {
+      "rama": "151",
+      "lote": "Tercer lote",
+      "vehiculoBase": "301",
+      "numero": "9-446-301-4",
+      "vehiculosRama": [
+        "9-446-301-4",
+        "7-446-151-3",
+        "9-446-302-2"
+      ],
+      "searchCodes": [
+        "301",
+        "302"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[94 Ex-Barcelona >> Con LZB. Colores Renfe Op. (C)"
+      ]
+    },
+    "152": {
+      "rama": "152",
+      "lote": "Tercer lote",
+      "vehiculoBase": "303",
+      "numero": "9-446-303-0",
+      "vehiculosRama": [
+        "9-446-303-0",
+        "7-446-152-1",
+        "9-446-304-8"
+      ],
+      "searchCodes": [
+        "303",
+        "304"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[99 Ex-Barcelona >> Con LZB. Colores Renfe Op."
+      ]
+    },
+    "153": {
+      "rama": "153",
+      "lote": "Tercer lote",
+      "vehiculoBase": "305",
+      "numero": "9-446-305-5",
+      "vehiculosRama": [
+        "9-446-305-5",
+        "7-446-153-9",
+        "9-446-306-3"
+      ],
+      "searchCodes": [
+        "305",
+        "306"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "E98 Ex-Barcelona >> Con LZB. Colores Renfe Op."
+      ]
+    },
+    "154": {
+      "rama": "154",
+      "lote": "Tercer lote",
+      "vehiculoBase": "307",
+      "numero": "9-446-307-1",
+      "vehiculosRama": [
+        "9-446-307-1",
+        "7-446-154-7",
+        "9-446-308-9"
+      ],
+      "searchCodes": [
+        "307",
+        "308"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "9 Ex-Barcelona >> Con LZB. Colores Renfe Op."
+      ]
+    },
+    "155": {
+      "rama": "155",
+      "lote": "Tercer lote",
+      "vehiculoBase": "309",
+      "numero": "9-446-309-7",
+      "vehiculosRama": [
+        "9-446-309-7",
+        "7-446-155-4",
+        "9-446-310-5"
+      ],
+      "searchCodes": [
+        "309",
+        "310"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[99 Ex-Barcelona >> Con LZB. Colores Renfe Op. Reformada nuevo interiorismo."
+      ]
+    },
+    "156": {
+      "rama": "156",
+      "lote": "Tercer lote",
+      "vehiculoBase": "311",
+      "numero": "9-446-311-3",
+      "vehiculosRama": [
+        "9-446-311-3",
+        "7-446-156-2",
+        "9-446-312-1"
+      ],
+      "searchCodes": [
+        "311",
+        "312"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "2M) Ex-Barcelona >> Con LZB. Colores Renfe Op. Nuevo interiorismo, 01/16."
+      ]
+    },
+    "157": {
+      "rama": "157",
+      "lote": "Tercer lote",
+      "vehiculoBase": "313",
+      "numero": "9-446-313-9",
+      "vehiculosRama": [
+        "9-446-313-9",
+        "7-446-157-0",
+        "9-446-314-7"
+      ],
+      "searchCodes": [
+        "313",
+        "314"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "E94 Ex-Barcelona >> Con LZB. Colores Renfe Op. (Espacio PMR en Remolque)"
+      ]
+    },
+    "158": {
+      "rama": "158",
+      "lote": "Tercer lote",
+      "vehiculoBase": "315",
+      "numero": "9-446-315-4",
+      "vehiculosRama": [
+        "9-446-315-4",
+        "7-446-158-8",
+        "9-446-316-2"
+      ],
+      "searchCodes": [
+        "315",
+        "316"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[99 Ex-Barcelona >> Con LZB. Colores Renfe Op. Nuevo interiorismo, 05/16."
+      ]
+    },
+    "159": {
+      "rama": "159",
+      "lote": "Tercer lote",
+      "vehiculoBase": "317",
+      "numero": "9-446-317-0",
+      "vehiculosRama": [
+        "9-446-317-0",
+        "7-446-159-6",
+        "9-446-318-8"
+      ],
+      "searchCodes": [
+        "317",
+        "318"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "[99 Ex-Barcelona >> Con LZB. Colores Renfe Op."
+      ]
+    },
+    "160": {
+      "rama": "160",
+      "lote": "Tercer lote",
+      "vehiculoBase": "319",
+      "numero": "9-446-319-6",
+      "vehiculosRama": [
+        "9-446-319-6",
+        "7-446-160-4",
+        "9-446-320-4"
+      ],
+      "searchCodes": [
+        "319",
+        "320"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "E99 Ex-Barcelona >> Con LZB. Colores Renfe Op. Prototipo de nuevo interiorismo, 03/15. Golpe en Humanes, en reparacion TCR Villaverde. En servicio 10/02/26"
+      ]
+    },
+    "161": {
+      "rama": "161",
+      "lote": "Tercer lote",
+      "vehiculoBase": "321",
+      "numero": "9-446-321-2",
+      "vehiculosRama": [
+        "9-446-321-2",
+        "7-446-161-2",
+        "9-446-322-0"
+      ],
+      "searchCodes": [
+        "321",
+        "322"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "E98 Ex-Barcelona >> Con LZB. Colores Renfe Op."
+      ]
+    },
+    "162": {
+      "rama": "162",
+      "lote": "Tercer lote",
+      "vehiculoBase": "323",
+      "numero": "9-446-323-8",
+      "vehiculosRama": [
+        "9-446-323-8",
+        "7-446-162-0",
+        "9-446-324-6"
+      ],
+      "searchCodes": [
+        "323",
+        "324"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "E99 Ex-Barcelona >> Con LZB. Accidente en Móstoles. Colores Renfe Op."
+      ]
+    },
+    "163": {
+      "rama": "163",
+      "lote": "Tercer lote",
+      "vehiculoBase": "325",
+      "numero": "9-446-325-3",
+      "vehiculosRama": [
+        "9-446-325-3",
+        "7-446-163-8",
+        "9-446-326-1"
+      ],
+      "searchCodes": [
+        "325",
+        "326"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "E98 Ex-Barcelona >> Con LZB. Colores Renfe Op. Nuevo interiorismo, 2016."
+      ]
+    },
+    "164": {
+      "rama": "164",
+      "lote": "Tercer lote",
+      "vehiculoBase": "327",
+      "numero": "9-446-327-9",
+      "vehiculosRama": [
+        "9-446-327-9",
+        "7-446-164-6",
+        "9-446-328-7"
+      ],
+      "searchCodes": [
+        "327",
+        "328"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "E94 Ex-Barcelona >> Con LZB. Colores Renfe Op. Nuevo interiorismo."
+      ]
+    },
+    "165": {
+      "rama": "165",
+      "lote": "Tercer lote",
+      "vehiculoBase": "329",
+      "numero": "9-446-329-5",
+      "vehiculosRama": [
+        "9-446-329-5",
+        "7-446-165-3",
+        "9-446-330-3"
+      ],
+      "searchCodes": [
+        "329",
+        "330"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "E599 Ex-Barcelona >> Con LZB. Colores Renfe Op."
+      ]
+    },
+    "166": {
+      "rama": "166",
+      "lote": "Tercer lote",
+      "vehiculoBase": "331",
+      "numero": "9-446-331-1",
+      "vehiculosRama": [
+        "9-446-331-1",
+        "7-446-166-1",
+        "9-446-332-9"
+      ],
+      "searchCodes": [
+        "331",
+        "332"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "E99 Ex-Barcelona >> Con LZB. Colores Renfe Op. Faros LED"
+      ]
+    },
+    "167": {
+      "rama": "167",
+      "lote": "Tercer lote",
+      "vehiculoBase": "333",
+      "numero": "9-446-333-7",
+      "vehiculosRama": [
+        "9-446-333-7",
+        "7-446-167-9",
+        "9-446-334-5"
+      ],
+      "searchCodes": [
+        "333",
+        "334"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "HG Ex-Barcelona>> Bilbao. Con LZB. Colores Renfe Op, Reformada a nuevo interiorismo 07/17 (Espacio PMR en Remolque)"
+      ]
+    },
+    "168": {
+      "rama": "168",
+      "lote": "Tercer lote",
+      "vehiculoBase": "335",
+      "numero": "9-446-335-2",
+      "vehiculosRama": [
+        "9-446-335-2",
+        "7-446-168-7",
+        "9-446-336-0"
+      ],
+      "searchCodes": [
+        "335",
+        "336"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "E99 Ex-Barcelona >> Con LZB. Colores Renfe Op."
+      ]
+    },
+    "169": {
+      "rama": "169",
+      "lote": "Tercer lote",
+      "vehiculoBase": "337",
+      "numero": "9-446-337-8",
+      "vehiculosRama": [
+        "9-446-337-8",
+        "7-446-169-5",
+        "9-446-338-6"
+      ],
+      "searchCodes": [
+        "337",
+        "338"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "9 Ex-Barcelona >> Con LZB. Colores Renfe Op."
+      ]
+    },
+    "170": {
+      "rama": "170",
+      "lote": "Tercer lote",
+      "vehiculoBase": "339",
+      "numero": "9-446-339-4",
+      "vehiculosRama": [
+        "9-446-339-4",
+        "7-446-170-3",
+        "9-446-340-2"
+      ],
+      "searchCodes": [
+        "339",
+        "340"
+      ],
+      "fabricante": "CAF, MACOSA, MTM, MEINFESA",
+      "subserie": "446 · 3 coches · Tercer lote",
+      "deposito": "Humanes",
+      "estado": "En servicio",
+      "ano": "1989–1992",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "lzb": "Sí",
+      "notas": [
+        "E99 Ex-Barcelona >> Con LZB. Colores Renfe Op. (Espacio PMR en Remolque) 1"
+      ]
+    }
+  }
+},
   "450": {
     "seriesName": "Serie 450 · Cercanías · 6 coches",
   "fabricante": "ATEINSA, MTM",
@@ -15164,6 +19792,40 @@ function getFleetUnit(series, vehicle){
     return {...base,numero:canonicalVehicle,vehiculoBase:code,vehiculoIntroducido:raw,vehiculoBuscado:code,exNumero:matchedEx,notas:(base.notasPorVehiculo||{})[code]?[ (base.notasPorVehiculo||{})[code] ]:(base.notas||[]),cocheTipo:"Vehículo Talgo 730"};
   }
 
+  // Serie 446: la rama se determina por el remolque intermedio, pero el número
+  // de vehículo registrado/buscado corresponde a los coches motores.
+  // Se aceptan los códigos cortos de motor (001, 002...), matrículas 9-446-XXX-X
+  // y el formato simplificado 446XXX. El remolque intermedio NO se usa como
+  // número de vehículo; únicamente determina la rama de la composición.
+  if(s==="446"){
+    const raw=String(vehicle??"").trim();
+    const compact=raw.replace(/\s+/g,"");
+    let code="";
+    const full=compact.match(/(?:^|[-])446[-]?(\d{3})(?:[-]\d)?$/i);
+    if(full) code=full[1];
+    if(!code && /^446\d{3}$/.test(compact)) code=compact.slice(3);
+    if(!code && /^\d{1,3}$/.test(compact)) code=compact.padStart(3,"0");
+    if(!code) return null;
+
+    let base=null;
+    for(const candidate of Object.values(seriesData.units||{})){
+      if((candidate.searchCodes||[]).includes(code)){ base=candidate; break; }
+    }
+    if(!base) return null;
+
+    const idx=(base.searchCodes||[]).indexOf(code);
+    const canonicalVehicle=idx>=0 ? base.vehiculosRama[idx===0?0:2] : base.numero;
+    return {
+      ...base,
+      numero:canonicalVehicle,
+      vehiculoBase:code,
+      vehiculoIntroducido:raw,
+      vehiculoBuscado:code,
+      vehiculoEncontrado:canonicalVehicle,
+      cocheTipo:idx===0 ? "Coche motor impar" : "Coche motor par"
+    };
+  }
+
   // Serie 450: cualquiera de los vehículos de la rama identifica la composición.
   // Se aceptan códigos cortos (001, 201, 202...), matrículas 450-XXX-X
   // y matrículas completas Renfe (9-450-XXX-X / 7-450-XXX-X).
@@ -15736,7 +20398,7 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Serie</span><strong>${esc(series)}</strong></div>
         <div><span>Vehículo</span><strong>${esc(["103","104","120","121"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : vehicle)}</strong></div>
         <div><span>Rama</span><strong>${esc(unit.rama)}</strong></div>
-        ${["463","464"].includes(normalizeFleetValue(series))?`<div><span>Lote</span><strong>${esc(unit.lote||"—")}</strong></div>`:""}
+        ${["446","463","464"].includes(normalizeFleetValue(series))?`<div><span>Lote</span><strong>${esc(unit.lote||"—")}</strong></div>`:""}
         ${(["102","112"].includes(normalizeFleetValue(series)))?`
         <div><span>Motor introducido</span><strong>${esc(unit.motorTipo||"—")}</strong></div>
         <div><span>Motor impar</span><strong>${esc(unit.motorImpar||"—")}</strong></div>
@@ -15754,6 +20416,10 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${normalizeFleetValue(series)==="450"?`
         <div><span>Color</span><strong>${esc(unit.color||"—")}</strong></div>
         <div><span>Estado</span><strong>${esc(unit.estado||"—")}</strong></div>`:""}
+        ${normalizeFleetValue(series)==="446"?`
+        <div><span>LZB</span><strong>${esc(unit.lzb||"—")}</strong></div>
+        <div><span>Vehículos de la rama</span><strong>${esc((unit.vehiculosRama||[]).join(" · ")||"—")}</strong></div>
+        <div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||"—")}</strong></div>`:""}
         ${normalizeFleetValue(series)==="463"?`<div><span>Color</span><strong>${esc(unit.color||"—")}</strong></div>
         <div><span>Red</span><strong>${esc(unit.red||"—")}</strong></div>`:""}
         <div><span>Ancho de vía</span><strong>${esc(unit.ancho||tech?.anchoVia||"—")} ${unit.ancho?"mm":""}</strong></div>
@@ -15780,19 +20446,20 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${tech?.velocidadMaxima?`<div><span>Velocidad máxima</span><strong>${esc(tech.velocidadMaxima||seriesData.velocidadMaxima)}</strong></div>`:""}
         ${tech?.potencia?`<div><span>Potencia</span><strong>${esc(tech.potencia||seriesData.potencia)}</strong></div>`:""}
         ${tech?.plazasSentadas?`<div><span>Plazas sentadas</span><strong>${esc(tech.plazasSentadas||seriesData.plazasSentadas)}</strong></div>`:""}
-         ${["112","121","450","453","464","730","801"].includes(normalizeFleetValue(series))?`
+         ${["112","121","446","450","453","464","730","801"].includes(normalizeFleetValue(series))?`
          <div><span>Longitud</span><strong>${esc(tech.longitud||"—")}</strong></div>
          <div><span>Peso</span><strong>${esc(tech.peso||"—")}</strong></div>
          <div><span>Tensión</span><strong>${esc(tech.tension||"—")}</strong></div>
          <div><span>Tracción</span><strong>${esc(tech.traccion||"—")}</strong></div>
          <div><span>Señalización</span><strong>${esc(tech.señalizacion||"—")}</strong></div>
          <div><span>Composición</span><strong>${esc(tech.composicion||"—")}</strong></div>
-         ${normalizeFleetValue(series)==="453"?`
-         <div><span>Esfuerzo de tracción</span><strong>${esc(tech.esfuerzoTraccion||"—")}</strong></div>
+         ${["446","453"].includes(normalizeFleetValue(series))?`
+         ${normalizeFleetValue(series)==="453"?`<div><span>Esfuerzo de tracción</span><strong>${esc(tech.esfuerzoTraccion||"—")}</strong></div>`:""}
          <div><span>Frenos</span><strong>${esc(tech.frenos||"—")}</strong></div>
          <div><span>Mando múltiple</span><strong>${esc(tech.mandoMultiple||"—")}</strong></div>
          <div><span>Enganche</span><strong>${esc(tech.enganche||"—")}</strong></div>
-         <div><span>Rodaje</span><strong>${esc(tech.rodaje||"—")}</strong></div>`:""}`:""}
+         <div><span>Tipo de bogies</span><strong>${esc(tech.tipoBogies||"—")}</strong></div>
+         <div><span>Rodaje</span><strong>${esc(tech.rodaje||tech.composicion||"—")}</strong></div>`:""}`:""}
       </div>
     </div>`;
 
