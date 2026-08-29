@@ -4,8 +4,8 @@
   "description": "Gestión de servicios ferroviarios",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#8a005c",
-  "theme_color": "#8a005c",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
   "orientation": "portrait",
   "icons": [
     {
