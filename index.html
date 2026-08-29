@@ -2981,5 +2981,116 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 })();
 </script>
 
+<!-- ARGOS · NAVEGACIÓN MÓVIL / BOTÓN ATRÁS -->
+<script id="argos-mobile-back-navigation">
+(function(){
+  'use strict';
+
+  const MENU_ID = 'menu';
+  let currentScreen = null;
+  let navigationReady = false;
+
+  function getActiveScreen(){
+    const active = document.querySelector('.app-shell > .screen.active');
+    return active ? active.id : MENU_ID;
+  }
+
+  function initNavigation(){
+    if(navigationReady) return true;
+    if(typeof window.showScreen !== 'function') return false;
+
+    navigationReady = true;
+    const originalShowScreen = window.showScreen;
+    currentScreen = getActiveScreen();
+
+    // Estado inicial de ARGOS. El botón atrás del móvil siempre tendrá
+    // un estado interno al que volver en lugar de cerrar directamente la app.
+    history.replaceState(
+      { argosScreen: currentScreen },
+      '',
+      '#argos-' + currentScreen
+    );
+
+    // Envolvemos la función definitiva de la aplicación sin modificar
+    // ninguno de sus motores ni sus pantallas existentes.
+    window.showScreen = function(id){
+      if(!id) return;
+
+      const previous = currentScreen || getActiveScreen();
+      originalShowScreen(id);
+      currentScreen = id;
+
+      // Solo añadimos una entrada cuando realmente cambiamos de pantalla.
+      if(id !== previous){
+        history.pushState(
+          { argosScreen: id },
+          '',
+          '#argos-' + id
+        );
+      }
+    };
+
+    window.addEventListener('popstate', function(){
+      const drawer = document.getElementById('menuDrawer');
+
+      // Primer nivel: si el menú lateral está abierto, atrás lo cierra.
+      if(drawer && drawer.classList.contains('open')){
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden','true');
+        history.pushState(
+          { argosScreen: currentScreen },
+          '',
+          '#argos-' + currentScreen
+        );
+        return;
+      }
+
+      // Si estamos en una pantalla secundaria, volvemos al menú principal.
+      if(currentScreen && currentScreen !== MENU_ID){
+        originalShowScreen(MENU_ID);
+        currentScreen = MENU_ID;
+        history.replaceState(
+          { argosScreen: MENU_ID },
+          '',
+          '#argos-' + MENU_ID
+        );
+        return;
+      }
+
+      // En el menú principal mantenemos una entrada interna para que el
+      // botón atrás/gesto atrás no cierre la PWA/web de ARGOS.
+      history.pushState(
+        { argosScreen: MENU_ID },
+        '',
+        '#argos-' + MENU_ID
+      );
+    });
+
+    return true;
+  }
+
+  // Todos los scripts actuales están al final del documento, así que
+  // inicializamos después de que DOMContentLoaded haya terminado.
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', function(){
+      initNavigation();
+    }, {once:true});
+  }else{
+    initNavigation();
+  }
+
+  // Seguridad para páginas/PWA que carguen los scripts con algo de retraso.
+  if(!navigationReady){
+    let attempts = 0;
+    const timer = setInterval(function(){
+      attempts++;
+      if(initNavigation() || attempts >= 50){
+        clearInterval(timer);
+      }
+    }, 100);
+  }
+})();
+</script>
+
 </body>
 </html>
