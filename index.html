@@ -3133,5 +3133,170 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 })();
 </script>
 
+<script id="argos-mobile-back-navigation-v2">
+(function(){
+  'use strict';
+
+  /*
+   * ARGOS · Navegación móvil
+   *
+   * Las pantallas de ARGOS se muestran mediante showScreen(), pero una SPA
+   * no crea por sí sola historial del navegador. Este bloque añade ese
+   * historial sin modificar la lógica de las pantallas existentes.
+   *
+   * Resultado:
+   *   secundaria -> atrás -> pantalla anterior dentro de ARGOS
+   *   menú       -> atrás -> ARGOS permanece abierto
+   *   drawer     -> atrás -> se cierra el drawer
+   */
+
+  var MENU = 'menu';
+  var navChanging = false;
+  var currentScreen = null;
+
+  function getActiveScreen(){
+    var active = document.querySelector('.app-shell > .screen.active');
+    return active ? active.id : MENU;
+  }
+
+  function stateFor(id){
+    return {argosNavigation:true, screen:id};
+  }
+
+  function screenFromState(state){
+    return state && state.argosNavigation && state.screen
+      ? state.screen
+      : null;
+  }
+
+  function validScreen(id){
+    return !!document.getElementById(id);
+  }
+
+  /*
+   * showScreen ya existe en ARGOS. Lo envolvemos al final para que todas
+   * las llamadas actuales de la aplicación sigan funcionando igual.
+   */
+  var originalShowScreen = window.showScreen;
+
+  window.showScreen = function(id){
+    if(!id) return;
+
+    var previous = currentScreen || getActiveScreen();
+
+    if(typeof originalShowScreen === 'function'){
+      originalShowScreen(id);
+    }
+
+    if(!validScreen(id)) return;
+
+    currentScreen = id;
+
+    /* Cuando el usuario pulsa atrás, solo cambiamos de pantalla: no
+       generamos otra entrada de historial. */
+    if(navChanging) return;
+
+    if(previous !== id){
+      history.pushState(stateFor(id), '', '#argos-' + id);
+    }
+  };
+
+  function setScreenFromHistory(id){
+    if(!validScreen(id)) id = MENU;
+
+    navChanging = true;
+    try{
+      if(typeof window.showScreen === 'function'){
+        window.showScreen(id);
+      }
+    }finally{
+      navChanging = false;
+    }
+
+    currentScreen = id;
+  }
+
+  function closeDrawer(){
+    var drawer = document.getElementById('menuDrawer');
+    if(!drawer) return false;
+
+    if(drawer.classList.contains('open')){
+      drawer.classList.remove('open');
+      drawer.setAttribute('aria-hidden','true');
+      return true;
+    }
+
+    return false;
+  }
+
+  /*
+   * Al cargar la app dejamos una entrada base de ARGOS.
+   * No tocamos datos, localStorage ni ningún otro estado de la aplicación.
+   */
+  function initNavigation(){
+    currentScreen = getActiveScreen();
+
+    history.replaceState(
+      stateFor(currentScreen),
+      '',
+      '#argos-' + currentScreen
+    );
+
+    /* Si la página se abre con un hash de ARGOS válido, lo respetamos. */
+    var hash = String(location.hash || '');
+    if(hash.indexOf('#argos-') === 0){
+      var requested = hash.slice(7);
+      if(validScreen(requested) && requested !== currentScreen){
+        setScreenFromHistory(requested);
+        history.replaceState(stateFor(requested), '', '#argos-' + requested);
+      }
+    }
+  }
+
+  window.addEventListener('popstate', function(event){
+    /* Primero: atrás con el drawer abierto = cerrar drawer. */
+    var drawerWasOpen = closeDrawer();
+    if(drawerWasOpen){
+      /* El popstate ya consumió la entrada anterior. Restauramos la entrada
+         de la pantalla actual para que el drawer no cambie de pantalla. */
+      var same = currentScreen || MENU;
+      history.pushState(stateFor(same), '', '#argos-' + same);
+      return;
+    }
+
+    var target = screenFromState(event.state);
+
+    if(target && validScreen(target)){
+      setScreenFromHistory(target);
+      return;
+    }
+
+    /*
+     * Si el navegador llega a una entrada que no pertenece a ARGOS,
+     * mantenemos la aplicación en el menú principal y dejamos una entrada
+     * protegida. Esto evita que el botón atrás cierre la app/PWA desde inicio.
+     */
+    setScreenFromHistory(MENU);
+    history.pushState(stateFor(MENU), '', '#argos-menu');
+  });
+
+  /*
+   * Algunos navegadores móviles restauran la página mediante bfcache.
+   * Sincronizamos la pantalla con el estado restaurado sin crear historial.
+   */
+  window.addEventListener('pageshow', function(){
+    var state = screenFromState(history.state);
+    if(state && validScreen(state)){
+      setScreenFromHistory(state);
+    }
+  });
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initNavigation);
+  }else{
+    initNavigation();
+  }
+})();
+</script>
 </body>
 </html>
