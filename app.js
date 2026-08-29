@@ -14769,3 +14769,83 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   `;
   document.head.appendChild(s);
 })();
+
+/* ======================================================================
+ * ARGOS · ÚLTIMO SERVICIO · V1
+ * ----------------------------------------------------------------------
+ * Añadido sin eliminar ni sustituir ninguna funcionalidad existente.
+ * La tarjeta "Último servicio" del menú principal abre directamente
+ * la ficha del servicio registrado más recientemente.
+ * ====================================================================== */
+(function(){
+  'use strict';
+
+  function openLatestService(){
+    try{
+      const list = typeof services === 'function' ? services() : [];
+      const latest = Array.isArray(list) && list.length ? list[list.length - 1] : null;
+
+      if(!latest){
+        if(typeof toast === 'function') toast('Aún no hay servicios registrados');
+        return;
+      }
+
+      /*
+       * Preferimos el abridor específico de servicios porque también
+       * resuelve registros hechos por rama cuando vehicle está vacío.
+       */
+      if(typeof openServiceFicha === 'function'){
+        openServiceFicha(latest);
+        return;
+      }
+
+      /* Compatibilidad con la implementación anterior. */
+      if(typeof openFicha === 'function'){
+        openFicha(latest.series || '', latest.vehicle || '', latest);
+        return;
+      }
+
+      if(typeof toast === 'function') toast('No se ha podido abrir el último servicio');
+    }catch(error){
+      console.error('ARGOS · Último servicio:', error);
+      if(typeof toast === 'function') toast('No se ha podido abrir el último servicio');
+    }
+  }
+
+  function bindLatestService(){
+    const button = document.querySelector('.home-card[data-screen="history"] #latestService')?.closest('.home-card');
+    if(!button || button.dataset.argosLatestServiceBound === 'true') return;
+
+    button.dataset.argosLatestServiceBound = 'true';
+
+    /*
+     * Se usa captura para interceptar únicamente esta tarjeta antes de que
+     * el listener genérico data-screen la lleve al historial.
+     */
+    button.addEventListener('click', function(event){
+      event.preventDefault();
+      event.stopPropagation();
+      openLatestService();
+    }, true);
+
+    button.addEventListener('keydown', function(event){
+      if(event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      event.stopPropagation();
+      openLatestService();
+    }, true);
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', bindLatestService, {once:true});
+  }else{
+    bindLatestService();
+  }
+
+  /*
+   * Expuesto por si otra parte de ARGOS necesita abrir el último servicio
+   * en el futuro. No altera ninguna función existente.
+   */
+  window.openLatestService = openLatestService;
+})();
+
