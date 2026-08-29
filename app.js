@@ -3,20 +3,52 @@ const stations=[{"code":"01003","name":"ARAHAL","aliases":["SEVILLA"]},{"code":"
 const $=id=>document.getElementById(id),
       norm=s=>String(s??"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]/g,"").trim();
 const stationNorm=s=>String(s??"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]/g,"");
+
+const stationSearchTokens=s=>stationNorm(s).split(/[^a-z0-9]+/).filter(Boolean);
+
 const stationMatches=q=>{
-  q=stationNorm(q); if(!q)return[];
+  const raw=String(q??"").trim();
+  const query=stationNorm(raw);
+  if(!query)return[];
+
   return stations.map(st=>{
-    const terms=[st.name,...(st.aliases||[])].map(stationNorm).filter(Boolean);
+    const name=stationNorm(st.name);
+    const code=stationNorm(st.code);
+    const aliases=(st.aliases||[]).map(stationNorm).filter(Boolean);
+    const terms=[name,...aliases];
+
     let score=999;
-    if(stationNorm(st.code)===q)score=0;
-    else if(terms.some(t=>t===q))score=1;
-    else if(terms.some(t=>t.startsWith(q)))score=2;
-    else if(terms.some(t=>t.includes(q)))score=3;
+
+    // Código completo o coincidencia parcial de código.
+    if(code===query) score=0;
+    else if(code.startsWith(query)) score=1;
+
+    // Nombre o alias exacto.
+    else if(terms.some(t=>t===query)) score=2;
+
+    // Nombre/alias que empieza por lo escrito.
+    else if(terms.some(t=>t.startsWith(query))) score=3;
+
+    // Nombre/alias que contiene lo escrito.
+    else if(terms.some(t=>t.includes(query))) score=4;
+
+    // Búsqueda por palabras: permite "tona seva", "puig cerda",
+    // "san fernando centro", etc., aunque el texto no coincida literalmente.
+    else {
+      const qTokens=stationSearchTokens(raw);
+      if(qTokens.length>1){
+        const ok=qTokens.every(token=>terms.some(t=>t.includes(token)));
+        if(ok) score=5;
+      }
+    }
+
     return {st,score};
   }).filter(x=>x.score<999)
-   .sort((a,b)=>a.score-b.score||a.st.name.localeCompare(b.st.name,"es"))
-   .map(x=>x.st);
+    .sort((a,b)=>a.score-b.score||a.st.name.localeCompare(b.st.name,"es"))
+    .map(x=>x.st);
 };
+
+window.stationMatches=stationMatches;
 const services=()=>{try{const v=JSON.parse(localStorage.getItem(KEY)||"[]");return Array.isArray(v)?v:[]}catch(e){return[]}};
 const saveServices=a=>localStorage.setItem(KEY,JSON.stringify(a));
 const esc=s=>String(s??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;");
