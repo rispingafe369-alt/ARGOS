@@ -9,8 +9,14 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "icons/renfe-logo-blanco.png",
-      "sizes": "any",
+      "src": "icons/argos-icon-192-negro-blanco.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/argos-icon-512-negro-blanco.png",
+      "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     }
