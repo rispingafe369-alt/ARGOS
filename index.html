@@ -6,12 +6,6 @@
 <meta name="theme-color" content="#8a005c">
 <meta name="description" content="ARGOS - Gestión de servicios ferroviarios">
 <link rel="manifest" href="manifest.webmanifest">
-
-<!-- Favicon ARGOS -->
-<link rel="icon" type="image/png" sizes="32x32" href="icons/argos-favicon-32.png">
-<link rel="icon" type="image/png" sizes="64x64" href="icons/argos-favicon-64.png">
-<link rel="apple-touch-icon" sizes="180x180" href="icons/argos-favicon-180.png">
-
 <title>ARGOS · Renfe Operaciones</title>
 <link rel="stylesheet" href="style.css">
 
@@ -3172,5 +3166,100 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   numericCodeLimit(document.getElementById("destination"));
 })();
 </script>
+
+<script id="argos-mobile-back-navigation">
+(function(){
+  'use strict';
+
+  /*
+   * ARGOS · Navegación con la flecha ATRÁS del móvil
+   *
+   * - En cualquier pantalla secundaria, ATRÁS vuelve al menú principal.
+   * - En el menú principal, ATRÁS no cierra/saca de ARGOS.
+   * - Si el menú lateral está abierto, ATRÁS lo cierra primero.
+   * - No modifica la navegación interna existente: solo la sincroniza
+   *   con el historial del navegador.
+   */
+
+  const MENU_ID = 'menu';
+  let navigatingFromHistory = false;
+
+  function currentScreen(){
+    const active = document.querySelector('.app-shell > .screen.active');
+    return active ? active.id : MENU_ID;
+  }
+
+  function applyScreen(id){
+    if(typeof window.showScreen === 'function'){
+      navigatingFromHistory = true;
+      window.showScreen(id);
+      navigatingFromHistory = false;
+    }
+  }
+
+  function setHistoryForScreen(id, replace){
+    const state = {argosScreen:id};
+    if(replace){
+      window.history.replaceState(state, '', window.location.href);
+    }else{
+      window.history.pushState(state, '', window.location.href);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    const initial = currentScreen() || MENU_ID;
+
+    /*
+     * Dejamos una entrada base para ARGOS. Desde aquí, la flecha ATRÁS
+     * nunca debe sacar al usuario de la aplicación.
+     */
+    setHistoryForScreen(initial, true);
+
+    const originalShowScreen = window.showScreen;
+
+    if(typeof originalShowScreen === 'function'){
+      window.showScreen = function(id){
+        const previous = currentScreen();
+        originalShowScreen(id);
+
+        if(!navigatingFromHistory && id && id !== previous){
+          setHistoryForScreen(id, false);
+        }
+      };
+    }
+
+    window.addEventListener('popstate', function(event){
+      const drawer = document.getElementById('menuDrawer');
+
+      if(drawer && drawer.classList.contains('open')){
+        if(typeof window.closeMenu === 'function'){
+          window.closeMenu();
+        }else{
+          drawer.classList.remove('open');
+          drawer.setAttribute('aria-hidden','true');
+        }
+
+        setHistoryForScreen(currentScreen(), true);
+        return;
+      }
+
+      const state = event.state;
+
+      if(state && state.argosScreen){
+        applyScreen(state.argosScreen);
+        return;
+      }
+
+      /*
+       * Si el navegador intenta retroceder más allá de la entrada base,
+       * restauramos ARGOS en el menú principal.
+       */
+      applyScreen(MENU_ID);
+      setHistoryForScreen(MENU_ID, false);
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
