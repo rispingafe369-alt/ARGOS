@@ -9157,6 +9157,827 @@ const fleet = {
       }
     }
   },
+  "450": {
+    "seriesName": "Serie 450 · Cercanías · 6 coches",
+  "fabricante": "Alstom / CAF",
+  "modelo": "Unidad eléctrica de dos pisos",
+  "apodo": "Buque",
+  "subseries": "450 · 6 coches",
+  "anoPuestaServicio": "1990–1994",
+  "tipoMaterial": "Cercanías · Tren de dos pisos · Gran capacidad",
+  "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+  "anchoVia": "1668 mm",
+  "numeroRamas": 24,
+  "velocidadMaxima": "140 km/h",
+  "potencia": "2.960 kW",
+  "longitud": "159,4 m",
+  "peso": "350,8 t (tara) · 481,0 t (carga normal)",
+  "tension": "3.000 Vcc",
+  "traccion": "8 motores de tracción · potencia total 2.960 kW",
+  "señalizacion": "ASFA · GSM",
+  "composicion": "Mc-R-R-R-R-Mc",
+  "rodaje": "Bo’Bo’ + 2’2’ + 2’2’ + 2’2’ + 2’2’ + Bo’Bo’",
+  "plazasSentadas": "1.008",
+  "capacidad": "1.844 plazas (1.008 sentadas + 836 de pie)",
+  "frenos": "Eléctrico de recuperación y/o reostático · neumático",
+  "enganche": "Couplomatic",
+  "generalNotes": [
+    "Serie de trenes de cercanías de dos pisos, compuestos por cuatro remolques intermedios entre dos coches motores con cabina extremos que también admiten viajeros. Las unidades 451 poseen vehículos idénticos pero con otra configuración. Prestan servicio en las redes de Madrid y Rodalies Barcelona. Los iniciales asientos de plástico han sido tapizados, sus interiores renovados y desde 2021, sus techos pintados de blanco.",
+    "Unidades para servicios de cercanías de gran capacidad, ya que poseen 6 coches con dos pisos. Inicialmente las unidades sólo poseían una cabina en un extremo, ya que por el otro se encargaba de la tracción y empuje del tren una locomotora de la serie 269 acondicionada especialmente para ese servicio. Una vez que se construyeron los coches motores que encuadran cada unidad, los coches remolques con cabina sirvieron para formar la serie 451. Funcionan en los núcleos de Cercanías de Madrid y Barcelona."
+  ],
+  "units": {
+    "1": {
+      "rama": "1",
+      "vehiculoBase": "001",
+      "numero": "9-450-001-3",
+      "vehiculosRama": [
+        "9-450-001-3",
+        "7-450-201-9",
+        "7-450-202-7",
+        "7-450-001-3",
+        "7-450-203-5",
+        "9-450-002-1"
+      ],
+      "searchCodes": [
+        "001",
+        "201",
+        "202",
+        "001",
+        "203",
+        "002"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "Fuencarral",
+      "color": "Blanco/Rojo",
+      "estado": "En servicio",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+      "composicionRama": "Motor + remolque + remolque + remolque + remolque + motor",
+      "notas": [
+        "Reformada interiormente. Colores Renfe Op. Teleindicadores exteriores leds naranjas. Nuevo interior, blanco y con paneles de pared como 447 PMR. Apartado de 23/02/26 a 04/26."
+      ]
+    },
+    "2": {
+      "rama": "2",
+      "vehiculoBase": "003",
+      "numero": "9-450-003-9",
+      "vehiculosRama": [
+        "9-450-003-9",
+        "7-450-204-3",
+        "7-450-205-0",
+        "7-450-002-1",
+        "7-450-206-8",
+        "9-450-004-7"
+      ],
+      "searchCodes": [
+        "003",
+        "204",
+        "205",
+        "002",
+        "206",
+        "004"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "Fuencarral",
+      "color": "Blanco/Rojo",
+      "estado": "En servicio",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+      "composicionRama": "Motor + remolque + remolque + remolque + remolque + motor",
+      "notas": [
+        "Colores Renfe Op. Apartado 27/02/26 a 04/26."
+      ]
+    },
+    "3": {
+      "rama": "3",
+      "vehiculoBase": "005",
+      "numero": "9-450-005-4",
+      "vehiculosRama": [
+        "9-450-005-4",
+        "7-450-207-6",
+        "7-450-208-4",
+        "7-450-003-9",
+        "7-450-209-2",
+        "9-450-006-2"
+      ],
+      "searchCodes": [
+        "005",
+        "207",
+        "208",
+        "003",
+        "209",
+        "006"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "Vilanova",
+      "color": "Blanco/Rojo",
+      "estado": "En servicio",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+      "composicionRama": "Motor + remolque + remolque + remolque + remolque + motor",
+      "notas": [
+        "Colores Renfe Op. En 006M, nuevos pulsadores. Fuencarral >> Vilanova 06/02/23 para Rodalies. Colores Rodalies 03/23 >> Madrid desde 08/12/23, de nuevo blanco/rojo 09/12/23 >> De nuevo en Vilanova 07/25."
+      ]
+    },
+    "4": {
+      "rama": "4",
+      "vehiculoBase": "007",
+      "numero": "9-450-007-0",
+      "vehiculosRama": [
+        "9-450-007-0",
+        "7-450-210-0",
+        "7-450-211-8",
+        "7-450-004-7",
+        "7-450-212-6",
+        "9-450-008-8"
+      ],
+      "searchCodes": [
+        "007",
+        "210",
+        "211",
+        "004",
+        "212",
+        "008"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "La Sagra",
+      "color": "Blanco/Rojo",
+      "estado": "Baja / apartada",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+      "composicionRama": "Motor + remolque + remolque + remolque + remolque + motor",
+      "notas": [
+        "Colores Renfe Op. Apartada en Fuencarral 28/10/15. Canibalizada para piezas. Coche 210R agregado a Rama 17, 09/21. Trasladada a La Sagra 17/10/24."
+      ]
+    },
+    "5": {
+      "rama": "5",
+      "vehiculoBase": "009",
+      "numero": "9-450-009-6",
+      "vehiculosRama": [
+        "9-450-009-6",
+        "7-450-213-4",
+        "7-450-214-2",
+        "7-450-005-4",
+        "7-450-215-9",
+        "9-450-010-4"
+      ],
+      "searchCodes": [
+        "009",
+        "213",
+        "214",
+        "005",
+        "215",
+        "010"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "Fuencarral",
+      "color": "Rojo/Blanco",
+      "estado": "Apartada",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+      "composicionRama": "Motor + remolque + remolque + remolque + remolque + motor",
+      "notas": [
+        "Colores Renfe Op. Apartada Pinar de Las Rozas 22/02/24 >> Baja 02/07/24 Fuencarral. Apartada Colmenar Viejo >> De nuevo en servicio 09/24 >> Apartada Valladolid >> De nuevo en servicio 11/25 >> Apartada 23/02/26."
+      ]
+    },
+    "6": {
+      "rama": "6",
+      "vehiculoBase": "011",
+      "numero": "9-450-011-2",
+      "vehiculosRama": [
+        "9-450-011-2",
+        "7-450-216-7",
+        "7-450-217-5",
+        "7-450-006-2",
+        "7-450-218-3",
+        "9-450-012-0"
+      ],
+      "searchCodes": [
+        "011",
+        "216",
+        "217",
+        "006",
+        "218",
+        "012"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "Vilanova",
+      "color": "Naranja/Blanco",
+      "estado": "En servicio",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+      "composicionRama": "Motor + remolque + remolque + remolque + remolque + motor",
+      "notas": [
+        "Colores Renfe Op. Teleindicadores exteriores de leds naranjas. Ex-Fuencarral >> Barcelona desde 19/07/13. Colores Rodalies, desde 01/16."
+      ]
+    },
+    "7": {
+      "rama": "7",
+      "vehiculoBase": "013",
+      "numero": "9-450-013-8",
+      "vehiculosRama": [
+        "9-450-013-8",
+        "7-450-219-1",
+        "7-450-220-9",
+        "7-450-007-0",
+        "7-450-221-7",
+        "9-450-014-6"
+      ],
+      "searchCodes": [
+        "013",
+        "219",
+        "220",
+        "007",
+        "221",
+        "014"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "Fuencarral",
+      "color": "Blanco/Rojo",
+      "estado": "Apartada",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+      "composicionRama": "Motor + remolque + remolque + remolque + remolque + motor",
+      "notas": [
+        "Colores Renfe Op. Apartado 02/23. De nuevo en servicio 05/23. Apartada Colmenar Viejo 24/02/24 >> Apartada Fuencarral 11/24."
+      ]
+    },
+    "8": {
+      "rama": "8",
+      "vehiculoBase": "015",
+      "numero": "9-450-015-3",
+      "vehiculosRama": [
+        "9-450-015-3",
+        "7-450-222-5",
+        "7-450-223-3",
+        "7-450-008-8",
+        "7-450-224-1",
+        "9-450-016-1"
+      ],
+      "searchCodes": [
+        "015",
+        "222",
+        "223",
+        "008",
+        "224",
+        "016"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "Vilanova",
+      "color": "Blanco/Naranja",
+      "estado": "En servicio",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+      "composicionRama": "Motor + remolque + remolque + remolque + remolque + motor",
+      "notas": [
+        "Colores Renfe Op. Focos LED. Teleindicadores exteriores de leds naranjas. Colores Rodalies 07/13."
+      ]
+    },
+    "9": {
+      "rama": "9",
+      "vehiculoBase": "017",
+      "numero": "9-450-017-9",
+      "vehiculosRama": [
+        "9-450-017-9",
+        "7-450-225-8",
+        "7-450-226-6",
+        "7-450-009-6",
+        "7-450-227-4",
+        "9-450-018-7"
+      ],
+      "searchCodes": [
+        "017",
+        "225",
+        "226",
+        "009",
+        "227",
+        "018"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "Vilanova",
+      "color": "Blanco/Rojo",
+      "estado": "En servicio",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+      "composicionRama": "Motor + remolque + remolque + remolque + remolque + motor",
+      "notas": [
+        "Colores Renfe Op. Nuevo interior blanco. Ex-Fuencarral >> Traslado a Vilanova i la Geltrú 08/02/23 >> Valladolid Fuente Amarga 08/02/24 >> Madrid 06/24. Nueva botoneria 09/24 >> Vilanova."
+      ]
+    },
+    "10": {
+      "rama": "10",
+      "vehiculoBase": "019",
+      "numero": "9-450-019-5",
+      "vehiculosRama": [
+        "9-450-019-5",
+        "7-450-228-2",
+        "7-450-229-0",
+        "7-450-010-4",
+        "7-450-230-8",
+        "9-450-020-3"
+      ],
+      "searchCodes": [
+        "019",
+        "228",
+        "229",
+        "010",
+        "230",
+        "020"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "Fuencarral",
+      "color": "Blanco/Rojo",
+      "estado": "Apartada",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+      "composicionRama": "Motor + remolque + remolque + remolque + remolque + motor",
+      "notas": [
+        "Colores Renfe Op. Apartado desde 07/10/22. S. V. de Calders >> En servicio Madrid 20/12/23. Apartada 23/02/26 a 04/26."
+      ]
+    },
+    "11": {
+      "rama": "11",
+      "vehiculoBase": "021",
+      "numero": "9-450-021-1",
+      "vehiculosRama": [
+        "9-450-021-1",
+        "7-450-231-6",
+        "7-450-232-4",
+        "7-450-011-2",
+        "7-450-233-2",
+        "9-450-022-9"
+      ],
+      "searchCodes": [
+        "021",
+        "231",
+        "232",
+        "011",
+        "233",
+        "022"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "Fuencarral",
+      "color": "Blanco/Rojo",
+      "estado": "Apartada",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+      "composicionRama": "Motor + remolque + remolque + remolque + remolque + motor",
+      "notas": [
+        "Colores Renfe Op. Nuevo interior blanco. Descarrilada en Atocha 08/12/23. Apartada ZGZ Plaza."
+      ]
+    },
+    "12": {
+      "rama": "12",
+      "vehiculoBase": "023",
+      "numero": "9-450-023-7",
+      "vehiculosRama": [
+        "9-450-023-7",
+        "7-450-234-0",
+        "7-450-235-7",
+        "7-450-012-0",
+        "7-450-236-5",
+        "9-450-024-5"
+      ],
+      "searchCodes": [
+        "023",
+        "234",
+        "235",
+        "012",
+        "236",
+        "024"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "Fuencarral",
+      "color": "Blanco/Rojo",
+      "estado": "Apartada",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+      "composicionRama": "Motor + remolque + remolque + remolque + remolque + motor",
+      "notas": [
+        "Colores Renfe Op. Apartada Montcada-Bifurcació 25/02/24. Trasladada Fuencarral 09/24."
+      ]
+    },
+    "13": {
+      "rama": "13",
+      "vehiculoBase": "025",
+      "numero": "9-450-025-2",
+      "vehiculosRama": [
+        "9-450-025-2",
+        "7-450-237-3",
+        "7-450-238-1",
+        "7-450-013-8",
+        "7-450-239-9",
+        "9-450-026-0"
+      ],
+      "searchCodes": [
+        "025",
+        "237",
+        "238",
+        "013",
+        "239",
+        "026"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "Fuencarral",
+      "color": "Blanco/Rojo",
+      "estado": "Apartada",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+      "composicionRama": "Motor + remolque + remolque + remolque + remolque + motor",
+      "notas": [
+        "Colores Renfe Op. Choque topera Alcalá de Henares 22/12/17. Apartado temporalmente 01/23. De nuevo en servicio 04/23. Apartada en Zaragoza-Plaza 09/23. Trasladada a Sant Vicenç de Calders 01/24 >> Taller Vilanova 03/24 >> En servicio en Barcelona desde 20/06/24, prestada desde Fuencarral. De vuelta a Madrid, apartada 28/10/25."
+      ]
+    },
+    "14": {
+      "rama": "14",
+      "vehiculoBase": "027",
+      "numero": "9-450-027-8",
+      "vehiculosRama": [
+        "9-450-027-8",
+        "7-450-251-4",
+        "7-450-014-6",
+        "7-450-242-3",
+        "9-450-028-6"
+      ],
+      "searchCodes": [
+        "027",
+        "251",
+        "014",
+        "242",
+        "028"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "Fuencarral",
+      "color": "Blanco/Rojo",
+      "estado": "Baja / apartada",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "5 coches · 2 coches motor + 3 remolques",
+      "composicionRama": "Motor + remolque + remolque + remolque + motor",
+      "notas": [
+        "Atentados 11M en El Pozo, 11/03/04. Coches 240R y 241R desguazados en El Pozo, 15/03/04. Se agrega 251R (ex Rama 17) para hacer la rama de 5 coches, como remolque 1. Colores Renfe Op."
+      ]
+    },
+    "15": {
+      "rama": "15",
+      "vehiculoBase": "029",
+      "numero": "9-450-029-4",
+      "vehiculosRama": [
+        "9-450-029-4",
+        "7-450-243-1",
+        "7-450-244-9",
+        "7-450-015-3",
+        "7-450-245-6",
+        "9-450-030-2"
+      ],
+      "searchCodes": [
+        "029",
+        "243",
+        "244",
+        "015",
+        "245",
+        "030"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "Vilanova",
+      "color": "Blanco/Naranja",
+      "estado": "En servicio",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+      "composicionRama": "Motor + remolque + remolque + remolque + remolque + motor",
+      "notas": [
+        "Última en colores originales >> Colores Renfe Op. Teleindicadores de LEDs naranjas. Ex-Madrid >> Barcelona, 03/03/17 >> Colores Rodalies, desde 09/22."
+      ]
+    },
+    "16": {
+      "rama": "16",
+      "vehiculoBase": "031",
+      "numero": "9-450-031-0",
+      "vehiculosRama": [
+        "9-450-031-0",
+        "7-450-246-4",
+        "7-450-247-2",
+        "7-450-016-1",
+        "7-450-248-0",
+        "9-450-032-8"
+      ],
+      "searchCodes": [
+        "031",
+        "246",
+        "247",
+        "016",
+        "248",
+        "032"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "Vilanova",
+      "color": "Blanco/Naranja",
+      "estado": "En servicio",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+      "composicionRama": "Motor + remolque + remolque + remolque + remolque + motor",
+      "notas": [
+        "Última catalana en recibir colores Renfe Op. 5 coches >> 6 coches desde 10/08. Teleindicadores exteriores leds naranjas. 1ª unidad en colores Rodalies 21/12/11. Descarrilo El Prat 06/09/21."
+      ]
+    },
+    "17": {
+      "rama": "17",
+      "vehiculoBase": "033",
+      "numero": "9-450-033-6",
+      "vehiculosRama": [
+        "9-450-033-6",
+        "7-450-249-8",
+        "7-450-250-6",
+        "7-450-017-9",
+        "7-450-210-0",
+        "9-450-034-4"
+      ],
+      "searchCodes": [
+        "033",
+        "249",
+        "250",
+        "017",
+        "210",
+        "034"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "Fuencarral",
+      "color": "Blanco/Rojo",
+      "estado": "En servicio",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+      "composicionRama": "Motor + remolque + remolque + remolque + remolque + motor",
+      "notas": [
+        "Coche 251R agregado a Rama 14 para crear dos ramas de 5 coches, tras atentados 11M. Colores Renfe Op. Nuevo interior blanco. Se agrega 210R (ex Rama 4) como remolque 4, 09/21."
+      ]
+    },
+    "18": {
+      "rama": "18",
+      "vehiculoBase": "035",
+      "numero": "9-450-035-1",
+      "vehiculosRama": [
+        "9-450-035-1",
+        "7-450-252-2",
+        "7-450-253-0",
+        "7-450-018-7",
+        "7-450-254-8",
+        "9-450-036-9"
+      ],
+      "searchCodes": [
+        "035",
+        "252",
+        "253",
+        "018",
+        "254",
+        "036"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "Fuencarral",
+      "color": "Blanco/Rojo",
+      "estado": "Apartada",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+      "composicionRama": "Motor + remolque + remolque + remolque + remolque + motor",
+      "notas": [
+        "Colores Renfe Op. Ex-Vilanova >> Madrid desde 08/12/23. Apartada en Alcalá de Henares 23/02/26."
+      ]
+    },
+    "19": {
+      "rama": "19",
+      "vehiculoBase": "037",
+      "numero": "9-450-037-7",
+      "vehiculosRama": [
+        "9-450-037-7",
+        "7-450-255-5",
+        "7-450-256-3",
+        "7-450-019-5",
+        "7-450-257-1",
+        "9-450-038-5"
+      ],
+      "searchCodes": [
+        "037",
+        "255",
+        "256",
+        "019",
+        "257",
+        "038"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "Fuencarral",
+      "color": "Blanco/Rojo",
+      "estado": "Apartada",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+      "composicionRama": "Motor + remolque + remolque + remolque + remolque + motor",
+      "notas": [
+        "Colores Renfe Op. Apartada 23/02/26 a 04/26."
+      ]
+    },
+    "20": {
+      "rama": "20",
+      "vehiculoBase": "039",
+      "numero": "9-450-039-3",
+      "vehiculosRama": [
+        "9-450-039-3",
+        "7-450-258-9",
+        "7-450-259-7",
+        "7-450-020-3",
+        "7-450-260-5",
+        "9-450-040-1"
+      ],
+      "searchCodes": [
+        "039",
+        "258",
+        "259",
+        "020",
+        "260",
+        "040"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "Vilanova",
+      "color": "Blanco/Naranja",
+      "estado": "En servicio",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+      "composicionRama": "Motor + remolque + remolque + remolque + remolque + motor",
+      "notas": [
+        "Colores Renfe Op. Pilotos LED. Teleindicadores exteriores leds naranjas. 2ª 450 en colores Rodalies."
+      ]
+    },
+    "21": {
+      "rama": "21",
+      "vehiculoBase": "041",
+      "numero": "9-450-041-9",
+      "vehiculosRama": [
+        "9-450-041-9",
+        "7-450-261-3",
+        "7-450-262-1",
+        "7-450-021-1",
+        "7-450-263-9",
+        "9-450-042-7"
+      ],
+      "searchCodes": [
+        "041",
+        "261",
+        "262",
+        "021",
+        "263",
+        "042"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "Fuencarral",
+      "color": "Blanco/Rojo",
+      "estado": "Apartada",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+      "composicionRama": "Motor + remolque + remolque + remolque + remolque + motor",
+      "notas": [
+        "Colores Renfe Op. Apartada 27/02/26."
+      ]
+    },
+    "22": {
+      "rama": "22",
+      "vehiculoBase": "043",
+      "numero": "9-450-043-5",
+      "vehiculosRama": [
+        "9-450-043-5",
+        "7-450-264-7",
+        "7-450-265-4",
+        "7-450-022-9",
+        "7-450-266-2",
+        "9-450-044-3"
+      ],
+      "searchCodes": [
+        "043",
+        "264",
+        "265",
+        "022",
+        "266",
+        "044"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "Fuencarral",
+      "color": "Blanco/Rojo",
+      "estado": "En servicio",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+      "composicionRama": "Motor + remolque + remolque + remolque + remolque + motor",
+      "notas": [
+        "Colores Renfe Op. Nuevo interior blanco. Apartado temporalmente 01/23. De nuevo en servicio 03/23. Apartada 23/02/26 >> En servicio."
+      ]
+    },
+    "23": {
+      "rama": "23",
+      "vehiculoBase": "045",
+      "numero": "9-450-045-0",
+      "vehiculosRama": [
+        "9-450-045-0",
+        "7-450-267-0",
+        "7-450-268-8",
+        "7-450-023-7",
+        "7-450-269-6",
+        "9-450-046-8"
+      ],
+      "searchCodes": [
+        "045",
+        "267",
+        "268",
+        "023",
+        "269",
+        "046"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "Fuencarral",
+      "color": "Blanco/Rojo",
+      "estado": "Apartada",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+      "composicionRama": "Motor + remolque + remolque + remolque + remolque + motor",
+      "notas": [
+        "Colores Renfe Op. Nuevo interior, blanco y con paneles de pared como las 447 PMR, 03/16. Descarrilo agujas Atocha 05/12/23. Apartada 23/02/26 a 04/26."
+      ]
+    },
+    "24": {
+      "rama": "24",
+      "vehiculoBase": "047",
+      "numero": "9-450-047-6",
+      "vehiculosRama": [
+        "9-450-047-6",
+        "7-450-270-4",
+        "7-450-271-2",
+        "7-450-024-5",
+        "7-450-272-0",
+        "9-450-048-4"
+      ],
+      "searchCodes": [
+        "047",
+        "270",
+        "271",
+        "024",
+        "272",
+        "048"
+      ],
+      "fabricante": "Alstom / CAF",
+      "subserie": "450 · 6 coches",
+      "deposito": "Vilanova",
+      "color": "Blanco/Naranja",
+      "estado": "En servicio",
+      "ano": "1990–1994",
+      "ancho": "1668",
+      "numeroCoches": "6 coches · 2 coches motor + 4 remolques de dos pisos",
+      "composicionRama": "Motor + remolque + remolque + remolque + remolque + motor",
+      "notas": [
+        "Pilotos LED + teleindicadores exteriores leds. Colores Rodalies 06/13. En 12/14 circula temporalmente con 4 coches."
+      ]
+    }
+  }
+},
   "453": {
     "seriesName": "Serie 453.0 · Stadler · TL100 · 4 coches",
     "fabricante": "Stadler Rail",
@@ -14105,6 +14926,50 @@ function getFleetUnit(series, vehicle){
     return {...base,numero:canonicalVehicle,vehiculoBase:code,vehiculoIntroducido:raw,vehiculoBuscado:code,exNumero:matchedEx,notas:(base.notasPorVehiculo||{})[code]?[ (base.notasPorVehiculo||{})[code] ]:(base.notas||[]),cocheTipo:"Vehículo Talgo 730"};
   }
 
+  // Serie 450: cualquiera de los vehículos de la rama identifica la composición.
+  // Se aceptan códigos cortos (001, 201, 202...), matrículas 450-XXX-X
+  // y matrículas completas Renfe (9-450-XXX-X / 7-450-XXX-X).
+  // La tabla de la serie 450 es la referencia de asociación de cada vehículo con su rama.
+  if(s==="450"){
+    const raw=String(vehicle??"").trim();
+    const compact=raw.replace(/\s+/g,"");
+    let code="";
+
+    const full=compact.match(/(?:^|[-])450[-]?(\d{3})(?:[-]\d)?$/i);
+    if(full) code=full[1];
+    if(!code){
+      const renfeFull=compact.match(/(?:^|[-])(?:9|7)[-]?450[-]?(\d{3})(?:[-]\d)?$/i);
+      if(renfeFull) code=renfeFull[1];
+    }
+    if(!code && /^450\d{3}$/.test(compact)) code=compact.slice(3);
+    if(!code && /^\d{1,3}$/.test(compact)) code=compact.padStart(3,"0");
+    if(!code) return null;
+
+    // 210R aparece históricamente en la Rama 04 y fue agregado a la Rama 17 en 09/21.
+    // Para la búsqueda actual se prioriza la composición de la Rama 17.
+    let base=null;
+    if(code==="210") base=seriesData.units?.["17"]||null;
+    if(!base){
+      for(const candidate of Object.values(seriesData.units||{})){
+        if((candidate.searchCodes||[]).includes(code)){ base=candidate; break; }
+      }
+    }
+    if(!base) return null;
+
+    const idx=(base.searchCodes||[]).indexOf(code);
+    const canonicalVehicle=idx>=0 ? base.vehiculosRama[idx] : base.numero;
+    const tipos=["Coche motor cabina impar","Remolque de dos pisos","Remolque de dos pisos","Remolque de dos pisos","Remolque de dos pisos","Coche motor cabina par"];
+    return {
+      ...base,
+      numero:canonicalVehicle,
+      vehiculoBase:code,
+      vehiculoIntroducido:raw,
+      vehiculoBuscado:code,
+      vehiculoEncontrado:canonicalVehicle,
+      cocheTipo:tipos[idx]||"Vehículo Serie 450"
+    };
+  }
+
   // Serie 453 Stadler: TL100 (453.0, 4 coches) + TL200 (453.6, 8 coches).
   // TL100: 001-024 y códigos simplificados 1001/2001/...
   // TL200: 001-055, códigos simplificados 1601/2601/... y matrículas de los dos motores cabina.
@@ -14622,6 +15487,9 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Color</span><strong>${esc(unit.color||"—")}</strong></div>
         <div><span>Estado</span><strong>${esc(unit.estado||"—")}</strong></div>
         <div><span>Fecha de alta</span><strong>${esc(unit.fechaAlta||"—")}</strong></div>`:""}
+        ${normalizeFleetValue(series)==="450"?`
+        <div><span>Color</span><strong>${esc(unit.color||"—")}</strong></div>
+        <div><span>Estado</span><strong>${esc(unit.estado||"—")}</strong></div>`:""}
         ${normalizeFleetValue(series)==="463"?`<div><span>Color</span><strong>${esc(unit.color||"—")}</strong></div>
         <div><span>Red</span><strong>${esc(unit.red||"—")}</strong></div>`:""}
         <div><span>Ancho de vía</span><strong>${esc(unit.ancho||tech?.anchoVia||"—")} ${unit.ancho?"mm":""}</strong></div>
@@ -14648,7 +15516,7 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${tech?.velocidadMaxima?`<div><span>Velocidad máxima</span><strong>${esc(tech.velocidadMaxima||seriesData.velocidadMaxima)}</strong></div>`:""}
         ${tech?.potencia?`<div><span>Potencia</span><strong>${esc(tech.potencia||seriesData.potencia)}</strong></div>`:""}
         ${tech?.plazasSentadas?`<div><span>Plazas sentadas</span><strong>${esc(tech.plazasSentadas||seriesData.plazasSentadas)}</strong></div>`:""}
-         ${["112","121","453","464","730","801"].includes(normalizeFleetValue(series))?`
+         ${["112","121","450","453","464","730","801"].includes(normalizeFleetValue(series))?`
          <div><span>Longitud</span><strong>${esc(tech.longitud||"—")}</strong></div>
          <div><span>Peso</span><strong>${esc(tech.peso||"—")}</strong></div>
          <div><span>Tensión</span><strong>${esc(tech.tension||"—")}</strong></div>
