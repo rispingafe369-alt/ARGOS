@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="theme-color" content="#8a005c">
+<meta name="theme-color" content="#7b006d">
 <meta name="description" content="ARGOS - Gestión de servicios ferroviarios">
 <link rel="manifest" href="manifest.webmanifest">
 <title>ARGOS · Renfe Operaciones</title>
@@ -1186,19 +1186,22 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
      ARGOS · PANTALLA DE CARGA MÓVIL
      Usa /icons/argos-splash-logo.png
      ========================================================= -->
-<style id="argos-mobile-splash-v1">
+<style id="argos-mobile-splash-v2">
   #argosMobileSplash{
     position:fixed;
     inset:0;
     z-index:999999;
+    width:100%;
+    height:100%;
+    min-height:100dvh;
+    background:#7b006d;
     display:flex;
     align-items:center;
     justify-content:center;
     overflow:hidden;
-    background:#7b006d;
     opacity:1;
     visibility:visible;
-    transition:opacity .45s ease, visibility .45s ease;
+    transition:opacity .5s ease,visibility .5s ease;
   }
 
   #argosMobileSplash.hidden{
@@ -1211,80 +1214,80 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
     width:100%;
     height:100%;
     min-height:100dvh;
-    box-sizing:border-box;
     display:flex;
     flex-direction:column;
     align-items:center;
-    justify-content:center;
-    padding:70px 28px 34px;
+    box-sizing:border-box;
+    padding:
+      max(72px, env(safe-area-inset-top))
+      24px
+      max(42px, env(safe-area-inset-bottom));
   }
 
+  /* El logo principal es transparente: no aparece ningún cuadrado. */
   .argos-splash-logo{
-    width:min(78vw,390px);
+    width:min(76vw,350px);
     height:auto;
+    margin-top:clamp(150px,23vh,250px);
     display:block;
     object-fit:contain;
-    animation:argosSplashPulse 1.8s ease-in-out infinite;
+    animation:argosSplashLogo 2.2s ease-in-out infinite;
   }
 
   .argos-splash-loading{
-    margin-top:18px;
+    margin-top:clamp(34px,5vh,54px);
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:10px;
+    gap:15px;
     color:#fff;
-    font-family:Arial,Helvetica,sans-serif;
   }
 
   .argos-splash-dots{
     display:flex;
-    gap:9px;
-    height:14px;
     align-items:center;
+    gap:10px;
+    height:16px;
   }
 
   .argos-splash-dot{
-    width:9px;
-    height:9px;
+    width:10px;
+    height:10px;
     border-radius:50%;
     background:#fff;
-    opacity:.3;
-    animation:argosSplashDot 1.2s infinite ease-in-out;
+    opacity:.25;
+    animation:argosSplashDot 1.25s ease-in-out infinite;
   }
 
   .argos-splash-dot:nth-child(2){animation-delay:.18s}
   .argos-splash-dot:nth-child(3){animation-delay:.36s}
 
   .argos-splash-text{
+    font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     font-size:12px;
-    font-weight:700;
-    letter-spacing:3px;
+    font-weight:800;
+    letter-spacing:4px;
   }
 
+  /* Renfe real extraído del logo proporcionado, en grande y blanco. */
   .argos-splash-renfe{
     position:absolute;
     left:50%;
-    bottom:72px;
+    bottom:max(68px,calc(env(safe-area-inset-bottom) + 48px));
     transform:translateX(-50%);
-    color:#fff;
-    font-family:Arial,Helvetica,sans-serif;
-    font-size:clamp(58px,16vw,105px);
-    line-height:.8;
-    font-weight:900;
-    font-style:italic;
-    letter-spacing:-7px;
-    white-space:nowrap;
+    width:min(54vw,245px);
+    height:auto;
+    display:block;
     user-select:none;
   }
 
-  @keyframes argosSplashPulse{
-    0%,100%{transform:scale(1)}
-    50%{transform:scale(1.025)}
+  @keyframes argosSplashLogo{
+    0%,100%{transform:scale(1);opacity:.96}
+    50%{transform:scale(1.025);opacity:1}
   }
 
   @keyframes argosSplashDot{
-    0%,60%,100%{opacity:.25;transform:scale(.85)}
+    0%,60%,100%{opacity:.22;transform:scale(.82)}
     30%{opacity:1;transform:scale(1.15)}
   }
 
@@ -1293,17 +1296,12 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
   }
 
   @media(max-width:600px){
-    .argos-splash-inner{
-      padding-top:55px;
-      padding-bottom:120px;
-    }
-
     .argos-splash-logo{
-      width:min(84vw,390px);
+      width:min(78vw,350px);
+      margin-top:clamp(145px,22vh,225px);
     }
-
     .argos-splash-renfe{
-      bottom:54px;
+      width:min(55vw,240px);
     }
   }
 
@@ -1320,7 +1318,7 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
     <img
       class="argos-splash-logo"
       src="icons/argos-splash-logo.png"
-      alt="ARGOS · Renfe Operaciones"
+      alt="ARGOS"
     >
 
     <div class="argos-splash-loading" aria-hidden="true">
@@ -1332,11 +1330,16 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
       <span class="argos-splash-text">CARGANDO...</span>
     </div>
 
-    <div class="argos-splash-renfe" aria-hidden="true">renfe</div>
+    <img
+      class="argos-splash-renfe"
+      src="icons/argos-splash-renfe.png"
+      alt=""
+      aria-hidden="true"
+    >
   </div>
 </div>
 
-<script id="argos-mobile-splash-v1-js">
+<script id="argos-mobile-splash-v2-js">
 (function(){
   'use strict';
 
@@ -1344,15 +1347,15 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
   if(!splash)return;
 
   const started=Date.now();
-  const MIN_TIME=1100;
+  const MIN_TIME=1300;
 
   function hideSplash(){
     const wait=Math.max(0,MIN_TIME-(Date.now()-started));
     setTimeout(function(){
       splash.classList.add('hidden');
       setTimeout(function(){
-        splash.remove();
-      },500);
+        if(splash && splash.parentNode)splash.parentNode.removeChild(splash);
+      },550);
     },wait);
   }
 
