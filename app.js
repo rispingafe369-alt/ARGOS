@@ -10059,7 +10059,7 @@ const fleet = {
         "ancho": "1668",
         "numeroCoches": "3 coches · 1 coche motor + 1 remolque intermedio + 1 remolque con cabina",
         "composicionRama": "Motor + remolque + remolque con cabina",
-        "notas": ["Rama 03. Interior remodelado como los "Civia". Colores Rodalies de Catalunya. Tercera unidad con nuevos colores RdC. Teleindicadores exteriores LED"]
+        "notas": ["Rama 03. Interior remodelado como los Civia. Colores Rodalies de Catalunya. Tercera unidad con nuevos colores RdC. Teleindicadores exteriores LED"]
       },
       "4": {
         "rama": "4",
