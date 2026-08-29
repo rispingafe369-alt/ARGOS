@@ -9159,7 +9159,7 @@ const fleet = {
   },
   "450": {
     "seriesName": "Serie 450 · Cercanías · 6 coches",
-  "fabricante": "Alstom / CAF",
+  "fabricante": "ATEINSA, MTM",
   "modelo": "Unidad eléctrica de dos pisos",
   "apodo": "Buque",
   "subseries": "450 · 6 coches",
@@ -9206,7 +9206,7 @@ const fleet = {
         "203",
         "002"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "Fuencarral",
       "color": "Blanco/Rojo",
@@ -9239,7 +9239,7 @@ const fleet = {
         "206",
         "004"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "Fuencarral",
       "color": "Blanco/Rojo",
@@ -9272,7 +9272,7 @@ const fleet = {
         "209",
         "006"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "Vilanova",
       "color": "Blanco/Rojo",
@@ -9305,7 +9305,7 @@ const fleet = {
         "212",
         "008"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "La Sagra",
       "color": "Blanco/Rojo",
@@ -9338,7 +9338,7 @@ const fleet = {
         "215",
         "010"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "Fuencarral",
       "color": "Rojo/Blanco",
@@ -9371,7 +9371,7 @@ const fleet = {
         "218",
         "012"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "Vilanova",
       "color": "Naranja/Blanco",
@@ -9404,7 +9404,7 @@ const fleet = {
         "221",
         "014"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "Fuencarral",
       "color": "Blanco/Rojo",
@@ -9437,7 +9437,7 @@ const fleet = {
         "224",
         "016"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "Vilanova",
       "color": "Blanco/Naranja",
@@ -9470,7 +9470,7 @@ const fleet = {
         "227",
         "018"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "Vilanova",
       "color": "Blanco/Rojo",
@@ -9503,7 +9503,7 @@ const fleet = {
         "230",
         "020"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "Fuencarral",
       "color": "Blanco/Rojo",
@@ -9536,7 +9536,7 @@ const fleet = {
         "233",
         "022"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "Fuencarral",
       "color": "Blanco/Rojo",
@@ -9569,7 +9569,7 @@ const fleet = {
         "236",
         "024"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "Fuencarral",
       "color": "Blanco/Rojo",
@@ -9602,7 +9602,7 @@ const fleet = {
         "239",
         "026"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "Fuencarral",
       "color": "Blanco/Rojo",
@@ -9633,7 +9633,7 @@ const fleet = {
         "242",
         "028"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "Fuencarral",
       "color": "Blanco/Rojo",
@@ -9666,7 +9666,7 @@ const fleet = {
         "245",
         "030"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "Vilanova",
       "color": "Blanco/Naranja",
@@ -9699,7 +9699,7 @@ const fleet = {
         "248",
         "032"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "Vilanova",
       "color": "Blanco/Naranja",
@@ -9732,7 +9732,7 @@ const fleet = {
         "210",
         "034"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "Fuencarral",
       "color": "Blanco/Rojo",
@@ -9765,7 +9765,7 @@ const fleet = {
         "254",
         "036"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "Fuencarral",
       "color": "Blanco/Rojo",
@@ -9798,7 +9798,7 @@ const fleet = {
         "257",
         "038"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "Fuencarral",
       "color": "Blanco/Rojo",
@@ -9831,7 +9831,7 @@ const fleet = {
         "260",
         "040"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "Vilanova",
       "color": "Blanco/Naranja",
@@ -9864,7 +9864,7 @@ const fleet = {
         "263",
         "042"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "Fuencarral",
       "color": "Blanco/Rojo",
@@ -9897,7 +9897,7 @@ const fleet = {
         "266",
         "044"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "Fuencarral",
       "color": "Blanco/Rojo",
@@ -9930,7 +9930,7 @@ const fleet = {
         "269",
         "046"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "Fuencarral",
       "color": "Blanco/Rojo",
@@ -9963,7 +9963,7 @@ const fleet = {
         "272",
         "048"
       ],
-      "fabricante": "Alstom / CAF",
+      "fabricante": "ATEINSA, MTM",
       "subserie": "450 · 6 coches",
       "deposito": "Vilanova",
       "color": "Blanco/Naranja",
@@ -9978,6 +9978,244 @@ const fleet = {
     }
   }
 },
+  "451": {
+    "seriesName": "Serie 451 · Cercanías · 3 coches",
+    "fabricante": "ATEINSA, MTM",
+    "modelo": "Unidad eléctrica de dos pisos",
+    "apodo": "Buque",
+    "subseries": "451 · 3 coches",
+    "anoPuestaServicio": "1994–1995",
+    "tipoMaterial": "Cercanías · Tren de dos pisos · Gran capacidad",
+    "numeroCoches": "3 coches · 1 coche motor + 1 remolque intermedio + 1 remolque con cabina",
+    "anchoVia": "1668 mm",
+    "numeroRamas": 12,
+    "velocidadMaxima": "140 km/h",
+    "potencia": "2.960 kW",
+    "longitud": "81 m",
+    "peso": "177 t",
+    "tension": "3.000 Vcc",
+    "traccion": "4 motores de tracción · potencia total 2.960 kW",
+    "tipoBogies": "Bimotor y monorreductor",
+    "anchoCaja": "2.926 mm",
+    "alturaTecho": "4.300 mm",
+    "longitudMotor": "27.130 mm",
+    "pesoPorEje": "14,75 t",
+    "frenos": "Eléctrico reostático · neumático por aire comprimido",
+    "enganche": "Scharfenberg",
+    "composicion": "Bo’Bo’ + 2’2’ + 2’2’",
+    "generalNotes": [
+      "Una vez completadas las unidades de la serie 450 con dos coches motores en cada extremo, los coches remolque con cabina junto a otros tantos coches motores sirvieron para formar las unidades 451, compuestas por un coche motor, un coche remolque intermedio y otro remolque con cabina.",
+      "Las unidades de la serie 451 prestan servicio en la red de Rodalies Barcelona y tienen depósito en Vilanova.",
+      "Los coches de la serie 451 proceden de los remolques con cabina de las composiciones de la serie 450 y de coches motores asociados, manteniendo la misma numeración de rama.",
+      "La rama puede localizarse mediante cualquiera de los tres vehículos de la composición: motor, remolque intermedio o remolque con cabina."
+    ],
+    "units": {
+      "1": {
+        "rama": "1",
+        "vehiculoBase": "001",
+        "numero": "9-451-001-2",
+        "vehiculosRama": ["9-451-001-2", "7-451-001-2", "8-451-001-2"],
+        "searchCodes": ["001"],
+        "fabricante": "ATEINSA, MTM",
+        "subserie": "451 · 3 coches",
+        "deposito": "Vilanova",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1994–1995",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 1 coche motor + 1 remolque intermedio + 1 remolque con cabina",
+        "composicionRama": "Motor + remolque + remolque con cabina",
+        "notas": ["Rama 01. Teleindicadores frontales y laterales led's. Colores Renfe Op. >> Colores Rodalies."]
+      },
+      "2": {
+        "rama": "2",
+        "vehiculoBase": "002",
+        "numero": "9-451-002-0",
+        "vehiculosRama": ["9-451-002-0", "7-451-002-0", "8-451-002-0"],
+        "searchCodes": ["002"],
+        "fabricante": "ATEINSA, MTM",
+        "subserie": "451 · 3 coches",
+        "deposito": "Vilanova",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1994–1995",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 1 coche motor + 1 remolque intermedio + 1 remolque con cabina",
+        "composicionRama": "Motor + remolque + remolque con cabina",
+        "notas": ["Rama 02 (1ª con colores Renfe Op.) > (4ª en colores Rodalies de Catalunya.). Teleindicadores exteriores de leds naranjas. Ex-vinilos logos 75 Aniversario"]
+      },
+      "3": {
+        "rama": "3",
+        "vehiculoBase": "003",
+        "numero": "9-451-003-8",
+        "vehiculosRama": ["9-451-003-8", "7-451-003-8", "8-451-003-8"],
+        "searchCodes": ["003"],
+        "fabricante": "ATEINSA, MTM",
+        "subserie": "451 · 3 coches",
+        "deposito": "Vilanova",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1994–1995",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 1 coche motor + 1 remolque intermedio + 1 remolque con cabina",
+        "composicionRama": "Motor + remolque + remolque con cabina",
+        "notas": ["Rama 03. Interior remodelado como los "Civia". Colores Rodalies de Catalunya. Tercera unidad con nuevos colores RdC. Teleindicadores exteriores LED"]
+      },
+      "4": {
+        "rama": "4",
+        "vehiculoBase": "004",
+        "numero": "9-451-004-6",
+        "vehiculosRama": ["9-451-004-6", "7-451-004-6", "8-451-004-6"],
+        "searchCodes": ["004"],
+        "fabricante": "ATEINSA, MTM",
+        "subserie": "451 · 3 coches",
+        "deposito": "Vilanova",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1994–1995",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 1 coche motor + 1 remolque intermedio + 1 remolque con cabina",
+        "composicionRama": "Motor + remolque + remolque con cabina",
+        "notas": ["Rama 04. Interior remodelado como los Civia. Colores Renfe Op. Círculo sin logo frontal. Última en repintarse a los nuevos colores. >> 6ª 451 en recibir los colores Rodalies. Vinilo logos 75 Aniversario"]
+      },
+      "5": {
+        "rama": "5",
+        "vehiculoBase": "005",
+        "numero": "9-451-005-3",
+        "vehiculosRama": ["9-451-005-3", "7-451-005-3", "8-451-005-3"],
+        "searchCodes": ["005"],
+        "fabricante": "ATEINSA, MTM",
+        "subserie": "451 · 3 coches",
+        "deposito": "Vilanova",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1994–1995",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 1 coche motor + 1 remolque intermedio + 1 remolque con cabina",
+        "composicionRama": "Motor + remolque + remolque con cabina",
+        "notas": ["Rama 05. Colores Renfe Op. Desde 15/12/10 con los nuevos colores de Rodalies de Catalunya. Teleindicadores frontales y laterales led's."]
+      },
+      "6": {
+        "rama": "6",
+        "vehiculoBase": "006",
+        "numero": "9-451-006-1",
+        "vehiculosRama": ["9-451-006-1", "7-451-006-1", "8-451-006-1"],
+        "searchCodes": ["006"],
+        "fabricante": "ATEINSA, MTM",
+        "subserie": "451 · 3 coches",
+        "deposito": "Vilanova",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1994–1995",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 1 coche motor + 1 remolque intermedio + 1 remolque con cabina",
+        "composicionRama": "Motor + remolque + remolque con cabina",
+        "notas": ["Rama 06. Colores Renfe Op. Teleindicadores frontales y laterales led's. Colores Rodalies desde 03/14"]
+      },
+      "7": {
+        "rama": "7",
+        "vehiculoBase": "007",
+        "numero": "9-451-007-9",
+        "vehiculosRama": ["9-451-007-9", "7-451-007-9", "8-451-007-9"],
+        "searchCodes": ["007"],
+        "fabricante": "ATEINSA, MTM",
+        "subserie": "451 · 3 coches",
+        "deposito": "Vilanova",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1994–1995",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 1 coche motor + 1 remolque intermedio + 1 remolque con cabina",
+        "composicionRama": "Motor + remolque + remolque con cabina",
+        "notas": ["Rama 07. Colores Renfe Op. Teleindicadores led>>Colores Rodalies 06/13"]
+      },
+      "8": {
+        "rama": "8",
+        "vehiculoBase": "008",
+        "numero": "9-451-008-7",
+        "vehiculosRama": ["9-451-008-7", "7-451-008-7", "8-451-008-7"],
+        "searchCodes": ["008"],
+        "fabricante": "ATEINSA, MTM",
+        "subserie": "451 · 3 coches",
+        "deposito": "Vilanova",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1994–1995",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 1 coche motor + 1 remolque intermedio + 1 remolque con cabina",
+        "composicionRama": "Motor + remolque + remolque con cabina",
+        "notas": ["Rama 08. Colores Renfe Op. Teleindicadores exteriores de leds naranjas. 7ª unidad en recibir colores Rodalies 11/12."]
+      },
+      "9": {
+        "rama": "9",
+        "vehiculoBase": "009",
+        "numero": "9-451-009-5",
+        "vehiculosRama": ["9-451-009-5", "7-451-009-5", "8-451-009-5"],
+        "searchCodes": ["009"],
+        "fabricante": "ATEINSA, MTM",
+        "subserie": "451 · 3 coches",
+        "deposito": "Vilanova",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1994–1995",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 1 coche motor + 1 remolque intermedio + 1 remolque con cabina",
+        "composicionRama": "Motor + remolque + remolque con cabina",
+        "notas": ["Rama 09. Colores Renfe Op. Teleindicadores exteriores de leds naranjas>>Colores Rodalies 05/13"]
+      },
+      "10": {
+        "rama": "10",
+        "vehiculoBase": "010",
+        "numero": "9-451-010-3",
+        "vehiculosRama": ["9-451-010-3", "7-451-010-3", "8-451-010-3"],
+        "searchCodes": ["010"],
+        "fabricante": "ATEINSA, MTM",
+        "subserie": "451 · 3 coches",
+        "deposito": "Vilanova",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1994–1995",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 1 coche motor + 1 remolque intermedio + 1 remolque con cabina",
+        "composicionRama": "Motor + remolque + remolque con cabina",
+        "notas": ["Rama 10. Colores Renfe Op. 5ª unidad en colores Rodalies. Teleindicadores led. Descarrilo en Estació de França 18/12/19. En servicio. Nueva batería."]
+      },
+      "11": {
+        "rama": "11",
+        "vehiculoBase": "011",
+        "numero": "9-451-011-1",
+        "vehiculosRama": ["9-451-011-1", "7-451-011-1", "8-451-011-1"],
+        "searchCodes": ["011"],
+        "fabricante": "ATEINSA, MTM",
+        "subserie": "451 · 3 coches",
+        "deposito": "Vilanova",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1994–1995",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 1 coche motor + 1 remolque intermedio + 1 remolque con cabina",
+        "composicionRama": "Motor + remolque + remolque con cabina",
+        "notas": ["Rama 11. Ex. Colores Renfe Op. Primera 451 con colores Rodalies desde 02/08/10. Teleindicadores exteriores de leds naranjas."]
+      },
+      "12": {
+        "rama": "12",
+        "vehiculoBase": "012",
+        "numero": "9-451-012-9",
+        "vehiculosRama": ["9-451-012-9", "7-451-012-9", "8-451-012-9"],
+        "searchCodes": ["012"],
+        "fabricante": "ATEINSA, MTM",
+        "subserie": "451 · 3 coches",
+        "deposito": "Vilanova",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1994–1995",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 1 coche motor + 1 remolque intermedio + 1 remolque con cabina",
+        "composicionRama": "Motor + remolque + remolque con cabina",
+        "notas": ["Rama 12. Colores Renfe Op. Teleindicadores frontales y laterales Led's.Colores de Rodalies 02/13"]
+      }
+    }
+  },
   "453": {
     "seriesName": "Serie 453.0 · Stadler · TL100 · 4 coches",
     "fabricante": "Stadler Rail",
@@ -14967,6 +15205,32 @@ function getFleetUnit(series, vehicle){
       vehiculoBuscado:code,
       vehiculoEncontrado:canonicalVehicle,
       cocheTipo:tipos[idx]||"Vehículo Serie 450"
+    };
+  }
+
+  // Serie 451: cualquiera de los tres vehículos de la rama identifica la composición.
+  // Se aceptan códigos cortos (001, 002...), matrículas 451-XXX-X y matrículas completas
+  // Renfe (9-451-XXX-X, 7-451-XXX-X y 8-451-XXX-X).
+  if(s==="451"){
+    const raw=String(vehicle??"").trim();
+    const compact=raw.replace(/\s+/g,"");
+    let code="";
+    const full=compact.match(/(?:^|[-])451[-]?(\d{3})(?:[-]\d)?$/i);
+    if(full) code=full[1];
+    if(!code && /^451\d{3}$/.test(compact)) code=compact.slice(3);
+    if(!code && /^\d{1,3}$/.test(compact)) code=compact.padStart(3,"0");
+    if(!code) return null;
+
+    const base=seriesData.units?.[String(Number(code))];
+    if(!base) return null;
+    return {
+      ...base,
+      numero:base.numero,
+      vehiculoBase:base.vehiculoBase,
+      vehiculoIntroducido:raw,
+      vehiculoBuscado:code,
+      vehiculoEncontrado:base.numero,
+      cocheTipo:"Vehículo Serie 451"
     };
   }
 
