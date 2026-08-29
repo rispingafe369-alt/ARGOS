@@ -2730,25 +2730,26 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 (function(){
   "use strict";
 
-  const API="https://data.renfe.com/es/api/3/action/datastore_search";
+  // Renfe publica el catálogo de estaciones mediante CKAN. Su propia
+  // documentación indica que el endpoint admite JSONP; lo usamos aquí
+  // porque la petición fetch directa puede quedar bloqueada por CORS.
+  const API="https://data.renfe.com/api/3/action/datastore_search";
   const RESOURCE="783e0626-6fa8-4ac7-a880-fa53144654ff";
 
-  // Fallback for the most useful ARGOS stations if the Renfe catalogue
-  // is temporarily unavailable.
-  const FALLBACK_EXTRA=[
-    ["03200","CUENCA","CUENCA"],
-    ["03201","CUENCA FERNANDO ZÓBEL","CUENCA"],
-    ["42001","HUELVA","HUELVA"],
-    ["03216","VALÈNCIA-JOAQUÍN SOROLLA","VALENCIA"],
+  const FALLBACK=[
+    ["03208","CUENCA FERNANDO ZÓBEL","CUENCA"],
     ["03213","REQUENA-UTIEL","REQUENA"],
-    ["03217","VALENCIA NORD","VALENCIA"],
-    ["35406","VALENCIA DE ALCÁNTARA","VALENCIA DE ALCÁNTARA"],
-    ["08001","MADRID-PUERTA DE ATOCHA","MADRID"],
-    ["08002","MADRID-CHAMARTÍN-CLARA CAMPOAMOR","MADRID"],
+    ["03216","VALENCIA JOAQUIN SOROLLA","VALENCIA"],
+    ["42001","HUELVA","HUELVA"],
+    ["51300","JEREZ DE LA FRONTERA","JEREZ DE LA FRONTERA"],
+    ["51205","AEROPUERTO DE JEREZ","JEREZ DE LA FRONTERA"],
+    ["51400","PUERTO DE SANTA MARIA","EL PUERTO DE SANTA MARIA"],
+    ["51401","PUERTO REAL","PUERTO REAL"],
+    ["51402","SAN FERNANDO-CENTRO","SAN FERNANDO"],
+    ["51405","CADIZ","CADIZ"],
     ["60000","SEVILLA-SANTA JUSTA","SEVILLA"],
-    ["60001","SEVILLA-SAN BERNARDO","SEVILLA"],
-    ["51000","CÓRDOBA","CÓRDOBA"],
-    ["50500","MÁLAGA-MARÍA ZAMBRANO","MÁLAGA"],
+    ["51000","CORDOBA","CORDOBA"],
+    ["50500","MALAGA-MARIA ZAMBRANO","MALAGA"],
     ["70000","ZARAGOZA-DELICIAS","ZARAGOZA"],
     ["71000","VALLADOLID","VALLADOLID"],
     ["72000","SALAMANCA","SALAMANCA"],
@@ -2759,320 +2760,173 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     ["95000","CARTAGENA","CARTAGENA"],
     ["10000","BILBAO-ABANDO","BILBAO"],
     ["11000","VIGO-GUIXAR","VIGO"],
-    ["12000","A CORUÑA","A CORUÑA"],
-    ["13000","SANTIAGO DE COMPOSTELA","SANTIAGO DE COMPOSTELA"]
-  ];
-
-  const FALLBACK=[
+    ["12000","A CORUNA","A CORUNA"],
+    ["13000","SANTIAGO DE COMPOSTELA","SANTIAGO DE COMPOSTELA"],
     ["17001","FUENCARRAL","MADRID"],
-    ["17005","COLMENAR VIEJO","COLMENAR VIEJO"],
-    ["35010","LA SERNA-FUENLABRADA","FUENLABRADA"],
-    ["35001","LEGANÉS","LEGANÉS"],
     ["35002","FUENLABRADA","FUENLABRADA"],
-    ["35009","ZARZAQUEMADA","LEGANÉS"],
-    ["35011","PARQUE POLVORANCA","LEGANÉS"],
     ["35012","HUMANES","HUMANES DE MADRID"],
-    ["35600","ALUCHE","MADRID"],
-    ["35601","FANJUL","MADRID"],
-    ["35602","LAS ÁGUILAS","MADRID"],
-    ["35603","CUATRO VIENTOS","MADRID"],
-    ["35604","SAN JOSÉ DE VALDERAS","ALCORCÓN"],
-    ["35605","ALCORCÓN","ALCORCÓN"],
-    ["35606","MÓSTOLES","MÓSTOLES"],
-    ["35607","MÓSTOLES-EL SOTO","MÓSTOLES"],
-    ["35608","LAGUNA","MADRID"],
-    ["35609","EMBAJADORES","MADRID"],
-    ["35610","LAS RETAMAS","ALCORCÓN"],
-    ["35701","MÉNDEZ ÁLVARO","MADRID"],
-    ["35702","DOCE DE OCTUBRE","MADRID"],
-    ["35703","ORCASITAS","MADRID"],
-    ["35704","PUENTE ALCOCER","MADRID"],
-    ["37001","VILLAVERDE ALTO","MADRID"],
     ["37002","GETAFE-CENTRO","GETAFE"],
-    ["37010","LAS MARGARITAS","GETAFE"],
-    ["37011","GETAFE-SECTOR 3","GETAFE"],
     ["37012","PARLA","PARLA"],
-    ["60100","VILLAVERDE BAJO","MADRID"],
-    ["60101","SAN CRISTÓBAL INDUSTRIAL","MADRID"],
-    ["60102","GETAFE-INDUSTRIAL","GETAFE"],
-    ["60103","PINTO","PINTO"],
-    ["60104","VALDEMORO","VALDEMORO"],
-    ["60105","CIEMPOZUELOS","CIEMPOZUELOS"],
-    ["60107","SAN CRISTÓBAL DE LOS ÁNGELES","MADRID"],
-    ["60109","EL CASAR","GETAFE"],
     ["60200","ARANJUEZ","ARANJUEZ"],
-    ["97100","PITIS","MADRID"],
-    ["97200","MIRASIERRA-PACO DE LUCÍA","MADRID"],
-    ["97201","RAMÓN Y CAJAL","MADRID"],
-    ["98003","FUENTE DE LA MORA","MADRID"],
-    ["98304","VALDEBEBAS","MADRID"],
-    ["98305","AEROPUERTO T-4","MADRID"],
-    ["42001","HUELVA","HUELVA"]
+    ["98305","AEROPUERTO T-4","MADRID"]
   ];
 
-  const normalize = value => String(value ?? "")
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g,"")
-    .toUpperCase()
-    .replace(/[^A-Z0-9]+/g," ")
-    .trim();
+  const normalize=v=>String(v??"")
+    .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+    .toUpperCase().replace(/[^A-Z0-9]+/g," ").trim();
 
-  const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g, c => ({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  const escapeHtml=v=>String(v??"").replace(/[&<>"\']/g,c=>({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#39;"
   }[c]));
 
-  let stations = FALLBACK.concat(FALLBACK_EXTRA).map(([code,name,population]) => ({
+  let stations=FALLBACK.map(([code,name,population])=>({
     code,name,population,search:normalize(name+" "+population)
   }));
-  let loaded = false;
-  let loading = null;
+  let loaded=false;
+  let loading=null;
 
   function addStations(records){
-    const map = new Map(stations.map(s => [s.code+"|"+normalize(s.name),s]));
-    (records || []).forEach(r => {
-      const code=String(r.CODIGO ?? r.codigo ?? r.code ?? r.station_code ?? r.stop_id ?? "")
-        .trim().replace(/\.0$/,"").padStart(5,"0");
-      const name=String(r.DESCRIPCION ?? r.descripcion ?? r.name ?? r.nombre ??
-        r.stopName ?? r.stopname ?? r.station_name ?? r.label ?? "").trim();
-      const population=String(r.POBLACION ?? r.poblacion ?? r.population ?? "").trim();
-      if(!code || !name) return;
+    const map=new Map(stations.map(s=>[s.code+"|"+normalize(s.name),s]));
+    (records||[]).forEach(r=>{
+      const code=String(r.CODIGO??r.codigo??r.code??r.station_code??r.stop_id??"")
+        .trim().replace(/\.0$/,"" ).padStart(5,"0");
+      const name=String(r.DESCRIPCION??r.descripcion??r.name??r.nombre??r.stopName??r.stopname??r.station_name??r.label??"").trim();
+      const population=String(r.POBLACION??r.poblacion??r.population??"").trim();
+      if(!code||!name)return;
       const item={code,name,population,search:normalize(name+" "+population)};
       const key=code+"|"+normalize(name);
-      if(!map.has(key)) {
-        stations.push(item);
-        map.set(key,item);
+      if(!map.has(key)){stations.push(item);map.set(key,item);}
+    });
+  }
+
+  function jsonp(params,timeoutMs=8000){
+    return new Promise((resolve,reject)=>{
+      const callback="argosStations_"+Date.now()+"_"+Math.floor(Math.random()*100000);
+      const script=document.createElement("script");
+      const query=new URLSearchParams({...params,callback});
+      let finished=false;
+      const timer=setTimeout(()=>finish(new Error("timeout")),timeoutMs);
+      function cleanup(){
+        clearTimeout(timer);
+        try{delete window[callback]}catch(e){window[callback]=undefined}
+        script.remove();
       }
+      function finish(err,data){
+        if(finished)return;
+        finished=true;cleanup();
+        if(err)reject(err);else resolve(data);
+      }
+      window[callback]=data=>finish(null,data);
+      script.onerror=()=>finish(new Error("network"));
+      script.src=API+"?"+query.toString();
+      document.head.appendChild(script);
     });
   }
 
   async function loadStations(){
-    if(loaded) return stations;
-    if(loading) return loading;
-
+    if(loaded)return stations;
+    if(loading)return loading;
     loading=(async()=>{
       try{
-        const params=new URLSearchParams({
-          resource_id:RESOURCE,
-          limit:"5000"
-        });
-        const response=await fetch(API+"?"+params.toString(),{
-          method:"GET",
-          cache:"no-store",
-          headers:{Accept:"application/json"}
-        });
-        if(response.ok){
-          const payload=await response.json();
-          if(payload?.success && Array.isArray(payload?.result?.records)){
-            addStations(payload.result.records);
-          }
-        }
-      }catch(e){
-        // The local fallback remains available.
-      }
+        const data=await jsonp({resource_id:RESOURCE,limit:"5000"});
+        if(data?.success&&Array.isArray(data?.result?.records))addStations(data.result.records);
+      }catch(e){/* fallback stays available */}
       loaded=true;
       return stations;
     })();
-
     return loading;
   }
 
   function matches(query){
     const q=normalize(query);
-    if(!q) return [];
-
-    const numeric=/^\d+$/.test(q.replace(/\s/g,""));
+    if(!q)return [];
+    const compact=q.replace(/\s/g,"");
     return stations.map(station=>{
+      const code=normalize(station.code).replace(/\s/g,"");
+      const name=station.search;
       let score=999;
-      if(station.code===q) score=0;
-      else if(station.search===q) score=1;
-      else if(station.code.startsWith(q)) score=2;
-      else if(station.search.startsWith(q)) score=3;
-      else if(station.search.split(" ").some(w=>w.startsWith(q))) score=4;
-      else if(station.search.includes(q)) score=5;
-      else if(!numeric && station.code.includes(q)) score=6;
+      if(code===compact)score=0;
+      else if(name===q)score=1;
+      else if(code.startsWith(compact))score=2;
+      else if(name.startsWith(q))score=3;
+      else if(name.split(" ").some(w=>w.startsWith(q)))score=4;
+      else if(name.includes(q))score=5;
       return {station,score};
-    })
-    .filter(x=>x.score<999)
-    .sort((a,b)=>a.score-b.score || a.station.name.localeCompare(b.station.name,"es"))
-    .slice(0,8)
-    .map(x=>x.station);
+    }).filter(x=>x.score<999)
+      .sort((a,b)=>a.score-b.score||a.station.name.localeCompare(b.station.name,"es"))
+      .slice(0,8).map(x=>x.station);
   }
 
   function setup(inputId,listId){
     const input=document.getElementById(inputId);
     const box=document.getElementById(listId);
-    if(!input || !box) return;
-
+    if(!input||!box)return;
     let requestId=0;
 
-    function close(){
-      box.classList.remove("show");
-      box.innerHTML="";
-    }
+    function close(){box.classList.remove("show");box.innerHTML="";}
 
     function choose(station){
       input.value=station.name;
       input.dataset.stationCode=station.code;
-      input.dispatchEvent(new Event("input",{bubbles:true}));
       close();
     }
 
     function render(list){
       if(!list.length){
         box.innerHTML='<div class="station-empty">No se encontraron estaciones.</div>';
-        box.classList.add("show");
-        return;
+        box.classList.add("show");return;
       }
-
       box.innerHTML=list.map((station,index)=>`
         <button type="button" class="station-suggestion" data-index="${index}">
           <span class="station-name">${escapeHtml(station.name)}</span>
           <span class="station-code">${escapeHtml(station.code)}</span>
-        </button>
-      `).join("");
-
+        </button>`).join("");
       box.classList.add("show");
-
       box.querySelectorAll(".station-suggestion").forEach((button,index)=>{
-        button.addEventListener("mousedown",event=>{
-          event.preventDefault();
-          choose(list[index]);
-        });
+        button.addEventListener("mousedown",event=>{event.preventDefault();choose(list[index]);});
       });
-    }
-
-    async function queryRenfeDirect(value){
-      const controller=new AbortController();
-      const timeout=setTimeout(()=>controller.abort(),5000);
-      try{
-        const params=new URLSearchParams({
-          resource_id:RESOURCE,
-          limit:"5000",
-          q:value
-        });
-        const response=await fetch(API+"?"+params.toString(),{
-          method:"GET",
-          cache:"no-store",
-          headers:{Accept:"application/json"},
-          signal:controller.signal
-        });
-        if(!response.ok) return [];
-        const payload=await response.json();
-        if(!payload?.success || !Array.isArray(payload?.result?.records)) return [];
-
-        const records=payload.result.records;
-
-        // Some versions of the Renfe datastore do not reliably apply q to
-        // every field. Keep the returned records and also let the local
-        // matcher decide what is a real name/city/code match.
-        addStations(records);
-
-        return records.map(r=>{
-          const code=String(r.CODIGO ?? r.codigo ?? r.code ?? r.station_code ?? "")
-            .trim().replace(/\\.0$/,"").padStart(5,"0");
-          const name=String(r.DESCRIPCION ?? r.descripcion ?? r.name ?? r.nombre ?? "")
-            .trim();
-          const population=String(r.POBLACION ?? r.poblacion ?? r.population ?? "").trim();
-          return {code,name,population,search:normalize(name+" "+population)};
-        }).filter(s=>s.code && s.name);
-      }catch(e){
-        return [];
-      }finally{
-        clearTimeout(timeout);
-      }
     }
 
     input.addEventListener("input",async()=>{
       const value=input.value.trim();
       delete input.dataset.stationCode;
-
-      if(!value){
-        close();
-        return;
-      }
-
+      if(!value){close();return;}
       const id=++requestId;
-
-      // First show an immediate local result, so the interface never feels
-      // empty while the official catalogue is being consulted.
-      const local=matches(value);
-      if(local.length){
-        render(local);
-      }else{
+      const immediate=matches(value);
+      if(immediate.length)render(immediate);
+      else{
         box.innerHTML='<div class="station-loading">Buscando estaciones Renfe…</div>';
         box.classList.add("show");
       }
-
-      // Load/refresh the full catalogue.
       await loadStations();
-      if(id!==requestId) return;
-
-      let result=matches(value);
-
-      // Important: if the catalogue loaded but the station is absent from
-      // it, query the Renfe Data API specifically for what the user typed.
-      if(!result.length){
-        box.innerHTML='<div class="station-loading">Buscando “'+escapeHtml(value)+'” en Renfe…</div>';
-        box.classList.add("show");
-
-        const direct=await queryRenfeDirect(value);
-        if(id!==requestId) return;
-
-        if(direct.length){
-          addStations(direct);
-          result=matches(value);
-        }
-      }
-
-      // Final fallback: allow useful city/station aliases even when the
-      // remote service is temporarily unavailable.
-      render(result);
+      if(id!==requestId)return;
+      render(matches(value));
     });
 
     input.addEventListener("focus",()=>{
-      if(input.value.trim()) render(matches(input.value));
+      if(input.value.trim())render(matches(input.value));
     });
-
-    input.addEventListener("keydown",event=>{
-      if(event.key==="Escape") close();
+    input.addEventListener("keydown",e=>{if(e.key==="Escape")close();});
+    document.addEventListener("mousedown",e=>{
+      if(!input.contains(e.target)&&!box.contains(e.target))close();
     });
-
-    document.addEventListener("mousedown",event=>{
-      if(!input.contains(event.target) && !box.contains(event.target)) close();
-    });
-  }
-
-  function replaceInput(id){
-    const oldInput=document.getElementById(id);
-    if(!oldInput)return null;
-
-    // Clone the real input to remove the original autocomplete listeners
-    // without changing its id, name, styling, validation or form behavior.
-    const newInput=oldInput.cloneNode(true);
-    newInput.value=oldInput.value;
-    if(oldInput.dataset.stationCode){
-      newInput.dataset.stationCode=oldInput.dataset.stationCode;
-    }
-    oldInput.replaceWith(newInput);
-    return newInput;
   }
 
   function init(){
-    // The existing ARGOS HTML uses originList/destinationList.
-    // Clone the inputs first so the old autocomplete listeners are removed,
-    // then attach this single, complete station engine to the real lists.
-    replaceInput("origin");
-    replaceInput("destination");
-
+    // Work with the actual ARGOS markup: originList/destinationList.
     setup("origin","originList");
     setup("destination","destinationList");
+    // Start loading the complete catalogue in the background so the first
+    // search is immediate even when the user types very quickly.
+    loadStations();
   }
 
-  if(document.readyState==="loading"){
-    document.addEventListener("DOMContentLoaded",init);
-  }else{
-    init();
-  }
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);
+  else init();
 })();
 </script>
 
