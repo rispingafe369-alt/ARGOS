@@ -14770,82 +14770,285 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   document.head.appendChild(s);
 })();
 
-/* ======================================================================
- * ARGOS · ÚLTIMO SERVICIO · V1
- * ----------------------------------------------------------------------
- * Añadido sin eliminar ni sustituir ninguna funcionalidad existente.
- * La tarjeta "Último servicio" del menú principal abre directamente
- * la ficha del servicio registrado más recientemente.
- * ====================================================================== */
+/* ================================================================
+   ARGOS · ÚLTIMO SERVICIO · RESUMEN INTERMEDIO
+   Añadido sin modificar las funciones existentes.
+   ================================================================ */
 (function(){
   'use strict';
 
-  function openLatestService(){
+  function argosLatestService(){
     try{
-      const list = typeof services === 'function' ? services() : [];
-      const latest = Array.isArray(list) && list.length ? list[list.length - 1] : null;
-
-      if(!latest){
-        if(typeof toast === 'function') toast('Aún no hay servicios registrados');
-        return;
-      }
-
-      /*
-       * Preferimos el abridor específico de servicios porque también
-       * resuelve registros hechos por rama cuando vehicle está vacío.
-       */
-      if(typeof openServiceFicha === 'function'){
-        openServiceFicha(latest);
-        return;
-      }
-
-      /* Compatibilidad con la implementación anterior. */
-      if(typeof openFicha === 'function'){
-        openFicha(latest.series || '', latest.vehicle || '', latest);
-        return;
-      }
-
-      if(typeof toast === 'function') toast('No se ha podido abrir el último servicio');
-    }catch(error){
-      console.error('ARGOS · Último servicio:', error);
-      if(typeof toast === 'function') toast('No se ha podido abrir el último servicio');
+      const raw=localStorage.getItem('argos_services')||'[]';
+      const list=JSON.parse(raw);
+      return Array.isArray(list)&&list.length?list[list.length-1]:null;
+    }catch(e){
+      console.warn('ARGOS · último servicio:',e);
+      return null;
     }
   }
 
-  function bindLatestService(){
-    const button = document.querySelector('.home-card[data-screen="history"] #latestService')?.closest('.home-card');
-    if(!button || button.dataset.argosLatestServiceBound === 'true') return;
-
-    button.dataset.argosLatestServiceBound = 'true';
-
-    /*
-     * Se usa captura para interceptar únicamente esta tarjeta antes de que
-     * el listener genérico data-screen la lleve al historial.
-     */
-    button.addEventListener('click', function(event){
-      event.preventDefault();
-      event.stopPropagation();
-      openLatestService();
-    }, true);
-
-    button.addEventListener('keydown', function(event){
-      if(event.key !== 'Enter' && event.key !== ' ') return;
-      event.preventDefault();
-      event.stopPropagation();
-      openLatestService();
-    }, true);
+  function argosDigits(v){
+    return String(v??'').replace(/\D/g,'');
   }
 
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', bindLatestService, {once:true});
+  function argosNormalizeSeries(v){
+    return argosDigits(v).replace(/^0+/,'')||'';
+  }
+
+  function argosFindUnit(service){
+    try{
+      if(typeof fleet==='undefined') return null;
+      const series=argosNormalizeSeries(service?.series);
+      const vehicle=String(service?.vehicle||'').trim();
+      const branch=argosDigits(service?.branch);
+      const data=fleet[series];
+      const units=data?.units||{};
+      const entries=Object.entries(units);
+
+      if(branch){
+        const byBranch=entries.find(([,u])=>argosDigits(u?.rama)===branch);
+        if(byBranch) return {key:byBranch[0],unit:byBranch[1]};
+      }
+
+      if(vehicle){
+        const byKey=entries.find(([key])=>String(key).trim()===vehicle);
+        if(byKey) return {key:byKey[0],unit:byKey[1]};
+
+        const byBase=entries.find(([,u])=>String(u?.vehiculoBase||'').trim()===vehicle);
+        if(byBase) return {key:byBase[0],unit:byBase[1]};
+
+        const byNumber=entries.find(([,u])=>String(u?.numero||'').includes(vehicle));
+        if(byNumber) return {key:byNumber[0],unit:byNumber[1]};
+      }
+    }catch(e){
+      console.warn('ARGOS · unidad del último servicio:',e);
+    }
+    return null;
+  }
+
+  function argosEsc(v){
+    if(typeof esc==='function') return esc(v);
+    return String(v??'').replace(/[&<>"']/g,c=>({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[c]));
+  }
+
+  function argosField(label,value){
+    if(value===undefined||value===null||String(value).trim()==='') return '';
+    return `<div class="argos-latest-field"><span>${argosEsc(label)}</span><strong>${argosEsc(value)}</strong></div>`;
+  }
+
+  function argosShowLatestSummary(){
+    const service=argosLatestService();
+    if(!service){
+      if(typeof toast==='function') toast('Aún no hay servicios registrados');
+      return;
+    }
+
+    const found=argosFindUnit(service);
+    const unit=found?.unit||null;
+    const series=String(service.series||'').trim()||'—';
+    const vehicle=String(service.vehicle||'').trim() || String(unit?.vehiculoBase||found?.key||'').trim();
+    const branch=String(service.branch||unit?.rama||'').trim();
+    const numero=String(unit?.numero||'').trim();
+
+    let modal=document.getElementById('argosLatestSummary');
+    if(!modal){
+      modal=document.createElement('div');
+      modal.id='argosLatestSummary';
+      modal.className='argos-latest-modal';
+      modal.innerHTML=`
+        <div class="argos-latest-backdrop" data-latest-close></div>
+        <div class="argos-latest-panel" role="dialog" aria-modal="true" aria-labelledby="argosLatestTitle">
+          <button type="button" class="argos-latest-close" data-latest-close aria-label="Cerrar">×</button>
+          <div id="argosLatestContent"></div>
+        </div>`;
+      document.body.appendChild(modal);
+
+      modal.querySelectorAll('[data-latest-close]').forEach(el=>el.addEventListener('click',argosCloseLatestSummary));
+    }
+
+    const content=modal.querySelector('#argosLatestContent');
+    if(!content) return;
+
+    const materialTitle=`Serie ${series}${branch?` · Rama ${branch}`:''}`;
+    const vehicleLine=[vehicle?`Vehículo ${vehicle}`:'',numero].filter(Boolean).join(' · ');
+
+    content.innerHTML=`
+      <div class="argos-latest-kicker">ÚLTIMO SERVICIO</div>
+      <div class="argos-latest-hero">
+        <div class="argos-latest-material">MATERIAL RENFE</div>
+        <h2 id="argosLatestTitle">${argosEsc(materialTitle)}</h2>
+        <p>${argosEsc(vehicleLine||'Vehículo no especificado')}</p>
+      </div>
+
+      <div class="argos-latest-section-title">DATOS DEL SERVICIO</div>
+      <div class="argos-latest-grid">
+        ${argosField('Nº de tren',service.train||'Sin número')}
+        ${argosField('Producto',service.product||'—')}
+        ${argosField('Origen',service.origin||'—')}
+        ${argosField('Destino',service.destination||'—')}
+        ${argosField('Fecha',service.date||'—')}
+        ${argosField('Kilómetros',service.kilometres?`${service.kilometres} km`: '')}
+      </div>
+
+      <button type="button" class="argos-latest-more" id="argosLatestMore">Ver más información</button>`;
+
+    const more=document.getElementById('argosLatestMore');
+    if(more){
+      more.onclick=function(){
+        argosCloseLatestSummary();
+        setTimeout(function(){
+          if(typeof openFicha==='function'){
+            openFicha(series,vehicle,service);
+          }else if(typeof window.openFicha==='function'){
+            window.openFicha(series,vehicle,service);
+          }else if(typeof toast==='function'){
+            toast('No se ha podido abrir la ficha completa');
+          }
+        },30);
+      };
+    }
+
+    modal.classList.add('open');
+    document.body.classList.add('argos-latest-modal-open');
+  }
+
+  function argosCloseLatestSummary(){
+    const modal=document.getElementById('argosLatestSummary');
+    if(modal) modal.classList.remove('open');
+    document.body.classList.remove('argos-latest-modal-open');
+  }
+
+  function argosBindLatestButton(){
+    const buttons=document.querySelectorAll('.home-card[data-screen="history"]');
+    let target=null;
+    buttons.forEach(button=>{
+      if(button.querySelector('#latestService')) target=button;
+    });
+
+    const latest=document.getElementById('latestService');
+    target=target||latest?.closest('.home-card');
+    if(!target || target.dataset.argosLatestBound==='1') return;
+
+    target.dataset.argosLatestBound='1';
+
+    // Captura el clic antes del listener original de data-screen="history".
+    target.addEventListener('click',function(e){
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      argosShowLatestSummary();
+    },true);
+
+    target.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        argosShowLatestSummary();
+      }
+    },true);
+  }
+
+  function argosBlankLatestLabel(){
+    const latest=document.getElementById('latestService');
+    if(latest){
+      latest.textContent='';
+      latest.style.display='none';
+    }
+  }
+
+  function argosInitLatestService(){
+    argosBindLatestButton();
+    argosBlankLatestLabel();
+  }
+
+  const style=document.createElement('style');
+  style.id='argos-latest-service-summary-style';
+  style.textContent=`
+    #latestService{display:none!important}
+    body.argos-latest-modal-open{overflow:hidden!important}
+    .argos-latest-modal{
+      position:fixed;inset:0;z-index:3000;display:none;
+      align-items:center;justify-content:center;padding:18px;
+    }
+    .argos-latest-modal.open{display:flex}
+    .argos-latest-backdrop{
+      position:absolute;inset:0;background:rgba(15,10,15,.46);
+      backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);
+    }
+    .argos-latest-panel{
+      position:relative;z-index:1;width:min(760px,100%);max-height:calc(100dvh - 36px);
+      overflow-y:auto;background:var(--card);color:var(--ink);
+      border:1px solid var(--line);border-radius:24px;padding:22px;
+      box-shadow:0 24px 70px rgba(0,0,0,.24);
+      animation:argosLatestIn .18s ease-out;
+    }
+    @keyframes argosLatestIn{from{opacity:0;transform:translateY(10px) scale(.985)}to{opacity:1;transform:none}}
+    .argos-latest-close{
+      position:absolute;right:14px;top:14px;width:40px;height:40px;border:0;
+      border-radius:13px;background:var(--soft);color:var(--renfe);font-size:28px;
+      line-height:1;display:flex;align-items:center;justify-content:center;z-index:2;
+    }
+    .argos-latest-kicker{
+      color:var(--renfe);font-size:11px;font-weight:900;letter-spacing:.1em;
+      margin:2px 52px 10px 2px;
+    }
+    .argos-latest-hero{
+      background:linear-gradient(135deg,var(--soft),var(--card));
+      border:1px solid var(--line);border-radius:19px;padding:20px 18px;margin-bottom:18px;
+    }
+    .argos-latest-material{color:var(--renfe);font-size:11px;font-weight:900;letter-spacing:.09em}
+    .argos-latest-hero h2{margin:5px 0 4px;font-size:30px;line-height:1.08;letter-spacing:-.02em}
+    .argos-latest-hero p{margin:0;color:var(--muted);font-size:17px;font-weight:750}
+    .argos-latest-section-title{
+      color:var(--renfe);font-size:12px;font-weight:900;letter-spacing:.08em;margin:0 0 10px;
+    }
+    .argos-latest-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .argos-latest-field{
+      min-width:0;padding:14px;border:1px solid var(--line);border-radius:15px;
+      background:var(--page);display:flex;flex-direction:column;gap:5px;
+    }
+    .argos-latest-field span{color:var(--muted);font-size:12px}
+    .argos-latest-field strong{font-size:16px;line-height:1.25;overflow-wrap:anywhere}
+    .argos-latest-more{
+      width:100%;min-height:52px;margin-top:16px;border:0;border-radius:15px;
+      background:var(--renfe);color:#fff;font-weight:900;font-size:15px;
+      box-shadow:0 8px 20px rgba(138,0,92,.18);
+    }
+    .argos-latest-more:active{transform:scale(.99)}
+    @media(max-width:600px){
+      .argos-latest-modal{padding:10px}
+      .argos-latest-panel{max-height:calc(100dvh - 20px);padding:15px;border-radius:21px}
+      .argos-latest-hero{padding:18px 15px;border-radius:17px}
+      .argos-latest-hero h2{font-size:25px;padding-right:30px}
+      .argos-latest-hero p{font-size:15px}
+      .argos-latest-grid{grid-template-columns:1fr}
+      .argos-latest-field{padding:13px}
+    }
+    body.dark .argos-latest-panel{box-shadow:0 24px 70px rgba(0,0,0,.5)}
+  `;
+  document.head.appendChild(style);
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',argosInitLatestService,{once:true});
   }else{
-    bindLatestService();
+    argosInitLatestService();
   }
 
-  /*
-   * Expuesto por si otra parte de ARGOS necesita abrir el último servicio
-   * en el futuro. No altera ninguna función existente.
-   */
-  window.openLatestService = openLatestService;
-})();
+  // refreshHome() vuelve a escribir el contenido del elemento al navegar.
+  // Lo dejamos vacío cada vez que se refresca la pantalla de inicio.
+  const originalRefreshHome=window.refreshHome;
+  if(typeof originalRefreshHome==='function' && !window.__argosLatestRefreshWrapped){
+    window.__argosLatestRefreshWrapped=true;
+    window.refreshHome=function(){
+      const result=originalRefreshHome.apply(this,arguments);
+      argosBlankLatestLabel();
+      argosBindLatestButton();
+      return result;
+    };
+  }
 
+  window.argosShowLatestSummary=argosShowLatestSummary;
+  window.argosCloseLatestSummary=argosCloseLatestSummary;
+})();
