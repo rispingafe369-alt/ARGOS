@@ -2766,12 +2766,43 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   const stationKey=(code,name)=>String(code)+"|"+normalize(name);
   const stationMap=new Map();
 
+  // Códigos canónicos para estaciones principales / casos que no deben duplicarse.
+  // Si el servidor devuelve una variante con el mismo código, conservamos
+  // siempre la denominación local de ARGOS.
+  const CANONICAL_CODE_NAMES={
+    "03208":"CUENCA-FERNANDO ZÓBEL",
+    "51003":"SEVILLA-SANTA JUSTA",
+    "60000":"MADRID-PUERTA DE ATOCHA-ALMUDENA GRANDES",
+    "71801":"BARCELONA-SANTS"
+  };
+
   function addStation(st){
     if(!st||!st.name)return;
     const code=String(st.code??"").trim().replace(/\.0$/g,"");
     if(code==="98000")return;
     const name=String(st.name??"").trim();
     if(!name)return;
+
+    // Evita duplicados/variantes incorrectas de estaciones canónicas.
+    if(CANONICAL_CODE_NAMES[code]){
+      const canonical=normalize(CANONICAL_CODE_NAMES[code]);
+      const incoming=normalize(name);
+      if(code==="03208" && !incoming.includes("cuenca"))return;
+      if(code==="51003" && !incoming.includes("sevilla"))return;
+      if(code==="60000" && !incoming.includes("atocha"))return;
+      if(code==="71801" && !incoming.includes("sants"))return;
+      if(incoming!==canonical){
+        const existing=stations.find(x=>x.code===code);
+        if(existing)return;
+      }
+    }
+
+    // Cuenca: para la búsqueda de la localidad solo existe la estación de
+    // viajeros actual Cuenca-Fernando Zóbel (03208). Cualquier registro
+    // remoto con otro código que pretenda llamarse simplemente Cuenca se
+    // descarta para evitar la segunda estación incorrecta.
+    if(normalize(name)==="cuenca" && code!=="03208")return;
+
     const aliases=Array.isArray(st.aliases)?st.aliases.map(x=>String(x??"").trim()).filter(Boolean):[];
     const item={code,name,aliases,population:String(st.population??"").trim()};
     const key=stationKey(code,name);
@@ -2876,26 +2907,38 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const qc=compact(q);
     if(!q)return 999;
     const code=compact(st.code);
-    const terms=[st.name,...(st.aliases||[]),st.population||""]
-      .map(normalize).filter(Boolean);
-    const compactTerms=terms.map(compact);
+    const name=normalize(st.name);
+    const nameCompact=compact(name);
+    const aliases=(st.aliases||[]).map(normalize).filter(Boolean);
+    const aliasCompact=aliases.map(compact);
 
     if(code===qc)return 0;
     if(code.startsWith(qc)&&/^\d+$/.test(qc))return 1;
-    if(terms.some(t=>t===q))return 2;
-    if(terms.some(t=>t.startsWith(q)))return 3;
-    if(terms.some(t=>t.includes(q)))return 4;
-    if(compactTerms.some(t=>t.includes(qc)))return 5;
 
+    // IMPORTANTE: el nombre real de la estación siempre tiene prioridad
+    // sobre un alias de localidad. Así, al escribir "sevilla" aparece
+    // SEVILLA-SANTA JUSTA antes que Arahal, Dos Hermanas, etc.
+    if(name===q)return 2;
+    if(name.startsWith(q))return 3;
+    if(name.includes(q))return 4;
+    if(nameCompact.includes(qc))return 5;
+
+    // Después se valoran aliases y población.
+    if(aliases.some(t=>t===q))return 6;
+    if(aliases.some(t=>t.startsWith(q)))return 7;
+    if(aliases.some(t=>t.includes(q)))return 8;
+    if(aliasCompact.some(t=>t.includes(qc)))return 9;
+
+    const terms=[name,...aliases,normalize(st.population||"")].filter(Boolean);
+    const compactTerms=terms.map(compact);
     const tokens=q.split(" ").filter(Boolean);
     if(tokens.length>1 && tokens.every(token=>
       terms.some(t=>t.includes(token)) || compactTerms.some(t=>t.includes(token))
-    ))return 6;
+    ))return 10;
 
     // Tolerancia para una pequeña errata: solo a partir de 5 caracteres.
     if(q.length>=5){
-      const compactNames=compactTerms;
-      if(compactNames.some(t=>levenshtein(t.slice(0,Math.min(t.length,qc.length)),qc)<=1))return 7;
+      if(compactTerms.some(t=>levenshtein(t.slice(0,Math.min(t.length,qc.length)),qc)<=1))return 11;
     }
     return 999;
   }
@@ -2915,10 +2958,39 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     return prev[b.length];
   }
 
+  const PRIMARY_BY_CITY={
+    "sevilla":"51003",
+    "madrid":"60000",
+    "barcelona":"71801",
+    "valencia":"03216",
+    "zaragoza":"04040",
+    "malaga":"54413",
+    "alicante":"60911",
+    "cordoba":"50500",
+    "granada":"05000",
+    "murcia":"61200",
+    "huelva":"43019",
+    "salamanca":"30100",
+    "oviedo":"15211",
+    "santiago de compostela":"31400",
+    "a coruna":"31412",
+    "cadiz":"51405",
+    "jaen":"03100",
+    "toledo":"92102",
+    "pamplona":"80100",
+    "burgos":"11014"
+  };
+
   function matches(query){
-    const out=stations.map(st=>({st,score:scoreStation(st,query)}))
+    const q=normalize(query);
+    const primaryCode=PRIMARY_BY_CITY[q]||"";
+    const out=stations.map(st=>({
+        st,
+        score:scoreStation(st,q),
+        primary:(primaryCode && st.code===primaryCode)?-1:0
+      }))
       .filter(x=>x.score<999)
-      .sort((a,b)=>a.score-b.score||a.st.name.localeCompare(b.st.name,"es"))
+      .sort((a,b)=>a.primary-b.primary||a.score-b.score||a.st.name.localeCompare(b.st.name,"es"))
       .slice(0,12)
       .map(x=>x.st);
     return out;
