@@ -2763,8 +2763,21 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   const escapeHtml=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
   const stations=[];
-  const stationKey=(code,name)=>String(code)+"|"+normalize(name);
+
+  // Los códigos de Renfe llegan a veces con ceros a la izquierda (03208)
+  // y otras veces como número (3208). Ambos representan la MISMA estación.
+  // Para evitar duplicados usamos un código numérico canónico internamente,
+  // pero conservamos siempre el código oficial con sus cinco cifras para
+  // mostrarlo en ARGOS.
+  const canonicalCode=value=>{
+    const raw=String(value??"").trim();
+    if(!/^\d+$/.test(raw))return raw;
+    return raw.replace(/^0+(?=\d)/,"");
+  };
+
+  const stationKey=(code,name)=>canonicalCode(code)+"|"+normalize(name);
   const stationMap=new Map();
+  const stationCodeMap=new Map();
 
   // Códigos canónicos para estaciones principales / casos que no deben duplicarse.
   // Si el servidor devuelve una variante con el mismo código, conservamos
@@ -2778,7 +2791,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
   function addStation(st){
     if(!st||!st.name)return;
-    const code=String(st.code??"").trim().replace(/\.0$/g,"");
+    let code=String(st.code??"").trim().replace(/\.0$/g,"");
     if(code==="98000")return;
     const name=String(st.name??"").trim();
     if(!name)return;
@@ -2804,10 +2817,28 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     if(normalize(name)==="cuenca" && code!=="03208")return;
 
     const aliases=Array.isArray(st.aliases)?st.aliases.map(x=>String(x??"").trim()).filter(Boolean):[];
-    const item={code,name,aliases,population:String(st.population??"").trim()};
+    const population=String(st.population??"").trim();
     const key=stationKey(code,name);
+    const codeKey=canonicalCode(code);
+
+    // Dedupe fuerte por código: 03208 y 3208 son el mismo código de Renfe.
+    // Si ya existe una estación local con ese código, se conserva su nombre
+    // y se incorporan únicamente aliases/población nuevos del servidor.
+    if(stationCodeMap.has(codeKey)){
+      const existing=stationCodeMap.get(codeKey);
+      if(existing){
+        for(const alias of aliases){
+          if(!existing.aliases.some(a=>normalize(a)===normalize(alias)))existing.aliases.push(alias);
+        }
+        if(!existing.population && population)existing.population=population;
+      }
+      return;
+    }
+
     if(stationMap.has(key))return;
+    const item={code,name,aliases,population};
     stationMap.set(key,item);
+    stationCodeMap.set(codeKey,item);
     stations.push(item);
   }
 
@@ -2906,14 +2937,15 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const q=normalize(query);
     const qc=compact(q);
     if(!q)return 999;
-    const code=compact(st.code);
+    const code=canonicalCode(st.code);
+    const queryCode=canonicalCode(qc);
     const name=normalize(st.name);
     const nameCompact=compact(name);
     const aliases=(st.aliases||[]).map(normalize).filter(Boolean);
     const aliasCompact=aliases.map(compact);
 
-    if(code===qc)return 0;
-    if(code.startsWith(qc)&&/^\d+$/.test(qc))return 1;
+    if(/^\d+$/.test(qc) && code===queryCode)return 0;
+    if(/^\d+$/.test(qc) && code.startsWith(queryCode))return 1;
 
     // IMPORTANTE: el nombre real de la estación siempre tiene prioridad
     // sobre un alias de localidad. Así, al escribir "sevilla" aparece
@@ -2980,6 +3012,22 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     "pamplona":"80100",
     "burgos":"11014"
   };
+
+  // Limpieza defensiva: si por cualquier motivo una fuente anterior ya
+  // hubiera introducido 03208 y 3208, solo queda una entrada.
+  (function dedupeStationsByCanonicalCode(){
+    const seen=new Map();
+    for(let i=stations.length-1;i>=0;i--){
+      const st=stations[i];
+      const key=canonicalCode(st.code);
+      if(!/^\d+$/.test(key))continue;
+      if(seen.has(key)){
+        stations.splice(i,1);
+      }else{
+        seen.set(key,st);
+      }
+    }
+  })();
 
   function matches(query){
     const q=normalize(query);
