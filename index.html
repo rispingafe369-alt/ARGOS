@@ -1181,6 +1181,189 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
 </head>
 
 <body>
+
+<!-- =========================================================
+     ARGOS · PANTALLA DE CARGA MÓVIL
+     Usa /icons/argos-splash-logo.png
+     ========================================================= -->
+<style id="argos-mobile-splash-v1">
+  #argosMobileSplash{
+    position:fixed;
+    inset:0;
+    z-index:999999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    background:#7b006d;
+    opacity:1;
+    visibility:visible;
+    transition:opacity .45s ease, visibility .45s ease;
+  }
+
+  #argosMobileSplash.hidden{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+  }
+
+  .argos-splash-inner{
+    width:100%;
+    height:100%;
+    min-height:100dvh;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:70px 28px 34px;
+  }
+
+  .argos-splash-logo{
+    width:min(78vw,390px);
+    height:auto;
+    display:block;
+    object-fit:contain;
+    animation:argosSplashPulse 1.8s ease-in-out infinite;
+  }
+
+  .argos-splash-loading{
+    margin-top:18px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+  }
+
+  .argos-splash-dots{
+    display:flex;
+    gap:9px;
+    height:14px;
+    align-items:center;
+  }
+
+  .argos-splash-dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:#fff;
+    opacity:.3;
+    animation:argosSplashDot 1.2s infinite ease-in-out;
+  }
+
+  .argos-splash-dot:nth-child(2){animation-delay:.18s}
+  .argos-splash-dot:nth-child(3){animation-delay:.36s}
+
+  .argos-splash-text{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:3px;
+  }
+
+  .argos-splash-renfe{
+    position:absolute;
+    left:50%;
+    bottom:72px;
+    transform:translateX(-50%);
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:clamp(58px,16vw,105px);
+    line-height:.8;
+    font-weight:900;
+    font-style:italic;
+    letter-spacing:-7px;
+    white-space:nowrap;
+    user-select:none;
+  }
+
+  @keyframes argosSplashPulse{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.025)}
+  }
+
+  @keyframes argosSplashDot{
+    0%,60%,100%{opacity:.25;transform:scale(.85)}
+    30%{opacity:1;transform:scale(1.15)}
+  }
+
+  @media(min-width:601px){
+    #argosMobileSplash{display:none!important}
+  }
+
+  @media(max-width:600px){
+    .argos-splash-inner{
+      padding-top:55px;
+      padding-bottom:120px;
+    }
+
+    .argos-splash-logo{
+      width:min(84vw,390px);
+    }
+
+    .argos-splash-renfe{
+      bottom:54px;
+    }
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    .argos-splash-logo,
+    .argos-splash-dot{
+      animation:none;
+    }
+  }
+</style>
+
+<div id="argosMobileSplash" aria-label="Cargando ARGOS">
+  <div class="argos-splash-inner">
+    <img
+      class="argos-splash-logo"
+      src="icons/argos-splash-logo.png"
+      alt="ARGOS · Renfe Operaciones"
+    >
+
+    <div class="argos-splash-loading" aria-hidden="true">
+      <div class="argos-splash-dots">
+        <span class="argos-splash-dot"></span>
+        <span class="argos-splash-dot"></span>
+        <span class="argos-splash-dot"></span>
+      </div>
+      <span class="argos-splash-text">CARGANDO...</span>
+    </div>
+
+    <div class="argos-splash-renfe" aria-hidden="true">renfe</div>
+  </div>
+</div>
+
+<script id="argos-mobile-splash-v1-js">
+(function(){
+  'use strict';
+
+  const splash=document.getElementById('argosMobileSplash');
+  if(!splash)return;
+
+  const started=Date.now();
+  const MIN_TIME=1100;
+
+  function hideSplash(){
+    const wait=Math.max(0,MIN_TIME-(Date.now()-started));
+    setTimeout(function(){
+      splash.classList.add('hidden');
+      setTimeout(function(){
+        splash.remove();
+      },500);
+    },wait);
+  }
+
+  if(document.readyState==='complete'){
+    hideSplash();
+  }else{
+    window.addEventListener('load',hideSplash,{once:true});
+  }
+})();
+</script>
+
 <main class="app-shell">
 
 <header class="app-header">
