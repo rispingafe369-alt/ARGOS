@@ -2484,7 +2484,7 @@ function weekdays(a){const c=Array(7).fill(0);a.forEach(s=>{const d=dateOf(s);if
      * Si no hay rama manual, dejamos pasar el funcionamiento original intacto.
      */
     document.addEventListener('submit',function(ev){
-      if(ev.target!==form || !manual)return;
+      if(ev.target!==form || !manual || document.getElementById('doubleComposition')?.checked)return;
 
       ev.preventDefault();
       ev.stopImmediatePropagation();
@@ -3832,3 +3832,276 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
 </body>
 </html>
+<!-- ================================================================
+     ARGOS V22 · DOBLE COMPOSICIÓN
+     Añadido sin modificar la lógica existente de servicios normales.
+     ================================================================ -->
+<style id="argos-double-composition-v22">
+  .double-composition-option{
+    margin:4px 0 14px;
+    padding:13px 15px;
+    border:1px solid var(--line,#ddd);
+    border-radius:14px;
+    background:var(--page,#f7f7f7);
+  }
+  .double-composition-option label{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    cursor:pointer;
+  }
+  .double-composition-option input{width:20px;height:20px;accent-color:var(--renfe,#9b0056)}
+  .double-composition-box{
+    display:none;
+    margin:0 0 16px;
+    padding:16px;
+    border:1px solid rgba(155,0,86,.22);
+    border-radius:16px;
+    background:var(--soft,#f7e8f0);
+  }
+  .double-composition-box.visible{display:block}
+  .double-composition-title{color:var(--renfe,#9b0056);font-size:11px;font-weight:900;letter-spacing:.08em;margin-bottom:12px}
+  .double-composition-note{color:var(--muted,#777);font-size:12px;font-weight:600;margin:-4px 0 13px;line-height:1.4}
+  .double-composition-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .double-composition-box .form-group{margin:0}
+  .double-composition-box input{width:100%;box-sizing:border-box}
+  .double-composition-branch{margin-top:12px}
+  @media(max-width:600px){.double-composition-grid{grid-template-columns:1fr}}
+
+  .double-ficha-selector{
+    display:flex;
+    gap:8px;
+    margin:0 0 14px;
+    padding:5px;
+    border:1px solid var(--line,#ddd);
+    border-radius:14px;
+    background:var(--page,#f7f7f7);
+  }
+  .double-ficha-tab{
+    flex:1;
+    border:0;
+    border-radius:10px;
+    padding:10px 12px;
+    background:transparent;
+    color:var(--muted,#777);
+    font-weight:800;
+    cursor:pointer;
+  }
+  .double-ficha-tab.active{background:var(--renfe,#9b0056);color:#fff}
+  .double-ficha-label{font-size:11px;display:block;opacity:.85;margin-bottom:2px}
+  .double-ficha-value{font-size:14px}
+</style>
+
+<script id="argos-double-composition-v22">
+(function(){
+  'use strict';
+
+  function byId(id){return document.getElementById(id)}
+  function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+  function digits(v){return String(v??'').replace(/\D/g,'')}
+  function seriesNorm(v){return digits(v).replace(/^0+/,'')||''}
+
+  function findUnitByBranch(series,branch){
+    try{
+      if(typeof fleet==='undefined')return null;
+      const units=fleet[seriesNorm(series)]?.units||{};
+      const b=digits(branch);
+      for(const [key,unit] of Object.entries(units)){
+        if(digits(unit?.rama)===b)return {vehicle:String(unit?.vehiculoBase||key||''),branch:String(unit?.rama||branch)};
+      }
+    }catch(e){console.warn('ARGOS V22 · rama:',e)}
+    return null;
+  }
+
+  function buildSecondCompositionUI(){
+    const form=byId('serviceForm');
+    const branchBox=byId('branchBox');
+    if(!form||!branchBox||byId('doubleCompositionOption'))return;
+
+    const option=document.createElement('div');
+    option.id='doubleCompositionOption';
+    option.className='double-composition-option';
+    option.innerHTML='<label><input id="doubleComposition" type="checkbox"> <span>Doble composición</span></label>';
+    branchBox.insertAdjacentElement('afterend',option);
+
+    const box=document.createElement('div');
+    box.id='doubleCompositionBox';
+    box.className='double-composition-box';
+    box.innerHTML=`
+      <div class="double-composition-title">SEGUNDA COMPOSICIÓN</div>
+      <div class="double-composition-note">Añade la serie y el vehículo, o escribe directamente la rama de la segunda composición.</div>
+      <div class="double-composition-grid">
+        <div class="form-group">
+          <label for="doubleSeries">Serie</label>
+          <input id="doubleSeries" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="3" autocomplete="off" placeholder="Ej. 100">
+        </div>
+        <div class="form-group">
+          <label for="doubleVehicle">Vehículo</label>
+          <input id="doubleVehicle" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="3" autocomplete="off" placeholder="Ej. 018">
+        </div>
+      </div>
+      <div class="form-group double-composition-branch">
+        <label for="doubleBranch">Rama</label>
+        <input id="doubleBranch" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="3" autocomplete="off" placeholder="Opcional · escribe rama">
+      </div>`;
+    option.insertAdjacentElement('afterend',box);
+
+    const check=byId('doubleComposition');
+    const secondSeries=byId('doubleSeries');
+    const secondVehicle=byId('doubleVehicle');
+    const secondBranch=byId('doubleBranch');
+
+    function toggle(){
+      const on=!!check.checked;
+      box.classList.toggle('visible',on);
+      secondSeries.required=on;
+      if(!on){secondSeries.value='';secondVehicle.value='';secondBranch.value=''}
+    }
+    check.addEventListener('change',toggle);
+
+    secondVehicle.addEventListener('input',function(){
+      this.value=digits(this.value).slice(0,3);
+      if(this.value)secondBranch.value='';
+    });
+    secondSeries.addEventListener('input',function(){this.value=digits(this.value).slice(0,3)});
+    secondBranch.addEventListener('input',function(){
+      this.value=digits(this.value).slice(0,3);
+      if(this.value)secondVehicle.value='';
+    });
+  }
+
+  function collectComposition2(){
+    const on=!!byId('doubleComposition')?.checked;
+    if(!on)return null;
+    const series=byId('doubleSeries')?.value.trim()||'';
+    let vehicle=byId('doubleVehicle')?.value.trim()||'';
+    const branch=digits(byId('doubleBranch')?.value||'').slice(0,3);
+    if(!series)return {error:'Introduce la serie de la segunda composición'};
+    if(!vehicle&&!branch)return {error:'Introduce el vehículo o la rama de la segunda composición'};
+    if(branch&&!vehicle){
+      const found=findUnitByBranch(series,branch);
+      if(!found)return {error:'La rama de la segunda composición no existe para esa serie'};
+      vehicle=found.vehicle;
+    }
+    return {series,vehicle,branch:branch||findUnitByBranch(series,byId('doubleVehicle')?.value||'')?.branch||''};
+  }
+
+  function installSubmit(){
+    const form=byId('serviceForm');
+    if(!form)return;
+
+    document.addEventListener('submit',function(ev){
+      if(ev.target!==form||!byId('doubleComposition')?.checked)return;
+
+      ev.preventDefault();
+      ev.stopImmediatePropagation();
+
+      const comp2=collectComposition2();
+      if(!comp2||comp2.error){if(typeof toast==='function')toast(comp2?.error||'Completa la segunda composición');return}
+
+      const train=byId('train')?.value.trim()||'';
+      const noTrain=!!byId('noTrainNumber')?.checked;
+      const series=byId('series')?.value.trim()||'';
+      const vehicle=byId('vehicle')?.value.trim()||'';
+      const branch=digits(byId('branchValue')?.value||'').slice(0,3);
+      const product=byId('product')?.value||'';
+      const origin=byId('origin')?.value.trim()||'';
+      const destination=byId('destination')?.value.trim()||'';
+      const date=byId('date')?.value||'';
+      const kilometres=byId('kilometres')?.value?Number(byId('kilometres').value||0):0;
+
+      if(!train&&!noTrain){if(typeof toast==='function')toast('Introduce el número de tren');return}
+      if(!series||!origin||!destination||!date){if(typeof toast==='function')toast('Completa los campos obligatorios');return}
+      if(!vehicle&&!branch){if(typeof toast==='function')toast('Introduce el vehículo o la rama de la primera composición');return}
+
+      const service={
+        id:Date.now().toString(36)+Math.random().toString(36).slice(2,8),
+        train:train,
+        series:series,
+        vehicle:vehicle,
+        branch:branch,
+        product:product,
+        origin:origin,
+        destination:destination,
+        date:date,
+        kilometres:kilometres,
+        notes:byId('notes')?.value.trim()||'',
+        notesEntries:typeof collectEntries==='function'?collectEntries('notesEntries'):[],
+        incidents:byId('incidents')?.value.trim()||'',
+        incidentsEntries:typeof collectEntries==='function'?collectEntries('incidentsEntries'):[],
+        doubleComposition:true,
+        composition2:{series:comp2.series,vehicle:comp2.vehicle,branch:comp2.branch},
+        createdAt:Date.now()
+      };
+
+      try{
+        const list=typeof services==='function'?services():[];
+        list.push(service);
+        if(typeof saveServices==='function')saveServices(list);else throw new Error('saveServices no disponible');
+        if(typeof clearFormExtras==='function')clearFormExtras();
+        form.reset();
+        if(byId('doubleCompositionBox'))byId('doubleCompositionBox').classList.remove('visible');
+        if(byId('doubleSeries'))byId('doubleSeries').required=false;
+        if(byId('date'))byId('date').valueAsDate=new Date();
+        if(byId('product'))byId('product').selectedIndex=0;
+        if(byId('productSelectValue')){byId('productSelectValue').textContent='Selecciona un producto';byId('productSelectValue').classList.add('product-select-placeholder')}
+        if(typeof refreshHome==='function')refreshHome();
+        if(typeof renderHistory==='function')renderHistory();
+        if(typeof renderStats==='function')renderStats();
+        if(typeof updateBranchBox==='function')updateBranchBox();
+        if(typeof toast==='function')toast('Servicio en doble composición guardado');
+        if(typeof showScreen==='function')showScreen('menu');
+      }catch(error){console.error('ARGOS V22 · doble composición:',error);if(typeof toast==='function')toast('No se ha podido guardar el servicio')}
+    },true);
+  }
+
+  function installFicha(){
+    if(typeof window.openFicha!=='function')return;
+    if(window.__argosDoubleFichaInstalled)return;
+    window.__argosDoubleFichaInstalled=true;
+    const original=window.openFicha;
+
+    window.openFicha=function(series,vehicle,service=null){
+      const isDouble=!!service?.doubleComposition&&service?.composition2?.series;
+      if(!isDouble){original(series,vehicle,service);return}
+
+      let active=window.__argosDoubleFichaIndex||0;
+      if(active<0||active>1)active=0;
+
+      function render(index){
+        window.__argosDoubleFichaIndex=index;
+        const comp=index===0
+          ? {series:String(service.series||''),vehicle:String(service.vehicle||''),branch:String(service.branch||'')}
+          : {series:String(service.composition2.series||''),vehicle:String(service.composition2.vehicle||''),branch:String(service.composition2.branch||'')};
+        const variant=Object.assign({},service,{series:comp.series,vehicle:comp.vehicle,branch:comp.branch});
+        original(comp.series,comp.vehicle,variant);
+        const content=byId('fichaContent');
+        if(!content)return;
+        const selector=document.createElement('div');
+        selector.className='double-ficha-selector';
+        selector.innerHTML=`
+          <button type="button" class="double-ficha-tab ${index===0?'active':''}" data-double-index="0">
+            <span class="double-ficha-label">COMPOSICIÓN 1</span><span class="double-ficha-value">Serie ${esc(service.series||'—')}</span>
+          </button>
+          <button type="button" class="double-ficha-tab ${index===1?'active':''}" data-double-index="1">
+            <span class="double-ficha-label">COMPOSICIÓN 2</span><span class="double-ficha-value">Serie ${esc(service.composition2.series||'—')}</span>
+          </button>`;
+        content.prepend(selector);
+        selector.querySelectorAll('[data-double-index]').forEach(btn=>btn.addEventListener('click',()=>render(Number(btn.dataset.doubleIndex))));
+      }
+      render(active);
+    };
+  }
+
+  function install(){
+    buildSecondCompositionUI();
+    installSubmit();
+    installFicha();
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
+  else install();
+  window.addEventListener('load',install,{once:true});
+})();
+</script>
