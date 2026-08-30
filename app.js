@@ -13787,6 +13787,5528 @@ const fleet = {
     }
   }
 },
+  "447": {
+    "seriesName": "Serie 447 · Cercanías · 3 coches",
+    "fabricante": "CAF, MACOSA, MTM",
+    "modelo": "Unidad eléctrica de cercanías",
+    "subseries": "447 · 3 coches",
+    "anoPuestaServicio": "1992–1994",
+    "tipoMaterial": "Cercanías · Tren eléctrico M-R-M",
+    "numeroCoches": "3 coches · 2 coches motor con cabina + 1 remolque intermedio",
+    "anchoVia": "1668 mm",
+    "numeroRamas": 183,
+    "velocidadMaxima": "120 km/h",
+    "potencia": "3.265 CV (2.400 kW)",
+    "longitud": "76 m (Mc-Ri-Mc)",
+    "peso": "157 t",
+    "tension": "3.000 Vcc",
+    "traccion": "8 motores de tracción GEE-326 A2 · 300 kW por motor",
+    "tipoBogies": "Bimotor y monorreductor",
+    "frenos": "Eléctrico reostático y recuperación · neumático por aire comprimido",
+    "mandoMultiple": "4 unidades",
+    "enganche": "Scharfenberg",
+    "composicion": "Bo'Bo' + 2'2' + Bo'Bo'",
+    "generalNotes": [
+      "Para el número de cada unidad se toma como referencia la numeración del remolque intermedio, puesto que los motores van correlativos. En todo caso, también puede considerarse como la mitad del coche motor par.",
+      "Algunas unidades han sido transformadas para servicios regionales en Cataluña con nuevos asientos, y otro lote ha sido decorado en Naranja/blanco para el servicio Rodalies.",
+      "Una vez que se construyeron los 170 trenes de la serie 446, y cuando aún faltaban muchos trenes por construir para cubrir las necesidades de transporte de las redes de cercanías, se comenzaron a construir los trenes de la serie 447.",
+      "Estos trenes se diferencian de los anteriores en su control de tracción por Chopper, y exteriormente se identifican, ya que son prácticamente idénticas, por una letra en amarillo al lado del número de la unidad.",
+      "Prestan servicio en las redes de cercanías de Madrid, Valencia y Barcelona.",
+      "La tabla de la serie 447 se divide en cuatro lotes: Primer lote (ramas 001–071), Segundo lote (ramas 072–117), Tercer lote (ramas 118–137) y Último lote (ramas 138–183)."
+    ],
+    "units": {
+      "1": {
+        "rama": "001",
+        "lote": "Primer lote",
+        "vehiculoBase": "001",
+        "numero": "7-447-001-9",
+        "vehiculosRama": [
+          "9-447-001-9",
+          "7-447-001-9",
+          "9-447-002-7"
+        ],
+        "searchCodes": [
+          "001",
+          "002"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Cercanías Valencia",
+        "notas": [
+          "Puertas correderas con dientes idénticas al 3er lote de 446, botonera apertura distinta a resto 447, Colores Renfe Op. Valencia→ Alicante desde 03/15→Valencia. Reformada PMR 03/22."
+        ]
+      },
+      "2": {
+        "rama": "002",
+        "lote": "Primer lote",
+        "vehiculoBase": "002",
+        "numero": "7-447-002-7",
+        "vehiculosRama": [
+          "9-447-003-5",
+          "7-447-002-7",
+          "9-447-004-3"
+        ],
+        "searchCodes": [
+          "002",
+          "004"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Valencia",
+        "notas": [
+          "Colores Renfe Op.→ Valencia→ BMI Valladolid en reforma→ Reformada a PMR 9/20→ Choque con automóvil en P.N. en Cullera (29/03/23). De nuevo en servicio 22/09/23."
+        ]
+      },
+      "3": {
+        "rama": "003",
+        "lote": "Primer lote",
+        "vehiculoBase": "003",
+        "numero": "7-447-003-5",
+        "vehiculosRama": [
+          "9-447-005-0",
+          "7-447-003-5",
+          "9-447-006-8"
+        ],
+        "searchCodes": [
+          "003",
+          "006"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Valencia",
+        "notas": [
+          "Colores Renfe Op. Reformada PMR"
+        ]
+      },
+      "4": {
+        "rama": "004",
+        "lote": "Primer lote",
+        "vehiculoBase": "004",
+        "numero": "7-447-004-3",
+        "vehiculosRama": [
+          "9-447-007-6",
+          "7-447-004-3",
+          "9-447-008-4"
+        ],
+        "searchCodes": [
+          "004",
+          "008"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalia Valencia",
+        "notas": [
+          "Colores Renfe Op. Choque con autobús en Carcaixent (10/07/13), dañada cabina de 008M. Reforma PMR en BMI Valladolid 01/20. Traslado temporal a Barcelona 06/25→ Valencia 02/03/26"
+        ]
+      },
+      "5": {
+        "rama": "005",
+        "lote": "Primer lote",
+        "vehiculoBase": "005",
+        "numero": "7-447-005-0",
+        "vehiculosRama": [
+          "9-447-009-2",
+          "7-447-005-0",
+          "9-447-010-0"
+        ],
+        "searchCodes": [
+          "005",
+          "010"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Valencia",
+        "notas": [
+          "Colores Renfe Op. Reformada a PMR 06/20"
+        ]
+      },
+      "6": {
+        "rama": "006",
+        "lote": "Primer lote",
+        "vehiculoBase": "006",
+        "numero": "7-447-006-0",
+        "vehiculosRama": [
+          "9-447-011-8",
+          "7-447-006-0",
+          "9-447-012-6"
+        ],
+        "searchCodes": [
+          "006",
+          "012"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Valencia",
+        "notas": [
+          "Colores Renfe Op.En BMI Vilanova PMR 06/20, reformada a PMR 11/20"
+        ]
+      },
+      "7": {
+        "rama": "007",
+        "lote": "Primer lote",
+        "vehiculoBase": "007",
+        "numero": "7-447-007-6",
+        "vehiculosRama": [
+          "9-447-013-4",
+          "7-447-007-6",
+          "9-447-014-2"
+        ],
+        "searchCodes": [
+          "007",
+          "014"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Valencia",
+        "notas": [
+          "Colores Renfe Op. Ex Pegatinas. Reformada PMR (09/19)."
+        ]
+      },
+      "8": {
+        "rama": "008",
+        "lote": "Primer lote",
+        "vehiculoBase": "008",
+        "numero": "7-447-008-4",
+        "vehiculosRama": [
+          "9-447-015-9",
+          "7-447-008-4",
+          "9-447-016-7"
+        ],
+        "searchCodes": [
+          "008",
+          "016"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Valencia",
+        "notas": [
+          "Colores Renfe Op. Trasladada a Valladolid para reforma PMR 11/20→ Valencia 03/21."
+        ]
+      },
+      "9": {
+        "rama": "009",
+        "lote": "Primer lote",
+        "vehiculoBase": "009",
+        "numero": "7-447-009-2",
+        "vehiculosRama": [
+          "9-447-017-5",
+          "7-447-009-2",
+          "9-447-018-3"
+        ],
+        "searchCodes": [
+          "009",
+          "018"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Valencia",
+        "notas": [
+          "Colores Renfe Op. Reformada a PMR, 02/14. Ex-Valencia→ Santander, desde 04/14→ Valencia, 12/14. Nuevo tapizado (03/22)"
+        ]
+      },
+      "10": {
+        "rama": "010",
+        "lote": "Primer lote",
+        "vehiculoBase": "010",
+        "numero": "7-447-010-0",
+        "vehiculosRama": [
+          "9-447-019-1",
+          "7-447-010-0",
+          "9-447-020-9"
+        ],
+        "searchCodes": [
+          "010",
+          "020"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Valencia",
+        "notas": [
+          "Colores Renfe Op. Reformada PMR"
+        ]
+      },
+      "11": {
+        "rama": "011",
+        "lote": "Primer lote",
+        "vehiculoBase": "011",
+        "numero": "7-447-011-8",
+        "vehiculosRama": [
+          "9-447-021-7",
+          "7-447-011-8",
+          "9-447-022-5"
+        ],
+        "searchCodes": [
+          "011",
+          "022"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Valencia/Castellón",
+        "notas": [
+          "Colores Renfe Op. Primer 447 en Cercanías de Alicante→ Irún→ Valencia, desde 03/11. Reformada a PMR, 04/15. Valencia, desde 17/09/15."
+        ]
+      },
+      "12": {
+        "rama": "012",
+        "lote": "Primer lote",
+        "vehiculoBase": "012",
+        "numero": "7-447-012-6",
+        "vehiculosRama": [
+          "9-447-023-3",
+          "7-447-012-6",
+          "9-447-024-1"
+        ],
+        "searchCodes": [
+          "012",
+          "024"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Valencia",
+        "notas": [
+          "Accidente de El Romani (Valencia), coche afectado 024 13/11/07. De nuevo en servicio desde 01/09. Ex-Pegatinas. Colores Renfe Op. Reformada a PMR (02/17)."
+        ]
+      },
+      "13": {
+        "rama": "013",
+        "lote": "Primer lote",
+        "vehiculoBase": "013",
+        "numero": "7-447-013-4",
+        "vehiculosRama": [
+          "9-447-025-8",
+          "7-447-013-4",
+          "9-447-026-6"
+        ],
+        "searchCodes": [
+          "013",
+          "026"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Valencia",
+        "notas": [
+          "Colores Renfe Op. Ex pegatinas. Reformada a PMR"
+        ]
+      },
+      "14": {
+        "rama": "014",
+        "lote": "Primer lote",
+        "vehiculoBase": "014",
+        "numero": "7-447-014-2",
+        "vehiculosRama": [
+          "9-447-027-4",
+          "7-447-014-2",
+          "9-447-028-2"
+        ],
+        "searchCodes": [
+          "014",
+          "028"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalia Valencia",
+        "notas": [
+          "Colores renfe Op. Reformada PMR (09/19). Mal numerado Coche motor 028M, Vinilado como MO28. Barcelona 06/25 a 02/03/26."
+        ]
+      },
+      "15": {
+        "rama": "015",
+        "lote": "Primer lote",
+        "vehiculoBase": "015",
+        "numero": "7-447-015-9",
+        "vehiculosRama": [
+          "9-447-029-0",
+          "7-447-015-9",
+          "9-447-030-8"
+        ],
+        "searchCodes": [
+          "015",
+          "030"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Valencia",
+        "notas": [
+          "Colores Renfe Op. Reformada a PMR, 12/14."
+        ]
+      },
+      "16": {
+        "rama": "016",
+        "lote": "Primer lote",
+        "vehiculoBase": "016",
+        "numero": "7-447-016-7",
+        "vehiculosRama": [
+          "9-447-031-6",
+          "7-447-016-7",
+          "9-447-032-4"
+        ],
+        "searchCodes": [
+          "016",
+          "032"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Valencia",
+        "notas": [
+          "Colores Renfe Op.→Reformada a PMR"
+        ]
+      },
+      "17": {
+        "rama": "017",
+        "lote": "Primer lote",
+        "vehiculoBase": "017",
+        "numero": "7-447-017-5",
+        "vehiculosRama": [
+          "9-447-033-2",
+          "7-447-017-5",
+          "9-447-034-0"
+        ],
+        "searchCodes": [
+          "017",
+          "034"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Valencia",
+        "notas": [
+          "Colores Renfe Op.→ Reformada PMR entre 01/21 y 02/21."
+        ]
+      },
+      "18": {
+        "rama": "018",
+        "lote": "Primer lote",
+        "vehiculoBase": "018",
+        "numero": "7-447-018-3",
+        "vehiculosRama": [
+          "9-447-035-7",
+          "7-447-018-3",
+          "9-447-036-5"
+        ],
+        "searchCodes": [
+          "018",
+          "036"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Valencia",
+        "notas": [
+          "Colores Renfe Op.Reforma a PMR"
+        ]
+      },
+      "19": {
+        "rama": "019",
+        "lote": "Primer lote",
+        "vehiculoBase": "019",
+        "numero": "7-447-019-1",
+        "vehiculosRama": [
+          "9-447-037-3",
+          "7-447-019-1",
+          "9-447-038-1"
+        ],
+        "searchCodes": [
+          "019",
+          "038"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Valencia",
+        "notas": [
+          "Colores Renfe Op. Ex-pegatinas. Reformada a PMR (02/17)."
+        ]
+      },
+      "20": {
+        "rama": "020",
+        "lote": "Primer lote",
+        "vehiculoBase": "020",
+        "numero": "7-447-020-9",
+        "vehiculosRama": [
+          "9-447-039-9",
+          "7-447-020-9",
+          "9-447-040-7"
+        ],
+        "searchCodes": [
+          "020",
+          "040"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Valencia",
+        "notas": [
+          "Colores Renfe Op. Reformada a PMR, 12/14."
+        ]
+      },
+      "21": {
+        "rama": "021",
+        "lote": "Primer lote",
+        "vehiculoBase": "021",
+        "numero": "7-447-021-7",
+        "vehiculosRama": [
+          "9-447-041-5",
+          "7-447-021-7",
+          "9-447-042-3"
+        ],
+        "searchCodes": [
+          "021",
+          "042"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Accidentada en PN cerca de Puigcerdá → En servicio, 03/13. Colores Rodalies. Reformada PMR (04/17). Pruebas ERTMS."
+        ]
+      },
+      "22": {
+        "rama": "022",
+        "lote": "Primer lote",
+        "vehiculoBase": "022",
+        "numero": "7-447-022-5",
+        "vehiculosRama": [
+          "9-447-043-1",
+          "7-447-022-5",
+          "9-447-044-9"
+        ],
+        "searchCodes": [
+          "022",
+          "044"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies. Reformada PMR 02/17. Arrollamiento P.N. en Golmés (Lleida) 12/03/24. De nuevo en servicio."
+        ]
+      },
+      "23": {
+        "rama": "023",
+        "lote": "Primer lote",
+        "vehiculoBase": "023",
+        "numero": "7-447-023-3",
+        "vehiculosRama": [
+          "9-447-045-6",
+          "7-447-023-3",
+          "9-447-046-4"
+        ],
+        "searchCodes": [
+          "023",
+          "046"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→Colores Rodalies Reformada a PMR 11/17"
+        ]
+      },
+      "24": {
+        "rama": "024",
+        "lote": "Primer lote",
+        "vehiculoBase": "024",
+        "numero": "7-447-024-1",
+        "vehiculosRama": [
+          "9-447-047-2",
+          "7-447-024-1",
+          "9-447-048-0"
+        ],
+        "searchCodes": [
+          "024",
+          "048"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies de Catalunya, 03/14. Reformada PMR"
+        ]
+      },
+      "25": {
+        "rama": "025",
+        "lote": "Primer lote",
+        "vehiculoBase": "025",
+        "numero": "7-447-025-8",
+        "vehiculosRama": [
+          "9-447-049-8",
+          "7-447-025-8",
+          "9-447-050-6"
+        ],
+        "searchCodes": [
+          "025",
+          "050"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "BCN-SAC",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Media Dist.",
+        "asientos": "Media Dist.",
+        "servicio": "Media Dist.",
+        "notas": [
+          "Colores Renfe Op. Interior renovado (tapicería asientos y moqueta). Colores Rodalies, 03/13. Ex-Cercanías Cornellá→ PMR Regional desde 03/16. Ex-Montcada. Primera 447 con desfibrilador."
+        ]
+      },
+      "26": {
+        "rama": "026",
+        "lote": "Primer lote",
+        "vehiculoBase": "026",
+        "numero": "7-447-026-6",
+        "vehiculosRama": [
+          "9-447-051-4",
+          "7-447-026-6",
+          "9-447-052-2"
+        ],
+        "searchCodes": [
+          "026",
+          "052"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "BCN-SAC",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Media Dist.",
+        "asientos": "Media Dist.",
+        "servicio": "Media Dist.",
+        "notas": [
+          "Colores Renfe Op. → Reformada PMR (estilo Civia), asientos MD. Logos 75 años Renfe. Ex-Cornellá"
+        ]
+      },
+      "27": {
+        "rama": "027",
+        "lote": "Primer lote",
+        "vehiculoBase": "027",
+        "numero": "7-447-027-4",
+        "vehiculosRama": [
+          "9-447-053-0",
+          "7-447-027-4",
+          "9-447-054-8"
+        ],
+        "searchCodes": [
+          "027",
+          "054"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "BCN-SAC",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Media Dist.",
+        "asientos": "Media Dist.",
+        "servicio": "Media Dist.",
+        "notas": [
+          "Descarrilo en Vacarisses 14/01/09. Colores Renfe Op. Reformada interiormente→ Colores Rodalies. Reformada a PMR con asientos Regionales (07/16). Cornellá → BCN- SAC."
+        ]
+      },
+      "28": {
+        "rama": "028",
+        "lote": "Primer lote",
+        "vehiculoBase": "028",
+        "numero": "7-447-028-2",
+        "vehiculosRama": [
+          "9-447-055-5",
+          "7-447-028-2",
+          "9-447-056-3"
+        ],
+        "searchCodes": [
+          "028",
+          "056"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "Desguazada",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "",
+        "notas": [
+          "Primer 447 color Renfe Op. Inaugura C7 BCN 16/05/05. Reformada interiormente. Accidente Vacarisses 16/03/11. Desguazada 17/03/11. Ex-Cercanías Barcelona"
+        ]
+      },
+      "29": {
+        "rama": "029",
+        "lote": "Primer lote",
+        "vehiculoBase": "029",
+        "numero": "7-447-029-8",
+        "vehiculosRama": [
+          "9-447-057-1",
+          "7-447-029-8",
+          "9-447-058-9"
+        ],
+        "searchCodes": [
+          "029",
+          "058"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "BCN-SAC",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Media Dist.",
+        "asientos": "Media Dist.",
+        "servicio": "Media Dist.",
+        "notas": [
+          "Reformada a PMR con asientos Regionales. Colores Rodalies. Logos 75 años Renfe. Ex-Cornellá→SAC. Arrollamiento árbol entre Sils y Caldes de Malavella 25/10/21. Apartada en BM BCN - SAC. → Trasladada TCR Valladolid→ En reparación. De nuevo en servicio 14/07/23."
+        ]
+      },
+      "30": {
+        "rama": "030",
+        "lote": "Primer lote",
+        "vehiculoBase": "030",
+        "numero": "7-447-030-8",
+        "vehiculosRama": [
+          "9-447-059-7",
+          "7-447-030-8",
+          "9-447-060-5"
+        ],
+        "searchCodes": [
+          "030",
+          "060"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "",
+        "color": "Cercanías",
+        "estado": "Desguazada",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "",
+        "notas": [
+          "Colores Renfe Op. Vilanova. Accidente en Mataró, 09/02/12 → Apartada en BCN-SAC. Coches 030R y 060M apartados en BMI Vilanova. Coche 059M apartado→Desguazado en BMI Barcelona-S.A.C. Coches 030R y 060M licitado desg. 05/25."
+        ]
+      },
+      "31": {
+        "rama": "031",
+        "lote": "Primer lote",
+        "vehiculoBase": "031",
+        "numero": "7-447-031-6",
+        "vehiculosRama": [
+          "9-447-061-3",
+          "7-447-031-6",
+          "9-447-062-1"
+        ],
+        "searchCodes": [
+          "031",
+          "062"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies. Reformada PMR"
+        ]
+      },
+      "32": {
+        "rama": "032",
+        "lote": "Primer lote",
+        "vehiculoBase": "032",
+        "numero": "7-447-032-4",
+        "vehiculosRama": [
+          "9-447-063-9",
+          "7-447-032-4",
+          "9-447-064-7"
+        ],
+        "searchCodes": [
+          "032",
+          "064"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies de Catalunya. Reformada PMR."
+        ]
+      },
+      "33": {
+        "rama": "033",
+        "lote": "Primer lote",
+        "vehiculoBase": "033",
+        "numero": "7-447-033-2",
+        "vehiculosRama": [
+          "9-447-065-4",
+          "7-447-033-2",
+          "9-447-066-2"
+        ],
+        "searchCodes": [
+          "033",
+          "066"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Colores Rodalies y reforma a PMR desde 05/18."
+        ]
+      },
+      "34": {
+        "rama": "034",
+        "lote": "Primer lote",
+        "vehiculoBase": "034",
+        "numero": "7-447-034-0",
+        "vehiculosRama": [
+          "9-447-067-0",
+          "7-447-034-0",
+          "9-447-068-8"
+        ],
+        "searchCodes": [
+          "034",
+          "068"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "BCN-SAC",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Media Dist.",
+        "asientos": "Media Dist.",
+        "servicio": "Media Dist.",
+        "notas": [
+          "Colores Renfe Op. Reformada PMR con asientos MD (05/16). Colores Rodalies. Ex- Cornellá"
+        ]
+      },
+      "35": {
+        "rama": "035",
+        "lote": "Primer lote",
+        "vehiculoBase": "035",
+        "numero": "7-447-035-7",
+        "vehiculosRama": [
+          "9-447-069-6",
+          "7-447-035-7",
+          "9-447-070-4"
+        ],
+        "searchCodes": [
+          "035",
+          "070"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. → Colores Rodalies. Reformada PMR"
+        ]
+      },
+      "36": {
+        "rama": "036",
+        "lote": "Primer lote",
+        "vehiculoBase": "036",
+        "numero": "7-447-036-5",
+        "vehiculosRama": [
+          "9-447-071-2",
+          "7-447-036-5",
+          "9-447-072-0"
+        ],
+        "searchCodes": [
+          "036",
+          "072"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Reformada PMR con colores Rodalies."
+        ]
+      },
+      "37": {
+        "rama": "037",
+        "lote": "Primer lote",
+        "vehiculoBase": "037",
+        "numero": "7-447-037-3",
+        "vehiculosRama": [
+          "9-447-073-8",
+          "7-447-037-3",
+          "9-447-074-6"
+        ],
+        "searchCodes": [
+          "037",
+          "074"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies. Reformada PMR"
+        ]
+      },
+      "38": {
+        "rama": "038",
+        "lote": "Primer lote",
+        "vehiculoBase": "038",
+        "numero": "7-447-038-1",
+        "vehiculosRama": [
+          "9-447-075-3",
+          "7-447-038-1",
+          "9-447-076-1"
+        ],
+        "searchCodes": [
+          "038",
+          "076"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Ex-Colores Renfe Op. Reformada interiormente. Segunda 447 con colores Rodalies desde 08/08/10.Reformada a PMR 05/17. Descarrilo por desprendimiento entre Vacarisses y Sant Viceng de Castellet 03/03/24. De nuevo en servicio 09/05/24."
+        ]
+      },
+      "39": {
+        "rama": "039",
+        "lote": "Primer lote",
+        "vehiculoBase": "039",
+        "numero": "7-447-039-9",
+        "vehiculosRama": [
+          "9-447-077-9",
+          "7-447-039-9",
+          "9-447-078-7"
+        ],
+        "searchCodes": [
+          "039",
+          "078"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "BCN-SAC",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Media Dist.",
+        "asientos": "Media Dist.",
+        "servicio": "Media Dist.",
+        "notas": [
+          "Interior renovado (tapicería de asientos y moqueta, estilo Civia).→ Colores Rodalies. Reformada a PMR, con asientos MD (06/16). Ex-Cornellá"
+        ]
+      },
+      "40": {
+        "rama": "040",
+        "lote": "Primer lote",
+        "vehiculoBase": "040",
+        "numero": "7-447-040-7",
+        "vehiculosRama": [
+          "9-447-079-5",
+          "7-447-040-7",
+          "9-447-080-3"
+        ],
+        "searchCodes": [
+          "040",
+          "080"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "BCN-SAC",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Media Dist.",
+        "asientos": "Media Dist.",
+        "servicio": "Media Dist.",
+        "notas": [
+          "Colores Renfe Op. Interior reformado (iluminación y tapiceria como Civia)→ Colores Rodalies. Reformada a PMR, con asientos MD (07/16). Cornellá → BCN-SAC."
+        ]
+      },
+      "41": {
+        "rama": "041",
+        "lote": "Primer lote",
+        "vehiculoBase": "041",
+        "numero": "7-447-041-5",
+        "vehiculosRama": [
+          "9-447-081-1",
+          "7-447-041-5",
+          "9-447-082-9"
+        ],
+        "searchCodes": [
+          "041",
+          "082"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Montcada",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanias",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Interior renovado (Tapiceria asientos y moqueta, estilo Civia).Colores Rodalies.Reformada a PMR"
+        ]
+      },
+      "42": {
+        "rama": "042",
+        "lote": "Primer lote",
+        "vehiculoBase": "042",
+        "numero": "7-447-042-3",
+        "vehiculosRama": [
+          "9-447-083-7",
+          "7-447-042-3",
+          "9-447-084-5"
+        ],
+        "searchCodes": [
+          "042",
+          "084"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Montcada",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. → Reformada PMR con colores Rodalies."
+        ]
+      },
+      "43": {
+        "rama": "043",
+        "lote": "Primer lote",
+        "vehiculoBase": "043",
+        "numero": "7-447-043-1",
+        "vehiculosRama": [
+          "9-447-085-2",
+          "7-447-043-1",
+          "9-447-086-0"
+        ],
+        "searchCodes": [
+          "043",
+          "086"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Vinilos Sunrail 04/07/13. Colores Rodalies y reformada a PMR 06/17"
+        ]
+      },
+      "44": {
+        "rama": "044",
+        "lote": "Primer lote",
+        "vehiculoBase": "044",
+        "numero": "7-447-044-9",
+        "vehiculosRama": [
+          "9-447-087-8",
+          "7-447-044-9",
+          "9-447-088-6"
+        ],
+        "searchCodes": [
+          "044",
+          "088"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Montcada",
+        "color": "Blanco/Naranja",
+        "estado": "Accidentada",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Interior reformado (moqueta y tapiceria estilo Civia).→ Reformada PMR. Colores Rodalies. Descarrilo entre St, Sadurni y Gelida 20/01/26. Desguazado 087M in- situ, 25/01/26."
+        ]
+      },
+      "45": {
+        "rama": "045",
+        "lote": "Primer lote",
+        "vehiculoBase": "045",
+        "numero": "7-447-045-6",
+        "vehiculosRama": [
+          "9-447-089-4",
+          "7-447-045-6",
+          "9-447-090-2"
+        ],
+        "searchCodes": [
+          "045",
+          "090"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "Accidentada",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Colores Rodalies. Reformada a PMR 06/17. Impacto por desprendimiento de trinchera en Planoles 04/03/25."
+        ]
+      },
+      "46": {
+        "rama": "046",
+        "lote": "Primer lote",
+        "vehiculoBase": "046",
+        "numero": "7-447-046-4",
+        "vehiculosRama": [
+          "9-447-091-0",
+          "7-447-046-4",
+          "9-447-092-8"
+        ],
+        "searchCodes": [
+          "046",
+          "092"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Montcada",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op → Reformada PMR. Colores Rodalies desde 29/12/16"
+        ]
+      },
+      "47": {
+        "rama": "047",
+        "lote": "Primer lote",
+        "vehiculoBase": "047",
+        "numero": "7-447-047-2",
+        "vehiculosRama": [
+          "9-447-093-6",
+          "7-447-047-2",
+          "9-447-094-4"
+        ],
+        "searchCodes": [
+          "047",
+          "094"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Montcada",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op → Colores Rodalies. Reformada PMR"
+        ]
+      },
+      "48": {
+        "rama": "048",
+        "lote": "Primer lote",
+        "vehiculoBase": "048",
+        "numero": "7-447-048-0",
+        "vehiculosRama": [
+          "9-447-095-1",
+          "7-447-048-0",
+          "9-447-096-9"
+        ],
+        "searchCodes": [
+          "048",
+          "096"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Montcada",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Decoración similar a CIWL 07/13 para rodaje publicidad. → Reformada PMR Colores Rodalies"
+        ]
+      },
+      "49": {
+        "rama": "049",
+        "lote": "Primer lote",
+        "vehiculoBase": "049",
+        "numero": "7-447-049-8",
+        "vehiculosRama": [
+          "9-447-097-7",
+          "7-447-049-8",
+          "9-447-098-5"
+        ],
+        "searchCodes": [
+          "049",
+          "098"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Montcada",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. → Reformada PMR Colores Rodalies"
+        ]
+      },
+      "50": {
+        "rama": "050",
+        "lote": "Primer lote",
+        "vehiculoBase": "050",
+        "numero": "7-447-050-6",
+        "vehiculosRama": [
+          "9-447-099-3",
+          "7-447-050-6",
+          "9-447-100-9"
+        ],
+        "searchCodes": [
+          "050",
+          "100"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Montcada",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Reformada PMR con colores Rodalies 11/16"
+        ]
+      },
+      "51": {
+        "rama": "051",
+        "lote": "Primer lote",
+        "vehiculoBase": "051",
+        "numero": "7-447-051-4",
+        "vehiculosRama": [
+          "9-447-101-7",
+          "7-447-051-4",
+          "9-447-102-5"
+        ],
+        "searchCodes": [
+          "051",
+          "102"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Color Renfe Op. → Colores Rodalies. PMR (10/16). Con techo rojo un tiempo tras recibir colores Renfe Op. Ex-Cornellá"
+        ]
+      },
+      "52": {
+        "rama": "052",
+        "lote": "Primer lote",
+        "vehiculoBase": "052",
+        "numero": "7-447-052-2",
+        "vehiculosRama": [
+          "9-447-103-3",
+          "7-447-052-2",
+          "9-447-104-1"
+        ],
+        "searchCodes": [
+          "052",
+          "104"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Montcada",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. → Reformada PMR. Colores Rodalies."
+        ]
+      },
+      "53": {
+        "rama": "053",
+        "lote": "Primer lote",
+        "vehiculoBase": "053",
+        "numero": "7-447-053-0",
+        "vehiculosRama": [
+          "9-447-105-8",
+          "7-447-053-0",
+          "9-447-106-6"
+        ],
+        "searchCodes": [
+          "053",
+          "106"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Colores Rodalies, desde 2014. → Reformada PMR"
+        ]
+      },
+      "54": {
+        "rama": "054",
+        "lote": "Primer lote",
+        "vehiculoBase": "054",
+        "numero": "7-447-054-8",
+        "vehiculosRama": [
+          "9-447-107-4",
+          "7-447-054-8",
+          "9-447-108-2"
+        ],
+        "searchCodes": [
+          "054",
+          "108"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→Colores Rodalies y reformada a PMR"
+        ]
+      },
+      "55": {
+        "rama": "055",
+        "lote": "Primer lote",
+        "vehiculoBase": "055",
+        "numero": "7-447-055-5",
+        "vehiculosRama": [
+          "9-447-109-0",
+          "7-447-055-5",
+          "9-447-110-8"
+        ],
+        "searchCodes": [
+          "055",
+          "110"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Reformada PMR. Colores Rodalies. Choque contra camión entre Centelles y Balenya-Els Hostalets 15/07/25. Apartada Cornellá. De nuevo en servicio 02/26"
+        ]
+      },
+      "56": {
+        "rama": "056",
+        "lote": "Primer lote",
+        "vehiculoBase": "056",
+        "numero": "7-447-056-3",
+        "vehiculosRama": [
+          "9-447-111-6",
+          "7-447-056-3",
+          "9-447-112-4"
+        ],
+        "searchCodes": [
+          "056",
+          "112"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Colores Rodalies y reforma a PMR desde 05/18."
+        ]
+      },
+      "57": {
+        "rama": "057",
+        "lote": "Primer lote",
+        "vehiculoBase": "057",
+        "numero": "7-447-057-1",
+        "vehiculosRama": [
+          "9-447-113-2",
+          "7-447-057-1",
+          "9-447-114-0"
+        ],
+        "searchCodes": [
+          "057",
+          "114"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Ex Colores Renfe Op. Primera 447 con colores Rodalies de Catalunya desde 07/10. → Reformada PMR"
+        ]
+      },
+      "58": {
+        "rama": "058",
+        "lote": "Primer lote",
+        "vehiculoBase": "058",
+        "numero": "7-447-058-9",
+        "vehiculosRama": [
+          "9-447-115-7",
+          "7-447-058-9",
+          "9-447-116-5"
+        ],
+        "searchCodes": [
+          "058",
+          "116"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies. Reformada PMR 03/18"
+        ]
+      },
+      "59": {
+        "rama": "059",
+        "lote": "Primer lote",
+        "vehiculoBase": "059",
+        "numero": "7-447-059-7",
+        "vehiculosRama": [
+          "9-447-117-3",
+          "7-447-059-7",
+          "9-447-118-1"
+        ],
+        "searchCodes": [
+          "059",
+          "118"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Focos con leds. Primera 447 en servicio comercial a Puigcerdá/La Tour de Carol, 08/11/08. Reformada PMR. Colores Rodalies."
+        ]
+      },
+      "60": {
+        "rama": "060",
+        "lote": "Primer lote",
+        "vehiculoBase": "060",
+        "numero": "7-447-060-5",
+        "vehiculosRama": [
+          "9-447-119-9",
+          "7-447-060-5",
+          "9-447-120-7"
+        ],
+        "searchCodes": [
+          "060",
+          "120"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op→ Reformado PMR → Colores rodalies de Catalunya"
+        ]
+      },
+      "61": {
+        "rama": "061",
+        "lote": "Primer lote",
+        "vehiculoBase": "061",
+        "numero": "7-447-061-3",
+        "vehiculosRama": [
+          "9-447-121-5",
+          "7-447-061-3",
+          "9-447-122-3"
+        ],
+        "searchCodes": [
+          "061",
+          "122"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. → Reformada PMR. Colores Rodalies."
+        ]
+      },
+      "62": {
+        "rama": "062",
+        "lote": "Primer lote",
+        "vehiculoBase": "062",
+        "numero": "7-447-062-1",
+        "vehiculosRama": [
+          "9-447-123-1",
+          "7-447-062-1",
+          "9-447-124-9"
+        ],
+        "searchCodes": [
+          "062",
+          "124"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "BCN-SAC",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Media Dist.",
+        "asientos": "Media Dist.",
+        "servicio": "Media Dist.",
+        "notas": [
+          "Colores Renfe Op. → Colores Rodalies. Reformada a PMR, con asientos MD (06/16). Cornellá → BCN-SAC."
+        ]
+      },
+      "63": {
+        "rama": "063",
+        "lote": "Primer lote",
+        "vehiculoBase": "063",
+        "numero": "7-447-063-9",
+        "vehiculosRama": [
+          "9-447-125-6",
+          "7-447-063-9",
+          "9-447-126-4"
+        ],
+        "searchCodes": [
+          "063",
+          "126"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Inauguración de la Vía restaurada del transpirenaico hasta Puigcerdá → Reformada PMR. Colores Rodalies."
+        ]
+      },
+      "64": {
+        "rama": "064",
+        "lote": "Primer lote",
+        "vehiculoBase": "064",
+        "numero": "7-447-064-7",
+        "vehiculosRama": [
+          "9-447-127-2",
+          "7-447-064-7",
+          "9-447-128-0"
+        ],
+        "searchCodes": [
+          "064",
+          "128"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. → Reformada PMR. Colores Rodalies."
+        ]
+      },
+      "65": {
+        "rama": "065",
+        "lote": "Primer lote",
+        "vehiculoBase": "065",
+        "numero": "7-447-065-4",
+        "vehiculosRama": [
+          "9-447-129-8",
+          "7-447-065-4",
+          "9-447-130-6"
+        ],
+        "searchCodes": [
+          "065",
+          "130"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies Catalunya. Reformada a PMR 05/18."
+        ]
+      },
+      "66": {
+        "rama": "066",
+        "lote": "Primer lote",
+        "vehiculoBase": "066",
+        "numero": "7-447-066-2",
+        "vehiculosRama": [
+          "9-447-131-4",
+          "7-447-066-2",
+          "9-447-132-2"
+        ],
+        "searchCodes": [
+          "066",
+          "132"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Catalunya",
+        "notas": [
+          "3er 447 en colores Rodalies → Reformada a PMR → Accidente de Castellgalí, colisión frontal con 447-170 (340M), cabeza del cercanías 08/02/19. Traslado en camión 131M TCR Valladolid. Traslado O066R. Desguazado 132M 03/12/19 en S.V de Castellet, se sustituye por 164M (447-082) que está dada de baja. De nuevo en servicio, 22/02/24."
+        ]
+      },
+      "67": {
+        "rama": "067",
+        "lote": "Primer lote",
+        "vehiculoBase": "067",
+        "numero": "7-447-067-0",
+        "vehiculosRama": [
+          "9-447-133-0",
+          "7-447-067-0",
+          "9-447-134-8"
+        ],
+        "searchCodes": [
+          "067",
+          "134"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op → Color Rodalies. Reformada PMR"
+        ]
+      },
+      "68": {
+        "rama": "068",
+        "lote": "Primer lote",
+        "vehiculoBase": "068",
+        "numero": "7-447-068-8",
+        "vehiculosRama": [
+          "9-447-135-5",
+          "7-447-068-8",
+          "9-447-136-3"
+        ],
+        "searchCodes": [
+          "068",
+          "136"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. 18/08/17 descarrilo por desprendimiento entre Sant Viceng de Castellet y Castellbell ¡ el Vilar. Vuelta al servicio 02/19, con colores Rodalies y reforma PMR."
+        ]
+      },
+      "69": {
+        "rama": "069",
+        "lote": "Primer lote",
+        "vehiculoBase": "069",
+        "numero": "7-447-069-6",
+        "vehiculosRama": [
+          "9-447-137-1",
+          "7-447-069-6",
+          "9-447-138-9"
+        ],
+        "searchCodes": [
+          "069",
+          "138"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Accidente en Sants, 20/09/13. Colores Rodalies y reformada a PMR, desde 05/18."
+        ]
+      },
+      "70": {
+        "rama": "070",
+        "lote": "Primer lote",
+        "vehiculoBase": "070",
+        "numero": "7-447-070-4",
+        "vehiculosRama": [
+          "9-447-139-7",
+          "7-447-070-4",
+          "9-447-140-5"
+        ],
+        "searchCodes": [
+          "070",
+          "140"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies. Accidente en Sants, 20/09/13. Reformada a PMR."
+        ]
+      },
+      "71": {
+        "rama": "071",
+        "lote": "Primer lote",
+        "vehiculoBase": "071",
+        "numero": "7-447-071-2",
+        "vehiculosRama": [
+          "9-447-141-3",
+          "7-447-071-2",
+          "9-447-142-1"
+        ],
+        "searchCodes": [
+          "071",
+          "142"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Primer lote",
+        "deposito": "Cornellá",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Reformada PMR. Colores Rodalies. Ez 7"
+        ]
+      },
+      "72": {
+        "rama": "072",
+        "lote": "Segundo lote",
+        "vehiculoBase": "072",
+        "numero": "7-447-072-0",
+        "vehiculosRama": [
+          "9-447-143-9",
+          "7-447-072-0",
+          "9-447-144-7"
+        ],
+        "searchCodes": [
+          "072",
+          "144"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies. Reformada a PMR. Accidente de Castellgalí, tren de cola, 08/02/19. Llevada 16/09/19 a Valladolid para reparación. Ex- Barcelona → De nuevo en colores Renfe Op., Valencia desde 30/10/20→ Barcelona 07/21, Colores Rodalies."
+        ]
+      },
+      "73": {
+        "rama": "073",
+        "lote": "Segundo lote",
+        "vehiculoBase": "073",
+        "numero": "7-447-073-8",
+        "vehiculosRama": [
+          "9-447-145-4",
+          "7-447-073-8",
+          "9-447-146-2"
+        ],
+        "searchCodes": [
+          "073",
+          "146"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "",
+        "notas": [
+          "Colores Renfe Op. Ex-Pegatinas. Reformada a PMR sin sustituir la decoración original de los coches motores (05/17)."
+        ]
+      },
+      "74": {
+        "rama": "074",
+        "lote": "Segundo lote",
+        "vehiculoBase": "074",
+        "numero": "7-447-074-6",
+        "vehiculosRama": [
+          "9-447-147-0",
+          "7-447-074-6",
+          "9-447-148-8"
+        ],
+        "searchCodes": [
+          "074",
+          "148"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "",
+        "notas": [
+          "Colores Renfe Op. Ex-Pegatinas. Reformada a PMR (05/18)."
+        ]
+      },
+      "75": {
+        "rama": "075",
+        "lote": "Segundo lote",
+        "vehiculoBase": "075",
+        "numero": "7-447-075-3",
+        "vehiculosRama": [
+          "9-447-149-6",
+          "7-447-075-3",
+          "9-447-150-4"
+        ],
+        "searchCodes": [
+          "075",
+          "150"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→Colores Rodalies, desde 07/11. Reformada a PMR (08/18)."
+        ]
+      },
+      "76": {
+        "rama": "076",
+        "lote": "Segundo lote",
+        "vehiculoBase": "076",
+        "numero": "7-447-076-1",
+        "vehiculosRama": [
+          "9-447-151-2",
+          "7-447-076-1",
+          "9-447-152-0"
+        ],
+        "searchCodes": [
+          "076",
+          "152"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "",
+        "notas": [
+          "Colores Renfe Op. Ex-Pegatinas. Reformada a PMR (08/17)."
+        ]
+      },
+      "77": {
+        "rama": "077",
+        "lote": "Segundo lote",
+        "vehiculoBase": "077",
+        "numero": "7-447-077-9",
+        "vehiculosRama": [
+          "9-447-153-8",
+          "7-447-077-9",
+          "9-447-154-6"
+        ],
+        "searchCodes": [
+          "077",
+          "154"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "",
+        "notas": [
+          "Colores Renfe Op. Ex-Pegatinas. Reformada a PMR, desde 27/04/18."
+        ]
+      },
+      "78": {
+        "rama": "078",
+        "lote": "Segundo lote",
+        "vehiculoBase": "078",
+        "numero": "7-447-078-7",
+        "vehiculosRama": [
+          "9-447-155-3",
+          "7-447-078-7",
+          "9-447-156-1"
+        ],
+        "searchCodes": [
+          "078",
+          "156"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. → Colores de Rodalies de Catalunya desde 12/12. Reformada PMR. Accidente Montcada ¡ Reixac Manresa 07/12/22. Vuelta al servicio 26/02/23."
+        ]
+      },
+      "79": {
+        "rama": "079",
+        "lote": "Segundo lote",
+        "vehiculoBase": "079",
+        "numero": "7-447-079-5",
+        "vehiculosRama": [
+          "9-447-157-9",
+          "7-447-079-5",
+          "9-447-158-7"
+        ],
+        "searchCodes": [
+          "079",
+          "158"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. → Colores de Rodalies de Catalunya. Reformada a PMR 06/18."
+        ]
+      },
+      "80": {
+        "rama": "080",
+        "lote": "Segundo lote",
+        "vehiculoBase": "080",
+        "numero": "7-447-080-3",
+        "vehiculosRama": [
+          "9-447-159-5",
+          "7-447-080-3",
+          "9-447-160-3"
+        ],
+        "searchCodes": [
+          "080",
+          "160"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Color de Rodalies. Reformada PMR"
+        ]
+      },
+      "81": {
+        "rama": "081",
+        "lote": "Segundo lote",
+        "vehiculoBase": "081",
+        "numero": "7-447-081-1",
+        "vehiculosRama": [
+          "9-447-161-1",
+          "7-447-081-1",
+          "9-447-162-9"
+        ],
+        "searchCodes": [
+          "081",
+          "162"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. → Colores Rodalies. Reformada a PMR 10/18. Descarrilada por desprendimiento en Vacarisses, junto a la 447.082R, 20/11/18. Traslado al TCR de Valladolid,para su reparación. En circulación desde 04/19."
+        ]
+      },
+      "82": {
+        "rama": "082",
+        "lote": "Segundo lote",
+        "vehiculoBase": "082",
+        "numero": "7-447-082-9",
+        "vehiculosRama": [
+          "9-447-163-7",
+          "7-447-082-9",
+          "9-447-164-5"
+        ],
+        "searchCodes": [
+          "082",
+          "164"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Media Dist.",
+        "servicio": "R3 Rodalies",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies, desde 04/11. Reformada a PMR. Descarrilo por desprendimiento en Vacarisses, junto a la 447-081R, 20/11/18, desguazado 163M in situ. Apartada en Valladolid desde 22/11/19. Se aprovecha coche 164M para 447-066. Baja→ De nuevo en servicio 082R con los coches 221M y 222M, 12/25."
+        ]
+      },
+      "83": {
+        "rama": "083",
+        "lote": "Segundo lote",
+        "vehiculoBase": "083",
+        "numero": "7-447-083-7",
+        "vehiculosRama": [
+          "9-447-165-2",
+          "7-447-083-7",
+          "9-447-166-0"
+        ],
+        "searchCodes": [
+          "083",
+          "166"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies, 03/12. Reformada PMR"
+        ]
+      },
+      "84": {
+        "rama": "084",
+        "lote": "Segundo lote",
+        "vehiculoBase": "084",
+        "numero": "7-447-084-5",
+        "vehiculosRama": [
+          "9-447-167-8",
+          "7-447-084-5",
+          "9-447-168-6"
+        ],
+        "searchCodes": [
+          "084",
+          "168"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Rodalies. Reformada a PMR, 11/14 (5? en BCN)."
+        ]
+      },
+      "85": {
+        "rama": "085",
+        "lote": "Segundo lote",
+        "vehiculoBase": "085",
+        "numero": "7-447-085-2",
+        "vehiculosRama": [
+          "9-447-169-4",
+          "7-447-085-2",
+          "9-447-170-2"
+        ],
+        "searchCodes": [
+          "085",
+          "170"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→Colores Rodalies 03/13→Reformada PMR 10/19"
+        ]
+      },
+      "86": {
+        "rama": "086",
+        "lote": "Segundo lote",
+        "vehiculoBase": "086",
+        "numero": "7-447-086-0",
+        "vehiculosRama": [
+          "9-447-171-0",
+          "7-447-086-0",
+          "9-447-172-8"
+        ],
+        "searchCodes": [
+          "086",
+          "172"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "",
+        "notas": [
+          "Colores renfe Op. Ex-Pegatinas. Teleindicadores LED. Reformada a PMR (01/17)."
+        ]
+      },
+      "87": {
+        "rama": "087",
+        "lote": "Segundo lote",
+        "vehiculoBase": "087",
+        "numero": "7-447-087-8",
+        "vehiculosRama": [
+          "9-447-173-6",
+          "7-447-087-8",
+          "9-447-174-4"
+        ],
+        "searchCodes": [
+          "087",
+          "174"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "",
+        "notas": [
+          "Reformada PMR el 14/09/18, Colores Renfe Op. Ex-Pegatinas."
+        ]
+      },
+      "88": {
+        "rama": "088",
+        "lote": "Segundo lote",
+        "vehiculoBase": "088",
+        "numero": "7-447-088-6",
+        "vehiculosRama": [
+          "9-447-175-1",
+          "7-447-088-6",
+          "9-447-176-9"
+        ],
+        "searchCodes": [
+          "088",
+          "176"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "",
+        "notas": [
+          "Colores Renfe Op. Ex-Valencia. Reformada a PMR."
+        ]
+      },
+      "89": {
+        "rama": "089",
+        "lote": "Segundo lote",
+        "vehiculoBase": "089",
+        "numero": "7-447-089-4",
+        "vehiculosRama": [
+          "9-447-177-7",
+          "7-447-089-4",
+          "9-447-178-5"
+        ],
+        "searchCodes": [
+          "089",
+          "178"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→Colores Rodalies. Reformada PMR"
+        ]
+      },
+      "90": {
+        "rama": "090",
+        "lote": "Segundo lote",
+        "vehiculoBase": "090",
+        "numero": "7-447-090-2",
+        "vehiculosRama": [
+          "9-447-179-3",
+          "7-447-090-2",
+          "9-447-180-1"
+        ],
+        "searchCodes": [
+          "090",
+          "180"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Ripoll",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Media Dist.",
+        "servicio": "R3 Rodalies",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies, 08/13. Interior y asientos reformados. Reformada PMR. Descarilo Planoles 03/12/21"
+        ]
+      },
+      "91": {
+        "rama": "091",
+        "lote": "Segundo lote",
+        "vehiculoBase": "091",
+        "numero": "7-447-091-0",
+        "vehiculosRama": [
+          "9-447-181-9",
+          "7-447-091-0",
+          "9-447-182-7"
+        ],
+        "searchCodes": [
+          "091",
+          "182"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "",
+        "notas": [
+          "(Ex-Pegatinas) Colores Renfe Operadora en TCR Vilanova 07/10. Ex- Valencia→Barcelona→Valencia. Reformada a PMR (01/18)."
+        ]
+      },
+      "92": {
+        "rama": "092",
+        "lote": "Segundo lote",
+        "vehiculoBase": "092",
+        "numero": "7-447-092-8",
+        "vehiculosRama": [
+          "9-447-183-5",
+          "7-447-092-8",
+          "9-447-184-3"
+        ],
+        "searchCodes": [
+          "092",
+          "184"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Ripoll",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Media Dist.",
+        "servicio": "R3 Rodalies",
+        "notas": [
+          "Colores Renfe Op. Segunda 447 con interior reformado. Pintada colores de Rodalies de Catalunya. Reformada PMR. Tren conmemorativo centenario llegada del tren en Puigcerdá, 3/10/22, vinilos alusivos en los testeros."
+        ]
+      },
+      "93": {
+        "rama": "093",
+        "lote": "Segundo lote",
+        "vehiculoBase": "093",
+        "numero": "7-447-093-6",
+        "vehiculosRama": [
+          "9-447-185-0",
+          "7-447-093-6",
+          "9-447-186-8"
+        ],
+        "searchCodes": [
+          "093",
+          "186"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Ripoll",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Media Dist.",
+        "servicio": "R3 Rodalies",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies. Reformada PMR."
+        ]
+      },
+      "94": {
+        "rama": "094",
+        "lote": "Segundo lote",
+        "vehiculoBase": "094",
+        "numero": "7-447-094-4",
+        "vehiculosRama": [
+          "9-447-187-6",
+          "7-447-094-4",
+          "9-447-188-4"
+        ],
+        "searchCodes": [
+          "094",
+          "188"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Ripoll",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Media Dist.",
+        "servicio": "R3 Rodalies",
+        "notas": [
+          "Colores Renfe Op. →Colores Rodalies 06/13. Interior y asientos reformados. Reformada PMR."
+        ]
+      },
+      "95": {
+        "rama": "095",
+        "lote": "Segundo lote",
+        "vehiculoBase": "095",
+        "numero": "7-447-095-1",
+        "vehiculosRama": [
+          "9-447-189-2",
+          "7-447-095-1",
+          "9-447-190-0"
+        ],
+        "searchCodes": [
+          "095",
+          "190"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. → Colores de Rodalies de Catalunya desde 12/12. → PMR 09/19."
+        ]
+      },
+      "96": {
+        "rama": "096",
+        "lote": "Segundo lote",
+        "vehiculoBase": "096",
+        "numero": "7-447-096-9",
+        "vehiculosRama": [
+          "9-447-191-3",
+          "7-447-096-9",
+          "9-447-192-6"
+        ],
+        "searchCodes": [
+          "096",
+          "192"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→Colores Rodalíes. Reformada PMR"
+        ]
+      },
+      "97": {
+        "rama": "097",
+        "lote": "Segundo lote",
+        "vehiculoBase": "097",
+        "numero": "7-447-097-7",
+        "vehiculosRama": [
+          "9-447-193-4",
+          "7-447-097-7",
+          "9-447-194-2"
+        ],
+        "searchCodes": [
+          "097",
+          "194"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies. Reformada PMR. Caída de un árbol sobre el remolque 097R en La Farga de Bebié (R3) 12/06/24. De nuevo en servicio,"
+        ]
+      },
+      "98": {
+        "rama": "098",
+        "lote": "Segundo lote",
+        "vehiculoBase": "098",
+        "numero": "7-447-098-5",
+        "vehiculosRama": [
+          "9-447-195-9",
+          "7-447-098-5",
+          "9-447-196-7"
+        ],
+        "searchCodes": [
+          "098",
+          "196"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies. Reformada PMR"
+        ]
+      },
+      "99": {
+        "rama": "099",
+        "lote": "Segundo lote",
+        "vehiculoBase": "099",
+        "numero": "7-447-099-3",
+        "vehiculosRama": [
+          "9-447-197-5",
+          "7-447-099-3",
+          "9-447-198-3"
+        ],
+        "searchCodes": [
+          "099",
+          "198"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. →Color de Rodalies de Catalunya 01/12.Reformada 05/02/19 PMR. Descarrilo (447-099R+116R) un eje en Blanes 20/01/26. De nuevo en servicio."
+        ]
+      },
+      "100": {
+        "rama": "100",
+        "lote": "Segundo lote",
+        "vehiculoBase": "100",
+        "numero": "7-447-100-9",
+        "vehiculosRama": [
+          "9-447-199-1",
+          "7-447-100-9",
+          "9-447-200-7"
+        ],
+        "searchCodes": [
+          "100",
+          "200"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→Rodalies de Catalunya. Reformada PMR 07/18"
+        ]
+      },
+      "101": {
+        "rama": "101",
+        "lote": "Segundo lote",
+        "vehiculoBase": "101",
+        "numero": "7-447-101-7",
+        "vehiculosRama": [
+          "9-447-201-5",
+          "7-447-101-7",
+          "9-447-202-3"
+        ],
+        "searchCodes": [
+          "101",
+          "202"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalíes. Reformada PMR"
+        ]
+      },
+      "102": {
+        "rama": "102",
+        "lote": "Segundo lote",
+        "vehiculoBase": "102",
+        "numero": "7-447-102-5",
+        "vehiculosRama": [
+          "9-447-203-1",
+          "7-447-102-5",
+          "9-447-204-9"
+        ],
+        "searchCodes": [
+          "102",
+          "204"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies. Reformada PMR"
+        ]
+      },
+      "103": {
+        "rama": "103",
+        "lote": "Segundo lote",
+        "vehiculoBase": "103",
+        "numero": "7-447-103-3",
+        "vehiculosRama": [
+          "9-447-205-6",
+          "7-447-103-3",
+          "9-447-206-4"
+        ],
+        "searchCodes": [
+          "103",
+          "206"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Color de Rodalies de Catalunya. Reformada PMR."
+        ]
+      },
+      "104": {
+        "rama": "104",
+        "lote": "Segundo lote",
+        "vehiculoBase": "104",
+        "numero": "7-447-104-1",
+        "vehiculosRama": [
+          "9-447-207-2",
+          "7-447-104-1",
+          "9-447-208-0"
+        ],
+        "searchCodes": [
+          "104",
+          "208"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Reformada a PMR, 07/14, Colores Rodalies, 07/14."
+        ]
+      },
+      "105": {
+        "rama": "105",
+        "lote": "Segundo lote",
+        "vehiculoBase": "105",
+        "numero": "7-447-105-8",
+        "vehiculosRama": [
+          "9-447-209-8",
+          "7-447-105-8",
+          "9-447-210-6"
+        ],
+        "searchCodes": [
+          "105",
+          "210"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Rodalies Cat. 11/12. Reformada PMR. Unidad accidentada junto a la 447.044R en el descarrilo de Gelida 20/01/26"
+        ]
+      },
+      "106": {
+        "rama": "106",
+        "lote": "Segundo lote",
+        "vehiculoBase": "106",
+        "numero": "7-447-106-6",
+        "vehiculosRama": [
+          "9-447-211-4",
+          "7-447-106-6",
+          "9-447-212-2"
+        ],
+        "searchCodes": [
+          "106",
+          "212"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Ripoll",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Media Dist.",
+        "servicio": "R3 Rodalies",
+        "notas": [
+          "Colores Renfe Op.(última en recibir ese esquema de la serie). Reformada PMR. 3a unidad con interior reformado. Colores Rodalies."
+        ]
+      },
+      "107": {
+        "rama": "107",
+        "lote": "Segundo lote",
+        "vehiculoBase": "107",
+        "numero": "7-447-107-4",
+        "vehiculosRama": [
+          "9-447-213-0",
+          "7-447-107-4",
+          "9-447-214-8"
+        ],
+        "searchCodes": [
+          "107",
+          "214"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→Colores Rodalíes. Reformada PMR."
+        ]
+      },
+      "108": {
+        "rama": "108",
+        "lote": "Segundo lote",
+        "vehiculoBase": "108",
+        "numero": "7-447-108-2",
+        "vehiculosRama": [
+          "9-447-215-5",
+          "7-447-108-2",
+          "9-447-216-3"
+        ],
+        "searchCodes": [
+          "108",
+          "216"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Ripoll",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Media Dist.",
+        "servicio": "R3 Rodalies",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalíes. Interior y asientos reformados. Descarrilo en túnel de Tosses, 09/07/19. Reformada PMR."
+        ]
+      },
+      "109": {
+        "rama": "109",
+        "lote": "Segundo lote",
+        "vehiculoBase": "109",
+        "numero": "7-447-109-0",
+        "vehiculosRama": [
+          "9-447-217-1",
+          "7-447-109-0",
+          "9-447-218-9"
+        ],
+        "searchCodes": [
+          "109",
+          "218"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Rodalies de Catalunya. (01/13). Reformada PMR."
+        ]
+      },
+      "110": {
+        "rama": "110",
+        "lote": "Segundo lote",
+        "vehiculoBase": "110",
+        "numero": "7-447-110-8",
+        "vehiculosRama": [
+          "9-447-219-7",
+          "7-447-110-8",
+          "9-447-220-5"
+        ],
+        "searchCodes": [
+          "110",
+          "220"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. desde 05/09. → Colores Rodalies 2012. Reformada PMR."
+        ]
+      },
+      "111": {
+        "rama": "111",
+        "lote": "Segundo lote",
+        "vehiculoBase": "111",
+        "numero": "7-447-111-6",
+        "vehiculosRama": [
+          "9-447-221-3",
+          "7-447-111-6",
+          "9-447-222-1"
+        ],
+        "searchCodes": [
+          "111",
+          "222"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "",
+        "color": "Naranja/Blanco",
+        "estado": "Baja",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "",
+        "asientos": "Media Dist.",
+        "servicio": "",
+        "notas": [
+          "Colores Renfe Op. desde 03/09→ Colores Rodalies, 03/13. Primera 447 con interior reformado. Reformada PMR. Incendiado remolque 111R en Torelló (R3) 08/10/24. Trasladada a Valladolid para reparación 19/12/24. Coches 221M y 222M en servicio con 082R, 12/25. 111R de baja."
+        ]
+      },
+      "112": {
+        "rama": "112",
+        "lote": "Segundo lote",
+        "vehiculoBase": "112",
+        "numero": "7-447-112-4",
+        "vehiculosRama": [
+          "9-447-223-9",
+          "7-447-112-4",
+          "9-447-224-7"
+        ],
+        "searchCodes": [
+          "112",
+          "224"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Montcada",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies. Reformada PMR."
+        ]
+      },
+      "113": {
+        "rama": "113",
+        "lote": "Segundo lote",
+        "vehiculoBase": "113",
+        "numero": "7-447-113-2",
+        "vehiculosRama": [
+          "9-447-225-4",
+          "7-447-113-2",
+          "9-447-226-2"
+        ],
+        "searchCodes": [
+          "113",
+          "226"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Montcada",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. → Colores Rodalies. Reformada PMR."
+        ]
+      },
+      "114": {
+        "rama": "114",
+        "lote": "Segundo lote",
+        "vehiculoBase": "114",
+        "numero": "7-447-114-0",
+        "vehiculosRama": [
+          "9-447-227-0",
+          "7-447-114-0",
+          "9-447-228-8"
+        ],
+        "searchCodes": [
+          "114",
+          "228"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Ripoll",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Media Dist.",
+        "servicio": "R3 Rodalies",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies. 4? unidad reformada. Descarrilo en Sant Andreu Arenal, 27/10/13. Accidentada en El Figaró, 09/12/14. Reformada PMR."
+        ]
+      },
+      "115": {
+        "rama": "115",
+        "lote": "Segundo lote",
+        "vehiculoBase": "115",
+        "numero": "7-447-115-7",
+        "vehiculosRama": [
+          "9-447-229-6",
+          "7-447-115-7",
+          "9-447-230-4"
+        ],
+        "searchCodes": [
+          "115",
+          "230"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Ripoll",
+        "color": "Naranja/Blanco",
+        "estado": "Apartada",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Media Dist.",
+        "servicio": "R3 Rodalies",
+        "notas": [
+          "Colores Renfe Op. → Colores Rodalies 06/13. Interior y asientos reformados. Reformada PMR. Incendiada en Torelló 02/08/24."
+        ]
+      },
+      "116": {
+        "rama": "116",
+        "lote": "Segundo lote",
+        "vehiculoBase": "116",
+        "numero": "7-447-116-5",
+        "vehiculosRama": [
+          "9-447-231-2",
+          "7-447-116-5",
+          "9-447-232-0"
+        ],
+        "searchCodes": [
+          "116",
+          "232"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Colores de Rodalies Catalunya y coche intermedio PMR, 04/14. En servicio desde 08/14. Descarrilo (447- 099R+116R) un eje en Blanes 20/01/26. En servicio"
+        ]
+      },
+      "117": {
+        "rama": "117",
+        "lote": "Segundo lote",
+        "vehiculoBase": "117",
+        "numero": "7-447-117-3",
+        "vehiculosRama": [
+          "9-447-233-8",
+          "7-447-117-3",
+          "9-447-234-6"
+        ],
+        "searchCodes": [
+          "117",
+          "234"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Segundo lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Colores de Rodalies Catalunya y coche intermedio PMR, 05/14 Enservicio desde 08/14."
+        ]
+      },
+      "118": {
+        "rama": "118",
+        "lote": "Tercer lote",
+        "vehiculoBase": "118",
+        "numero": "7-447-118-1",
+        "vehiculosRama": [
+          "9-447-235-3",
+          "7-447-118-1",
+          "9-447-236-1"
+        ],
+        "searchCodes": [
+          "118",
+          "236"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Tercer lote",
+        "deposito": "Santander",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "",
+        "notas": [
+          "Colores Renfe Op. Ex-Madrid, hasta 05/11. (C). Descarrilo Corrales Buelna 9/10/14. Reforma PMR 2019. Vinilos Distanciamiento Social desde 05/20"
+        ]
+      },
+      "119": {
+        "rama": "119",
+        "lote": "Tercer lote",
+        "vehiculoBase": "119",
+        "numero": "7-447-119-9",
+        "vehiculosRama": [
+          "9-447-237-9",
+          "7-447-119-9",
+          "9-447-238-7"
+        ],
+        "searchCodes": [
+          "119",
+          "238"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Tercer lote",
+        "deposito": "Santander",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "",
+        "notas": [
+          "Colores Renfe Op. Ex-Madrid. Reformada a PMR, 09/14,"
+        ]
+      },
+      "120": {
+        "rama": "120",
+        "lote": "Tercer lote",
+        "vehiculoBase": "120",
+        "numero": "7-447-120-7",
+        "vehiculosRama": [
+          "9-447-239-5",
+          "7-447-120-7",
+          "9-447-240-3"
+        ],
+        "searchCodes": [
+          "120",
+          "240"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Tercer lote",
+        "deposito": "Santander",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "",
+        "notas": [
+          "Colores Renfe Op. Ex-Madrid. Reformada a PMR, 07/14. Colisión con 440-236 en Viérnoles 21/08/23."
+        ]
+      },
+      "121": {
+        "rama": "121",
+        "lote": "Tercer lote",
+        "vehiculoBase": "121",
+        "numero": "7-447-121-5",
+        "vehiculosRama": [
+          "9-447-241-1",
+          "7-447-121-5",
+          "9-447-242-9"
+        ],
+        "searchCodes": [
+          "121",
+          "242"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Tercer lote",
+        "deposito": "Cornellá",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Ex-Madrid→ Irún. Reformada a PMR, 06/14. Madrid, desde 30/06/14. Descarrilo en Chamartín, 23/10/14. Ex- Madrid→ Barcelona, desde 03/15. Colores Rodalies 11/21"
+        ]
+      },
+      "122": {
+        "rama": "122",
+        "lote": "Tercer lote",
+        "vehiculoBase": "122",
+        "numero": "7-447-122-3",
+        "vehiculosRama": [
+          "9-447-243-7",
+          "7-447-122-3",
+          "9-447-244-5"
+        ],
+        "searchCodes": [
+          "122",
+          "244"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Tercer lote",
+        "deposito": "Montcada",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Ex- Madrid→Santander→ Montcada-BÍif. desde 21/02/19 → Reformada PMR. Colores Rodalies"
+        ]
+      },
+      "123": {
+        "rama": "123",
+        "lote": "Tercer lote",
+        "vehiculoBase": "123",
+        "numero": "7-447-123-1",
+        "vehiculosRama": [
+          "9-447-245-2",
+          "7-447-123-1",
+          "9-447-246-0"
+        ],
+        "searchCodes": [
+          "123",
+          "246"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Tercer lote",
+        "deposito": "Ripoll",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Media Dist.",
+        "servicio": "R3 Rodalies",
+        "notas": [
+          "Colores Renfe Op. Ex-Madrid. → Colores de Rodalies, reformada interior con nuevos asientos. Reformada PMR."
+        ]
+      },
+      "124": {
+        "rama": "124",
+        "lote": "Tercer lote",
+        "vehiculoBase": "124",
+        "numero": "7-447-124-9",
+        "vehiculosRama": [
+          "9-447-247-8",
+          "7-447-124-9",
+          "9-447-248-6"
+        ],
+        "searchCodes": [
+          "124",
+          "248"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Tercer lote",
+        "deposito": "Ripoll",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Media Dist.",
+        "servicio": "R3 Rodalies",
+        "notas": [
+          "Colores Renfe Op. Ex-Fuencarral→ Barcelona, 03/12. Decoración Rodalies, 07/13. Interior y asientos reformados. Reformada a PMR."
+        ]
+      },
+      "125": {
+        "rama": "125",
+        "lote": "Tercer lote",
+        "vehiculoBase": "125",
+        "numero": "7-447-125-6",
+        "vehiculosRama": [
+          "9-447-249-4",
+          "7-447-125-6",
+          "9-447-250-2"
+        ],
+        "searchCodes": [
+          "125",
+          "250"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Tercer lote",
+        "deposito": "Ripoll",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Media Dist.",
+        "servicio": "R3 Rodalies",
+        "notas": [
+          "Colores Renfe Op. Madrid, hasta 16/04/12. Colores Rodalies e interior reformado para la línea R3 (10/13). Ex-Montcada. Reformada PMR."
+        ]
+      },
+      "126": {
+        "rama": "126",
+        "lote": "Tercer lote",
+        "vehiculoBase": "126",
+        "numero": "7-447-126-4",
+        "vehiculosRama": [
+          "9-447-251-0",
+          "7-447-126-4",
+          "9-447-252-8"
+        ],
+        "searchCodes": [
+          "126",
+          "252"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Tercer lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Ex-Madrid, hasta 16/04/12. Colores Rodalies. Ex-BCN-SAC. Reformada para PMR."
+        ]
+      },
+      "127": {
+        "rama": "127",
+        "lote": "Tercer lote",
+        "vehiculoBase": "127",
+        "numero": "7-447-127-2",
+        "vehiculosRama": [
+          "9-447-253-6",
+          "7-447-127-2",
+          "9-447-254-4"
+        ],
+        "searchCodes": [
+          "127",
+          "254"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Tercer lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Valéncia",
+        "notas": [
+          "Colores Renfe Op. Reformada a PMR, 04/2018. Ex-Santander→ Irún, 05/18 → Valencia, 12/19."
+        ]
+      },
+      "128": {
+        "rama": "128",
+        "lote": "Tercer lote",
+        "vehiculoBase": "128",
+        "numero": "7-447-128-0",
+        "vehiculosRama": [
+          "9-447-255-1",
+          "7-447-128-0",
+          "9-447-256-9"
+        ],
+        "searchCodes": [
+          "128",
+          "256"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Tercer lote",
+        "deposito": "Irún",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Irún",
+        "notas": [
+          "Colores Renfe Op. Ex-Barcelona→ Madrid→ 03/14 Santander. Reformada a PMR, 08/14. → Madrid 09/14→ Valencia 31/05/18. → Irún 01/25."
+        ]
+      },
+      "129": {
+        "rama": "129",
+        "lote": "Tercer lote",
+        "vehiculoBase": "129",
+        "numero": "7-447-129-8",
+        "vehiculosRama": [
+          "9-447-257-7",
+          "7-447-129-8",
+          "9-447-258-5"
+        ],
+        "searchCodes": [
+          "129",
+          "258"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Tercer lote",
+        "deposito": "Santander",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "",
+        "notas": [
+          "Colores Renfe Op. Ex-Fuencarral→ Cercanías Santander 06/13→ Irún→ Reforma PMR→Santander"
+        ]
+      },
+      "130": {
+        "rama": "130",
+        "lote": "Tercer lote",
+        "vehiculoBase": "130",
+        "numero": "7-447-130-6",
+        "vehiculosRama": [
+          "9-447-259-3",
+          "7-447-130-6",
+          "9-447-260-1"
+        ],
+        "searchCodes": [
+          "130",
+          "260"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Tercer lote",
+        "deposito": "Santander",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "",
+        "notas": [
+          "Colores Renfe Op. Ex-Fuencarral→ Valencia desde 11/09/13. Reformada a PMR (06/20). → Irún, desde 30/03/23→ Santander desde 06/23"
+        ]
+      },
+      "131": {
+        "rama": "131",
+        "lote": "Tercer lote",
+        "vehiculoBase": "131",
+        "numero": "7-447-131-4",
+        "vehiculosRama": [
+          "9-447-261-9",
+          "7-447-131-4",
+          "9-447-262-7"
+        ],
+        "searchCodes": [
+          "131",
+          "262"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Tercer lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Coche intermedio adaptado a PMR, 05/14. Ex-Madrid→ Barcelona, desde 22/06/15. Colores Rodalies 09/21 Accidente Montcada ¡ Reixac Manresa (unidad de cabeza) 07/12/22."
+        ]
+      },
+      "132": {
+        "rama": "132",
+        "lote": "Tercer lote",
+        "vehiculoBase": "132",
+        "numero": "7-447-132-2",
+        "vehiculosRama": [
+          "9-447-263-5",
+          "7-447-132-2",
+          "9-447-264-3"
+        ],
+        "searchCodes": [
+          "132",
+          "264"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Tercer lote",
+        "deposito": "Cormellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Colores Rodalies y reforma PMR desde 11/04/14 (cuarta en BCN). Ex-Montcada."
+        ]
+      },
+      "133": {
+        "rama": "133",
+        "lote": "Tercer lote",
+        "vehiculoBase": "133",
+        "numero": "7-447-133-0",
+        "vehiculosRama": [
+          "9-447-265-0",
+          "7-447-133-0",
+          "9-447-266-8"
+        ],
+        "searchCodes": [
+          "133",
+          "266"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Tercer lote",
+        "deposito": "Cormellá",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Reformada a PMR, 11/14. En servicio desde 01/12/14. Ex- Madrid→ Barcelona, desde 03/15, Colores Rodalies"
+        ]
+      },
+      "134": {
+        "rama": "134",
+        "lote": "Tercer lote",
+        "vehiculoBase": "134",
+        "numero": "7-447-134-8",
+        "vehiculosRama": [
+          "9-447-267-6",
+          "7-447-134-8",
+          "9-447-268-4"
+        ],
+        "searchCodes": [
+          "134",
+          "268"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Tercer lote",
+        "deposito": "Irún",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Gipuzkoa",
+        "notas": [
+          "Colores Renfe Op. Ex Madrid→ León Media Distancia→ Valencia 05/13 → Ex-Madrid 06/13→ Irún desde 09/14. Logos 75 años Renfe. Reformada a PMR."
+        ]
+      },
+      "135": {
+        "rama": "135",
+        "lote": "Tercer lote",
+        "vehiculoBase": "135",
+        "numero": "7-447-135-5",
+        "vehiculosRama": [
+          "9-447-269-2",
+          "7-447-135-5",
+          "9-447-270-0"
+        ],
+        "searchCodes": [
+          "135",
+          "270"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Tercer lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies→ Reforma PMR en servicio 10/15"
+        ]
+      },
+      "136": {
+        "rama": "136",
+        "lote": "Tercer lote",
+        "vehiculoBase": "136",
+        "numero": "7-447-136-3",
+        "vehiculosRama": [
+          "9-447-271-8",
+          "7-447-136-3",
+          "9-447-272-6"
+        ],
+        "searchCodes": [
+          "136",
+          "272"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Tercer lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies. Reformada a PMR, 04/15. Vinilada integramente 01/19"
+        ]
+      },
+      "137": {
+        "rama": "137",
+        "lote": "Tercer lote",
+        "vehiculoBase": "137",
+        "numero": "7-447-137-1",
+        "vehiculosRama": [
+          "9-447-273-4",
+          "7-447-137-1",
+          "9-447-274-2"
+        ],
+        "searchCodes": [
+          "137",
+          "274"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Tercer lote",
+        "deposito": "Montcada",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies desde 02/11. Accidente contra TrenHotel en Clot - Aragó→Apartada Vilanova→ En servicio 06/11.Reformada a PMR 08/15"
+        ]
+      },
+      "138": {
+        "rama": "138",
+        "lote": "Último lote",
+        "vehiculoBase": "138",
+        "numero": "7-447-138-9",
+        "vehiculosRama": [
+          "9-447-275-9",
+          "7-447-138-9",
+          "9-447-276-7"
+        ],
+        "searchCodes": [
+          "138",
+          "276"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Ripoll",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Ex-Madrid → Valencia, 05/13→ 03/14 Barcelona. Colores Rodalies.→ Reformada PMR (04/15). Ex-BCN- SAC. Descarrilo coche 275M túnel La Sagrera (09/03/23). → Apartada Cornellá De nuevo en servicio"
+        ]
+      },
+      "139": {
+        "rama": "139",
+        "lote": "Último lote",
+        "vehiculoBase": "139",
+        "numero": "7-447-139-7",
+        "vehiculosRama": [
+          "9-447-277-5",
+          "7-447-139-7",
+          "9-447-278-3"
+        ],
+        "searchCodes": [
+          "139",
+          "278"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Cornellá",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Ex-Madrid → Irún → Barcelona. Reformada PMR Colores Rodalies, 06/15. EX-BCN-SAC"
+        ]
+      },
+      "140": {
+        "rama": "140",
+        "lote": "Último lote",
+        "vehiculoBase": "140",
+        "numero": "7-447-140-5",
+        "vehiculosRama": [
+          "9-447-279-1",
+          "7-447-140-5",
+          "9-447-280-9"
+        ],
+        "searchCodes": [
+          "140",
+          "280"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Cornellá",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Reformada en 2014 (prototipo), nuevo coche intermedio adaptado PMR. (C). De nuevo en servicio desde 27/05/14. Ex-Madrid→ Barcelona, desde 22/06/15. Colores Rodalies de Catalunya 10/21"
+        ]
+      },
+      "141": {
+        "rama": "141",
+        "lote": "Último lote",
+        "vehiculoBase": "141",
+        "numero": "7-447-141-3",
+        "vehiculosRama": [
+          "9-447-281-7",
+          "7-447-141-3",
+          "9-447-282-5"
+        ],
+        "searchCodes": [
+          "141",
+          "282"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "",
+        "notas": [
+          "Colores Renfe Op. Ex-Madrid →Irún→Valencia. Reformada PMR (10/19). Traslado carretera FSL→Silla 11/24."
+        ]
+      },
+      "142": {
+        "rama": "142",
+        "lote": "Último lote",
+        "vehiculoBase": "142",
+        "numero": "7-447-142-1",
+        "vehiculosRama": [
+          "9-447-283-3",
+          "7-447-142-1",
+          "9-447-284-1"
+        ],
+        "searchCodes": [
+          "142",
+          "284"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Valencia",
+        "notas": [
+          "Colores Renfe Op. Ex-Madrid. Reformada a PMR, 07/14. Ex-Irún→ Madrid, hasta 31/05/18→ Valencia"
+        ]
+      },
+      "143": {
+        "rama": "143",
+        "lote": "Último lote",
+        "vehiculoBase": "143",
+        "numero": "7-447-143-9",
+        "vehiculosRama": [
+          "9-447-285-8",
+          "7-447-143-9",
+          "9-447-286-6"
+        ],
+        "searchCodes": [
+          "143",
+          "286"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Irún",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Gipuzkoa",
+        "notas": [
+          "Colores Renfe Op. Ex-Madrid. Coche PMR 13/02/18. Vista 01/19 con 447-283M+447- 143R+447-285M"
+        ]
+      },
+      "144": {
+        "rama": "144",
+        "lote": "Último lote",
+        "vehiculoBase": "144",
+        "numero": "7-447-144-7",
+        "vehiculosRama": [
+          "9-447-287-4",
+          "7-447-144-7",
+          "9-447-288-2"
+        ],
+        "searchCodes": [
+          "144",
+          "288"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Irún",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Gipuzkoa",
+        "notas": [
+          "Colores Renfe Op. Ex-Madrid. Reformada PMR."
+        ]
+      },
+      "145": {
+        "rama": "145",
+        "lote": "Último lote",
+        "vehiculoBase": "145",
+        "numero": "7-447-145-4",
+        "vehiculosRama": [
+          "9-447-289-0",
+          "7-447-145-4",
+          "9-447-290-8"
+        ],
+        "searchCodes": [
+          "145",
+          "290"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Santander",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Santander",
+        "notas": [
+          "Colores Renfe Op. Ex-Madrid. Reformada a PMR.→ Irún→ Valencia Fallas 03/19→ Irún 06/19 → Santander 08/22"
+        ]
+      },
+      "146": {
+        "rama": "146",
+        "lote": "Último lote",
+        "vehiculoBase": "146",
+        "numero": "7-447-146-2",
+        "vehiculosRama": [
+          "9-447-291-6",
+          "7-447-146-2",
+          "9-447-292-4"
+        ],
+        "searchCodes": [
+          "146",
+          "292"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Irún",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Gipuzkoa",
+        "notas": [
+          "Colores Renfe Op. Ex-Madrid. Reformada a PMR, 10/19"
+        ]
+      },
+      "147": {
+        "rama": "147",
+        "lote": "Último lote",
+        "vehiculoBase": "147",
+        "numero": "7-447-147-0",
+        "vehiculosRama": [
+          "9-447-293-2",
+          "7-447-147-0",
+          "9-447-294-0"
+        ],
+        "searchCodes": [
+          "147",
+          "294"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Irún",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Gipuzkoa",
+        "notas": [
+          "Colores Renfe Op. Ex-Madrid. Alcance en Hernani, 17/04/16. Reformada a PMR"
+        ]
+      },
+      "148": {
+        "rama": "148",
+        "lote": "Último lote",
+        "vehiculoBase": "148",
+        "numero": "7-447-148-8",
+        "vehiculosRama": [
+          "9-447-295-7",
+          "7-447-148-8",
+          "9-447-296-5"
+        ],
+        "searchCodes": [
+          "148",
+          "296"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Irún",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "",
+        "notas": [
+          "Colores Renfe Op. Accidente en Pozuelo. Ex-Madrid→ Santander. Reformada a PMR, 10/15. Irún 02/24"
+        ]
+      },
+      "149": {
+        "rama": "149",
+        "lote": "Último lote",
+        "vehiculoBase": "149",
+        "numero": "7-447-149-6",
+        "vehiculosRama": [
+          "9-447-297-3",
+          "7-447-149-6",
+          "9-447-298-1"
+        ],
+        "searchCodes": [
+          "149",
+          "298"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Ollargan",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Bilbao",
+        "notas": [
+          "Colores Renfe Op. Ex-Madrid. Reformada a PMR, 01/15. Ex-Irún→ Temporalmente en Bilbao hasta fin obras TAV en Donostia 28/07/26"
+        ]
+      },
+      "150": {
+        "rama": "150",
+        "lote": "Último lote",
+        "vehiculoBase": "150",
+        "numero": "7-447-150-4",
+        "vehiculosRama": [
+          "9-447-299-9",
+          "7-447-150-4",
+          "9-447-300-5"
+        ],
+        "searchCodes": [
+          "150",
+          "300"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Irún",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "",
+        "notas": [
+          "Colores Renfe Op. Ex-Madrid→ Santander→Irún. Reformada PMR→ Santander 26/08/23. Irún 02/24. Servicio inaugural Cercanias Vitoria 30/5/25."
+        ]
+      },
+      "151": {
+        "rama": "151",
+        "lote": "Último lote",
+        "vehiculoBase": "151",
+        "numero": "7-447-151-2",
+        "vehiculosRama": [
+          "9-447-301-3",
+          "7-447-151-2",
+          "9-447-302-1"
+        ],
+        "searchCodes": [
+          "151",
+          "302"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Irún",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Gipuzkoa",
+        "notas": [
+          "Colores Renfe Op. Ex-Irún→ Santander. Logos 75 años Renfe. Reformada PMR Vinilos Distanciamiento Social desde 05/20. Descarrilo entre Martutene y Astigarraga 25/10/24. De nuevo en servicio"
+        ]
+      },
+      "152": {
+        "rama": "152",
+        "lote": "Último lote",
+        "vehiculoBase": "152",
+        "numero": "7-447-152-0",
+        "vehiculosRama": [
+          "9-447-303-9",
+          "7-447-152-0",
+          "9-447-304-7"
+        ],
+        "searchCodes": [
+          "152",
+          "304"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Santander",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Gipuzkoa",
+        "notas": [
+          "Colores Renfe Op. Ex- Maadrid→Irún→Valencia desde 10/19. Transformada a PMR 06/20. Santander, 10/23"
+        ]
+      },
+      "153": {
+        "rama": "153",
+        "lote": "Último lote",
+        "vehiculoBase": "153",
+        "numero": "7-447-153-8",
+        "vehiculosRama": [
+          "9-447-305-4",
+          "7-447-153-8",
+          "9-447-306-2"
+        ],
+        "searchCodes": [
+          "153",
+          "306"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Valencia",
+        "notas": [
+          "Colores Renfe Op. Ex-Madrid → Irún → Valencia desde 02/20. Reformada a PMR."
+        ]
+      },
+      "154": {
+        "rama": "154",
+        "lote": "Último lote",
+        "vehiculoBase": "154",
+        "numero": "7-447-154-6",
+        "vehiculosRama": [
+          "9-447-307-0",
+          "7-447-154-6",
+          "9-447-308-8"
+        ],
+        "searchCodes": [
+          "154",
+          "308"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Cornellá",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. → Colores Rodalies. Vinilos publicidad TV3 desde 12/10. Reforma PMR, en servicio desde 05/15. Vuelve vinilos publicidad TV3 01/25"
+        ]
+      },
+      "155": {
+        "rama": "155",
+        "lote": "Último lote",
+        "vehiculoBase": "155",
+        "numero": "7-447-155-3",
+        "vehiculosRama": [
+          "9-447-309-6",
+          "7-447-155-3",
+          "9-447-310-4"
+        ],
+        "searchCodes": [
+          "155",
+          "310"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Ripoll",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Media Dist.",
+        "servicio": "R3 Rodalies",
+        "notas": [
+          "Colores Renfe Op. → Colores Rodalies. Reformado interior con asientos R3 (02/14) → Reformada PMR asientos R3 (10/20)"
+        ]
+      },
+      "156": {
+        "rama": "156",
+        "lote": "Último lote",
+        "vehiculoBase": "156",
+        "numero": "7-447-156-1",
+        "vehiculosRama": [
+          "9-447-311-2",
+          "7-447-156-1",
+          "9-447-312-0"
+        ],
+        "searchCodes": [
+          "156",
+          "312"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies. Reformada a PMR."
+        ]
+      },
+      "157": {
+        "rama": "157",
+        "lote": "Último lote",
+        "vehiculoBase": "157",
+        "numero": "7-447-157-9",
+        "vehiculosRama": [
+          "9-447-313-8",
+          "7-447-157-9",
+          "9-447-314-6"
+        ],
+        "searchCodes": [
+          "157",
+          "314"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "BCN-SAC",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Media Dist.",
+        "asientos": "Media Dist.",
+        "servicio": "Media Dist.",
+        "notas": [
+          "Colores Renfe Op. → Color Rodalies. Transformación MD PMR (08/15). → Ex-Cornella, SAC desde 01/06/22. Cartel y focos leds"
+        ]
+      },
+      "158": {
+        "rama": "158",
+        "lote": "Último lote",
+        "vehiculoBase": "158",
+        "numero": "7-447-158-7",
+        "vehiculosRama": [
+          "9-447-315-3",
+          "7-447-158-7",
+          "9-447-316-1"
+        ],
+        "searchCodes": [
+          "158",
+          "316"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Cornellá",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→Colores Rodalíes → Reformada para PMR"
+        ]
+      },
+      "159": {
+        "rama": "159",
+        "lote": "Último lote",
+        "vehiculoBase": "159",
+        "numero": "7-447-159-5",
+        "vehiculosRama": [
+          "9-447-317-9",
+          "7-447-159-5",
+          "9-447-318-7"
+        ],
+        "searchCodes": [
+          "159",
+          "318"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies. Reformada a PMR, 04/15.,Incendio entre Rajadell y Calaf R12 (20/07/23). Reparada Valencia FSL, en servicio 03/26"
+        ]
+      },
+      "160": {
+        "rama": "160",
+        "lote": "Último lote",
+        "vehiculoBase": "160",
+        "numero": "7-447-160-3",
+        "vehiculosRama": [
+          "9-447-319-5",
+          "7-447-160-3",
+          "9-447-320-3"
+        ],
+        "searchCodes": [
+          "160",
+          "320"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. → Colores Rodalies. Reformada PMR."
+        ]
+      },
+      "161": {
+        "rama": "161",
+        "lote": "Último lote",
+        "vehiculoBase": "161",
+        "numero": "7-447-161-1",
+        "vehiculosRama": [
+          "9-447-321-1",
+          "7-447-161-1",
+          "9-447-322-9"
+        ],
+        "searchCodes": [
+          "161",
+          "322"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→Colores Rodalíes. Inauguró 2014 junto con la 447-164R la línea RG1 que conecta Hospitalet de Llobregat con Figueres (Vía Mataró). Reformada PMR. Pruebas ERTMS."
+        ]
+      },
+      "162": {
+        "rama": "162",
+        "lote": "Último lote",
+        "vehiculoBase": "162",
+        "numero": "7-447-162-9",
+        "vehiculosRama": [
+          "9-447-323-7",
+          "7-447-162-9",
+          "9-447-324-5"
+        ],
+        "searchCodes": [
+          "162",
+          "324"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Reforma PMR desde 07/15. En servicio desde 15/02/16"
+        ]
+      },
+      "163": {
+        "rama": "163",
+        "lote": "Último lote",
+        "vehiculoBase": "163",
+        "numero": "7-447-163-7",
+        "vehiculosRama": [
+          "9-447-325-2",
+          "7-447-163-7",
+          "9-447-326-0"
+        ],
+        "searchCodes": [
+          "163",
+          "326"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Ripoll",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Media Dist.",
+        "servicio": "R3 Rodalies",
+        "notas": [
+          "Ex-Madrid. Colores Renfe Op. → Colores Rodalies desde 03/11. Reforma interior y asientos (12/13). Reformada PMR."
+        ]
+      },
+      "164": {
+        "rama": "164",
+        "lote": "Último lote",
+        "vehiculoBase": "164",
+        "numero": "7-447-164-5",
+        "vehiculosRama": [
+          "9-447-327-8",
+          "7-447-164-5",
+          "9-447-328-6"
+        ],
+        "searchCodes": [
+          "164",
+          "328"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "Apartada",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Ex-Madrid. Colores Renfe Op. →Colores Rodalies desde 06/11. Reformada PMR. Apartada en Cornellá 25/04/26."
+        ]
+      },
+      "165": {
+        "rama": "165",
+        "lote": "Último lote",
+        "vehiculoBase": "165",
+        "numero": "7-447-165-2",
+        "vehiculosRama": [
+          "9-447-329-4",
+          "7-447-165-2",
+          "9-447-330-2"
+        ],
+        "searchCodes": [
+          "165",
+          "330"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→Colores Rodalies de Cataluña → Reformada para PMR"
+        ]
+      },
+      "166": {
+        "rama": "166",
+        "lote": "Último lote",
+        "vehiculoBase": "166",
+        "numero": "7-447-166-0",
+        "vehiculosRama": [
+          "9-447-331-0",
+          "7-447-166-0",
+          "9-447-332-8"
+        ],
+        "searchCodes": [
+          "166",
+          "332"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→Colores Rodalíes→ Reformada para PMR"
+        ]
+      },
+      "167": {
+        "rama": "167",
+        "lote": "Último lote",
+        "vehiculoBase": "167",
+        "numero": "7-447-167-8",
+        "vehiculosRama": [
+          "9-447-333-6",
+          "7-447-167-8",
+          "9-447-334-4"
+        ],
+        "searchCodes": [
+          "167",
+          "334"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op.→Reformada PMR con colores Rodalies."
+        ]
+      },
+      "168": {
+        "rama": "168",
+        "lote": "Último lote",
+        "vehiculoBase": "168",
+        "numero": "7-447-168-6",
+        "vehiculosRama": [
+          "9-447-335-1",
+          "7-447-168-6",
+          "9-447-336-9"
+        ],
+        "searchCodes": [
+          "168",
+          "336"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Llevó 168M en el R.l. Colores Renfe Op. Reformada a PMR, 06/15. Vinilo completo desde 03/19 Colores Rodalies."
+        ]
+      },
+      "169": {
+        "rama": "169",
+        "lote": "Último lote",
+        "vehiculoBase": "169",
+        "numero": "7-447-169-4",
+        "vehiculosRama": [
+          "9-447-337-7",
+          "7-447-169-4",
+          "9-447-338-5"
+        ],
+        "searchCodes": [
+          "169",
+          "338"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Una de las primeras unidades en realizar Cercanías Tarragona 20/03/14. Reformada PMR"
+        ]
+      },
+      "170": {
+        "rama": "170",
+        "lote": "Último lote",
+        "vehiculoBase": "170",
+        "numero": "7-447-170-2",
+        "vehiculosRama": [
+          "9-447-339-3",
+          "7-447-170-2",
+          "9-447-340-1"
+        ],
+        "searchCodes": [
+          "170",
+          "340"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Cornellá",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies",
+        "notas": [
+          "Colores Renfe Op.→ Colores Rodalies, 11/15. Accidente de Castellgalí, Colisión frontal con 447-066R, en cabina 132M, regional Lleida-Bcn, 08/02/19. Apartada Manresa(Mercancías)→ Trasladada TCR Valladolid→ En reparación. De nuevo en servicio 21/05/24 y reformada para PMR."
+        ]
+      },
+      "171": {
+        "rama": "171",
+        "lote": "Último lote",
+        "vehiculoBase": "171",
+        "numero": "7-447-171-0",
+        "vehiculosRama": [
+          "9-447-341-9",
+          "7-447-171-0",
+          "9-447-342-7"
+        ],
+        "searchCodes": [
+          "171",
+          "342"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Cornellá",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Ex-Madrid. Reforma PMR, decoracion Rodalies 02/16."
+        ]
+      },
+      "172": {
+        "rama": "172",
+        "lote": "Último lote",
+        "vehiculoBase": "172",
+        "numero": "7-447-172-8",
+        "vehiculosRama": [
+          "9-447-343-5",
+          "7-447-172-8",
+          "9-447-344-3"
+        ],
+        "searchCodes": [
+          "172",
+          "344"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Ollargan",
+        "color": "Blanco/Rojo",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Bilbao",
+        "notas": [
+          "Colores Renfe Op. Ex-Madrid, hasta 27/06/14. Logos 75 años Renfe. Reformada a PMR 2015. Incendiado coche 343M en San Sebastián, 09/08/20. Accidentada por desprendimiento en la salida del túnel Erizmendi (Entre Gabiria y Zumarraga). 09/12/21. De nuevo en servicio 03/05/23. Traslado a Bilbao (C3) mientras se realizan las obras del TAV en Donostia 28/07/26."
+        ]
+      },
+      "173": {
+        "rama": "173",
+        "lote": "Último lote",
+        "vehiculoBase": "173",
+        "numero": "7-447-173-6",
+        "vehiculosRama": [
+          "9-447-345-0",
+          "7-447-173-6",
+          "9-447-346-8"
+        ],
+        "searchCodes": [
+          "173",
+          "346"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "BCN-SAC",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Media Dist.",
+        "asientos": "Media Dist.",
+        "servicio": "Media Dist.",
+        "notas": [
+          "Ex-Colores Renfe Op.Ex- Fuencarral→ Barcelona desde 12/09/13. Colores Rodalies, reforma PMR, asientos regionales 11/15."
+        ]
+      },
+      "174": {
+        "rama": "174",
+        "lote": "Último lote",
+        "vehiculoBase": "174",
+        "numero": "7-447-174-4",
+        "vehiculosRama": [
+          "9-447-347-6",
+          "7-447-174-4",
+          "9-447-348-4"
+        ],
+        "searchCodes": [
+          "174",
+          "348"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Valencia",
+        "color": "Cercanías",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Cercanías Valencia",
+        "notas": [
+          "Colores Renfe Op. Ex-Madrid→ 24/06/14 Valencia→ Alicante→Valencia→Irún→Reformada para PMR 3/20→Valencia"
+        ]
+      },
+      "175": {
+        "rama": "175",
+        "lote": "Último lote",
+        "vehiculoBase": "175",
+        "numero": "7-447-175-1",
+        "vehiculosRama": [
+          "9-447-349-2",
+          "7-447-175-1",
+          "9-447-350-0"
+        ],
+        "searchCodes": [
+          "175",
+          "350"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "BCN-SAC",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Media Dist.",
+        "asientos": "Media Dist.",
+        "servicio": "Media Dist.",
+        "notas": [
+          "Colores Renfe Op. Ex-Fuencarral. Colores Renfe Op.→ Colores Rodalies. Reformada a PMR con asientos MD."
+        ]
+      },
+      "176": {
+        "rama": "176",
+        "lote": "Último lote",
+        "vehiculoBase": "176",
+        "numero": "7-447-176-9",
+        "vehiculosRama": [
+          "9-447-351-8",
+          "7-447-176-9",
+          "9-447-352-6"
+        ],
+        "searchCodes": [
+          "176",
+          "352"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "BCN-SAC",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Media Dist.",
+        "asientos": "Media Dist.",
+        "servicio": "Media Dist.",
+        "notas": [
+          "Colores Renfe Op. Ex-Fuencarral→ Barcelona desde 12/09/13. Colores Rodalies, reformada a PMR y asientos de MD, 12/15."
+        ]
+      },
+      "177": {
+        "rama": "177",
+        "lote": "Último lote",
+        "vehiculoBase": "177",
+        "numero": "7-447-177-7",
+        "vehiculosRama": [
+          "9-447-353-4",
+          "7-447-177-7",
+          "9-447-354-2"
+        ],
+        "searchCodes": [
+          "177",
+          "354"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "BCN-SAC",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Media Dist.",
+        "asientos": "Media Dist.",
+        "servicio": "Media Dist.",
+        "notas": [
+          "Colores Renfe Op. Ex-Cercanias→ Cedido Media Distancia León 12/09 con base Madrid. Ex-Madrid→Valencia→10/10 Ex -Madrid. Colores Rodalies, Reforma PMR, asientos regionales 03/16."
+        ]
+      },
+      "178": {
+        "rama": "178",
+        "lote": "Último lote",
+        "vehiculoBase": "178",
+        "numero": "7-447-178-5",
+        "vehiculosRama": [
+          "9-447-355-9",
+          "7-447-178-5",
+          "9-447-356-7"
+        ],
+        "searchCodes": [
+          "178",
+          "356"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "BCN-SAC",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Media Dist.",
+        "asientos": "Media Dist.",
+        "servicio": "Media Dist.",
+        "notas": [
+          "Colores Renfe Op. Ex-Madrid→ Barcelona desde 10/02/12→ Reforma PMR asientos MD, colores Rod.Cat."
+        ]
+      },
+      "179": {
+        "rama": "179",
+        "lote": "Último lote",
+        "vehiculoBase": "179",
+        "numero": "7-447-179-3",
+        "vehiculosRama": [
+          "9-447-357-5",
+          "7-447-179-3",
+          "9-447-358-3"
+        ],
+        "searchCodes": [
+          "179",
+          "358"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "BCN-SAC",
+        "color": "Naranja/Blanco",
+        "estado": "Accidentada",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Media Dist.",
+        "asientos": "Media Dist.",
+        "servicio": "Media Dist.",
+        "notas": [
+          "Colores Renfe Op. Ex-Madrid. Colores Rodalies, reformada a PMR y asientos de MD, 12/15. Faros LED. Choque con árbol entre Sant Jordi Desvalls y Camallera 27/03/26"
+        ]
+      },
+      "180": {
+        "rama": "180",
+        "lote": "Último lote",
+        "vehiculoBase": "180",
+        "numero": "7-447-180-1",
+        "vehiculosRama": [
+          "9-447-359-1",
+          "7-447-180-1",
+          "9-447-360-9"
+        ],
+        "searchCodes": [
+          "180",
+          "360"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "BCN-SAC",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Media Dist.",
+        "asientos": "Media Dist.",
+        "servicio": "Media Dist.",
+        "notas": [
+          "Colores Renfe Op. Reformada a PMR, con asientos MD. Colores Rodalies."
+        ]
+      },
+      "181": {
+        "rama": "181",
+        "lote": "Último lote",
+        "vehiculoBase": "181",
+        "numero": "7-447-181-9",
+        "vehiculosRama": [
+          "9-447-361-7",
+          "7-447-181-9",
+          "9-447-362-5"
+        ],
+        "searchCodes": [
+          "181",
+          "362"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "BCN-SAC",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Media Dist.",
+        "asientos": "Media Dist.",
+        "servicio": "Media Dist.",
+        "notas": [
+          "Colores Renfe Op. Con ERTMS. Reformada a PMR, en servicio 11/15. Colores Rodalies."
+        ]
+      },
+      "182": {
+        "rama": "182",
+        "lote": "Último lote",
+        "vehiculoBase": "182",
+        "numero": "7-447-182-7",
+        "vehiculosRama": [
+          "9-447-363-9",
+          "7-447-182-7",
+          "9-447-364-1"
+        ],
+        "searchCodes": [
+          "182",
+          "364"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "BCN-SAC",
+        "color": "Naranja/Blanco",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Media Dist.",
+        "asientos": "Media Dist.",
+        "servicio": "Media Dist.",
+        "notas": [
+          "Colores Renfe Op. Una de las primeras unidades en realizar servicio de Cercanías Tarragona en 20/03/14 → Reformada PMR con colores Rodalies y asientos MD (07/16)."
+        ]
+      },
+      "183": {
+        "rama": "183",
+        "lote": "Último lote",
+        "vehiculoBase": "183",
+        "numero": "7-447-183-5",
+        "vehiculosRama": [
+          "9-447-365-8",
+          "7-447-183-5",
+          "9-447-366-6"
+        ],
+        "searchCodes": [
+          "183",
+          "366"
+        ],
+        "fabricante": "CAF, MACOSA, MTM",
+        "subserie": "447 · 3 coches · Último lote",
+        "deposito": "Cornellá",
+        "color": "Blanco/Naranja",
+        "estado": "En servicio",
+        "ano": "1992–1994",
+        "ancho": "1668",
+        "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+        "composicionRama": "Motor impar + remolque intermedio + motor par",
+        "une": "Cercanías",
+        "asientos": "Cercanías",
+        "servicio": "Rodalies Barcelona",
+        "notas": [
+          "Colores Renfe Op. Circuló como M365. Reformada a PMR y colores Rodalies, 06/15."
+        ]
+      }
+    }
+  },
   "450": {
     "seriesName": "Serie 450 · Cercanías · 6 coches",
   "fabricante": "ATEINSA, MTM",
@@ -19828,6 +25350,85 @@ function getFleetUnit(series, vehicle){
     };
   }
 
+  // Serie 447: la numeración de la unidad toma como referencia el remolque intermedio.
+  // Se aceptan: código corto de rama (001-183), 447XXX, matrículas completas de
+  // cualquiera de los tres coches, y la mitad del número del coche motor par.
+  // En matrículas completas se identifica el coche exacto; en código corto se
+  // prioriza siempre la numeración del remolque intermedio, tal como indica la ficha.
+  if(s==="447"){
+    const raw=String(vehicle??"").trim();
+    const compact=raw.replace(/\s+/g,"");
+    let base=null;
+    let matchedCode="";
+    let matchedVehicle="";
+    let idx=1;
+
+    // Matrícula completa: 9-447-XXX-X / 7-447-XXX-X.
+    const full=compact.match(/(?:^|[-])(?:9|7)[-]?447[-]?(\d{3})(?:[-]\d)?$/i);
+    if(full){
+      const vehicleCode=full[1];
+      for(const candidate of Object.values(seriesData.units||{})){
+        const vehicles=candidate.vehiculosRama||[];
+        const foundIndex=vehicles.findIndex(x=>{
+          const normalized=String(x).replace(/[-\s]/g,"");
+          return normalized===compact.replace(/[-\s]/g,"");
+        });
+        if(foundIndex>=0){
+          base=candidate;
+          idx=foundIndex;
+          matchedCode=vehicleCode;
+          matchedVehicle=vehicles[foundIndex];
+          break;
+        }
+      }
+
+      // Si el último dígito de control viene omitido, buscamos por código de coche.
+      if(!base){
+        for(const candidate of Object.values(seriesData.units||{})){
+          const foundIndex=(candidate.vehiculosRama||[]).findIndex(x=>
+            String(x).split("-")[2]===vehicleCode
+          );
+          if(foundIndex>=0){
+            base=candidate;
+            idx=foundIndex;
+            matchedCode=vehicleCode;
+            matchedVehicle=candidate.vehiculosRama[foundIndex];
+            break;
+          }
+        }
+      }
+    }
+
+    // Formato 447XXX o código corto. En ambos casos el código representa
+    // la numeración de la unidad/remolque intermedio (001-183).
+    if(!base){
+      let code="";
+      if(/^447\d{3}$/.test(compact)) code=compact.slice(3);
+      else if(/^\d{1,3}$/.test(compact)) code=compact.padStart(3,"0");
+      if(!code) return null;
+
+      const n=Number(code);
+      if(n<1 || n>183) return null;
+      base=seriesData.units?.[String(n)]||null;
+      matchedCode=code;
+      idx=1;
+      matchedVehicle=base?.vehiculosRama?.[1]||"";
+    }
+
+    if(!base) return null;
+    const canonicalVehicle=base.vehiculosRama?.[idx]||base.numero;
+    return {
+      ...base,
+      // El número de la unidad se conserva como el remolque intermedio.
+      numero:base.numero,
+      vehiculoBase:base.vehiculoBase,
+      vehiculoIntroducido:raw,
+      vehiculoBuscado:matchedCode||base.vehiculoBase,
+      vehiculoEncontrado:matchedVehicle||canonicalVehicle,
+      cocheTipo:["Coche motor impar","Remolque intermedio","Coche motor par"][idx]||"Vehículo Serie 447"
+    };
+  }
+
   // Serie 450: cualquiera de los vehículos de la rama identifica la composición.
   // Se aceptan códigos cortos (001, 201, 202...), matrículas 450-XXX-X
   // y matrículas completas Renfe (9-450-XXX-X / 7-450-XXX-X).
@@ -20400,7 +26001,7 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Serie</span><strong>${esc(series)}</strong></div>
         <div><span>Vehículo</span><strong>${esc(["103","104","120","121"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : vehicle)}</strong></div>
         <div><span>Rama</span><strong>${esc(unit.rama)}</strong></div>
-        ${["446","463","464"].includes(normalizeFleetValue(series))?`<div><span>Lote</span><strong>${esc(unit.lote||"—")}</strong></div>`:""}
+        ${["446","447","463","464"].includes(normalizeFleetValue(series))?`<div><span>Lote</span><strong>${esc(unit.lote||"—")}</strong></div>`:""}
         ${(["102","112"].includes(normalizeFleetValue(series)))?`
         <div><span>Motor introducido</span><strong>${esc(unit.motorTipo||"—")}</strong></div>
         <div><span>Motor impar</span><strong>${esc(unit.motorImpar||"—")}</strong></div>
@@ -20420,6 +26021,9 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Estado</span><strong>${esc(unit.estado||"—")}</strong></div>`:""}
         ${normalizeFleetValue(series)==="446"?`
         <div><span>LZB</span><strong>${esc(unit.lzb||"—")}</strong></div>
+        <div><span>Vehículos de la rama</span><strong>${esc((unit.vehiculosRama||[]).join(" · ")||"—")}</strong></div>
+        <div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||"—")}</strong></div>`:""}
+        ${normalizeFleetValue(series)==="447"?`
         <div><span>Vehículos de la rama</span><strong>${esc((unit.vehiculosRama||[]).join(" · ")||"—")}</strong></div>
         <div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||"—")}</strong></div>`:""}
         ${normalizeFleetValue(series)==="463"?`<div><span>Color</span><strong>${esc(unit.color||"—")}</strong></div>
@@ -20448,14 +26052,14 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${tech?.velocidadMaxima?`<div><span>Velocidad máxima</span><strong>${esc(tech.velocidadMaxima||seriesData.velocidadMaxima)}</strong></div>`:""}
         ${tech?.potencia?`<div><span>Potencia</span><strong>${esc(tech.potencia||seriesData.potencia)}</strong></div>`:""}
         ${tech?.plazasSentadas?`<div><span>Plazas sentadas</span><strong>${esc(tech.plazasSentadas||seriesData.plazasSentadas)}</strong></div>`:""}
-         ${["112","121","446","450","453","464","730","801"].includes(normalizeFleetValue(series))?`
+         ${["112","121","447","446","450","453","464","730","801"].includes(normalizeFleetValue(series))?`
          <div><span>Longitud</span><strong>${esc(tech.longitud||"—")}</strong></div>
          <div><span>Peso</span><strong>${esc(tech.peso||"—")}</strong></div>
          <div><span>Tensión</span><strong>${esc(tech.tension||"—")}</strong></div>
          <div><span>Tracción</span><strong>${esc(tech.traccion||"—")}</strong></div>
-         <div><span>Señalización</span><strong>${esc(normalizeFleetValue(series)==="446" ? (unit.lzb==="Sí" ? "LZB · ASFA" : "ASFA") : (tech.señalizacion||"—"))}</strong></div>
+         ${(normalizeFleetValue(series)==="447" && !tech?.señalizacion) ? "" : `<div><span>Señalización</span><strong>${esc(normalizeFleetValue(series)==="446" ? (unit.lzb==="Sí" ? "LZB · ASFA" : "ASFA") : (tech.señalizacion||"—"))}</strong></div>`}
          <div><span>Composición</span><strong>${esc(tech.composicion||"—")}</strong></div>
-         ${["446","453"].includes(normalizeFleetValue(series))?`
+         ${["446","447","453"].includes(normalizeFleetValue(series))?`
          ${normalizeFleetValue(series)==="453"?`<div><span>Esfuerzo de tracción</span><strong>${esc(tech.esfuerzoTraccion||"—")}</strong></div>`:""}
          <div><span>Frenos</span><strong>${esc(tech.frenos||"—")}</strong></div>
          <div><span>Mando múltiple</span><strong>${esc(tech.mandoMultiple||"—")}</strong></div>
