@@ -22647,3 +22647,216 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   (document.head||document.documentElement).appendChild(style);
 })();
 
+
+/* ================================================================
+   ARGOS · MÓVIL · TIPOGRAFÍA + MENÚ PRINCIPAL
+   V8 · Solo móvil.
+   Aumenta la legibilidad y compacta el menú para que quepa centrado
+   sin scroll en la pantalla principal.
+   ================================================================ */
+(function(){
+  const styleId="argos-mobile-typography-menu-v8";
+  if(document.getElementById(styleId)) return;
+
+  const style=document.createElement("style");
+  style.id=styleId;
+  style.textContent=`
+    @media(max-width:600px){
+      /* ----------------------------------------------------------
+         MENÚ PRINCIPAL
+         ---------------------------------------------------------- */
+      #menu.active{
+        min-height:100dvh!important;
+        height:100dvh!important;
+        max-height:100dvh!important;
+        overflow:hidden!important;
+        box-sizing:border-box;
+        display:flex!important;
+        flex-direction:column;
+        justify-content:center;
+      }
+
+      #menu.active > *{
+        box-sizing:border-box;
+      }
+
+      /* Contenedor habitual del contenido del menú, si existe. */
+      #menu.active .container,
+      #menu.active .screen-content,
+      #menu.active .screen-inner,
+      #menu.active .page,
+      #menu.active .content{
+        box-sizing:border-box;
+      }
+
+      /* Textos principales: + legibilidad sin hacer crecer
+         descontroladamente las tarjetas. */
+      #menu.active h1{
+        font-size:clamp(27px,7vw,34px)!important;
+        line-height:1.06!important;
+      }
+
+      #menu.active h2,
+      #menu.active h3{
+        font-size:clamp(20px,5.1vw,25px)!important;
+        line-height:1.1!important;
+      }
+
+      #menu.active p{
+        font-size:clamp(15px,4vw,18px)!important;
+        line-height:1.22!important;
+      }
+
+      /* Las acciones del menú ganan tamaño de letra pero pierden
+         un poco de altura/padding para que todas sigan cabiendo. */
+      #menu.active [data-screen]{
+        min-height:72px!important;
+        padding-top:11px!important;
+        padding-bottom:11px!important;
+      }
+
+      #menu.active [data-screen] h2,
+      #menu.active [data-screen] h3,
+      #menu.active [data-screen] strong{
+        font-size:clamp(19px,4.9vw,24px)!important;
+        line-height:1.08!important;
+      }
+
+      #menu.active [data-screen] p,
+      #menu.active [data-screen] small{
+        font-size:clamp(14px,3.7vw,17px)!important;
+        line-height:1.18!important;
+      }
+
+      /* Si las tarjetas del menú usan clases propias, estas reglas
+         las compactan sin cambiar su diseño. */
+      #menu.active .card,
+      #menu.active .menu-card,
+      #menu.active .action-card{
+        box-sizing:border-box;
+        padding-top:11px!important;
+        padding-bottom:11px!important;
+      }
+
+      #menu.active .card h2,
+      #menu.active .card h3,
+      #menu.active .menu-card h2,
+      #menu.active .menu-card h3,
+      #menu.active .action-card h2,
+      #menu.active .action-card h3{
+        font-size:clamp(19px,4.9vw,24px)!important;
+      }
+
+      #menu.active .card p,
+      #menu.active .menu-card p,
+      #menu.active .action-card p{
+        font-size:clamp(14px,3.7vw,17px)!important;
+      }
+
+      /* ----------------------------------------------------------
+         ÚLTIMA VEZ
+         Aquí hay espacio de sobra: textos deliberadamente mayores.
+         ---------------------------------------------------------- */
+      #argosLastTimeScreen.active{
+        font-size:16px;
+      }
+
+      #argosLastTimeScreen.active .argos-last-time-hero h1{
+        font-size:clamp(35px,9vw,48px)!important;
+      }
+
+      #argosLastTimeScreen.active .argos-last-time-hero p{
+        font-size:clamp(16px,4.2vw,19px)!important;
+      }
+
+      #argosLastTimeScreen.active .argos-last-time-kicker{
+        font-size:11px!important;
+      }
+
+      #argosLastTimeScreen.active .argos-last-time-search-label{
+        font-size:15px!important;
+      }
+
+      #argosLastTimeScreen.active .argos-last-time-switch-option{
+        font-size:15px!important;
+      }
+
+      #argosLastTimeScreen.active .argos-last-time-route{
+        font-size:clamp(18px,4.7vw,21px)!important;
+      }
+
+      #argosLastTimeScreen.active .argos-last-time-service-meta{
+        font-size:13px!important;
+      }
+
+      #argosLastTimeScreen.active .argos-last-time-series-title{
+        font-size:clamp(20px,5.2vw,25px)!important;
+      }
+
+      #argosLastTimeScreen.active .argos-last-time-series-sub{
+        font-size:13px!important;
+      }
+
+      #argosLastTimeScreen.active .argos-last-time-series-meta{
+        font-size:13px!important;
+      }
+    }
+  `;
+
+  (document.head||document.documentElement).appendChild(style);
+
+  function markMenuCards(){
+    const menu=document.getElementById("menu");
+    if(!menu) return;
+
+    /*
+     * Algunas versiones de ARGOS generan las tarjetas desde HTML,
+     * otras las reconstruyen al navegar. Marcamos únicamente
+     * elementos que ya existen, sin cambiar su contenido.
+     */
+    menu.querySelectorAll("[data-screen]").forEach(el=>{
+      el.classList.add("argos-mobile-menu-action");
+    });
+
+    const labels=[
+      "Añadir nuevo servicio",
+      "Ver historial",
+      "Estadísticas",
+      "ArgosDex",
+      "Último servicio",
+      "Última vez"
+    ];
+
+    labels.forEach(label=>{
+      const nodes=[...menu.querySelectorAll("button,a,article,section,div")];
+      const node=nodes.find(el=>{
+        const t=(el.textContent||"").replace(/\s+/g," ").trim();
+        return t===label || t.startsWith(label+" ");
+      });
+      if(node) node.classList.add("argos-mobile-menu-action");
+    });
+  }
+
+  function refresh(){
+    markMenuCards();
+  }
+
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",refresh,{once:true});
+  }else{
+    refresh();
+  }
+
+  /* refreshHome() vuelve a construir el menú; volvemos a marcarlo
+     después de cada reconstrucción sin tocar su funcionamiento. */
+  const originalRefresh=window.refreshHome;
+  if(typeof originalRefresh==="function"&&!window.__argosMobileMenuV8Wrapped){
+    window.__argosMobileMenuV8Wrapped=true;
+    window.refreshHome=function(){
+      const result=originalRefresh.apply(this,arguments);
+      setTimeout(refresh,0);
+      return result;
+    };
+  }
+})();
+
