@@ -1233,277 +1233,115 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
 </style>
 
 
-<style id="argos-ficha-mobile-v13">
-/* ================================================================
-   ARGOS · FICHA DESDE "ÚLTIMA VEZ" · MÓVIL · V13
-   La ficha completa cabe en una sola pantalla, debajo del header.
-   No se modifica la información mostrada.
-   ================================================================ */
+<style id="argos-last-time-ficha-mobile-v15">
 @media(max-width:600px){
-  #ficha{
-    overflow:hidden!important;
-    padding:8px 12px 10px!important;
-  }
-
-  #ficha .screen-header{
-    flex:0 0 auto!important;
-    min-height:44px!important;
-    margin-bottom:6px!important;
-  }
-
-  #ficha .back-button{
-    width:44px!important;
-    height:44px!important;
-    min-width:44px!important;
-    border-radius:13px!important;
-    font-size:25px!important;
-  }
-
-  #ficha .screen-header > div{
-    display:none!important;
-  }
-
-  #ficha .ficha-shell{
-    width:100%!important;
-    height:calc(100% - 50px)!important;
-    min-height:0!important;
-    margin:0!important;
-  }
-
-  #ficha .ficha-card{
-    width:100%!important;
-    height:100%!important;
-    min-height:0!important;
-    box-sizing:border-box!important;
-    padding:10px!important;
-    border-radius:18px!important;
-    box-shadow:none!important;
-    display:flex!important;
-    flex-direction:column!important;
-    overflow:hidden!important;
-  }
-
-  #ficha .ficha-hero{
-    flex:0 0 auto!important;
-    padding:14px 15px!important;
-    margin-bottom:9px!important;
-    border-radius:15px!important;
-  }
-
-  #ficha .ficha-kicker{
-    font-size:9px!important;
-    letter-spacing:.09em!important;
-  }
-
-  #ficha .ficha-hero h3{
-    margin:3px 0!important;
-    font-size:24px!important;
-    line-height:1.05!important;
-  }
-
-  #ficha .ficha-hero p{
-    font-size:12px!important;
-    line-height:1.2!important;
-  }
-
-  #ficha .ficha-section{
-    flex:1 1 auto!important;
-    min-height:0!important;
-    margin-top:4px!important;
-    display:flex!important;
-    flex-direction:column!important;
-  }
-
-  #ficha .ficha-section-title{
-    flex:0 0 auto!important;
-    font-size:10px!important;
-    margin:0 0 6px!important;
-  }
-
-  /* Dos columnas también en móvil: evita las cinco filas verticales. */
-  #ficha .ficha-grid{
-    flex:1 1 auto!important;
-    min-height:0!important;
-    grid-template-columns:repeat(2,minmax(0,1fr))!important;
-    grid-auto-rows:minmax(0,1fr)!important;
-    gap:7px!important;
-  }
-
-  #ficha .ficha-grid>div{
-    min-width:0!important;
-    min-height:0!important;
-    padding:9px 10px!important;
-    border-radius:12px!important;
-    display:flex!important;
-    flex-direction:column!important;
-    justify-content:center!important;
-    overflow:hidden!important;
-  }
-
-  #ficha .ficha-grid span{
-    font-size:10px!important;
-    margin-bottom:2px!important;
-  }
-
-  #ficha .ficha-grid strong{
-    font-size:13px!important;
-    line-height:1.12!important;
-    overflow-wrap:anywhere!important;
-  }
-
-  #ficha .ficha-actions{
-    flex:0 0 auto!important;
-    margin-top:8px!important;
-    gap:0!important;
-  }
-
-  #ficha .ficha-actions button{
-    width:100%!important;
-    min-height:46px!important;
-    height:46px!important;
-    border-radius:13px!important;
-    font-size:13px!important;
-  }
-}
-</style>
-
-
-<style id="argos-ficha-viewport-v14">
-/* ================================================================
-   ARGOS · FICHA "ÚLTIMA VEZ" · MÓVIL · V14
-   Objetivo:
-   - La ficha no genera scroll propio.
-   - La página tampoco genera scroll al estar dentro de la ficha.
-   - El encabezado Renfe conserva siempre su espacio.
-   - La ficha se adapta al espacio REAL disponible debajo del header.
-   - No se modifica el contenido ni la navegación.
-   ================================================================ */
-
-@media(max-width:600px){
-  html,
-  body{
-    height:100%!important;
-    min-height:100%!important;
-    max-height:100%!important;
-    overflow:hidden!important;
-  }
-
-  body{
-    margin:0!important;
-  }
-
+  /* No forzamos 100dvh a cada pantalla: el header conserva su espacio. */
   .app-shell{
-    width:100%!important;
     height:100dvh!important;
     min-height:100dvh!important;
     max-height:100dvh!important;
     overflow:hidden!important;
-    display:flex!important;
-    flex-direction:column!important;
   }
 
   .app-header{
     flex:0 0 64px!important;
-    width:100%!important;
     height:64px!important;
     min-height:64px!important;
     max-height:64px!important;
-    overflow:hidden!important;
     position:relative!important;
     z-index:1000!important;
   }
 
   .app-shell > .screen{
     flex:1 1 auto!important;
-    width:100%!important;
     min-height:0!important;
     height:auto!important;
     max-height:none!important;
-    overflow:hidden!important;
     box-sizing:border-box!important;
   }
 
-  /* Ficha que se abre desde Última vez */
-  #ficha{
-    flex:1 1 auto!important;
+  /* Fichas normales: SCROLL permitido. */
+  #ficha:not(.argos-last-time-ficha){
+    overflow-y:auto!important;
+    -webkit-overflow-scrolling:touch!important;
+  }
+
+  /* Ficha abierta desde Última vez: TODO en una pantalla. */
+  #ficha.argos-last-time-ficha{
+    overflow:hidden!important;
     min-height:0!important;
     height:auto!important;
-    max-height:none!important;
-    overflow:hidden!important;
-    box-sizing:border-box!important;
     padding:6px 12px 8px!important;
+    box-sizing:border-box!important;
   }
 
-  #ficha .screen-header{
-    flex:0 0 44px!important;
-    height:44px!important;
-    min-height:44px!important;
-    max-height:44px!important;
+  #ficha.argos-last-time-ficha .screen-header{
+    height:40px!important;
+    min-height:40px!important;
     margin:0 0 5px!important;
     padding:0!important;
   }
 
-  #ficha .back-button{
-    width:42px!important;
-    height:42px!important;
-    min-width:42px!important;
-    max-width:42px!important;
-    min-height:42px!important;
-    max-height:42px!important;
-    margin:0!important;
+  #ficha.argos-last-time-ficha .back-button{
+    width:40px!important;
+    height:40px!important;
+    min-width:40px!important;
+    min-height:40px!important;
     padding:0!important;
+    margin:0!important;
   }
 
-  #ficha .ficha-shell{
+  #ficha.argos-last-time-ficha .screen-header > div{
+    display:none!important;
+  }
+
+  #ficha.argos-last-time-ficha .ficha-shell{
     width:100%!important;
-    height:calc(100% - 49px)!important;
+    height:calc(100% - 45px)!important;
     min-height:0!important;
-    max-height:calc(100% - 49px)!important;
+    max-height:calc(100% - 45px)!important;
     margin:0!important;
     overflow:hidden!important;
-    box-sizing:border-box!important;
   }
 
-  #ficha .ficha-card{
+  #ficha.argos-last-time-ficha .ficha-card{
     width:100%!important;
     height:100%!important;
     min-height:0!important;
     max-height:100%!important;
     margin:0!important;
-    padding:9px!important;
+    padding:8px!important;
     box-sizing:border-box!important;
     overflow:hidden!important;
     display:flex!important;
     flex-direction:column!important;
   }
 
-  #ficha .ficha-hero{
+  #ficha.argos-last-time-ficha .ficha-hero{
     flex:0 0 auto!important;
-    min-height:0!important;
-    margin:0 0 7px!important;
-    padding:11px 13px!important;
-    border-radius:15px!important;
+    margin:0 0 6px!important;
+    padding:10px 12px!important;
+    border-radius:14px!important;
   }
 
-  #ficha .ficha-kicker{
-    font-size:9px!important;
-    line-height:1.1!important;
-    margin:0!important;
+  #ficha.argos-last-time-ficha .ficha-kicker{
+    font-size:8px!important;
+    line-height:1!important;
   }
 
-  #ficha .ficha-hero h3{
+  #ficha.argos-last-time-ficha .ficha-hero h3{
     margin:3px 0!important;
-    font-size:22px!important;
+    font-size:21px!important;
     line-height:1.02!important;
   }
 
-  #ficha .ficha-hero p{
+  #ficha.argos-last-time-ficha .ficha-hero p{
     margin:0!important;
-    font-size:11px!important;
-    line-height:1.1!important;
+    font-size:10px!important;
+    line-height:1.08!important;
   }
 
-  #ficha .ficha-section{
+  #ficha.argos-last-time-ficha .ficha-section{
     flex:1 1 auto!important;
     min-height:0!important;
     margin:2px 0 0!important;
@@ -1512,71 +1350,66 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
     flex-direction:column!important;
   }
 
-  #ficha .ficha-section-title{
+  #ficha.argos-last-time-ficha .ficha-section-title{
     flex:0 0 auto!important;
-    margin:0 0 5px!important;
+    margin:0 0 4px!important;
     font-size:9px!important;
-    line-height:1.1!important;
+    line-height:1!important;
   }
 
-  #ficha .ficha-grid{
+  #ficha.argos-last-time-ficha .ficha-grid{
     flex:1 1 auto!important;
     min-height:0!important;
-    height:auto!important;
-    max-height:none!important;
     grid-template-columns:repeat(2,minmax(0,1fr))!important;
     grid-template-rows:repeat(3,minmax(0,1fr))!important;
-    grid-auto-rows:auto!important;
-    gap:6px!important;
+    gap:5px!important;
     overflow:hidden!important;
   }
 
-  #ficha .ficha-grid>div{
+  #ficha.argos-last-time-ficha .ficha-grid>div{
     min-width:0!important;
     min-height:0!important;
-    height:auto!important;
-    padding:7px 9px!important;
-    border-radius:11px!important;
+    padding:6px 8px!important;
+    border-radius:10px!important;
     display:flex!important;
     flex-direction:column!important;
     justify-content:center!important;
     overflow:hidden!important;
   }
 
-  #ficha .ficha-grid span{
-    flex:0 0 auto!important;
-    font-size:9px!important;
-    line-height:1.05!important;
+  #ficha.argos-last-time-ficha .ficha-grid span{
+    font-size:8px!important;
+    line-height:1!important;
     margin:0 0 2px!important;
   }
 
-  #ficha .ficha-grid strong{
+  #ficha.argos-last-time-ficha .ficha-grid strong{
     display:block!important;
     min-width:0!important;
-    font-size:12px!important;
-    line-height:1.08!important;
+    font-size:11px!important;
+    line-height:1.05!important;
     overflow:hidden!important;
     overflow-wrap:anywhere!important;
   }
 
-  #ficha .ficha-actions{
-    flex:0 0 43px!important;
-    height:43px!important;
-    min-height:43px!important;
-    max-height:43px!important;
-    margin:7px 0 0!important;
+  #ficha.argos-last-time-ficha .ficha-actions{
+    flex:0 0 38px!important;
+    height:38px!important;
+    min-height:38px!important;
+    max-height:38px!important;
+    margin:5px 0 0!important;
     padding:0!important;
     overflow:hidden!important;
   }
 
-  #ficha .ficha-actions button{
+  #ficha.argos-last-time-ficha .ficha-actions button{
     width:100%!important;
-    height:43px!important;
-    min-height:43px!important;
-    max-height:43px!important;
-    padding:0 10px!important;
-    border-radius:12px!important;
-    font-size:12px!important;
+    height:38px!important;
+    min-height:38px!important;
+    max-height:38px!important;
+    padding:0 8px!important;
+    border-radius:11px!important;
+    font-size:11px!important;
   }
 }
 </style>
