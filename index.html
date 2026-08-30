@@ -3639,6 +3639,32 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   }
   function plural(n,one,many){return n===1?one:many;}
 
+  function resolveVehicle(service){
+    /* Los servicios introducidos mediante rama manual pueden guardar vehicle=''
+       porque la unidad se identifica realmente por serie + rama. En ese caso
+       recuperamos el vehículo base desde la flota, sin modificar el servicio. */
+    const direct=field(service,'vehicle');
+    if(direct)return direct;
+
+    const series=field(service,'series');
+    const branch=field(service,'branch');
+    if(!series||!branch)return '';
+
+    try{
+      if(typeof fleet==='undefined')return '';
+      const units=fleet[series]?.units||{};
+      for(const [key,unit] of Object.entries(units)){
+        const unitBranch=txt(unit?.rama);
+        if(unitBranch===branch || unitBranch.replace(/\D/g,'')===branch.replace(/\D/g,'')){
+          return txt(unit?.vehiculoBase||key);
+        }
+      }
+    }catch(e){
+      console.warn('ARGOS V17 · resolución de vehículo:',e);
+    }
+    return '';
+  }
+
   function openSeriesModal(seriesName){
     const modal=$('statsModal');
     if(!modal)return;
@@ -3647,7 +3673,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const vehicleMap=new Map();
 
     services.forEach(s=>{
-      const vehicle=field(s,'vehicle');
+      const vehicle=resolveVehicle(s);
       if(!vehicle)return;
       if(!vehicleMap.has(vehicle))vehicleMap.set(vehicle,[]);
       vehicleMap.get(vehicle).push(s);
