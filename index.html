@@ -4249,67 +4249,60 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 })();
 </script>
 
-<!-- ARGOS V26 · FILTRO FINAL DE PRODUCTO POR SERIE -->
-<script id="argos-product-by-series-v26">
+<!-- ARGOS V27 · PRODUCTOS DEFINIDOS POR SERIE -->
+<script id="argos-product-by-series-v27">
 (function(){
   'use strict';
 
   /*
-   * V26 se ejecuta al FINAL del documento, después del selector personalizado
-   * y de las extensiones V23. Así el filtro actúa sobre el desplegable visible.
+   * V27: tabla definitiva basada en la clasificación indicada por Pablo.
+   * CHARTER aparece SIEMPRE para todas las series clasificadas.
+   * Las series con "TODOS EXCEPTO" muestran todos los productos salvo los excluidos.
    */
+  const ALL_PRODUCTS=[
+    'AVE','ALVIA','EUROMED','INTERCITY','AVLO','Cercanías',
+    'Media Distancia','Regional','Regional Exprés','Trambahía','Proximidad',
+    'AVANT','Cercanías AM','Media Distancia AM','Rodalies','Turístico',
+    'Mercancías','Charter','Otro'
+  ];
+
   const MAP={
-    '100':['AVE'],
-    '102':['AVE','AVLO'],
-    '103':['AVE'],
+    '100':['AVE','AVLO','EUROMED','INTERCITY','AVANT'],
+    '102':['AVE','AVLO','EUROMED','INTERCITY','AVANT'],
+    '103':['AVE','AVLO','EUROMED','INTERCITY'],
     '104':['AVANT'],
-    '105':['AVE'],
-    '106':['AVE','AVLO'],
-    '107':['AVE','AVLO'],
-    '108':['AVE','AVLO'],
-    '112':['AVE','AVLO'],
+    '106':['AVE','AVLO','EUROMED','INTERCITY','AVANT'],
+    '112':['AVE','AVLO','EUROMED','INTERCITY','AVANT'],
     '114':['AVANT'],
-    '120':['ALVIA','AVANT'],
-    '121':['ALVIA','AVANT'],
-    '130':['ALVIA'],
-    '730':['ALVIA'],
+    '120':['ALVIA','EUROMED','INTERCITY','AVANT'],
+    '121':['ALVIA','EUROMED','INTERCITY','AVANT'],
+    '130':['ALVIA','EUROMED','INTERCITY','AVANT'],
+    '730':['ALVIA','EUROMED','INTERCITY','AVANT'],
 
-    '251':['Mercancías','Charter'],
-    '252':['Mercancías','Charter'],
-    '253':['Mercancías'],
-    '256':['Mercancías','Charter'],
-    '269':['Mercancías','Charter'],
-    '319':['Mercancías'],
-    '333':['Mercancías','Charter'],
-    '334':['Media Distancia','Regional','Regional Exprés','Charter'],
+    /* Todos excepto AVE, AVLO, EUROMED, INTERCITY, AVANT,
+       Trambahía, Cercanías AM, Media Distancia AM y Mercancías. */
+    '446':['ALVIA','Cercanías','Media Distancia','Regional','Regional Exprés','Proximidad','Rodalies','Turístico','Otro'],
+    '450':['ALVIA','Cercanías','Media Distancia','Regional','Regional Exprés','Proximidad','Rodalies','Turístico','Otro'],
+    '451':['ALVIA','Cercanías','Media Distancia','Regional','Regional Exprés','Proximidad','Rodalies','Turístico','Otro'],
 
-    '440':['Cercanías','Media Distancia','Regional'],
-    '442':['Cercanías','Media Distancia','Regional'],
-    '443':['Cercanías','Media Distancia','Regional'],
-    '444':['Cercanías','Media Distancia','Regional'],
-    '446':['Cercanías'],
-    '447':['Cercanías'],
-    '448':['Cercanías'],
-    '450':['Cercanías'],
-    '451':['Cercanías'],
-    '452':['Cercanías'],
+    '449':['Media Distancia','Regional','Regional Exprés','Proximidad'],
     '453':['Cercanías'],
-    '463':['Cercanías'],
-    '464':['Cercanías'],
-    '465':['Cercanías'],
-    '470':['Cercanías','Media Distancia','Regional'],
-    '446':['Cercanías'],
-
-    '592':['Media Distancia','Regional','Regional Exprés'],
-    '593':['Media Distancia','Regional','Regional Exprés'],
-    '594':['Media Distancia','Regional','Regional Exprés'],
-    '596':['Media Distancia','Regional','Regional Exprés'],
-    '598':['Media Distancia','Regional','Regional Exprés'],
-    '599':['Media Distancia','Regional','Regional Exprés']
+    '463':['Cercanías','Rodalies'],
+    '464':['Cercanías','Rodalies'],
+    '465':['Cercanías','Rodalies'],
+    '801':['Trambahía']
   };
+
+  const CHARTER='Charter';
 
   function norm(v){
     return String(v??'').replace(/\D/g,'').replace(/^0+/,'')||'';
+  }
+
+  function allowedForSeries(seriesValue){
+    const key=norm(seriesValue);
+    if(!Object.prototype.hasOwnProperty.call(MAP,key))return null;
+    return new Set(MAP[key].concat(CHARTER).map(x=>x.toLowerCase()));
   }
 
   function apply(){
@@ -4319,35 +4312,38 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const value=document.getElementById('productSelectValue');
     if(!series||!select||!box)return;
 
-    const key=norm(series.value);
-    const allowed=MAP[key];
-    const allowedSet=allowed?new Set(allowed.map(x=>x.toLowerCase())):null;
-    const options=Array.from(select.options);
+    const allowedSet=allowedForSeries(series.value);
     const current=select.value;
 
-    /* Filtra el select nativo, que es la fuente de verdad. */
-    options.forEach(opt=>{
+    /* El select nativo sigue siendo la fuente de verdad. */
+    Array.from(select.options).forEach(opt=>{
       if(opt.value===''){
         opt.hidden=false;
         return;
       }
-      opt.hidden=!!allowedSet&&!allowedSet.has(String(opt.textContent).trim().toLowerCase());
+      const text=String(opt.textContent||'').trim().toLowerCase();
+      opt.hidden=!!allowedSet&&!allowedSet.has(text);
     });
 
-    /* Si el producto actual deja de ser válido, lo limpiamos. */
-    if(allowedSet && current && !allowedSet.has(String(select.options[select.selectedIndex]?.textContent||'').trim().toLowerCase())){
-      select.value='';
-      select.dispatchEvent(new Event('change',{bubbles:true}));
+    /* Si la serie está clasificada y el producto actual ya no vale, limpiarlo. */
+    if(allowedSet&&current){
+      const selected=select.options[select.selectedIndex];
+      const selectedText=String(selected?.textContent||'').trim().toLowerCase();
+      if(!allowedSet.has(selectedText)){
+        select.value='';
+        select.dispatchEvent(new Event('change',{bubbles:true}));
+      }
     }
 
-    /* Filtra el desplegable visual personalizado que ve el usuario. */
+    /* El desplegable personalizado visible. */
     Array.from(box.querySelectorAll('.product-option')).forEach(btn=>{
       const text=String(btn.textContent||'').trim().toLowerCase();
       const visible=!allowedSet||text==='selecciona un producto'||allowedSet.has(text);
       btn.style.display=visible?'flex':'none';
+      btn.setAttribute('aria-hidden',visible?'false':'true');
     });
 
-    if(value && !select.value){
+    if(value&&!select.value){
       value.textContent='Selecciona un producto';
       value.classList.add('product-select-placeholder');
     }
@@ -4357,18 +4353,16 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const series=document.getElementById('series');
     const box=document.getElementById('productOptions');
     if(!series||!box)return;
-    if(series.dataset.productSeriesV26==='1')return;
-    series.dataset.productSeriesV26='1';
+    if(series.dataset.productSeriesV27==='1')return;
+    series.dataset.productSeriesV27='1';
 
     series.addEventListener('input',apply);
     series.addEventListener('change',apply);
     apply();
 
-    /* El selector personalizado puede reconstruir sus botones; los volvemos
-       a filtrar automáticamente sin interferir con su funcionamiento. */
-    const observer=new MutationObserver(function(){
-      apply();
-    });
+    /* ARGOS puede reconstruir el desplegable personalizado; en ese caso
+       volvemos a aplicar el filtro automáticamente. */
+    const observer=new MutationObserver(function(){apply();});
     observer.observe(box,{childList:true,subtree:true});
   }
 
