@@ -21211,6 +21211,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   }
 
   function atRenderList(screen,list){
+    screen?.classList.remove('argos-last-time-detail-mode');
     const content=screen?.querySelector('#argosLastTimeContent');
     if(!content) return;
 
@@ -21597,6 +21598,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   }
 
   function atRenderService(screen,service,list){
+    screen?.classList.add('argos-last-time-detail-mode');
     const content=screen?.querySelector('#argosLastTimeContent');
     if(!content) return;
 
@@ -21624,14 +21626,6 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
 
     content.innerHTML=`
       <div class="argos-last-time-detail-top">
-        <button type="button"
-                class="argos-last-time-back"
-                id="argosLastTimeBackToList"
-                aria-label="Volver a trayectos"
-                title="Volver a trayectos">
-          ‹
-        </button>
-
         <div class="argos-last-time-detail-kicker">
           DETALLE DEL SERVICIO
         </div>
@@ -21661,11 +21655,21 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
         ${atPreviewField('Fecha',date)}
       </div>
 
-      <button type="button"
-              class="argos-last-time-more"
-              id="argosLastTimeMore">
-        <span>Ver más información</span>
-      </button>`;
+      <div class="argos-last-time-detail-actions">
+        <button type="button"
+                class="argos-last-time-back"
+                id="argosLastTimeBackToList"
+                aria-label="Volver a trayectos"
+                title="Volver a trayectos">
+          ‹ Volver
+        </button>
+
+        <button type="button"
+                class="argos-last-time-more"
+                id="argosLastTimeMore">
+          <span>Ver ficha</span>
+        </button>
+      </div>`;
 
     content.querySelector('#argosLastTimeBackToList')?.addEventListener(
       'click',
@@ -22546,6 +22550,149 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       .argos-last-time-route-arrow{
         display:inline-block;
         padding:0 3px;
+      }
+    }
+
+
+    /* ============================================================
+       V11 · MINI FICHA DE "ÚLTIMA VEZ" EN MÓVIL
+       - Una sola pantalla.
+       - Sin scroll.
+       - Botones abajo, juntos.
+       - Las fichas normales de ARGOS NO se modifican.
+       ============================================================ */
+    @media(max-width:600px){
+      #argosLastTimeContent{
+        height:100%;
+        min-height:0;
+      }
+
+      .argos-last-time-screen{
+        height:100%!important;
+        min-height:0!important;
+        max-height:100%!important;
+        overflow:hidden!important;
+      }
+
+      .argos-last-time-page{
+        height:100%!important;
+        min-height:0!important;
+        max-height:100%!important;
+        padding:8px 12px 10px!important;
+        box-sizing:border-box!important;
+        overflow:hidden!important;
+      }
+
+      /* La lista de trayectos sigue pudiendo desplazarse si es larga. */
+      .argos-last-time-screen:not(.argos-last-time-detail-mode){
+        overflow-y:auto!important;
+        -webkit-overflow-scrolling:touch;
+      }
+
+      /* Mini ficha: se fuerza a una sola pantalla. */
+      .argos-last-time-detail-top{
+        margin:0 0 4px!important;
+        height:16px!important;
+        min-height:16px!important;
+      }
+
+      .argos-last-time-detail-kicker{
+        margin:0!important;
+        font-size:8px!important;
+        line-height:1!important;
+      }
+
+      .argos-last-time-detail-hero{
+        padding:10px 12px!important;
+        margin-bottom:6px!important;
+        border-radius:14px!important;
+      }
+
+      .argos-last-time-detail-material{
+        font-size:8px!important;
+        line-height:1!important;
+      }
+
+      .argos-last-time-detail-hero h1{
+        margin:3px 0!important;
+        font-size:21px!important;
+        line-height:1.02!important;
+      }
+
+      .argos-last-time-detail-hero p{
+        margin:0!important;
+        font-size:10px!important;
+        line-height:1.05!important;
+      }
+
+      .argos-last-time-detail-title{
+        margin:0 0 4px 1px!important;
+        font-size:8px!important;
+        line-height:1!important;
+      }
+
+      .argos-last-time-detail-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr))!important;
+        grid-auto-rows:minmax(0,1fr)!important;
+        gap:5px!important;
+        min-height:0!important;
+      }
+
+      .argos-last-time-preview-field{
+        min-width:0!important;
+        min-height:0!important;
+        padding:7px 8px!important;
+        border-radius:10px!important;
+        gap:2px!important;
+        overflow:hidden!important;
+      }
+
+      .argos-last-time-preview-field span{
+        font-size:8px!important;
+        line-height:1!important;
+      }
+
+      .argos-last-time-preview-field strong{
+        font-size:11px!important;
+        line-height:1.05!important;
+        overflow:hidden!important;
+        overflow-wrap:anywhere!important;
+      }
+
+      .argos-last-time-detail-actions{
+        display:grid!important;
+        grid-template-columns:minmax(105px,0.8fr) minmax(0,2fr)!important;
+        gap:6px!important;
+        width:100%!important;
+        margin-top:6px!important;
+      }
+
+      .argos-last-time-detail-actions .argos-last-time-back,
+      .argos-last-time-detail-actions .argos-last-time-more{
+        width:100%!important;
+        min-width:0!important;
+        height:40px!important;
+        min-height:40px!important;
+        max-height:40px!important;
+        margin:0!important;
+        padding:0 8px!important;
+        border-radius:11px!important;
+        font-size:11px!important;
+        box-sizing:border-box!important;
+      }
+
+      .argos-last-time-detail-actions .argos-last-time-back{
+        display:flex!important;
+        align-items:center!important;
+        justify-content:center!important;
+        gap:3px!important;
+        font-size:11px!important;
+      }
+
+      .argos-last-time-detail-actions .argos-last-time-more{
+        display:flex!important;
+        align-items:center!important;
+        justify-content:center!important;
       }
     }
 
