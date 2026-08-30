@@ -21163,13 +21163,6 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     screen.className='screen argos-last-time-screen';
     screen.innerHTML=`
       <div class="argos-last-time-page">
-        <div class="argos-last-time-header">
-          <div class="argos-last-time-header-brand">
-            <span>ARGOS</span>
-            <small>· TU ACTIVIDAD</small>
-          </div>
-        </div>
-
         <div id="argosLastTimeContent"></div>
       </div>`;
 
@@ -21271,7 +21264,6 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     content.innerHTML=`
       <div class="argos-last-time-hero">
         <div>
-          <div class="argos-last-time-kicker">ARGOS · TU ACTIVIDAD</div>
           <h1>Última vez</h1>
           <p>El último servicio realizado en cada trayecto.</p>
         </div>
@@ -21414,7 +21406,6 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     content.innerHTML=`
       <div class="argos-last-time-hero">
         <div>
-          <div class="argos-last-time-kicker">ARGOS · TU ACTIVIDAD</div>
           <h1>Última vez</h1>
           <p>Consulta el último servicio que realizaste de cada serie.</p>
         </div>
