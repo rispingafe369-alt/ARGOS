@@ -61,6 +61,8 @@ const saveServices=a=>localStorage.setItem(KEY,JSON.stringify(a));
 const esc=s=>String(s??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;");
 
 function showScreen(id){
+  const ficha=$("ficha");
+  if(ficha && id!=="ficha") ficha.classList.remove("argos-last-time-ficha");
   document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
   const target=$(id); if(!target)return;
   target.classList.add("active");
@@ -22555,144 +22557,180 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
 
 
     /* ============================================================
-       V11 · MINI FICHA DE "ÚLTIMA VEZ" EN MÓVIL
-       - Una sola pantalla.
-       - Sin scroll.
-       - Botones abajo, juntos.
-       - Las fichas normales de ARGOS NO se modifican.
+       V12 · ÚLTIMA VEZ · AJUSTE FINAL MÓVIL
+       - MINI FICHA: una sola columna y sin scroll.
+       - FICHA COMPLETA: scroll vertical normal.
+       - Todo queda contenido dentro de la pantalla disponible.
        ============================================================ */
     @media(max-width:600px){
-      #argosLastTimeContent{
-        height:100%;
-        min-height:0;
+
+      /* ----------------------------------------------------------
+         MINI FICHA INTERMEDIA
+         ---------------------------------------------------------- */
+      .argos-last-time-screen{
+        box-sizing:border-box!important;
       }
 
-      .argos-last-time-screen{
+      .argos-last-time-screen.argos-last-time-detail-mode{
         height:100%!important;
         min-height:0!important;
-        max-height:100%!important;
+        max-height:none!important;
         overflow:hidden!important;
       }
 
-      .argos-last-time-page{
+      .argos-last-time-screen.argos-last-time-detail-mode .argos-last-time-page{
         height:100%!important;
         min-height:0!important;
-        max-height:100%!important;
-        padding:8px 12px 10px!important;
+        max-height:none!important;
+        padding:7px 12px 9px!important;
         box-sizing:border-box!important;
         overflow:hidden!important;
       }
 
-      /* La lista de trayectos sigue pudiendo desplazarse si es larga. */
-      .argos-last-time-screen:not(.argos-last-time-detail-mode){
-        overflow-y:auto!important;
-        -webkit-overflow-scrolling:touch;
+      .argos-last-time-screen.argos-last-time-detail-mode #argosLastTimeContent{
+        height:100%!important;
+        min-height:0!important;
+        overflow:hidden!important;
       }
 
-      /* Mini ficha: se fuerza a una sola pantalla. */
-      .argos-last-time-detail-top{
+      .argos-last-time-detail-mode .argos-last-time-detail-top{
         margin:0 0 4px!important;
-        height:16px!important;
-        min-height:16px!important;
+        height:15px!important;
+        min-height:15px!important;
       }
 
-      .argos-last-time-detail-kicker{
+      .argos-last-time-detail-mode .argos-last-time-detail-kicker{
         margin:0!important;
         font-size:8px!important;
         line-height:1!important;
       }
 
-      .argos-last-time-detail-hero{
+      .argos-last-time-detail-mode .argos-last-time-detail-hero{
         padding:10px 12px!important;
         margin-bottom:6px!important;
         border-radius:14px!important;
       }
 
-      .argos-last-time-detail-material{
+      .argos-last-time-detail-mode .argos-last-time-detail-material{
         font-size:8px!important;
         line-height:1!important;
       }
 
-      .argos-last-time-detail-hero h1{
+      .argos-last-time-detail-mode .argos-last-time-detail-hero h1{
         margin:3px 0!important;
         font-size:21px!important;
         line-height:1.02!important;
       }
 
-      .argos-last-time-detail-hero p{
+      .argos-last-time-detail-mode .argos-last-time-detail-hero p{
         margin:0!important;
         font-size:10px!important;
         line-height:1.05!important;
       }
 
-      .argos-last-time-detail-title{
+      .argos-last-time-detail-mode .argos-last-time-detail-title{
         margin:0 0 4px 1px!important;
         font-size:8px!important;
         line-height:1!important;
       }
 
-      .argos-last-time-detail-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr))!important;
-        grid-auto-rows:minmax(0,1fr)!important;
-        gap:5px!important;
+      /* UNA SOLA COLUMNA */
+      .argos-last-time-detail-mode .argos-last-time-detail-grid{
+        display:grid!important;
+        grid-template-columns:1fr!important;
+        grid-template-rows:repeat(5,minmax(0,1fr))!important;
+        gap:4px!important;
         min-height:0!important;
       }
 
-      .argos-last-time-preview-field{
+      .argos-last-time-detail-mode .argos-last-time-preview-field{
         min-width:0!important;
         min-height:0!important;
-        padding:7px 8px!important;
-        border-radius:10px!important;
-        gap:2px!important;
+        height:100%!important;
+        padding:5px 9px!important;
+        border-radius:9px!important;
+        gap:1px!important;
         overflow:hidden!important;
+        box-sizing:border-box!important;
       }
 
-      .argos-last-time-preview-field span{
+      .argos-last-time-detail-mode .argos-last-time-preview-field span{
         font-size:8px!important;
         line-height:1!important;
       }
 
-      .argos-last-time-preview-field strong{
+      .argos-last-time-detail-mode .argos-last-time-preview-field strong{
         font-size:11px!important;
         line-height:1.05!important;
         overflow:hidden!important;
         overflow-wrap:anywhere!important;
       }
 
-      .argos-last-time-detail-actions{
+      .argos-last-time-detail-mode .argos-last-time-detail-actions{
         display:grid!important;
-        grid-template-columns:minmax(105px,0.8fr) minmax(0,2fr)!important;
+        grid-template-columns:minmax(100px,.8fr) minmax(0,2fr)!important;
         gap:6px!important;
         width:100%!important;
-        margin-top:6px!important;
+        margin-top:5px!important;
       }
 
-      .argos-last-time-detail-actions .argos-last-time-back,
-      .argos-last-time-detail-actions .argos-last-time-more{
+      .argos-last-time-detail-mode .argos-last-time-detail-actions .argos-last-time-back,
+      .argos-last-time-detail-mode .argos-last-time-detail-actions .argos-last-time-more{
         width:100%!important;
         min-width:0!important;
-        height:40px!important;
-        min-height:40px!important;
-        max-height:40px!important;
+        height:38px!important;
+        min-height:38px!important;
+        max-height:38px!important;
         margin:0!important;
         padding:0 8px!important;
-        border-radius:11px!important;
+        border-radius:10px!important;
         font-size:11px!important;
         box-sizing:border-box!important;
       }
 
-      .argos-last-time-detail-actions .argos-last-time-back{
+      .argos-last-time-detail-mode .argos-last-time-detail-actions .argos-last-time-back{
         display:flex!important;
         align-items:center!important;
         justify-content:center!important;
         gap:3px!important;
-        font-size:11px!important;
       }
 
-      .argos-last-time-detail-actions .argos-last-time-more{
+      .argos-last-time-detail-mode .argos-last-time-detail-actions .argos-last-time-more{
         display:flex!important;
         align-items:center!important;
         justify-content:center!important;
+      }
+
+      /* ----------------------------------------------------------
+         FICHA COMPLETA ABIERTA DESDE "VER FICHA"
+         Recupera scroll vertical normal. Solo afecta a la ficha
+         abierta desde Última vez, no a las demás fichas.
+         ---------------------------------------------------------- */
+      #ficha.argos-last-time-ficha{
+        height:auto!important;
+        min-height:calc(100dvh - 1px)!important;
+        max-height:none!important;
+        overflow-x:hidden!important;
+        overflow-y:auto!important;
+        -webkit-overflow-scrolling:touch!important;
+        box-sizing:border-box!important;
+      }
+
+      #ficha.argos-last-time-ficha #fichaContent{
+        height:auto!important;
+        min-height:0!important;
+        max-height:none!important;
+        overflow:visible!important;
+        padding-bottom:24px!important;
+        box-sizing:border-box!important;
+      }
+
+      #ficha.argos-last-time-ficha .ficha-hero,
+      #ficha.argos-last-time-ficha .ficha-section,
+      #ficha.argos-last-time-ficha .ficha-general,
+      #ficha.argos-last-time-ficha .ficha-highlights{
+        max-height:none!important;
+        overflow:visible!important;
       }
     }
 
