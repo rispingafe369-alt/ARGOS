@@ -2533,7 +2533,8 @@ function weekdays(a){const c=Array(7).fill(0);a.forEach(s=>{const d=dateOf(s);if
       };
 
       try{
-        const list=typeof services==='function'?services():[];
+        const beforeList=typeof services==='function'?services():[];
+        const list=beforeList.slice();
         list.push(service);
         if(typeof saveServices==='function')saveServices(list);
 
@@ -2551,8 +2552,12 @@ function weekdays(a){const c=Array(7).fill(0);a.forEach(s=>{const d=dateOf(s);if
         if(typeof renderHistory==='function')renderHistory();
         if(typeof renderStats==='function')renderStats();
         if(typeof updateBranchBox==='function')updateBranchBox();
-        if(typeof toast==='function')toast('Servicio guardado');
-        if(typeof showScreen==='function')showScreen('menu');
+        if(typeof window.argosHandleFirstNewBranches==='function'){
+          window.argosHandleFirstNewBranches(beforeList, list, service);
+        }else{
+          if(typeof toast==='function')toast('Servicio guardado');
+          if(typeof showScreen==='function')showScreen('menu');
+        }
       }catch(error){
         console.error('ARGOS · rama manual:',error);
         if(typeof toast==='function')toast('No se ha podido guardar el servicio');
@@ -3832,6 +3837,169 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
 
 
+
+
+<!-- ================================================================
+     ARGOS V30 · PRIMERA VEZ CON UNA RAMA
+     - Detecta la primera vez que se registra una rama para una serie.
+     - Muestra un aviso con dos acciones: volver al menú o ver la ficha.
+     - No modifica el servicio ni la base de material.
+     ================================================================ -->
+<style id="argos-first-branch-v30-style">
+  .argos-first-branch-overlay{
+    position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;
+    padding:20px;background:rgba(20,16,20,.52);backdrop-filter:blur(5px);
+  }
+  .argos-first-branch-modal{
+    width:min(520px,100%);background:var(--card,#fff);color:var(--ink,#202020);
+    border:1px solid var(--line,rgba(0,0,0,.10));border-radius:26px;padding:26px;
+    box-shadow:0 28px 80px rgba(20,10,20,.28);
+  }
+  .argos-first-branch-kicker{color:var(--renfe,#8a005c);font-size:12px;font-weight:900;letter-spacing:.10em;text-transform:uppercase;margin-bottom:8px}
+  .argos-first-branch-modal h2{margin:0 0 10px;font-size:28px;line-height:1.1}
+  .argos-first-branch-modal p{margin:0;color:var(--muted,#777);font-size:16px;line-height:1.45}
+  .argos-first-branch-highlight{margin:18px 0;padding:15px 17px;border-radius:17px;background:var(--soft,#f5e8f0);border:1px solid rgba(138,0,92,.16)}
+  .argos-first-branch-highlight strong{display:block;color:var(--renfe,#8a005c);font-size:20px}
+  .argos-first-branch-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+  .argos-first-branch-actions button{min-height:52px;border-radius:15px;padding:12px 15px;font-weight:900;font-size:14px;cursor:pointer}
+  .argos-first-branch-menu{background:transparent;color:var(--renfe,#8a005c);border:1px solid rgba(138,0,92,.28)}
+  .argos-first-branch-ficha{background:var(--renfe,#8a005c);color:#fff;border:1px solid var(--renfe,#8a005c)}
+  @media(max-width:600px){
+    .argos-first-branch-overlay{padding:14px}
+    .argos-first-branch-modal{padding:21px;border-radius:22px}
+    .argos-first-branch-modal h2{font-size:25px}
+    .argos-first-branch-actions{grid-template-columns:1fr}
+  }
+  body.dark .argos-first-branch-overlay{background:rgba(0,0,0,.68)}
+</style>
+<script id="argos-first-branch-v30">
+(function(){
+  'use strict';
+
+  function digits(v){return String(v??'').replace(/\D/g,'')}
+  function norm(v){return digits(v).replace(/^0+/,'')||''}
+  function branchKey(series,branch){
+    const s=norm(series), b=digits(branch).replace(/^0+/,'')||'';
+    return s&&b ? s+'|'+b : '';
+  }
+
+  function serviceBranches(service){
+    if(!service)return [];
+    const out=[];
+    const add=(series,branch)=>{
+      const key=branchKey(series,branch);
+      if(key)out.push({key,series:String(series||'').trim(),branch:digits(branch).replace(/^0+/,'')||digits(branch)});
+    };
+    add(service.series,service.branch);
+    if(service.doubleComposition&&service.composition2){
+      add(service.composition2.series,service.composition2.branch);
+    }
+    return out;
+  }
+
+  function allKnownBranches(list){
+    const set=new Set();
+    (Array.isArray(list)?list:[]).forEach(s=>serviceBranches(s).forEach(x=>set.add(x.key)));
+    return set;
+  }
+
+  function findVehicleForBranch(series,branch){
+    try{
+      const data=(typeof fleet!=='undefined')?fleet[norm(series)]:null;
+      const units=data?.units||{};
+      const target=digits(branch).replace(/^0+/,'')||'';
+      for(const [key,unit] of Object.entries(units)){
+        if((digits(unit?.rama).replace(/^0+/,'')||'')===target){
+          return String(unit?.vehiculoBase||key||'').trim();
+        }
+      }
+    }catch(e){console.warn('ARGOS V30 · búsqueda de rama:',e)}
+    return '';
+  }
+
+  function closeModal(){
+    const old=document.getElementById('argosFirstBranchOverlay');
+    if(old)old.remove();
+  }
+
+  function openFichaFromService(service){
+    closeModal();
+    if(!service)return;
+    const series=String(service.series||'').trim();
+    const vehicle=String(service.vehicle||'').trim()||findVehicleForBranch(series,service.branch);
+    if(typeof openFicha==='function'){
+      openFicha(series,vehicle,service);
+      return;
+    }
+    if(typeof window.openFicha==='function')window.openFicha(series,vehicle,service);
+  }
+
+  function showModal(newBranches,service){
+    closeModal();
+    const overlay=document.createElement('div');
+    overlay.id='argosFirstBranchOverlay';
+    overlay.className='argos-first-branch-overlay';
+    const names=newBranches.map(x=>'Serie '+x.series+' · Rama '+x.branch);
+    const title=newBranches.length===1?'¡Primera vez con esta rama!':'¡Primera vez con estas ramas!';
+    const intro=newBranches.length===1
+      ? 'Has registrado por primera vez esta rama en ARGOS.'
+      : 'Has registrado por primera vez estas ramas en ARGOS.';
+    overlay.innerHTML=`
+      <div class="argos-first-branch-modal" role="dialog" aria-modal="true" aria-labelledby="argosFirstBranchTitle">
+        <div class="argos-first-branch-kicker">NUEVA RAMA</div>
+        <h2 id="argosFirstBranchTitle">${title}</h2>
+        <p>${intro}</p>
+        <div class="argos-first-branch-highlight">
+          ${names.map(n=>'<strong>'+n.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))+'</strong>').join('')}
+        </div>
+        <div class="argos-first-branch-actions">
+          <button type="button" class="argos-first-branch-menu" id="argosFirstBranchMenu">Aceptar y volver al menú</button>
+          <button type="button" class="argos-first-branch-ficha" id="argosFirstBranchFicha">Ver ficha</button>
+        </div>
+      </div>`;
+    document.body.appendChild(overlay);
+    overlay.querySelector('#argosFirstBranchMenu')?.addEventListener('click',()=>{
+      closeModal();
+      if(typeof showScreen==='function')showScreen('menu');
+    });
+    overlay.querySelector('#argosFirstBranchFicha')?.addEventListener('click',()=>openFichaFromService(service));
+    overlay.addEventListener('click',e=>{if(e.target===overlay)closeModal()});
+  }
+
+  window.argosHandleFirstNewBranches=function(beforeList,afterList,service){
+    const before=allKnownBranches(beforeList);
+    const after=allKnownBranches(afterList);
+    const newBranches=serviceBranches(service).filter(x=>!before.has(x.key)&&after.has(x.key));
+
+    if(newBranches.length){
+      if(typeof showScreen==='function')showScreen('menu');
+      showModal(newBranches,service);
+    }else{
+      if(typeof toast==='function')toast(service?.doubleComposition?'Servicio en doble composición guardado':'Servicio guardado');
+      if(typeof showScreen==='function')showScreen('menu');
+    }
+  };
+
+  /*
+   * Servicios normales: el guardado original de app.js sigue intacto.
+   * Solo observamos el estado antes y después del submit para detectar
+   * una rama nueva. No intervenimos en el submit de rama manual ni doble,
+   * porque esos dos ya llaman directamente a la función anterior.
+   */
+  document.addEventListener('submit',function(ev){
+    const form=document.getElementById('serviceForm');
+    if(!form||ev.target!==form)return;
+    if(document.getElementById('doubleComposition')?.checked)return;
+    const before=typeof services==='function'?services():[];
+    setTimeout(function(){
+      const after=typeof services==='function'?services():[];
+      if(after.length<=before.length)return;
+      const service=after[after.length-1];
+      window.argosHandleFirstNewBranches(before,after,service);
+    },0);
+  });
+})();
+</script>
 </body>
 </html>
 <!-- ================================================================
@@ -4069,7 +4237,8 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       };
 
       try{
-        const list=typeof services==='function'?services():[];
+        const beforeList=typeof services==='function'?services():[];
+        const list=beforeList.slice();
         list.push(service);
         if(typeof saveServices==='function')saveServices(list);else throw new Error('saveServices no disponible');
         if(typeof clearFormExtras==='function')clearFormExtras();
@@ -4083,8 +4252,12 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
         if(typeof renderHistory==='function')renderHistory();
         if(typeof renderStats==='function')renderStats();
         if(typeof updateBranchBox==='function')updateBranchBox();
-        if(typeof toast==='function')toast('Servicio en doble composición guardado');
-        if(typeof showScreen==='function')showScreen('menu');
+        if(typeof window.argosHandleFirstNewBranches==='function'){
+          window.argosHandleFirstNewBranches(beforeList, list, service);
+        }else{
+          if(typeof toast==='function')toast('Servicio en doble composición guardado');
+          if(typeof showScreen==='function')showScreen('menu');
+        }
       }catch(error){console.error('ARGOS V22 · doble composición:',error);if(typeof toast==='function')toast('No se ha podido guardar el servicio')}
     },true);
   }
