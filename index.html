@@ -55,7 +55,7 @@ button{cursor:pointer}
   justify-content:center;
   position:relative;
   border-radius:0 0 16px 16px;
-  box-shadow:0 4px 14px rgba(138,0,92,.16);
+  box-shadow:none!important;
 }
 .renfe-main-logo{width:110px;height:auto;display:block}
 .header-action{
@@ -754,17 +754,6 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
 }
 
 @media(max-width:600px){
-  /* Al entrar en ArgosDex ganamos espacio vertical reduciendo SOLO el encabezado. */
-  .app-shell:has(#argosdex.active) .brand-row{
-    height:56px;
-    border-radius:0 0 14px 14px;
-  }
-  .app-shell:has(#argosdex.active) .renfe-main-logo{width:98px}
-  .app-shell:has(#argosdex.active) .header-action{
-    width:36px;height:36px;border-radius:11px;
-  }
-  .app-shell:has(#argosdex.active) .header-dots{font-size:22px}
-
   .argosdex-screen{
     padding:10px 12px 12px!important;
   }
@@ -943,27 +932,9 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
 }
 
 @media(max-width:600px){
-  /* Header compacto únicamente dentro de ArgosDex. */
-  .app-shell:has(#argosdex.active) .brand-row{
-    height:54px!important;
-    min-height:54px!important;
-    border-radius:0 0 13px 13px!important;
-  }
-  .app-shell:has(#argosdex.active) .renfe-main-logo{
-    width:96px!important;
-  }
-  .app-shell:has(#argosdex.active) .header-action{
-    width:38px!important;
-    height:38px!important;
-    border-radius:11px!important;
-  }
-  .app-shell:has(#argosdex.active) .header-dots{
-    font-size:23px!important;
-  }
-
   .argosdex-screen{
-    height:calc(100dvh - 54px)!important;
-    max-height:calc(100dvh - 54px)!important;
+    height:calc(100dvh - 64px)!important;
+    max-height:calc(100dvh - 64px)!important;
     padding:10px 12px 0!important;
   }
   .argosdex-shell{
