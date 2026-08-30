@@ -20854,15 +20854,18 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
 })();
 
 /* ================================================================
-   ARGOS · ÚLTIMA VEZ · EXPLORADOR DE TRAYECTOS
-   Añadido sin modificar las funciones existentes.
-   Sustituye visualmente el antiguo desplegable por una experiencia
-   de selección de servicios agrupada por producto.
+   ARGOS · ÚLTIMA VEZ · MENÚ PROPIO
+   Añadido sobre la versión existente.
+   IMPORTANTE:
+   - Último servicio NO se modifica aquí.
+   - Última vez deja de ser una ventana flotante.
+   - Se convierte en una pantalla propia de ARGOS.
+   - Se conserva la selección agrupada por producto y la ficha intermedia.
    ================================================================ */
 (function(){
   'use strict';
 
-  const ROOT_ID='argosLastTimeExplorer';
+  const SCREEN_ID='argosLastTimeScreen';
   const TRIGGER_ID='argosLastTimeTrigger';
 
   function atServices(){
@@ -20902,7 +20905,9 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     if(!raw) return 'Fecha no indicada';
     const d=new Date(raw+'T00:00:00');
     if(Number.isNaN(d.getTime())) return raw;
-    return d.toLocaleDateString('es-ES',{day:'2-digit',month:'short',year:'numeric'}).replace('.', '');
+    return d.toLocaleDateString('es-ES',{
+      day:'2-digit',month:'short',year:'numeric'
+    }).replace('.','');
   }
 
   function atProductName(service){
@@ -20910,8 +20915,13 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   }
 
   function atProductRank(name){
-    const n=name.toLocaleLowerCase('es-ES').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-    const order=['ave','avlo','alvia','intercity','euromed','avant','cercanias','cercanías','media distancia','regional','md','mercancias','mercancías'];
+    const n=name.toLocaleLowerCase('es-ES')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+    const order=[
+      'ave','avlo','alvia','intercity','euromed','avant',
+      'cercanias','media distancia','regional','md',
+      'mercancias'
+    ];
     const idx=order.findIndex(x=>n===x);
     return idx<0?100:idx;
   }
@@ -20921,14 +20931,15 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       const pa=atProductName(a),pb=atProductName(b);
       const ra=atProductRank(pa),rb=atProductRank(pb);
       if(ra!==rb) return ra-rb;
+
       const pn=pa.localeCompare(pb,'es',{sensitivity:'base'});
       if(pn!==0) return pn;
+
       const da=atDateValue(a),db=atDateValue(b);
-      if(da.raw!==db.raw){
-        const ta=da.raw?new Date(da.raw+'T00:00:00').getTime():0;
-        const tb=db.raw?new Date(db.raw+'T00:00:00').getTime():0;
-        if(ta!==tb) return tb-ta;
-      }
+      const ta=da.raw?new Date(da.raw+'T00:00:00').getTime():0;
+      const tb=db.raw?new Date(db.raw+'T00:00:00').getTime():0;
+
+      if(ta!==tb) return tb-ta;
       return db.stamp-da.stamp;
     });
   }
@@ -20936,150 +20947,59 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   function atFindUnit(service){
     try{
       if(typeof fleet==='undefined') return null;
-      const series=String(atVal(service,['series','serie'])).replace(/\D/g,'').replace(/^0+/,'');
+
+      const series=String(atVal(service,['series','serie']))
+        .replace(/\D/g,'').replace(/^0+/,'');
       const vehicle=atVal(service,['vehicle','vehiculo']);
-      const branch=String(atVal(service,['branch','rama'])).replace(/\D/g,'');
+      const branch=String(atVal(service,['branch','rama']))
+        .replace(/\D/g,'');
+
       const data=fleet[series];
       const units=data?.units||{};
       const entries=Object.entries(units);
 
       if(branch){
-        const byBranch=entries.find(([,u])=>String(u?.rama??'').replace(/\D/g,'')===branch);
+        const byBranch=entries.find(([,u])=>
+          String(u?.rama??'').replace(/\D/g,'')===branch
+        );
         if(byBranch) return {key:byBranch[0],unit:byBranch[1]};
       }
+
       if(vehicle){
         const byKey=entries.find(([key])=>String(key).trim()===vehicle);
         if(byKey) return {key:byKey[0],unit:byKey[1]};
-        const byBase=entries.find(([,u])=>String(u?.vehiculoBase||'').trim()===vehicle);
+
+        const byBase=entries.find(([,u])=>
+          String(u?.vehiculoBase||'').trim()===vehicle
+        );
         if(byBase) return {key:byBase[0],unit:byBase[1]};
-        const byNumber=entries.find(([,u])=>String(u?.numero||'').includes(vehicle));
+
+        const byNumber=entries.find(([,u])=>
+          String(u?.numero||'').includes(vehicle)
+        );
         if(byNumber) return {key:byNumber[0],unit:byNumber[1]};
       }
     }catch(e){
       console.warn('ARGOS · unidad última vez:',e);
     }
+
     return null;
   }
 
   function atServiceTitle(service){
-    const origin=atVal(service,['origin','origen'])||'Origen no indicado';
-    const destination=atVal(service,['destination','destino'])||'Destino no indicado';
-    return {origin,destination};
-  }
-
-  function atOpen(){
-    const list=atServices();
-    let modal=document.getElementById(ROOT_ID);
-    if(!modal){
-      modal=document.createElement('div');
-      modal.id=ROOT_ID;
-      modal.className='argos-last-time-modal';
-      modal.innerHTML=`
-        <div class="argos-last-time-backdrop" data-at-close></div>
-        <div class="argos-last-time-panel" role="dialog" aria-modal="true" aria-labelledby="argosLastTimeTitle">
-          <button type="button" class="argos-last-time-close" data-at-close aria-label="Cerrar">×</button>
-          <div id="argosLastTimeContent"></div>
-        </div>`;
-      document.body.appendChild(modal);
-      modal.querySelectorAll('[data-at-close]').forEach(el=>el.addEventListener('click',atClose));
-    }
-
-    atRenderList(modal,list);
-    modal.classList.add('open');
-    document.body.classList.add('argos-last-time-open');
-  }
-
-  function atClose(){
-    const modal=document.getElementById(ROOT_ID);
-    if(modal) modal.classList.remove('open');
-    document.body.classList.remove('argos-last-time-open');
-  }
-
-  function atRenderList(modal,list){
-    const content=modal?.querySelector('#argosLastTimeContent');
-    if(!content) return;
-
-    if(!list.length){
-      content.innerHTML=`
-        <div class="argos-last-time-empty">
-          <div class="argos-last-time-empty-icon">◷</div>
-          <div class="argos-last-time-kicker">ÚLTIMA VEZ</div>
-          <h2 id="argosLastTimeTitle">Todavía no hay trayectos</h2>
-          <p>Cuando registres un servicio aparecerá aquí para que puedas volver a él rápidamente.</p>
-        </div>`;
-      return;
-    }
-
-    const grouped=new Map();
-    atSortServices(list).forEach(service=>{
-      const product=atProductName(service);
-      if(!grouped.has(product)) grouped.set(product,[]);
-      grouped.get(product).push(service);
-    });
-
-    let groups='';
-    for(const [product,services] of grouped.entries()){
-      const productCount=services.length;
-      groups+=`
-        <section class="argos-last-time-product">
-          <div class="argos-last-time-product-head">
-            <div>
-              <div class="argos-last-time-product-kicker">PRODUCTO</div>
-              <h3>${atEsc(product)}</h3>
-            </div>
-            <span class="argos-last-time-count">${productCount} ${productCount===1?'servicio':'servicios'}</span>
-          </div>
-          <div class="argos-last-time-services">
-            ${services.map(service=>atServiceCard(service)).join('')}
-          </div>
-        </section>`;
-    }
-
-    content.innerHTML=`
-      <div class="argos-last-time-top">
-        <div>
-          <div class="argos-last-time-kicker">ARGOS · TU ACTIVIDAD</div>
-          <h2 id="argosLastTimeTitle">Última vez</h2>
-          <p>Vuelve a cualquiera de los trayectos que ya has realizado.</p>
-        </div>
-        <div class="argos-last-time-total"><strong>${list.length}</strong><span>servicios</span></div>
-      </div>
-      <div class="argos-last-time-route-note">Selecciona un servicio para consultar sus datos.</div>
-      ${groups}`;
-
-    content.querySelectorAll('[data-at-service-key]').forEach(card=>{
-      const service=atFindServiceFromCardKey(list,card.dataset.atServiceKey);
-      if(!service) return;
-      card.addEventListener('click',()=>atRenderService(modal,service,list));
-      card.addEventListener('keydown',e=>{
-        if(e.key==='Enter'||e.key===' '){
-          e.preventDefault();
-          atRenderService(modal,service,list);
-        }
-      });
-    });
-  }
-
-  function atServiceCard(service){
-    const {origin,destination}=atServiceTitle(service);
-    const train=atVal(service,['train','tren','number','numero'])||'Sin número';
-    const product=atProductName(service);
-    const date=atDateLabel(service);
-    const km=atVal(service,['kilometres','kilometers','km','kilometros','kilómetros']);
-    const id=atServiceIdentity(service);
-    return `
-      <article class="argos-last-time-service" data-at-service-key="${atEsc(id)}" tabindex="0" role="button">
-        <div class="argos-last-time-service-main">
-          <div class="argos-last-time-route">${atEsc(origin)} <span>→</span> ${atEsc(destination)}</div>
-          <div class="argos-last-time-service-meta"><strong>Tren ${atEsc(train)}</strong><span>${atEsc(date)}</span>${km?`<span>${atEsc(km)} km</span>`:''}</div>
-        </div>
-        <div class="argos-last-time-arrow">›</div>
-      </article>`;
+    return {
+      origin:atVal(service,['origin','origen'])||'Origen no indicado',
+      destination:atVal(service,['destination','destino'])||'Destino no indicado'
+    };
   }
 
   function atServiceIdentity(service){
-    const explicit=String(service?.id||service?.createdAt||'').trim();
+    const explicit=String(
+      service?.id||service?.createdAt||''
+    ).trim();
+
     if(explicit) return explicit;
+
     return JSON.stringify([
       atVal(service,['train','tren','number','numero']),
       atVal(service,['date','fecha']),
@@ -21095,34 +21015,267 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     return list.find(s=>atServiceIdentity(s)===key)||null;
   }
 
-  function atRenderService(modal,service,list){
-    const content=modal?.querySelector('#argosLastTimeContent');
+  function atEnsureScreen(){
+    let screen=document.getElementById(SCREEN_ID);
+    if(screen) return screen;
+
+    const host=document.querySelector('.app-shell')||document.querySelector('main')||document.body;
+
+    screen=document.createElement('section');
+    screen.id=SCREEN_ID;
+    screen.className='screen argos-last-time-screen';
+    screen.innerHTML=`
+      <div class="argos-last-time-page">
+        <div class="argos-last-time-header">
+          <button type="button"
+                  class="argos-last-time-nav"
+                  id="argosLastTimeBack"
+                  aria-label="Volver">
+            <span>‹</span>
+            <b>Volver</b>
+          </button>
+
+          <div class="argos-last-time-header-brand">
+            <span>ARGOS</span>
+            <small>· TU ACTIVIDAD</small>
+          </div>
+        </div>
+
+        <div id="argosLastTimeContent"></div>
+      </div>`;
+
+    host.appendChild(screen);
+
+    screen.querySelector('#argosLastTimeBack')?.addEventListener('click',()=>{
+      if(typeof showScreen==='function') showScreen('menu');
+      else screen.classList.remove('active');
+    });
+
+    return screen;
+  }
+
+  function atOpen(){
+    const screen=atEnsureScreen();
+    const list=atServices();
+
+    if(typeof showScreen==='function'){
+      showScreen(SCREEN_ID);
+    }else{
+      document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+      screen.classList.add('active');
+      window.scrollTo({top:0,behavior:'instant'});
+    }
+
+    atRenderList(screen,list);
+  }
+
+  function atRenderList(screen,list){
+    const content=screen?.querySelector('#argosLastTimeContent');
+    if(!content) return;
+
+    if(!list.length){
+      content.innerHTML=`
+        <div class="argos-last-time-empty">
+          <div class="argos-last-time-empty-icon">◷</div>
+          <div class="argos-last-time-kicker">ÚLTIMA VEZ</div>
+          <h1>Todavía no hay trayectos</h1>
+          <p>
+            Cuando registres un servicio aparecerá aquí para que puedas
+            volver a él rápidamente.
+          </p>
+          <button type="button"
+                  class="argos-last-time-empty-button"
+                  id="argosLastTimeEmptyBack">
+            Volver al inicio
+          </button>
+        </div>`;
+
+      content.querySelector('#argosLastTimeEmptyBack')?.addEventListener('click',()=>{
+        if(typeof showScreen==='function') showScreen('menu');
+      });
+      return;
+    }
+
+    const grouped=new Map();
+
+    atSortServices(list).forEach(service=>{
+      const product=atProductName(service);
+      if(!grouped.has(product)) grouped.set(product,[]);
+      grouped.get(product).push(service);
+    });
+
+    let groups='';
+
+    for(const [product,services] of grouped.entries()){
+      const productCount=services.length;
+
+      groups+=`
+        <section class="argos-last-time-product">
+          <div class="argos-last-time-product-head">
+            <div>
+              <div class="argos-last-time-product-kicker">PRODUCTO</div>
+              <h2>${atEsc(product)}</h2>
+            </div>
+            <span class="argos-last-time-count">
+              ${productCount}
+              ${productCount===1?'servicio':'servicios'}
+            </span>
+          </div>
+
+          <div class="argos-last-time-services">
+            ${services.map(atServiceCard).join('')}
+          </div>
+        </section>`;
+    }
+
+    content.innerHTML=`
+      <div class="argos-last-time-hero">
+        <div>
+          <div class="argos-last-time-kicker">ARGOS · TU ACTIVIDAD</div>
+          <h1>Última vez</h1>
+          <p>Vuelve a cualquiera de los trayectos que ya has realizado.</p>
+        </div>
+
+        <div class="argos-last-time-total">
+          <strong>${list.length}</strong>
+          <span>${list.length===1?'servicio':'servicios'}</span>
+        </div>
+      </div>
+
+      <div class="argos-last-time-intro">
+        <span class="argos-last-time-intro-icon">↗</span>
+        <div>
+          <strong>Tus trayectos, siempre a mano</strong>
+          <small>
+            Selecciona un servicio para consultar sus datos.
+          </small>
+        </div>
+      </div>
+
+      <div class="argos-last-time-groups">
+        ${groups}
+      </div>`;
+
+    content.querySelectorAll('[data-at-service-key]').forEach(card=>{
+      const service=atFindServiceFromCardKey(
+        list,
+        card.dataset.atServiceKey
+      );
+
+      if(!service) return;
+
+      const open=()=>{
+        atRenderService(screen,service,list);
+        screen.scrollIntoView({block:'start'});
+      };
+
+      card.addEventListener('click',open);
+
+      card.addEventListener('keydown',e=>{
+        if(e.key==='Enter'||e.key===' '){
+          e.preventDefault();
+          open();
+        }
+      });
+    });
+  }
+
+  function atServiceCard(service){
+    const {origin,destination}=atServiceTitle(service);
+    const train=atVal(service,['train','tren','number','numero'])||'Sin número';
+    const date=atDateLabel(service);
+    const km=atVal(service,[
+      'kilometres','kilometers','km','kilometros','kilómetros'
+    ]);
+    const id=atServiceIdentity(service);
+
+    return `
+      <article class="argos-last-time-service"
+                data-at-service-key="${atEsc(id)}"
+                tabindex="0"
+                role="button">
+
+        <div class="argos-last-time-service-main">
+          <div class="argos-last-time-route">
+            <span class="argos-last-time-station">
+              ${atEsc(origin)}
+            </span>
+            <span class="argos-last-time-route-arrow">→</span>
+            <span class="argos-last-time-station">
+              ${atEsc(destination)}
+            </span>
+          </div>
+
+          <div class="argos-last-time-service-meta">
+            <strong>Tren ${atEsc(train)}</strong>
+            <span>${atEsc(date)}</span>
+            ${km?`<span>${atEsc(km)} km</span>`:''}
+          </div>
+        </div>
+
+        <div class="argos-last-time-arrow">›</div>
+      </article>`;
+  }
+
+  function atRenderService(screen,service,list){
+    const content=screen?.querySelector('#argosLastTimeContent');
     if(!content) return;
 
     const found=atFindUnit(service);
     const unit=found?.unit||null;
+
     const series=atVal(service,['series','serie'])||'—';
-    const branch=atVal(service,['branch','rama'])||String(unit?.rama||'').trim();
-    const vehicle=atVal(service,['vehicle','vehiculo'])||String(unit?.vehiculoBase||found?.key||'').trim();
+    const branch=atVal(service,['branch','rama'])||
+      String(unit?.rama||'').trim();
+
+    const vehicle=atVal(service,['vehicle','vehiculo'])||
+      String(unit?.vehiculoBase||found?.key||'').trim();
+
     const officialNumber=String(unit?.numero||'').trim();
     const train=atVal(service,['train','tren','number','numero'])||'Sin número';
     const product=atProductName(service);
     const {origin,destination}=atServiceTitle(service);
     const date=atVal(service,['date','fecha'])||'—';
-    const km=atVal(service,['kilometres','kilometers','km','kilometros','kilómetros']);
+    const km=atVal(service,[
+      'kilometres','kilometers','km','kilometros','kilómetros'
+    ]);
+
     const materialTitle=`Serie ${series}${branch?` · Rama ${branch}`:''}`;
-    const vehicleLine=[vehicle?`Vehículo ${vehicle}`:'',officialNumber].filter(Boolean).join(' · ');
+    const vehicleLine=[
+      vehicle?`Vehículo ${vehicle}`:'',
+      officialNumber
+    ].filter(Boolean).join(' · ');
 
     content.innerHTML=`
-      <button type="button" class="argos-last-time-back" id="argosLastTimeBack">‹ <span>Volver a trayectos</span></button>
-      <div class="argos-last-time-preview-kicker">DETALLE DEL SERVICIO</div>
-      <div class="argos-last-time-preview-hero">
-        <div class="argos-last-time-preview-material">MATERIAL RENFE</div>
-        <h2>${atEsc(materialTitle)}</h2>
-        <p>${atEsc(vehicleLine||'Vehículo no especificado')}</p>
+      <div class="argos-last-time-detail-top">
+        <button type="button"
+                class="argos-last-time-back"
+                id="argosLastTimeBackToList">
+          ‹ <span>Volver a trayectos</span>
+        </button>
+
+        <div class="argos-last-time-detail-kicker">
+          DETALLE DEL SERVICIO
+        </div>
       </div>
-      <div class="argos-last-time-preview-title">DATOS DEL SERVICIO</div>
-      <div class="argos-last-time-preview-grid">
+
+      <div class="argos-last-time-detail-hero">
+        <div class="argos-last-time-detail-material">
+          MATERIAL RENFE
+        </div>
+
+        <h1>${atEsc(materialTitle)}</h1>
+
+        <p>
+          ${atEsc(vehicleLine||'Vehículo no especificado')}
+        </p>
+      </div>
+
+      <div class="argos-last-time-detail-title">
+        DATOS DEL SERVICIO
+      </div>
+
+      <div class="argos-last-time-detail-grid">
         ${atPreviewField('Nº de tren',train)}
         ${atPreviewField('Producto',product)}
         ${atPreviewField('Origen',origin)}
@@ -21130,41 +21283,67 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
         ${atPreviewField('Fecha',date)}
         ${km?atPreviewField('Kilómetros',`${km} km`):''}
       </div>
-      <button type="button" class="argos-last-time-more" id="argosLastTimeMore">Ver más información <span>›</span></button>`;
 
-    content.querySelector('#argosLastTimeBack')?.addEventListener('click',()=>atRenderList(modal,list));
-    content.querySelector('#argosLastTimeMore')?.addEventListener('click',()=>{
-      atClose();
-      setTimeout(()=>{
-        if(typeof openFicha==='function') openFicha(series,vehicle,service);
-        else if(typeof window.openFicha==='function') window.openFicha(series,vehicle,service);
-        else if(typeof toast==='function') toast('No se ha podido abrir la ficha completa');
-      },30);
-    });
+      <button type="button"
+              class="argos-last-time-more"
+              id="argosLastTimeMore">
+        <span>Ver más información</span>
+        <b>›</b>
+      </button>`;
+
+    content.querySelector('#argosLastTimeBackToList')?.addEventListener(
+      'click',
+      ()=>atRenderList(screen,list)
+    );
+
+    content.querySelector('#argosLastTimeMore')?.addEventListener(
+      'click',
+      ()=>{
+        if(typeof openFicha==='function'){
+          openFicha(series,vehicle,service);
+        }else if(typeof window.openFicha==='function'){
+          window.openFicha(series,vehicle,service);
+        }else if(typeof toast==='function'){
+          toast('No se ha podido abrir la ficha completa');
+        }
+      }
+    );
+
+    window.scrollTo({top:0,behavior:'smooth'});
   }
 
   function atPreviewField(label,value){
     if(value===undefined||value===null||String(value).trim()==='') return '';
-    return `<div class="argos-last-time-preview-field"><span>${atEsc(label)}</span><strong>${atEsc(value)}</strong></div>`;
+
+    return `
+      <div class="argos-last-time-preview-field">
+        <span>${atEsc(label)}</span>
+        <strong>${atEsc(value)}</strong>
+      </div>`;
   }
 
   function atBindTrigger(){
-    let card=document.querySelector('.last-time-card');
+    const card=document.querySelector('.last-time-card');
     if(!card) return;
 
     if(card.dataset.argosLastTimeReady==='1') return;
+
     card.dataset.argosLastTimeReady='1';
     card.id=TRIGGER_ID;
+
     card.classList.add('argos-last-time-trigger');
     card.setAttribute('role','button');
     card.setAttribute('tabindex','0');
     card.setAttribute('aria-label','Abrir Última vez');
+
     card.innerHTML=`
       <span class="home-icon">◷</span>
+
       <span>
         <h2>Última vez</h2>
         <p>Consulta los trayectos que ya has realizado</p>
       </span>
+
       <span class="argos-last-time-trigger-arrow">›</span>`;
 
     card.addEventListener('click',e=>{
@@ -21172,6 +21351,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       e.stopImmediatePropagation();
       atOpen();
     },true);
+
     card.addEventListener('keydown',e=>{
       if(e.key==='Enter'||e.key===' '){
         e.preventDefault();
@@ -21182,65 +21362,630 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   }
 
   const style=document.createElement('style');
-  style.id='argos-last-time-explorer-style';
+  style.id='argos-last-time-menu-style';
+
   style.textContent=`
-    .argos-last-time-trigger{
-      position:relative!important;cursor:pointer!important;
-      grid-template-columns:48px 1fr 22px!important;
-      transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease!important;
+    /* ============================================================
+       ARGOS · ÚLTIMA VEZ · PANTALLA PROPIA
+       No es modal, no flota y no tapa otras pantallas.
+       ============================================================ */
+
+    .argos-last-time-screen{
+      min-height:100%;
+      background:var(--page);
+      padding:0!important;
     }
-    .argos-last-time-trigger:hover{transform:translateY(-1px)!important;border-color:rgba(138,0,92,.25)!important;box-shadow:0 12px 30px rgba(30,20,30,.11)!important}
-    .argos-last-time-trigger:active{transform:scale(.985)!important}
-    .argos-last-time-trigger-arrow{color:var(--renfe);font-size:32px;line-height:1;font-weight:300;justify-self:end}
-    .argos-last-time-trigger p{margin:3px 0 0;color:var(--muted);font-size:12px;line-height:1.2}
-    .argos-last-time-modal{position:fixed;inset:0;z-index:3100;display:none;align-items:center;justify-content:center;padding:16px}
-    .argos-last-time-modal.open{display:flex}
-    .argos-last-time-backdrop{position:absolute;inset:0;background:rgba(12,9,12,.52);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
-    .argos-last-time-panel{position:relative;z-index:1;width:min(820px,100%);max-height:calc(100dvh - 32px);overflow-y:auto;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:26px;padding:22px;box-shadow:0 28px 90px rgba(0,0,0,.28);animation:argosLastTimeIn .2s ease-out}
-    @keyframes argosLastTimeIn{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
-    body.argos-last-time-open{overflow:hidden!important}
-    .argos-last-time-close{position:absolute;right:15px;top:15px;width:42px;height:42px;border:0;border-radius:14px;background:var(--soft);color:var(--renfe);font-size:29px;line-height:1;display:flex;align-items:center;justify-content:center;z-index:4}
-    .argos-last-time-top{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;padding:4px 54px 18px 2px}
-    .argos-last-time-kicker,.argos-last-time-product-kicker,.argos-last-time-preview-kicker{color:var(--renfe);font-size:10px;font-weight:900;letter-spacing:.12em}
-    .argos-last-time-top h2{margin:5px 0 4px;font-size:34px;letter-spacing:-.025em}
-    .argos-last-time-top p{margin:0;color:var(--muted);font-size:14px}
-    .argos-last-time-total{min-width:78px;height:70px;padding:10px 12px;border-radius:18px;background:var(--soft);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--renfe)}
-    .argos-last-time-total strong{font-size:25px;line-height:1}.argos-last-time-total span{font-size:10px;font-weight:800;margin-top:3px}
-    .argos-last-time-route-note{padding:11px 13px;margin-bottom:16px;border-radius:13px;background:var(--page);color:var(--muted);font-size:12px;font-weight:650}
-    .argos-last-time-product{margin-top:17px}
-    .argos-last-time-product-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:9px;padding:0 2px}
-    .argos-last-time-product-head h3{margin:3px 0 0;font-size:20px}
-    .argos-last-time-count{padding:6px 9px;border-radius:999px;background:var(--soft);color:var(--renfe);font-size:10px;font-weight:900;white-space:nowrap}
-    .argos-last-time-services{display:flex;flex-direction:column;gap:8px}
-    .argos-last-time-service{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 14px;border:1px solid var(--line);border-radius:17px;background:var(--card);box-shadow:0 4px 15px rgba(30,20,30,.045);cursor:pointer;transition:transform .13s ease,box-shadow .13s ease,border-color .13s ease}
-    .argos-last-time-service:hover{transform:translateY(-1px);border-color:rgba(138,0,92,.27);box-shadow:0 10px 25px rgba(30,20,30,.09)}
-    .argos-last-time-service:active{transform:scale(.99)}
-    .argos-last-time-service-main{min-width:0;flex:1}.argos-last-time-route{font-size:16px;font-weight:850;line-height:1.28;overflow-wrap:anywhere}.argos-last-time-route span{color:var(--renfe);padding:0 4px}.argos-last-time-service-meta{display:flex;flex-wrap:wrap;gap:7px 12px;margin-top:7px;color:var(--muted);font-size:11px}.argos-last-time-service-meta strong{color:var(--renfe)}
-    .argos-last-time-arrow{width:30px;height:30px;border-radius:10px;background:var(--soft);color:var(--renfe);font-size:25px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
-    .argos-last-time-empty{text-align:center;padding:45px 20px}.argos-last-time-empty-icon{width:72px;height:72px;border-radius:22px;background:var(--soft);color:var(--renfe);font-size:38px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}.argos-last-time-empty h2{margin:5px 0;font-size:28px}.argos-last-time-empty p{max-width:480px;margin:8px auto;color:var(--muted);line-height:1.5}
-    .argos-last-time-back{border:0;background:transparent;color:var(--renfe);font-weight:850;font-size:13px;padding:3px 2px;margin-bottom:15px;display:flex;align-items:center;gap:5px}.argos-last-time-back span{font-size:12px}
-    .argos-last-time-preview-kicker{margin:0 0 9px 2px}.argos-last-time-preview-hero{background:linear-gradient(135deg,var(--soft),var(--card));border:1px solid var(--line);border-radius:20px;padding:21px 19px;margin-bottom:18px}.argos-last-time-preview-material{color:var(--renfe);font-size:11px;font-weight:900;letter-spacing:.1em}.argos-last-time-preview-hero h2{margin:5px 0 4px;font-size:30px;line-height:1.1;letter-spacing:-.025em}.argos-last-time-preview-hero p{margin:0;color:var(--muted);font-size:17px;font-weight:750}
-    .argos-last-time-preview-title{color:var(--renfe);font-size:12px;font-weight:900;letter-spacing:.08em;margin-bottom:10px}.argos-last-time-preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.argos-last-time-preview-field{min-width:0;padding:15px;border:1px solid var(--line);border-radius:15px;background:var(--page);display:flex;flex-direction:column;gap:5px}.argos-last-time-preview-field span{color:var(--muted);font-size:12px}.argos-last-time-preview-field strong{font-size:16px;line-height:1.25;overflow-wrap:anywhere}
-    .argos-last-time-more{width:100%;min-height:54px;margin-top:17px;border:0;border-radius:15px;background:var(--renfe);color:#fff;font-size:15px;font-weight:900;box-shadow:0 9px 22px rgba(138,0,92,.2);display:flex;align-items:center;justify-content:center;gap:8px}.argos-last-time-more span{font-size:24px;font-weight:300;line-height:1}.argos-last-time-more:active{transform:scale(.99)}
-    @media(min-width:601px){.argos-last-time-trigger{grid-template-columns:62px 1fr 25px!important}.argos-last-time-trigger-arrow{font-size:38px}.argos-last-time-trigger p{font-size:14px}}
-    @media(max-width:600px){.argos-last-time-modal{padding:9px}.argos-last-time-panel{max-height:calc(100dvh - 18px);padding:15px;border-radius:22px}.argos-last-time-top{padding-right:48px;align-items:flex-start}.argos-last-time-top h2{font-size:29px}.argos-last-time-total{min-width:67px;height:62px}.argos-last-time-service{padding:14px 12px}.argos-last-time-route{font-size:15px}.argos-last-time-preview-grid{grid-template-columns:1fr}.argos-last-time-preview-hero{padding:18px 15px}.argos-last-time-preview-hero h2{font-size:26px}.argos-last-time-preview-hero p{font-size:15px}}
-    body.dark .argos-last-time-panel{box-shadow:0 28px 90px rgba(0,0,0,.58)}
+
+    .argos-last-time-page{
+      width:min(1180px,100%);
+      margin:0 auto;
+      padding:18px 20px 42px;
+      box-sizing:border-box;
+    }
+
+    .argos-last-time-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+    }
+
+    .argos-last-time-nav{
+      border:0;
+      background:var(--card);
+      color:var(--renfe);
+      border:1px solid var(--line);
+      border-radius:14px;
+      min-height:44px;
+      padding:0 13px 0 9px;
+      display:flex;
+      align-items:center;
+      gap:7px;
+      font-size:13px;
+      font-weight:850;
+      box-shadow:0 5px 18px rgba(30,20,30,.06);
+      cursor:pointer;
+    }
+
+    .argos-last-time-nav span{
+      font-size:28px;
+      font-weight:300;
+      line-height:1;
+      margin-top:-2px;
+    }
+
+    .argos-last-time-nav:active{
+      transform:scale(.98);
+    }
+
+    .argos-last-time-header-brand{
+      color:var(--renfe);
+      font-size:11px;
+      font-weight:950;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
+    .argos-last-time-header-brand small{
+      color:var(--muted);
+      font-size:10px;
+      font-weight:850;
+      letter-spacing:.08em;
+    }
+
+    .argos-last-time-hero{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:22px;
+      padding:28px;
+      border-radius:26px;
+      background:
+        linear-gradient(135deg,var(--soft),var(--card) 70%);
+      border:1px solid var(--line);
+      box-shadow:0 10px 35px rgba(30,20,30,.06);
+      margin-bottom:14px;
+    }
+
+    .argos-last-time-kicker,
+    .argos-last-time-product-kicker,
+    .argos-last-time-detail-kicker{
+      color:var(--renfe);
+      font-size:10px;
+      font-weight:950;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+
+    .argos-last-time-hero h1{
+      margin:5px 0 5px;
+      font-size:clamp(34px,5vw,52px);
+      line-height:1;
+      letter-spacing:-.035em;
+    }
+
+    .argos-last-time-hero p{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.4;
+    }
+
+    .argos-last-time-total{
+      min-width:94px;
+      height:88px;
+      padding:10px 14px;
+      border-radius:22px;
+      background:var(--card);
+      border:1px solid var(--line);
+      color:var(--renfe);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 7px 22px rgba(30,20,30,.06);
+      flex:0 0 auto;
+    }
+
+    .argos-last-time-total strong{
+      font-size:32px;
+      line-height:1;
+    }
+
+    .argos-last-time-total span{
+      margin-top:5px;
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.04em;
+    }
+
+    .argos-last-time-intro{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:14px 16px;
+      margin-bottom:24px;
+      border-radius:16px;
+      background:var(--card);
+      border:1px solid var(--line);
+    }
+
+    .argos-last-time-intro-icon{
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      background:var(--soft);
+      color:var(--renfe);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:20px;
+      font-weight:700;
+      flex:0 0 auto;
+    }
+
+    .argos-last-time-intro strong{
+      display:block;
+      font-size:13px;
+    }
+
+    .argos-last-time-intro small{
+      display:block;
+      margin-top:2px;
+      color:var(--muted);
+      font-size:11px;
+    }
+
+    .argos-last-time-groups{
+      display:flex;
+      flex-direction:column;
+      gap:26px;
+    }
+
+    .argos-last-time-product{
+      min-width:0;
+    }
+
+    .argos-last-time-product-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:12px;
+      padding:0 3px 9px;
+      border-bottom:2px solid var(--line);
+    }
+
+    .argos-last-time-product-head h2{
+      margin:4px 0 0;
+      font-size:24px;
+      letter-spacing:-.02em;
+    }
+
+    .argos-last-time-count{
+      padding:7px 10px;
+      border-radius:999px;
+      background:var(--soft);
+      color:var(--renfe);
+      font-size:10px;
+      font-weight:950;
+      white-space:nowrap;
+    }
+
+    .argos-last-time-services{
+      display:flex;
+      flex-direction:column;
+      gap:9px;
+      margin-top:10px;
+    }
+
+    .argos-last-time-service{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:17px 16px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:var(--card);
+      box-shadow:0 4px 16px rgba(30,20,30,.045);
+      cursor:pointer;
+      transition:
+        transform .14s ease,
+        box-shadow .14s ease,
+        border-color .14s ease;
+      outline:none;
+    }
+
+    .argos-last-time-service:hover{
+      transform:translateY(-2px);
+      border-color:rgba(138,0,92,.28);
+      box-shadow:0 12px 28px rgba(30,20,30,.10);
+    }
+
+    .argos-last-time-service:focus-visible{
+      border-color:var(--renfe);
+      box-shadow:0 0 0 3px rgba(138,0,92,.12);
+    }
+
+    .argos-last-time-service:active{
+      transform:scale(.992);
+    }
+
+    .argos-last-time-service-main{
+      min-width:0;
+      flex:1;
+    }
+
+    .argos-last-time-route{
+      display:flex;
+      align-items:baseline;
+      gap:7px;
+      min-width:0;
+      font-size:17px;
+      font-weight:900;
+      line-height:1.28;
+    }
+
+    .argos-last-time-station{
+      min-width:0;
+      overflow-wrap:anywhere;
+    }
+
+    .argos-last-time-route-arrow{
+      color:var(--renfe);
+      font-size:20px;
+      font-weight:500;
+      flex:0 0 auto;
+    }
+
+    .argos-last-time-service-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:7px 13px;
+      margin-top:8px;
+      color:var(--muted);
+      font-size:11px;
+    }
+
+    .argos-last-time-service-meta strong{
+      color:var(--renfe);
+    }
+
+    .argos-last-time-arrow{
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      background:var(--soft);
+      color:var(--renfe);
+      font-size:29px;
+      line-height:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 auto;
+    }
+
+    .argos-last-time-empty{
+      min-height:55vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:50px 20px;
+    }
+
+    .argos-last-time-empty-icon{
+      width:82px;
+      height:82px;
+      border-radius:25px;
+      background:var(--soft);
+      color:var(--renfe);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:43px;
+      margin-bottom:17px;
+    }
+
+    .argos-last-time-empty h1{
+      margin:4px 0 6px;
+      font-size:30px;
+    }
+
+    .argos-last-time-empty p{
+      max-width:480px;
+      margin:0 auto 20px;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    .argos-last-time-empty-button{
+      border:0;
+      border-radius:14px;
+      min-height:48px;
+      padding:0 19px;
+      background:var(--renfe);
+      color:#fff;
+      font-weight:900;
+      cursor:pointer;
+    }
+
+    .argos-last-time-detail-top{
+      margin-bottom:12px;
+    }
+
+    .argos-last-time-back{
+      border:0;
+      background:transparent;
+      color:var(--renfe);
+      font-weight:900;
+      font-size:13px;
+      padding:3px 2px;
+      display:inline-flex;
+      align-items:center;
+      gap:5px;
+      cursor:pointer;
+    }
+
+    .argos-last-time-detail-kicker{
+      margin:16px 0 9px 2px;
+    }
+
+    .argos-last-time-detail-hero{
+      padding:28px;
+      border-radius:25px;
+      background:
+        linear-gradient(135deg,var(--soft),var(--card));
+      border:1px solid var(--line);
+      box-shadow:0 9px 30px rgba(30,20,30,.06);
+      margin-bottom:24px;
+    }
+
+    .argos-last-time-detail-material{
+      color:var(--renfe);
+      font-size:12px;
+      font-weight:950;
+      letter-spacing:.1em;
+    }
+
+    .argos-last-time-detail-hero h1{
+      margin:7px 0 5px;
+      font-size:clamp(30px,5vw,48px);
+      line-height:1.04;
+      letter-spacing:-.035em;
+    }
+
+    .argos-last-time-detail-hero p{
+      margin:0;
+      color:var(--muted);
+      font-size:17px;
+      font-weight:800;
+    }
+
+    .argos-last-time-detail-title{
+      color:var(--renfe);
+      font-size:12px;
+      font-weight:950;
+      letter-spacing:.09em;
+      margin:0 0 10px 2px;
+    }
+
+    .argos-last-time-detail-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:11px;
+    }
+
+    .argos-last-time-preview-field{
+      min-width:0;
+      padding:16px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:var(--card);
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      box-shadow:0 3px 12px rgba(30,20,30,.035);
+    }
+
+    .argos-last-time-preview-field span{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .argos-last-time-preview-field strong{
+      font-size:16px;
+      line-height:1.3;
+      overflow-wrap:anywhere;
+    }
+
+    .argos-last-time-more{
+      width:100%;
+      min-height:58px;
+      margin-top:18px;
+      border:0;
+      border-radius:16px;
+      background:var(--renfe);
+      color:#fff;
+      font-size:15px;
+      font-weight:950;
+      box-shadow:0 10px 24px rgba(138,0,92,.20);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      cursor:pointer;
+    }
+
+    .argos-last-time-more b{
+      font-size:25px;
+      font-weight:300;
+      line-height:1;
+    }
+
+    .argos-last-time-more:active{
+      transform:scale(.99);
+    }
+
+    .argos-last-time-trigger{
+      position:relative!important;
+      cursor:pointer!important;
+      grid-template-columns:48px 1fr 22px!important;
+      transition:
+        transform .16s ease,
+        box-shadow .16s ease,
+        border-color .16s ease!important;
+    }
+
+    .argos-last-time-trigger:hover{
+      transform:translateY(-1px)!important;
+      border-color:rgba(138,0,92,.25)!important;
+      box-shadow:0 12px 30px rgba(30,20,30,.11)!important;
+    }
+
+    .argos-last-time-trigger:active{
+      transform:scale(.985)!important;
+    }
+
+    .argos-last-time-trigger-arrow{
+      color:var(--renfe);
+      font-size:32px;
+      line-height:1;
+      font-weight:300;
+      justify-self:end;
+    }
+
+    .argos-last-time-trigger p{
+      margin:3px 0 0;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.2;
+    }
+
+    @media(min-width:601px){
+      .argos-last-time-trigger{
+        grid-template-columns:62px 1fr 25px!important;
+      }
+
+      .argos-last-time-trigger-arrow{
+        font-size:38px;
+      }
+
+      .argos-last-time-trigger p{
+        font-size:14px;
+      }
+    }
+
+    @media(max-width:760px){
+      .argos-last-time-page{
+        padding:13px 13px 30px;
+      }
+
+      .argos-last-time-hero{
+        padding:21px 17px;
+        border-radius:21px;
+      }
+
+      .argos-last-time-hero h1{
+        font-size:35px;
+      }
+
+      .argos-last-time-total{
+        min-width:74px;
+        height:72px;
+        border-radius:18px;
+      }
+
+      .argos-last-time-total strong{
+        font-size:27px;
+      }
+
+      .argos-last-time-route{
+        font-size:15px;
+      }
+
+      .argos-last-time-service{
+        padding:15px 13px;
+      }
+
+      .argos-last-time-detail-hero{
+        padding:21px 17px;
+        border-radius:21px;
+      }
+
+      .argos-last-time-detail-hero h1{
+        font-size:29px;
+      }
+    }
+
+    @media(max-width:600px){
+      .argos-last-time-header{
+        margin-bottom:12px;
+      }
+
+      .argos-last-time-header-brand{
+        font-size:10px;
+      }
+
+      .argos-last-time-header-brand small{
+        font-size:9px;
+      }
+
+      .argos-last-time-intro{
+        padding:12px 13px;
+      }
+
+      .argos-last-time-detail-grid{
+        grid-template-columns:1fr;
+      }
+
+      .argos-last-time-service-meta{
+        gap:6px 10px;
+      }
+
+      .argos-last-time-route{
+        display:block;
+      }
+
+      .argos-last-time-route-arrow{
+        display:inline-block;
+        padding:0 3px;
+      }
+    }
+
+    body.dark .argos-last-time-nav,
+    body.dark .argos-last-time-hero,
+    body.dark .argos-last-time-total,
+    body.dark .argos-last-time-intro,
+    body.dark .argos-last-time-service,
+    body.dark .argos-last-time-preview-field,
+    body.dark .argos-last-time-detail-hero{
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
+    }
   `;
-  document.head.appendChild(style);
 
+  if(!document.getElementById(style.id)){
+    document.head.appendChild(style);
+  }
 
-  // Reutilizamos el DOM existente: no se elimina ninguna opción del menú.
   function init(){
+    atEnsureScreen();
     atBindTrigger();
   }
 
   if(document.readyState==='loading'){
     document.addEventListener('DOMContentLoaded',init,{once:true});
-  }else init();
+  }else{
+    init();
+  }
 
   const originalRefresh=window.refreshHome;
+
   if(typeof originalRefresh==='function'&&!window.__argosLastTimeRefreshWrapped){
     window.__argosLastTimeRefreshWrapped=true;
+
     window.refreshHome=function(){
       const result=originalRefresh.apply(this,arguments);
       setTimeout(atBindTrigger,0);
@@ -21249,6 +21994,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   }
 
   window.argosOpenLastTime=atOpen;
-  window.argosCloseLastTime=atClose;
+  window.argosCloseLastTime=()=>{
+    if(typeof showScreen==='function') showScreen('menu');
+  };
 })();
-
