@@ -21707,12 +21707,20 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   }
 
   function atPreviewField(label,value){
-    if(value===undefined||value===null||String(value).trim()==='') return '';
+    /*
+     * Los servicios guardados por ARGOS utilizan estos valores
+     * directamente. No descartamos nunca un campo válido para que
+     * la mini ficha no pueda quedarse mostrando solamente las etiquetas.
+     */
+    const safeValue=
+      value===undefined||value===null||String(value).trim()===''
+        ? '—'
+        : String(value).trim();
 
     return `
       <div class="argos-last-time-preview-field">
         <span>${atEsc(label)}</span>
-        <strong>${atEsc(value)}</strong>
+        <strong>${atEsc(safeValue)}</strong>
       </div>`;
   }
 
@@ -23595,6 +23603,220 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       }
 
       /* La ficha completa NO se modifica: conserva scroll. */
+      body.argos-ficha-scroll-enabled{
+        overflow-y:auto!important;
+        overflow-x:hidden!important;
+        height:auto!important;
+        max-height:none!important;
+      }
+    }
+  `;
+  (document.head||document.documentElement).appendChild(style);
+})();
+
+
+/* ================================================================
+   ARGOS · ÚLTIMA VEZ · V16 · CORRECCIÓN DEFINITIVA
+   - La mini ficha vuelve al flujo normal de la pantalla.
+   - Ocupa toda la pantalla disponible bajo el encabezado Renfe.
+   - Una sola columna, sin scroll.
+   - Los valores se muestran siempre.
+   - "Ver ficha" mantiene la ficha completa con scroll.
+   ================================================================ */
+(function(){
+  const id="argos-last-time-v16-final";
+  if(document.getElementById(id)) return;
+
+  const style=document.createElement("style");
+  style.id=id;
+  style.textContent=`
+    @media(max-width:900px){
+
+      /* MINI FICHA: NO floating/fixed. El encabezado Renfe queda arriba
+         y la pantalla de Última vez ocupa el resto del viewport. */
+      body.argos-last-time-mini-open{
+        overflow:hidden!important;
+        height:100dvh!important;
+        max-height:100dvh!important;
+      }
+
+      #argosLastTimeScreen.argos-last-time-detail-mode{
+        position:relative!important;
+        inset:auto!important;
+        top:auto!important;
+        right:auto!important;
+        bottom:auto!important;
+        left:auto!important;
+        width:100%!important;
+        height:calc(100dvh - 212px)!important;
+        min-height:calc(100dvh - 212px)!important;
+        max-height:calc(100dvh - 212px)!important;
+        margin:0!important;
+        padding:0!important;
+        overflow:hidden!important;
+        box-sizing:border-box!important;
+      }
+
+      #argosLastTimeScreen.argos-last-time-detail-mode .argos-last-time-page{
+        width:100%!important;
+        height:100%!important;
+        min-height:0!important;
+        max-height:100%!important;
+        margin:0!important;
+        padding:8px 12px 8px!important;
+        overflow:hidden!important;
+        box-sizing:border-box!important;
+      }
+
+      #argosLastTimeScreen.argos-last-time-detail-mode #argosLastTimeContent{
+        width:100%!important;
+        height:100%!important;
+        min-height:0!important;
+        max-height:100%!important;
+        overflow:hidden!important;
+        display:flex!important;
+        flex-direction:column!important;
+        box-sizing:border-box!important;
+      }
+
+      #argosLastTimeScreen.argos-last-time-detail-mode .argos-last-time-detail-top{
+        flex:0 0 17px!important;
+        height:17px!important;
+        min-height:17px!important;
+        margin:0 0 5px!important;
+      }
+
+      #argosLastTimeScreen.argos-last-time-detail-mode .argos-last-time-detail-kicker{
+        margin:0!important;
+        font-size:9px!important;
+        line-height:1!important;
+      }
+
+      #argosLastTimeScreen.argos-last-time-detail-mode .argos-last-time-detail-hero{
+        flex:0 0 86px!important;
+        height:86px!important;
+        min-height:86px!important;
+        max-height:86px!important;
+        margin:0 0 7px!important;
+        padding:9px 12px!important;
+        overflow:hidden!important;
+        box-sizing:border-box!important;
+        display:flex!important;
+        flex-direction:column!important;
+        justify-content:center!important;
+      }
+
+      #argosLastTimeScreen.argos-last-time-detail-mode .argos-last-time-detail-material{
+        font-size:9px!important;
+        line-height:1!important;
+      }
+
+      #argosLastTimeScreen.argos-last-time-detail-mode .argos-last-time-detail-hero h1{
+        margin:3px 0!important;
+        font-size:22px!important;
+        line-height:1.02!important;
+        white-space:nowrap!important;
+        overflow:hidden!important;
+        text-overflow:ellipsis!important;
+      }
+
+      #argosLastTimeScreen.argos-last-time-detail-mode .argos-last-time-detail-hero p{
+        margin:0!important;
+        font-size:11px!important;
+        line-height:1.05!important;
+        white-space:nowrap!important;
+        overflow:hidden!important;
+        text-overflow:ellipsis!important;
+      }
+
+      #argosLastTimeScreen.argos-last-time-detail-mode .argos-last-time-detail-title{
+        flex:0 0 16px!important;
+        height:16px!important;
+        min-height:16px!important;
+        margin:0 0 4px 1px!important;
+        font-size:9px!important;
+        line-height:1!important;
+      }
+
+      /* Cinco tarjetas en UNA SOLA COLUMNA y ocupando el espacio
+         restante de la pantalla. */
+      #argosLastTimeScreen.argos-last-time-detail-mode .argos-last-time-detail-grid{
+        flex:1 1 auto!important;
+        display:grid!important;
+        grid-template-columns:1fr!important;
+        grid-template-rows:repeat(5,minmax(0,1fr))!important;
+        gap:5px!important;
+        width:100%!important;
+        height:auto!important;
+        min-height:0!important;
+        max-height:none!important;
+        overflow:hidden!important;
+      }
+
+      #argosLastTimeScreen.argos-last-time-detail-mode .argos-last-time-preview-field{
+        width:100%!important;
+        height:auto!important;
+        min-height:0!important;
+        max-height:none!important;
+        margin:0!important;
+        padding:7px 12px!important;
+        display:flex!important;
+        flex-direction:column!important;
+        justify-content:center!important;
+        gap:2px!important;
+        overflow:hidden!important;
+        box-sizing:border-box!important;
+      }
+
+      #argosLastTimeScreen.argos-last-time-detail-mode .argos-last-time-preview-field span{
+        display:block!important;
+        color:var(--muted)!important;
+        font-size:11px!important;
+        line-height:1.05!important;
+        height:auto!important;
+        visibility:visible!important;
+      }
+
+      #argosLastTimeScreen.argos-last-time-detail-mode .argos-last-time-preview-field strong{
+        display:block!important;
+        visibility:visible!important;
+        color:var(--text,#17171b)!important;
+        font-size:16px!important;
+        line-height:1.08!important;
+        font-weight:900!important;
+        height:auto!important;
+        max-height:2.2em!important;
+        margin:2px 0 0!important;
+        overflow:hidden!important;
+        white-space:normal!important;
+        overflow-wrap:anywhere!important;
+      }
+
+      #argosLastTimeScreen.argos-last-time-detail-mode .argos-last-time-detail-actions{
+        flex:0 0 48px!important;
+        height:48px!important;
+        min-height:48px!important;
+        max-height:48px!important;
+        margin:7px 0 0!important;
+        display:grid!important;
+        grid-template-columns:minmax(105px,.8fr) minmax(0,2fr)!important;
+        gap:6px!important;
+        width:100%!important;
+      }
+
+      #argosLastTimeScreen.argos-last-time-detail-mode .argos-last-time-detail-actions button{
+        width:100%!important;
+        height:48px!important;
+        min-height:48px!important;
+        max-height:48px!important;
+        margin:0!important;
+        padding:0 8px!important;
+        border-radius:11px!important;
+        box-sizing:border-box!important;
+        font-size:14px!important;
+      }
+
+      /* FICHA COMPLETA: se deja expresamente con scroll. */
       body.argos-ficha-scroll-enabled{
         overflow-y:auto!important;
         overflow-x:hidden!important;
