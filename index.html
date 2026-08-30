@@ -1367,6 +1367,220 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
 }
 </style>
 
+
+<style id="argos-ficha-viewport-v14">
+/* ================================================================
+   ARGOS · FICHA "ÚLTIMA VEZ" · MÓVIL · V14
+   Objetivo:
+   - La ficha no genera scroll propio.
+   - La página tampoco genera scroll al estar dentro de la ficha.
+   - El encabezado Renfe conserva siempre su espacio.
+   - La ficha se adapta al espacio REAL disponible debajo del header.
+   - No se modifica el contenido ni la navegación.
+   ================================================================ */
+
+@media(max-width:600px){
+  html,
+  body{
+    height:100%!important;
+    min-height:100%!important;
+    max-height:100%!important;
+    overflow:hidden!important;
+  }
+
+  body{
+    margin:0!important;
+  }
+
+  .app-shell{
+    width:100%!important;
+    height:100dvh!important;
+    min-height:100dvh!important;
+    max-height:100dvh!important;
+    overflow:hidden!important;
+    display:flex!important;
+    flex-direction:column!important;
+  }
+
+  .app-header{
+    flex:0 0 64px!important;
+    width:100%!important;
+    height:64px!important;
+    min-height:64px!important;
+    max-height:64px!important;
+    overflow:hidden!important;
+    position:relative!important;
+    z-index:1000!important;
+  }
+
+  .app-shell > .screen{
+    flex:1 1 auto!important;
+    width:100%!important;
+    min-height:0!important;
+    height:auto!important;
+    max-height:none!important;
+    overflow:hidden!important;
+    box-sizing:border-box!important;
+  }
+
+  /* Ficha que se abre desde Última vez */
+  #ficha{
+    flex:1 1 auto!important;
+    min-height:0!important;
+    height:auto!important;
+    max-height:none!important;
+    overflow:hidden!important;
+    box-sizing:border-box!important;
+    padding:6px 12px 8px!important;
+  }
+
+  #ficha .screen-header{
+    flex:0 0 44px!important;
+    height:44px!important;
+    min-height:44px!important;
+    max-height:44px!important;
+    margin:0 0 5px!important;
+    padding:0!important;
+  }
+
+  #ficha .back-button{
+    width:42px!important;
+    height:42px!important;
+    min-width:42px!important;
+    max-width:42px!important;
+    min-height:42px!important;
+    max-height:42px!important;
+    margin:0!important;
+    padding:0!important;
+  }
+
+  #ficha .ficha-shell{
+    width:100%!important;
+    height:calc(100% - 49px)!important;
+    min-height:0!important;
+    max-height:calc(100% - 49px)!important;
+    margin:0!important;
+    overflow:hidden!important;
+    box-sizing:border-box!important;
+  }
+
+  #ficha .ficha-card{
+    width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+    max-height:100%!important;
+    margin:0!important;
+    padding:9px!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+    display:flex!important;
+    flex-direction:column!important;
+  }
+
+  #ficha .ficha-hero{
+    flex:0 0 auto!important;
+    min-height:0!important;
+    margin:0 0 7px!important;
+    padding:11px 13px!important;
+    border-radius:15px!important;
+  }
+
+  #ficha .ficha-kicker{
+    font-size:9px!important;
+    line-height:1.1!important;
+    margin:0!important;
+  }
+
+  #ficha .ficha-hero h3{
+    margin:3px 0!important;
+    font-size:22px!important;
+    line-height:1.02!important;
+  }
+
+  #ficha .ficha-hero p{
+    margin:0!important;
+    font-size:11px!important;
+    line-height:1.1!important;
+  }
+
+  #ficha .ficha-section{
+    flex:1 1 auto!important;
+    min-height:0!important;
+    margin:2px 0 0!important;
+    overflow:hidden!important;
+    display:flex!important;
+    flex-direction:column!important;
+  }
+
+  #ficha .ficha-section-title{
+    flex:0 0 auto!important;
+    margin:0 0 5px!important;
+    font-size:9px!important;
+    line-height:1.1!important;
+  }
+
+  #ficha .ficha-grid{
+    flex:1 1 auto!important;
+    min-height:0!important;
+    height:auto!important;
+    max-height:none!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-template-rows:repeat(3,minmax(0,1fr))!important;
+    grid-auto-rows:auto!important;
+    gap:6px!important;
+    overflow:hidden!important;
+  }
+
+  #ficha .ficha-grid>div{
+    min-width:0!important;
+    min-height:0!important;
+    height:auto!important;
+    padding:7px 9px!important;
+    border-radius:11px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    justify-content:center!important;
+    overflow:hidden!important;
+  }
+
+  #ficha .ficha-grid span{
+    flex:0 0 auto!important;
+    font-size:9px!important;
+    line-height:1.05!important;
+    margin:0 0 2px!important;
+  }
+
+  #ficha .ficha-grid strong{
+    display:block!important;
+    min-width:0!important;
+    font-size:12px!important;
+    line-height:1.08!important;
+    overflow:hidden!important;
+    overflow-wrap:anywhere!important;
+  }
+
+  #ficha .ficha-actions{
+    flex:0 0 43px!important;
+    height:43px!important;
+    min-height:43px!important;
+    max-height:43px!important;
+    margin:7px 0 0!important;
+    padding:0!important;
+    overflow:hidden!important;
+  }
+
+  #ficha .ficha-actions button{
+    width:100%!important;
+    height:43px!important;
+    min-height:43px!important;
+    max-height:43px!important;
+    padding:0 10px!important;
+    border-radius:12px!important;
+    font-size:12px!important;
+  }
+}
+</style>
+
 </head>
 
 <body>
