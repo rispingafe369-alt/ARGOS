@@ -1488,17 +1488,17 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
         <label for="train">Número de tren</label>
         <label class="check-option"><input id="noTrainNumber" type="checkbox"> <span>Sin número de tren</span></label>
       </div>
-      <input id="train" type="text" maxlength="5" required autocomplete="off" placeholder="Ej. 05120">
+      <input id="train" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="5" required autocomplete="off" placeholder="Ej. 05120">
     </div>
 
     <div class="form-group">
       <label for="series">Serie</label>
-      <input id="series" type="text" maxlength="3" required autocomplete="off" placeholder="Ej. 112">
+      <input id="series" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="3" required autocomplete="off" placeholder="Ej. 112">
     </div>
 
     <div class="form-group">
       <label for="vehicle">Vehículo</label>
-      <input id="vehicle" type="text" maxlength="3" autocomplete="off" placeholder="Ej. 018">
+      <input id="vehicle" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="3" autocomplete="off" placeholder="Ej. 018">
     </div>
 
     <div id="branchBox" class="branch-box" aria-live="polite">
