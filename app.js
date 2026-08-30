@@ -22593,3 +22593,57 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     if(typeof showScreen==='function') showScreen('menu');
   };
 })();
+
+
+/* ================================================================
+   ARGOS · MÓVIL · PANTALLA COMPLETA
+   Solo corrige el espacio vacío inferior en móvil.
+   No modifica la navegación ni el contenido de ninguna pantalla.
+   ================================================================ */
+(function(){
+  const styleId="argos-mobile-fullscreen-patch";
+  if(document.getElementById(styleId)) return;
+
+  const style=document.createElement("style");
+  style.id=styleId;
+  style.textContent=`
+    @media(max-width:600px){
+      html,
+      body{
+        min-height:100%;
+        margin:0;
+      }
+
+      body{
+        min-height:100dvh;
+      }
+
+      .app-shell{
+        min-height:100dvh!important;
+      }
+
+      .app-shell > .screen{
+        min-height:100dvh!important;
+        box-sizing:border-box;
+      }
+
+      .app-shell > .screen.active{
+        min-height:100dvh!important;
+      }
+
+      /* La ficha y Última vez deben ocupar también el espacio inferior. */
+      .argos-last-time-screen{
+        min-height:100dvh!important;
+        box-sizing:border-box;
+      }
+
+      #ficha{
+        min-height:100dvh!important;
+        box-sizing:border-box;
+      }
+    }
+  `;
+
+  (document.head||document.documentElement).appendChild(style);
+})();
+
