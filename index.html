@@ -3499,132 +3499,223 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 </script>
 
 
-<!-- ARGOS · ESTADÍSTICAS V16 · REFINADO VISUAL Y NAVEGACIÓN -->
-<style id="argos-stats-v16-clean">
-/* Solo capa visual/interactiva sobre Estadísticas. No altera el motor de datos. */
-#stats.stats-screen{background:var(--page)}
-#stats .stats-dashboard{max-width:1080px}
-#stats .stats-hero{padding:18px 20px;border-radius:20px;margin-bottom:10px;box-shadow:none;background:var(--renfe);}
-#stats .stats-hero h3{font-size:24px}
-#stats .stats-hero-badge{width:50px;height:50px;border-radius:15px;font-size:25px}
-#stats .stats-filters-wrap{margin-bottom:10px}
-#stats .stats-filter-toggle{width:100%;min-height:46px;border:1px solid var(--line);border-radius:15px;background:var(--card);color:var(--ink);padding:9px 13px;display:flex;align-items:center;justify-content:space-between;box-shadow:none;font-weight:800}
-#stats .stats-filter-toggle .left{display:flex;align-items:center;gap:9px}
-#stats .stats-filter-toggle .ico{width:28px;height:28px;border-radius:9px;background:var(--soft);color:var(--renfe);display:grid;place-items:center}
-#stats .stats-filter-toggle .chev{color:var(--renfe);font-size:20px;transition:transform .18s ease}
-#stats .stats-filter-toggle.open .chev{transform:rotate(180deg)}
-#stats .stats-filters{box-shadow:none;margin-top:7px}
-#stats .stats-kpis{gap:8px;margin-bottom:10px}
-#stats .stats-kpi{border-radius:15px;box-shadow:none;padding:12px;transition:transform .14s ease,border-color .14s ease,background .14s ease}
-#stats .stats-kpi:hover{transform:translateY(-1px);border-color:rgba(138,0,92,.28)}
-#stats .stats-kpi:active{transform:scale(.985)}
-#stats .stats-kpi::after{content:'›';float:right;color:var(--muted);font-size:18px;line-height:1;margin-top:-2px}
-#stats .stats-kpi.accent::after{color:var(--renfe)}
-#stats .stats-grid-pro{gap:10px}
-#stats .stats-panel{border-radius:17px;box-shadow:none;padding:14px;transition:border-color .14s ease,transform .14s ease}
-#stats .stats-panel.interactive-panel{cursor:pointer}
-#stats .stats-panel.interactive-panel:hover{border-color:rgba(138,0,92,.28);transform:translateY(-1px)}
-#stats .stats-panel.interactive-panel:active{transform:scale(.995)}
-#stats .stats-panel-head{margin-bottom:10px}
-#stats .stats-panel-head h4{font-size:16px}
-#stats .stats-panel-action{font-size:10px;font-weight:900;color:var(--renfe);white-space:nowrap;padding-top:4px}
-#stats .ranking-list{gap:6px}
-#stats .ranking-row{padding:6px 5px;border-radius:10px;transition:background .12s ease}
-#stats .ranking-row:hover{background:var(--soft)}
-#stats .ranking-row::after{content:'›';font-size:16px;color:var(--muted);margin-left:2px}
-#stats .rank-number{width:25px;height:25px;border-radius:8px}
-#stats .rank-name{font-size:11px}
-#stats .rank-value{font-size:11px}
-#stats .stats-drill-grid{gap:8px;margin-top:10px}
-#stats .stats-drill-card{padding:11px 12px;border-radius:14px;box-shadow:none;min-height:72px}
-#stats .stats-drill-card strong{font-size:15px}
-#stats .stats-insight{gap:8px;margin-top:10px}
-#stats .stats-insight-card{padding:11px 12px;border-radius:14px}
-#stats .stats-detail{margin-top:10px}
-#stats .stats-detail .details-grid{gap:7px}
-#stats .details-grid .detail{padding:10px;border-radius:12px}
-#stats .stats-modal{align-items:center}
-#stats .stats-modal-card{border-radius:20px;padding:17px;max-height:min(82vh,760px)}
-#stats .stats-modal-close{width:36px;height:36px}
-#stats .modal-row{cursor:default}
-@media(max-width:900px){
-  #stats .stats-kpis{grid-template-columns:repeat(3,1fr)}
-  #stats .stats-grid-pro{grid-template-columns:1fr}
-}
-@media(max-width:600px){
-  #stats .stats-screen{padding:10px 9px 24px!important}
-  #stats .stats-hero{padding:15px;border-radius:17px}
-  #stats .stats-hero h3{font-size:21px}
-  #stats .stats-kpis{grid-template-columns:1fr 1fr}
-  #stats .stats-kpi{padding:11px}
-  #stats .stats-kpi strong{font-size:22px}
-  #stats .stats-panel{padding:12px;border-radius:15px}
-  #stats .stats-panel-action{font-size:9px}
-  #stats .stats-drill-card{min-height:68px}
-}
+<!-- ARGOS V17 · ESTADÍSTICAS · SERIES + VEHÍCULOS -->
+<style id="argos-stats-v17-series-vehicles">
+  /* Fusionamos visualmente MATERIAL + RAMAS en un único bloque de Series. */
+  .stats-panel:has(#branchRanking){display:none !important;}
+  .stats-panel:has(#seriesRanking){grid-column:1/-1 !important;}
+  .stats-panel:has(#seriesRanking) .stats-panel-head{margin-bottom:14px;}
+  .stats-panel:has(#seriesRanking) .stats-panel-head::after{
+    content:'Pulsa una serie para ver los vehículos más utilizados';
+    display:block;
+    color:var(--muted);
+    font-size:10px;
+    font-weight:700;
+    margin-top:5px;
+  }
+  #seriesRanking{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px 12px;
+  }
+  #seriesRanking .ranking-row{
+    min-height:58px;
+    padding:9px 10px;
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:var(--card);
+    transition:transform .15s ease,border-color .15s ease,background .15s ease;
+  }
+  #seriesRanking .ranking-row::after{
+    content:'›';
+    color:var(--muted);
+    font-size:20px;
+    font-weight:500;
+    line-height:1;
+    margin-left:2px;
+  }
+  #seriesRanking .ranking-row:hover{
+    transform:translateY(-1px);
+    border-color:rgba(138,0,92,.28);
+    background:var(--soft);
+  }
+  #seriesRanking .rank-bar{margin-top:6px;}
+  @media(max-width:600px){
+    #seriesRanking{grid-template-columns:1fr;gap:7px;}
+    #seriesRanking .ranking-row{min-height:56px;}
+  }
+
+  /* Presentación de los vehículos dentro del detalle de una serie. */
+  .series-vehicle-list{display:flex;flex-direction:column;gap:8px;}
+  .series-vehicle-card{
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:var(--soft);
+    padding:11px 12px;
+  }
+  .series-vehicle-head{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;}
+  .series-vehicle-name{font-size:14px;font-weight:900;color:var(--ink);}
+  .series-vehicle-count{font-size:12px;font-weight:900;color:var(--renfe);white-space:nowrap;}
+  .series-vehicle-branches{margin-top:8px;padding-top:8px;border-top:1px solid var(--line);}
+  .series-vehicle-branches-label{
+    display:block;color:var(--muted);font-size:9px;font-weight:900;
+    text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;
+  }
+  .series-branch-list{display:flex;flex-wrap:wrap;gap:5px;}
+  .series-branch-pill{
+    display:inline-flex;align-items:center;gap:4px;padding:5px 8px;
+    border-radius:9px;background:var(--card);border:1px solid var(--line);
+    font-size:10px;font-weight:800;color:var(--ink);
+  }
+  .series-branch-pill b{color:var(--renfe);}
+  .series-detail-note{
+    margin:0 0 11px;padding:9px 10px;border-radius:11px;
+    background:var(--soft);color:var(--muted);font-size:10px;line-height:1.4;
+  }
+  .series-detail-empty{
+    padding:18px 12px;text-align:center;border:1px dashed var(--line);
+    border-radius:13px;color:var(--muted);font-size:11px;
+  }
 </style>
 
-<script id="argos-stats-v16-clean-engine">
+<script id="argos-stats-v17-series-vehicles-engine">
 (function(){
   'use strict';
-  const qs=s=>document.querySelector(s);
-  const qsa=s=>Array.from(document.querySelectorAll(s));
-  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const services=()=>{try{const a=JSON.parse(localStorage.getItem('argos_services')||'[]');return Array.isArray(a)?a:[]}catch(e){return[]}};
-  const value=(o,keys)=>{for(const k of keys)if(o&&o[k]!==undefined&&o[k]!==null&&o[k]!=='')return o[k];return ''};
-  const field=(s,t)=>String(value(s,{series:['series','serie','trainSeries'],product:['product','producto','serviceType','tipoProducto'],vehicle:['vehicle','vehiculo','vehicleNumber','numeroVehiculo'],branch:['branch','rama'],origin:['origin','origen'],destination:['destination','destino']}[t]||[])).trim();
-  const route=s=>{const a=field(s,'origin'),b=field(s,'destination');return a&&b?a+' → '+b:(a||b||'Ruta no indicada')};
-  const dateOf=s=>{const v=String(value(s,['date','fecha','day','dia'])).trim();if(!v)return null;let d=new Date(v);if(isNaN(d)){const m=v.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/);if(m)d=new Date(+m[3],+m[2]-1,+m[1])}return isNaN(d)?null:d};
-  const currentFiltered=()=>{
-    const all=services(),y=qs('#statsYear')?.value||'all',m=qs('#statsMonth')?.value||'all',p=qs('#statsProduct')?.value||'all',se=qs('#statsSeries')?.value||'all';
-    return all.filter(s=>{const d=dateOf(s);return !(y!=='all'&&(!d||String(d.getFullYear())!==y)||m!=='all'&&(!d||String(d.getMonth())!==m)||p!=='all'&&field(s,'product')!==p||se!=='all'&&field(s,'series')!==se)});
-  };
-  const countBy=(a,type)=>{const m=new Map();a.forEach(s=>{const k=type==='route'?route(s):field(s,type);if(k)m.set(k,(m.get(k)||0)+1)});return [...m.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'es'))};
-  const modal=(title,sub,body)=>{
-    const m=qs('#statsModal');if(!m)return;
-    qs('#statsModalKicker').textContent='ARGOS · DETALLE';
-    qs('#statsModalTitle').textContent=title;
-    qs('#statsModalSub').textContent=sub;
-    qs('#statsModalBody').innerHTML=body;
-    m.classList.add('open');m.setAttribute('aria-hidden','false');
-  };
-  const list=(title,data)=>data.length?`<div class="modal-section"><h4>${esc(title)}</h4><div class="modal-list">${data.map((x,i)=>`<div class="modal-row"><b>${i+1}</b><span>${esc(x[0])}</span><strong>${esc(x[1])}</strong></div>`).join('')}</div></div>`:`<div class="modal-section"><h4>${esc(title)}</h4><p>Sin datos disponibles.</p></div>`;
-  const decorate=()=>{
-    const map=[['.stats-chart-panel','quarter','Ver trimestre →'],['#seriesRanking','series','Ver todo →'],['#branchRanking','branch','Ver todo →'],['#productRanking','product','Ver todo →'],['#routeRanking','route','Ver todo →'],['#vehicleRanking','vehicle','Ver todo →'],['#incidentRanking','incident','Ver detalle →'],['#weekdayChart','weekday','Ver semana →'],['#recordsGrid','records','Ver hitos →'],['#statsDetails','summary','Ver resumen →']];
-    map.forEach(([target,type,label])=>{const el=qs(target),panel=el?.closest('.stats-panel');if(!panel)return;panel.dataset.statsPanel=type;panel.classList.add('interactive-panel');if(!panel.querySelector('.stats-panel-action')){const a=document.createElement('span');a.className='stats-panel-action';a.textContent=label;panel.querySelector('.stats-panel-head')?.appendChild(a)}});
-  };
-  const openPanel=type=>{
-    if(type==='quarter'){qs('#monthlyChart .quarter-month-card')?.click();return}
-    if(type==='weekday'){
-      const a=currentFiltered(),names=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
-      const rows=names.map((n,i)=>[n,a.filter(s=>{const d=dateOf(s);return d&&((d.getDay()+6)%7)===i}).length]);
-      modal('Actividad semanal','Servicios según día de la semana',list('Servicios por día',rows));return;
+
+  const $=id=>document.getElementById(id);
+
+  function txt(v){return String(v??'').trim();}
+  function val(o,names){
+    for(const k of names){
+      if(o&&o[k]!==undefined&&o[k]!==null&&o[k]!=='') return o[k];
     }
-    if(type==='records'){
-      const rows=qsa('#recordsGrid .record').map(el=>[(el.querySelector('span')?.textContent||'').trim(),((el.querySelector('strong')?.textContent||'')+' '+(el.querySelector('small')?.textContent||'')).trim()]);
-      modal('Tus hitos','Récords calculados por ARGOS',list('Récords',rows));return;
+    return '';
+  }
+  function field(s,type){
+    const map={
+      series:['series','serie','trainSeries'],
+      product:['product','producto','serviceType','tipoProducto'],
+      vehicle:['vehicle','vehiculo','vehicleNumber','numeroVehiculo'],
+      branch:['branch','rama'],
+      origin:['origin','origen'],
+      destination:['destination','destino']
+    };
+    return txt(val(s,map[type]||[]));
+  }
+  function dateOf(s){
+    const raw=txt(val(s,['date','fecha','day','dia']));
+    if(!raw)return null;
+    let d=new Date(raw);
+    if(isNaN(d)){
+      const m=raw.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/);
+      if(m)d=new Date(+m[3],+m[2]-1,+m[1]);
     }
-    if(type==='summary'){
-      const rows=qsa('#statsDetails .detail').map(el=>[(el.querySelector('span')?.textContent||'').trim(),(el.querySelector('strong')?.textContent||'—').trim()]);
-      modal('Lectura general','Resumen de los datos actuales',list('Indicadores',rows));return;
+    return isNaN(d)?null:d;
+  }
+  function raw(){
+    try{
+      const x=JSON.parse(localStorage.getItem('argos_services')||'[]');
+      return Array.isArray(x)?x:[];
+    }catch(e){return[];}
+  }
+  function filtered(){
+    const all=raw();
+    const y=$('statsYear')?.value||'all';
+    const m=$('statsMonth')?.value||'all';
+    const p=$('statsProduct')?.value||'all';
+    const se=$('statsSeries')?.value||'all';
+    return all.filter(s=>{
+      const d=dateOf(s);
+      return !(
+        (y!=='all'&&(!d||String(d.getFullYear())!==y))||
+        (m!=='all'&&(!d||String(d.getMonth())!==m))||
+        (p!=='all'&&field(s,'product')!==p)||
+        (se!=='all'&&field(s,'series')!==se)
+      );
+    });
+  }
+  function esc(x){
+    return String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+  function plural(n,one,many){return n===1?one:many;}
+
+  function openSeriesModal(seriesName){
+    const modal=$('statsModal');
+    if(!modal)return;
+
+    const services=filtered().filter(s=>field(s,'series')===seriesName);
+    const vehicleMap=new Map();
+
+    services.forEach(s=>{
+      const vehicle=field(s,'vehicle');
+      if(!vehicle)return;
+      if(!vehicleMap.has(vehicle))vehicleMap.set(vehicle,[]);
+      vehicleMap.get(vehicle).push(s);
+    });
+
+    /* Regla solicitada: un vehículo solo entra si aparece MÁS DE DOS veces. */
+    const repeatedVehicles=[...vehicleMap.entries()]
+      .filter(([,items])=>items.length>2)
+      .sort((a,b)=>b[1].length-a[1].length||a[0].localeCompare(b[0],'es'));
+
+    const body=$('statsModalBody');
+    const title=$('statsModalTitle');
+    const sub=$('statsModalSub');
+    const kicker=$('statsModalKicker');
+    if(!body||!title||!sub||!kicker)return;
+
+    kicker.textContent='ARGOS · MATERIAL';
+    title.textContent='Serie '+seriesName;
+    sub.textContent=services.length+' '+plural(services.length,'servicio','servicios');
+
+    let html='<p class="series-detail-note">Solo se muestran vehículos que aparecen más de 2 veces dentro de esta serie. Las ramas se muestran únicamente cuando se repiten.</p>';
+
+    if(!repeatedVehicles.length){
+      html+='<div class="series-detail-empty">No hay ningún vehículo utilizado más de 2 veces en esta serie.</div>';
+    }else{
+      html+='<div class="modal-section" style="margin-top:0;padding-top:0;border-top:0"><h4>Vehículos más utilizados</h4><div class="series-vehicle-list">';
+
+      repeatedVehicles.forEach(([vehicle,items])=>{
+        const branches=new Map();
+        items.forEach(s=>{
+          const branch=field(s,'branch');
+          if(branch)branches.set(branch,(branches.get(branch)||0)+1);
+        });
+        const repeatedBranches=[...branches.entries()]
+          .filter(([,count])=>count>1)
+          .sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'es'));
+
+        html+='<article class="series-vehicle-card">';
+        html+='<div class="series-vehicle-head"><span class="series-vehicle-name">Vehículo '+esc(vehicle)+'</span><span class="series-vehicle-count">'+items.length+' usos</span></div>';
+
+        if(repeatedBranches.length){
+          html+='<div class="series-vehicle-branches"><span class="series-vehicle-branches-label">Ramas repetidas</span><div class="series-branch-list">';
+          repeatedBranches.forEach(([branch,count])=>{
+            html+='<span class="series-branch-pill">Rama '+esc(branch)+' <b>×'+count+'</b></span>';
+          });
+          html+='</div></div>';
+        }
+        html+='</article>';
+      });
+      html+='</div></div>';
     }
-    if(type==='incident'){
-      const a=currentFiltered(),m=new Map();a.forEach(s=>{const raw=value(s,['incidents','incidencias','incident','incidencia']);if(typeof raw==='string')raw.split(/[,;\n]+/).map(x=>x.trim()).filter(Boolean).forEach(x=>m.set(x,(m.get(x)||0)+1))});
-      modal('Análisis de incidencias',`${a.length} servicios filtrados`,list('Tipos de incidencia',[...m.entries()].sort((x,y)=>y[1]-x[1])));return;
-    }
-    if(['series','branch','product','route','vehicle'].includes(type)){
-      const a=currentFiltered(),title={series:'Series más utilizadas',branch:'Ramas más utilizadas',product:'Productos más utilizados',route:'Rutas más realizadas',vehicle:'Vehículos más utilizados'}[type];
-      modal(title,`${a.length} servicios filtrados`,list(title,countBy(a,type).slice(0,20)));return;
-    }
-  };
-  document.addEventListener('click',e=>{
-    if(!qs('#stats')?.classList.contains('active'))return;
-    const panel=e.target.closest('.interactive-panel');
-    if(panel&&!e.target.closest('button,select,input,a,.ranking-row')){openPanel(panel.dataset.statsPanel)}
-  });
-  const install=()=>{decorate();setTimeout(decorate,100);setTimeout(decorate,400)};
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
-  new MutationObserver(()=>decorate()).observe(document.documentElement,{childList:true,subtree:true});
+
+    body.innerHTML=html;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+  }
+
+  /* Captura antes del listener general de estadísticas para que una serie
+     abra este nuevo detalle y no el modal genérico anterior. */
+  document.addEventListener('click',function(e){
+    const row=e.target.closest('#seriesRanking .ranking-row');
+    if(!row)return;
+    const name=row.querySelector('.rank-name')?.textContent.trim();
+    if(!name)return;
+    e.stopImmediatePropagation();
+    openSeriesModal(name);
+  },true);
+
 })();
 </script>
 
