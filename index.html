@@ -1155,6 +1155,83 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
 body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
 </style>
 
+
+<style id="argos-header-persistence-v12">
+/* ================================================================
+   ARGOS · ENCABEZADO RENFE · V12
+   Corrección estructural:
+   - El encabezado forma parte fija del app-shell.
+   - Las pantallas ocupan únicamente el espacio que queda debajo.
+   - Ninguna pantalla puede crecer hasta tapar/desplazar el encabezado.
+   - No modifica contenido ni navegación.
+   ================================================================ */
+
+.app-shell{
+  height:100dvh!important;
+  min-height:0!important;
+  overflow:hidden!important;
+}
+
+.app-header{
+  flex:0 0 68px!important;
+  height:68px!important;
+  min-height:68px!important;
+  position:relative!important;
+  z-index:1000!important;
+}
+
+.app-shell > .screen{
+  flex:1 1 0!important;
+  min-height:0!important;
+  height:auto!important;
+  max-height:none!important;
+  box-sizing:border-box!important;
+  position:relative!important;
+  z-index:1!important;
+}
+
+.app-shell > .screen.active{
+  min-height:0!important;
+  height:auto!important;
+}
+
+@media(max-width:600px){
+  .app-header{
+    flex:0 0 64px!important;
+    height:64px!important;
+    min-height:64px!important;
+  }
+
+  .brand-row{
+    height:64px!important;
+    min-height:64px!important;
+  }
+
+  .app-shell > .screen{
+    flex:1 1 0!important;
+    min-height:0!important;
+    height:auto!important;
+    max-height:none!important;
+    box-sizing:border-box!important;
+  }
+
+  .app-shell > .screen.active{
+    min-height:0!important;
+    height:auto!important;
+  }
+
+  #ficha,
+  #ficha.active,
+  .argos-last-time-screen,
+  .argos-last-time-screen.active{
+    min-height:0!important;
+    height:auto!important;
+    max-height:none!important;
+    box-sizing:border-box!important;
+  }
+}
+</style>
+
 </head>
 
 <body>
