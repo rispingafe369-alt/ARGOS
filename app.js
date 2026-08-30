@@ -20498,6 +20498,14 @@ function fleetFichaHtml(series,vehicle,service=null){
     ${generalBlock}`;
 }
 function openFicha(series,vehicle,service=null){
+  const fichaScreen=$("ficha");
+  const fromLastTime=window.argosFichaFromLastTime===true;
+  window.argosFichaFromLastTime=false;
+
+  if(fichaScreen){
+    fichaScreen.classList.toggle("argos-last-time-ficha",fromLastTime);
+  }
+
   if($("fichaContent")) $("fichaContent").innerHTML=fleetFichaHtml(series,vehicle,service);
   showScreen("ficha");
 }
@@ -21541,8 +21549,10 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
           String(found?.unit?.vehiculoBase||found?.key||'').trim();
 
         if(typeof openFicha==='function'){
+          window.argosFichaFromLastTime=true;
           openFicha(series,vehicle,service);
-        }else if(typeof window.openFicha==='function'){
+         }else if(typeof window.openFicha==='function'){
+          window.argosFichaFromLastTime=true;
           window.openFicha(series,vehicle,service);
         }else if(typeof toast==='function'){
           toast('No se ha podido abrir la ficha completa');
@@ -21669,8 +21679,10 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       'click',
       ()=>{
         if(typeof openFicha==='function'){
+          window.argosFichaFromLastTime=true;
           openFicha(series,vehicle,service);
-        }else if(typeof window.openFicha==='function'){
+         }else if(typeof window.openFicha==='function'){
+          window.argosFichaFromLastTime=true;
           window.openFicha(series,vehicle,service);
         }else if(typeof toast==='function'){
           toast('No se ha podido abrir la ficha completa');
@@ -22583,59 +22595,6 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   window.argosCloseLastTime=()=>{
     if(typeof showScreen==='function') showScreen('menu');
   };
-})();
-
-
-/* ================================================================
-   ARGOS · MÓVIL · PANTALLA COMPLETA
-   Solo corrige el espacio vacío inferior en móvil.
-   No modifica la navegación ni el contenido de ninguna pantalla.
-   ================================================================ */
-(function(){
-  const styleId="argos-mobile-fullscreen-patch";
-  if(document.getElementById(styleId)) return;
-
-  const style=document.createElement("style");
-  style.id=styleId;
-  style.textContent=`
-    @media(max-width:600px){
-      html,
-      body{
-        min-height:100%;
-        margin:0;
-      }
-
-      body{
-        min-height:100dvh;
-      }
-
-      .app-shell{
-        min-height:100dvh!important;
-      }
-
-      .app-shell > .screen{
-        min-height:100dvh!important;
-        box-sizing:border-box;
-      }
-
-      .app-shell > .screen.active{
-        min-height:100dvh!important;
-      }
-
-      /* La ficha y Última vez deben ocupar también el espacio inferior. */
-      .argos-last-time-screen{
-        min-height:100dvh!important;
-        box-sizing:border-box;
-      }
-
-      #ficha{
-        min-height:100dvh!important;
-        box-sizing:border-box;
-      }
-    }
-  `;
-
-  (document.head||document.documentElement).appendChild(style);
 })();
 
 
