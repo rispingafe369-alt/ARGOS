@@ -4248,3 +4248,135 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   window.addEventListener('load',install,{once:true});
 })();
 </script>
+
+<!-- ARGOS V26 · FILTRO FINAL DE PRODUCTO POR SERIE -->
+<script id="argos-product-by-series-v26">
+(function(){
+  'use strict';
+
+  /*
+   * V26 se ejecuta al FINAL del documento, después del selector personalizado
+   * y de las extensiones V23. Así el filtro actúa sobre el desplegable visible.
+   */
+  const MAP={
+    '100':['AVE'],
+    '102':['AVE','AVLO'],
+    '103':['AVE'],
+    '104':['AVANT'],
+    '105':['AVE'],
+    '106':['AVE','AVLO'],
+    '107':['AVE','AVLO'],
+    '108':['AVE','AVLO'],
+    '112':['AVE','AVLO'],
+    '114':['AVANT'],
+    '120':['ALVIA','AVANT'],
+    '121':['ALVIA','AVANT'],
+    '130':['ALVIA'],
+    '730':['ALVIA'],
+
+    '251':['Mercancías','Charter'],
+    '252':['Mercancías','Charter'],
+    '253':['Mercancías'],
+    '256':['Mercancías','Charter'],
+    '269':['Mercancías','Charter'],
+    '319':['Mercancías'],
+    '333':['Mercancías','Charter'],
+    '334':['Media Distancia','Regional','Regional Exprés','Charter'],
+
+    '440':['Cercanías','Media Distancia','Regional'],
+    '442':['Cercanías','Media Distancia','Regional'],
+    '443':['Cercanías','Media Distancia','Regional'],
+    '444':['Cercanías','Media Distancia','Regional'],
+    '446':['Cercanías'],
+    '447':['Cercanías'],
+    '448':['Cercanías'],
+    '450':['Cercanías'],
+    '451':['Cercanías'],
+    '452':['Cercanías'],
+    '453':['Cercanías'],
+    '463':['Cercanías'],
+    '464':['Cercanías'],
+    '465':['Cercanías'],
+    '470':['Cercanías','Media Distancia','Regional'],
+    '446':['Cercanías'],
+
+    '592':['Media Distancia','Regional','Regional Exprés'],
+    '593':['Media Distancia','Regional','Regional Exprés'],
+    '594':['Media Distancia','Regional','Regional Exprés'],
+    '596':['Media Distancia','Regional','Regional Exprés'],
+    '598':['Media Distancia','Regional','Regional Exprés'],
+    '599':['Media Distancia','Regional','Regional Exprés']
+  };
+
+  function norm(v){
+    return String(v??'').replace(/\D/g,'').replace(/^0+/,'')||'';
+  }
+
+  function apply(){
+    const series=document.getElementById('series');
+    const select=document.getElementById('product');
+    const box=document.getElementById('productOptions');
+    const value=document.getElementById('productSelectValue');
+    if(!series||!select||!box)return;
+
+    const key=norm(series.value);
+    const allowed=MAP[key];
+    const allowedSet=allowed?new Set(allowed.map(x=>x.toLowerCase())):null;
+    const options=Array.from(select.options);
+    const current=select.value;
+
+    /* Filtra el select nativo, que es la fuente de verdad. */
+    options.forEach(opt=>{
+      if(opt.value===''){
+        opt.hidden=false;
+        return;
+      }
+      opt.hidden=!!allowedSet&&!allowedSet.has(String(opt.textContent).trim().toLowerCase());
+    });
+
+    /* Si el producto actual deja de ser válido, lo limpiamos. */
+    if(allowedSet && current && !allowedSet.has(String(select.options[select.selectedIndex]?.textContent||'').trim().toLowerCase())){
+      select.value='';
+      select.dispatchEvent(new Event('change',{bubbles:true}));
+    }
+
+    /* Filtra el desplegable visual personalizado que ve el usuario. */
+    Array.from(box.querySelectorAll('.product-option')).forEach(btn=>{
+      const text=String(btn.textContent||'').trim().toLowerCase();
+      const visible=!allowedSet||text==='selecciona un producto'||allowedSet.has(text);
+      btn.style.display=visible?'flex':'none';
+    });
+
+    if(value && !select.value){
+      value.textContent='Selecciona un producto';
+      value.classList.add('product-select-placeholder');
+    }
+  }
+
+  function setup(){
+    const series=document.getElementById('series');
+    const box=document.getElementById('productOptions');
+    if(!series||!box)return;
+    if(series.dataset.productSeriesV26==='1')return;
+    series.dataset.productSeriesV26='1';
+
+    series.addEventListener('input',apply);
+    series.addEventListener('change',apply);
+    apply();
+
+    /* El selector personalizado puede reconstruir sus botones; los volvemos
+       a filtrar automáticamente sin interferir con su funcionamiento. */
+    const observer=new MutationObserver(function(){
+      apply();
+    });
+    observer.observe(box,{childList:true,subtree:true});
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',setup,{once:true});
+  }else{
+    setup();
+  }
+  window.addEventListener('load',function(){setup();apply();},{once:true});
+})();
+</script>
