@@ -13858,7 +13858,7 @@ const fleet = {
           "9-447-004-3"
         ],
         "searchCodes": [
-          "002",
+          "003",
           "004"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -13888,7 +13888,7 @@ const fleet = {
           "9-447-006-8"
         ],
         "searchCodes": [
-          "003",
+          "005",
           "006"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -13918,7 +13918,7 @@ const fleet = {
           "9-447-008-4"
         ],
         "searchCodes": [
-          "004",
+          "007",
           "008"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -13948,7 +13948,7 @@ const fleet = {
           "9-447-010-0"
         ],
         "searchCodes": [
-          "005",
+          "009",
           "010"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -13978,7 +13978,7 @@ const fleet = {
           "9-447-012-6"
         ],
         "searchCodes": [
-          "006",
+          "011",
           "012"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14008,7 +14008,7 @@ const fleet = {
           "9-447-014-2"
         ],
         "searchCodes": [
-          "007",
+          "013",
           "014"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14038,7 +14038,7 @@ const fleet = {
           "9-447-016-7"
         ],
         "searchCodes": [
-          "008",
+          "015",
           "016"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14068,7 +14068,7 @@ const fleet = {
           "9-447-018-3"
         ],
         "searchCodes": [
-          "009",
+          "017",
           "018"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14098,7 +14098,7 @@ const fleet = {
           "9-447-020-9"
         ],
         "searchCodes": [
-          "010",
+          "019",
           "020"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14128,7 +14128,7 @@ const fleet = {
           "9-447-022-5"
         ],
         "searchCodes": [
-          "011",
+          "021",
           "022"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14158,7 +14158,7 @@ const fleet = {
           "9-447-024-1"
         ],
         "searchCodes": [
-          "012",
+          "023",
           "024"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14188,7 +14188,7 @@ const fleet = {
           "9-447-026-6"
         ],
         "searchCodes": [
-          "013",
+          "025",
           "026"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14218,7 +14218,7 @@ const fleet = {
           "9-447-028-2"
         ],
         "searchCodes": [
-          "014",
+          "027",
           "028"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14248,7 +14248,7 @@ const fleet = {
           "9-447-030-8"
         ],
         "searchCodes": [
-          "015",
+          "029",
           "030"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14278,7 +14278,7 @@ const fleet = {
           "9-447-032-4"
         ],
         "searchCodes": [
-          "016",
+          "031",
           "032"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14308,7 +14308,7 @@ const fleet = {
           "9-447-034-0"
         ],
         "searchCodes": [
-          "017",
+          "033",
           "034"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14338,7 +14338,7 @@ const fleet = {
           "9-447-036-5"
         ],
         "searchCodes": [
-          "018",
+          "035",
           "036"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14368,7 +14368,7 @@ const fleet = {
           "9-447-038-1"
         ],
         "searchCodes": [
-          "019",
+          "037",
           "038"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14398,7 +14398,7 @@ const fleet = {
           "9-447-040-7"
         ],
         "searchCodes": [
-          "020",
+          "039",
           "040"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14428,7 +14428,7 @@ const fleet = {
           "9-447-042-3"
         ],
         "searchCodes": [
-          "021",
+          "041",
           "042"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14458,7 +14458,7 @@ const fleet = {
           "9-447-044-9"
         ],
         "searchCodes": [
-          "022",
+          "043",
           "044"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14488,7 +14488,7 @@ const fleet = {
           "9-447-046-4"
         ],
         "searchCodes": [
-          "023",
+          "045",
           "046"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14518,7 +14518,7 @@ const fleet = {
           "9-447-048-0"
         ],
         "searchCodes": [
-          "024",
+          "047",
           "048"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14548,7 +14548,7 @@ const fleet = {
           "9-447-050-6"
         ],
         "searchCodes": [
-          "025",
+          "049",
           "050"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14578,7 +14578,7 @@ const fleet = {
           "9-447-052-2"
         ],
         "searchCodes": [
-          "026",
+          "051",
           "052"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14608,7 +14608,7 @@ const fleet = {
           "9-447-054-8"
         ],
         "searchCodes": [
-          "027",
+          "053",
           "054"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14638,7 +14638,7 @@ const fleet = {
           "9-447-056-3"
         ],
         "searchCodes": [
-          "028",
+          "055",
           "056"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14668,7 +14668,7 @@ const fleet = {
           "9-447-058-9"
         ],
         "searchCodes": [
-          "029",
+          "057",
           "058"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14698,7 +14698,7 @@ const fleet = {
           "9-447-060-5"
         ],
         "searchCodes": [
-          "030",
+          "059",
           "060"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14728,7 +14728,7 @@ const fleet = {
           "9-447-062-1"
         ],
         "searchCodes": [
-          "031",
+          "061",
           "062"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14758,7 +14758,7 @@ const fleet = {
           "9-447-064-7"
         ],
         "searchCodes": [
-          "032",
+          "063",
           "064"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14788,7 +14788,7 @@ const fleet = {
           "9-447-066-2"
         ],
         "searchCodes": [
-          "033",
+          "065",
           "066"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14818,7 +14818,7 @@ const fleet = {
           "9-447-068-8"
         ],
         "searchCodes": [
-          "034",
+          "067",
           "068"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14848,7 +14848,7 @@ const fleet = {
           "9-447-070-4"
         ],
         "searchCodes": [
-          "035",
+          "069",
           "070"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14878,7 +14878,7 @@ const fleet = {
           "9-447-072-0"
         ],
         "searchCodes": [
-          "036",
+          "071",
           "072"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14908,7 +14908,7 @@ const fleet = {
           "9-447-074-6"
         ],
         "searchCodes": [
-          "037",
+          "073",
           "074"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14938,7 +14938,7 @@ const fleet = {
           "9-447-076-1"
         ],
         "searchCodes": [
-          "038",
+          "075",
           "076"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14968,7 +14968,7 @@ const fleet = {
           "9-447-078-7"
         ],
         "searchCodes": [
-          "039",
+          "077",
           "078"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -14998,7 +14998,7 @@ const fleet = {
           "9-447-080-3"
         ],
         "searchCodes": [
-          "040",
+          "079",
           "080"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15028,7 +15028,7 @@ const fleet = {
           "9-447-082-9"
         ],
         "searchCodes": [
-          "041",
+          "081",
           "082"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15058,7 +15058,7 @@ const fleet = {
           "9-447-084-5"
         ],
         "searchCodes": [
-          "042",
+          "083",
           "084"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15088,7 +15088,7 @@ const fleet = {
           "9-447-086-0"
         ],
         "searchCodes": [
-          "043",
+          "085",
           "086"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15118,7 +15118,7 @@ const fleet = {
           "9-447-088-6"
         ],
         "searchCodes": [
-          "044",
+          "087",
           "088"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15148,7 +15148,7 @@ const fleet = {
           "9-447-090-2"
         ],
         "searchCodes": [
-          "045",
+          "089",
           "090"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15178,7 +15178,7 @@ const fleet = {
           "9-447-092-8"
         ],
         "searchCodes": [
-          "046",
+          "091",
           "092"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15208,7 +15208,7 @@ const fleet = {
           "9-447-094-4"
         ],
         "searchCodes": [
-          "047",
+          "093",
           "094"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15238,7 +15238,7 @@ const fleet = {
           "9-447-096-9"
         ],
         "searchCodes": [
-          "048",
+          "095",
           "096"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15268,7 +15268,7 @@ const fleet = {
           "9-447-098-5"
         ],
         "searchCodes": [
-          "049",
+          "097",
           "098"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15298,7 +15298,7 @@ const fleet = {
           "9-447-100-9"
         ],
         "searchCodes": [
-          "050",
+          "099",
           "100"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15328,7 +15328,7 @@ const fleet = {
           "9-447-102-5"
         ],
         "searchCodes": [
-          "051",
+          "101",
           "102"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15358,7 +15358,7 @@ const fleet = {
           "9-447-104-1"
         ],
         "searchCodes": [
-          "052",
+          "103",
           "104"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15388,7 +15388,7 @@ const fleet = {
           "9-447-106-6"
         ],
         "searchCodes": [
-          "053",
+          "105",
           "106"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15418,7 +15418,7 @@ const fleet = {
           "9-447-108-2"
         ],
         "searchCodes": [
-          "054",
+          "107",
           "108"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15448,7 +15448,7 @@ const fleet = {
           "9-447-110-8"
         ],
         "searchCodes": [
-          "055",
+          "109",
           "110"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15478,7 +15478,7 @@ const fleet = {
           "9-447-112-4"
         ],
         "searchCodes": [
-          "056",
+          "111",
           "112"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15508,7 +15508,7 @@ const fleet = {
           "9-447-114-0"
         ],
         "searchCodes": [
-          "057",
+          "113",
           "114"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15538,7 +15538,7 @@ const fleet = {
           "9-447-116-5"
         ],
         "searchCodes": [
-          "058",
+          "115",
           "116"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15568,7 +15568,7 @@ const fleet = {
           "9-447-118-1"
         ],
         "searchCodes": [
-          "059",
+          "117",
           "118"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15598,7 +15598,7 @@ const fleet = {
           "9-447-120-7"
         ],
         "searchCodes": [
-          "060",
+          "119",
           "120"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15628,7 +15628,7 @@ const fleet = {
           "9-447-122-3"
         ],
         "searchCodes": [
-          "061",
+          "121",
           "122"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15658,7 +15658,7 @@ const fleet = {
           "9-447-124-9"
         ],
         "searchCodes": [
-          "062",
+          "123",
           "124"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15688,7 +15688,7 @@ const fleet = {
           "9-447-126-4"
         ],
         "searchCodes": [
-          "063",
+          "125",
           "126"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15718,7 +15718,7 @@ const fleet = {
           "9-447-128-0"
         ],
         "searchCodes": [
-          "064",
+          "127",
           "128"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15748,7 +15748,7 @@ const fleet = {
           "9-447-130-6"
         ],
         "searchCodes": [
-          "065",
+          "129",
           "130"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15778,7 +15778,7 @@ const fleet = {
           "9-447-132-2"
         ],
         "searchCodes": [
-          "066",
+          "131",
           "132"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15808,7 +15808,7 @@ const fleet = {
           "9-447-134-8"
         ],
         "searchCodes": [
-          "067",
+          "133",
           "134"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15838,7 +15838,7 @@ const fleet = {
           "9-447-136-3"
         ],
         "searchCodes": [
-          "068",
+          "135",
           "136"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15868,7 +15868,7 @@ const fleet = {
           "9-447-138-9"
         ],
         "searchCodes": [
-          "069",
+          "137",
           "138"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15898,7 +15898,7 @@ const fleet = {
           "9-447-140-5"
         ],
         "searchCodes": [
-          "070",
+          "139",
           "140"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15928,7 +15928,7 @@ const fleet = {
           "9-447-142-1"
         ],
         "searchCodes": [
-          "071",
+          "141",
           "142"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15958,7 +15958,7 @@ const fleet = {
           "9-447-144-7"
         ],
         "searchCodes": [
-          "072",
+          "143",
           "144"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -15988,7 +15988,7 @@ const fleet = {
           "9-447-146-2"
         ],
         "searchCodes": [
-          "073",
+          "145",
           "146"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16018,7 +16018,7 @@ const fleet = {
           "9-447-148-8"
         ],
         "searchCodes": [
-          "074",
+          "147",
           "148"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16048,7 +16048,7 @@ const fleet = {
           "9-447-150-4"
         ],
         "searchCodes": [
-          "075",
+          "149",
           "150"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16078,7 +16078,7 @@ const fleet = {
           "9-447-152-0"
         ],
         "searchCodes": [
-          "076",
+          "151",
           "152"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16108,7 +16108,7 @@ const fleet = {
           "9-447-154-6"
         ],
         "searchCodes": [
-          "077",
+          "153",
           "154"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16138,7 +16138,7 @@ const fleet = {
           "9-447-156-1"
         ],
         "searchCodes": [
-          "078",
+          "155",
           "156"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16168,7 +16168,7 @@ const fleet = {
           "9-447-158-7"
         ],
         "searchCodes": [
-          "079",
+          "157",
           "158"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16198,7 +16198,7 @@ const fleet = {
           "9-447-160-3"
         ],
         "searchCodes": [
-          "080",
+          "159",
           "160"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16228,7 +16228,7 @@ const fleet = {
           "9-447-162-9"
         ],
         "searchCodes": [
-          "081",
+          "161",
           "162"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16258,7 +16258,7 @@ const fleet = {
           "9-447-164-5"
         ],
         "searchCodes": [
-          "082",
+          "163",
           "164"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16288,7 +16288,7 @@ const fleet = {
           "9-447-166-0"
         ],
         "searchCodes": [
-          "083",
+          "165",
           "166"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16318,7 +16318,7 @@ const fleet = {
           "9-447-168-6"
         ],
         "searchCodes": [
-          "084",
+          "167",
           "168"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16348,7 +16348,7 @@ const fleet = {
           "9-447-170-2"
         ],
         "searchCodes": [
-          "085",
+          "169",
           "170"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16378,7 +16378,7 @@ const fleet = {
           "9-447-172-8"
         ],
         "searchCodes": [
-          "086",
+          "171",
           "172"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16408,7 +16408,7 @@ const fleet = {
           "9-447-174-4"
         ],
         "searchCodes": [
-          "087",
+          "173",
           "174"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16438,7 +16438,7 @@ const fleet = {
           "9-447-176-9"
         ],
         "searchCodes": [
-          "088",
+          "175",
           "176"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16468,7 +16468,7 @@ const fleet = {
           "9-447-178-5"
         ],
         "searchCodes": [
-          "089",
+          "177",
           "178"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16498,7 +16498,7 @@ const fleet = {
           "9-447-180-1"
         ],
         "searchCodes": [
-          "090",
+          "179",
           "180"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16528,7 +16528,7 @@ const fleet = {
           "9-447-182-7"
         ],
         "searchCodes": [
-          "091",
+          "181",
           "182"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16558,7 +16558,7 @@ const fleet = {
           "9-447-184-3"
         ],
         "searchCodes": [
-          "092",
+          "183",
           "184"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16588,7 +16588,7 @@ const fleet = {
           "9-447-186-8"
         ],
         "searchCodes": [
-          "093",
+          "185",
           "186"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16618,7 +16618,7 @@ const fleet = {
           "9-447-188-4"
         ],
         "searchCodes": [
-          "094",
+          "187",
           "188"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16648,7 +16648,7 @@ const fleet = {
           "9-447-190-0"
         ],
         "searchCodes": [
-          "095",
+          "189",
           "190"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16678,7 +16678,7 @@ const fleet = {
           "9-447-192-6"
         ],
         "searchCodes": [
-          "096",
+          "191",
           "192"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16708,7 +16708,7 @@ const fleet = {
           "9-447-194-2"
         ],
         "searchCodes": [
-          "097",
+          "193",
           "194"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16738,7 +16738,7 @@ const fleet = {
           "9-447-196-7"
         ],
         "searchCodes": [
-          "098",
+          "195",
           "196"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16768,7 +16768,7 @@ const fleet = {
           "9-447-198-3"
         ],
         "searchCodes": [
-          "099",
+          "197",
           "198"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16798,7 +16798,7 @@ const fleet = {
           "9-447-200-7"
         ],
         "searchCodes": [
-          "100",
+          "199",
           "200"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16828,7 +16828,7 @@ const fleet = {
           "9-447-202-3"
         ],
         "searchCodes": [
-          "101",
+          "201",
           "202"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16858,7 +16858,7 @@ const fleet = {
           "9-447-204-9"
         ],
         "searchCodes": [
-          "102",
+          "203",
           "204"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16888,7 +16888,7 @@ const fleet = {
           "9-447-206-4"
         ],
         "searchCodes": [
-          "103",
+          "205",
           "206"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16918,7 +16918,7 @@ const fleet = {
           "9-447-208-0"
         ],
         "searchCodes": [
-          "104",
+          "207",
           "208"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16948,7 +16948,7 @@ const fleet = {
           "9-447-210-6"
         ],
         "searchCodes": [
-          "105",
+          "209",
           "210"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -16978,7 +16978,7 @@ const fleet = {
           "9-447-212-2"
         ],
         "searchCodes": [
-          "106",
+          "211",
           "212"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17008,7 +17008,7 @@ const fleet = {
           "9-447-214-8"
         ],
         "searchCodes": [
-          "107",
+          "213",
           "214"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17038,7 +17038,7 @@ const fleet = {
           "9-447-216-3"
         ],
         "searchCodes": [
-          "108",
+          "215",
           "216"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17068,7 +17068,7 @@ const fleet = {
           "9-447-218-9"
         ],
         "searchCodes": [
-          "109",
+          "217",
           "218"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17098,7 +17098,7 @@ const fleet = {
           "9-447-220-5"
         ],
         "searchCodes": [
-          "110",
+          "219",
           "220"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17128,7 +17128,7 @@ const fleet = {
           "9-447-222-1"
         ],
         "searchCodes": [
-          "111",
+          "221",
           "222"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17158,7 +17158,7 @@ const fleet = {
           "9-447-224-7"
         ],
         "searchCodes": [
-          "112",
+          "223",
           "224"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17188,7 +17188,7 @@ const fleet = {
           "9-447-226-2"
         ],
         "searchCodes": [
-          "113",
+          "225",
           "226"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17218,7 +17218,7 @@ const fleet = {
           "9-447-228-8"
         ],
         "searchCodes": [
-          "114",
+          "227",
           "228"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17248,7 +17248,7 @@ const fleet = {
           "9-447-230-4"
         ],
         "searchCodes": [
-          "115",
+          "229",
           "230"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17278,7 +17278,7 @@ const fleet = {
           "9-447-232-0"
         ],
         "searchCodes": [
-          "116",
+          "231",
           "232"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17308,7 +17308,7 @@ const fleet = {
           "9-447-234-6"
         ],
         "searchCodes": [
-          "117",
+          "233",
           "234"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17338,7 +17338,7 @@ const fleet = {
           "9-447-236-1"
         ],
         "searchCodes": [
-          "118",
+          "235",
           "236"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17368,7 +17368,7 @@ const fleet = {
           "9-447-238-7"
         ],
         "searchCodes": [
-          "119",
+          "237",
           "238"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17398,7 +17398,7 @@ const fleet = {
           "9-447-240-3"
         ],
         "searchCodes": [
-          "120",
+          "239",
           "240"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17428,7 +17428,7 @@ const fleet = {
           "9-447-242-9"
         ],
         "searchCodes": [
-          "121",
+          "241",
           "242"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17458,7 +17458,7 @@ const fleet = {
           "9-447-244-5"
         ],
         "searchCodes": [
-          "122",
+          "243",
           "244"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17488,7 +17488,7 @@ const fleet = {
           "9-447-246-0"
         ],
         "searchCodes": [
-          "123",
+          "245",
           "246"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17518,7 +17518,7 @@ const fleet = {
           "9-447-248-6"
         ],
         "searchCodes": [
-          "124",
+          "247",
           "248"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17548,7 +17548,7 @@ const fleet = {
           "9-447-250-2"
         ],
         "searchCodes": [
-          "125",
+          "249",
           "250"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17578,7 +17578,7 @@ const fleet = {
           "9-447-252-8"
         ],
         "searchCodes": [
-          "126",
+          "251",
           "252"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17608,7 +17608,7 @@ const fleet = {
           "9-447-254-4"
         ],
         "searchCodes": [
-          "127",
+          "253",
           "254"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17638,7 +17638,7 @@ const fleet = {
           "9-447-256-9"
         ],
         "searchCodes": [
-          "128",
+          "255",
           "256"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17668,7 +17668,7 @@ const fleet = {
           "9-447-258-5"
         ],
         "searchCodes": [
-          "129",
+          "257",
           "258"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17698,7 +17698,7 @@ const fleet = {
           "9-447-260-1"
         ],
         "searchCodes": [
-          "130",
+          "259",
           "260"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17728,7 +17728,7 @@ const fleet = {
           "9-447-262-7"
         ],
         "searchCodes": [
-          "131",
+          "261",
           "262"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17758,7 +17758,7 @@ const fleet = {
           "9-447-264-3"
         ],
         "searchCodes": [
-          "132",
+          "263",
           "264"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17788,7 +17788,7 @@ const fleet = {
           "9-447-266-8"
         ],
         "searchCodes": [
-          "133",
+          "265",
           "266"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17818,7 +17818,7 @@ const fleet = {
           "9-447-268-4"
         ],
         "searchCodes": [
-          "134",
+          "267",
           "268"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17848,7 +17848,7 @@ const fleet = {
           "9-447-270-0"
         ],
         "searchCodes": [
-          "135",
+          "269",
           "270"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17878,7 +17878,7 @@ const fleet = {
           "9-447-272-6"
         ],
         "searchCodes": [
-          "136",
+          "271",
           "272"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17908,7 +17908,7 @@ const fleet = {
           "9-447-274-2"
         ],
         "searchCodes": [
-          "137",
+          "273",
           "274"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17938,7 +17938,7 @@ const fleet = {
           "9-447-276-7"
         ],
         "searchCodes": [
-          "138",
+          "275",
           "276"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17968,7 +17968,7 @@ const fleet = {
           "9-447-278-3"
         ],
         "searchCodes": [
-          "139",
+          "277",
           "278"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -17998,7 +17998,7 @@ const fleet = {
           "9-447-280-9"
         ],
         "searchCodes": [
-          "140",
+          "279",
           "280"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18028,7 +18028,7 @@ const fleet = {
           "9-447-282-5"
         ],
         "searchCodes": [
-          "141",
+          "281",
           "282"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18058,7 +18058,7 @@ const fleet = {
           "9-447-284-1"
         ],
         "searchCodes": [
-          "142",
+          "283",
           "284"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18088,7 +18088,7 @@ const fleet = {
           "9-447-286-6"
         ],
         "searchCodes": [
-          "143",
+          "285",
           "286"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18118,7 +18118,7 @@ const fleet = {
           "9-447-288-2"
         ],
         "searchCodes": [
-          "144",
+          "287",
           "288"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18148,7 +18148,7 @@ const fleet = {
           "9-447-290-8"
         ],
         "searchCodes": [
-          "145",
+          "289",
           "290"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18178,7 +18178,7 @@ const fleet = {
           "9-447-292-4"
         ],
         "searchCodes": [
-          "146",
+          "291",
           "292"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18208,7 +18208,7 @@ const fleet = {
           "9-447-294-0"
         ],
         "searchCodes": [
-          "147",
+          "293",
           "294"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18238,7 +18238,7 @@ const fleet = {
           "9-447-296-5"
         ],
         "searchCodes": [
-          "148",
+          "295",
           "296"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18268,7 +18268,7 @@ const fleet = {
           "9-447-298-1"
         ],
         "searchCodes": [
-          "149",
+          "297",
           "298"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18298,7 +18298,7 @@ const fleet = {
           "9-447-300-5"
         ],
         "searchCodes": [
-          "150",
+          "299",
           "300"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18328,7 +18328,7 @@ const fleet = {
           "9-447-302-1"
         ],
         "searchCodes": [
-          "151",
+          "301",
           "302"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18358,7 +18358,7 @@ const fleet = {
           "9-447-304-7"
         ],
         "searchCodes": [
-          "152",
+          "303",
           "304"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18388,7 +18388,7 @@ const fleet = {
           "9-447-306-2"
         ],
         "searchCodes": [
-          "153",
+          "305",
           "306"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18418,7 +18418,7 @@ const fleet = {
           "9-447-308-8"
         ],
         "searchCodes": [
-          "154",
+          "307",
           "308"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18448,7 +18448,7 @@ const fleet = {
           "9-447-310-4"
         ],
         "searchCodes": [
-          "155",
+          "309",
           "310"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18478,7 +18478,7 @@ const fleet = {
           "9-447-312-0"
         ],
         "searchCodes": [
-          "156",
+          "311",
           "312"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18508,7 +18508,7 @@ const fleet = {
           "9-447-314-6"
         ],
         "searchCodes": [
-          "157",
+          "313",
           "314"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18538,7 +18538,7 @@ const fleet = {
           "9-447-316-1"
         ],
         "searchCodes": [
-          "158",
+          "315",
           "316"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18568,7 +18568,7 @@ const fleet = {
           "9-447-318-7"
         ],
         "searchCodes": [
-          "159",
+          "317",
           "318"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18598,7 +18598,7 @@ const fleet = {
           "9-447-320-3"
         ],
         "searchCodes": [
-          "160",
+          "319",
           "320"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18628,7 +18628,7 @@ const fleet = {
           "9-447-322-9"
         ],
         "searchCodes": [
-          "161",
+          "321",
           "322"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18658,7 +18658,7 @@ const fleet = {
           "9-447-324-5"
         ],
         "searchCodes": [
-          "162",
+          "323",
           "324"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18688,7 +18688,7 @@ const fleet = {
           "9-447-326-0"
         ],
         "searchCodes": [
-          "163",
+          "325",
           "326"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18718,7 +18718,7 @@ const fleet = {
           "9-447-328-6"
         ],
         "searchCodes": [
-          "164",
+          "327",
           "328"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18748,7 +18748,7 @@ const fleet = {
           "9-447-330-2"
         ],
         "searchCodes": [
-          "165",
+          "329",
           "330"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18778,7 +18778,7 @@ const fleet = {
           "9-447-332-8"
         ],
         "searchCodes": [
-          "166",
+          "331",
           "332"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18808,7 +18808,7 @@ const fleet = {
           "9-447-334-4"
         ],
         "searchCodes": [
-          "167",
+          "333",
           "334"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18838,7 +18838,7 @@ const fleet = {
           "9-447-336-9"
         ],
         "searchCodes": [
-          "168",
+          "335",
           "336"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18868,7 +18868,7 @@ const fleet = {
           "9-447-338-5"
         ],
         "searchCodes": [
-          "169",
+          "337",
           "338"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18898,7 +18898,7 @@ const fleet = {
           "9-447-340-1"
         ],
         "searchCodes": [
-          "170",
+          "339",
           "340"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18928,7 +18928,7 @@ const fleet = {
           "9-447-342-7"
         ],
         "searchCodes": [
-          "171",
+          "341",
           "342"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18958,7 +18958,7 @@ const fleet = {
           "9-447-344-3"
         ],
         "searchCodes": [
-          "172",
+          "343",
           "344"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -18988,7 +18988,7 @@ const fleet = {
           "9-447-346-8"
         ],
         "searchCodes": [
-          "173",
+          "345",
           "346"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -19018,7 +19018,7 @@ const fleet = {
           "9-447-348-4"
         ],
         "searchCodes": [
-          "174",
+          "347",
           "348"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -19048,7 +19048,7 @@ const fleet = {
           "9-447-350-0"
         ],
         "searchCodes": [
-          "175",
+          "349",
           "350"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -19078,7 +19078,7 @@ const fleet = {
           "9-447-352-6"
         ],
         "searchCodes": [
-          "176",
+          "351",
           "352"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -19108,7 +19108,7 @@ const fleet = {
           "9-447-354-2"
         ],
         "searchCodes": [
-          "177",
+          "353",
           "354"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -19138,7 +19138,7 @@ const fleet = {
           "9-447-356-7"
         ],
         "searchCodes": [
-          "178",
+          "355",
           "356"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -19168,7 +19168,7 @@ const fleet = {
           "9-447-358-3"
         ],
         "searchCodes": [
-          "179",
+          "357",
           "358"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -19198,7 +19198,7 @@ const fleet = {
           "9-447-360-9"
         ],
         "searchCodes": [
-          "180",
+          "359",
           "360"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -19228,7 +19228,7 @@ const fleet = {
           "9-447-362-5"
         ],
         "searchCodes": [
-          "181",
+          "361",
           "362"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -19258,7 +19258,7 @@ const fleet = {
           "9-447-364-1"
         ],
         "searchCodes": [
-          "182",
+          "363",
           "364"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -19288,7 +19288,7 @@ const fleet = {
           "9-447-366-6"
         ],
         "searchCodes": [
-          "183",
+          "365",
           "366"
         ],
         "fabricante": "CAF, MACOSA, MTM",
@@ -25350,82 +25350,68 @@ function getFleetUnit(series, vehicle){
     };
   }
 
-  // Serie 447: la numeración de la unidad toma como referencia el remolque intermedio.
-  // Se aceptan: código corto de rama (001-183), 447XXX, matrículas completas de
-  // cualquiera de los tres coches, y la mitad del número del coche motor par.
-  // En matrículas completas se identifica el coche exacto; en código corto se
-  // prioriza siempre la numeración del remolque intermedio, tal como indica la ficha.
+  // Serie 447: SOLO los dos coches motor identifican la rama.
+  // El remolque intermedio NO participa en la búsqueda y su numeración
+  // tampoco puede introducirse para localizar una rama.
+  //
+  // Ejemplo Rama 046:
+  //   Motor impar: 9-447-091-0 -> 091
+  //   Remolque:    7-447-046-4  -> NO identifica la rama
+  //   Motor par:   9-447-092-8 -> 092
+  // Por tanto, 091 y 092 abren la Rama 046; 046 NO es una entrada válida.
   if(s==="447"){
     const raw=String(vehicle??"").trim();
     const compact=raw.replace(/\s+/g,"");
+    let code="";
+
+    // Aceptamos únicamente matrículas de los coches motor (9-447-XXX-X).
+    // Las matrículas 7-447-XXX-X corresponden al remolque intermedio y se rechazan.
+    const fullMotor=compact.match(/(?:^|[-])9[-]?447[-]?(\d{3})(?:[-]\d)?$/i);
+    if(fullMotor) code=fullMotor[1];
+
+    // Formato compacto 447XXX.
+    if(!code && /^447\d{3}$/.test(compact)) code=compact.slice(3);
+
+    // Código corto: SOLO se comprueba contra los dos motores de cada rama.
+    // No se interpreta como número de rama/remolque.
+    if(!code && /^\d{1,3}$/.test(compact)) code=compact.padStart(3,"0");
+    if(!code) return null;
+
     let base=null;
-    let matchedCode="";
     let matchedVehicle="";
-    let idx=1;
+    let cocheTipo="";
 
-    // Matrícula completa: 9-447-XXX-X / 7-447-XXX-X.
-    const full=compact.match(/(?:^|[-])(?:9|7)[-]?447[-]?(\d{3})(?:[-]\d)?$/i);
-    if(full){
-      const vehicleCode=full[1];
-      for(const candidate of Object.values(seriesData.units||{})){
-        const vehicles=candidate.vehiculosRama||[];
-        const foundIndex=vehicles.findIndex(x=>{
-          const normalized=String(x).replace(/[-\s]/g,"");
-          return normalized===compact.replace(/[-\s]/g,"");
-        });
-        if(foundIndex>=0){
-          base=candidate;
-          idx=foundIndex;
-          matchedCode=vehicleCode;
-          matchedVehicle=vehicles[foundIndex];
-          break;
-        }
+    for(const candidate of Object.values(seriesData.units||{})){
+      const vehicles=candidate.vehiculosRama||[];
+      const motorImpar=String(vehicles[0]||"").split("-")[2]||"";
+      const motorPar=String(vehicles[2]||"").split("-")[2]||"";
+
+      if(code===motorImpar){
+        base=candidate;
+        matchedVehicle=vehicles[0];
+        cocheTipo="Coche motor impar";
+        break;
       }
-
-      // Si el último dígito de control viene omitido, buscamos por código de coche.
-      if(!base){
-        for(const candidate of Object.values(seriesData.units||{})){
-          const foundIndex=(candidate.vehiculosRama||[]).findIndex(x=>
-            String(x).split("-")[2]===vehicleCode
-          );
-          if(foundIndex>=0){
-            base=candidate;
-            idx=foundIndex;
-            matchedCode=vehicleCode;
-            matchedVehicle=candidate.vehiculosRama[foundIndex];
-            break;
-          }
-        }
+      if(code===motorPar){
+        base=candidate;
+        matchedVehicle=vehicles[2];
+        cocheTipo="Coche motor par";
+        break;
       }
-    }
-
-    // Formato 447XXX o código corto. En ambos casos el código representa
-    // la numeración de la unidad/remolque intermedio (001-183).
-    if(!base){
-      let code="";
-      if(/^447\d{3}$/.test(compact)) code=compact.slice(3);
-      else if(/^\d{1,3}$/.test(compact)) code=compact.padStart(3,"0");
-      if(!code) return null;
-
-      const n=Number(code);
-      if(n<1 || n>183) return null;
-      base=seriesData.units?.[String(n)]||null;
-      matchedCode=code;
-      idx=1;
-      matchedVehicle=base?.vehiculosRama?.[1]||"";
     }
 
     if(!base) return null;
-    const canonicalVehicle=base.vehiculosRama?.[idx]||base.numero;
+
     return {
       ...base,
-      // El número de la unidad se conserva como el remolque intermedio.
-      numero:base.numero,
-      vehiculoBase:base.vehiculoBase,
+      // La ficha sigue representando la rama completa, pero la búsqueda
+      // queda limitada exclusivamente a sus dos coches motores.
+      numero:matchedVehicle||base.numero,
+      vehiculoBase:code,
       vehiculoIntroducido:raw,
-      vehiculoBuscado:matchedCode||base.vehiculoBase,
-      vehiculoEncontrado:matchedVehicle||canonicalVehicle,
-      cocheTipo:["Coche motor impar","Remolque intermedio","Coche motor par"][idx]||"Vehículo Serie 447"
+      vehiculoBuscado:code,
+      vehiculoEncontrado:matchedVehicle,
+      cocheTipo:cocheTipo||"Coche motor"
     };
   }
 
@@ -26224,6 +26210,30 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       const units=data?.units||{};
       const entries=Object.entries(units);
 
+      // Serie 447: para localizar una rama mediante vehículo SOLO se aceptan
+      // los dos coches motor. El remolque intermedio nunca identifica la rama.
+      if(series==='447' && vehicle){
+        const raw447=vehicle.trim().replace(/\s+/g,'');
+        let code447='';
+        const full447=raw447.match(/(?:^|[-])9[-]?447[-]?(\d{3})(?:[-]\d)?$/i);
+        if(full447) code447=full447[1];
+        if(!code447 && /^447\d{3}$/.test(raw447)) code447=raw447.slice(3);
+        if(!code447 && /^\d{1,3}$/.test(raw447)) code447=raw447.padStart(3,'0');
+
+        if(code447){
+          const found447=entries.find(([,u])=>{
+            const vr=u?.vehiculosRama||[];
+            const motorImpar=String(vr[0]||'').split('-')[2]||'';
+            const motorPar=String(vr[2]||'').split('-')[2]||'';
+            return code447===motorImpar || code447===motorPar;
+          });
+          if(found447) return {key:found447[0],unit:found447[1]};
+        }
+        // Si es 447 y no coincide con uno de los dos motores, no se intenta
+        // buscar por clave, vehiculoBase, numero o remolque.
+        return null;
+      }
+
       if(branch){
         const byBranch=entries.find(([,u])=>argosDigits(u?.rama)===branch);
         if(byBranch) return {key:byBranch[0],unit:byBranch[1]};
@@ -26712,6 +26722,30 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       const data=fleet[series];
       const units=data?.units||{};
       const entries=Object.entries(units);
+
+      // Serie 447: para localizar una rama mediante vehículo SOLO se aceptan
+      // los dos coches motor. El remolque intermedio nunca identifica la rama.
+      if(series==='447' && vehicle){
+        const raw447=vehicle.trim().replace(/\s+/g,'');
+        let code447='';
+        const full447=raw447.match(/(?:^|[-])9[-]?447[-]?(\d{3})(?:[-]\d)?$/i);
+        if(full447) code447=full447[1];
+        if(!code447 && /^447\d{3}$/.test(raw447)) code447=raw447.slice(3);
+        if(!code447 && /^\d{1,3}$/.test(raw447)) code447=raw447.padStart(3,'0');
+
+        if(code447){
+          const found447=entries.find(([,u])=>{
+            const vr=u?.vehiculosRama||[];
+            const motorImpar=String(vr[0]||'').split('-')[2]||'';
+            const motorPar=String(vr[2]||'').split('-')[2]||'';
+            return code447===motorImpar || code447===motorPar;
+          });
+          if(found447) return {key:found447[0],unit:found447[1]};
+        }
+        // Si es 447 y no coincide con uno de los dos motores, no se intenta
+        // buscar por clave, vehiculoBase, numero o remolque.
+        return null;
+      }
 
       if(branch){
         const byBranch=entries.find(([,u])=>
