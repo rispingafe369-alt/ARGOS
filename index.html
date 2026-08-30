@@ -1232,6 +1232,141 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
 }
 </style>
 
+
+<style id="argos-ficha-mobile-v13">
+/* ================================================================
+   ARGOS · FICHA DESDE "ÚLTIMA VEZ" · MÓVIL · V13
+   La ficha completa cabe en una sola pantalla, debajo del header.
+   No se modifica la información mostrada.
+   ================================================================ */
+@media(max-width:600px){
+  #ficha{
+    overflow:hidden!important;
+    padding:8px 12px 10px!important;
+  }
+
+  #ficha .screen-header{
+    flex:0 0 auto!important;
+    min-height:44px!important;
+    margin-bottom:6px!important;
+  }
+
+  #ficha .back-button{
+    width:44px!important;
+    height:44px!important;
+    min-width:44px!important;
+    border-radius:13px!important;
+    font-size:25px!important;
+  }
+
+  #ficha .screen-header > div{
+    display:none!important;
+  }
+
+  #ficha .ficha-shell{
+    width:100%!important;
+    height:calc(100% - 50px)!important;
+    min-height:0!important;
+    margin:0!important;
+  }
+
+  #ficha .ficha-card{
+    width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+    box-sizing:border-box!important;
+    padding:10px!important;
+    border-radius:18px!important;
+    box-shadow:none!important;
+    display:flex!important;
+    flex-direction:column!important;
+    overflow:hidden!important;
+  }
+
+  #ficha .ficha-hero{
+    flex:0 0 auto!important;
+    padding:14px 15px!important;
+    margin-bottom:9px!important;
+    border-radius:15px!important;
+  }
+
+  #ficha .ficha-kicker{
+    font-size:9px!important;
+    letter-spacing:.09em!important;
+  }
+
+  #ficha .ficha-hero h3{
+    margin:3px 0!important;
+    font-size:24px!important;
+    line-height:1.05!important;
+  }
+
+  #ficha .ficha-hero p{
+    font-size:12px!important;
+    line-height:1.2!important;
+  }
+
+  #ficha .ficha-section{
+    flex:1 1 auto!important;
+    min-height:0!important;
+    margin-top:4px!important;
+    display:flex!important;
+    flex-direction:column!important;
+  }
+
+  #ficha .ficha-section-title{
+    flex:0 0 auto!important;
+    font-size:10px!important;
+    margin:0 0 6px!important;
+  }
+
+  /* Dos columnas también en móvil: evita las cinco filas verticales. */
+  #ficha .ficha-grid{
+    flex:1 1 auto!important;
+    min-height:0!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-auto-rows:minmax(0,1fr)!important;
+    gap:7px!important;
+  }
+
+  #ficha .ficha-grid>div{
+    min-width:0!important;
+    min-height:0!important;
+    padding:9px 10px!important;
+    border-radius:12px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    justify-content:center!important;
+    overflow:hidden!important;
+  }
+
+  #ficha .ficha-grid span{
+    font-size:10px!important;
+    margin-bottom:2px!important;
+  }
+
+  #ficha .ficha-grid strong{
+    font-size:13px!important;
+    line-height:1.12!important;
+    overflow-wrap:anywhere!important;
+  }
+
+  #ficha .ficha-actions{
+    flex:0 0 auto!important;
+    margin-top:8px!important;
+    gap:0!important;
+  }
+
+  #ficha .ficha-actions button{
+    width:100%!important;
+    min-height:46px!important;
+    height:46px!important;
+    border-radius:13px!important;
+    font-size:13px!important;
+  }
+}
+</style>
+
 </head>
 
 <body>
