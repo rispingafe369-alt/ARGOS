@@ -20944,6 +20944,90 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     });
   }
 
+  /*
+   * "Última vez" NO es un historial.
+   * Debe mostrar únicamente el último servicio realizado
+   * para cada trayecto/línea.
+   *
+   * Si existe un campo explícito de línea, se utiliza.
+   * En la versión actual de ARGOS no existe, así que el
+   * trayecto se identifica por PRODUCTO + ORIGEN + DESTINO.
+   *
+   * La dirección importa:
+   * Madrid → Alcalá y Alcalá → Madrid son trayectos distintos.
+   */
+  function atLineKey(service){
+    const explicitLine=atVal(service,[
+      'line','linea','línea','routeId','route','trayectoId'
+    ]);
+
+    if(explicitLine){
+      return [
+        atProductName(service),
+        explicitLine
+      ].map(v=>String(v).trim().toLocaleLowerCase('es-ES')
+        .normalize('NFD').replace(/[\u0300-\u036f]/g,'')).join('|');
+    }
+
+    const origin=atVal(service,['origin','origen']);
+    const destination=atVal(service,['destination','destino']);
+
+    return [
+      atProductName(service),
+      origin,
+      destination
+    ].map(v=>String(v).trim().toLocaleLowerCase('es-ES')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g,'')).join('|');
+  }
+
+  function atServiceRecency(service,index){
+    const dateInfo=atDateValue(service);
+    const dateStamp=dateInfo.raw
+      ? new Date(dateInfo.raw+'T00:00:00').getTime()
+      : 0;
+
+    return {
+      date:Number.isFinite(dateStamp)?dateStamp:0,
+      created:Number.isFinite(dateInfo.stamp)?dateInfo.stamp:0,
+      index
+    };
+  }
+
+  function atIsNewerService(candidate,current,candidateIndex,currentIndex){
+    const a=atServiceRecency(candidate,candidateIndex);
+    const b=atServiceRecency(current,currentIndex);
+
+    if(a.date!==b.date) return a.date>b.date;
+    if(a.created!==b.created) return a.created>b.created;
+
+    // Si ambos no tienen una fecha/hora útil, gana el último
+    // que aparece en argos_services (es decir, el último registrado).
+    return a.index>b.index;
+  }
+
+  function atLatestPerLine(list){
+    const latest=new Map();
+
+    list.forEach((service,index)=>{
+      const key=atLineKey(service);
+
+      if(!latest.has(key)){
+        latest.set(key,{service,index});
+        return;
+      }
+
+      const current=latest.get(key);
+
+      if(atIsNewerService(
+        service,current.service,index,current.index
+      )){
+        latest.set(key,{service,index});
+      }
+    });
+
+    return Array.from(latest.values()).map(item=>item.service);
+  }
+
   function atFindUnit(service){
     try{
       if(typeof fleet==='undefined') return null;
@@ -21056,7 +21140,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
 
   function atOpen(){
     const screen=atEnsureScreen();
-    const list=atServices();
+    const list=atLatestPerLine(atServices());
 
     if(typeof showScreen==='function'){
       showScreen(SCREEN_ID);
@@ -21133,21 +21217,21 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
         <div>
           <div class="argos-last-time-kicker">ARGOS · TU ACTIVIDAD</div>
           <h1>Última vez</h1>
-          <p>Vuelve a cualquiera de los trayectos que ya has realizado.</p>
+          <p>El último servicio realizado en cada trayecto.</p>
         </div>
 
         <div class="argos-last-time-total">
           <strong>${list.length}</strong>
-          <span>${list.length===1?'servicio':'servicios'}</span>
+          <span>${list.length===1?'trayecto':'trayectos'}</span>
         </div>
       </div>
 
       <div class="argos-last-time-intro">
         <span class="argos-last-time-intro-icon">↗</span>
         <div>
-          <strong>Tus trayectos, siempre a mano</strong>
+          <strong>Un servicio por trayecto</strong>
           <small>
-            Selecciona un servicio para consultar sus datos.
+            Aquí aparece únicamente el último servicio registrado de cada línea.
           </small>
         </div>
       </div>
@@ -21994,6 +22078,8 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   }
 
   window.argosOpenLastTime=atOpen;
+  window.argosLatestPerLine=atLatestPerLine;
+  window.argosLineKey=atLineKey;
   window.argosCloseLastTime=()=>{
     if(typeof showScreen==='function') showScreen('menu');
   };
