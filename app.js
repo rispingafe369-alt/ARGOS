@@ -9190,7 +9190,6 @@ const fleet = {
     "Se construyeron 170 unidades para servicios de Cercanías de alta frecuencia y numerosas paradas. La serie fue pionera del material específicamente diseñado para estos tráficos y posteriormente convivió con las series 447 y Civia.",
     "Prestan servicio en distintos núcleos de Cercanías. La ficha aportada recoge unidades con bases en Madrid, Sevilla, Irun, Fuencarral, Humanes, Cerro Negro y Ollargan, entre otras.",
     "La tabla se divide en tres lotes: 1.º lote (ramas 01–50), 2.º lote (ramas 51–100) y 3.º lote (ramas 101–170).",
-    "La indicación LZB se ha asociado individualmente según la columna de Notas de la tabla aportada. Cuando la nota no indica LZB, la ficha muestra “No”."
   ],
   "units": {
     "1": {
@@ -20451,7 +20450,7 @@ function fleetFichaHtml(series,vehicle,service=null){
          <div><span>Peso</span><strong>${esc(tech.peso||"—")}</strong></div>
          <div><span>Tensión</span><strong>${esc(tech.tension||"—")}</strong></div>
          <div><span>Tracción</span><strong>${esc(tech.traccion||"—")}</strong></div>
-         <div><span>Señalización</span><strong>${esc(tech.señalizacion||"—")}</strong></div>
+         <div><span>Señalización</span><strong>${esc(normalizeFleetValue(series)==="446" ? (unit.lzb==="Sí" ? "LZB · ASFA" : "ASFA") : (tech.señalizacion||"—"))}</strong></div>
          <div><span>Composición</span><strong>${esc(tech.composicion||"—")}</strong></div>
          ${["446","453"].includes(normalizeFleetValue(series))?`
          ${normalizeFleetValue(series)==="453"?`<div><span>Esfuerzo de tracción</span><strong>${esc(tech.esfuerzoTraccion||"—")}</strong></div>`:""}
