@@ -3498,5 +3498,135 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 })();
 </script>
 
+
+<!-- ARGOS · ESTADÍSTICAS V16 · REFINADO VISUAL Y NAVEGACIÓN -->
+<style id="argos-stats-v16-clean">
+/* Solo capa visual/interactiva sobre Estadísticas. No altera el motor de datos. */
+#stats.stats-screen{background:var(--page)}
+#stats .stats-dashboard{max-width:1080px}
+#stats .stats-hero{padding:18px 20px;border-radius:20px;margin-bottom:10px;box-shadow:none;background:var(--renfe);}
+#stats .stats-hero h3{font-size:24px}
+#stats .stats-hero-badge{width:50px;height:50px;border-radius:15px;font-size:25px}
+#stats .stats-filters-wrap{margin-bottom:10px}
+#stats .stats-filter-toggle{width:100%;min-height:46px;border:1px solid var(--line);border-radius:15px;background:var(--card);color:var(--ink);padding:9px 13px;display:flex;align-items:center;justify-content:space-between;box-shadow:none;font-weight:800}
+#stats .stats-filter-toggle .left{display:flex;align-items:center;gap:9px}
+#stats .stats-filter-toggle .ico{width:28px;height:28px;border-radius:9px;background:var(--soft);color:var(--renfe);display:grid;place-items:center}
+#stats .stats-filter-toggle .chev{color:var(--renfe);font-size:20px;transition:transform .18s ease}
+#stats .stats-filter-toggle.open .chev{transform:rotate(180deg)}
+#stats .stats-filters{box-shadow:none;margin-top:7px}
+#stats .stats-kpis{gap:8px;margin-bottom:10px}
+#stats .stats-kpi{border-radius:15px;box-shadow:none;padding:12px;transition:transform .14s ease,border-color .14s ease,background .14s ease}
+#stats .stats-kpi:hover{transform:translateY(-1px);border-color:rgba(138,0,92,.28)}
+#stats .stats-kpi:active{transform:scale(.985)}
+#stats .stats-kpi::after{content:'›';float:right;color:var(--muted);font-size:18px;line-height:1;margin-top:-2px}
+#stats .stats-kpi.accent::after{color:var(--renfe)}
+#stats .stats-grid-pro{gap:10px}
+#stats .stats-panel{border-radius:17px;box-shadow:none;padding:14px;transition:border-color .14s ease,transform .14s ease}
+#stats .stats-panel.interactive-panel{cursor:pointer}
+#stats .stats-panel.interactive-panel:hover{border-color:rgba(138,0,92,.28);transform:translateY(-1px)}
+#stats .stats-panel.interactive-panel:active{transform:scale(.995)}
+#stats .stats-panel-head{margin-bottom:10px}
+#stats .stats-panel-head h4{font-size:16px}
+#stats .stats-panel-action{font-size:10px;font-weight:900;color:var(--renfe);white-space:nowrap;padding-top:4px}
+#stats .ranking-list{gap:6px}
+#stats .ranking-row{padding:6px 5px;border-radius:10px;transition:background .12s ease}
+#stats .ranking-row:hover{background:var(--soft)}
+#stats .ranking-row::after{content:'›';font-size:16px;color:var(--muted);margin-left:2px}
+#stats .rank-number{width:25px;height:25px;border-radius:8px}
+#stats .rank-name{font-size:11px}
+#stats .rank-value{font-size:11px}
+#stats .stats-drill-grid{gap:8px;margin-top:10px}
+#stats .stats-drill-card{padding:11px 12px;border-radius:14px;box-shadow:none;min-height:72px}
+#stats .stats-drill-card strong{font-size:15px}
+#stats .stats-insight{gap:8px;margin-top:10px}
+#stats .stats-insight-card{padding:11px 12px;border-radius:14px}
+#stats .stats-detail{margin-top:10px}
+#stats .stats-detail .details-grid{gap:7px}
+#stats .details-grid .detail{padding:10px;border-radius:12px}
+#stats .stats-modal{align-items:center}
+#stats .stats-modal-card{border-radius:20px;padding:17px;max-height:min(82vh,760px)}
+#stats .stats-modal-close{width:36px;height:36px}
+#stats .modal-row{cursor:default}
+@media(max-width:900px){
+  #stats .stats-kpis{grid-template-columns:repeat(3,1fr)}
+  #stats .stats-grid-pro{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  #stats .stats-screen{padding:10px 9px 24px!important}
+  #stats .stats-hero{padding:15px;border-radius:17px}
+  #stats .stats-hero h3{font-size:21px}
+  #stats .stats-kpis{grid-template-columns:1fr 1fr}
+  #stats .stats-kpi{padding:11px}
+  #stats .stats-kpi strong{font-size:22px}
+  #stats .stats-panel{padding:12px;border-radius:15px}
+  #stats .stats-panel-action{font-size:9px}
+  #stats .stats-drill-card{min-height:68px}
+}
+</style>
+
+<script id="argos-stats-v16-clean-engine">
+(function(){
+  'use strict';
+  const qs=s=>document.querySelector(s);
+  const qsa=s=>Array.from(document.querySelectorAll(s));
+  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const services=()=>{try{const a=JSON.parse(localStorage.getItem('argos_services')||'[]');return Array.isArray(a)?a:[]}catch(e){return[]}};
+  const value=(o,keys)=>{for(const k of keys)if(o&&o[k]!==undefined&&o[k]!==null&&o[k]!=='')return o[k];return ''};
+  const field=(s,t)=>String(value(s,{series:['series','serie','trainSeries'],product:['product','producto','serviceType','tipoProducto'],vehicle:['vehicle','vehiculo','vehicleNumber','numeroVehiculo'],branch:['branch','rama'],origin:['origin','origen'],destination:['destination','destino']}[t]||[])).trim();
+  const route=s=>{const a=field(s,'origin'),b=field(s,'destination');return a&&b?a+' → '+b:(a||b||'Ruta no indicada')};
+  const dateOf=s=>{const v=String(value(s,['date','fecha','day','dia'])).trim();if(!v)return null;let d=new Date(v);if(isNaN(d)){const m=v.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/);if(m)d=new Date(+m[3],+m[2]-1,+m[1])}return isNaN(d)?null:d};
+  const currentFiltered=()=>{
+    const all=services(),y=qs('#statsYear')?.value||'all',m=qs('#statsMonth')?.value||'all',p=qs('#statsProduct')?.value||'all',se=qs('#statsSeries')?.value||'all';
+    return all.filter(s=>{const d=dateOf(s);return !(y!=='all'&&(!d||String(d.getFullYear())!==y)||m!=='all'&&(!d||String(d.getMonth())!==m)||p!=='all'&&field(s,'product')!==p||se!=='all'&&field(s,'series')!==se)});
+  };
+  const countBy=(a,type)=>{const m=new Map();a.forEach(s=>{const k=type==='route'?route(s):field(s,type);if(k)m.set(k,(m.get(k)||0)+1)});return [...m.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'es'))};
+  const modal=(title,sub,body)=>{
+    const m=qs('#statsModal');if(!m)return;
+    qs('#statsModalKicker').textContent='ARGOS · DETALLE';
+    qs('#statsModalTitle').textContent=title;
+    qs('#statsModalSub').textContent=sub;
+    qs('#statsModalBody').innerHTML=body;
+    m.classList.add('open');m.setAttribute('aria-hidden','false');
+  };
+  const list=(title,data)=>data.length?`<div class="modal-section"><h4>${esc(title)}</h4><div class="modal-list">${data.map((x,i)=>`<div class="modal-row"><b>${i+1}</b><span>${esc(x[0])}</span><strong>${esc(x[1])}</strong></div>`).join('')}</div></div>`:`<div class="modal-section"><h4>${esc(title)}</h4><p>Sin datos disponibles.</p></div>`;
+  const decorate=()=>{
+    const map=[['.stats-chart-panel','quarter','Ver trimestre →'],['#seriesRanking','series','Ver todo →'],['#branchRanking','branch','Ver todo →'],['#productRanking','product','Ver todo →'],['#routeRanking','route','Ver todo →'],['#vehicleRanking','vehicle','Ver todo →'],['#incidentRanking','incident','Ver detalle →'],['#weekdayChart','weekday','Ver semana →'],['#recordsGrid','records','Ver hitos →'],['#statsDetails','summary','Ver resumen →']];
+    map.forEach(([target,type,label])=>{const el=qs(target),panel=el?.closest('.stats-panel');if(!panel)return;panel.dataset.statsPanel=type;panel.classList.add('interactive-panel');if(!panel.querySelector('.stats-panel-action')){const a=document.createElement('span');a.className='stats-panel-action';a.textContent=label;panel.querySelector('.stats-panel-head')?.appendChild(a)}});
+  };
+  const openPanel=type=>{
+    if(type==='quarter'){qs('#monthlyChart .quarter-month-card')?.click();return}
+    if(type==='weekday'){
+      const a=currentFiltered(),names=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
+      const rows=names.map((n,i)=>[n,a.filter(s=>{const d=dateOf(s);return d&&((d.getDay()+6)%7)===i}).length]);
+      modal('Actividad semanal','Servicios según día de la semana',list('Servicios por día',rows));return;
+    }
+    if(type==='records'){
+      const rows=qsa('#recordsGrid .record').map(el=>[(el.querySelector('span')?.textContent||'').trim(),((el.querySelector('strong')?.textContent||'')+' '+(el.querySelector('small')?.textContent||'')).trim()]);
+      modal('Tus hitos','Récords calculados por ARGOS',list('Récords',rows));return;
+    }
+    if(type==='summary'){
+      const rows=qsa('#statsDetails .detail').map(el=>[(el.querySelector('span')?.textContent||'').trim(),(el.querySelector('strong')?.textContent||'—').trim()]);
+      modal('Lectura general','Resumen de los datos actuales',list('Indicadores',rows));return;
+    }
+    if(type==='incident'){
+      const a=currentFiltered(),m=new Map();a.forEach(s=>{const raw=value(s,['incidents','incidencias','incident','incidencia']);if(typeof raw==='string')raw.split(/[,;\n]+/).map(x=>x.trim()).filter(Boolean).forEach(x=>m.set(x,(m.get(x)||0)+1))});
+      modal('Análisis de incidencias',`${a.length} servicios filtrados`,list('Tipos de incidencia',[...m.entries()].sort((x,y)=>y[1]-x[1])));return;
+    }
+    if(['series','branch','product','route','vehicle'].includes(type)){
+      const a=currentFiltered(),title={series:'Series más utilizadas',branch:'Ramas más utilizadas',product:'Productos más utilizados',route:'Rutas más realizadas',vehicle:'Vehículos más utilizados'}[type];
+      modal(title,`${a.length} servicios filtrados`,list(title,countBy(a,type).slice(0,20)));return;
+    }
+  };
+  document.addEventListener('click',e=>{
+    if(!qs('#stats')?.classList.contains('active'))return;
+    const panel=e.target.closest('.interactive-panel');
+    if(panel&&!e.target.closest('button,select,input,a,.ranking-row')){openPanel(panel.dataset.statsPanel)}
+  });
+  const install=()=>{decorate();setTimeout(decorate,100);setTimeout(decorate,400)};
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
+  new MutationObserver(()=>decorate()).observe(document.documentElement,{childList:true,subtree:true});
+})();
+</script>
+
 </body>
 </html>
