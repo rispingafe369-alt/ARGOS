@@ -21314,8 +21314,10 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       <div class="argos-last-time-detail-top">
         <button type="button"
                 class="argos-last-time-back"
-                id="argosLastTimeBackToList">
-          ‹ <span>Volver a trayectos</span>
+                id="argosLastTimeBackToList"
+                aria-label="Volver a trayectos"
+                title="Volver a trayectos">
+          ‹
         </button>
 
         <div class="argos-last-time-detail-kicker">
@@ -21406,7 +21408,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
         <p>Consulta los trayectos que ya has realizado</p>
       </span>
 
-      <span class="argos-last-time-trigger-arrow">›</span>`;
+      <span></span>`;
 
     card.addEventListener('click',e=>{
       e.preventDefault();
@@ -21751,16 +21753,36 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     }
 
     .argos-last-time-back{
-      border:0;
-      background:transparent;
+      width:48px;
+      height:48px;
+      padding:0;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:var(--card);
       color:var(--renfe);
-      font-weight:900;
-      font-size:13px;
-      padding:3px 2px;
+      font-size:31px;
+      font-weight:300;
+      line-height:1;
       display:inline-flex;
       align-items:center;
-      gap:5px;
+      justify-content:center;
       cursor:pointer;
+      box-shadow:0 5px 18px rgba(30,20,30,.07);
+      transition:transform .14s ease, box-shadow .14s ease;
+    }
+
+    .argos-last-time-back:hover{
+      transform:translateY(-1px);
+      box-shadow:0 9px 24px rgba(30,20,30,.11);
+    }
+
+    .argos-last-time-back:active{
+      transform:scale(.96);
+    }
+
+    .argos-last-time-back:focus-visible{
+      outline:3px solid rgba(138,0,92,.14);
+      outline-offset:2px;
     }
 
     .argos-last-time-detail-kicker{
@@ -21877,28 +21899,9 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       transform:scale(.985)!important;
     }
 
-    .argos-last-time-trigger-arrow{
-      color:var(--renfe);
-      font-size:32px;
-      line-height:1;
-      font-weight:300;
-      justify-self:end;
-    }
-
-    .argos-last-time-trigger p{
-      margin:3px 0 0;
-      color:var(--muted);
-      font-size:12px;
-      line-height:1.2;
-    }
-
     @media(min-width:601px){
       .argos-last-time-trigger{
         grid-template-columns:62px 1fr 25px!important;
-      }
-
-      .argos-last-time-trigger-arrow{
-        font-size:38px;
       }
 
       .argos-last-time-trigger p{
