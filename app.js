@@ -21111,14 +21111,6 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     screen.innerHTML=`
       <div class="argos-last-time-page">
         <div class="argos-last-time-header">
-          <button type="button"
-                  class="argos-last-time-nav"
-                  id="argosLastTimeBack"
-                  aria-label="Volver">
-            <span>‹</span>
-            <b>Volver</b>
-          </button>
-
           <div class="argos-last-time-header-brand">
             <span>ARGOS</span>
             <small>· TU ACTIVIDAD</small>
@@ -21129,11 +21121,6 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       </div>`;
 
     host.appendChild(screen);
-
-    screen.querySelector('#argosLastTimeBack')?.addEventListener('click',()=>{
-      if(typeof showScreen==='function') showScreen('menu');
-      else screen.classList.remove('active');
-    });
 
     return screen;
   }
@@ -21268,9 +21255,6 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     const {origin,destination}=atServiceTitle(service);
     const train=atVal(service,['train','tren','number','numero'])||'Sin número';
     const date=atDateLabel(service);
-    const km=atVal(service,[
-      'kilometres','kilometers','km','kilometros','kilómetros'
-    ]);
     const id=atServiceIdentity(service);
 
     return `
@@ -21293,7 +21277,6 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
           <div class="argos-last-time-service-meta">
             <strong>Tren ${atEsc(train)}</strong>
             <span>${atEsc(date)}</span>
-            ${km?`<span>${atEsc(km)} km</span>`:''}
           </div>
         </div>
 
@@ -21320,9 +21303,6 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     const product=atProductName(service);
     const {origin,destination}=atServiceTitle(service);
     const date=atVal(service,['date','fecha'])||'—';
-    const km=atVal(service,[
-      'kilometres','kilometers','km','kilometros','kilómetros'
-    ]);
 
     const materialTitle=`Serie ${series}${branch?` · Rama ${branch}`:''}`;
     const vehicleLine=[
@@ -21365,14 +21345,12 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
         ${atPreviewField('Origen',origin)}
         ${atPreviewField('Destino',destination)}
         ${atPreviewField('Fecha',date)}
-        ${km?atPreviewField('Kilómetros',`${km} km`):''}
       </div>
 
       <button type="button"
               class="argos-last-time-more"
               id="argosLastTimeMore">
         <span>Ver más información</span>
-        <b>›</b>
       </button>`;
 
     content.querySelector('#argosLastTimeBackToList')?.addEventListener(
@@ -21473,34 +21451,6 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       justify-content:space-between;
       gap:16px;
       margin-bottom:18px;
-    }
-
-    .argos-last-time-nav{
-      border:0;
-      background:var(--card);
-      color:var(--renfe);
-      border:1px solid var(--line);
-      border-radius:14px;
-      min-height:44px;
-      padding:0 13px 0 9px;
-      display:flex;
-      align-items:center;
-      gap:7px;
-      font-size:13px;
-      font-weight:850;
-      box-shadow:0 5px 18px rgba(30,20,30,.06);
-      cursor:pointer;
-    }
-
-    .argos-last-time-nav span{
-      font-size:28px;
-      font-weight:300;
-      line-height:1;
-      margin-top:-2px;
-    }
-
-    .argos-last-time-nav:active{
-      transform:scale(.98);
     }
 
     .argos-last-time-header-brand{
@@ -21903,12 +21853,6 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       cursor:pointer;
     }
 
-    .argos-last-time-more b{
-      font-size:25px;
-      font-weight:300;
-      line-height:1;
-    }
-
     .argos-last-time-more:active{
       transform:scale(.99);
     }
@@ -22039,7 +21983,6 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       }
     }
 
-    body.dark .argos-last-time-nav,
     body.dark .argos-last-time-hero,
     body.dark .argos-last-time-total,
     body.dark .argos-last-time-intro,
