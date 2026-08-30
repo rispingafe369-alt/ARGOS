@@ -3833,10 +3833,10 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 </body>
 </html>
 <!-- ================================================================
-     ARGOS V22 · DOBLE COMPOSICIÓN
+     ARGOS V23 · DOBLE COMPOSICIÓN
      Añadido sin modificar la lógica existente de servicios normales.
      ================================================================ -->
-<style id="argos-double-composition-v22">
+<style id="argos-double-composition-v23">
   .double-composition-option{
     margin:4px 0 14px;
     padding:13px 15px;
@@ -3893,7 +3893,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   .double-ficha-value{font-size:14px}
 </style>
 
-<script id="argos-double-composition-v22">
+<script id="argos-double-composition-v23">
 (function(){
   'use strict';
 
@@ -3914,6 +3914,24 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     return null;
   }
 
+  function findUnitByVehicle(series,vehicle){
+    try{
+      if(typeof fleet==='undefined')return null;
+      const units=fleet[seriesNorm(series)]?.units||{};
+      const v=digits(vehicle);
+      if(!v)return null;
+
+      for(const [key,unit] of Object.entries(units)){
+        const base=digits(unit?.vehiculoBase||'');
+        const keyDigits=digits(key);
+        const searchCodes=Array.isArray(unit?.searchCodes)?unit.searchCodes.map(digits):[];
+        if((base&&base===v)||(keyDigits&&keyDigits===v)||searchCodes.includes(v)){
+          return {vehicle:String(unit?.vehiculoBase||key||vehicle),branch:String(unit?.rama||'')};
+        }
+      }
+    }catch(e){console.warn('ARGOS V23 · vehículo:',e)}
+    return null;
+  }
   function buildSecondCompositionUI(){
     const form=byId('serviceForm');
     const branchBox=byId('branchBox');
@@ -3962,9 +3980,22 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
     secondVehicle.addEventListener('input',function(){
       this.value=digits(this.value).slice(0,3);
-      if(this.value)secondBranch.value='';
+      if(this.value){
+        const found=findUnitByVehicle(secondSeries.value,this.value);
+        if(found?.branch)secondBranch.value=found.branch;
+        else secondBranch.value='';
+      }else{
+        secondBranch.value='';
+      }
     });
-    secondSeries.addEventListener('input',function(){this.value=digits(this.value).slice(0,3)});
+    secondSeries.addEventListener('input',function(){
+      this.value=digits(this.value).slice(0,3);
+      if(secondVehicle.value){
+        const found=findUnitByVehicle(this.value,secondVehicle.value);
+        if(found?.branch)secondBranch.value=found.branch;
+        else secondBranch.value='';
+      }
+    });
     secondBranch.addEventListener('input',function(){
       this.value=digits(this.value).slice(0,3);
       if(this.value)secondVehicle.value='';
@@ -3984,7 +4015,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       if(!found)return {error:'La rama de la segunda composición no existe para esa serie'};
       vehicle=found.vehicle;
     }
-    return {series,vehicle,branch:branch||findUnitByBranch(series,byId('doubleVehicle')?.value||'')?.branch||''};
+    return {series,vehicle,branch:branch||findUnitByVehicle(series,vehicle)?.branch||findUnitByBranch(series,branch)?.branch||''};
   }
 
   function installSubmit(){
