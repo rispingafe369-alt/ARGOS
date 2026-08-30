@@ -3886,13 +3886,33 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   function serviceBranches(service){
     if(!service)return [];
     const out=[];
-    const add=(series,branch)=>{
-      const key=branchKey(series,branch);
-      if(key)out.push({key,series:String(series||'').trim(),branch:digits(branch).replace(/^0+/,'')||digits(branch)});
+    const digitsOnly=v=>String(v??'').replace(/\D/g,'');
+    const normDigits=v=>digitsOnly(v).replace(/^0+/,'')||'';
+    const findBranch=(series,vehicle,branch)=>{
+      const direct=digitsOnly(branch);
+      if(direct)return normDigits(direct);
+      const s=normDigits(series), v=digitsOnly(vehicle);
+      if(!s||!v||typeof fleet==='undefined')return '';
+      try{
+        const units=fleet[s]?.units||{};
+        for(const [key,u] of Object.entries(units)){
+          const codes=[key,u?.vehiculoBase,u?.numero,...(Array.isArray(u?.searchCodes)?u.searchCodes:[])].map(digitsOnly);
+          if(codes.some(code=>code&&normDigits(code)===normDigits(v))){
+            return normDigits(u?.rama);
+          }
+        }
+      }catch(e){console.warn('ARGOS V32 · detección de rama:',e)}
+      return '';
     };
-    add(service.series,service.branch);
+    const add=(series,branch,vehicle)=>{
+      const b=findBranch(series,vehicle,branch);
+      const key=branchKey(series,b);
+      if(key)out.push({key,series:String(series||'').trim(),branch:b,vehicle:String(vehicle||'').trim()});
+    };
+    add(service.series,service.branch,service.vehicle);
     if(service.doubleComposition&&service.composition2){
-      add(service.composition2.series,service.composition2.branch);
+      const c=service.composition2;
+      add(c.series,c.branch,c.vehicle);
     }
     return out;
   }
