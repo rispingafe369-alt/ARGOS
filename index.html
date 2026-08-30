@@ -4332,110 +4332,171 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 })();
 </script>
 
-<!-- ARGOS V31 · AVISO PRIMERA VEZ CON UNA RAMA -->
-<script id="argos-first-branch-v31">
+<!-- ARGOS V33 · AVISO DE RAMA NUEVA O REPETIDA -->
+<style id="argos-branch-visit-v33-style">
+  .argos-branch-visit-overlay{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.52);display:flex;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(4px)}
+  .argos-branch-visit-modal{width:min(430px,100%);background:var(--card,#fff);color:var(--text,#222);border-radius:24px;padding:24px;box-shadow:0 25px 80px rgba(0,0,0,.35)}
+  .argos-branch-visit-kicker{color:var(--renfe,#8a005c);font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+  .argos-branch-visit-modal h2{margin:7px 0 8px;font-size:26px;line-height:1.15}
+  .argos-branch-visit-modal p{margin:0;color:var(--muted,#777);line-height:1.45}
+  .argos-branch-visit-card{margin-top:14px;padding:14px 15px;border:1px solid var(--line,#ddd);border-radius:15px;background:var(--page,#f7f7f7)}
+  .argos-branch-visit-card strong{display:block;color:var(--renfe,#8a005c);font-size:18px}
+  .argos-branch-visit-card span{display:block;margin-top:5px;color:var(--muted,#777);font-size:13px}
+  .argos-branch-visit-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+  .argos-branch-visit-actions button{min-height:50px;border-radius:14px;padding:11px 12px;font-weight:900;cursor:pointer}
+  .argos-branch-visit-menu{border:1px solid var(--line,#ddd);background:var(--page,#f7f7f7);color:var(--text,#222)}
+  .argos-branch-visit-ficha{border:0;background:var(--renfe,#8a005c);color:#fff}
+  @media(max-width:600px){.argos-branch-visit-overlay{padding:14px}.argos-branch-visit-modal{padding:21px;border-radius:22px}.argos-branch-visit-actions{grid-template-columns:1fr}}
+</style>
+<script id="argos-branch-visit-v33">
 (function(){
   'use strict';
 
-  function digits(v){ return String(v??'').replace(/\D/g,''); }
-  function norm(v){ return digits(v).replace(/^0+/,'')||''; }
+  function digits(v){return String(v??'').replace(/\D/g,'')}
+  function norm(v){return digits(v).replace(/^0+/,'')||''}
+  function branchKey(series,branch){
+    const s=norm(series),b=norm(branch);
+    return s&&b?s+'|'+b:'';
+  }
 
-  function findUnitByBranch(series,branch){
-    const s=norm(series), b=digits(branch);
-    if(!s||!b||typeof fleet==='undefined') return null;
+  function findUnit(series,vehicle,branch){
     try{
-      const units=fleet[s]?.units||{};
-      for(const [key,unit] of Object.entries(units)){
-        if(digits(unit?.rama)===b){
-          return {unit,vehicle:String(unit?.vehiculoBase||key||'')};
+      if(typeof fleet==='undefined')return null;
+      const units=fleet[norm(series)]?.units||{};
+      const b=norm(branch),v=norm(vehicle);
+      for(const [key,u] of Object.entries(units)){
+        if(b && norm(u?.rama)===b)return {key,unit:u};
+      }
+      if(v){
+        for(const [key,u] of Object.entries(units)){
+          const codes=[key,u?.vehiculoBase,u?.numero,...(Array.isArray(u?.searchCodes)?u.searchCodes:[])].map(norm).filter(Boolean);
+          if(codes.includes(v))return {key,unit:u};
         }
       }
-    }catch(e){ console.warn('ARGOS V31 · rama:',e); }
+    }catch(e){console.warn('ARGOS V33 · búsqueda de unidad:',e)}
     return null;
   }
 
-  function getBranch(service, second){
-    if(!service) return '';
-    const direct=second ? (service.secondBranch||service.branch2||service.branchComposition2||'') : (service.branch||'');
-    if(direct) return digits(direct);
-    const series=second ? (service.secondSeries||service.series2||'') : service.series;
-    const vehicle=second ? (service.secondVehicle||service.vehicle2||'') : service.vehicle;
-    if(series&&vehicle){
-      const units=fleet?.[norm(series)]?.units||{};
-      for(const [key,u] of Object.entries(units)){
-        const codes=[key,u?.vehiculoBase,u?.numero,...(Array.isArray(u?.searchCodes)?u.searchCodes:[])].map(digits);
-        if(codes.includes(digits(vehicle))) return digits(u?.rama);
-      }
+  function getComposition(service,second){
+    if(!service)return null;
+    const series=second
+      ? (service.composition2?.series||service.secondSeries||service.series2||'')
+      : (service.series||service.serie||'');
+    const vehicle=second
+      ? (service.composition2?.vehicle||service.secondVehicle||service.vehicle2||'')
+      : (service.vehicle||'');
+    let branch=second
+      ? (service.composition2?.branch||service.secondBranch||service.branch2||'')
+      : (service.branch||'');
+    let found=findUnit(series,vehicle,branch);
+    if(!branch && found?.unit?.rama)branch=found.unit.rama;
+    if(!vehicle && found?.unit?.vehiculoBase)vehicle=found.unit.vehiculoBase;
+    return {series:String(series||'').trim(),vehicle:String(vehicle||'').trim(),branch:String(branch||'').trim(),found};
+  }
+
+  function serviceCompositions(service){
+    const out=[];
+    const a=getComposition(service,false);
+    if(a?.series&&a?.branch)out.push(a);
+    if(service?.doubleComposition){
+      const b=getComposition(service,true);
+      if(b?.series&&b?.branch)out.push(b);
     }
-    if(series&&direct) return digits(direct);
-    return '';
+    return out;
   }
 
-  function branchKey(series,branch){ return norm(series)+'|'+digits(branch); }
-
-  function knownBranches(beforeServices){
-    const set=new Set();
-    (beforeServices||[]).forEach(s=>{
-      const s1=s?.series||s?.serie;
-      const b1=getBranch(s,false);
-      if(s1&&b1)set.add(branchKey(s1,b1));
-      if(s?.doubleComposition){
-        const s2=s.secondSeries||s.series2||s.second?.series||'';
-        const b2=getBranch(s,true);
-        if(s2&&b2)set.add(branchKey(s2,b2));
-      }
-    });
-    return set;
+  function previousOccurrences(before,series,branch){
+    const key=branchKey(series,branch);
+    return (Array.isArray(before)?before:[]).filter(s=>
+      serviceCompositions(s).some(c=>branchKey(c.series,c.branch)===key)
+    );
   }
 
-  function esc(v){return String(v??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+  function dateLabel(service){
+    const raw=service?.date||service?.fecha||'';
+    if(raw){
+      const d=new Date(String(raw).slice(0,10)+'T00:00:00');
+      if(!Number.isNaN(d.getTime()))return d.toLocaleDateString('es-ES',{day:'2-digit',month:'long',year:'numeric'});
+    }
+    if(service?.createdAt){
+      const d=new Date(Number(service.createdAt));
+      if(!Number.isNaN(d.getTime()))return d.toLocaleDateString('es-ES',{day:'2-digit',month:'long',year:'numeric'});
+    }
+    return 'fecha no disponible';
+  }
 
-  function showFirstBranchModal(items){
-    if(!items.length) return;
-    document.getElementById('argosFirstBranchModal')?.remove();
-    const modal=document.createElement('div');
-    modal.id='argosFirstBranchModal';
-    modal.style.cssText='position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.52);display:flex;align-items:center;justify-content:center;padding:18px;';
-    const rows=items.map(x=>`<div style="margin-top:12px;padding:13px 15px;border:1px solid var(--line);border-radius:14px;background:var(--page);"><strong>Serie ${esc(x.series)} · Rama ${esc(x.branch)}</strong>${x.vehicle?`<div style="margin-top:4px;color:var(--muted);font-size:13px;">Vehículo ${esc(x.vehicle)}</div>`:''}</div>`).join('');
-    modal.innerHTML=`<div style="width:min(430px,100%);background:var(--card);color:var(--text);border-radius:24px;padding:24px;box-shadow:0 25px 80px rgba(0,0,0,.35);"><div style="color:var(--renfe);font-size:12px;font-weight:900;letter-spacing:.08em;">NUEVA RAMA</div><h2 style="margin:7px 0 8px;font-size:26px;">¡Primera vez!</h2><p style="margin:0;color:var(--muted);line-height:1.45;">Has registrado por primera vez esta rama en ARGOS.</p>${rows}<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px;"><button type="button" id="argosFirstBranchMenu" style="min-height:50px;border:1px solid var(--line);border-radius:14px;background:var(--page);color:var(--text);font-weight:900;">Aceptar y volver</button><button type="button" id="argosFirstBranchFicha" style="min-height:50px;border:0;border-radius:14px;background:var(--renfe);color:#fff;font-weight:900;">Ver ficha</button></div></div>`;
-    document.body.appendChild(modal);
-    const close=()=>modal.remove();
-    modal.querySelector('#argosFirstBranchMenu').onclick=()=>{close();if(typeof showScreen==='function')showScreen('menu');};
-    modal.querySelector('#argosFirstBranchFicha').onclick=()=>{
-      const x=items[0]; close();
-      if(typeof openFicha==='function') openFicha(x.series,x.vehicle||'',x.service||null);
+  function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+
+  function close(){document.getElementById('argosBranchVisitOverlay')?.remove()}
+
+  function showModal(items){
+    if(!items.length)return;
+    close();
+    const overlay=document.createElement('div');
+    overlay.id='argosBranchVisitOverlay';
+    overlay.className='argos-branch-visit-overlay';
+    const first=items[0];
+    const isNew=items.some(x=>x.isNew);
+    const title=isNew?'¡Primera vez con esta rama!':'Rama repetida';
+    const intro=isNew
+      ? 'Has registrado por primera vez esta rama en ARGOS.'
+      : 'Esta rama ya estaba registrada en ARGOS.';
+    const cards=items.map(x=>{
+      const previous=x.previous;
+      const detail=x.isNew
+        ? 'Primera vez registrada'
+        : 'Última vez que la viste: '+dateLabel(previous[previous.length-1]);
+      return `<div class="argos-branch-visit-card"><strong>Serie ${esc(x.series)} · Rama ${esc(x.branch)}</strong><span>${esc(detail)}</span></div>`;
+    }).join('');
+    overlay.innerHTML=`<div class="argos-branch-visit-modal" role="dialog" aria-modal="true">
+      <div class="argos-branch-visit-kicker">${isNew?'NUEVA RAMA':'RAMA YA REGISTRADA'}</div>
+      <h2>${title}</h2>
+      <p>${intro}</p>
+      ${cards}
+      <div class="argos-branch-visit-actions">
+        <button type="button" class="argos-branch-visit-menu" id="argosBranchVisitMenu">Aceptar y volver al menú</button>
+        <button type="button" class="argos-branch-visit-ficha" id="argosBranchVisitFicha">Ver ficha</button>
+      </div>
+    </div>`;
+    document.body.appendChild(overlay);
+    overlay.querySelector('#argosBranchVisitMenu').onclick=()=>{close();if(typeof showScreen==='function')showScreen('menu')};
+    overlay.querySelector('#argosBranchVisitFicha').onclick=()=>{
+      close();
+      const x=first;
+      const vehicle=x.vehicle||findUnit(x.series,'',x.branch)?.unit?.vehiculoBase||'';
+      if(typeof openFicha==='function')openFicha(x.series,vehicle,x.service||null);
     };
+    overlay.addEventListener('click',e=>{if(e.target===overlay)close()});
+  }
+
+  function processSavedService(before,after,current){
+    const found=[];
+    const beforeList=Array.isArray(before)?before:[];
+    serviceCompositions(current).forEach(c=>{
+      const previous=previousOccurrences(beforeList,c.series,c.branch);
+      found.push({series:c.series,branch:c.branch,vehicle:c.vehicle,isNew:previous.length===0,previous,service:current});
+    });
+    if(found.length)showModal(found);
+    else if(typeof showScreen==='function')showScreen('menu');
   }
 
   function install(){
-    const form=document.getElementById('newServiceForm');
-    if(!form||form.dataset.firstBranchV31==='1')return;
-    form.dataset.firstBranchV31='1';
+    const form=document.getElementById('serviceForm');
+    if(!form||form.dataset.branchVisitV33==='1')return;
+    form.dataset.branchVisitV33='1';
+
     form.addEventListener('submit',function(){
+      const before=typeof services==='function'?services().slice():[];
       setTimeout(function(){
         try{
-          const all=typeof services==='function'?services():[];
-          if(!all.length)return;
-          const current=all[all.length-1];
-          const before=all.slice(0,-1);
-          const known=knownBranches(before);
-          const found=[];
-          const s1=current?.series||current?.serie||'';
-          const b1=getBranch(current,false);
-          if(s1&&b1&&!known.has(branchKey(s1,b1))){
-            found.push({series:s1,branch:b1,vehicle:current.vehicle||findUnitByBranch(s1,b1)?.vehicle||'',service:current});
-          }
-          if(current?.doubleComposition){
-            const s2=current.secondSeries||current.series2||current.second?.series||'';
-            const b2=getBranch(current,true);
-            if(s2&&b2&&!known.has(branchKey(s2,b2))&&!found.some(x=>branchKey(x.series,x.branch)===branchKey(s2,b2))){
-              found.push({series:s2,branch:b2,vehicle:current.secondVehicle||current.vehicle2||findUnitByBranch(s2,b2)?.vehicle||'',service:current});
-            }
-          }
-          if(found.length)showFirstBranchModal(found);
-        }catch(e){console.warn('ARGOS V31 · aviso primera rama:',e);}
-      },250);
-    },true);
+          const after=typeof services==='function'?services():[];
+          if(!after.length)return;
+          const current=after[after.length-1];
+          if(!current)return;
+          processSavedService(before,after,current);
+        }catch(e){console.warn('ARGOS V33 · aviso rama:',e)}
+      },300);
+    },false);
   }
 
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
