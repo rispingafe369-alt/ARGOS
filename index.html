@@ -4348,7 +4348,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   .argos-branch-visit-ficha{border:0;background:var(--renfe,#8a005c);color:#fff}
   @media(max-width:600px){.argos-branch-visit-overlay{padding:14px}.argos-branch-visit-modal{padding:21px;border-radius:22px}.argos-branch-visit-actions{grid-template-columns:1fr}}
 </style>
-<script id="argos-branch-visit-v33">
+<script id="argos-branch-visit-v34">
 (function(){
   'use strict';
 
@@ -4358,14 +4358,17 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const s=norm(series),b=norm(branch);
     return s&&b?s+'|'+b:'';
   }
+  function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 
   function findUnit(series,vehicle,branch){
     try{
       if(typeof fleet==='undefined')return null;
       const units=fleet[norm(series)]?.units||{};
       const b=norm(branch),v=norm(vehicle);
-      for(const [key,u] of Object.entries(units)){
-        if(b && norm(u?.rama)===b)return {key,unit:u};
+      if(b){
+        for(const [key,u] of Object.entries(units)){
+          if(norm(u?.rama)===b)return {key,unit:u};
+        }
       }
       if(v){
         for(const [key,u] of Object.entries(units)){
@@ -4373,7 +4376,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
           if(codes.includes(v))return {key,unit:u};
         }
       }
-    }catch(e){console.warn('ARGOS V33 · búsqueda de unidad:',e)}
+    }catch(e){console.warn('ARGOS V34 · búsqueda de unidad:',e)}
     return null;
   }
 
@@ -4382,13 +4385,13 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const series=second
       ? (service.composition2?.series||service.secondSeries||service.series2||'')
       : (service.series||service.serie||'');
-    const vehicle=second
+    let vehicle=second
       ? (service.composition2?.vehicle||service.secondVehicle||service.vehicle2||'')
       : (service.vehicle||'');
     let branch=second
       ? (service.composition2?.branch||service.secondBranch||service.branch2||'')
       : (service.branch||'');
-    let found=findUnit(series,vehicle,branch);
+    const found=findUnit(series,vehicle,branch);
     if(!branch && found?.unit?.rama)branch=found.unit.rama;
     if(!vehicle && found?.unit?.vehiculoBase)vehicle=found.unit.vehiculoBase;
     return {series:String(series||'').trim(),vehicle:String(vehicle||'').trim(),branch:String(branch||'').trim(),found};
@@ -4425,8 +4428,6 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     return 'fecha no disponible';
   }
 
-  function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-
   function close(){document.getElementById('argosBranchVisitOverlay')?.remove()}
 
   function showModal(items){
@@ -4435,7 +4436,6 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const overlay=document.createElement('div');
     overlay.id='argosBranchVisitOverlay';
     overlay.className='argos-branch-visit-overlay';
-    const first=items[0];
     const isNew=items.some(x=>x.isNew);
     const title=isNew?'¡Primera vez con esta rama!':'Rama repetida';
     const intro=isNew
@@ -4461,42 +4461,46 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     document.body.appendChild(overlay);
     overlay.querySelector('#argosBranchVisitMenu').onclick=()=>{close();if(typeof showScreen==='function')showScreen('menu')};
     overlay.querySelector('#argosBranchVisitFicha').onclick=()=>{
+      const x=items[0];
       close();
-      const x=first;
       const vehicle=x.vehicle||findUnit(x.series,'',x.branch)?.unit?.vehiculoBase||'';
       if(typeof openFicha==='function')openFicha(x.series,vehicle,x.service||null);
     };
-    overlay.addEventListener('click',e=>{if(e.target===overlay)close()});
   }
 
-  function processSavedService(before,after,current){
-    const found=[];
-    const beforeList=Array.isArray(before)?before:[];
-    serviceCompositions(current).forEach(c=>{
-      const previous=previousOccurrences(beforeList,c.series,c.branch);
-      found.push({series:c.series,branch:c.branch,vehicle:c.vehicle,isNew:previous.length===0,previous,service:current});
+  function process(before,service){
+    const items=[];
+    serviceCompositions(service).forEach(c=>{
+      const previous=previousOccurrences(before,c.series,c.branch);
+      items.push({series:c.series,branch:c.branch,vehicle:c.vehicle,isNew:previous.length===0,previous,service});
     });
-    if(found.length)showModal(found);
-    else if(typeof showScreen==='function')showScreen('menu');
+    if(items.length)showModal(items);
   }
+
+  // Esta función es la que ya utilizan las extensiones de rama manual y doble composición.
+  // La reemplazamos para que ambas entren en exactamente la misma lógica.
+  window.argosHandleFirstNewBranches=function(beforeList,afterList,service){
+    process(Array.isArray(beforeList)?beforeList:[],service);
+  };
 
   function install(){
     const form=document.getElementById('serviceForm');
-    if(!form||form.dataset.branchVisitV33==='1')return;
-    form.dataset.branchVisitV33='1';
+    if(!form||form.dataset.branchVisitV34==='1')return;
+    form.dataset.branchVisitV34='1';
 
+    // CAPTURA: tiene que ejecutarse antes que los handlers que usan stopImmediatePropagation
+    // para guardar ramas manuales y dobles composiciones.
     form.addEventListener('submit',function(){
       const before=typeof services==='function'?services().slice():[];
       setTimeout(function(){
         try{
           const after=typeof services==='function'?services():[];
-          if(!after.length)return;
+          if(after.length<=before.length)return;
           const current=after[after.length-1];
-          if(!current)return;
-          processSavedService(before,after,current);
-        }catch(e){console.warn('ARGOS V33 · aviso rama:',e)}
-      },300);
-    },false);
+          if(current)process(before,current);
+        }catch(e){console.warn('ARGOS V34 · aviso rama:',e)}
+      },350);
+    },true);
   }
 
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
