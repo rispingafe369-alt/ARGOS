@@ -5111,6 +5111,8 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     return x;
   }
 
+  const names={days:["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"]};
+
   function fmtDate(d){
     return d.toLocaleDateString("es-ES",{day:"numeric",month:"short"}).replace(".","");
   }
