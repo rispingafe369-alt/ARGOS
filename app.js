@@ -30036,6 +30036,25 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     await updateCloudData({profile:clean});
   }
 
+  // Exponer solo las funciones necesarias para que el perfil de la interfaz
+  // se guarde explícitamente en Supabase, sin depender de localStorage.
+  window.argosSaveProfileCloud=saveCloudProfile;
+  window.argosGetCloudProfile=()=>normalizeProfile(cloudData.profile);
+
+  function applyCloudProfileToUI(){
+    const p=normalizeProfile(cloudData.profile);
+    const name=$id('userName');
+    const job=$id('userJob');
+    const welcomeName=$id('welcomeName');
+    const welcomeDescription=$id('welcomeDescription');
+    if(name)name.value=p.name;
+    if(job)job.value=p.job;
+    if(welcomeName)welcomeName.textContent=p.name?'Hola '+p.name:'Hola';
+    if(welcomeDescription)welcomeDescription.textContent=p.job
+      ?p.job+' · Registra, consulta y controla tu actividad ferroviaria.'
+      :'Registra, consulta y controla tu actividad ferroviaria.';
+  }
+
   function installStorageSync(){
     if(originalSetItem)return;
     originalSetItem=Storage.prototype.setItem;
@@ -30079,6 +30098,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       if(typeof window.renderHistory==='function')window.renderHistory();
       if(typeof window.renderStats==='function')window.renderStats();
       if(typeof window.argosRenderHistoryFilteredV62==='function')window.argosRenderHistoryFilteredV62();
+      applyCloudProfileToUI();
       if(typeof window.loadProfile==='function')window.loadProfile();
       if(typeof window.showScreen==='function')window.showScreen('menu');
       authMessage('');
