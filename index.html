@@ -6630,3 +6630,486 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 })();
 </script>
 
+
+<!-- ================================================================
+     ARGOS V62 · FILTROS DE HISTORIAL
+     - Añade al Historial los mismos filtros conceptuales que Estadísticas.
+     - No modifica los datos guardados.
+     - Mantiene las fichas y la compatibilidad con registros por rama.
+     ================================================================ -->
+<style id="argos-history-filters-v62">
+  .history-filters-wrap{
+    margin:0 0 14px;
+  }
+  .history-filter-toggle{
+    width:100%;
+    min-height:48px;
+    border:1px solid var(--line);
+    border-radius:15px;
+    background:var(--card);
+    color:var(--ink);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:11px 14px;
+    cursor:pointer;
+    box-shadow:var(--shadow);
+    font:inherit;
+    font-weight:900;
+  }
+  .history-filter-toggle .left{
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .history-filter-toggle .ico{
+    color:var(--renfe);
+    font-size:18px;
+    line-height:1;
+  }
+  .history-filter-toggle .badge{
+    display:none;
+    min-width:22px;
+    height:22px;
+    padding:0 6px;
+    align-items:center;
+    justify-content:center;
+    border-radius:999px;
+    background:var(--renfe);
+    color:#fff;
+    font-size:11px;
+    font-weight:950;
+  }
+  .history-filter-toggle .chev{
+    color:var(--renfe);
+    font-size:21px;
+    line-height:1;
+    transition:transform .16s;
+  }
+  .history-filter-toggle.open .chev{
+    transform:rotate(180deg);
+  }
+  .history-filters{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr)) auto;
+    gap:9px;
+    margin-top:9px;
+    padding:12px;
+    border:1px solid var(--line);
+    border-radius:16px;
+    background:var(--soft);
+  }
+  .history-filters.collapsed{
+    display:none;
+  }
+  .history-filter{
+    min-width:0;
+  }
+  .history-filter label{
+    display:block;
+    margin:0 0 5px;
+    color:var(--muted);
+    font-size:9px;
+    line-height:1;
+    font-weight:950;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+  }
+  .history-filter select{
+    width:100%;
+    min-height:40px;
+    border:1px solid var(--line);
+    border-radius:11px;
+    background:var(--card);
+    color:var(--ink);
+    padding:0 10px;
+    font:inherit;
+    font-size:11px;
+    font-weight:800;
+    outline:none;
+  }
+  .history-filter select:focus{
+    border-color:rgba(138,0,92,.38);
+    box-shadow:0 0 0 3px rgba(138,0,92,.07);
+  }
+  .history-reset{
+    align-self:end;
+    min-height:40px;
+    border:1px solid var(--line);
+    border-radius:11px;
+    background:var(--card);
+    color:var(--renfe);
+    padding:0 12px;
+    cursor:pointer;
+    font:inherit;
+    font-size:11px;
+    font-weight:950;
+    white-space:nowrap;
+  }
+  .history-reset:hover{
+    background:var(--soft);
+  }
+  .history-filter-result{
+    margin:0 0 10px;
+    color:var(--muted);
+    font-size:10px;
+    font-weight:800;
+  }
+  .history-filter-empty{
+    padding:28px 16px;
+    border:1px solid var(--line);
+    border-radius:17px;
+    background:var(--card);
+    text-align:center;
+  }
+  .history-filter-empty strong{
+    display:block;
+    color:var(--ink);
+    font-size:15px;
+  }
+  .history-filter-empty p{
+    margin:6px 0 0;
+    color:var(--muted);
+    font-size:11px;
+  }
+  @media(max-width:900px){
+    .history-filters{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+    .history-reset{
+      width:100%;
+    }
+  }
+  @media(max-width:600px){
+    .history-filters-wrap{
+      margin-bottom:11px;
+    }
+    .history-filter-toggle{
+      min-height:46px;
+      border-radius:14px;
+      padding:10px 12px;
+    }
+    .history-filters{
+      grid-template-columns:1fr 1fr;
+      gap:8px;
+      padding:10px;
+      border-radius:14px;
+    }
+    .history-filter select{
+      min-height:42px;
+      font-size:11px;
+    }
+    .history-reset{
+      grid-column:1 / -1;
+      min-height:42px;
+    }
+    .history-filter-result{
+      font-size:10px;
+      margin-bottom:8px;
+    }
+  }
+</style>
+
+<script id="argos-history-filters-v62-engine">
+(function(){
+  'use strict';
+
+  const $=id=>document.getElementById(id);
+  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c]));
+  const txt=v=>String(v??'').trim();
+
+  function getServices(){
+    try{
+      const x=JSON.parse(localStorage.getItem('argos_services')||'[]');
+      return Array.isArray(x)?x:[];
+    }catch(e){
+      return [];
+    }
+  }
+
+  function val(o,names){
+    for(const k of names){
+      if(o&&o[k]!==undefined&&o[k]!==null&&o[k]!=='')return o[k];
+    }
+    return '';
+  }
+
+  function field(s,type){
+    const map={
+      product:['product','producto','serviceType','tipoProducto'],
+      series:['series','serie','trainSeries']
+    };
+    return txt(val(s,map[type]||[]));
+  }
+
+  function dateOf(s){
+    const raw=txt(val(s,['date','fecha','day','dia']));
+    if(!raw)return null;
+    let d=new Date(raw);
+    if(isNaN(d)){
+      const m=raw.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/);
+      if(m)d=new Date(+m[3],+m[2]-1,+m[1]);
+    }
+    return isNaN(d)?null:d;
+  }
+
+  function filterValues(all){
+    const year=$('historyYear')?.value||'all';
+    const month=$('historyMonth')?.value||'all';
+    const product=$('historyProduct')?.value||'all';
+    const series=$('historySeries')?.value||'all';
+
+    return all.filter(s=>{
+      const d=dateOf(s);
+      if(year!=='all'&&(!d||String(d.getFullYear())!==year))return false;
+      if(month!=='all'&&(!d||String(d.getMonth())!==month))return false;
+      if(product!=='all'&&field(s,'product')!==product)return false;
+      if(series!=='all'&&field(s,'series')!==series)return false;
+      return true;
+    });
+  }
+
+  function populateOptions(all){
+    const year=$('historyYear');
+    const product=$('historyProduct');
+    const series=$('historySeries');
+    if(!year||!product||!series)return;
+
+    const oldYear=year.value;
+    const oldProduct=product.value;
+    const oldSeries=series.value;
+
+    const years=[...new Set(
+      all.map(dateOf).filter(Boolean).map(d=>d.getFullYear())
+    )].sort((a,b)=>b-a);
+
+    year.innerHTML='<option value="all">Todos</option>'+
+      years.map(y=>'<option value="'+y+'">'+y+'</option>').join('');
+    if(years.includes(+oldYear))year.value=oldYear;
+
+    const products=[...new Set(
+      all.map(s=>field(s,'product')).filter(Boolean)
+    )].sort((a,b)=>a.localeCompare(b,'es'));
+    product.innerHTML='<option value="all">Todos</option>'+
+      products.map(x=>'<option value="'+esc(x)+'">'+esc(x)+'</option>').join('');
+    if(products.includes(oldProduct))product.value=oldProduct;
+
+    const seriesValues=[...new Set(
+      all.map(s=>field(s,'series')).filter(Boolean)
+    )].sort((a,b)=>a.localeCompare(b,'es'));
+    series.innerHTML='<option value="all">Todas</option>'+
+      seriesValues.map(x=>'<option value="'+esc(x)+'">'+esc(x)+'</option>').join('');
+    if(seriesValues.includes(oldSeries))series.value=oldSeries;
+  }
+
+  function updateBadge(){
+    const ids=['historyYear','historyMonth','historyProduct','historySeries'];
+    const n=ids.reduce((total,id)=>{
+      return total+(( $(id)?.value||'all')!=='all'?1:0);
+    },0);
+    const badge=$('historyFilterBadge');
+    if(badge){
+      badge.textContent=n;
+      badge.style.display=n?'inline-flex':'none';
+    }
+  }
+
+  function findUnitByBranch(series,branch){
+    const s=String(series||'').replace(/\D/g,'').replace(/^0+/,'');
+    const b=String(branch||'').replace(/\D/g,'');
+    if(!s||!b)return null;
+    try{
+      if(typeof fleet==='undefined')return null;
+      const data=fleet[s];
+      const units=data?.units||{};
+      for(const [key,unit] of Object.entries(units)){
+        if(String(unit?.rama??'').replace(/\D/g,'')===b){
+          return {vehicle:String(unit?.vehiculoBase||key||'')};
+        }
+      }
+    }catch(e){
+      console.warn('ARGOS V62 · búsqueda de rama:',e);
+    }
+    return null;
+  }
+
+  function openFichaFromService(service){
+    if(!service)return;
+    const series=txt(service.series);
+    const vehicle=txt(service.vehicle);
+
+    if(vehicle&&typeof openFicha==='function'){
+      openFicha(series,vehicle,service);
+      return;
+    }
+
+    const found=findUnitByBranch(series,service.branch);
+    if(found?.vehicle&&typeof openFicha==='function'){
+      openFicha(series,found.vehicle,service);
+      return;
+    }
+
+    const content=$('fichaContent');
+    if(content){
+      content.innerHTML=`
+        <div class="ficha-hero">
+          <div class="ficha-kicker">REGISTRO ARGOS</div>
+          <h3>Serie ${esc(series)} · Rama ${esc(service.branch||'—')}</h3>
+          <p>Ficha consultada desde el historial</p>
+        </div>
+        <div class="ficha-section">
+          <div class="ficha-section-title">IDENTIFICACIÓN</div>
+          <div class="ficha-grid">
+            <div><span>Serie</span><strong>${esc(series||'—')}</strong></div>
+            <div><span>Vehículo</span><strong>No indicado</strong></div>
+            <div><span>Rama</span><strong>${esc(service.branch||'—')}</strong></div>
+          </div>
+        </div>`;
+      if(typeof showScreen==='function')showScreen('ficha');
+    }
+  }
+
+  function renderHistoryFiltered(){
+    const list=$('historyList');
+    if(!list)return;
+
+    const all=getServices();
+    populateOptions(all);
+    const filtered=filterValues(all);
+    updateBadge();
+
+    const active=filtered.length;
+    const total=all.length;
+    const result=$('historyFilterResult');
+    if(result){
+      result.textContent=total===active
+        ? total+' '+(total===1?'servicio registrado':'servicios registrados')
+        : active+' de '+total+' servicios';
+      result.style.display=total?'block':'none';
+    }
+
+    if(!filtered.length){
+      list.innerHTML=`
+        <div class="history-filter-empty">
+          <strong>No hay servicios que coincidan</strong>
+          <p>Prueba a cambiar o restablecer los filtros del historial.</p>
+        </div>`;
+      return;
+    }
+
+    const ordered=filtered.slice().reverse();
+    if(typeof card==='function'){
+      try{
+        list.innerHTML=ordered.map(card).join('');
+      }catch(e){
+        console.warn('ARGOS V62 · card original no disponible:',e);
+        list.innerHTML='<div class="history-filter-empty"><strong>No se ha podido mostrar el historial</strong><p>Revisa la consola para más información.</p></div>';
+        return;
+      }
+    }else{
+      list.innerHTML=ordered.map(s=>`<div class="history-filter-empty"><strong>${esc(s.date||'Servicio')}</strong><p>${esc(s.origin||'')} → ${esc(s.destination||'')}</p></div>`).join('');
+      return;
+    }
+
+    list.querySelectorAll('[data-service-id]').forEach(el=>{
+      const replacement=el.cloneNode(true);
+      el.replaceWith(replacement);
+      const open=()=>{
+        const service=getServices().find(s=>s.id===replacement.dataset.serviceId);
+        if(service)openFichaFromService(service);
+      };
+      replacement.addEventListener('click',open);
+      replacement.addEventListener('keydown',e=>{
+        if(e.key==='Enter'||e.key===' '){
+          e.preventDefault();
+          open();
+        }
+      });
+    });
+  }
+
+  function toggleFilters(){
+    const box=$('historyFilters');
+    const btn=$('historyFilterToggle');
+    if(!box||!btn)return;
+    const isCollapsed=box.classList.contains('collapsed');
+    box.classList.toggle('collapsed',!isCollapsed);
+    btn.classList.toggle('open',isCollapsed);
+    btn.setAttribute('aria-expanded',String(isCollapsed));
+  }
+
+  function resetFilters(){
+    ['historyYear','historyMonth','historyProduct','historySeries'].forEach(id=>{
+      const el=$(id);
+      if(el)el.value='all';
+    });
+    renderHistoryFiltered();
+  }
+
+  function install(){
+    const history=$('history');
+    const list=$('historyList');
+    if(!history||!list)return;
+
+    if(!$('historyFiltersWrap')){
+      const wrap=document.createElement('div');
+      wrap.id='historyFiltersWrap';
+      wrap.className='history-filters-wrap';
+      wrap.innerHTML=`
+        <button id="historyFilterToggle" class="history-filter-toggle" type="button" aria-expanded="false">
+          <span class="left"><span class="ico">☷</span><span>Filtros</span><span id="historyFilterBadge" class="badge">0</span></span>
+          <span class="chev">⌄</span>
+        </button>
+        <div id="historyFilters" class="history-filters collapsed">
+          <div class="history-filter"><label for="historyYear">Año</label><select id="historyYear"><option value="all">Todos</option></select></div>
+          <div class="history-filter"><label for="historyMonth">Mes</label><select id="historyMonth">
+            <option value="all">Todos</option>
+            <option value="0">Enero</option><option value="1">Febrero</option><option value="2">Marzo</option>
+            <option value="3">Abril</option><option value="4">Mayo</option><option value="5">Junio</option>
+            <option value="6">Julio</option><option value="7">Agosto</option><option value="8">Septiembre</option>
+            <option value="9">Octubre</option><option value="10">Noviembre</option><option value="11">Diciembre</option>
+          </select></div>
+          <div class="history-filter"><label for="historyProduct">Producto</label><select id="historyProduct"><option value="all">Todos</option></select></div>
+          <div class="history-filter"><label for="historySeries">Serie</label><select id="historySeries"><option value="all">Todas</option></select></div>
+          <button id="historyReset" class="history-reset" type="button">↻ Restablecer</button>
+        </div>`;
+      history.querySelector('.screen-header')?.insertAdjacentElement('afterend',wrap);
+      const result=document.createElement('div');
+      result.id='historyFilterResult';
+      result.className='history-filter-result';
+      result.hidden=true;
+      wrap.insertAdjacentElement('afterend',result);
+    }
+
+    $('historyFilterToggle')?.addEventListener('click',toggleFilters);
+    $('historyReset')?.addEventListener('click',resetFilters);
+    ['historyYear','historyMonth','historyProduct','historySeries'].forEach(id=>{
+      $(id)?.addEventListener('change',renderHistoryFiltered);
+    });
+
+    renderHistoryFiltered();
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',install,{once:true});
+  }else{
+    install();
+  }
+
+  window.addEventListener('storage',function(){
+    setTimeout(renderHistoryFiltered,20);
+  });
+
+  /* Si otra parte de ARGOS refresca el historial, mantenemos los filtros. */
+  const oldShow=window.showScreen;
+  window.showScreen=function(id){
+    if(typeof oldShow==='function')oldShow(id);
+    if(id==='history')setTimeout(renderHistoryFiltered,0);
+  };
+
+  window.argosRenderHistoryFilteredV62=renderHistoryFiltered;
+})();
+</script>
