@@ -3330,7 +3330,7 @@ function updateBadge(){
 document.addEventListener("click",e=>{
   const q=e.target.closest(".quarter-month-card");if(q){const month=Number(q.dataset.quarterMonth);if(Number.isFinite(month))monthModal(month);return}
   const r=e.target.closest(".ranking-row");if(r){const panel=r.closest(".stats-panel"),name=r.querySelector(".rank-name")?.textContent.trim();if(name){let type="series";if(panel?.querySelector("#branchRanking"))type="branch";else if(panel?.querySelector("#productRanking"))type="product";else if(panel?.querySelector("#routeRanking"))type="route";else if(panel?.querySelector("#vehicleRanking"))type="vehicle";else if(panel?.querySelector("#seriesRanking"))type="series";else if(panel?.querySelector("#incidentRanking")){incidentEntityModal(name);return}entityModal(type,name)}return}
-  const d=e.target.closest("[data-drill]");if(d){({services:serviceStatsModal,series:seriesStatsModal,trains:trainsStatsModal,products:productsStatsModal,incidents:incidentsModal}[d.dataset.drill]||function(){})();return}
+  const d=e.target.closest("[data-drill]");if(d){({year:yearModal,routes:routesModal,material:materialModal,incidents:incidentsModal,services:serviceStatsModal,series:seriesStatsModal,trains:trainsStatsModal,products:productsStatsModal}[d.dataset.drill]||function(){})();return}
 });
 $("statsFilterToggle")?.addEventListener("click",filterToggle);
 $("statsModalClose")?.addEventListener("click",modalClose);
