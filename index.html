@@ -6410,3 +6410,223 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   }
 }
 </style>
+
+<!-- ================================================================
+     ARGOS V61 · CORRECCIÓN ESTADÍSTICAS MÓVIL + TARJETAS DE ANÁLISIS
+     - Reduce el tamaño de los nombres de los meses en Vista trimestral.
+     - Evita que "Septiembre" quede cortado en pantallas pequeñas.
+     - Completa las funciones que faltaban para las tarjetas:
+       Comparativa anual, Mapa de rutas, Perfil de material e Incidencias.
+     - No sustituye ni elimina la lógica existente; solo añade compatibilidad.
+     ================================================================ -->
+<style id="argos-v61-stats-mobile-fix">
+@media(max-width:600px){
+  /* Vista trimestral: los nombres de los meses deben caber completos. */
+  .stats-chart-panel .quarter-month-card{
+    grid-template-columns:132px minmax(0,1fr) !important;
+    column-gap:12px !important;
+  }
+
+  .stats-chart-panel .quarter-month-name{
+    font-size:23px !important;
+    line-height:1.05 !important;
+    white-space:nowrap !important;
+    letter-spacing:-.02em !important;
+  }
+
+  .stats-chart-panel .quarter-month-total{
+    font-size:20px !important;
+    line-height:1.05 !important;
+  }
+
+  .stats-chart-panel .quarter-month-top{
+    min-width:0 !important;
+  }
+
+  /* Las cuatro tarjetas inferiores deben dejar claro que son accionables. */
+  .stats-drill-card{
+    cursor:pointer !important;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .stats-drill-card:active{
+    transform:scale(.985) !important;
+    background:var(--soft) !important;
+  }
+}
+</style>
+
+<script id="argos-v61-stats-drill-fix">
+(function(){
+  'use strict';
+
+  /*
+   * V61: en la versión anterior el click de [data-drill] hacía referencia
+   * a routesModal y materialModal, pero esas funciones no existían.
+   * Al evaluar el objeto de funciones se producía ReferenceError y por eso
+   * las cuatro tarjetas parecían no hacer nada.
+   *
+   * Definimos aquí únicamente las dos funciones ausentes. Las funciones que
+   * ya existían (yearModal e incidentsModal) se conservan sin reemplazarlas.
+   */
+
+  const escLocal=v=>String(v??'').replace(/[&<>"']/g,c=>({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c]));
+
+  function getServices(){
+    try{
+      const x=JSON.parse(localStorage.getItem('argos_services')||'[]');
+      return Array.isArray(x)?x:[];
+    }catch(e){
+      return [];
+    }
+  }
+
+  function text(v){return String(v??'').trim()}
+
+  function value(obj,names){
+    for(const key of names){
+      if(obj&&obj[key]!==undefined&&obj[key]!==null&&obj[key]!=='')return obj[key];
+    }
+    return '';
+  }
+
+  function fieldLocal(s,type){
+    const map={
+      series:['series','serie','trainSeries'],
+      product:['product','producto','serviceType','tipoProducto'],
+      train:['train','tren','number','numero'],
+      vehicle:['vehicle','vehiculo','vehicleNumber','numeroVehiculo'],
+      branch:['branch','rama'],
+      origin:['origin','origen'],
+      destination:['destination','destino']
+    };
+    return text(value(s,map[type]||[]));
+  }
+
+  function routeLocal(s){
+    const a=fieldLocal(s,'origin'),b=fieldLocal(s,'destination');
+    return a&&b?a+' → '+b:(a||b||'Ruta no indicada');
+  }
+
+  function countLocal(items,keyFn){
+    const map=new Map();
+    items.forEach(item=>{
+      const key=keyFn(item);
+      if(key)map.set(key,(map.get(key)||0)+1);
+    });
+    return [...map.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'es'));
+  }
+
+  function modalOpenLocal(kicker,title,sub,body){
+    const modal=document.getElementById('statsModal');
+    const kickerEl=document.getElementById('statsModalKicker');
+    const titleEl=document.getElementById('statsModalTitle');
+    const subEl=document.getElementById('statsModalSub');
+    const bodyEl=document.getElementById('statsModalBody');
+    if(!modal||!bodyEl)return;
+    if(kickerEl)kickerEl.textContent=kicker;
+    if(titleEl)titleEl.textContent=title;
+    if(subEl)subEl.textContent=sub;
+    bodyEl.innerHTML=body;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+  }
+
+  function kpisLocal(items){
+    return '<div class="modal-kpis">'+items.map(x=>
+      '<div class="modal-kpi"><span>'+escLocal(x[0])+'</span><strong>'+escLocal(x[1])+'</strong></div>'
+    ).join('')+'</div>';
+  }
+
+  function listLocal(title,data){
+    if(!data.length){
+      return '<div class="modal-section"><h4>'+escLocal(title)+'</h4><p>Sin datos suficientes.</p></div>';
+    }
+    return '<div class="modal-section"><h4>'+escLocal(title)+'</h4><div class="modal-list">'+
+      data.map((x,i)=>
+        '<div class="modal-row"><b>'+(i+1)+'</b><span>'+escLocal(x[0])+'</span><strong>'+x[1]+'</strong></div>'
+      ).join('')+
+      '</div></div>';
+  }
+
+  function routesModal(){
+    const a=getServices();
+    const routes=countLocal(a,routeLocal).filter(x=>x[0]!=='Ruta no indicada');
+    const origins=countLocal(a,s=>fieldLocal(s,'origin'));
+    const destinations=countLocal(a,s=>fieldLocal(s,'destination'));
+    const different=new Set(routes.map(x=>x[0])).size;
+
+    modalOpenLocal(
+      'ARGOS · RECORRIDOS',
+      'Mapa de rutas',
+      a.length+' servicios registrados',
+      kpisLocal([
+        ['Rutas diferentes',different],
+        ['Servicios',a.length],
+        ['Origenes',origins.length],
+        ['Destinos',destinations.length]
+      ])+
+      listLocal('Rutas más realizadas',routes.slice(0,10))+
+      listLocal('Orígenes más utilizados',origins.slice(0,5))+
+      listLocal('Destinos más utilizados',destinations.slice(0,5))
+    );
+  }
+
+  function materialModal(){
+    const a=getServices();
+    const series=countLocal(a,s=>fieldLocal(s,'series'));
+    const vehicles=countLocal(a,s=>fieldLocal(s,'vehicle'));
+    const branches=countLocal(a,s=>fieldLocal(s,'branch'));
+    const products=countLocal(a,s=>fieldLocal(s,'product'));
+
+    modalOpenLocal(
+      'ARGOS · MATERIAL',
+      'Perfil de material',
+      a.length+' servicios registrados',
+      kpisLocal([
+        ['Series',series.length],
+        ['Vehículos',vehicles.length],
+        ['Ramas',branches.length],
+        ['Productos',products.length]
+      ])+
+      listLocal('Series más utilizadas',series.slice(0,10))+
+      listLocal('Vehículos más utilizados',vehicles.slice(0,10))+
+      listLocal('Ramas más utilizadas',branches.slice(0,10))+
+      listLocal('Productos asociados',products.slice(0,5))
+    );
+  }
+
+  /*
+   * Las funciones se exponen como globals para que el listener de estadísticas
+   * que ya existe pueda resolverlas al pulsar las tarjetas.
+   */
+  if(typeof window.routesModal!=='function')window.routesModal=routesModal;
+  if(typeof window.materialModal!=='function')window.materialModal=materialModal;
+
+  /*
+   * Compatibilidad adicional: el listener original usa nombres globales.
+   * En navegadores, las funciones globales declaradas/registradas en window
+   * quedan disponibles para esa resolución. Si algún entorno estricto no lo
+   * hace, instalamos un segundo listener que captura solo estas dos tarjetas.
+   * stopImmediatePropagation evita que el listener antiguo vuelva a intentar
+   * resolver una función inexistente.
+   */
+  document.addEventListener('click',function(e){
+    const card=e.target.closest('.stats-drill-card[data-drill]');
+    if(!card)return;
+    const type=card.dataset.drill;
+    if(type==='routes'){
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      routesModal();
+    }else if(type==='material'){
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      materialModal();
+    }
+  },true);
+
+})();
+</script>
+
