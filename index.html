@@ -6466,3 +6466,487 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   }
 }
 </style>
+
+<!-- ARGOS V73 · EDITAR / ELIMINAR SERVICIOS DESDE HISTORIAL
+     Solo modifica los registros del historial del usuario.
+     No cambia la estructura de Supabase ni la base de material. -->
+<style id="argos-history-edit-delete-v73-style">
+  .argos-history-actions{
+    display:flex;
+    justify-content:flex-end;
+    gap:9px;
+    margin-top:16px;
+    padding-top:14px;
+    border-top:1px solid var(--line,#e1e1e5);
+  }
+  .argos-history-action{
+    min-height:42px;
+    border:1px solid var(--line,#ddd);
+    border-radius:12px;
+    padding:9px 16px;
+    background:var(--card,#fff);
+    color:var(--ink,#17171b);
+    font-size:13px;
+    font-weight:900;
+    cursor:pointer;
+  }
+  .argos-history-action.edit{color:var(--renfe,#8a005c)}
+  .argos-history-action.delete{color:#b42318}
+  .argos-history-action:hover{filter:brightness(.98)}
+
+  .argos-service-edit-overlay{
+    position:fixed;
+    inset:0;
+    z-index:100001;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:16px;
+    background:rgba(0,0,0,.52);
+    backdrop-filter:blur(4px);
+  }
+  .argos-service-edit-modal{
+    width:min(680px,100%);
+    max-height:92vh;
+    overflow:auto;
+    background:var(--card,#fff);
+    color:var(--ink,#17171b);
+    border:1px solid var(--line,#ddd);
+    border-radius:22px;
+    padding:20px;
+    box-shadow:0 25px 80px rgba(0,0,0,.3);
+  }
+  .argos-service-edit-head{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:16px;
+  }
+  .argos-service-edit-kicker{
+    color:var(--renfe,#8a005c);
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+  }
+  .argos-service-edit-head h3{margin:4px 0 0;font-size:24px;line-height:1.15}
+  .argos-service-edit-close{
+    width:44px;
+    height:44px;
+    flex:0 0 44px;
+    border:1px solid var(--line,#ddd);
+    border-radius:12px;
+    background:var(--page,#f7f7f7);
+    color:var(--ink,#17171b);
+    font-size:25px;
+    cursor:pointer;
+  }
+  .argos-service-edit-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:11px;
+  }
+  .argos-service-edit-field{min-width:0}
+  .argos-service-edit-field.full{grid-column:1/-1}
+  .argos-service-edit-field label{
+    display:block;
+    margin:0 0 6px;
+    color:var(--muted,#777);
+    font-size:11px;
+    font-weight:800;
+  }
+  .argos-service-edit-field input,
+  .argos-service-edit-field select,
+  .argos-service-edit-field textarea{
+    width:100%;
+    box-sizing:border-box;
+    border:1px solid var(--line,#ddd);
+    border-radius:12px;
+    background:var(--page,#f7f7f7);
+    color:var(--ink,#17171b);
+    padding:11px 12px;
+    font:inherit;
+    font-size:15px;
+    outline:none;
+  }
+  .argos-service-edit-field input:focus,
+  .argos-service-edit-field select:focus,
+  .argos-service-edit-field textarea:focus{
+    border-color:var(--renfe,#8a005c);
+    box-shadow:0 0 0 3px rgba(138,0,92,.1);
+  }
+  .argos-service-edit-field textarea{min-height:82px;resize:vertical}
+  .argos-service-edit-note{
+    margin:13px 0 0;
+    padding:11px 12px;
+    border-radius:12px;
+    background:var(--soft,#f4e9f1);
+    color:var(--muted,#666);
+    font-size:12px;
+    line-height:1.4;
+  }
+  .argos-service-edit-actions{
+    display:flex;
+    justify-content:flex-end;
+    gap:9px;
+    margin-top:17px;
+  }
+  .argos-service-edit-actions button{
+    min-height:48px;
+    border-radius:13px;
+    padding:10px 18px;
+    border:1px solid var(--line,#ddd);
+    font-weight:900;
+    cursor:pointer;
+  }
+  .argos-service-edit-cancel{background:var(--page,#f7f7f7);color:var(--ink,#17171b)}
+  .argos-service-edit-save{border:0!important;background:var(--renfe,#8a005c);color:#fff}
+  @media(max-width:600px){
+    .argos-history-actions{justify-content:stretch}
+    .argos-history-action{flex:1}
+    .argos-service-edit-overlay{padding:10px;align-items:flex-start}
+    .argos-service-edit-modal{max-height:95vh;border-radius:19px;padding:16px}
+    .argos-service-edit-grid{grid-template-columns:1fr}
+    .argos-service-edit-field.full{grid-column:auto}
+    .argos-service-edit-actions{flex-direction:column}
+    .argos-service-edit-actions button{width:100%}
+  }
+</style>
+
+<script id="argos-history-edit-delete-v73">
+(function(){
+  'use strict';
+
+  const SERVICES_KEY='argos_services';
+  const $=id=>document.getElementById(id);
+  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const text=v=>String(v??'').trim();
+
+  function readServices(){
+    try{
+      const raw=localStorage.getItem(SERVICES_KEY)||'[]';
+      const a=JSON.parse(raw);
+      return Array.isArray(a)?a:[];
+    }catch(e){return[]}
+  }
+
+  function getService(id){
+    return readServices().find(s=>String(s?.id||'')===String(id||''))||null;
+  }
+
+  function notesOf(service){
+    const out=[];
+    if(Array.isArray(service?.notesEntries)){
+      service.notesEntries.forEach(x=>{
+        const v=typeof x==='object'&&x!==null?(x.text??x.value??''):x;
+        if(text(v))out.push(text(v));
+      });
+    }
+    const legacy=text(service?.notes);
+    if(legacy&&!out.includes(legacy))out.push(legacy);
+    return out;
+  }
+
+  function incidentsOf(service){
+    const out=[];
+    if(Array.isArray(service?.incidentsEntries)){
+      service.incidentsEntries.forEach(x=>{
+        const v=typeof x==='object'&&x!==null?(x.text??x.value??''):x;
+        const t=text(v);
+        if(t)out.push({text:t,solved:typeof x==='object'&&x!==null&&x.solved===true});
+      });
+    }
+    const legacy=text(service?.incidents);
+    if(legacy&&!out.some(x=>x.text===legacy)){
+      legacy.split(/\n+/).map(text).filter(Boolean).forEach(t=>out.push({text:t,solved:false}));
+    }
+    return out;
+  }
+
+  function valuesFromService(service){
+    return {
+      train:text(service?.train??service?.tren??service?.number??service?.numero),
+      series:text(service?.series??service?.serie??service?.trainSeries),
+      vehicle:text(service?.vehicle??service?.vehiculo??service?.vehicleNumber),
+      branch:text(service?.branch??service?.rama),
+      product:text(service?.product??service?.producto??service?.serviceType),
+      origin:text(service?.origin??service?.origen),
+      destination:text(service?.destination??service?.destino),
+      date:text(service?.date??service?.fecha),
+      kilometres:service?.kilometres??service?.km??service?.kms??''
+    };
+  }
+
+  function productOptions(current){
+    const select=$('product');
+    if(!select)return '<option value="">Sin producto</option>';
+    const opts=Array.from(select.options).map(o=>({value:o.value,text:o.textContent}));
+    if(current&&!opts.some(o=>o.value===current))opts.push({value:current,text:current});
+    return opts.map(o=>`<option value="${esc(o.value)}" ${o.value===current?'selected':''}>${esc(o.text)}</option>`).join('');
+  }
+
+  function closeModal(){
+    $('argosServiceEditOverlay')?.remove();
+  }
+
+  function openEdit(service){
+    if(!service)return;
+    closeModal();
+    const v=valuesFromService(service);
+    const notes=notesOf(service).join('\n');
+    const incidents=incidentsOf(service).map(x=>x.text).join('\n');
+
+    const overlay=document.createElement('div');
+    overlay.id='argosServiceEditOverlay';
+    overlay.className='argos-service-edit-overlay';
+    overlay.innerHTML=`
+      <div class="argos-service-edit-modal" role="dialog" aria-modal="true" aria-labelledby="argosServiceEditTitle">
+        <div class="argos-service-edit-head">
+          <div>
+            <div class="argos-service-edit-kicker">HISTORIAL · EDITAR SERVICIO</div>
+            <h3 id="argosServiceEditTitle">Editar servicio</h3>
+          </div>
+          <button type="button" class="argos-service-edit-close" id="argosServiceEditClose" aria-label="Cerrar">×</button>
+        </div>
+
+        <div class="argos-service-edit-grid">
+          <div class="argos-service-edit-field">
+            <label for="argosEditTrain">Nº de tren</label>
+            <input id="argosEditTrain" type="text" value="${esc(v.train)}" autocomplete="off">
+          </div>
+          <div class="argos-service-edit-field">
+            <label for="argosEditDate">Fecha</label>
+            <input id="argosEditDate" type="date" value="${esc(v.date)}">
+          </div>
+          <div class="argos-service-edit-field">
+            <label for="argosEditSeries">Serie</label>
+            <input id="argosEditSeries" type="text" value="${esc(v.series)}" inputmode="numeric" autocomplete="off">
+          </div>
+          <div class="argos-service-edit-field">
+            <label for="argosEditVehicle">Vehículo</label>
+            <input id="argosEditVehicle" type="text" value="${esc(v.vehicle)}" autocomplete="off">
+          </div>
+          <div class="argos-service-edit-field">
+            <label for="argosEditBranch">Rama</label>
+            <input id="argosEditBranch" type="text" value="${esc(v.branch)}" inputmode="numeric" autocomplete="off">
+          </div>
+          <div class="argos-service-edit-field">
+            <label for="argosEditProduct">Producto</label>
+            <select id="argosEditProduct">${productOptions(v.product)}</select>
+          </div>
+          <div class="argos-service-edit-field">
+            <label for="argosEditOrigin">Origen</label>
+            <input id="argosEditOrigin" type="text" value="${esc(v.origin)}" autocomplete="off">
+          </div>
+          <div class="argos-service-edit-field">
+            <label for="argosEditDestination">Destino</label>
+            <input id="argosEditDestination" type="text" value="${esc(v.destination)}" autocomplete="off">
+          </div>
+          <div class="argos-service-edit-field">
+            <label for="argosEditKm">Kilómetros</label>
+            <input id="argosEditKm" type="number" min="0" step="0.1" value="${esc(v.kilometres)}">
+          </div>
+          <div class="argos-service-edit-field full">
+            <label for="argosEditNotes">Anotaciones</label>
+            <textarea id="argosEditNotes" placeholder="Una anotación por línea">${esc(notes)}</textarea>
+          </div>
+          <div class="argos-service-edit-field full">
+            <label for="argosEditIncidents">Incidencias</label>
+            <textarea id="argosEditIncidents" placeholder="Una incidencia por línea">${esc(incidents)}</textarea>
+          </div>
+        </div>
+
+        ${service.doubleComposition?'<div class="argos-service-edit-note">Este servicio tiene doble composición. La segunda composición se conserva exactamente como está.</div>':''}
+
+        <div class="argos-service-edit-actions">
+          <button type="button" class="argos-service-edit-cancel" id="argosServiceEditCancel">Cancelar</button>
+          <button type="button" class="argos-service-edit-save" id="argosServiceEditSave">Guardar cambios</button>
+        </div>
+      </div>`;
+
+    document.body.appendChild(overlay);
+
+    overlay.addEventListener('click',e=>{
+      if(e.target===overlay)closeModal();
+    });
+    $('argosServiceEditClose').onclick=closeModal;
+    $('argosServiceEditCancel').onclick=closeModal;
+
+    $('argosEditBranch').addEventListener('input',e=>{
+      e.target.value=e.target.value.replace(/\D/g,'').slice(0,3);
+    });
+    $('argosEditSeries').addEventListener('input',e=>{
+      e.target.value=e.target.value.replace(/\D/g,'').slice(0,3);
+    });
+
+    $('argosServiceEditSave').onclick=()=>{
+      const all=readServices();
+      const idx=all.findIndex(s=>String(s?.id||'')===String(service.id||''));
+      if(idx<0){
+        closeModal();
+        if(typeof toast==='function')toast('El servicio ya no existe');
+        return;
+      }
+
+      const old=all[idx];
+      const newNotes=text($('argosEditNotes').value).split(/\n+/).map(text).filter(Boolean);
+      const oldIncidents=incidentsOf(old);
+      const newIncidents=text($('argosEditIncidents').value).split(/\n+/).map(text).filter(Boolean).map(t=>({
+        text:t,
+        solved:oldIncidents.find(x=>x.text===t)?.solved===true
+      }));
+      const kmRaw=$('argosEditKm').value;
+      const km=kmRaw===''?0:Math.max(0,Number(kmRaw)||0);
+
+      const updated={
+        ...old,
+        train:text($('argosEditTrain').value),
+        series:text($('argosEditSeries').value),
+        vehicle:text($('argosEditVehicle').value),
+        branch:text($('argosEditBranch').value),
+        product:text($('argosEditProduct').value),
+        origin:text($('argosEditOrigin').value),
+        destination:text($('argosEditDestination').value),
+        date:text($('argosEditDate').value),
+        kilometres:km,
+        notes:newNotes.join('\n'),
+        notesEntries:newNotes,
+        incidents:newIncidents.map(x=>x.text).join('\n'),
+        incidentsEntries:newIncidents
+      };
+
+      all[idx]=updated;
+      try{
+        if(typeof saveServices==='function')saveServices(all);
+        else localStorage.setItem(SERVICES_KEY,JSON.stringify(all));
+      }catch(error){
+        console.error('ARGOS V73 · guardar edición:',error);
+        if(typeof toast==='function')toast('No se han podido guardar los cambios');
+        return;
+      }
+
+      closeModal();
+      if(typeof refreshHome==='function')refreshHome();
+      if(typeof window.renderHistory==='function')window.renderHistory();
+      if(typeof window.renderStats==='function')window.renderStats();
+      if(typeof toast==='function')toast('Servicio actualizado');
+    };
+
+    setTimeout(()=>$('argosEditTrain')?.focus(),0);
+  }
+
+  function deleteService(service){
+    if(!service)return;
+    const train=text(service.train??service.tren??service.number??service.numero);
+    const route=[text(service.origin??service.origen),text(service.destination??service.destino)].filter(Boolean).join(' → ');
+    const label=[train?`Tren ${train}`:'Servicio',route].filter(Boolean).join(' · ');
+    if(!window.confirm(`¿Eliminar este servicio?\n\n${label}\n\nEsta acción no se puede deshacer.`))return;
+
+    const all=readServices();
+    const next=all.filter(s=>String(s?.id||'')!==String(service.id||''));
+    if(next.length===all.length)return;
+
+    try{
+      if(typeof saveServices==='function')saveServices(next);
+      else localStorage.setItem(SERVICES_KEY,JSON.stringify(next));
+    }catch(error){
+      console.error('ARGOS V73 · eliminar servicio:',error);
+      if(typeof toast==='function')toast('No se ha podido eliminar el servicio');
+      return;
+    }
+
+    if(typeof refreshHome==='function')refreshHome();
+    if(typeof window.renderHistory==='function')window.renderHistory();
+    if(typeof window.renderStats==='function')window.renderStats();
+    if(typeof toast==='function')toast('Servicio eliminado');
+  }
+
+  function render(){
+    const list=$('historyList');
+    if(!list)return;
+    const all=readServices();
+    const items=all.slice().reverse();
+    if(!items.length){
+      list.innerHTML='<div class="empty">Todavía no hay servicios registrados.</div>';
+      return;
+    }
+
+    const oldScroll=window.scrollY;
+    list.innerHTML=items.map(service=>{
+      const train=text(service.train??service.tren??service.number??service.numero);
+      const series=text(service.series??service.serie??service.trainSeries);
+      const vehicle=text(service.vehicle??service.vehiculo??service.vehicleNumber);
+      const branch=text(service.branch??service.rama);
+      const product=text(service.product??service.producto??service.serviceType);
+      const origin=text(service.origin??service.origen);
+      const destination=text(service.destination??service.destino);
+      const date=text(service.date??service.fecha);
+      const notes=notesOf(service);
+      const incidents=incidentsOf(service);
+      return `<article class="history-card history-card-clickable" data-service-id="${esc(service.id)}" tabindex="0">
+        <div class="history-top">
+          <span class="train-number">${train?`Tren ${esc(train)}`:'Sin número de tren'}</span>
+          <span class="service-date">${esc(date)}</span>
+        </div>
+        <div class="route">${esc(origin)} → ${esc(destination)}</div>
+        <div class="service-meta">Serie ${esc(series)}${vehicle?' · Vehículo '+esc(vehicle):''}${branch?' · Rama '+esc(branch):''}${product?' · '+esc(product):''}${service.kilometres?' · '+esc(service.kilometres)+' km':''}</div>
+        ${notes.length?`<div class="service-meta"><b>Anotaciones:</b> ${notes.map(esc).join(' · ')}</div>`:''}
+        ${incidents.length?`<div class="service-meta"><b>Incidencias:</b> ${incidents.map(x=>esc(x.text)).join(' · ')}</div>`:''}
+        <div class="argos-history-actions">
+          <button type="button" class="argos-history-action edit" data-argos-edit="${esc(service.id)}">Editar</button>
+          <button type="button" class="argos-history-action delete" data-argos-delete="${esc(service.id)}">Eliminar</button>
+        </div>
+      </article>`;
+    }).join('');
+
+    list.querySelectorAll('[data-argos-edit]').forEach(button=>{
+      button.addEventListener('click',e=>{
+        e.preventDefault();
+        e.stopPropagation();
+        const service=getService(button.dataset.argosEdit);
+        if(service)openEdit(service);
+      });
+    });
+
+    list.querySelectorAll('[data-argos-delete]').forEach(button=>{
+      button.addEventListener('click',e=>{
+        e.preventDefault();
+        e.stopPropagation();
+        const service=getService(button.dataset.argosDelete);
+        if(service)deleteService(service);
+      });
+    });
+
+    list.querySelectorAll('[data-service-id]').forEach(card=>{
+      const open=()=>{
+        const service=getService(card.dataset.serviceId);
+        if(service&&typeof openServiceFicha==='function')openServiceFicha(service);
+        else if(service&&typeof openFicha==='function')openFicha(service.series||'',service.vehicle||'',service);
+      };
+      card.addEventListener('click',e=>{
+        if(e.target.closest('.argos-history-actions'))return;
+        open();
+      });
+      card.addEventListener('keydown',e=>{
+        if(e.target!==card)return;
+        if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}
+      });
+    });
+
+    if(Number.isFinite(oldScroll))window.scrollTo({top:oldScroll,behavior:'instant'});
+  }
+
+  function install(){
+    if(window.__argosHistoryEditDeleteV73)return;
+    window.__argosHistoryEditDeleteV73=true;
+    window.argosRenderHistoryEditDeleteV73=render;
+    window.renderHistory=render;
+    render();
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
+  else install();
+  window.addEventListener('load',install,{once:true});
+})();
+</script>
