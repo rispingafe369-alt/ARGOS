@@ -1699,25 +1699,23 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
   <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">AYUDA</div><h2>Instrucciones</h2></div></div>
   <div class="instructions-shell">
     <div class="instructions-hero">
-      <span class="instructions-kicker">ARGOS · GUÍA DE USO</span>
-      <h3>Cómo usar ARGOS</h3>
-      <p>Todo lo que necesitas para registrar servicios, consultar tu historial, conocer tus estadísticas y consultar el material ferroviario.</p>
+      <span class="instructions-kicker">ARGOS · GUÍA COMPLETA</span>
+      <h3>Aprende a usar ARGOS</h3>
+      <p>Esta guía explica paso a paso cómo registrar servicios, consultar el material, revisar tu historial, interpretar las estadísticas y aprovechar todas las funciones de ARGOS.</p>
     </div>
 
     <article class="instructions-card">
       <div class="instructions-number">01</div>
       <div>
-        <h4>Añadir un servicio</h4>
-        <p>Desde el menú principal entra en <strong>Añadir nuevo servicio</strong>. Completa los datos del servicio y pulsa <strong>Guardar</strong>.</p>
+        <h4>Empezar a usar ARGOS</h4>
+        <p>El menú lateral es el punto de entrada a las principales funciones de la aplicación. Puedes abrirlo desde el botón correspondiente de la cabecera y entrar en el apartado que necesites.</p>
         <ul>
-          <li><strong>Número de tren:</strong> introduce hasta 5 cifras. Si el servicio no tiene número, marca <strong>Sin número de tren</strong>.</li>
-          <li><strong>Serie:</strong> introduce la serie del tren.</li>
-          <li><strong>Vehículo:</strong> introduce el vehículo cuando quieras identificar la rama automáticamente.</li>
-          <li><strong>Rama:</strong> ARGOS intenta detectarla automáticamente a partir de la serie y el vehículo. También puedes escribirla directamente.</li>
-          <li><strong>Tipo de producto:</strong> las opciones disponibles se filtran según la serie. <strong>Charter</strong> aparece siempre en las series configuradas.</li>
-          <li><strong>Origen y destino:</strong> puedes buscar por nombre de estación o por código.</li>
-          <li><strong>Fecha:</strong> indica la fecha del servicio.</li>
-          <li><strong>Anotaciones e incidencias:</strong> puedes añadir tantas como necesites.</li>
+          <li><strong>Añadir un servicio:</strong> registra un servicio realizado.</li>
+          <li><strong>Ver historial:</strong> consulta todos los servicios guardados.</li>
+          <li><strong>Estadísticas:</strong> analiza tu actividad y el uso del material.</li>
+          <li><strong>ArgosDex:</strong> consulta información del material sin necesidad de crear un servicio.</li>
+          <li><strong>Instrucciones:</strong> vuelve a esta guía cuando tengas alguna duda.</li>
+          <li><strong>Ajustes:</strong> configura tu perfil y la apariencia de ARGOS.</li>
         </ul>
       </div>
     </article>
@@ -1725,26 +1723,35 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
     <article class="instructions-card">
       <div class="instructions-number">02</div>
       <div>
-        <h4>Doble composición</h4>
-        <p>Si el tren está formado por dos composiciones, marca <strong>Doble composición</strong> dentro del formulario.</p>
+        <h4>Añadir un servicio · paso a paso</h4>
+        <p>Entra en <strong>Añadir un servicio</strong> y completa los datos del servicio. Cuando hayas terminado, pulsa únicamente <strong>Guardar</strong>.</p>
         <ul>
-          <li>Introduce la serie y el vehículo de la primera composición.</li>
-          <li>Aparecerá un bloque para introducir la <strong>segunda composición</strong>.</li>
-          <li>Puedes indicar serie + vehículo o escribir directamente su rama.</li>
-          <li>ARGOS intenta detectar automáticamente la rama de la segunda composición.</li>
-          <li>La ficha del tren identifica que se trata de una doble composición y permite consultar cada composición de forma separada para no hacer la ficha innecesariamente larga.</li>
+          <li><strong>Número de tren:</strong> introduce el número correspondiente. El campo admite entrada numérica y, en móvil, mostrará un teclado numérico.</li>
+          <li><strong>Sin número de tren:</strong> marca esta opción cuando el servicio no tenga número de tren. En ese caso no necesitas introducirlo.</li>
+          <li><strong>Serie:</strong> introduce la serie del material. En móvil también se utiliza teclado numérico.</li>
+          <li><strong>Vehículo:</strong> introduce el vehículo cuando quieras identificar una unidad concreta. También utiliza teclado numérico en móvil.</li>
+          <li><strong>Rama:</strong> ARGOS intenta obtenerla automáticamente a partir de la serie y el vehículo. Si lo necesitas, puedes modificarla o escribirla directamente.</li>
+          <li><strong>Tipo de producto:</strong> las opciones del desplegable se adaptan a la serie introducida para evitar tener que recorrer una lista innecesariamente larga.</li>
+          <li><strong>Origen y destino:</strong> selecciona las estaciones del recorrido mediante el buscador.</li>
+          <li><strong>Fecha:</strong> indica la fecha correspondiente al servicio.</li>
+          <li><strong>Incidencias:</strong> si ha ocurrido alguna, puedes registrarla y añadir varias incidencias dentro del mismo servicio.</li>
+          <li><strong>Guardar:</strong> al terminar, pulsa <strong>Guardar</strong>. El servicio queda incorporado al historial y pasa a formar parte de las estadísticas.</li>
         </ul>
+        <p class="instructions-note"><strong>En móvil:</strong> los campos de número de tren, serie, vehículo y rama están preparados para entrada numérica. El resto de campos mantiene el teclado que corresponda a su contenido.</p>
       </div>
     </article>
 
     <article class="instructions-card">
       <div class="instructions-number">03</div>
       <div>
-        <h4>Primera vez con una rama</h4>
-        <p>Cuando guardes una rama, ARGOS comprueba si ya la habías registrado anteriormente.</p>
+        <h4>Cómo funciona la rama</h4>
+        <p>La rama es uno de los datos más importantes para identificar correctamente el material. ARGOS puede detectarla automáticamente cuando conoce la serie y el vehículo.</p>
         <ul>
-          <li>Si nunca la habías registrado, aparece el aviso de <strong>Primera vez con esta rama</strong>.</li>
-          <li>Si ya la habías utilizado, aparece como <strong>Rama repetida</strong> y se muestra la última vez que la viste.</li>
+          <li>Introduce la <strong>serie</strong> y el <strong>vehículo</strong>.</li>
+          <li>ARGOS intenta localizar automáticamente la rama correspondiente.</li>
+          <li>La rama detectada aparece en su propio bloque y puedes modificarla manualmente si es necesario.</li>
+          <li>También puedes escribir directamente una rama cuando sea la forma que prefieras de registrar el servicio.</li>
+          <li>La información de rama se utiliza posteriormente en historial, fichas, estadísticas y avisos de primera vez.</li>
         </ul>
       </div>
     </article>
@@ -1752,12 +1759,14 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
     <article class="instructions-card">
       <div class="instructions-number">04</div>
       <div>
-        <h4>Historial</h4>
-        <p>En <strong>Ver historial</strong> encontrarás todos los servicios que hayas registrado.</p>
+        <h4>Tipo de producto</h4>
+        <p>El selector de producto está pensado para que no tengas que buscar entre todas las modalidades existentes.</p>
         <ul>
-          <li>Pulsa sobre un registro para consultar su ficha.</li>
-          <li>La ficha reúne los datos del servicio y del material asociado.</li>
-          <li>Los registros realizados directamente por rama también pueden consultarse.</li>
+          <li>Primero introduce la <strong>serie</strong>.</li>
+          <li>ARGOS determina qué productos son aplicables a esa serie.</li>
+          <li>El desplegable muestra solamente las opciones correspondientes a esa serie.</li>
+          <li><strong>Charter</strong> está disponible como opción adicional según la configuración de ARGOS.</li>
+          <li>Si cambias la serie, las opciones del selector se actualizan para adaptarse a la nueva serie.</li>
         </ul>
       </div>
     </article>
@@ -1765,23 +1774,31 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
     <article class="instructions-card">
       <div class="instructions-number">05</div>
       <div>
-        <h4>Último servicio</h4>
-        <p>Desde la pantalla principal puedes consultar rápidamente el servicio registrado más recientemente.</p>
-        <p>El apartado <strong>Última vez</strong> también permite localizar cuándo realizaste un trayecto concreto.</p>
+        <h4>Doble composición</h4>
+        <p>Utiliza <strong>Doble composición</strong> cuando el servicio esté formado por dos composiciones que deban quedar registradas conjuntamente.</p>
+        <ul>
+          <li>Marca la casilla <strong>Doble composición</strong>.</li>
+          <li>Completa la primera composición con sus datos habituales.</li>
+          <li>Aparecerá el bloque <strong>Segunda composición</strong>.</li>
+          <li>En la segunda composición puedes introducir <strong>serie + vehículo</strong> para que ARGOS intente detectar la rama.</li>
+          <li>También puedes escribir directamente la <strong>rama</strong> de la segunda composición.</li>
+          <li>La segunda composición tiene su propia identificación de serie, vehículo y rama.</li>
+          <li>La ficha final identifica el tren como <strong>doble composición</strong> y permite cambiar entre una composición y la otra para consultar sus datos sin crear una ficha excesivamente larga.</li>
+        </ul>
       </div>
     </article>
 
     <article class="instructions-card">
       <div class="instructions-number">06</div>
       <div>
-        <h4>Estadísticas</h4>
-        <p>En <strong>Estadísticas</strong> ARGOS resume tu actividad ferroviaria.</p>
+        <h4>Aviso de primera vez y rama repetida</h4>
+        <p>Cuando guardas un servicio, ARGOS comprueba la rama registrada para informarte de si es una rama nueva para ti o si ya la habías utilizado anteriormente.</p>
         <ul>
-          <li>Puedes filtrar los datos por año, trimestre, producto y serie.</li>
-          <li>Consulta servicios, kilómetros, series, trenes, productos e incidencias.</li>
-          <li>Las tarjetas y rankings interactivos permiten entrar en más detalle.</li>
-          <li>Dentro del análisis de series puedes consultar los vehículos y ramas más utilizados de cada serie.</li>
-          <li>También encontrarás evolución temporal, recorridos, actividad por día y récords.</li>
+          <li><strong>Primera vez con esta rama:</strong> aparece cuando ARGOS detecta que nunca habías registrado esa rama anteriormente.</li>
+          <li><strong>Rama repetida:</strong> aparece cuando la rama ya formaba parte de tus registros.</li>
+          <li>En una rama repetida se muestra también <strong>la última vez que la viste</strong>.</li>
+          <li>La comprobación tiene en cuenta la rama aunque haya sido detectada automáticamente o introducida manualmente.</li>
+          <li>En una doble composición, ARGOS también puede comprobar las ramas de las dos composiciones.</li>
         </ul>
       </div>
     </article>
@@ -1789,12 +1806,14 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
     <article class="instructions-card">
       <div class="instructions-number">07</div>
       <div>
-        <h4>ArgosDex</h4>
-        <p><strong>ArgosDex</strong> sirve para consultar material sin necesidad de registrar un servicio.</p>
+        <h4>Historial y fichas</h4>
+        <p><strong>Ver historial</strong> reúne los servicios que has registrado para que puedas consultarlos posteriormente.</p>
         <ul>
-          <li>Introduce la serie y el vehículo.</li>
-          <li>ARGOS localizará la rama cuando el material esté identificado.</li>
-          <li>También puedes consultar una rama directamente cuando esté disponible esa opción.</li>
+          <li>Los servicios aparecen organizados como registros independientes.</li>
+          <li>Pulsa sobre un registro para abrir su ficha.</li>
+          <li>La ficha muestra la información del servicio y del material asociado.</li>
+          <li>Las ramas registradas directamente también pueden consultarse aunque el vehículo no esté indicado de la misma forma que en un registro convencional.</li>
+          <li>Si se trata de una doble composición, la ficha permite consultar cada composición por separado.</li>
         </ul>
       </div>
     </article>
@@ -1802,18 +1821,146 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
     <article class="instructions-card">
       <div class="instructions-number">08</div>
       <div>
-        <h4>Ajustes</h4>
-        <p>En <strong>Ajustes</strong> puedes personalizar tu experiencia.</p>
+        <h4>Último servicio y última vez</h4>
+        <p>ARGOS dispone de herramientas para localizar rápidamente servicios recientes y recordar cuándo utilizaste determinado material o recorrido.</p>
         <ul>
-          <li>Guarda tu nombre y tu puesto para personalizar la pantalla principal.</li>
-          <li>Cambia entre tema claro y oscuro.</li>
+          <li><strong>Último servicio:</strong> sirve para consultar rápidamente el servicio registrado más recientemente.</li>
+          <li><strong>Última vez:</strong> permite localizar registros anteriores y consultar cuándo realizaste un determinado trayecto o cuándo utilizaste una serie.</li>
+          <li>Los registros se pueden abrir para consultar su ficha con mayor detalle.</li>
         </ul>
+      </div>
+    </article>
+
+    <article class="instructions-card">
+      <div class="instructions-number">09</div>
+      <div>
+        <h4>Estadísticas · cuadro de mando</h4>
+        <p>El apartado <strong>Estadísticas</strong> transforma los servicios registrados en información útil sobre tu actividad.</p>
+        <ul>
+          <li><strong>Servicios:</strong> número total de servicios que cumplen los filtros seleccionados.</li>
+          <li><strong>Kilómetros:</strong> suma de los kilómetros registrados.</li>
+          <li><strong>Series:</strong> número de series diferentes utilizadas.</li>
+          <li><strong>Trenes:</strong> números de tren diferentes registrados.</li>
+          <li><strong>Productos:</strong> modalidades de producto diferentes utilizadas.</li>
+          <li><strong>Incidencias:</strong> número de incidencias registradas.</li>
+          <li><strong>Evolución trimestral:</strong> permite observar cómo se distribuye tu actividad durante el año y navegar entre trimestres.</li>
+          <li><strong>Series más utilizadas:</strong> muestra las series que más has registrado. Al entrar en una serie puedes consultar el material asociado según las funciones disponibles.</li>
+          <li><strong>Ramas más utilizadas:</strong> muestra las ramas con mayor número de registros.</li>
+          <li><strong>Distribución por producto:</strong> permite ver qué productos aparecen con más frecuencia.</li>
+          <li><strong>Rutas más realizadas:</strong> resume tus trayectos más repetidos.</li>
+          <li><strong>Vehículos más utilizados:</strong> muestra los vehículos que más veces has registrado.</li>
+          <li><strong>Incidencias registradas:</strong> resume los tipos de incidencia introducidos.</li>
+          <li><strong>Actividad por día:</strong> permite ver qué días de la semana concentran más servicios.</li>
+          <li><strong>Récords ARGOS:</strong> reúne algunos de tus principales hitos, como tren, serie, rama, ruta o producto más repetidos.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="instructions-card">
+      <div class="instructions-number">10</div>
+      <div>
+        <h4>Filtros de estadísticas</h4>
+        <p>Los filtros permiten analizar solamente una parte de tus servicios.</p>
+        <ul>
+          <li><strong>Año:</strong> limita el análisis a un año concreto.</li>
+          <li><strong>Mes:</strong> limita el análisis a un mes concreto.</li>
+          <li><strong>Producto:</strong> analiza únicamente un tipo de producto.</li>
+          <li><strong>Serie:</strong> analiza únicamente una serie.</li>
+          <li>Los filtros pueden combinarse entre sí.</li>
+          <li>El contador de filtros indica cuántos criterios están activos.</li>
+          <li><strong>Restablecer:</strong> elimina los filtros y devuelve la vista general.</li>
+          <li>Muchas tarjetas de estadísticas son interactivas: púlsalas para entrar en un análisis más detallado cuando aparezca esa posibilidad.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="instructions-card">
+      <div class="instructions-number">11</div>
+      <div>
+        <h4>ArgosDex · consultar material</h4>
+        <p><strong>ArgosDex</strong> es la herramienta de consulta de material. Es útil cuando quieres saber qué corresponde a una serie, vehículo o rama sin necesidad de registrar un servicio.</p>
+        <ul>
+          <li>Introduce los datos que conozcas del material.</li>
+          <li>Utiliza la búsqueda para localizar la unidad correspondiente.</li>
+          <li>Cuando el material está identificado, ARGOS muestra su ficha.</li>
+          <li>Puedes utilizar ArgosDex como consulta rápida antes de registrar un servicio o simplemente para comprobar un dato.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="instructions-card">
+      <div class="instructions-number">12</div>
+      <div>
+        <h4>Incidencias</h4>
+        <p>Las incidencias se guardan asociadas al servicio correspondiente y posteriormente pueden aparecer reflejadas en las estadísticas.</p>
+        <ul>
+          <li>Escribe la incidencia en el campo correspondiente.</li>
+          <li>Pulsa <strong>Añadir incidencia</strong> para incorporarla al servicio.</li>
+          <li>Puedes añadir más de una incidencia al mismo registro.</li>
+          <li>Las incidencias contribuyen al recuento de calidad dentro de Estadísticas.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="instructions-card">
+      <div class="instructions-number">13</div>
+      <div>
+        <h4>Ajustes y apariencia</h4>
+        <p>Desde <strong>Ajustes</strong> puedes personalizar la aplicación sin modificar tus servicios registrados.</p>
+        <ul>
+          <li><strong>Nombre del usuario:</strong> guarda el nombre que quieras utilizar en ARGOS.</li>
+          <li><strong>Puesto en Renfe:</strong> permite indicar tu puesto para personalizar la pantalla principal.</li>
+          <li><strong>Tema claro:</strong> utiliza la apariencia clara.</li>
+          <li><strong>Tema oscuro:</strong> utiliza la apariencia oscura.</li>
+          <li>Los cambios de apariencia afectan a la presentación de la aplicación, no a los datos de tus servicios.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="instructions-card">
+      <div class="instructions-number">14</div>
+      <div>
+        <h4>Navegación y volver atrás</h4>
+        <p>ARGOS está diseñado para que puedas moverte entre sus pantallas sin perder el punto en el que estabas.</p>
+        <ul>
+          <li>Utiliza la flecha de cada pantalla para volver al menú correspondiente.</li>
+          <li>El menú lateral permite saltar directamente a otra sección.</li>
+          <li>El botón de cierre del menú lateral vuelve a mostrar la pantalla que estabas consultando.</li>
+          <li>En móvil, la navegación está preparada para evitar que el botón de retroceso del navegador saque accidentalmente de ARGOS durante la navegación interna.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="instructions-card">
+      <div class="instructions-number">15</div>
+      <div>
+        <h4>Flujo recomendado para registrar un servicio</h4>
+        <p>Si quieres hacerlo de forma rápida y ordenada, este es el flujo recomendado:</p>
+        <ol>
+          <li>Entra en <strong>Añadir un servicio</strong>.</li>
+          <li>Introduce el número de tren o marca <strong>Sin número de tren</strong>.</li>
+          <li>Introduce la <strong>serie</strong>.</li>
+          <li>Introduce el <strong>vehículo</strong> si lo conoces.</li>
+          <li>Comprueba la <strong>rama</strong> detectada o escríbela manualmente.</li>
+          <li>Selecciona el <strong>producto</strong> correspondiente.</li>
+          <li>Indica <strong>origen, destino y fecha</strong>.</li>
+          <li>Si procede, registra las <strong>incidencias</strong>.</li>
+          <li>Si el tren es una <strong>doble composición</strong>, activa la opción y completa la segunda composición.</li>
+          <li>Pulsa <strong>Guardar</strong>.</li>
+          <li>Consulta el aviso de <strong>primera vez</strong> o <strong>rama repetida</strong> cuando corresponda.</li>
+          <li>Después puedes consultar el registro desde <strong>Historial</strong> y ver cómo se incorpora a <strong>Estadísticas</strong>.</li>
+        </ol>
       </div>
     </article>
 
     <div class="instructions-tip">
       <strong>💡 Consejo</strong>
-      <p>Si tienes dudas sobre qué introducir en una casilla, ARGOS intenta detectar automáticamente la rama a partir de la serie y el vehículo. Y siempre puedes consultar el material en ArgosDex sin crear un servicio.</p>
+      <p>Cuanto más completos sean tus registros —especialmente serie, vehículo, rama, producto, origen y destino— más información podrá ofrecerte ARGOS posteriormente en las fichas, el historial, Última vez y las estadísticas.</p>
+    </div>
+
+    <div class="instructions-tip">
+      <strong>📌 Regla rápida</strong>
+      <p><strong>Registrar → consultar ficha → revisar historial → analizar estadísticas.</strong> Si solamente necesitas identificar material, utiliza <strong>ArgosDex</strong> sin crear un servicio.</p>
     </div>
   </div>
 </section>
