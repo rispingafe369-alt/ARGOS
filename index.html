@@ -1685,7 +1685,7 @@ button:focus:not(:focus-visible),
 <div class="stats-kpi stats-clickable" data-drill="incidents"><span>Incidencias</span><strong id="statIncidents">0</strong><small>Registradas</small></div>
 </div>
     <div class="stats-grid-pro">
-      <article class="stats-panel stats-chart-panel"><div class="stats-panel-head"><div><span class="stats-panel-kicker">EVOLUCIÓN TRIMESTRAL</span><h4>Actividad del año</h4></div><span id="statsChartTotal" class="stats-head-value">0 servicios</span></div><div class="quarter-carousel">
+      <article class="stats-panel stats-chart-panel"><div class="stats-panel-head"><div><span class="stats-panel-kicker">EVOLUCIÓN TRIMESTRAL</span><h4>Vista trimestral</h4></div><span id="statsChartTotal" class="stats-head-value">0 servicios</span></div><div class="quarter-carousel">
   <button id="quarterPrev" class="quarter-nav" type="button" aria-label="Trimestre anterior">‹</button>
   <div class="quarter-viewport">
     <div id="monthlyChart" class="quarter-month-view"></div>
@@ -4711,6 +4711,93 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
   #statsModal .modal-row strong{
     font-size:12px !important;
+  }
+}
+</style>
+
+
+<style id="argos-quarter-mobile-v46">
+@media(max-width:600px){
+  /* Vista trimestral: más grande y legible en móvil */
+  .stats-chart-panel{
+    padding:16px !important;
+  }
+
+  .stats-chart-panel .stats-panel-head{
+    margin-bottom:14px !important;
+    align-items:flex-end !important;
+  }
+
+  .stats-chart-panel .stats-panel-kicker{
+    font-size:12px !important;
+    letter-spacing:.10em !important;
+  }
+
+  .stats-chart-panel .stats-panel-head h4{
+    font-size:26px !important;
+    line-height:1.08 !important;
+    margin-top:5px !important;
+  }
+
+  .stats-chart-panel .stats-head-value{
+    font-size:13px !important;
+    line-height:1.2 !important;
+    text-align:right !important;
+  }
+
+  .quarter-carousel{
+    grid-template-columns:40px 1fr 40px !important;
+    gap:8px !important;
+    min-height:255px !important;
+  }
+
+  .quarter-nav{
+    width:40px !important;
+    height:46px !important;
+    font-size:31px !important;
+    border-radius:12px !important;
+  }
+
+  .quarter-month-view{
+    gap:9px !important;
+  }
+
+  .quarter-month-card{
+    padding:13px !important;
+    border-radius:16px !important;
+    min-height:245px !important;
+  }
+
+  .quarter-month-top{
+    gap:8px !important;
+  }
+
+  .quarter-month-name{
+    font-size:16px !important;
+    line-height:1.1 !important;
+  }
+
+  .quarter-month-total{
+    font-size:15px !important;
+  }
+
+  .quarter-month-caption{
+    font-size:11px !important;
+    line-height:1.2 !important;
+    margin-top:5px !important;
+  }
+
+  .quarter-month-track{
+    height:132px !important;
+    margin-top:11px !important;
+    border-radius:10px !important;
+  }
+
+  .quarter-month-bottom{
+    margin-top:9px !important;
+    padding-top:8px !important;
+    font-size:11px !important;
+    line-height:1.15 !important;
   }
 }
 </style>
