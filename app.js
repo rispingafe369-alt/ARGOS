@@ -29892,7 +29892,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
 })();
 
 /* ================================================================
-   ARGOS V66 · AUTENTICACIÓN + SINCRONIZACIÓN SUPABASE
+   ARGOS V67 · AUTENTICACIÓN + SINCRONIZACIÓN SUPABASE
    Acceso únicamente mediante matrícula Renfe de 7 cifras.
    ================================================================ */
 (function(){
@@ -29980,10 +29980,17 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     const matricula=String(user.user_metadata?.matricula||'').trim();
     if(!validMatricula(matricula))throw new Error('La cuenta no tiene una matrícula válida.');
 
+    // Nunca reutilizar datos del dispositivo como respaldo de otra cuenta.
+    clearLocalAppData();
+
     const profile=await ensureProfile(user,matricula);
+    const cloudServices=Array.isArray(profile.services)?profile.services:[];
+
+    // La respuesta de Supabase es la única fuente de verdad. Incluso cuando
+    // la cuenta está vacía, escribimos [] para borrar cualquier dato anterior.
     syncing=true;
     try{
-      localStorage.setItem(SERVICES_KEY,JSON.stringify(profile.services||[]));
+      localStorage.setItem(SERVICES_KEY,JSON.stringify(cloudServices));
     }finally{
       syncing=false;
     }
@@ -29997,7 +30004,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       .from(DATA_TABLE)
       .update({data:{services:clean},updated_at:new Date().toISOString()})
       .eq('user_id',currentUser.id);
-    if(error)console.error('ARGOS V66 · error guardando en Supabase:',error);
+    if(error)console.error('ARGOS V67 · error guardando en Supabase:',error);
   }
 
   function installStorageSync(){
@@ -30009,14 +30016,17 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
         try{
           const parsed=JSON.parse(value||'[]');
           void saveCloud(Array.isArray(parsed)?parsed:[]);
-        }catch(e){console.warn('ARGOS V66 · sincronización local:',e)}
+        }catch(e){console.warn('ARGOS V67 · sincronización local:',e)}
       }
     };
   }
 
-  function clearTestData(){
+  function clearLocalAppData(){
     syncing=true;
-    try{localStorage.removeItem(SERVICES_KEY)}finally{syncing=false}
+    try{
+      localStorage.removeItem(SERVICES_KEY);
+      localStorage.removeItem("argos_profile");
+    }finally{syncing=false}
   }
 
   async function enterApp(user){
@@ -30037,10 +30047,10 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       if(typeof window.showScreen==='function')window.showScreen('menu');
       authMessage('');
     }catch(error){
-      console.error('ARGOS V66 · carga de cuenta:',error);
+      console.error('ARGOS V67 · carga de cuenta:',error);
       currentUser=null;
       ready=false;
-      clearTestData();
+      clearLocalAppData();
       throw error;
     }
   }
@@ -30055,6 +30065,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       return;
     }
     setBusy(true);authMessage('Comprobando matrícula…');
+    clearLocalAppData();
     try{
       const {data,error}=await client.auth.signInWithPassword({
         email:matriculaEmail(matricula),
@@ -30064,7 +30075,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       if(!data.user)throw new Error('No se ha podido iniciar la sesión.');
       await enterApp(data.user);
     }catch(error){
-      console.error('ARGOS V66 · login:',error);
+      console.error('ARGOS V67 · login:',error);
       authMessage('Matrícula no registrada o datos incorrectos.','error');
     }finally{setBusy(false)}
   }
@@ -30079,6 +30090,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       return;
     }
     setBusy(true);authMessage('Creando tu cuenta…');
+    clearLocalAppData();
     try{
       const {data,error}=await client.auth.signUp({
         email:matriculaEmail(matricula),
@@ -30094,7 +30106,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
         if(input)input.value=matricula;
       }
     }catch(error){
-      console.error('ARGOS V66 · registro:',error);
+      console.error('ARGOS V67 · registro:',error);
       const msg=String(error?.message||'');
       if(/already registered|already exists|user already/i.test(msg)){
         authMessage('Esa matrícula ya está registrada. Pulsa Entrar.','error');
@@ -30115,7 +30127,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     setMode('login');
     const input=$id('argosMatricula');if(input)input.value='';
     authMessage('');
-    try{await client?.auth.signOut()}catch(e){console.warn('ARGOS V66 · cierre de sesión:',e)}
+    try{await client?.auth.signOut()}catch(e){console.warn('ARGOS V67 · cierre de sesión:',e)}
   }
 
   async function boot(){
@@ -30128,7 +30140,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     });
     window.argosSupabase=client;
     installStorageSync();
-    clearTestData();
+    clearLocalAppData();
 
     $id('argosLoginTab')?.addEventListener('click',()=>setMode('login'));
     $id('argosRegisterTab')?.addEventListener('click',()=>setMode('register'));
@@ -30141,7 +30153,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     $id('argosLogout')?.addEventListener('click',logout);
 
     const {data,error}=await client.auth.getSession();
-    if(error){console.error('ARGOS V66 · sesión:',error);return}
+    if(error){console.error('ARGOS V67 · sesión:',error);return}
     if(data.session?.user){
       authMessage('Recuperando tu cuenta…');
       try{await enterApp(data.session.user)}catch(e){authMessage('No se ha podido cargar tu cuenta.','error')}
