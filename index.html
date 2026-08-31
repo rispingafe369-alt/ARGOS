@@ -5877,3 +5877,181 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 }
 </style>
 
+
+<style id="argos-quarter-mobile-v7">
+/* ARGOS · VISTA TRIMESTRAL MÓVIL · AJUSTE FINAL
+   El objetivo es dejar la cabecera limpia y las tarjetas compactas. */
+@media (max-width:600px){
+
+  .stats-chart-panel{
+    position:relative !important;
+    padding:16px 14px !important;
+  }
+
+  /* Elimina por completo "EVOLUCIÓN TRIMESTRAL" en móvil. */
+  .stats-chart-panel .stats-panel-kicker{
+    display:none !important;
+  }
+  .stats-chart-panel .stats-panel-kicker::after{
+    display:none !important;
+    content:none !important;
+  }
+
+  /* Cabecera limpia: solo título + total. */
+  .stats-chart-panel .stats-panel-head{
+    position:relative !important;
+    display:block !important;
+    width:100% !important;
+    min-height:91px !important;
+    margin:0 0 10px !important;
+    padding:0 !important;
+    text-align:center !important;
+  }
+
+  .stats-chart-panel .stats-panel-head h4{
+    display:block !important;
+    width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    color:var(--renfe) !important;
+    font-size:25px !important;
+    line-height:1.1 !important;
+    font-weight:900 !important;
+    text-align:center !important;
+  }
+
+  .stats-chart-panel .stats-head-value{
+    position:static !important;
+    display:block !important;
+    width:100% !important;
+    max-width:none !important;
+    margin:8px 0 0 !important;
+    padding:0 !important;
+    color:var(--muted) !important;
+    font-size:17px !important;
+    line-height:1.15 !important;
+    font-weight:800 !important;
+    text-align:center !important;
+  }
+
+  /* El carrusel ya no crea un contexto de posición para las flechas. */
+  .stats-chart-panel .quarter-carousel{
+    position:static !important;
+    display:block !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+
+  /* Flechas alineadas con el título, no sobre el primer mes. */
+  .stats-chart-panel .quarter-nav{
+    position:absolute !important;
+    top:13px !important;
+    z-index:20 !important;
+    display:grid !important;
+    width:48px !important;
+    height:48px !important;
+    min-width:48px !important;
+    min-height:48px !important;
+    margin:0 !important;
+    padding:0 !important;
+    place-items:center !important;
+    border:1px solid var(--line) !important;
+    border-radius:14px !important;
+    background:var(--soft) !important;
+    color:var(--renfe) !important;
+    font-size:33px !important;
+    line-height:1 !important;
+    box-shadow:none !important;
+  }
+
+  .stats-chart-panel #quarterPrev{
+    left:0 !important;
+    right:auto !important;
+  }
+  .stats-chart-panel #quarterNext{
+    right:0 !important;
+    left:auto !important;
+  }
+
+  /* Tres meses verticales: nombre y número a la izquierda,
+     barra horizontal a la derecha, sin texto redundante. */
+  .stats-chart-panel .quarter-month-view{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:10px !important;
+    width:100% !important;
+    height:auto !important;
+    margin:0 !important;
+    padding:0 !important;
+    overflow:visible !important;
+  }
+
+  .stats-chart-panel .quarter-month-card{
+    display:grid !important;
+    grid-template-columns:145px minmax(0,1fr) !important;
+    grid-template-rows:1fr !important;
+    align-items:center !important;
+    width:100% !important;
+    min-height:132px !important;
+    height:132px !important;
+    box-sizing:border-box !important;
+    margin:0 !important;
+    padding:20px 18px !important;
+    border-radius:20px !important;
+  }
+
+  .stats-chart-panel .quarter-month-top{
+    grid-column:1 !important;
+    grid-row:1 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    justify-content:center !important;
+    gap:3px !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+
+  .stats-chart-panel .quarter-month-name{
+    font-size:30px !important;
+    line-height:1.05 !important;
+    font-weight:900 !important;
+    white-space:nowrap !important;
+  }
+
+  .stats-chart-panel .quarter-month-total{
+    font-size:25px !important;
+    line-height:1.05 !important;
+    font-weight:900 !important;
+    color:var(--renfe) !important;
+  }
+
+  /* Este era el texto rodeado en rojo: fuera completamente. */
+  .stats-chart-panel .quarter-month-caption{
+    display:none !important;
+  }
+
+  .stats-chart-panel .quarter-month-track{
+    grid-column:2 !important;
+    grid-row:1 !important;
+    width:100% !important;
+    height:48px !important;
+    margin:0 !important;
+    border-radius:999px !important;
+    background:var(--soft) !important;
+    overflow:hidden !important;
+  }
+
+  .stats-chart-panel .quarter-month-fill{
+    width:var(--quarter-pct,0%) !important;
+    height:100% !important;
+    min-height:0 !important;
+    border-radius:999px !important;
+  }
+
+  /* No mostrar ningún dato inferior antiguo. */
+  .stats-chart-panel .quarter-month-bottom{
+    display:none !important;
+  }
+}
+</style>
