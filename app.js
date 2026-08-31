@@ -29891,3 +29891,273 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   };
 })();
 
+/* ================================================================
+   ARGOS V66 · AUTENTICACIÓN + SINCRONIZACIÓN SUPABASE
+   Acceso únicamente mediante matrícula Renfe de 7 cifras.
+   ================================================================ */
+(function(){
+  'use strict';
+
+  const SUPABASE_URL='https://ujophjilcqnphvdiamex.supabase.co';
+  const SUPABASE_KEY='sb_publishable_0Q7GZKAXlAwDB0bm9tU63A_VPv5gaSC';
+  const SERVICES_KEY='argos_services';
+  const DATA_TABLE='argos_users';
+  const EMAIL_SUFFIX='@argos-renfe.app';
+  const PASSWORD_PREFIX='ARGOS-RENFE-';
+  const PASSWORD_SUFFIX='-V66!';
+
+  let client=null;
+  let currentUser=null;
+  let syncing=false;
+  let ready=false;
+  let originalSetItem=null;
+
+  const $id=id=>document.getElementById(id);
+  const digits=v=>String(v??'').replace(/\D/g,'').slice(0,7);
+
+  function matriculaEmail(matricula){
+    return matricula+EMAIL_SUFFIX;
+  }
+  function matriculaPassword(matricula){
+    return PASSWORD_PREFIX+matricula+PASSWORD_SUFFIX;
+  }
+  function validMatricula(v){return /^\d{7}$/.test(String(v||''));}
+
+  function authMessage(text,type=''){
+    const el=$id('argosAuthMessage');
+    if(!el)return;
+    el.textContent=text||'';
+    el.className='argos-auth-message'+(type?' '+type:'');
+  }
+
+  function setBusy(busy){
+    const btn=$id('argosAuthSubmit');
+    if(btn){btn.disabled=busy;btn.textContent=busy?'Conectando…':(mode==='register'?'Registrarme':'Entrar');}
+    const input=$id('argosMatricula');
+    if(input)input.disabled=busy;
+  }
+
+  let mode='login';
+
+  function setMode(next){
+    mode=next==='register'?'register':'login';
+    const loginTab=$id('argosLoginTab'),registerTab=$id('argosRegisterTab');
+    const title=$id('argosAuthTitle'),desc=$id('argosAuthDescription'),btn=$id('argosAuthSubmit');
+    loginTab?.classList.toggle('active',mode==='login');
+    registerTab?.classList.toggle('active',mode==='register');
+    if(title)title.textContent=mode==='register'?'Crear cuenta':'Iniciar sesión';
+    if(desc)desc.textContent=mode==='register'
+      ?'Introduce tu matrícula Renfe de 7 números para crear tu cuenta ARGOS.'
+      :'Introduce tu matrícula Renfe para acceder a tus registros desde cualquier dispositivo.';
+    if(btn)btn.textContent=mode==='register'?'Registrarme':'Entrar';
+    authMessage('');
+  }
+
+  async function ensureProfile(user,matricula){
+    const {data,error:rowError}=await client
+      .from(DATA_TABLE)
+      .select('matricula,user_id,data')
+      .eq('user_id',user.id)
+      .maybeSingle();
+
+    if(rowError)throw rowError;
+
+    if(!data){
+      const {error}=await client.from(DATA_TABLE).insert({
+        matricula,
+        user_id:user.id,
+        data:{services:[]}
+      });
+      if(error)throw error;
+      return {services:[]};
+    }
+
+    const cloud=data.data&&typeof data.data==='object'?data.data:{};
+    return {services:Array.isArray(cloud.services)?cloud.services:[]};
+  }
+
+  async function loadCloud(user){
+    const matricula=String(user.user_metadata?.matricula||'').trim();
+    if(!validMatricula(matricula))throw new Error('La cuenta no tiene una matrícula válida.');
+
+    const profile=await ensureProfile(user,matricula);
+    syncing=true;
+    try{
+      localStorage.setItem(SERVICES_KEY,JSON.stringify(profile.services||[]));
+    }finally{
+      syncing=false;
+    }
+    return matricula;
+  }
+
+  async function saveCloud(services){
+    if(!client||!currentUser||syncing)return;
+    const clean=Array.isArray(services)?services:[];
+    const {error}=await client
+      .from(DATA_TABLE)
+      .update({data:{services:clean},updated_at:new Date().toISOString()})
+      .eq('user_id',currentUser.id);
+    if(error)console.error('ARGOS V66 · error guardando en Supabase:',error);
+  }
+
+  function installStorageSync(){
+    if(originalSetItem)return;
+    originalSetItem=Storage.prototype.setItem;
+    Storage.prototype.setItem=function(key,value){
+      originalSetItem.call(this,key,value);
+      if(this===window.localStorage && key===SERVICES_KEY && ready && !syncing){
+        try{
+          const parsed=JSON.parse(value||'[]');
+          void saveCloud(Array.isArray(parsed)?parsed:[]);
+        }catch(e){console.warn('ARGOS V66 · sincronización local:',e)}
+      }
+    };
+  }
+
+  function clearTestData(){
+    syncing=true;
+    try{localStorage.removeItem(SERVICES_KEY)}finally{syncing=false}
+  }
+
+  async function enterApp(user){
+    currentUser=user;
+    try{
+      const matricula=await loadCloud(user);
+      ready=true;
+      document.body.classList.add('argos-authenticated');
+      const input=$id('argosMatricula');
+      if(input)input.value=matricula;
+      const logout=$id('argosLogout');
+      if(logout){logout.title='Cerrar sesión';logout.setAttribute('aria-label','Cerrar sesión')}
+      if(typeof window.refreshHome==='function')window.refreshHome();
+      if(typeof window.renderHistory==='function')window.renderHistory();
+      if(typeof window.renderStats==='function')window.renderStats();
+      if(typeof window.argosRenderHistoryFilteredV62==='function')window.argosRenderHistoryFilteredV62();
+      if(typeof window.loadProfile==='function')window.loadProfile();
+      if(typeof window.showScreen==='function')window.showScreen('menu');
+      authMessage('');
+    }catch(error){
+      console.error('ARGOS V66 · carga de cuenta:',error);
+      currentUser=null;
+      ready=false;
+      clearTestData();
+      throw error;
+    }
+  }
+
+  async function login(){
+    const input=$id('argosMatricula');
+    const matricula=digits(input?.value||'');
+    if(input)input.value=matricula;
+    if(!validMatricula(matricula)){
+      authMessage('La matrícula debe tener exactamente 7 números.','error');
+      input?.focus();
+      return;
+    }
+    setBusy(true);authMessage('Comprobando matrícula…');
+    try{
+      const {data,error}=await client.auth.signInWithPassword({
+        email:matriculaEmail(matricula),
+        password:matriculaPassword(matricula)
+      });
+      if(error)throw error;
+      if(!data.user)throw new Error('No se ha podido iniciar la sesión.');
+      await enterApp(data.user);
+    }catch(error){
+      console.error('ARGOS V66 · login:',error);
+      authMessage('Matrícula no registrada o datos incorrectos.','error');
+    }finally{setBusy(false)}
+  }
+
+  async function register(){
+    const input=$id('argosMatricula');
+    const matricula=digits(input?.value||'');
+    if(input)input.value=matricula;
+    if(!validMatricula(matricula)){
+      authMessage('La matrícula debe tener exactamente 7 números.','error');
+      input?.focus();
+      return;
+    }
+    setBusy(true);authMessage('Creando tu cuenta…');
+    try{
+      const {data,error}=await client.auth.signUp({
+        email:matriculaEmail(matricula),
+        password:matriculaPassword(matricula),
+        options:{data:{matricula}}
+      });
+      if(error)throw error;
+      if(data.session&&data.user){
+        await enterApp(data.user);
+      }else{
+        authMessage('Cuenta creada. Ahora pulsa Entrar.','ok');
+        setMode('login');
+        if(input)input.value=matricula;
+      }
+    }catch(error){
+      console.error('ARGOS V66 · registro:',error);
+      const msg=String(error?.message||'');
+      if(/already registered|already exists|user already/i.test(msg)){
+        authMessage('Esa matrícula ya está registrada. Pulsa Entrar.','error');
+        setMode('login');
+        if(input)input.value=matricula;
+      }else{
+        authMessage('No se ha podido crear la cuenta. Revisa la configuración de Supabase.','error');
+      }
+    }finally{setBusy(false)}
+  }
+
+  async function logout(){
+    ready=false;
+    currentUser=null;
+    syncing=true;
+    try{localStorage.removeItem(SERVICES_KEY)}finally{syncing=false}
+    document.body.classList.remove('argos-authenticated');
+    setMode('login');
+    const input=$id('argosMatricula');if(input)input.value='';
+    authMessage('');
+    try{await client?.auth.signOut()}catch(e){console.warn('ARGOS V66 · cierre de sesión:',e)}
+  }
+
+  async function boot(){
+    if(!window.supabase?.createClient){
+      authMessage('No se ha podido cargar el servicio de acceso.','error');
+      return;
+    }
+    client=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{
+      auth:{autoRefreshToken:true,persistSession:true,detectSessionInUrl:false}
+    });
+    window.argosSupabase=client;
+    installStorageSync();
+    clearTestData();
+
+    $id('argosLoginTab')?.addEventListener('click',()=>setMode('login'));
+    $id('argosRegisterTab')?.addEventListener('click',()=>setMode('register'));
+    $id('argosAuthSubmit')?.addEventListener('click',()=>mode==='register'?register():login());
+    $id('argosMatricula')?.addEventListener('input',e=>{
+      e.target.value=digits(e.target.value);
+      if(e.target.value.length===7)authMessage('');
+    });
+    $id('argosMatricula')?.addEventListener('keydown',e=>{if(e.key==='Enter')mode==='register'?register():login()});
+    $id('argosLogout')?.addEventListener('click',logout);
+
+    const {data,error}=await client.auth.getSession();
+    if(error){console.error('ARGOS V66 · sesión:',error);return}
+    if(data.session?.user){
+      authMessage('Recuperando tu cuenta…');
+      try{await enterApp(data.session.user)}catch(e){authMessage('No se ha podido cargar tu cuenta.','error')}
+    }else{
+      setMode('login');
+      document.body.classList.remove('argos-authenticated');
+    }
+
+    client.auth.onAuthStateChange((event,session)=>{
+      if(event==='SIGNED_OUT'){
+        ready=false;currentUser=null;syncing=true;try{localStorage.removeItem(SERVICES_KEY)}finally{syncing=false}
+        document.body.classList.remove('argos-authenticated');
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded',boot,{once:true});
+})();
+
