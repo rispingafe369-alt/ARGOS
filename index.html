@@ -1677,7 +1677,13 @@ button:focus:not(:focus-visible),
       </button>
       <div id="statsFilters" class="stats-filters collapsed"><div class="stats-filter"><label for="statsYear">Año</label><select id="statsYear"><option value="all">Todos</option></select></div><div class="stats-filter"><label for="statsMonth">Mes</label><select id="statsMonth"><option value="all">Todos</option><option value="0">Enero</option><option value="1">Febrero</option><option value="2">Marzo</option><option value="3">Abril</option><option value="4">Mayo</option><option value="5">Junio</option><option value="6">Julio</option><option value="7">Agosto</option><option value="8">Septiembre</option><option value="9">Octubre</option><option value="10">Noviembre</option><option value="11">Diciembre</option></select></div><div class="stats-filter"><label for="statsProduct">Producto</label><select id="statsProduct"><option value="all">Todos</option></select></div><div class="stats-filter"><label for="statsSeries">Serie</label><select id="statsSeries"><option value="all">Todas</option></select></div><button id="statsReset" class="stats-reset" type="button">↻ Restablecer</button></div>
     </div>
-    <div class="stats-kpis"><div class="stats-kpi accent stats-clickable" data-drill="year"><span>Servicios</span><strong id="statServices">0</strong><small>Total registrado</small></div><div class="stats-kpi stats-clickable" data-drill="routes"><span>Kilómetros</span><strong id="statKm">0</strong><small>Cuando están registrados</small></div><div class="stats-kpi stats-clickable" data-drill="material"><span>Series</span><strong id="statSeries">0</strong><small>Material diferente</small></div><div class="stats-kpi stats-clickable" data-drill="material"><span>Trenes</span><strong id="statTrains">0</strong><small>Números distintos</small></div><div class="stats-kpi stats-clickable" data-drill="material"><span>Productos</span><strong id="statProducts">0</strong><small>Modalidades</small></div><div class="stats-kpi stats-clickable" data-drill="incidents"><span>Incidencias</span><strong id="statIncidents">0</strong><small>Registradas</small></div></div>
+    <div class="stats-kpis">
+<div class="stats-kpi accent stats-clickable" data-drill="services"><span>Servicios</span><strong id="statServices">0</strong><small>Total registrado</small></div>
+<div class="stats-kpi stats-clickable" data-drill="series"><span>Series</span><strong id="statSeries">0</strong><small>Material diferente</small></div>
+<div class="stats-kpi stats-clickable" data-drill="trains"><span>Trenes</span><strong id="statTrains">0</strong><small>Números distintos</small></div>
+<div class="stats-kpi stats-clickable" data-drill="products"><span>Productos</span><strong id="statProducts">0</strong><small>Modalidades</small></div>
+<div class="stats-kpi stats-clickable" data-drill="incidents"><span>Incidencias</span><strong id="statIncidents">0</strong><small>Registradas</small></div>
+</div>
     <div class="stats-grid-pro">
       <article class="stats-panel stats-chart-panel"><div class="stats-panel-head"><div><span class="stats-panel-kicker">EVOLUCIÓN TRIMESTRAL</span><h4>Actividad del año</h4></div><span id="statsChartTotal" class="stats-head-value">0 servicios</span></div><div class="quarter-carousel">
   <button id="quarterPrev" class="quarter-nav" type="button" aria-label="Trimestre anterior">‹</button>
@@ -3133,8 +3139,44 @@ function yearModal(){
   const rows=data.map((x,i)=>`<div class="modal-row"><b>${i+1}</b><span>${x[0]}</span><strong>${x[1]} serv. · ${x[2]?x[2].toLocaleString("es-ES")+" km":"—"}</strong></div>`).join("");
   modalOpen("ARGOS · COMPARATIVA","Comparativa anual","Todos los servicios registrados",`<div class="modal-section"><h4>Actividad por año</h4><div class="modal-list">${rows||"<p>Sin datos.</p>"}</div></div>`);
 }
-function routesModal(){const a=filtered();modalOpen("ARGOS · RECORRIDOS","Análisis de rutas",`${a.length} servicios filtrados`,kpis([["Rutas",new Set(a.map(route)).size],["Top",countBy(a,"route")[0]?.[1]||0],["Km",a.reduce((z,s)=>z+km(s),0).toLocaleString("es-ES")+" km"],["Servicios",a.length]])+list("Rutas más realizadas",topRows(a,"route",10)))}
-function materialModal(){const a=filtered();modalOpen("ARGOS · MATERIAL","Perfil de material",`${a.length} servicios filtrados`,kpis([["Series",new Set(a.map(s=>field(s,"series")).filter(Boolean)).size],["Vehículos",new Set(a.map(s=>field(s,"vehicle")).filter(Boolean)).size],["Ramas",new Set(a.map(s=>field(s,"branch")).filter(Boolean)).size],["Servicios",a.length]])+list("Series",topRows(a,"series",10))+list("Vehículos",topRows(a,"vehicle",10)))}
+function serviceStatsModal(){
+  const a=filtered();
+  const days=new Set(a.map(dateOf).filter(Boolean).map(d=>d.toISOString().slice(0,10))).size;
+  const avg=days?(a.length/days).toFixed(1):"0";
+  modalOpen("ARGOS · SERVICIOS","Análisis de servicios",`${a.length} servicios filtrados`,
+    kpis([["Servicios",a.length],["Días activos",days],["Media/día",avg],["Rutas",new Set(a.map(route)).size]])+
+    list("Servicios por producto",countBy(a,"product"))+
+    list("Servicios por serie",countBy(a,"series"))+
+    list("Rutas más realizadas",countBy(a,"route").slice(0,10))
+  );
+}
+function seriesStatsModal(){
+  const a=filtered();
+  modalOpen("ARGOS · MATERIAL","Análisis de series",`${a.length} servicios filtrados`,
+    kpis([["Series",new Set(a.map(s=>field(s,"series")).filter(Boolean)).size],["Vehículos",new Set(a.map(s=>field(s,"vehicle")).filter(Boolean)).size],["Ramas",new Set(a.map(s=>field(s,"branch")).filter(Boolean)).size],["Servicios",a.length]])+
+    list("Series más utilizadas",countBy(a,"series").slice(0,10))+
+    list("Vehículos más utilizados",countBy(a,"vehicle").slice(0,10))+
+    list("Ramas más utilizadas",countBy(a,"branch").slice(0,10))
+  );
+}
+function trainsStatsModal(){
+  const a=filtered();
+  modalOpen("ARGOS · TRENES","Análisis de trenes",`${a.length} servicios filtrados`,
+    kpis([["Trenes",new Set(a.map(s=>field(s,"train")).filter(Boolean)).size],["Servicios",a.length],["Series",new Set(a.map(s=>field(s,"series")).filter(Boolean)).size],["Productos",new Set(a.map(s=>field(s,"product")).filter(Boolean)).size]])+
+    list("Trenes más utilizados",countBy(a,"train").slice(0,15))+
+    list("Series asociadas",countBy(a,"series").slice(0,10))+
+    list("Productos utilizados",countBy(a,"product").slice(0,10))
+  );
+}
+function productsStatsModal(){
+  const a=filtered();
+  modalOpen("ARGOS · PRODUCTOS","Análisis de productos",`${a.length} servicios filtrados`,
+    kpis([["Productos",new Set(a.map(s=>field(s,"product")).filter(Boolean)).size],["Servicios",a.length],["Series",new Set(a.map(s=>field(s,"series")).filter(Boolean)).size],["Rutas",new Set(a.map(route)).size]])+
+    list("Productos más utilizados",countBy(a,"product").slice(0,15))+
+    list("Series asociadas",countBy(a,"series").slice(0,10))+
+    list("Rutas asociadas",countBy(a,"route").slice(0,10))
+  );
+}
 function incidentsModal(){const a=filtered(),inc=a.reduce((z,s)=>z+incidentList(s).length,0);const m=new Map();a.forEach(s=>incidentList(s).forEach(x=>m.set(x,(m.get(x)||0)+1)));modalOpen("ARGOS · CALIDAD","Análisis de incidencias",`${a.length} servicios filtrados`,kpis([["Incidencias",inc],["Por servicio",a.length?(inc/a.length).toFixed(2):"0"],["Servicios afectados",a.filter(s=>incidentList(s).length).length],["Sin incidencia",a.filter(s=>!incidentList(s).length).length]])+list("Tipos de incidencia",[...m.entries()].sort((x,y)=>y[1]-x[1]).slice(0,12)))}
 function filterToggle(){
   const box=$("statsFilters"),btn=$("statsFilterToggle");if(!box||!btn)return;
@@ -3146,7 +3188,7 @@ function updateBadge(){
 document.addEventListener("click",e=>{
   const q=e.target.closest(".quarter-month-card");if(q){quarterModal(window.__argosQuarterIndex||0);return}
   const r=e.target.closest(".ranking-row");if(r){const panel=r.closest(".stats-panel"),name=r.querySelector(".rank-name")?.textContent.trim();if(name){let type="series";if(panel?.textContent.includes("Ramas"))type="branch";else if(panel?.textContent.includes("Productos"))type="product";else if(panel?.textContent.includes("Rutas"))type="route";else if(panel?.textContent.includes("Vehículos"))type="vehicle";entityModal(type,name)}return}
-  const d=e.target.closest("[data-drill]");if(d){({year:yearModal,routes:routesModal,material:materialModal,incidents:incidentsModal}[d.dataset.drill]||function(){})();return}
+  const d=e.target.closest("[data-drill]");if(d){({services:serviceStatsModal,series:seriesStatsModal,trains:trainsStatsModal,products:productsStatsModal,incidents:incidentsModal}[d.dataset.drill]||function(){})();return}
 });
 $("statsFilterToggle")?.addEventListener("click",filterToggle);
 $("statsModalClose")?.addEventListener("click",modalClose);
@@ -4561,6 +4603,51 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   .stats-panel{
     margin-bottom:0 !important;
   }
+}
+</style>
+
+
+<style id="argos-stats-mobile-v43">
+@media(max-width:600px){
+  .stats-kpis{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:6px !important;
+    margin-bottom:10px !important;
+  }
+  .stats-kpi{
+    min-height:55px !important;
+    height:55px !important;
+    padding:7px 14px !important;
+    display:grid !important;
+    grid-template-columns:1fr auto !important;
+    grid-template-rows:1fr !important;
+    grid-template-areas:"label value" !important;
+    align-items:center !important;
+    column-gap:12px !important;
+    border-radius:14px !important;
+  }
+  .stats-kpi span{
+    grid-area:label !important;
+    align-self:center !important;
+    font-size:17px !important;
+    line-height:1 !important;
+    font-weight:850 !important;
+  }
+  .stats-kpi strong{
+    grid-area:value !important;
+    align-self:center !important;
+    margin:0 !important;
+    font-size:29px !important;
+    line-height:1 !important;
+  }
+  .stats-kpi small{display:none !important;}
+  .stats-kpi,.stats-kpi *{-webkit-tap-highlight-color:transparent !important;}
+  .stats-kpi:active{transform:scale(.995);}
+  .stats-modal-card{max-height:90vh !important;}
+  .stats-modal h3{font-size:22px !important;}
+  .modal-kpi strong{font-size:19px !important;}
+  .modal-row{min-height:38px !important;}
 }
 </style>
 
