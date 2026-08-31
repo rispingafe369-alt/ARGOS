@@ -5781,3 +5781,99 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   }
 }
 </style>
+
+
+<style id="argos-quarter-mobile-v6">
+/* ARGOS · VISTA TRIMESTRAL MÓVIL · BLOQUE FINAL DE PRIORIDAD */
+@media (max-width:600px){
+
+  .stats-chart-panel .stats-panel-head{
+    position:relative !important;
+    display:block !important;
+    width:100% !important;
+    min-height:92px !important;
+    margin:0 0 12px !important;
+    padding:0 !important;
+    text-align:center !important;
+  }
+
+  /* Kicker pequeño: EVOLUCIÓN TRIMESTRAL */
+  .stats-chart-panel .stats-panel-kicker{
+    display:block !important;
+    width:100% !important;
+    margin:0 0 4px !important;
+    padding:0 !important;
+    font-size:10px !important;
+    line-height:1.1 !important;
+    letter-spacing:.10em !important;
+    text-align:center !important;
+  }
+
+  /* TÍTULO: Vista trimestral */
+  .stats-chart-panel .stats-panel-head h4{
+    display:block !important;
+    width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    color:var(--renfe) !important;
+    font-size:27px !important;
+    line-height:1.1 !important;
+    font-weight:900 !important;
+    text-align:center !important;
+  }
+
+  /* TOTAL DEL TRIMESTRE */
+  .stats-chart-panel .stats-head-value{
+    position:static !important;
+    display:block !important;
+    width:100% !important;
+    max-width:none !important;
+    margin:7px 0 0 !important;
+    padding:0 !important;
+    color:var(--muted) !important;
+    font-size:18px !important;
+    line-height:1.18 !important;
+    font-weight:800 !important;
+    text-align:center !important;
+  }
+
+  /* FLECHAS: una a cada lado de la cabecera */
+  .stats-chart-panel .quarter-nav{
+    display:grid !important;
+    position:absolute !important;
+    z-index:50 !important;
+    top:31px !important;
+    width:48px !important;
+    height:48px !important;
+    min-width:48px !important;
+    min-height:48px !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:1px solid var(--line) !important;
+    border-radius:14px !important;
+    background:var(--soft) !important;
+    color:var(--renfe) !important;
+    font-size:34px !important;
+    line-height:1 !important;
+    place-items:center !important;
+    box-shadow:none !important;
+  }
+
+  .stats-chart-panel #quarterPrev{
+    left:2px !important;
+    right:auto !important;
+  }
+
+  .stats-chart-panel #quarterNext{
+    right:2px !important;
+    left:auto !important;
+  }
+
+  /* Evita que la flecha invada las tarjetas */
+  .stats-chart-panel .quarter-carousel{
+    position:relative !important;
+    margin-top:0 !important;
+  }
+}
+</style>
+
