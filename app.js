@@ -26079,9 +26079,7 @@ function fleetFichaHtml(series,vehicle,service=null){
   const fichaRama = normalizeFleetValue(series)==="453" ? String(Number(unit.rama||0)) : String(unit.rama||"");
   const fichaSubserie = normalizeFleetValue(series)==="453"
     ? (String(unit.numeroCoches||"").startsWith("8 coches") || String(unit.subserie||"").includes("453.6") ? "453.6 · TL200 · 8 coches" : "453.0 · TL100 · 4 coches")
-    : (normalizeFleetValue(series)==="446"
-        ? String(unit.subserie||"").replace(/\s*·\s*(Primer lote|Segundo lote|Tercer lote)\s*$/i,"")
-        : (normalizeFleetValue(series)==="447" ? "" : (unit.subserie||"")));
+    : (normalizeFleetValue(series)==="446" || normalizeFleetValue(series)==="447" ? "" : (unit.subserie||""));
   const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>Serie ${esc(series)}${fichaSubserie?` · ${esc(fichaSubserie)}`:""} · Rama ${esc(fichaRama)}${unit.lote?` · ${esc(unit.lote)}`:""}</h3><p>Vehículo ${esc(vehiculoFicha)} · ${esc(unit.numero||"—")}</p></div>`;
 
   return `${hero}
