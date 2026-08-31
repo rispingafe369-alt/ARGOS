@@ -6144,3 +6144,60 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   }
 }
 </style>
+
+
+<!-- ================================================================
+     ARGOS V56 · AJUSTE FINAL MÓVIL
+     Solo: bajar ligeramente el total del trimestre y reparar el
+     relleno de las barras mensuales cuando el render no expone
+     --quarter-pct.
+     ================================================================ -->
+<style id="argos-quarter-mobile-v56-fix">
+@media(max-width:600px){
+  /* El total del trimestre baja un poco para respirar mejor bajo el título. */
+  .stats-chart-panel .stats-head-value{
+    margin-top:13px !important;
+    font-size:16px !important;
+    line-height:1.15 !important;
+  }
+
+  /* Mantener exactamente el aspecto actual de las tarjetas. */
+  .stats-chart-panel .quarter-month-fill{
+    height:100% !important;
+    border-radius:999px !important;
+    background:var(--renfe) !important;
+  }
+}
+</style>
+
+<script>
+/* ARGOS V56 · Las barras horizontales usan el porcentaje que el render
+   original calcula como HEIGHT. En móvil ese valor debe convertirse en
+   WIDTH. No cambia ningún dato ni la lógica de estadísticas. */
+(function(){
+  function repairQuarterBars(root){
+    (root || document).querySelectorAll('.stats-chart-panel .quarter-month-fill').forEach(function(fill){
+      var pct = fill.style.getPropertyValue('--quarter-pct').trim();
+      if(pct){
+        fill.style.setProperty('width', pct, 'important');
+        return;
+      }
+      var h = fill.style.height || '';
+      var m = h.match(/([\d.]+)%/);
+      if(m){
+        fill.style.setProperty('width', m[1] + '%', 'important');
+      }
+    });
+  }
+
+  function run(){ repairQuarterBars(document); }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', run);
+  }else{
+    run();
+  }
+
+  var observer = new MutationObserver(function(){ repairQuarterBars(document); });
+  observer.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['style']});
+})();
+</script>
