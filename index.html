@@ -3141,40 +3141,46 @@ function yearModal(){
 }
 function serviceStatsModal(){
   const a=filtered();
-  const days=new Set(a.map(dateOf).filter(Boolean).map(d=>d.toISOString().slice(0,10))).size;
+  const dates=a.map(dateOf).filter(Boolean);
+  const days=new Set(dates.map(d=>d.toISOString().slice(0,10))).size;
   const avg=days?(a.length/days).toFixed(1):"0";
-  modalOpen("ARGOS · SERVICIOS","Análisis de servicios",`${a.length} servicios filtrados`,
-    kpis([["Servicios",a.length],["Días activos",days],["Media/día",avg],["Rutas",new Set(a.map(route)).size]])+
-    list("Servicios por producto",countBy(a,"product"))+
-    list("Servicios por serie",countBy(a,"series"))+
-    list("Rutas más realizadas",countBy(a,"route").slice(0,10))
+  const topRoute=countBy(a,"route")[0]||["—",0];
+  modalOpen("ARGOS · SERVICIOS","Servicios",`${a.length} servicios filtrados`,
+    kpis([["Servicios",a.length],["Días activos",days],["Media/día",avg],["Ruta más usada",topRoute[0]]])+
+    list("Rutas más realizadas",countBy(a,"route").slice(0,5))
   );
 }
 function seriesStatsModal(){
   const a=filtered();
-  modalOpen("ARGOS · MATERIAL","Análisis de series",`${a.length} servicios filtrados`,
-    kpis([["Series",new Set(a.map(s=>field(s,"series")).filter(Boolean)).size],["Vehículos",new Set(a.map(s=>field(s,"vehicle")).filter(Boolean)).size],["Ramas",new Set(a.map(s=>field(s,"branch")).filter(Boolean)).size],["Servicios",a.length]])+
-    list("Series más utilizadas",countBy(a,"series").slice(0,10))+
-    list("Vehículos más utilizados",countBy(a,"vehicle").slice(0,10))+
-    list("Ramas más utilizadas",countBy(a,"branch").slice(0,10))
+  const series=countBy(a,"series");
+  const top=series[0]||["—",0];
+  const vehicles=new Set(a.map(s=>field(s,"vehicle")).filter(Boolean)).size;
+  const branches=new Set(a.map(s=>field(s,"branch")).filter(Boolean)).size;
+  modalOpen("ARGOS · MATERIAL","Series",`${a.length} servicios filtrados`,
+    kpis([["Series",series.length],["Servicios",a.length],["Vehículos",vehicles],["Ramas",branches]])+
+    list("Series más utilizadas",series.slice(0,5))
   );
 }
 function trainsStatsModal(){
   const a=filtered();
-  modalOpen("ARGOS · TRENES","Análisis de trenes",`${a.length} servicios filtrados`,
-    kpis([["Trenes",new Set(a.map(s=>field(s,"train")).filter(Boolean)).size],["Servicios",a.length],["Series",new Set(a.map(s=>field(s,"series")).filter(Boolean)).size],["Productos",new Set(a.map(s=>field(s,"product")).filter(Boolean)).size]])+
-    list("Trenes más utilizados",countBy(a,"train").slice(0,15))+
-    list("Series asociadas",countBy(a,"series").slice(0,10))+
-    list("Productos utilizados",countBy(a,"product").slice(0,10))
+  const trains=countBy(a,"train");
+  const top=trains[0]||["—",0];
+  const series=new Set(a.map(s=>field(s,"series")).filter(Boolean)).size;
+  const products=new Set(a.map(s=>field(s,"product")).filter(Boolean)).size;
+  modalOpen("ARGOS · MATERIAL","Trenes",`${a.length} servicios filtrados`,
+    kpis([["Trenes",trains.length],["Servicios",a.length],["Más utilizado",top[0]],["Series",series]])+
+    list("Trenes más utilizados",trains.slice(0,5))
   );
 }
 function productsStatsModal(){
   const a=filtered();
-  modalOpen("ARGOS · PRODUCTOS","Análisis de productos",`${a.length} servicios filtrados`,
-    kpis([["Productos",new Set(a.map(s=>field(s,"product")).filter(Boolean)).size],["Servicios",a.length],["Series",new Set(a.map(s=>field(s,"series")).filter(Boolean)).size],["Rutas",new Set(a.map(route)).size]])+
-    list("Productos más utilizados",countBy(a,"product").slice(0,15))+
-    list("Series asociadas",countBy(a,"series").slice(0,10))+
-    list("Rutas asociadas",countBy(a,"route").slice(0,10))
+  const products=countBy(a,"product");
+  const top=products[0]||["—",0];
+  const series=new Set(a.map(s=>field(s,"series")).filter(Boolean)).size;
+  const routes=new Set(a.map(route)).size;
+  modalOpen("ARGOS · SERVICIOS","Productos",`${a.length} servicios filtrados`,
+    kpis([["Productos",products.length],["Servicios",a.length],["Más utilizado",top[0]],["Rutas",routes]])+
+    list("Productos más utilizados",products.slice(0,5))
   );
 }
 function incidentsModal(){const a=filtered(),inc=a.reduce((z,s)=>z+incidentList(s).length,0);const m=new Map();a.forEach(s=>incidentList(s).forEach(x=>m.set(x,(m.get(x)||0)+1)));modalOpen("ARGOS · CALIDAD","Análisis de incidencias",`${a.length} servicios filtrados`,kpis([["Incidencias",inc],["Por servicio",a.length?(inc/a.length).toFixed(2):"0"],["Servicios afectados",a.filter(s=>incidentList(s).length).length],["Sin incidencia",a.filter(s=>!incidentList(s).length).length]])+list("Tipos de incidencia",[...m.entries()].sort((x,y)=>y[1]-x[1]).slice(0,12)))}
@@ -4648,6 +4654,64 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   .stats-modal h3{font-size:22px !important;}
   .modal-kpi strong{font-size:19px !important;}
   .modal-row{min-height:38px !important;}
+}
+</style>
+
+
+<style id="argos-kpi-detail-mobile-v45">
+@media(max-width:600px){
+  #statsModal .stats-modal-content,
+  #statsModal .stats-modal-card{
+    width:calc(100vw - 28px) !important;
+    max-width:none !important;
+    max-height:88vh !important;
+    overflow-y:auto !important;
+    border-radius:24px !important;
+  }
+
+  #statsModal .modal-kpis{
+    gap:8px !important;
+    margin:14px 0 !important;
+  }
+
+  #statsModal .modal-kpi{
+    min-height:76px !important;
+    padding:12px !important;
+    border-radius:16px !important;
+  }
+
+  #statsModal .modal-kpi span{
+    font-size:11px !important;
+  }
+
+  #statsModal .modal-kpi strong{
+    font-size:20px !important;
+    line-height:1.15 !important;
+    word-break:break-word !important;
+  }
+
+  #statsModal .modal-section{
+    margin-top:12px !important;
+  }
+
+  #statsModal .modal-section h4{
+    font-size:18px !important;
+    margin-bottom:8px !important;
+  }
+
+  #statsModal .modal-row{
+    min-height:42px !important;
+    padding:9px 10px !important;
+    border-radius:12px !important;
+  }
+
+  #statsModal .modal-row span{
+    font-size:12px !important;
+  }
+
+  #statsModal .modal-row strong{
+    font-size:12px !important;
+  }
 }
 </style>
 
