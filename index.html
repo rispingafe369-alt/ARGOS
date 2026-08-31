@@ -2116,11 +2116,54 @@ button:focus:not(:focus-visible),
 <div id="toast" class="toast" role="status"></div>
 </main>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- ARGOS · ACCESO -->
+<section id="argosAuth" class="argos-auth-screen" aria-label="Acceso a ARGOS">
+  <div class="argos-auth-card">
+    <div class="argos-auth-logo">ARGOS</div>
+    <div class="argos-auth-kicker">RENFE · SERVICIOS</div>
+    <h1 id="argosAuthTitle">Iniciar sesión</h1>
+    <p id="argosAuthDescription">Introduce tu matrícula Renfe para acceder a tus registros desde cualquier dispositivo.</p>
+    <div class="argos-auth-tabs" role="tablist">
+      <button id="argosLoginTab" type="button" class="argos-auth-tab active">Entrar</button>
+      <button id="argosRegisterTab" type="button" class="argos-auth-tab">Registrarme</button>
+    </div>
+    <label class="argos-auth-label" for="argosMatricula">Matrícula Renfe</label>
+    <input id="argosMatricula" class="argos-auth-input" type="text" inputmode="numeric" autocomplete="off" maxlength="7" placeholder="1234567">
+    <button id="argosAuthSubmit" class="argos-auth-submit" type="button">Entrar</button>
+    <div id="argosAuthMessage" class="argos-auth-message" role="status" aria-live="polite"></div>
+  </div>
+</section>
+
+<style id="argos-auth-style">
+.argos-auth-screen{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;padding:22px;background:var(--page,#f4f5f7);overflow:auto;}
+body.argos-authenticated .argos-auth-screen{display:none!important;}
+.argos-auth-card{width:min(430px,100%);background:#fff;border-radius:24px;padding:30px 24px;box-shadow:0 18px 60px rgba(30,20,30,.14);border:1px solid rgba(20,20,25,.08);text-align:center;}
+.argos-auth-logo{font-weight:900;font-size:34px;letter-spacing:.08em;color:#8a005c;margin-bottom:3px;}
+.argos-auth-kicker{font-size:11px;font-weight:800;letter-spacing:.14em;color:#73747c;margin-bottom:22px;}
+.argos-auth-card h1{margin:0 0 8px;font-size:28px;}
+.argos-auth-card p{margin:0 auto 22px;max-width:340px;color:#73747c;line-height:1.45;font-size:14px;}
+.argos-auth-tabs{display:grid;grid-template-columns:1fr 1fr;gap:7px;background:#f1f1f4;padding:5px;border-radius:14px;margin-bottom:22px;}
+.argos-auth-tab{border:0;border-radius:10px;padding:11px;background:transparent;color:#666;font-weight:800;}
+.argos-auth-tab.active{background:#fff;color:#8a005c;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+.argos-auth-label{display:block;text-align:left;font-size:12px;font-weight:800;margin:0 0 7px;}
+.argos-auth-input{width:100%;height:52px;border:1px solid rgba(20,20,25,.16);border-radius:13px;padding:0 15px;font-size:20px;letter-spacing:.14em;text-align:center;outline:none;}
+.argos-auth-input:focus{border-color:#8a005c;box-shadow:0 0 0 3px rgba(138,0,92,.1);}
+.argos-auth-submit{width:100%;height:52px;margin-top:14px;border:0;border-radius:13px;background:#8a005c;color:#fff;font-weight:900;font-size:16px;}
+.argos-auth-submit:disabled{opacity:.6;cursor:wait;}
+.argos-auth-message{min-height:20px;margin-top:13px;font-size:13px;color:#73747c;}
+.argos-auth-message.error{color:#b42318;}
+.argos-auth-message.ok{color:#16794c;}
+@media(max-width:600px){.argos-auth-screen{padding:16px;align-items:flex-start;padding-top:10vh}.argos-auth-card{padding:26px 20px;border-radius:20px}.argos-auth-card h1{font-size:25px}}
+</style>
+
 <script src="app.js"></script>
 
 <script>
 (function(){
   window.showScreen=function(id){
+    if(!document.body.classList.contains("argos-authenticated") && id!=="argosAuth") return;
     var screens=document.querySelectorAll(".app-shell > .screen");
     screens.forEach(function(screen){
       screen.classList.remove("active");
@@ -2386,6 +2429,7 @@ button:focus:not(:focus-visible),
   window.showScreen=setActiveScreen;
 
   document.addEventListener("DOMContentLoaded",function(){
+    if(!document.body.classList.contains("argos-authenticated")) return;
     setActiveScreen(document.querySelector(".screen.active")?.id || "menu");
   });
 })();
