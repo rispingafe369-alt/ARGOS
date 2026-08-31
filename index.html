@@ -3245,6 +3245,30 @@ function entityModal(type,name){
   const months=countBy(a,"product"), routes=countBy(a,"route");
   modalOpen("ARGOS · DETALLE",name,`${title} · ${a.length} servicios`,kpis([["Servicios",a.length],["Km",kmv?kmv.toLocaleString("es-ES")+" km":"—"],["Km/serv.",a.length&&kmv?(kmv/a.length).toFixed(1):"—"],["Incidencias",inc]])+list("Productos asociados",months)+list("Rutas asociadas",routes));
 }
+function incidentEntityModal(name){
+  const incidentText=s=>{
+    const direct=val(s,["incidents","incidencias","incident","incidencia"]);
+    const entries=val(s,["incidentsEntries","incidenciasEntries"]);
+    const out=[];
+    if(Array.isArray(entries)) entries.forEach(x=>{const t=typeof x==="string"?x:(x&&typeof x==="object"?val(x,["text","value","name","incidence","incidencia"]):"");if(txt(t))out.push(txt(t));});
+    if(typeof direct==="string") direct.split(/[,;\n]+/).map(x=>x.trim()).filter(Boolean).forEach(x=>out.push(x));
+    return [...new Set(out)];
+  };
+  const a=filtered().filter(s=>incidentText(s).some(x=>x===name));
+  const trains=new Map(), services=[];
+  a.forEach(s=>{
+    const train=field(s,"train")||"Sin número de tren";
+    trains.set(train,(trains.get(train)||0)+1);
+    services.push([train+" · "+(dateOf(s)?dateOf(s).toLocaleDateString("es-ES"):"Sin fecha"),1]);
+  });
+  const trainRows=[...trains.entries()].sort((x,y)=>y[1]-x[1]||x[0].localeCompare(y[0],"es"));
+  const routeRows=countBy(a,"route");
+  modalOpen("ARGOS · CALIDAD",name,`Incidencia · ${a.length} ${a.length===1?"servicio":"servicios"}`,
+    kpis([["Incidencias",a.length],["Servicios afectados",a.length],["Trenes afectados",trains.size],["Más afectado",trainRows[0]?.[0]||"—"]])+
+    list("Trenes donde ocurrió",trainRows)+
+    list("Rutas afectadas",routeRows.slice(0,5))
+  );
+}
 function yearModal(){
   const all=raw(), ys=[...new Set(all.map(dateOf).filter(Boolean).map(d=>d.getFullYear()))].sort((a,b)=>b-a);
   const data=ys.map(y=>{const a=all.filter(s=>dateOf(s)?.getFullYear()===y),k=a.reduce((z,s)=>z+km(s),0);return[y,a.length,k]});
@@ -3305,7 +3329,7 @@ function updateBadge(){
 }
 document.addEventListener("click",e=>{
   const q=e.target.closest(".quarter-month-card");if(q){const month=Number(q.dataset.quarterMonth);if(Number.isFinite(month))monthModal(month);return}
-  const r=e.target.closest(".ranking-row");if(r){const panel=r.closest(".stats-panel"),name=r.querySelector(".rank-name")?.textContent.trim();if(name){let type="series";if(panel?.querySelector("#branchRanking"))type="branch";else if(panel?.querySelector("#productRanking"))type="product";else if(panel?.querySelector("#routeRanking"))type="route";else if(panel?.querySelector("#vehicleRanking"))type="vehicle";else if(panel?.querySelector("#seriesRanking"))type="series";entityModal(type,name)}return}
+  const r=e.target.closest(".ranking-row");if(r){const panel=r.closest(".stats-panel"),name=r.querySelector(".rank-name")?.textContent.trim();if(name){let type="series";if(panel?.querySelector("#branchRanking"))type="branch";else if(panel?.querySelector("#productRanking"))type="product";else if(panel?.querySelector("#routeRanking"))type="route";else if(panel?.querySelector("#vehicleRanking"))type="vehicle";else if(panel?.querySelector("#seriesRanking"))type="series";else if(panel?.querySelector("#incidentRanking")){incidentEntityModal(name);return}entityModal(type,name)}return}
   const d=e.target.closest("[data-drill]");if(d){({services:serviceStatsModal,series:seriesStatsModal,trains:trainsStatsModal,products:productsStatsModal,incidents:incidentsModal}[d.dataset.drill]||function(){})();return}
 });
 $("statsFilterToggle")?.addEventListener("click",filterToggle);
