@@ -5988,7 +5988,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
   .stats-chart-panel .quarter-month-card{
     display:grid !important;
-    grid-template-columns:145px minmax(0,1fr) !important;
+    grid-template-columns:minmax(0,40%) minmax(0,1fr) !important;
     grid-template-rows:1fr !important;
     align-items:center !important;
     width:100% !important;
@@ -6017,6 +6017,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     line-height:1.05 !important;
     font-weight:900 !important;
     white-space:nowrap !important;
+    max-width:100% !important;
   }
 
   .stats-chart-panel .quarter-month-total{
@@ -6100,38 +6101,6 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     font-size:18px !important;
     line-height:1.08 !important;
     letter-spacing:-.01em !important;
-  }
-}
-</style>
-<style id="argos-material-series-fit-v60">
-/* ARGOS V60 · SOLO MATERIAL / SERIES MÁS UTILIZADAS EN MÓVIL
-   Ajuste exclusivo del encabezado de este apartado.
-   NO modifica Vista trimestral ni ningún otro bloque.
-*/
-@media (max-width:600px){
-  .stats-grid-pro .stats-panel:has(#seriesRanking) .stats-panel-head{
-    grid-template-columns:minmax(0,0.95fr) minmax(0,1.05fr) !important;
-    column-gap:12px !important;
-  }
-
-  .stats-grid-pro .stats-panel:has(#seriesRanking) .stats-panel-head h4{
-    font-size:17px !important;
-    line-height:1.08 !important;
-  }
-
-  .stats-grid-pro .stats-panel:has(#seriesRanking) .stats-panel-kicker{
-    font-size:10px !important;
-    line-height:1 !important;
-    margin-bottom:4px !important;
-  }
-
-  /* Texto descriptivo del apartado, situado en la columna derecha. */
-  .stats-grid-pro .stats-panel:has(#seriesRanking) .stats-panel-head::after{
-    min-width:0 !important;
-    margin:0 !important;
-    align-self:start !important;
-    font-size:11px !important;
-    line-height:1.18 !important;
   }
 }
 </style>
