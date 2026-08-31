@@ -4316,6 +4316,254 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   });
 })();
 </script>
+
+<style id="argos-stats-mobile-v41">
+/* ================================================================
+   ARGOS V41 · ESTADÍSTICAS MÓVIL
+   Ajuste visual únicamente para pantallas pequeñas.
+   ================================================================ */
+
+@media (max-width:600px){
+
+  /* ---------------------------------------------------------------
+     1. ELIMINAR EL DESTELLO / RECUADRO AZUL TÁCTIL
+     --------------------------------------------------------------- */
+  .stats-screen,
+  .stats-screen *,
+  .stats-modal,
+  .stats-modal *{
+    -webkit-tap-highlight-color:transparent !important;
+  }
+
+  .stats-screen button:focus,
+  .stats-screen a:focus,
+  .stats-screen [role="button"]:focus,
+  .stats-modal button:focus,
+  .stats-modal a:focus,
+  .stats-modal [role="button"]:focus{
+    outline:none !important;
+    box-shadow:none !important;
+  }
+
+  .stats-screen button:focus-visible,
+  .stats-screen a:focus-visible,
+  .stats-screen [role="button"]:focus-visible,
+  .stats-modal button:focus-visible,
+  .stats-modal a:focus-visible,
+  .stats-modal [role="button"]:focus-visible{
+    outline:2px solid var(--renfe) !important;
+    outline-offset:2px;
+  }
+
+  /* Evita además la selección accidental de texto al tocar tarjetas. */
+  .stats-clickable,
+  .stats-kpi,
+  .stats-drill-card,
+  .quarter-month-card,
+  #seriesRanking .ranking-row{
+    -webkit-user-select:none;
+    user-select:none;
+  }
+
+  /* ---------------------------------------------------------------
+     2. CINCO KPI: UNA COLUMNA, HORIZONTALES Y MUY COMPACTOS
+     --------------------------------------------------------------- */
+  .stats-kpis{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:7px !important;
+    margin-bottom:10px !important;
+  }
+
+  .stats-kpi{
+    min-height:58px !important;
+    height:58px !important;
+    padding:8px 12px !important;
+    border-radius:15px !important;
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) auto !important;
+    grid-template-rows:1fr 1fr !important;
+    grid-template-areas:
+      "label value"
+      "small value" !important;
+    align-items:center !important;
+    column-gap:10px !important;
+  }
+
+  .stats-kpi span{
+    grid-area:label !important;
+    align-self:end !important;
+    font-size:10px !important;
+    line-height:1.05 !important;
+  }
+
+  .stats-kpi strong{
+    grid-area:value !important;
+    align-self:center !important;
+    margin:0 !important;
+    font-size:25px !important;
+    line-height:1 !important;
+  }
+
+  .stats-kpi small{
+    grid-area:small !important;
+    align-self:start !important;
+    font-size:8.5px !important;
+    line-height:1.05 !important;
+  }
+
+  /* ---------------------------------------------------------------
+     3. EVOLUCIÓN DEL AÑO: MÁS GRANDE Y MÁS LEGIBLE
+     --------------------------------------------------------------- */
+  .stats-chart-panel{
+    padding:15px 12px !important;
+  }
+
+  .stats-chart-panel .stats-panel-head{
+    margin-bottom:10px !important;
+  }
+
+  .stats-chart-panel .stats-panel-head h4{
+    font-size:19px !important;
+  }
+
+  .stats-chart-panel .stats-panel-kicker{
+    font-size:10px !important;
+  }
+
+  .stats-chart-panel .stats-head-value{
+    font-size:10px !important;
+    line-height:1.2 !important;
+    max-width:125px;
+    text-align:right;
+  }
+
+  .quarter-carousel{
+    grid-template-columns:34px minmax(0,1fr) 34px !important;
+    gap:5px !important;
+    min-height:225px !important;
+    align-items:center !important;
+  }
+
+  .quarter-month-view{
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:7px !important;
+  }
+
+  .quarter-month-card{
+    min-height:205px !important;
+    height:205px !important;
+    padding:11px 8px !important;
+    border-radius:15px !important;
+  }
+
+  .quarter-month-name{
+    font-size:11px !important;
+  }
+
+  .quarter-month-total{
+    font-size:11px !important;
+  }
+
+  .quarter-month-caption{
+    font-size:8px !important;
+    line-height:1.2 !important;
+  }
+
+  .quarter-month-track{
+    height:122px !important;
+    margin-top:10px !important;
+    border-radius:9px !important;
+  }
+
+  .quarter-month-bottom{
+    margin-top:8px !important;
+    padding-top:7px !important;
+    font-size:8px !important;
+  }
+
+  .quarter-nav{
+    width:34px !important;
+    height:42px !important;
+    font-size:27px !important;
+  }
+
+  /* ---------------------------------------------------------------
+     4. SERIES MÁS UTILIZADAS: ELIMINAR EL ESPACIO DESPERDICIADO
+        El ">" pasa a estar superpuesto a la derecha y no crea
+        una cuarta fila/columna dentro del grid.
+     --------------------------------------------------------------- */
+  #seriesRanking{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:6px !important;
+  }
+
+  #seriesRanking .ranking-row{
+    position:relative !important;
+    display:grid !important;
+    grid-template-columns:28px minmax(0,1fr) auto !important;
+    grid-template-rows:auto !important;
+    min-height:58px !important;
+    height:58px !important;
+    padding:7px 34px 7px 8px !important;
+    border-radius:13px !important;
+    gap:7px !important;
+    align-items:center !important;
+  }
+
+  #seriesRanking .ranking-row::after{
+    position:absolute !important;
+    right:10px !important;
+    top:50% !important;
+    transform:translateY(-50%) !important;
+    margin:0 !important;
+    font-size:22px !important;
+    line-height:1 !important;
+    pointer-events:none !important;
+  }
+
+  #seriesRanking .rank-number{
+    width:28px !important;
+    height:28px !important;
+    border-radius:9px !important;
+    font-size:11px !important;
+  }
+
+  #seriesRanking .rank-name{
+    font-size:12px !important;
+    line-height:1.15 !important;
+  }
+
+  #seriesRanking .rank-bar{
+    height:4px !important;
+    margin-top:4px !important;
+  }
+
+  #seriesRanking .rank-value{
+    font-size:12px !important;
+  }
+
+  /* También compactamos los demás rankings sin cambiar su contenido. */
+  .stats-grid-pro .stats-panel:not(:has(#seriesRanking)) .ranking-list{
+    gap:6px !important;
+  }
+
+  .stats-grid-pro .stats-panel:not(:has(#seriesRanking)) .ranking-row{
+    min-height:46px !important;
+  }
+
+  /* Menos aire vertical en el conjunto de Estadísticas. */
+  .stats-screen{
+    padding-bottom:20px !important;
+  }
+
+  .stats-panel{
+    margin-bottom:0 !important;
+  }
+}
+</style>
+
 </body>
 </html>
 <!-- ================================================================
