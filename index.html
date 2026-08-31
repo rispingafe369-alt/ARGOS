@@ -37,7 +37,7 @@ body{
   overscroll-behavior:none;
 }
 button,input,select,textarea{font:inherit}
-button{cursor:pointer}
+button{cursor:pointer;-webkit-tap-highlight-color:transparent}
 .app-shell{
   width:100%;
   height:100dvh;
@@ -560,7 +560,7 @@ body.dark #new-service input[type="date"]{color-scheme:dark}
 .ficha-empty-inline{opacity:.7;font-size:14px;padding:4px 0}
 </style>
 <style id="argos-stats-v9">
-.stats-screen{padding:18px 14px 36px!important;overflow-y:auto!important}.stats-dashboard{width:min(1120px,100%);margin:0 auto}.stats-hero{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 24px;margin-bottom:12px;border-radius:22px;background:linear-gradient(135deg,var(--renfe) 0%,#a51b78 100%);color:#fff;box-shadow:0 12px 30px rgba(138,0,92,.16)}.stats-hero-kicker,.stats-panel-kicker{font-size:10px;font-weight:900;letter-spacing:.11em}.stats-hero h3{margin:5px 0 4px;font-size:27px}.stats-hero p{margin:0;color:rgba(255,255,255,.84);font-size:13px}.stats-hero-badge{width:60px;height:60px;border-radius:18px;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:30px;flex:0 0 auto}.stats-filters{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:9px;align-items:end;margin-bottom:12px;padding:12px;border:1px solid var(--line);border-radius:18px;background:var(--card);box-shadow:var(--shadow)}.stats-filter label{display:block;color:var(--muted);font-size:10px;font-weight:800;margin:0 0 5px}.stats-filter select,.stats-reset{width:100%;min-height:42px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);padding:8px 10px;font-size:13px}.stats-reset{width:auto;padding:8px 13px;color:var(--renfe);font-weight:800;background:var(--soft);white-space:nowrap}.stats-kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-bottom:12px}.stats-kpi{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:13px;box-shadow:var(--shadow);min-width:0}.stats-kpi.accent{border-color:rgba(138,0,92,.25);background:linear-gradient(145deg,var(--card),var(--soft))}.stats-kpi span{display:block;color:var(--muted);font-size:10px;font-weight:800}.stats-kpi strong{display:block;font-size:27px;line-height:1.1;margin:5px 0 3px;color:var(--ink)}.stats-kpi.accent strong{color:var(--renfe)}.stats-kpi small{color:var(--muted);font-size:9.5px}.stats-grid-pro{display:grid;grid-template-columns:1.4fr 1fr;gap:12px}.stats-panel{background:var(--card);border:1px solid var(--line);border-radius:19px;padding:16px;box-shadow:var(--shadow);min-width:0}.stats-panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:12px}.stats-panel-kicker{color:var(--renfe)}.stats-panel h4{margin:3px 0 0;font-size:17px}.stats-head-value{color:var(--muted);font-size:11px;font-weight:800;padding-top:3px}.monthly-chart{height:190px;display:flex;align-items:stretch;gap:7px;padding:7px 2px 0}.month-bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:5px;min-width:0}.month-value{font-size:10px;font-weight:800;color:var(--renfe);min-height:12px}.bar-track{height:135px;width:100%;max-width:34px;display:flex;align-items:flex-end;background:var(--soft);border-radius:9px 9px 5px 5px;overflow:hidden}.bar-fill{width:100%;min-height:2px;border-radius:8px 8px 4px 4px;background:var(--renfe);transition:height .25s ease}.month-label{font-size:9px;color:var(--muted);font-weight:800}.ranking-list{display:flex;flex-direction:column;gap:9px}.ranking-row{display:grid;grid-template-columns:27px 1fr auto;align-items:center;gap:9px}.rank-number{width:27px;height:27px;border-radius:9px;background:var(--soft);color:var(--renfe);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900}.rank-main{min-width:0}.rank-name{display:block;font-size:12px;font-weight:800;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rank-bar{height:5px;margin-top:5px;border-radius:99px;background:var(--soft);overflow:hidden}.rank-bar i{display:block;height:100%;background:var(--renfe);border-radius:99px}.rank-value{font-size:12px;font-weight:900;color:var(--renfe)}.weekday-chart{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;align-items:end;height:170px}.day-column{height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px}.day-value{font-size:10px;color:var(--renfe);font-weight:900}.day-track{width:100%;height:115px;background:var(--soft);border-radius:8px;display:flex;align-items:flex-end;overflow:hidden}.day-fill{width:100%;background:var(--renfe);border-radius:8px;min-height:2px}.day-label{font-size:9px;color:var(--muted);font-weight:800}.records-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.record{padding:12px;border-radius:14px;background:var(--soft);min-width:0}.record span{display:block;color:var(--muted);font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.06em}.record strong{display:block;margin-top:4px;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.record small{display:block;color:var(--muted);font-size:10px;margin-top:2px}.stats-detail{margin-top:12px}.details-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.detail{padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--page)}.detail span{display:block;color:var(--muted);font-size:10px;font-weight:800}.detail strong{display:block;margin-top:4px;font-size:14px}.stats-empty{padding:40px 20px;text-align:center;color:var(--muted)}.stats-empty div{font-size:36px;color:var(--renfe)}.stats-empty strong{display:block;color:var(--ink);font-size:18px;margin:7px 0}.stats-empty p{margin:0;font-size:13px}.stats-grid-pro>.stats-panel:nth-child(1){grid-column:1/-1}.stats-grid-pro>.stats-panel:nth-child(6){grid-column:1/-1}.stats-insight{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}.stats-insight-card{border:1px solid var(--line);border-radius:15px;background:var(--card);padding:13px}.stats-insight-card span{display:block;color:var(--muted);font-size:9px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}.stats-insight-card strong{display:block;color:var(--ink);font-size:16px;margin-top:5px}.stats-insight-card p{margin:3px 0 0;color:var(--muted);font-size:10px;line-height:1.35}@media(max-width:900px){.stats-kpis{grid-template-columns:repeat(3,1fr)}.stats-filters{grid-template-columns:repeat(2,1fr)}.stats-reset{width:100%}.stats-grid-pro{grid-template-columns:1fr}.stats-insight{grid-template-columns:1fr 1fr}}@media(max-width:600px){.stats-screen{padding:12px 10px 28px!important}.stats-hero{padding:17px;border-radius:18px}.stats-hero h3{font-size:23px}.stats-hero p{font-size:12px;line-height:1.35}.stats-hero-badge{width:48px;height:48px;font-size:24px}.stats-filters{grid-template-columns:1fr 1fr;padding:10px;gap:7px}.stats-filter select,.stats-reset{min-height:43px;font-size:12px}.stats-kpis{grid-template-columns:1fr 1fr}.stats-kpi{padding:12px}.stats-kpi strong{font-size:24px}.stats-panel{padding:14px;border-radius:17px}.monthly-chart{gap:4px;height:175px}.bar-track{max-width:25px;height:120px}.records-grid{grid-template-columns:1fr 1fr}.details-grid{grid-template-columns:1fr 1fr}.stats-insight{grid-template-columns:1fr}.weekday-chart{gap:4px}.day-track{height:100px}}</style>
+.stats-screen{padding:18px 14px 36px!important;overflow-y:auto!important}.stats-dashboard{width:min(1120px,100%);margin:0 auto}.stats-hero{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 24px;margin-bottom:12px;border-radius:22px;background:linear-gradient(135deg,var(--renfe) 0%,#a51b78 100%);color:#fff;box-shadow:0 12px 30px rgba(138,0,92,.16)}.stats-hero-kicker,.stats-panel-kicker{font-size:10px;font-weight:900;letter-spacing:.11em}.stats-hero h3{margin:5px 0 4px;font-size:27px}.stats-hero p{margin:0;color:rgba(255,255,255,.84);font-size:13px}.stats-hero-badge{width:60px;height:60px;border-radius:18px;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:30px;flex:0 0 auto}.stats-filters{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:9px;align-items:end;margin-bottom:12px;padding:12px;border:1px solid var(--line);border-radius:18px;background:var(--card);box-shadow:var(--shadow)}.stats-filter label{display:block;color:var(--muted);font-size:10px;font-weight:800;margin:0 0 5px}.stats-filter select,.stats-reset{width:100%;min-height:42px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);padding:8px 10px;font-size:13px}.stats-reset{width:auto;padding:8px 13px;color:var(--renfe);font-weight:800;background:var(--soft);white-space:nowrap}.stats-kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:9px;margin-bottom:12px}.stats-kpi{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:13px;box-shadow:var(--shadow);min-width:0}.stats-kpi.accent{border-color:rgba(138,0,92,.25);background:linear-gradient(145deg,var(--card),var(--soft))}.stats-kpi span{display:block;color:var(--muted);font-size:10px;font-weight:800}.stats-kpi strong{display:block;font-size:27px;line-height:1.1;margin:5px 0 3px;color:var(--ink)}.stats-kpi.accent strong{color:var(--renfe)}.stats-kpi small{color:var(--muted);font-size:9.5px}.stats-grid-pro{display:grid;grid-template-columns:1.4fr 1fr;gap:12px}.stats-panel{background:var(--card);border:1px solid var(--line);border-radius:19px;padding:16px;box-shadow:var(--shadow);min-width:0}.stats-panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:12px}.stats-panel-kicker{color:var(--renfe)}.stats-panel h4{margin:3px 0 0;font-size:17px}.stats-head-value{color:var(--muted);font-size:11px;font-weight:800;padding-top:3px}.monthly-chart{height:190px;display:flex;align-items:stretch;gap:7px;padding:7px 2px 0}.month-bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:5px;min-width:0}.month-value{font-size:10px;font-weight:800;color:var(--renfe);min-height:12px}.bar-track{height:135px;width:100%;max-width:34px;display:flex;align-items:flex-end;background:var(--soft);border-radius:9px 9px 5px 5px;overflow:hidden}.bar-fill{width:100%;min-height:2px;border-radius:8px 8px 4px 4px;background:var(--renfe);transition:height .25s ease}.month-label{font-size:9px;color:var(--muted);font-weight:800}.ranking-list{display:flex;flex-direction:column;gap:9px}.ranking-row{display:grid;grid-template-columns:27px 1fr auto;align-items:center;gap:9px}.rank-number{width:27px;height:27px;border-radius:9px;background:var(--soft);color:var(--renfe);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900}.rank-main{min-width:0}.rank-name{display:block;font-size:12px;font-weight:800;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rank-bar{height:5px;margin-top:5px;border-radius:99px;background:var(--soft);overflow:hidden}.rank-bar i{display:block;height:100%;background:var(--renfe);border-radius:99px}.rank-value{font-size:12px;font-weight:900;color:var(--renfe)}#routeRanking .rank-name{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.25;word-break:break-word}.weekday-chart{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;align-items:end;height:170px}.day-column{height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px}.day-value{font-size:10px;color:var(--renfe);font-weight:900}.day-track{width:100%;height:115px;background:var(--soft);border-radius:8px;display:flex;align-items:flex-end;overflow:hidden}.day-fill{width:100%;background:var(--renfe);border-radius:8px;min-height:2px}.day-label{font-size:9px;color:var(--muted);font-weight:800}.records-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.record{padding:12px;border-radius:14px;background:var(--soft);min-width:0}.record span{display:block;color:var(--muted);font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.06em}.record strong{display:block;margin-top:4px;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.record small{display:block;color:var(--muted);font-size:10px;margin-top:2px}.stats-detail{margin-top:12px}.details-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.detail{padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--page)}.detail span{display:block;color:var(--muted);font-size:10px;font-weight:800}.detail strong{display:block;margin-top:4px;font-size:14px}.stats-empty{padding:40px 20px;text-align:center;color:var(--muted)}.stats-empty div{font-size:36px;color:var(--renfe)}.stats-empty strong{display:block;color:var(--ink);font-size:18px;margin:7px 0}.stats-empty p{margin:0;font-size:13px}.stats-grid-pro>.stats-panel:nth-child(1){grid-column:1/-1}.stats-grid-pro>.stats-panel:nth-child(6){grid-column:1/-1}.stats-insight{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}.stats-insight-card{border:1px solid var(--line);border-radius:15px;background:var(--card);padding:13px}.stats-insight-card span{display:block;color:var(--muted);font-size:9px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}.stats-insight-card strong{display:block;color:var(--ink);font-size:16px;margin-top:5px}.stats-insight-card p{margin:3px 0 0;color:var(--muted);font-size:10px;line-height:1.35}@media(max-width:900px){.stats-kpis{grid-template-columns:repeat(3,1fr)}.stats-filters{grid-template-columns:repeat(2,1fr)}.stats-reset{width:100%}.stats-grid-pro{grid-template-columns:1fr}.stats-insight{grid-template-columns:1fr 1fr}}@media(max-width:600px){.stats-screen{padding:12px 10px 28px!important}.stats-hero{padding:17px;border-radius:18px}.stats-hero h3{font-size:23px}.stats-hero p{font-size:12px;line-height:1.35}.stats-hero-badge{width:48px;height:48px;font-size:24px}.stats-filters{grid-template-columns:1fr 1fr;padding:10px;gap:7px}.stats-filter select,.stats-reset{min-height:43px;font-size:12px}.stats-kpis{grid-template-columns:1fr 1fr}.stats-kpi{padding:12px}.stats-kpi strong{font-size:24px}.stats-panel{padding:14px;border-radius:17px}.monthly-chart{gap:4px;height:175px}.bar-track{max-width:25px;height:120px}.records-grid{grid-template-columns:1fr 1fr}.details-grid{grid-template-columns:1fr 1fr}.stats-insight{grid-template-columns:1fr}.weekday-chart{gap:4px}.day-track{height:100px}}</style>
 
 <style id="argos-dex-v1">
 /* =========================================================
@@ -1432,6 +1432,13 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
 .instructions-tip p{margin:0}
 @media(max-width:700px){.instructions-shell{padding:4px 0 28px}.instructions-hero{padding:20px 17px;border-radius:18px}.instructions-hero h3{font-size:24px}.instructions-card{grid-template-columns:38px 1fr;gap:12px;padding:16px;border-radius:17px}.instructions-number{width:36px;height:36px;border-radius:11px;font-size:11px}.instructions-card h4{font-size:17px}.instructions-card p,.instructions-card ul,.instructions-tip{font-size:13px}}
 </style>
+
+/* ARGOS · interacción táctil móvil: sin destello azul al pulsar */
+button:focus:not(:focus-visible),
+[role="button"]:focus:not(:focus-visible){
+  outline:none!important;
+  box-shadow:none!important;
+}
 </head>
 
 <body>
@@ -1668,7 +1675,7 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
       </button>
       <div id="statsFilters" class="stats-filters collapsed"><div class="stats-filter"><label for="statsYear">Año</label><select id="statsYear"><option value="all">Todos</option></select></div><div class="stats-filter"><label for="statsMonth">Mes</label><select id="statsMonth"><option value="all">Todos</option><option value="0">Enero</option><option value="1">Febrero</option><option value="2">Marzo</option><option value="3">Abril</option><option value="4">Mayo</option><option value="5">Junio</option><option value="6">Julio</option><option value="7">Agosto</option><option value="8">Septiembre</option><option value="9">Octubre</option><option value="10">Noviembre</option><option value="11">Diciembre</option></select></div><div class="stats-filter"><label for="statsProduct">Producto</label><select id="statsProduct"><option value="all">Todos</option></select></div><div class="stats-filter"><label for="statsSeries">Serie</label><select id="statsSeries"><option value="all">Todas</option></select></div><button id="statsReset" class="stats-reset" type="button">↻ Restablecer</button></div>
     </div>
-    <div class="stats-kpis"><div class="stats-kpi accent stats-clickable" data-drill="year"><span>Servicios</span><strong id="statServices">0</strong><small>Total registrado</small></div><div class="stats-kpi stats-clickable" data-drill="material"><span>Series</span><strong id="statSeries">0</strong><small>Material diferente</small></div><div class="stats-kpi stats-clickable" data-drill="material"><span>Trenes</span><strong id="statTrains">0</strong><small>Números distintos</small></div><div class="stats-kpi stats-clickable" data-drill="material"><span>Productos</span><strong id="statProducts">0</strong><small>Modalidades</small></div><div class="stats-kpi stats-clickable" data-drill="incidents"><span>Incidencias</span><strong id="statIncidents">0</strong><small>Registradas</small></div></div>
+    <div class="stats-kpis"><div class="stats-kpi accent stats-clickable" data-drill="year"><span>Servicios</span><strong id="statServices">0</strong><small>Total registrado</small></div><div class="stats-kpi stats-clickable" data-drill="routes"><span>Kilómetros</span><strong id="statKm">0</strong><small>Cuando están registrados</small></div><div class="stats-kpi stats-clickable" data-drill="material"><span>Series</span><strong id="statSeries">0</strong><small>Material diferente</small></div><div class="stats-kpi stats-clickable" data-drill="material"><span>Trenes</span><strong id="statTrains">0</strong><small>Números distintos</small></div><div class="stats-kpi stats-clickable" data-drill="material"><span>Productos</span><strong id="statProducts">0</strong><small>Modalidades</small></div><div class="stats-kpi stats-clickable" data-drill="incidents"><span>Incidencias</span><strong id="statIncidents">0</strong><small>Registradas</small></div></div>
     <div class="stats-grid-pro">
       <article class="stats-panel stats-chart-panel"><div class="stats-panel-head"><div><span class="stats-panel-kicker">EVOLUCIÓN TRIMESTRAL</span><h4>Actividad del año</h4></div><span id="statsChartTotal" class="stats-head-value">0 servicios</span></div><div class="quarter-carousel">
   <button id="quarterPrev" class="quarter-nav" type="button" aria-label="Trimestre anterior">‹</button>
@@ -1690,7 +1697,7 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
       <div class="stats-drill-card stats-clickable" data-drill="material"><span>MATERIAL</span><strong>Perfil de material</strong><small>Series y vehículos</small></div>
       <div class="stats-drill-card stats-clickable" data-drill="incidents"><span>CALIDAD</span><strong>Incidencias</strong><small>Frecuencia y detalle</small></div>
     </div>
-    <div class="stats-insight"><div class="stats-insight-card"><span>RITMO</span><strong id="insightPace">—</strong><p>Servicios por día con actividad.</p></div><div class="stats-insight-card"><span>VARIEDAD</span><strong id="insightVariety">—</strong><p>Series, productos y rutas diferentes.</p></div></div>
+    <div class="stats-insight"><div class="stats-insight-card"><span>RITMO</span><strong id="insightPace">—</strong><p>Servicios por día con actividad.</p></div><div class="stats-insight-card"><span>INTENSIDAD</span><strong id="insightKmAverage">—</strong><p>Kilómetros medios por servicio.</p></div><div class="stats-insight-card"><span>VARIEDAD</span><strong id="insightVariety">—</strong><p>Series, productos y rutas diferentes.</p></div></div>
     <div id="statsEmpty" class="stats-empty" hidden><div>◌</div><strong>Aún no hay datos suficientes</strong><p>Cuando registres servicios, ARGOS construirá aquí tu cuadro de mando automáticamente.</p></div>
   </div>
 </section>
@@ -1838,6 +1845,7 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
         <p>El apartado <strong>Estadísticas</strong> transforma los servicios registrados en información útil sobre tu actividad.</p>
         <ul>
           <li><strong>Servicios:</strong> número total de servicios que cumplen los filtros seleccionados.</li>
+          <li><strong>Kilómetros:</strong> suma de los kilómetros registrados.</li>
           <li><strong>Series:</strong> número de series diferentes utilizadas.</li>
           <li><strong>Trenes:</strong> números de tren diferentes registrados.</li>
           <li><strong>Productos:</strong> modalidades de producto diferentes utilizadas.</li>
@@ -2617,15 +2625,15 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
 })();
 </script>
 
-<script id="argos-stats-engine">(function(){const $=id=>document.getElementById(id);const names={months:["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"],days:["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"]};function services(){try{const x=JSON.parse(localStorage.getItem("argos_services")||"[]");return Array.isArray(x)?x:[]}catch(e){return[]}}function val(o,n){for(const k of n)if(o&&o[k]!==undefined&&o[k]!==null&&o[k]!=="")return o[k];return""}function txt(v){return String(v??"").trim()}function dateOf(s){const d=txt(val(s,["date","fecha","day","dia"]));if(!d)return null;let x=new Date(d);if(isNaN(x)){const m=d.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/);if(m)x=new Date(+m[3],+m[2]-1,+m[1])}return isNaN(x)?null:x}function field(s,t){const map={series:["series","serie","trainSeries"],product:["product","producto","serviceType","tipoProducto"],train:["train","tren","number","numero"],vehicle:["vehicle","vehiculo","vehicleNumber","numeroVehiculo"],branch:["branch","rama"],origin:["origin","origen"],destination:["destination","destino"]};return txt(val(s,map[t]||[]))}function route(s){const a=field(s,"origin"),b=field(s,"destination");return a&&b?a+" → "+b:(a||b||"Ruta no indicada")}function incidents(s){const a=val(s,["incidentsEntries","incidenciasEntries"]);if(Array.isArray(a))return a.length;const r=val(s,["incidents","incidencias","incident","incidencia"]);return typeof r==="string"&&r.trim()?r.split(/[,;\n]+/).filter(x=>x.trim()).length:0}function incidentNames(s){const r=val(s,["incidents","incidencias","incident","incidencia"]);return typeof r==="string"?r.split(/[,;\n]+/).map(x=>x.trim()).filter(Boolean):[]}function filtered(all){const y=$("statsYear").value,m=$("statsMonth").value,p=$("statsProduct").value,se=$("statsSeries").value;return all.filter(s=>{const d=dateOf(s);return !(y!=="all"&&(!d||String(d.getFullYear())!==y)||m!=="all"&&(!d||String(d.getMonth())!==m)||p!=="all"&&field(s,"product")!==p||se!=="all"&&field(s,"series")!==se)})}function counts(a,t){const m=new Map();a.forEach(s=>{const k=t==="route"?route(s):field(s,t);if(k)m.set(k,(m.get(k)||0)+1)});return[...m.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],"es"))}function ranking(id,data,empty){const e=$(id);if(!e)return;if(!data.length){e.innerHTML='<div class="ficha-empty-inline">'+empty+"</div>";return}const max=data[0][1];e.innerHTML=data.slice(0,7).map((x,i)=>'<div class="ranking-row"><span class="rank-number">'+(i+1)+'</span><div class="rank-main"><span class="rank-name">'+esc(x[0])+'</span><div class="rank-bar"><i style="width:'+Math.max(6,Math.round(x[1]/max*100))+'%"></i></div></div><span class="rank-value">'+x[1]+"</span></div>").join("")}function esc(x){return String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}function options(all){const y=$("statsYear"),old=y.value,ys=[...new Set(all.map(dateOf).filter(Boolean).map(d=>d.getFullYear()))].sort((a,b)=>b-a);y.innerHTML='<option value="all">Todos</option>'+ys.map(x=>'<option value="'+x+'">'+x+"</option>").join("");if(ys.includes(+old))y.value=old;[["statsProduct","product","Todos"],["statsSeries","series","Todas"]].forEach(([id,t,z])=>{const e=$(id),o=e.value,vs=[...new Set(all.map(s=>field(s,t)).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"es"));e.innerHTML='<option value="all">'+z+"</option>"+vs.map(x=>'<option value="'+esc(x)+'">'+esc(x)+"</option>").join("");if(vs.includes(o))e.value=o})}function monthly(a){
+<script id="argos-stats-engine">(function(){const $=id=>document.getElementById(id);const names={months:["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"],days:["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"]};function services(){try{const x=JSON.parse(localStorage.getItem("argos_services")||"[]");return Array.isArray(x)?x:[]}catch(e){return[]}}function val(o,n){for(const k of n)if(o&&o[k]!==undefined&&o[k]!==null&&o[k]!=="")return o[k];return""}function txt(v){return String(v??"").trim()}function num(v){if(typeof v==="number"&&isFinite(v))return v;const x=parseFloat(String(v??"").replace(/[^0-9,.-]/g,"").replace(",","."));return isFinite(x)?x:0}function dateOf(s){const d=txt(val(s,["date","fecha","day","dia"]));if(!d)return null;let x=new Date(d);if(isNaN(x)){const m=d.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/);if(m)x=new Date(+m[3],+m[2]-1,+m[1])}return isNaN(x)?null:x}function field(s,t){const map={series:["series","serie","trainSeries"],product:["product","producto","serviceType","tipoProducto"],train:["train","tren","number","numero"],vehicle:["vehicle","vehiculo","vehicleNumber","numeroVehiculo"],branch:["branch","rama"],origin:["origin","origen"],destination:["destination","destino"]};return txt(val(s,map[t]||[]))}function route(s){const a=field(s,"origin"),b=field(s,"destination");return a&&b?a+" → "+b:(a||b||"Ruta no indicada")}function km(s){return num(val(s,["km","kms","kilometres","kilometers","kilometros","kilómetros","distance","distancia"]))}function incidents(s){const a=val(s,["incidentsEntries","incidenciasEntries"]);if(Array.isArray(a))return a.length;const r=val(s,["incidents","incidencias","incident","incidencia"]);return typeof r==="string"&&r.trim()?r.split(/[,;\n]+/).filter(x=>x.trim()).length:0}function incidentNames(s){const r=val(s,["incidents","incidencias","incident","incidencia"]);return typeof r==="string"?r.split(/[,;\n]+/).map(x=>x.trim()).filter(Boolean):[]}function filtered(all){const y=$("statsYear").value,m=$("statsMonth").value,p=$("statsProduct").value,se=$("statsSeries").value;return all.filter(s=>{const d=dateOf(s);return !(y!=="all"&&(!d||String(d.getFullYear())!==y)||m!=="all"&&(!d||String(d.getMonth())!==m)||p!=="all"&&field(s,"product")!==p||se!=="all"&&field(s,"series")!==se)})}function counts(a,t){const m=new Map();a.forEach(s=>{const k=t==="route"?route(s):field(s,t);if(k)m.set(k,(m.get(k)||0)+1)});return[...m.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],"es"))}function ranking(id,data,empty){const e=$(id);if(!e)return;if(!data.length){e.innerHTML='<div class="ficha-empty-inline">'+empty+"</div>";return}const max=data[0][1];e.innerHTML=data.slice(0,7).map((x,i)=>'<div class="ranking-row"><span class="rank-number">'+(i+1)+'</span><div class="rank-main"><span class="rank-name">'+esc(x[0])+'</span><div class="rank-bar"><i style="width:'+Math.max(6,Math.round(x[1]/max*100))+'%"></i></div></div><span class="rank-value">'+x[1]+"</span></div>").join("")}function esc(x){return String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}function options(all){const y=$("statsYear"),old=y.value,ys=[...new Set(all.map(dateOf).filter(Boolean).map(d=>d.getFullYear()))].sort((a,b)=>b-a);y.innerHTML='<option value="all">Todos</option>'+ys.map(x=>'<option value="'+x+'">'+x+"</option>").join("");if(ys.includes(+old))y.value=old;[["statsProduct","product","Todos"],["statsSeries","series","Todas"]].forEach(([id,t,z])=>{const e=$(id),o=e.value,vs=[...new Set(all.map(s=>field(s,t)).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"es"));e.innerHTML='<option value="all">'+z+"</option>"+vs.map(x=>'<option value="'+esc(x)+'">'+esc(x)+"</option>").join("");if(vs.includes(o))e.value=o})}function monthly(a){
   const yearEl=document.getElementById("statsYear");
   const y=yearEl&&yearEl.value!=="all"?+yearEl.value:(a.map(dateOf).filter(Boolean).length?Math.max(...a.map(dateOf).filter(Boolean).map(d=>d.getFullYear())):new Date().getFullYear());
   const quarter=Math.floor(new Date().getMonth()/3);
   const q=quarterDataLocal(a,y,quarter);
   const names=[["Enero","Febrero","Marzo"],["Abril","Mayo","Junio"],["Julio","Agosto","Septiembre"],["Octubre","Noviembre","Diciembre"]];
   const short=[["Ene","Feb","Mar"],["Abr","May","Jun"],["Jul","Ago","Sep"],["Oct","Nov","Dic"]];
-  const c=[0,0,0];
-  q.forEach(s=>{const d=dateOf(s);if(d){const i=d.getMonth()%3;c[i]++}});
+  const c=[0,0,0],kmBy=[0,0,0];
+  q.forEach(s=>{const d=dateOf(s);if(d){const i=d.getMonth()%3;c[i]++;kmBy[i]+=km(s)}});
   const max=Math.max(1,...c);
   const chart=document.getElementById("monthlyChart");
   if(!chart)return;
@@ -2633,7 +2641,7 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
     <div class="quarter-month-top"><span class="quarter-month-name">${names[quarter][j]}</span><span class="quarter-month-total">${v}</span></div>
     <div class="quarter-month-caption">${y} · ${["1.º","2.º","3.º","4.º"][quarter]} trimestre</div>
     <div class="quarter-month-track"><i class="quarter-month-fill" style="height:${Math.max(v?4:0,Math.round(v/max*100))}%"></i></div>
-    <div class="quarter-month-bottom"><span></span><strong>${v} servicio${v===1?"":"s"}</strong></div>
+    <div class="quarter-month-bottom"><span>${kmBy[j]?kmBy[j].toLocaleString("es-ES")+" km":"Sin km"}</span><strong>${v} servicio${v===1?"":"s"}</strong></div>
   </button>`).join("");
   const total=a.length;
   const label=document.getElementById("statsChartTotal");
@@ -2645,7 +2653,7 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
 function quarterDataLocal(a,year,q){
   return a.filter(s=>{const d=dateOf(s);return d&&d.getFullYear()===year&&Math.floor(d.getMonth()/3)===q});
 }
-function weekdays(a){const c=Array(7).fill(0);a.forEach(s=>{const d=dateOf(s);if(d)c[(d.getDay()+6)%7]++});const max=Math.max(1,...c);$("weekdayChart").innerHTML=c.map((v,i)=>'<div class="day-column"><span class="day-value">'+(v||"")+'</span><div class="day-track"><i class="day-fill" style="height:'+Math.max(v?3:0,Math.round(v/max*100))+'%"></i></div><span class="day-label">'+names.days[i]+"</span></div>").join("")}function records(a){const inc=a.reduce((x,s)=>x+incidents(s),0),ss=counts(a,"series"),tr=counts(a,"train"),br=counts(a,"branch"),rt=counts(a,"route"),pr=counts(a,"product");let md=["—",0],m=new Map();a.forEach(s=>{const d=dateOf(s);if(d){const k=d.toLocaleDateString("es-ES");m.set(k,(m.get(k)||0)+1)}});for(const x of m)if(x[1]>md[1])md=x;$("recordsGrid").innerHTML=[record("Tren más repetido",tr[0]?.[0]||"—",tr[0]?.[1]?tr[0][1]+" servicios":"Sin datos"),record("Serie dominante",ss[0]?.[0]||"—",ss[0]?.[1]?ss[0][1]+" servicios":"Sin datos"),record("Rama más utilizada",br[0]?.[0]||"—",br[0]?.[1]?br[0][1]+" servicios":"Sin datos"),record("Ruta favorita",rt[0]?.[0]||"—",rt[0]?.[1]?rt[0][1]+" servicios":"Sin datos"),record("Producto principal",pr[0]?.[0]||"—",pr[0]?.[1]?pr[0][1]+" servicios":"Sin datos"),record("Día récord",md[0],md[1]?md[1]+" servicios":"Sin datos"),record("Incidencias",String(inc),inc===1?"1 registrada":inc+" registradas")].join("")}function record(a,b,c){return'<div class="record"><span>'+esc(a)+'</span><strong title="'+esc(b)+'">'+esc(b)+'</strong><small>'+esc(c)+"</small></div>"}function details(a){const ds=a.map(dateOf).filter(Boolean).sort((x,y)=>x-y),days=new Set(ds.map(d=>d.toISOString().slice(0,10))).size,months=new Set(ds.map(d=>d.getFullYear()+"-"+d.getMonth())).size,span=ds.length?Math.round((ds.at(-1)-ds[0])/86400000)+1:0,inc=a.reduce((x,s)=>x+incidents(s),0),routes=new Set(a.map(route).filter(x=>x!=="Ruta no indicada")).size,branches=new Set(a.map(s=>field(s,"branch")).filter(Boolean)).size,vehicles=new Set(a.map(s=>field(s,"vehicle")).filter(Boolean)).size;$("statsDetails").innerHTML=[detail("Primer servicio",ds[0]?ds[0].toLocaleDateString("es-ES"):"—"),detail("Último servicio",ds.length?ds.at(-1).toLocaleDateString("es-ES"):"—"),detail("Días con actividad",days||"0"),detail("Periodo cubierto",span?span+" días":"—"),detail("Media servicios/día",days?(a.length/days).toFixed(1):"—"),detail("Media servicios/mes",months?(a.length/months).toFixed(1):"—"),detail("Incidencias/servicio",a.length?(inc/a.length).toFixed(2):"0"),detail("Rutas diferentes",routes),detail("Ramas diferentes",branches),detail("Vehículos diferentes",vehicles),detail("Incidencias totales",inc)].join("")}function detail(a,b){return'<div class="detail"><span>'+esc(a)+'</span><strong>'+esc(b)+'</strong></div>'}function insights(a){const days=new Set(a.map(dateOf).filter(Boolean).map(d=>d.toISOString().slice(0,10))).size,ss=new Set(a.map(s=>field(s,"series")).filter(Boolean)).size,pp=new Set(a.map(s=>field(s,"product")).filter(Boolean)).size,rr=new Set(a.map(route).filter(x=>x!=="Ruta no indicada")).size;$("insightPace").textContent=days?(a.length/days).toFixed(1)+" servicios/día":"—";$("insightVariety").textContent=ss+" series · "+pp+" productos · "+rr+" rutas"}function render(){const all=services(),a=filtered(all);options(all);$("statsEmpty").hidden=a.length>0;$("statServices").textContent=a.length.toLocaleString("es-ES");$("statSeries").textContent=new Set(a.map(s=>field(s,"series")).filter(Boolean)).size;$("statTrains").textContent=new Set(a.map(s=>field(s,"train")).filter(Boolean)).size;$("statProducts").textContent=new Set(a.map(s=>field(s,"product")).filter(Boolean)).size;$("statIncidents").textContent=a.reduce((x,s)=>x+incidents(s),0).toLocaleString("es-ES");$("statsChartTotal").textContent=a.length+" servicio"+(a.length===1?"":"s");monthly(a);weekdays(a);ranking("seriesRanking",counts(a,"series"),"No hay series registradas");ranking("branchRanking",counts(a,"branch"),"No hay ramas registradas");ranking("productRanking",counts(a,"product"),"No hay productos registrados");ranking("routeRanking",counts(a,"route"),"No hay rutas registradas");ranking("vehicleRanking",counts(a,"vehicle"),"No hay vehículos registrados");const im=new Map();a.forEach(s=>incidentNames(s).forEach(x=>im.set(x,(im.get(x)||0)+1)));ranking("incidentRanking",[...im.entries()].sort((x,y)=>y[1]-x[1]),"No hay incidencias registradas");records(a);details(a);insights(a)}["statsYear","statsMonth","statsProduct","statsSeries"].forEach(id=>$(id)?.addEventListener("change",render));$("statsReset")?.addEventListener("click",()=>{["statsYear","statsMonth","statsProduct","statsSeries"].forEach((id,i)=>$(id).value=i<1?"all":"all");render()});document.addEventListener("DOMContentLoaded",render);window.addEventListener("storage",render);const oldShow=window.showScreen;window.showScreen=function(id){if(typeof oldShow==="function")oldShow(id);if(id==="stats")setTimeout(render,0)}})();</script>
+function weekdays(a){const c=Array(7).fill(0);a.forEach(s=>{const d=dateOf(s);if(d)c[(d.getDay()+6)%7]++});const max=Math.max(1,...c);$("weekdayChart").innerHTML=c.map((v,i)=>'<div class="day-column"><span class="day-value">'+(v||"")+'</span><div class="day-track"><i class="day-fill" style="height:'+Math.max(v?3:0,Math.round(v/max*100))+'%"></i></div><span class="day-label">'+names.days[i]+"</span></div>").join("")}function records(a){const kmv=a.reduce((x,s)=>x+km(s),0),inc=a.reduce((x,s)=>x+incidents(s),0),ss=counts(a,"series"),tr=counts(a,"train"),br=counts(a,"branch"),rt=counts(a,"route"),pr=counts(a,"product");let md=["—",0],m=new Map();a.forEach(s=>{const d=dateOf(s);if(d){const k=d.toLocaleDateString("es-ES");m.set(k,(m.get(k)||0)+1)}});for(const x of m)if(x[1]>md[1])md=x;$("recordsGrid").innerHTML=[record("Tren más repetido",tr[0]?.[0]||"—",tr[0]?.[1]?tr[0][1]+" servicios":"Sin datos"),record("Serie dominante",ss[0]?.[0]||"—",ss[0]?.[1]?ss[0][1]+" servicios":"Sin datos"),record("Rama más utilizada",br[0]?.[0]||"—",br[0]?.[1]?br[0][1]+" servicios":"Sin datos"),record("Ruta favorita",rt[0]?.[0]||"—",rt[0]?.[1]?rt[0][1]+" servicios":"Sin datos"),record("Producto principal",pr[0]?.[0]||"—",pr[0]?.[1]?pr[0][1]+" servicios":"Sin datos"),record("Día récord",md[0],md[1]?md[1]+" servicios":"Sin datos"),record("Kilómetros",kmv?kmv.toLocaleString("es-ES")+" km":"No registrados",a.length&&kmv?(kmv/a.length).toFixed(1)+" km/servicio":"Sin datos"),record("Incidencias",String(inc),inc===1?"1 registrada":inc+" registradas")].join("")}function record(a,b,c){return'<div class="record"><span>'+esc(a)+'</span><strong title="'+esc(b)+'">'+esc(b)+'</strong><small>'+esc(c)+"</small></div>"}function details(a){const ds=a.map(dateOf).filter(Boolean).sort((x,y)=>x-y),kmv=a.reduce((x,s)=>x+km(s),0),days=new Set(ds.map(d=>d.toISOString().slice(0,10))).size,months=new Set(ds.map(d=>d.getFullYear()+"-"+d.getMonth())).size,span=ds.length?Math.round((ds.at(-1)-ds[0])/86400000)+1:0,inc=a.reduce((x,s)=>x+incidents(s),0),routes=new Set(a.map(route).filter(x=>x!=="Ruta no indicada")).size,branches=new Set(a.map(s=>field(s,"branch")).filter(Boolean)).size,vehicles=new Set(a.map(s=>field(s,"vehicle")).filter(Boolean)).size;$("statsDetails").innerHTML=[detail("Primer servicio",ds[0]?ds[0].toLocaleDateString("es-ES"):"—"),detail("Último servicio",ds.length?ds.at(-1).toLocaleDateString("es-ES"):"—"),detail("Días con actividad",days||"0"),detail("Periodo cubierto",span?span+" días":"—"),detail("Media servicios/día",days?(a.length/days).toFixed(1):"—"),detail("Media servicios/mes",months?(a.length/months).toFixed(1):"—"),detail("Km medios/servicio",a.length&&kmv?(kmv/a.length).toFixed(1)+" km":"—"),detail("Incidencias/servicio",a.length?(inc/a.length).toFixed(2):"0"),detail("Rutas diferentes",routes),detail("Ramas diferentes",branches),detail("Vehículos diferentes",vehicles),detail("Incidencias totales",inc)].join("")}function detail(a,b){return'<div class="detail"><span>'+esc(a)+'</span><strong>'+esc(b)+'</strong></div>'}function insights(a){const days=new Set(a.map(dateOf).filter(Boolean).map(d=>d.toISOString().slice(0,10))).size,k=a.reduce((x,s)=>x+km(s),0),ss=new Set(a.map(s=>field(s,"series")).filter(Boolean)).size,pp=new Set(a.map(s=>field(s,"product")).filter(Boolean)).size,rr=new Set(a.map(route).filter(x=>x!=="Ruta no indicada")).size;$("insightPace").textContent=days?(a.length/days).toFixed(1)+" servicios/día":"—";$("insightKmAverage").textContent=k&&a.length?(k/a.length).toFixed(1)+" km":"—";$("insightVariety").textContent=ss+" series · "+pp+" productos · "+rr+" rutas"}function render(){const all=services(),a=filtered(all);options(all);$("statsEmpty").hidden=a.length>0;const k=a.reduce((x,s)=>x+km(s),0);$("statServices").textContent=a.length.toLocaleString("es-ES");$("statKm").textContent=k?k.toLocaleString("es-ES"):"0";$("statSeries").textContent=new Set(a.map(s=>field(s,"series")).filter(Boolean)).size;$("statTrains").textContent=new Set(a.map(s=>field(s,"train")).filter(Boolean)).size;$("statProducts").textContent=new Set(a.map(s=>field(s,"product")).filter(Boolean)).size;$("statIncidents").textContent=a.reduce((x,s)=>x+incidents(s),0).toLocaleString("es-ES");$("statsChartTotal").textContent=a.length+" servicio"+(a.length===1?"":"s");monthly(a);weekdays(a);ranking("seriesRanking",counts(a,"series"),"No hay series registradas");ranking("branchRanking",counts(a,"branch"),"No hay ramas registradas");ranking("productRanking",counts(a,"product"),"No hay productos registrados");ranking("routeRanking",counts(a,"route"),"No hay rutas registradas");ranking("vehicleRanking",counts(a,"vehicle"),"No hay vehículos registrados");const im=new Map();a.forEach(s=>incidentNames(s).forEach(x=>im.set(x,(im.get(x)||0)+1)));ranking("incidentRanking",[...im.entries()].sort((x,y)=>y[1]-x[1]),"No hay incidencias registradas");records(a);details(a);insights(a)}["statsYear","statsMonth","statsProduct","statsSeries"].forEach(id=>$(id)?.addEventListener("change",render));$("statsReset")?.addEventListener("click",()=>{["statsYear","statsMonth","statsProduct","statsSeries"].forEach((id,i)=>$(id).value=i<1?"all":"all");render()});document.addEventListener("DOMContentLoaded",render);window.addEventListener("storage",render);const oldShow=window.showScreen;window.showScreen=function(id){if(typeof oldShow==="function")oldShow(id);if(id==="stats")setTimeout(render,0)}})();</script>
 
 <script id="argos-branch-manual-registration">
 (function(){
@@ -3056,9 +3064,11 @@ const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const raw=()=>{try{const x=JSON.parse(localStorage.getItem("argos_services")||"[]");return Array.isArray(x)?x:[]}catch(e){return[]}};
 const txt=v=>String(v??"").trim();
 function val(o,n){for(const k of n)if(o&&o[k]!==undefined&&o[k]!==null&&o[k]!=="")return o[k];return""}
+function num(v){if(typeof v==="number"&&isFinite(v))return v;const x=parseFloat(String(v??"").replace(/[^0-9,.-]/g,"").replace(",","."));return isFinite(x)?x:0}
 function dateOf(s){const d=txt(val(s,["date","fecha","day","dia"]));if(!d)return null;let x=new Date(d);if(isNaN(x)){const m=d.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/);if(m)x=new Date(+m[3],+m[2]-1,+m[1])}return isNaN(x)?null:x}
 function field(s,t){const map={series:["series","serie","trainSeries"],product:["product","producto","serviceType","tipoProducto"],train:["train","tren","number","numero"],vehicle:["vehicle","vehiculo","vehicleNumber","numeroVehiculo"],branch:["branch","rama"],origin:["origin","origen"],destination:["destination","destino"]};return txt(val(s,map[t]||[]))}
 function route(s){const a=field(s,"origin"),b=field(s,"destination");return a&&b?a+" → "+b:(a||b||"Ruta no indicada")}
+function km(s){return num(val(s,["km","kms","kilometres","kilometers","kilometros","kilómetros","distance","distancia"]))}
 function incidentList(s){const r=val(s,["incidents","incidencias","incident","incidencia"]);return typeof r==="string"?r.split(/[,;\n]+/).map(x=>x.trim()).filter(Boolean):[]}
 function filtered(){const all=raw(),y=$("statsYear")?.value||"all",m=$("statsMonth")?.value||"all",p=$("statsProduct")?.value||"all",se=$("statsSeries")?.value||"all";return all.filter(s=>{const d=dateOf(s);return !(y!=="all"&&(!d||String(d.getFullYear())!==y)||m!=="all"&&(!d||String(d.getMonth())!==m)||p!=="all"&&field(s,"product")!==p||se!=="all"&&field(s,"series")!==se)})}
 function countBy(a,type){const m=new Map();a.forEach(s=>{let k=type==="route"?route(s):field(s,type);if(k)m.set(k,(m.get(k)||0)+1)});return[...m.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],"es"))}
@@ -3077,10 +3087,10 @@ function renderQuarterView(a){
   const mons=[["Enero","Febrero","Marzo"],["Abril","Mayo","Junio"],["Julio","Agosto","Septiembre"],["Octubre","Noviembre","Diciembre"]];
   const short=["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"];
   const q=qs[qIndex]||{total:0,months:[]};
-  const c=[0,0,0];
+  const c=[0,0,0], kmBy=[0,0,0];
   q.months.forEach(s=>{
     const d=dateOf(s);
-    if(d){const i=d.getMonth()%3;c[i]++}
+    if(d){const i=d.getMonth()%3;c[i]++;kmBy[i]+=km(s)}
   });
   const max=Math.max(1,...c);
   const cards=c.map((v,j)=>{
@@ -3089,7 +3099,7 @@ function renderQuarterView(a){
       <div class="quarter-month-top"><span class="quarter-month-name">${mons[qIndex][j]}</span><span class="quarter-month-total">${v}</span></div>
       <div class="quarter-month-caption">${y} · ${names[qIndex]}</div>
       <div class="quarter-month-track"><i class="quarter-month-fill" style="height:${Math.max(v?4:0,Math.round(v/max*100))}%"></i></div>
-      <div class="quarter-month-bottom"><span></span><strong>${v} servicio${v===1?"":"s"}</strong></div>
+      <div class="quarter-month-bottom"><span>${kmBy[j]?kmBy[j].toLocaleString("es-ES")+" km":"Sin km"}</span><strong>${v} servicio${v===1?"":"s"}</strong></div>
     </button>`;
   }).join("");
   $("monthlyChart").innerHTML=cards;
@@ -3104,24 +3114,24 @@ function modalClose(){$("statsModal").classList.remove("open");$("statsModal").s
 function kpis(items){return `<div class="modal-kpis">${items.map(x=>`<div class="modal-kpi"><span>${esc(x[0])}</span><strong>${esc(x[1])}</strong></div>`).join("")}</div>`}
 function list(title,data){if(!data.length)return `<div class="modal-section"><h4>${title}</h4><p>Sin datos suficientes.</p></div>`;return `<div class="modal-section"><h4>${title}</h4><div class="modal-list">${data.map((x,i)=>`<div class="modal-row"><b>${i+1}</b><span>${esc(x[0])}</span><strong>${x[1]}</strong></div>`).join("")}</div></div>`}
 function quarterModal(q){
-  const a=filtered(),y=currentYear(),qs=quarterData(a,y),s=qs[q]?.months||[],inc=s.reduce((z,x)=>z+incidentList(x).length,0);
+  const a=filtered(),y=currentYear(),qs=quarterData(a,y),s=qs[q]?.months||[],kmv=s.reduce((z,x)=>z+km(x),0),inc=s.reduce((z,x)=>z+incidentList(x).length,0);
   const byMonth=[0,0,0];s.forEach(x=>{const d=dateOf(x);if(d)byMonth[d.getMonth()%3]++});const max=Math.max(1,...byMonth);
   const chart=`<div class="modal-section"><h4>Detalle mensual</h4><div class="modal-mini-chart">${byMonth.map((v,i)=>`<div class="modal-mini-col"><b>${v}</b><div class="modal-mini-track"><i class="modal-mini-fill" style="height:${Math.max(v?3:0,Math.round(v/max*100))}%"></i></div><small>${["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"][q*3+i]}</small></div>`).join("")}</div></div>`;
-  modalOpen("ARGOS · TRIMESTRE",["1.º trimestre","2.º trimestre","3.º trimestre","4.º trimestre"][q],`${y} · ${s.length} servicios`,kpis([["Servicios",s.length],["Incidencias",inc]])+chart+list("Series dominantes",topRows(s,"series"))+list("Productos",topRows(s,"product"))+list("Rutas",topRows(s,"route")));
+  modalOpen("ARGOS · TRIMESTRE",["1.º trimestre","2.º trimestre","3.º trimestre","4.º trimestre"][q],`${y} · ${s.length} servicios`,kpis([["Servicios",s.length],["Km",kmv?kmv.toLocaleString("es-ES")+" km":"—"],["Km/serv.",s.length&&kmv?(kmv/s.length).toFixed(1):"—"],["Incidencias",inc]])+chart+list("Series dominantes",topRows(s,"series"))+list("Productos",topRows(s,"product"))+list("Rutas",topRows(s,"route")));
 }
 function entityModal(type,name){
-  const a=filtered().filter(s=>(type==="route"?route(s):field(s,type))===name),inc=a.reduce((z,s)=>z+incidentList(s).length,0);
+  const a=filtered().filter(s=>(type==="route"?route(s):field(s,type))===name),kmv=a.reduce((z,s)=>z+km(s),0),inc=a.reduce((z,s)=>z+incidentList(s).length,0);
   const title={series:"Serie",product:"Producto",route:"Ruta",vehicle:"Vehículo",branch:"Rama"}[type]||type;
   const months=countBy(a,"product"), routes=countBy(a,"route");
-  modalOpen("ARGOS · DETALLE",name,`${title} · ${a.length} servicios`,kpis([["Servicios",a.length],["Incidencias",inc]])+list("Productos asociados",months)+list("Rutas asociadas",routes));
+  modalOpen("ARGOS · DETALLE",name,`${title} · ${a.length} servicios`,kpis([["Servicios",a.length],["Km",kmv?kmv.toLocaleString("es-ES")+" km":"—"],["Km/serv.",a.length&&kmv?(kmv/a.length).toFixed(1):"—"],["Incidencias",inc]])+list("Productos asociados",months)+list("Rutas asociadas",routes));
 }
 function yearModal(){
   const all=raw(), ys=[...new Set(all.map(dateOf).filter(Boolean).map(d=>d.getFullYear()))].sort((a,b)=>b-a);
-  const data=ys.map(y=>{const a=all.filter(s=>dateOf(s)?.getFullYear()===y);return[y,a.length]});
-  const rows=data.map((x,i)=>`<div class="modal-row"><b>${i+1}</b><span>${x[0]}</span><strong>${x[1]} serv.</strong></div>`).join("");
+  const data=ys.map(y=>{const a=all.filter(s=>dateOf(s)?.getFullYear()===y),k=a.reduce((z,s)=>z+km(s),0);return[y,a.length,k]});
+  const rows=data.map((x,i)=>`<div class="modal-row"><b>${i+1}</b><span>${x[0]}</span><strong>${x[1]} serv. · ${x[2]?x[2].toLocaleString("es-ES")+" km":"—"}</strong></div>`).join("");
   modalOpen("ARGOS · COMPARATIVA","Comparativa anual","Todos los servicios registrados",`<div class="modal-section"><h4>Actividad por año</h4><div class="modal-list">${rows||"<p>Sin datos.</p>"}</div></div>`);
 }
-function routesModal(){const a=filtered();modalOpen("ARGOS · RECORRIDOS","Análisis de rutas",`${a.length} servicios filtrados`,kpis([["Rutas",new Set(a.map(route)).size],["Top",countBy(a,"route")[0]?.[1]||0],["Servicios",a.length]])+list("Rutas más realizadas",topRows(a,"route",10)))}
+function routesModal(){const a=filtered();modalOpen("ARGOS · RECORRIDOS","Análisis de rutas",`${a.length} servicios filtrados`,kpis([["Rutas",new Set(a.map(route)).size],["Top",countBy(a,"route")[0]?.[1]||0],["Km",a.reduce((z,s)=>z+km(s),0).toLocaleString("es-ES")+" km"],["Servicios",a.length]])+list("Rutas más realizadas",topRows(a,"route",10)))}
 function materialModal(){const a=filtered();modalOpen("ARGOS · MATERIAL","Perfil de material",`${a.length} servicios filtrados`,kpis([["Series",new Set(a.map(s=>field(s,"series")).filter(Boolean)).size],["Vehículos",new Set(a.map(s=>field(s,"vehicle")).filter(Boolean)).size],["Ramas",new Set(a.map(s=>field(s,"branch")).filter(Boolean)).size],["Servicios",a.length]])+list("Series",topRows(a,"series",10))+list("Vehículos",topRows(a,"vehicle",10)))}
 function incidentsModal(){const a=filtered(),inc=a.reduce((z,s)=>z+incidentList(s).length,0);const m=new Map();a.forEach(s=>incidentList(s).forEach(x=>m.set(x,(m.get(x)||0)+1)));modalOpen("ARGOS · CALIDAD","Análisis de incidencias",`${a.length} servicios filtrados`,kpis([["Incidencias",inc],["Por servicio",a.length?(inc/a.length).toFixed(2):"0"],["Servicios afectados",a.filter(s=>incidentList(s).length).length],["Sin incidencia",a.filter(s=>!incidentList(s).length).length]])+list("Tipos de incidencia",[...m.entries()].sort((x,y)=>y[1]-x[1]).slice(0,12)))}
 function filterToggle(){
@@ -3149,6 +3159,108 @@ document.addEventListener("DOMContentLoaded",()=>{window.__argosQuarterIndex=Mat
 window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered());updateBadge()},30));
 })();
 </script>
+
+<!-- ARGOS V15 · OCULTACIÓN DE KM SIN ALTERAR EL MOTOR DE ESTADÍSTICAS -->
+<style id="argos-no-km-v15">
+  /* KPI principal de kilómetros */
+  #statKm { display:none !important; }
+  #statKm.closest { display:none !important; }
+  .stats-kpi:has(#statKm) { display:none !important; }
+
+  /* Tarjeta de intensidad basada en kilómetros */
+  .stats-insight-card:has(#insightKmAverage) { display:none !important; }
+
+  /* En las tarjetas mensuales, el primer dato era kilómetros. */
+  .quarter-month-bottom > span:first-child { display:none !important; }
+  .quarter-month-bottom { justify-content:flex-end !important; }
+</style>
+
+<script id="argos-no-km-v15-engine">
+(function(){
+  'use strict';
+
+  function norm(v){
+    return String(v || '').trim().toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  }
+
+  function removeKmBlocks(root){
+    root = root || document;
+
+    /* Récord "Kilómetros". */
+    root.querySelectorAll('.record').forEach(function(el){
+      const label = norm(el.querySelector('span')?.textContent);
+      if(label === 'kilometros') el.remove();
+    });
+
+    /* Detalle "Km medios/servicio". */
+    root.querySelectorAll('.detail').forEach(function(el){
+      const label = norm(el.querySelector('span')?.textContent);
+      if(label.includes('km medios') || label.includes('kilometros')) el.remove();
+    });
+
+    /* KPIs de ventanas de detalle: Km y Km/serv. */
+    root.querySelectorAll('.modal-kpi').forEach(function(el){
+      const label = norm(el.querySelector('span')?.textContent);
+      if(label === 'km' || label.startsWith('km/serv') || label.includes('kilomet')) el.remove();
+    });
+
+    /* Comparativa anual antigua: conserva servicios y elimina el sufijo de km. */
+    root.querySelectorAll('.modal-row strong').forEach(function(el){
+      let t = el.textContent || '';
+      t = t.replace(/\s*·\s*[\d.,]+\s*km\b/gi,'');
+      el.textContent = t;
+    });
+
+    /* Seguridad: si algún render vuelve a crear el KPI principal o intensidad. */
+    const statKm = document.getElementById('statKm');
+    if(statKm && statKm.closest('.stats-kpi')) statKm.closest('.stats-kpi').style.display='none';
+
+    const intensity = document.getElementById('insightKmAverage');
+    if(intensity && intensity.closest('.stats-insight-card')) intensity.closest('.stats-insight-card').style.display='none';
+
+    /* Tarjetas trimestrales: ocultar únicamente el texto de km, no la tarjeta. */
+    root.querySelectorAll('.quarter-month-bottom').forEach(function(el){
+      const first = el.querySelector('span');
+      if(first) first.style.display='none';
+      el.style.justifyContent='flex-end';
+    });
+  }
+
+  function run(){
+    removeKmBlocks(document);
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', run);
+  }else{
+    run();
+  }
+
+  /* Los motores de estadísticas repintan contenido al filtrar o abrir modales.
+     Observamos esos repintados y retiramos solo los elementos visuales de km. */
+  let queued = false;
+  const observer = new MutationObserver(function(){
+    if(queued) return;
+    queued = true;
+    requestAnimationFrame(function(){
+      queued = false;
+      run();
+    });
+  });
+
+  observer.observe(document.documentElement,{childList:true,subtree:true});
+
+  /* También después de cambios de filtros/navegación. */
+  document.addEventListener('change',function(e){
+    if(e.target && /^stats/.test(e.target.id || '')) setTimeout(run,0);
+  });
+  document.addEventListener('click',function(){
+    setTimeout(run,0);
+  });
+})();
+</script>
+
 
 <script id="argos-station-autocomplete-engine">
 (function(){
