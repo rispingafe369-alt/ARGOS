@@ -1414,6 +1414,24 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
 }
 </style>
 
+<style id="argos-instructions-v1">
+.instructions-shell{max-width:980px;margin:0 auto;padding:8px 0 36px;display:flex;flex-direction:column;gap:14px}
+.instructions-hero{padding:24px 22px;border:1px solid rgba(138,0,92,.14);border-radius:22px;background:linear-gradient(135deg,rgba(138,0,92,.10),rgba(138,0,92,.035))}
+.instructions-kicker{display:block;color:#8a005c;font-weight:800;letter-spacing:.12em;font-size:12px;margin-bottom:7px}
+.instructions-hero h3{margin:0 0 8px;font-size:28px}
+.instructions-hero p{margin:0;color:#73747d;line-height:1.55;font-size:15px}
+.instructions-card{display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:start;padding:20px;border:1px solid rgba(120,120,120,.16);border-radius:20px;background:rgba(255,255,255,.92);box-shadow:0 8px 25px rgba(30,20,30,.045)}
+.instructions-number{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:rgba(138,0,92,.10);color:#8a005c;font-weight:900;font-size:12px}
+.instructions-card h4{margin:0 0 7px;font-size:19px}
+.instructions-card p{margin:0 0 8px;color:#6f7078;line-height:1.5;font-size:14px}
+.instructions-card ul{margin:8px 0 0;padding-left:19px;color:#60616a;line-height:1.55;font-size:14px}
+.instructions-card li{margin:4px 0}
+.instructions-card strong{color:#24242a}
+.instructions-tip{padding:18px 20px;border-radius:18px;background:#f7e9f2;border:1px solid rgba(138,0,92,.12);color:#62636b;line-height:1.5;font-size:14px}
+.instructions-tip strong{display:block;color:#8a005c;margin-bottom:4px}
+.instructions-tip p{margin:0}
+@media(max-width:700px){.instructions-shell{padding:4px 0 28px}.instructions-hero{padding:20px 17px;border-radius:18px}.instructions-hero h3{font-size:24px}.instructions-card{grid-template-columns:38px 1fr;gap:12px;padding:16px;border-radius:17px}.instructions-number{width:36px;height:36px;border-radius:11px;font-size:11px}.instructions-card h4{font-size:17px}.instructions-card p,.instructions-card ul,.instructions-tip{font-size:13px}}
+</style>
 </head>
 
 <body>
@@ -1677,6 +1695,129 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
   </div>
 </section>
 
+<section id="instructions" class="screen instructions-screen" aria-label="Instrucciones">
+  <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">AYUDA</div><h2>Instrucciones</h2></div></div>
+  <div class="instructions-shell">
+    <div class="instructions-hero">
+      <span class="instructions-kicker">ARGOS · GUÍA DE USO</span>
+      <h3>Cómo usar ARGOS</h3>
+      <p>Todo lo que necesitas para registrar servicios, consultar tu historial, conocer tus estadísticas y consultar el material ferroviario.</p>
+    </div>
+
+    <article class="instructions-card">
+      <div class="instructions-number">01</div>
+      <div>
+        <h4>Añadir un servicio</h4>
+        <p>Desde el menú principal entra en <strong>Añadir nuevo servicio</strong>. Completa los datos del servicio y pulsa <strong>Guardar</strong>.</p>
+        <ul>
+          <li><strong>Número de tren:</strong> introduce hasta 5 cifras. Si el servicio no tiene número, marca <strong>Sin número de tren</strong>.</li>
+          <li><strong>Serie:</strong> introduce la serie del tren.</li>
+          <li><strong>Vehículo:</strong> introduce el vehículo cuando quieras identificar la rama automáticamente.</li>
+          <li><strong>Rama:</strong> ARGOS intenta detectarla automáticamente a partir de la serie y el vehículo. También puedes escribirla directamente.</li>
+          <li><strong>Tipo de producto:</strong> las opciones disponibles se filtran según la serie. <strong>Charter</strong> aparece siempre en las series configuradas.</li>
+          <li><strong>Origen y destino:</strong> puedes buscar por nombre de estación o por código.</li>
+          <li><strong>Fecha:</strong> indica la fecha del servicio.</li>
+          <li><strong>Anotaciones e incidencias:</strong> puedes añadir tantas como necesites.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="instructions-card">
+      <div class="instructions-number">02</div>
+      <div>
+        <h4>Doble composición</h4>
+        <p>Si el tren está formado por dos composiciones, marca <strong>Doble composición</strong> dentro del formulario.</p>
+        <ul>
+          <li>Introduce la serie y el vehículo de la primera composición.</li>
+          <li>Aparecerá un bloque para introducir la <strong>segunda composición</strong>.</li>
+          <li>Puedes indicar serie + vehículo o escribir directamente su rama.</li>
+          <li>ARGOS intenta detectar automáticamente la rama de la segunda composición.</li>
+          <li>La ficha del tren identifica que se trata de una doble composición y permite consultar cada composición de forma separada para no hacer la ficha innecesariamente larga.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="instructions-card">
+      <div class="instructions-number">03</div>
+      <div>
+        <h4>Primera vez con una rama</h4>
+        <p>Cuando guardes una rama, ARGOS comprueba si ya la habías registrado anteriormente.</p>
+        <ul>
+          <li>Si nunca la habías registrado, aparece el aviso de <strong>Primera vez con esta rama</strong>.</li>
+          <li>Si ya la habías utilizado, aparece como <strong>Rama repetida</strong> y se muestra la última vez que la viste.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="instructions-card">
+      <div class="instructions-number">04</div>
+      <div>
+        <h4>Historial</h4>
+        <p>En <strong>Ver historial</strong> encontrarás todos los servicios que hayas registrado.</p>
+        <ul>
+          <li>Pulsa sobre un registro para consultar su ficha.</li>
+          <li>La ficha reúne los datos del servicio y del material asociado.</li>
+          <li>Los registros realizados directamente por rama también pueden consultarse.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="instructions-card">
+      <div class="instructions-number">05</div>
+      <div>
+        <h4>Último servicio</h4>
+        <p>Desde la pantalla principal puedes consultar rápidamente el servicio registrado más recientemente.</p>
+        <p>El apartado <strong>Última vez</strong> también permite localizar cuándo realizaste un trayecto concreto.</p>
+      </div>
+    </article>
+
+    <article class="instructions-card">
+      <div class="instructions-number">06</div>
+      <div>
+        <h4>Estadísticas</h4>
+        <p>En <strong>Estadísticas</strong> ARGOS resume tu actividad ferroviaria.</p>
+        <ul>
+          <li>Puedes filtrar los datos por año, trimestre, producto y serie.</li>
+          <li>Consulta servicios, kilómetros, series, trenes, productos e incidencias.</li>
+          <li>Las tarjetas y rankings interactivos permiten entrar en más detalle.</li>
+          <li>Dentro del análisis de series puedes consultar los vehículos y ramas más utilizados de cada serie.</li>
+          <li>También encontrarás evolución temporal, recorridos, actividad por día y récords.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="instructions-card">
+      <div class="instructions-number">07</div>
+      <div>
+        <h4>ArgosDex</h4>
+        <p><strong>ArgosDex</strong> sirve para consultar material sin necesidad de registrar un servicio.</p>
+        <ul>
+          <li>Introduce la serie y el vehículo.</li>
+          <li>ARGOS localizará la rama cuando el material esté identificado.</li>
+          <li>También puedes consultar una rama directamente cuando esté disponible esa opción.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="instructions-card">
+      <div class="instructions-number">08</div>
+      <div>
+        <h4>Ajustes</h4>
+        <p>En <strong>Ajustes</strong> puedes personalizar tu experiencia.</p>
+        <ul>
+          <li>Guarda tu nombre y tu puesto para personalizar la pantalla principal.</li>
+          <li>Cambia entre tema claro y oscuro.</li>
+        </ul>
+      </div>
+    </article>
+
+    <div class="instructions-tip">
+      <strong>💡 Consejo</strong>
+      <p>Si tienes dudas sobre qué introducir en una casilla, ARGOS intenta detectar automáticamente la rama a partir de la serie y el vehículo. Y siempre puedes consultar el material en ArgosDex sin crear un servicio.</p>
+    </div>
+  </div>
+</section>
+
 <section id="settings" class="screen">
   <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">CONFIGURACIÓN</div><h2>Ajustes</h2></div></div>
   <div class="settings-list">
@@ -1706,6 +1847,7 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
       <button class="drawer-item" data-screen="history" type="button"><span class="drawer-icon">☷</span>Ver historial</button>
       <button class="drawer-item" data-screen="stats" type="button"><span class="drawer-icon">◔</span>Estadísticas</button>
       <button class="drawer-item" data-screen="argosdex" type="button"><span class="drawer-icon">⌕</span>ArgosDex</button>
+      <button class="drawer-item" data-screen="instructions" type="button"><span class="drawer-icon">?</span>Instrucciones</button>
       <button id="openSettings" class="drawer-item" data-screen="settings" type="button"><span class="drawer-icon">⚙</span>Ajustes</button>
     </nav>
   </aside>
