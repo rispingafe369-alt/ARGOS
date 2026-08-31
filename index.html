@@ -3204,7 +3204,7 @@ function renderQuarterView(a){
     return `<button type="button" class="quarter-month-card ${monthNumber===new Date().getMonth()&&y===new Date().getFullYear()?"current":""}" data-quarter-month="${monthNumber}">
       <div class="quarter-month-top"><span class="quarter-month-name">${mons[qIndex][j]}</span><span class="quarter-month-total">${v}</span></div>
       <div class="quarter-month-caption">${y} · ${names[qIndex]}</div>
-      <div class="quarter-month-track"><i class="quarter-month-fill" style="height:${Math.max(v?4:0,Math.round(v/max*100))}%"></i></div>
+      <div class="quarter-month-track"><i class="quarter-month-fill" style="height:100%;width:${Math.max(v?4:0,Math.round(v/max*100))}%;--quarter-pct:${Math.max(v?4:0,Math.round(v/max*100))}%"></i></div>
       <div class="quarter-month-bottom"><span>${kmBy[j]?kmBy[j].toLocaleString("es-ES")+" km":"Sin km"}</span><strong>${v} servicio${v===1?"":"s"}</strong></div>
     </button>`;
   }).join("");
@@ -5925,7 +5925,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     display:block !important;
     width:100% !important;
     max-width:none !important;
-    margin:8px 0 0 !important;
+    margin:14px 0 0 !important;
     padding:0 !important;
     color:var(--muted) !important;
     font-size:17px !important;
@@ -6056,148 +6056,66 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 }
 </style>
 
-<style id="argos-quarter-mobile-v8">
-/* ARGOS · VISTA TRIMESTRAL MÓVIL · AJUSTE DE TAMAÑO
-   Último ajuste: misma composición, todo encajado sin desbordes.
-   No modifica la lógica ni la versión de escritorio. */
+
+<style id="argos-quarter-mobile-v57-final">
+/* ARGOS V57 · ÚNICAMENTE ajuste del cartel trimestral y barra mensual móvil */
 @media (max-width:600px){
-
-  /* Cabecera: mantiene el diseño actual, pero deja aire suficiente. */
-  .stats-chart-panel .stats-panel-head{
-    min-height:82px !important;
-    margin-bottom:9px !important;
-  }
-
-  .stats-chart-panel .stats-panel-head h4{
-    font-size:24px !important;
-    line-height:1.08 !important;
-    white-space:nowrap !important;
-  }
-
   .stats-chart-panel .stats-head-value{
-    margin-top:7px !important;
+    margin-top:14px !important;
+  }
+
+  .stats-chart-panel .quarter-month-fill{
+    height:100% !important;
+    width:var(--quarter-pct,0%) !important;
+  }
+}
+</style>
+
+<style id="argos-material-series-header-v58">
+/* ARGOS V58 · SOLO móvil · ajuste del encabezado de «Series más utilizadas».
+   No modifica las filas, barras, datos ni ningún otro apartado. */
+@media (max-width:600px){
+  .stats-grid-pro .stats-panel:has(#seriesRanking) .stats-panel-head{
+    display:grid !important;
+    grid-template-columns:minmax(0,0.92fr) minmax(0,1.08fr) !important;
+    align-items:start !important;
+    gap:10px !important;
+    min-height:0 !important;
+    margin-bottom:10px !important;
     padding:0 !important;
-    font-size:16px !important;
-    line-height:1.15 !important;
-    white-space:normal !important;
   }
 
-  /* Flechas: un poco más compactas y perfectamente centradas con la cabecera. */
-  .stats-chart-panel .quarter-nav{
-    top:8px !important;
-    width:44px !important;
-    height:44px !important;
-    min-width:44px !important;
-    min-height:44px !important;
-    border-radius:13px !important;
-    font-size:30px !important;
+  .stats-grid-pro .stats-panel:has(#seriesRanking) .stats-panel-head > div{
+    min-width:0 !important;
   }
 
-  .stats-chart-panel #quarterPrev{
-    left:0 !important;
-    right:auto !important;
-  }
-
-  .stats-chart-panel #quarterNext{
-    right:0 !important;
-    left:auto !important;
-  }
-
-  /* Cada mes: mismo formato, pero con columnas proporcionadas para
-     que SEPTIEMBRE y el resto nunca choquen con la barra. */
-  .stats-chart-panel .quarter-month-card{
-    grid-template-columns:178px minmax(0,1fr) !important;
-    grid-template-rows:1fr !important;
-    column-gap:12px !important;
-    min-height:116px !important;
-    height:116px !important;
-    padding:16px 14px !important;
-    border-radius:18px !important;
-  }
-
-  .stats-chart-panel .quarter-month-name{
-    font-size:27px !important;
+  .stats-grid-pro .stats-panel:has(#seriesRanking) .stats-panel-kicker{
+    display:block !important;
+    font-size:11px !important;
     line-height:1 !important;
-    font-weight:900 !important;
+    letter-spacing:.09em !important;
+    margin:0 0 4px !important;
     white-space:nowrap !important;
   }
 
-  .stats-chart-panel .quarter-month-total{
-    font-size:23px !important;
-    line-height:1 !important;
-    font-weight:900 !important;
+  .stats-grid-pro .stats-panel:has(#seriesRanking) .stats-panel-head h4{
+    display:block !important;
+    margin:0 !important;
+    font-size:18px !important;
+    line-height:1.08 !important;
+    letter-spacing:-.01em !important;
   }
 
-  .stats-chart-panel .quarter-month-track{
-    width:100% !important;
-    height:38px !important;
-    border-radius:999px !important;
-  }
-
-  .stats-chart-panel .quarter-month-fill{
-    height:100% !important;
-    border-radius:999px !important;
-  }
-
-  .stats-chart-panel .quarter-month-view{
-    gap:9px !important;
-  }
-}
-</style>
-
-
-<!-- ================================================================
-     ARGOS V56 · AJUSTE FINAL MÓVIL
-     Solo: bajar ligeramente el total del trimestre y reparar el
-     relleno de las barras mensuales cuando el render no expone
-     --quarter-pct.
-     ================================================================ -->
-<style id="argos-quarter-mobile-v56-fix">
-@media(max-width:600px){
-  /* El total del trimestre baja un poco para respirar mejor bajo el título. */
-  .stats-chart-panel .stats-head-value{
-    margin-top:13px !important;
-    font-size:16px !important;
-    line-height:1.15 !important;
-  }
-
-  /* Mantener exactamente el aspecto actual de las tarjetas. */
-  .stats-chart-panel .quarter-month-fill{
-    height:100% !important;
-    border-radius:999px !important;
-    background:var(--renfe) !important;
+  .stats-grid-pro .stats-panel:has(#seriesRanking) .stats-panel-head::after{
+    display:block !important;
+    align-self:center !important;
+    margin:0 !important;
+    padding:0 !important;
+    font-size:11px !important;
+    line-height:1.2 !important;
+    font-weight:700 !important;
+    color:var(--muted) !important;
+    text-align:left !important;
   }
 }
 </style>
-
-<script>
-/* ARGOS V56 · Las barras horizontales usan el porcentaje que el render
-   original calcula como HEIGHT. En móvil ese valor debe convertirse en
-   WIDTH. No cambia ningún dato ni la lógica de estadísticas. */
-(function(){
-  function repairQuarterBars(root){
-    (root || document).querySelectorAll('.stats-chart-panel .quarter-month-fill').forEach(function(fill){
-      var pct = fill.style.getPropertyValue('--quarter-pct').trim();
-      if(pct){
-        fill.style.setProperty('width', pct, 'important');
-        return;
-      }
-      var h = fill.style.height || '';
-      var m = h.match(/([\d.]+)%/);
-      if(m){
-        fill.style.setProperty('width', m[1] + '%', 'important');
-      }
-    });
-  }
-
-  function run(){ repairQuarterBars(document); }
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', run);
-  }else{
-    run();
-  }
-
-  var observer = new MutationObserver(function(){ repairQuarterBars(document); });
-  observer.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['style']});
-})();
-</script>
