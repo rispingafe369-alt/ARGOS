@@ -3121,6 +3121,20 @@ function modalOpen(kicker,title,sub,body){$("statsModalKicker").textContent=kick
 function modalClose(){$("statsModal").classList.remove("open");$("statsModal").setAttribute("aria-hidden","true")}
 function kpis(items){return `<div class="modal-kpis">${items.map(x=>`<div class="modal-kpi"><span>${esc(x[0])}</span><strong>${esc(x[1])}</strong></div>`).join("")}</div>`}
 function list(title,data){if(!data.length)return `<div class="modal-section"><h4>${title}</h4><p>Sin datos suficientes.</p></div>`;return `<div class="modal-section"><h4>${title}</h4><div class="modal-list">${data.map((x,i)=>`<div class="modal-row"><b>${i+1}</b><span>${esc(x[0])}</span><strong>${x[1]}</strong></div>`).join("")}</div></div>`}
+function monthModal(monthIndex){
+  const a=filtered(),y=currentYear();
+  const s=a.filter(x=>{const d=dateOf(x);return d&&d.getFullYear()===y&&d.getMonth()===monthIndex});
+  const monthName=["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"][monthIndex];
+  const days=new Set(s.map(x=>{const d=dateOf(x);return d?d.toISOString().slice(0,10):""}).filter(Boolean)).size;
+  const products=countBy(s,"product"),series=countBy(s,"series"),routes=countBy(s,"route");
+  const incidents=s.reduce((z,x)=>z+incidentList(x).length,0);
+  modalOpen("ARGOS · MES",monthName,`${y} · ${s.length} servicios`,
+    kpis([["Servicios",s.length],["Días activos",days],["Productos",products.length],["Incidencias",incidents]])+
+    list("Productos más utilizados",products.slice(0,5))+
+    list("Series más utilizadas",series.slice(0,5))+
+    list("Rutas más realizadas",routes.slice(0,5))
+  );
+}
 function quarterModal(q){
   const a=filtered(),y=currentYear(),qs=quarterData(a,y),s=qs[q]?.months||[],kmv=s.reduce((z,x)=>z+km(x),0),inc=s.reduce((z,x)=>z+incidentList(x).length,0);
   const byMonth=[0,0,0];s.forEach(x=>{const d=dateOf(x);if(d)byMonth[d.getMonth()%3]++});const max=Math.max(1,...byMonth);
@@ -3192,7 +3206,7 @@ function updateBadge(){
   const ids=["statsYear","statsMonth","statsProduct","statsSeries"],n=ids.reduce((z,id)=>z+(($(id)?.value||"all")!=="all"?1:0),0),b=$("statsFilterBadge");if(b){b.textContent=n;b.style.display=n?"inline-flex":"none"}
 }
 document.addEventListener("click",e=>{
-  const q=e.target.closest(".quarter-month-card");if(q){quarterModal(window.__argosQuarterIndex||0);return}
+  const q=e.target.closest(".quarter-month-card");if(q){const month=Number(q.dataset.quarterMonth);if(Number.isFinite(month))monthModal(month);return}
   const r=e.target.closest(".ranking-row");if(r){const panel=r.closest(".stats-panel"),name=r.querySelector(".rank-name")?.textContent.trim();if(name){let type="series";if(panel?.textContent.includes("Ramas"))type="branch";else if(panel?.textContent.includes("Productos"))type="product";else if(panel?.textContent.includes("Rutas"))type="route";else if(panel?.textContent.includes("Vehículos"))type="vehicle";entityModal(type,name)}return}
   const d=e.target.closest("[data-drill]");if(d){({services:serviceStatsModal,series:seriesStatsModal,trains:trainsStatsModal,products:productsStatsModal,incidents:incidentsModal}[d.dataset.drill]||function(){})();return}
 });
@@ -5484,7 +5498,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   }
 
   .stats-chart-panel .stats-panel-kicker::after{
-    content:"VISTA GENERAL" !important;
+    content:"Vista trimestral" !important;
     display:block !important;
     font-size:12px !important;
     line-height:1 !important;
