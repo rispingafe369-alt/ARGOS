@@ -6055,3 +6055,92 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   }
 }
 </style>
+
+<style id="argos-quarter-mobile-v8">
+/* ARGOS · VISTA TRIMESTRAL MÓVIL · AJUSTE DE TAMAÑO
+   Último ajuste: misma composición, todo encajado sin desbordes.
+   No modifica la lógica ni la versión de escritorio. */
+@media (max-width:600px){
+
+  /* Cabecera: mantiene el diseño actual, pero deja aire suficiente. */
+  .stats-chart-panel .stats-panel-head{
+    min-height:82px !important;
+    margin-bottom:9px !important;
+  }
+
+  .stats-chart-panel .stats-panel-head h4{
+    font-size:24px !important;
+    line-height:1.08 !important;
+    white-space:nowrap !important;
+  }
+
+  .stats-chart-panel .stats-head-value{
+    margin-top:7px !important;
+    padding:0 !important;
+    font-size:16px !important;
+    line-height:1.15 !important;
+    white-space:normal !important;
+  }
+
+  /* Flechas: un poco más compactas y perfectamente centradas con la cabecera. */
+  .stats-chart-panel .quarter-nav{
+    top:8px !important;
+    width:44px !important;
+    height:44px !important;
+    min-width:44px !important;
+    min-height:44px !important;
+    border-radius:13px !important;
+    font-size:30px !important;
+  }
+
+  .stats-chart-panel #quarterPrev{
+    left:0 !important;
+    right:auto !important;
+  }
+
+  .stats-chart-panel #quarterNext{
+    right:0 !important;
+    left:auto !important;
+  }
+
+  /* Cada mes: mismo formato, pero con columnas proporcionadas para
+     que SEPTIEMBRE y el resto nunca choquen con la barra. */
+  .stats-chart-panel .quarter-month-card{
+    grid-template-columns:178px minmax(0,1fr) !important;
+    grid-template-rows:1fr !important;
+    column-gap:12px !important;
+    min-height:116px !important;
+    height:116px !important;
+    padding:16px 14px !important;
+    border-radius:18px !important;
+  }
+
+  .stats-chart-panel .quarter-month-name{
+    font-size:27px !important;
+    line-height:1 !important;
+    font-weight:900 !important;
+    white-space:nowrap !important;
+  }
+
+  .stats-chart-panel .quarter-month-total{
+    font-size:23px !important;
+    line-height:1 !important;
+    font-weight:900 !important;
+  }
+
+  .stats-chart-panel .quarter-month-track{
+    width:100% !important;
+    height:38px !important;
+    border-radius:999px !important;
+  }
+
+  .stats-chart-panel .quarter-month-fill{
+    height:100% !important;
+    border-radius:999px !important;
+  }
+
+  .stats-chart-panel .quarter-month-view{
+    gap:9px !important;
+  }
+}
+</style>
