@@ -5544,6 +5544,13 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   .argos-branch-visit-actions button{min-height:50px;border-radius:14px;padding:11px 12px;font-weight:900;cursor:pointer}
   .argos-branch-visit-menu{border:1px solid var(--line,#ddd);background:var(--page,#f7f7f7);color:var(--text,#222)}
   .argos-branch-visit-ficha{border:0;background:var(--renfe,#8a005c);color:#fff}
+  .argos-branch-visit-incidents-title{margin-top:14px;color:var(--renfe,#8a005c);font-size:11px;font-weight:900;letter-spacing:.08em}
+  .argos-branch-visit-incidents{display:grid;gap:7px;margin-top:8px}
+  .argos-branch-visit-incident{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px;align-items:start;padding:10px 11px;border:1px solid var(--line,#ddd);border-radius:12px;background:var(--card,#fff);cursor:pointer}
+  .argos-branch-visit-incident input{width:18px;height:18px;margin:1px 0 0;accent-color:var(--renfe,#8a005c)}
+  .argos-branch-visit-incident span{font-size:13px;line-height:1.35;overflow-wrap:anywhere}
+  .argos-branch-visit-incident small{grid-column:2;font-size:10px;font-weight:800;color:var(--muted,#777)}
+  .argos-branch-visit-incident.is-solved span{text-decoration:line-through;opacity:.55}
   @media(max-width:600px){.argos-branch-visit-overlay{padding:14px}.argos-branch-visit-modal{padding:21px;border-radius:22px}.argos-branch-visit-actions{grid-template-columns:1fr}}
 </style>
 <script id="argos-branch-visit-v34">
@@ -5628,6 +5635,38 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
   function close(){document.getElementById('argosBranchVisitOverlay')?.remove()}
 
+  function branchIncidents(service){
+    const out=[];
+    if(Array.isArray(service?.incidentsEntries)){
+      service.incidentsEntries.forEach(x=>{
+        const text=typeof x==='string'?x.trim():String(x?.text??x?.value??x?.description??'').trim();
+        if(text)out.push({text,solved:typeof x==='object'&&x!==null&&x.solved===true});
+      });
+    }
+    const legacy=String(service?.incidents||'').trim();
+    if(legacy && !out.some(x=>x.text===legacy)){
+      legacy.split(/\n+/).map(x=>x.trim()).filter(Boolean).forEach(text=>out.push({text,solved:false}));
+    }
+    return out;
+  }
+
+  function persistBranchIncidentState(serviceId,index,solved){
+    try{
+      const all=typeof services==='function'?services():[];
+      const pos=all.findIndex(s=>String(s?.id||'')===String(serviceId||''));
+      if(pos<0)return;
+      const current=all[pos];
+      const incidents=branchIncidents(current);
+      if(!incidents[index])return;
+      incidents[index].solved=!!solved;
+      current.incidents='';
+      current.incidentsEntries=incidents;
+      if(typeof saveServices==='function')saveServices(all);
+      if(typeof renderHistory==='function')renderHistory();
+      if(typeof renderStats==='function')renderStats();
+    }catch(e){console.warn('ARGOS V64 · estado de incidencia:',e)}
+  }
+
   function showModal(items){
     if(!items.length)return;
     close();
@@ -5639,13 +5678,26 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const intro=isNew
       ? 'Has registrado por primera vez esta rama en ARGOS.'
       : 'Esta rama ya estaba registrada en ARGOS.';
+
     const cards=items.map(x=>{
       const previous=x.previous;
+      const latest=previous[previous.length-1];
       const detail=x.isNew
         ? 'Primera vez registrada'
-        : 'Última vez que la viste: '+dateLabel(previous[previous.length-1]);
-      return `<div class="argos-branch-visit-card"><strong>Serie ${esc(x.series)} · Rama ${esc(x.branch)}</strong><span>${esc(detail)}</span></div>`;
+        : `Última vez que has visto esta rama fue el ${dateLabel(latest)}${latest?.train?' con el tren '+esc(latest.train):''}.`;
+      const incidents=x.isNew?[]:branchIncidents(latest);
+      const incidentBlock=incidents.length?`
+        <div class="argos-branch-visit-incidents-title">INCIDENCIAS</div>
+        <div class="argos-branch-visit-incidents">
+          ${incidents.map((inc,i)=>`<label class="argos-branch-visit-incident ${inc.solved?'is-solved':''}">
+            <input type="checkbox" data-branch-incident-service="${esc(latest?.id||'')}" data-branch-incident-index="${i}" ${inc.solved?'checked':''}>
+            <span>${esc(inc.text)}</span>
+            <small>${inc.solved?'Solventada':'Pendiente'}</small>
+          </label>`).join('')}
+        </div>`:'';
+      return `<div class="argos-branch-visit-card"><strong>Serie ${esc(x.series)} · Rama ${esc(x.branch)}</strong><span>${detail}</span>${incidentBlock}</div>`;
     }).join('');
+
     overlay.innerHTML=`<div class="argos-branch-visit-modal" role="dialog" aria-modal="true">
       <div class="argos-branch-visit-kicker">${isNew?'NUEVA RAMA':'RAMA YA REGISTRADA'}</div>
       <h2>${title}</h2>
@@ -5657,6 +5709,15 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       </div>
     </div>`;
     document.body.appendChild(overlay);
+
+    overlay.querySelectorAll('[data-branch-incident-service]').forEach(input=>input.addEventListener('change',()=>{
+      persistBranchIncidentState(input.dataset.branchIncidentService,Number(input.dataset.branchIncidentIndex),input.checked);
+      const row=input.closest('.argos-branch-visit-incident');
+      row?.classList.toggle('is-solved',input.checked);
+      const label=row?.querySelector('small');
+      if(label)label.textContent=input.checked?'Solventada':'Pendiente';
+    }));
+
     overlay.querySelector('#argosBranchVisitMenu').onclick=()=>{close();if(typeof showScreen==='function')showScreen('menu')};
     overlay.querySelector('#argosBranchVisitFicha').onclick=()=>{
       const x=items[0];
