@@ -29685,3 +29685,200 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   `;
   (document.head||document.documentElement).appendChild(style);
 })();
+
+/* ================================================================
+   ARGOS V64 · INCIDENCIAS Y ANOTACIONES EN FICHA
+   - Muestra las anotaciones e incidencias del servicio.
+   - Permite editar/eliminar anotaciones e incidencias.
+   - Permite marcar incidencias como solventadas.
+   - Mantiene compatibilidad con registros antiguos guardados como texto.
+   ================================================================ */
+(function(){
+  'use strict';
+  if(window.__argosV64ServiceEntriesInstalled)return;
+  window.__argosV64ServiceEntriesInstalled=true;
+
+  const $v64=id=>document.getElementById(id);
+  const escV64=v=>String(v??'').replace(/[&<>"']/g,c=>({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c]));
+
+  const style=document.createElement('style');
+  style.id='argos-v64-service-entries-style';
+  style.textContent=`
+    .argos-v64-entries-section{margin-top:18px}
+    .argos-v64-entries-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;color:var(--renfe,#8a005c);font-size:13px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+    .argos-v64-entry-list{display:grid;gap:9px}
+    .argos-v64-entry{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:13px 14px;border:1px solid rgba(120,120,120,.16);border-radius:14px;background:rgba(128,128,128,.045)}
+    .argos-v64-entry-main{min-width:0}
+    .argos-v64-entry-text{display:block;line-height:1.42;overflow-wrap:anywhere}
+    .argos-v64-entry-solved{display:inline-flex;align-items:center;gap:7px;margin-top:7px;font-size:12px;color:var(--muted,#777);font-weight:700}
+    .argos-v64-entry-solved input{width:18px;height:18px;margin:0;accent-color:var(--renfe,#8a005c)}
+    .argos-v64-entry-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+    .argos-v64-entry-actions button{border:1px solid var(--line,#ddd);background:var(--page,#f7f7f7);color:var(--text,#222);border-radius:10px;padding:8px 10px;font-size:12px;font-weight:800;cursor:pointer}
+    .argos-v64-entry-actions .danger{color:#a00000}
+    .argos-v64-entry-empty{padding:12px 14px;border:1px dashed rgba(120,120,120,.25);border-radius:13px;color:var(--muted,#777);font-size:13px}
+    .argos-v64-entry.solved .argos-v64-entry-text{text-decoration:line-through;opacity:.58}
+    @media(max-width:600px){
+      .argos-v64-entry{grid-template-columns:minmax(0,1fr)}
+      .argos-v64-entry-actions{justify-content:flex-start}
+      .argos-v64-entry-actions button{min-height:38px}
+    }
+  `;
+  (document.head||document.documentElement).appendChild(style);
+
+  function readServices(){
+    try{
+      const v=JSON.parse(localStorage.getItem('argos_services')||'[]');
+      return Array.isArray(v)?v:[];
+    }catch(e){return[]}
+  }
+
+  function textOf(entry){
+    if(entry===null||entry===undefined)return '';
+    if(typeof entry==='string')return entry.trim();
+    return String(entry.text??entry.value??entry.description??'').trim();
+  }
+
+  function normalizeNotes(service){
+    const out=[];
+    if(Array.isArray(service?.notesEntries)){
+      service.notesEntries.forEach(x=>{const text=textOf(x);if(text)out.push(text)});
+    }
+    const legacy=textOf(service?.notes);
+    if(legacy && !out.some(x=>x===legacy))out.push(legacy);
+    return out;
+  }
+
+  function normalizeIncidents(service){
+    const out=[];
+    if(Array.isArray(service?.incidentsEntries)){
+      service.incidentsEntries.forEach(x=>{
+        const text=textOf(x);
+        if(text)out.push({text,solved:typeof x==='object'&&x!==null&&x.solved===true});
+      });
+    }
+    const legacy=textOf(service?.incidents);
+    if(legacy && !out.some(x=>x.text===legacy)){
+      legacy.split(/\n+/).map(x=>x.trim()).filter(Boolean).forEach(text=>out.push({text,solved:false}));
+    }
+    return out;
+  }
+
+  function persist(serviceId,notes,incidents){
+    const all=readServices();
+    const idx=all.findIndex(s=>String(s?.id||'')===String(serviceId||''));
+    if(idx<0)return null;
+    all[idx]={...all[idx],notes:'',notesEntries:notes,incidents:'',incidentsEntries:incidents};
+    localStorage.setItem('argos_services',JSON.stringify(all));
+    try{if(typeof window.renderHistory==='function')window.renderHistory()}catch(e){}
+    try{if(typeof window.renderStats==='function')window.renderStats()}catch(e){}
+    return all[idx];
+  }
+
+  function renderEntries(service){
+    const notes=normalizeNotes(service);
+    const incidents=normalizeIncidents(service);
+    if(!notes.length&&!incidents.length)return '';
+
+    const noteHtml=notes.length?notes.map((text,index)=>`
+      <div class="argos-v64-entry" data-v64-kind="note" data-v64-index="${index}">
+        <div class="argos-v64-entry-main"><span class="argos-v64-entry-text">${escV64(text)}</span></div>
+        <div class="argos-v64-entry-actions">
+          <button type="button" data-v64-edit="note" data-v64-index="${index}">Editar</button>
+          <button type="button" class="danger" data-v64-delete="note" data-v64-index="${index}">Eliminar</button>
+        </div>
+      </div>`).join(''):`<div class="argos-v64-entry-empty">No hay anotaciones.</div>`;
+
+    const incidentHtml=incidents.length?incidents.map((item,index)=>`
+      <div class="argos-v64-entry ${item.solved?'solved':''}" data-v64-kind="incident" data-v64-index="${index}">
+        <div class="argos-v64-entry-main">
+          <span class="argos-v64-entry-text">${escV64(item.text)}</span>
+          <label class="argos-v64-entry-solved"><input type="checkbox" data-v64-solved="${index}" ${item.solved?'checked':''}> Incidencia solventada</label>
+        </div>
+        <div class="argos-v64-entry-actions">
+          <button type="button" data-v64-edit="incident" data-v64-index="${index}">Editar</button>
+          <button type="button" class="danger" data-v64-delete="incident" data-v64-index="${index}">Eliminar</button>
+        </div>
+      </div>`).join(''):`<div class="argos-v64-entry-empty">No hay incidencias.</div>`;
+
+    return `
+      <div class="argos-v64-entries-section">
+        <div class="argos-v64-entries-title">ANOTACIONES</div>
+        <div class="argos-v64-entry-list">${noteHtml}</div>
+      </div>
+      <div class="argos-v64-entries-section">
+        <div class="argos-v64-entries-title">INCIDENCIAS</div>
+        <div class="argos-v64-entry-list">${incidentHtml}</div>
+      </div>`;
+  }
+
+  function findService(service){
+    if(!service?.id)return null;
+    return readServices().find(s=>String(s?.id)===String(service.id))||service;
+  }
+
+  function reopen(service){
+    if(typeof window.openFicha==='function')window.openFicha(service.series,service.vehicle,service);
+  }
+
+  function bind(content,service){
+    const current=findService(service);
+    if(!content||!current)return;
+    const old=$v64('argosV64ServiceEntries');
+    if(old)old.remove();
+    const host=document.createElement('div');
+    host.id='argosV64ServiceEntries';
+    host.innerHTML=renderEntries(current);
+    if(!host.innerHTML)return;
+    content.appendChild(host);
+
+    host.querySelectorAll('[data-v64-edit]').forEach(btn=>btn.addEventListener('click',()=>{
+      const kind=btn.dataset.v64Edit;
+      const index=Number(btn.dataset.v64Index);
+      const all=findService(service);
+      const notes=normalizeNotes(all);
+      const incidents=normalizeIncidents(all);
+      const oldValue=kind==='note'?(notes[index]||''):(incidents[index]?.text||'');
+      const value=window.prompt(kind==='note'?'Editar anotación':'Editar incidencia',oldValue);
+      if(value===null)return;
+      const next=String(value).trim();
+      if(!next){window.alert('El texto no puede quedar vacío.');return;}
+      if(kind==='note')notes[index]=next;
+      else incidents[index]={...incidents[index],text:next};
+      const updated=persist(service.id,notes,incidents);
+      if(updated)reopen(updated);
+    }));
+
+    host.querySelectorAll('[data-v64-delete]').forEach(btn=>btn.addEventListener('click',()=>{
+      const kind=btn.dataset.v64Delete;
+      const index=Number(btn.dataset.v64Index);
+      if(!window.confirm(kind==='note'?'¿Eliminar esta anotación?':'¿Eliminar esta incidencia?'))return;
+      const all=findService(service);
+      const notes=normalizeNotes(all);
+      const incidents=normalizeIncidents(all);
+      if(kind==='note')notes.splice(index,1);else incidents.splice(index,1);
+      const updated=persist(service.id,notes,incidents);
+      if(updated)reopen(updated);
+    }));
+
+    host.querySelectorAll('[data-v64-solved]').forEach(input=>input.addEventListener('change',()=>{
+      const index=Number(input.dataset.v64Solved);
+      const all=findService(service);
+      const notes=normalizeNotes(all);
+      const incidents=normalizeIncidents(all);
+      if(!incidents[index])return;
+      incidents[index].solved=input.checked;
+      const updated=persist(service.id,notes,incidents);
+      if(updated)input.closest('.argos-v64-entry')?.classList.toggle('solved',input.checked);
+    }));
+  }
+
+  const original=window.openFicha;
+  if(typeof original!=='function')return;
+  window.openFicha=function(series,vehicle,service=null){
+    original(series,vehicle,service);
+    if(service)bind($v64('fichaContent'),service);
+  };
+})();
+
