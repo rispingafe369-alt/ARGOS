@@ -29892,8 +29892,9 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
 })();
 
 /* ================================================================
-   ARGOS V67 · AUTENTICACIÓN + SINCRONIZACIÓN SUPABASE
-   Acceso únicamente mediante matrícula Renfe de 7 cifras.
+   ARGOS V68 · AUTENTICACIÓN + SINCRONIZACIÓN SUPABASE
+   Acceso mediante matrícula Renfe de 7 cifras.
+   Servicios y perfil sincronizados por cuenta.
    ================================================================ */
 (function(){
   'use strict';
@@ -29901,6 +29902,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   const SUPABASE_URL='https://ujophjilcqnphvdiamex.supabase.co';
   const SUPABASE_KEY='sb_publishable_0Q7GZKAXlAwDB0bm9tU63A_VPv5gaSC';
   const SERVICES_KEY='argos_services';
+  const PROFILE_KEY='argos_profile';
   const DATA_TABLE='argos_users';
   const EMAIL_SUFFIX='@argos-renfe.app';
   const PASSWORD_PREFIX='ARGOS-RENFE-';
@@ -29911,16 +29913,13 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   let syncing=false;
   let ready=false;
   let originalSetItem=null;
+  let cloudData={services:[]};
 
   const $id=id=>document.getElementById(id);
   const digits=v=>String(v??'').replace(/\D/g,'').slice(0,7);
 
-  function matriculaEmail(matricula){
-    return matricula+EMAIL_SUFFIX;
-  }
-  function matriculaPassword(matricula){
-    return PASSWORD_PREFIX+matricula+PASSWORD_SUFFIX;
-  }
+  function matriculaEmail(matricula){return matricula+EMAIL_SUFFIX;}
+  function matriculaPassword(matricula){return PASSWORD_PREFIX+matricula+PASSWORD_SUFFIX;}
   function validMatricula(v){return /^\d{7}$/.test(String(v||''));}
 
   function authMessage(text,type=''){
@@ -29932,7 +29931,9 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
 
   function setBusy(busy){
     const btn=$id('argosAuthSubmit');
-    if(btn){btn.disabled=busy;btn.textContent=busy?'Conectando…':(mode==='register'?'Registrarme':'Entrar');}
+    if(btn)btn.disabled=busy;
+    if(btn&&!busy)btn.textContent=mode==='register'?'Registrarme':'Entrar';
+    if(btn&&busy)btn.textContent='Conectando…';
     const input=$id('argosMatricula');
     if(input)input.disabled=busy;
   }
@@ -29949,31 +29950,41 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     if(desc)desc.textContent=mode==='register'
       ?'Introduce tu matrícula Renfe de 7 números para crear tu cuenta ARGOS.'
       :'Introduce tu matrícula Renfe para acceder a tus registros desde cualquier dispositivo.';
-    if(btn)btn.textContent=mode==='register'?'Registrarme':'Entrar';
+    if(btn&&!btn.disabled)btn.textContent=mode==='register'?'Registrarme':'Entrar';
     authMessage('');
   }
 
-  async function ensureProfile(user,matricula){
-    const {data,error:rowError}=await client
+  function normalizeProfile(value){
+    const p=value&&typeof value==='object'?value:{};
+    return {
+      name:String(p.name??'').trim(),
+      job:String(p.job??'').trim()
+    };
+  }
+
+  async function readCloudRow(user,matricula){
+    const {data,error}=await client
       .from(DATA_TABLE)
       .select('matricula,user_id,data')
       .eq('user_id',user.id)
       .maybeSingle();
-
-    if(rowError)throw rowError;
+    if(error)throw error;
 
     if(!data){
-      const {error}=await client.from(DATA_TABLE).insert({
+      const initial={services:[]};
+      const {error:insertError}=await client.from(DATA_TABLE).insert({
         matricula,
         user_id:user.id,
-        data:{services:[]}
+        data:initial
       });
-      if(error)throw error;
-      return {services:[]};
+      if(insertError)throw insertError;
+      cloudData=initial;
+      return initial;
     }
 
-    const cloud=data.data&&typeof data.data==='object'?data.data:{};
-    return {services:Array.isArray(cloud.services)?cloud.services:[]};
+    cloudData=data.data&&typeof data.data==='object'?data.data:{};
+    if(!Array.isArray(cloudData.services))cloudData.services=[];
+    return cloudData;
   }
 
   async function loadCloud(user){
@@ -29983,28 +29994,46 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     // Nunca reutilizar datos del dispositivo como respaldo de otra cuenta.
     clearLocalAppData();
 
-    const profile=await ensureProfile(user,matricula);
-    const cloudServices=Array.isArray(profile.services)?profile.services:[];
+    const data=await readCloudRow(user,matricula);
+    const cloudServices=Array.isArray(data.services)?data.services:[];
+    const cloudProfile=normalizeProfile(data.profile);
 
-    // La respuesta de Supabase es la única fuente de verdad. Incluso cuando
-    // la cuenta está vacía, escribimos [] para borrar cualquier dato anterior.
     syncing=true;
     try{
       localStorage.setItem(SERVICES_KEY,JSON.stringify(cloudServices));
+      localStorage.setItem(PROFILE_KEY,JSON.stringify(cloudProfile));
     }finally{
       syncing=false;
     }
     return matricula;
   }
 
-  async function saveCloud(services){
+  async function updateCloudData(patch){
     if(!client||!currentUser||syncing)return;
-    const clean=Array.isArray(services)?services:[];
+
+    cloudData={
+      ...(cloudData&&typeof cloudData==='object'?cloudData:{}),
+      ...patch
+    };
+
     const {error}=await client
       .from(DATA_TABLE)
-      .update({data:{services:clean},updated_at:new Date().toISOString()})
+      .update({data:cloudData,updated_at:new Date().toISOString()})
       .eq('user_id',currentUser.id);
-    if(error)console.error('ARGOS V67 · error guardando en Supabase:',error);
+
+    if(error){
+      console.error('ARGOS V68 · error guardando en Supabase:',error);
+    }
+  }
+
+  async function saveCloudServices(services){
+    const clean=Array.isArray(services)?services:[];
+    await updateCloudData({services:clean});
+  }
+
+  async function saveCloudProfile(profile){
+    const clean=normalizeProfile(profile);
+    await updateCloudData({profile:clean});
   }
 
   function installStorageSync(){
@@ -30012,11 +30041,18 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     originalSetItem=Storage.prototype.setItem;
     Storage.prototype.setItem=function(key,value){
       originalSetItem.call(this,key,value);
-      if(this===window.localStorage && key===SERVICES_KEY && ready && !syncing){
-        try{
+      if(this!==window.localStorage||!ready||syncing)return;
+
+      try{
+        if(key===SERVICES_KEY){
           const parsed=JSON.parse(value||'[]');
-          void saveCloud(Array.isArray(parsed)?parsed:[]);
-        }catch(e){console.warn('ARGOS V67 · sincronización local:',e)}
+          void saveCloudServices(Array.isArray(parsed)?parsed:[]);
+        }else if(key===PROFILE_KEY){
+          const parsed=JSON.parse(value||'{}');
+          void saveCloudProfile(parsed);
+        }
+      }catch(e){
+        console.warn('ARGOS V68 · sincronización local:',e);
       }
     };
   }
@@ -30025,7 +30061,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     syncing=true;
     try{
       localStorage.removeItem(SERVICES_KEY);
-      localStorage.removeItem("argos_profile");
+      localStorage.removeItem(PROFILE_KEY);
     }finally{syncing=false}
   }
 
@@ -30047,9 +30083,10 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       if(typeof window.showScreen==='function')window.showScreen('menu');
       authMessage('');
     }catch(error){
-      console.error('ARGOS V67 · carga de cuenta:',error);
+      console.error('ARGOS V68 · carga de cuenta:',error);
       currentUser=null;
       ready=false;
+      cloudData={services:[]};
       clearLocalAppData();
       throw error;
     }
@@ -30075,7 +30112,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       if(!data.user)throw new Error('No se ha podido iniciar la sesión.');
       await enterApp(data.user);
     }catch(error){
-      console.error('ARGOS V67 · login:',error);
+      console.error('ARGOS V68 · login:',error);
       authMessage('Matrícula no registrada o datos incorrectos.','error');
     }finally{setBusy(false)}
   }
@@ -30106,7 +30143,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
         if(input)input.value=matricula;
       }
     }catch(error){
-      console.error('ARGOS V67 · registro:',error);
+      console.error('ARGOS V68 · registro:',error);
       const msg=String(error?.message||'');
       if(/already registered|already exists|user already/i.test(msg)){
         authMessage('Esa matrícula ya está registrada. Pulsa Entrar.','error');
@@ -30121,13 +30158,17 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   async function logout(){
     ready=false;
     currentUser=null;
+    cloudData={services:[]};
     syncing=true;
-    try{localStorage.removeItem(SERVICES_KEY)}finally{syncing=false}
+    try{
+      localStorage.removeItem(SERVICES_KEY);
+      localStorage.removeItem(PROFILE_KEY);
+    }finally{syncing=false}
     document.body.classList.remove('argos-authenticated');
     setMode('login');
     const input=$id('argosMatricula');if(input)input.value='';
     authMessage('');
-    try{await client?.auth.signOut()}catch(e){console.warn('ARGOS V67 · cierre de sesión:',e)}
+    try{await client?.auth.signOut()}catch(e){console.warn('ARGOS V68 · cierre de sesión:',e)}
   }
 
   async function boot(){
@@ -30149,22 +30190,32 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       e.target.value=digits(e.target.value);
       if(e.target.value.length===7)authMessage('');
     });
-    $id('argosMatricula')?.addEventListener('keydown',e=>{if(e.key==='Enter')mode==='register'?register():login()});
+    $id('argosMatricula')?.addEventListener('keydown',e=>{
+      if(e.key==='Enter')mode==='register'?register():login();
+    });
     $id('argosLogout')?.addEventListener('click',logout);
 
     const {data,error}=await client.auth.getSession();
-    if(error){console.error('ARGOS V67 · sesión:',error);return}
+    if(error){console.error('ARGOS V68 · sesión:',error);return}
     if(data.session?.user){
       authMessage('Recuperando tu cuenta…');
-      try{await enterApp(data.session.user)}catch(e){authMessage('No se ha podido cargar tu cuenta.','error')}
+      try{await enterApp(data.session.user)}
+      catch(e){authMessage('No se ha podido cargar tu cuenta.','error')}
     }else{
       setMode('login');
       document.body.classList.remove('argos-authenticated');
     }
 
-    client.auth.onAuthStateChange((event,session)=>{
+    client.auth.onAuthStateChange((event)=>{
       if(event==='SIGNED_OUT'){
-        ready=false;currentUser=null;syncing=true;try{localStorage.removeItem(SERVICES_KEY)}finally{syncing=false}
+        ready=false;
+        currentUser=null;
+        cloudData={services:[]};
+        syncing=true;
+        try{
+          localStorage.removeItem(SERVICES_KEY);
+          localStorage.removeItem(PROFILE_KEY);
+        }finally{syncing=false}
         document.body.classList.remove('argos-authenticated');
       }
     });
