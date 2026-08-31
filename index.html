@@ -1469,6 +1469,76 @@ button:focus:not(:focus-visible),
 }
 </style>
 
+
+<style id="argos-quarter-mobile-v5">
+/* ARGOS · Cabecera trimestral · réplica del diseño aprobado */
+@media (max-width:600px){
+  .stats-chart-panel .stats-panel-head{
+    position:relative !important;
+    display:block !important;
+    width:100% !important;
+    margin:0 !important;
+    padding:0 0 9px !important;
+    text-align:center !important;
+  }
+
+  .stats-chart-panel .stats-panel-head > div{
+    display:block !important;
+    width:100% !important;
+    text-align:center !important;
+  }
+
+  /* "Vista trimestral" vuelve a ser el título principal */
+  .stats-chart-panel .stats-panel-head h4{
+    display:block !important;
+    margin:0 !important;
+    padding:0 !important;
+    color:var(--renfe) !important;
+    font-size:27px !important;
+    line-height:1.1 !important;
+    font-weight:900 !important;
+    letter-spacing:.01em !important;
+    text-align:center !important;
+  }
+
+  /* El trimestre queda justo debajo del título */
+  .stats-chart-panel .stats-head-value{
+    display:block !important;
+    width:100% !important;
+    max-width:none !important;
+    margin:5px 0 0 !important;
+    padding:0 !important;
+    color:#55555d !important;
+    font-size:18px !important;
+    line-height:1.2 !important;
+    font-weight:500 !important;
+    text-align:center !important;
+  }
+
+  /* Flechas laterales, a la altura del encabezado */
+  .stats-chart-panel .quarter-nav{
+    top:9px !important;
+    width:48px !important;
+    height:48px !important;
+    border-radius:14px !important;
+    font-size:32px !important;
+  }
+
+  .stats-chart-panel #quarterPrev{
+    left:2px !important;
+  }
+
+  .stats-chart-panel #quarterNext{
+    right:2px !important;
+  }
+
+  /* Separación idéntica entre cabecera y primer mes */
+  .stats-chart-panel .quarter-carousel{
+    margin-top:8px !important;
+  }
+}
+</style>
+
 </head>
 
 <body>
