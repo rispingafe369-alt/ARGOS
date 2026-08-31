@@ -4967,6 +4967,255 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 }
 </style>
 
+
+<style id="argos-calendar-weeks-v1">
+/* ===== CALENDARIO · NAVEGACIÓN POR SEMANAS ===== */
+.weekday-chart-wrap{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.weekday-week-nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin:-2px 0 2px;
+}
+.weekday-week-title{
+  flex:1;
+  text-align:center;
+  color:var(--muted);
+  font-size:10px;
+  font-weight:800;
+  line-height:1.2;
+}
+.weekday-week-button{
+  width:30px;
+  height:30px;
+  flex:0 0 30px;
+  border:1px solid rgba(138,0,92,.14);
+  border-radius:10px;
+  background:var(--soft);
+  color:var(--renfe);
+  font-size:21px;
+  line-height:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+}
+.weekday-week-button:active{transform:scale(.96)}
+.weekday-week-button:disabled{opacity:.35}
+.weekday-chart.weekly-view{
+  height:170px;
+}
+.weekly-view .day-column{
+  gap:5px;
+}
+.weekly-view .day-label{
+  text-align:center;
+  line-height:1.05;
+}
+.weekly-view .day-column.today .day-track{
+  outline:2px solid rgba(138,0,92,.38);
+  outline-offset:2px;
+}
+.weekly-view .day-column.today .day-label{
+  color:var(--renfe);
+  font-weight:900;
+}
+.weekly-view .day-date{
+  display:block;
+  color:var(--muted);
+  font-size:8px;
+  font-weight:800;
+  margin-top:1px;
+}
+.weekly-view .day-column.today .day-date{
+  color:var(--renfe);
+}
+@media(max-width:600px){
+  .weekday-week-nav{margin:-1px 0 1px}
+  .weekday-week-title{font-size:10px}
+  .weekday-week-button{width:32px;height:32px;flex-basis:32px;font-size:22px}
+  .weekday-chart.weekly-view{height:170px;gap:4px}
+  .weekly-view .day-track{height:100px}
+  .weekly-view .day-label{font-size:9px}
+  .weekly-view .day-date{font-size:8px}
+}
+</style>
+
+<script id="argos-calendar-weeks-v1">
+(function(){
+  function qs(s){return document.querySelector(s)}
+  function qsa(s){return [...document.querySelectorAll(s)]}
+
+  function parseDate(s){
+    const raw=String((s&&((s.date??s.fecha??s.day??s.dia)))??"").trim();
+    if(!raw)return null;
+    let d=new Date(raw);
+    if(isNaN(d)){
+      const m=raw.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/);
+      if(m)d=new Date(+m[3],+m[2]-1,+m[1]);
+    }
+    return isNaN(d)?null:d;
+  }
+
+  function services(){
+    try{
+      const a=JSON.parse(localStorage.getItem("argos_services")||"[]");
+      return Array.isArray(a)?a:[];
+    }catch(e){return[]}
+  }
+
+  function value(s,names){
+    for(const n of names){
+      if(s&&s[n]!==undefined&&s[n]!==null&&s[n]!=="")return s[n];
+    }
+    return "";
+  }
+
+  function field(s,type){
+    const map={
+      product:["product","producto","serviceType","tipoProducto"],
+      series:["series","serie","trainSeries"]
+    };
+    return String(value(s,map[type]||[])).trim();
+  }
+
+  function filteredServices(){
+    const y=qs("#statsYear")?.value||"all";
+    const m=qs("#statsMonth")?.value||"all";
+    const p=qs("#statsProduct")?.value||"all";
+    const se=qs("#statsSeries")?.value||"all";
+    return services().filter(s=>{
+      const d=parseDate(s);
+      return !(
+        y!=="all"&&(!d||String(d.getFullYear())!==y) ||
+        m!=="all"&&(!d||String(d.getMonth())!==m) ||
+        p!=="all"&&field(s,"product")!==p ||
+        se!=="all"&&field(s,"series")!==se
+      );
+    });
+  }
+
+  function dayKey(d){
+    return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+  }
+
+  function startOfWeek(d){
+    const x=new Date(d.getFullYear(),d.getMonth(),d.getDate());
+    const mondayOffset=(x.getDay()+6)%7;
+    x.setDate(x.getDate()-mondayOffset);
+    return x;
+  }
+
+  function fmtDate(d){
+    return d.toLocaleDateString("es-ES",{day:"numeric",month:"short"}).replace(".","");
+  }
+
+  function renderWeek(){
+    const chart=qs("#weekdayChart");
+    if(!chart)return;
+
+    const data=filteredServices();
+    const now=new Date();
+    const currentMonday=startOfWeek(now);
+
+    if(typeof window.__argosWeekOffset!=="number")window.__argosWeekOffset=0;
+    const monday=new Date(currentMonday);
+    monday.setDate(monday.getDate()+window.__argosWeekOffset*7);
+
+    const dates=Array.from({length:7},(_,i)=>{
+      const d=new Date(monday);
+      d.setDate(monday.getDate()+i);
+      return d;
+    });
+
+    const counts=dates.map(d=>{
+      const k=dayKey(d);
+      return data.reduce((n,s)=>{
+        const sd=parseDate(s);
+        return n+(sd&&dayKey(sd)===k?1:0);
+      },0);
+    });
+
+    const max=Math.max(1,...counts);
+    const todayKey=dayKey(now);
+
+    const panel=chart.closest(".stats-panel");
+    if(panel){
+      const head=panel.querySelector(".stats-panel-head");
+      if(head && !panel.querySelector(".weekday-week-nav")){
+        const nav=document.createElement("div");
+        nav.className="weekday-week-nav";
+        nav.innerHTML=
+          '<button type="button" class="weekday-week-button" id="weekdayWeekPrev" aria-label="Semana anterior">‹</button>'+
+          '<span class="weekday-week-title" id="weekdayWeekTitle"></span>'+
+          '<button type="button" class="weekday-week-button" id="weekdayWeekNext" aria-label="Semana siguiente">›</button>';
+        head.insertAdjacentElement("afterend",nav);
+
+        qs("#weekdayWeekPrev")?.addEventListener("click",function(){
+          window.__argosWeekOffset--;
+          renderWeek();
+        });
+        qs("#weekdayWeekNext")?.addEventListener("click",function(){
+          window.__argosWeekOffset++;
+          renderWeek();
+        });
+      }
+    }
+
+    const title=qs("#weekdayWeekTitle");
+    if(title){
+      title.textContent=
+        "Semana · "+fmtDate(dates[0])+" – "+fmtDate(dates[6])+
+        (window.__argosWeekOffset===0?" · actual":"");
+    }
+
+    const prev=qs("#weekdayWeekPrev");
+    if(prev)prev.disabled=false;
+
+    chart.classList.add("weekly-view");
+    chart.innerHTML=dates.map((d,i)=>{
+      const k=dayKey(d);
+      const isToday=k===todayKey;
+      const v=counts[i];
+      const label=isToday?"Hoy":names.days[i];
+      const dateLabel=d.getDate()+"/"+(d.getMonth()+1);
+      const cls="day-column"+(isToday?" today":"");
+      const titleText=
+        (isToday?"Hoy · ":"")+names.days[i]+" "+dateLabel+" · "+v+" servicio"+(v===1?"":"s");
+      return '<div class="'+cls+'" title="'+titleText+'">'+
+        '<span class="day-value">'+(v||"")+"</span>"+
+        '<div class="day-track"><i class="day-fill" style="height:'+Math.max(v?3:0,Math.round(v/max*100))+'%"></i></div>'+
+        '<span class="day-label">'+label+'</span>'+
+        '<span class="day-date">'+dateLabel+"</span>"+
+      "</div>";
+    }).join("");
+  }
+
+  function init(){
+    renderWeek();
+    ["statsYear","statsMonth","statsProduct","statsSeries"].forEach(id=>{
+      qs("#"+id)?.addEventListener("change",renderWeek);
+    });
+    qs("#statsReset")?.addEventListener("click",()=>setTimeout(renderWeek,0));
+    window.addEventListener("storage",renderWeek);
+  }
+
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);
+  else init();
+
+  const oldShow=window.showScreen;
+  window.showScreen=function(id){
+    if(typeof oldShow==="function")oldShow(id);
+    if(id==="stats")setTimeout(renderWeek,0);
+  };
+})();
+</script>
+
 </body>
 </html>
 <!-- ================================================================
