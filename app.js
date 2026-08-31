@@ -29687,7 +29687,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
 })();
 
 /* ================================================================
-   ARGOS V64 · INCIDENCIAS Y ANOTACIONES EN FICHA
+   ARGOS V65 · INCIDENCIAS Y ANOTACIONES EN FICHA
    - Muestra las anotaciones e incidencias del servicio.
    - Permite editar/eliminar anotaciones e incidencias.
    - Permite marcar incidencias como solventadas.
@@ -29704,7 +29704,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   }[c]));
 
   const style=document.createElement('style');
-  style.id='argos-v64-service-entries-style';
+  style.id='argos-v65-service-entries-style';
   style.textContent=`
     .argos-v64-entries-section{margin-top:18px}
     .argos-v64-entries-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;color:var(--renfe,#8a005c);font-size:13px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
@@ -29831,7 +29831,16 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     host.id='argosV64ServiceEntries';
     host.innerHTML=renderEntries(current);
     if(!host.innerHTML)return;
-    content.appendChild(host);
+    /* V65: las anotaciones e incidencias del servicio deben aparecer
+       inmediatamente debajo de DATOS DESTACADOS DE LA RAMA y antes de
+       la información general de la serie. No se modifica el contenido
+       original de la ficha; únicamente se cambia la posición de este bloque. */
+    const generalSection=content.querySelector('.ficha-general-section');
+    if(generalSection){
+      content.insertBefore(host,generalSection);
+    }else{
+      content.appendChild(host);
+    }
 
     host.querySelectorAll('[data-v64-edit]').forEach(btn=>btn.addEventListener('click',()=>{
       const kind=btn.dataset.v64Edit;
