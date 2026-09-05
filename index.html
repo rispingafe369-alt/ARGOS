@@ -6950,3 +6950,297 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   window.addEventListener('load',install,{once:true});
 })();
 </script>
+
+<!-- ARGOS V74 · CORRECCIÓN FINAL DEL RESOLVEDOR DE FICHAS -->
+<script id="argos-v74-ficha-resolver-fix">
+(function(){
+  'use strict';
+
+  /*
+   * ARGOS V74 — UNIFICACIÓN DEL MOTOR DE LOCALIZACIÓN DE FICHAS
+   *
+   * Objetivo:
+   * - ArgosDex, Historial, Última vez y consultas por rama deben terminar
+   *   siempre en el mismo motor de ficha que utiliza ARGOS.
+   * - Una rama puede localizarse aunque el servicio tenga vehicle vacío.
+   * - Para series con reglas especiales (103, 104, 106, 121, 730, 446, ...)
+   *   se delega primero en getFleetUnit(), evitando duplicar sus reglas.
+   * - Nunca se intenta acceder a unit.tech cuando unit no existe.
+   */
+
+  const digits=v=>String(v??'').replace(/\D/g,'');
+  const norm=v=>digits(v).replace(/^0+/,'')||'';
+  const text=v=>String(v??'').trim();
+
+  function getUnits(series){
+    try{
+      const s=norm(series);
+      if(typeof fleet!=='undefined' && fleet?.[s]?.units) return fleet[s].units;
+      if(window.fleet?.[s]?.units) return window.fleet[s].units;
+    }catch(e){ console.warn('ARGOS V74 · lectura de flota:',e); }
+    return {};
+  }
+
+  function directByBranch(series,branch){
+    const b=norm(branch);
+    if(!b)return null;
+    const units=getUnits(series);
+    for(const [key,unit] of Object.entries(units)){
+      if(norm(unit?.rama)===b){
+        return {
+          key:String(key),
+          unit,
+          vehicle:text(unit?.vehiculoBase)||String(key),
+          branch:text(unit?.rama)||b
+        };
+      }
+    }
+    return null;
+  }
+
+  function directByVehicle(series,vehicle){
+    const v=norm(vehicle);
+    if(!v)return null;
+    const units=getUnits(series);
+    for(const [key,unit] of Object.entries(units)){
+      const codes=[
+        key,
+        unit?.vehiculoBase,
+        unit?.numero,
+        ...(Array.isArray(unit?.searchCodes)?unit.searchCodes:[]),
+        ...(Array.isArray(unit?.vehiculosRama)?unit.vehiculosRama:[])
+      ].map(norm).filter(Boolean);
+      if(codes.includes(v)){
+        return {
+          key:String(key),
+          unit,
+          vehicle:text(unit?.vehiculoBase)||String(key)||text(vehicle),
+          branch:text(unit?.rama)
+        };
+      }
+    }
+    return null;
+  }
+
+  function resolve(series,vehicle='',branch=''){
+    const s=text(series);
+    const v=text(vehicle);
+    const b=text(branch);
+    if(!s)return null;
+
+    /* 1. Rama explícita: la rama tiene prioridad. */
+    if(b){
+      const byBranch=directByBranch(s,b);
+      if(byBranch){
+        let canonical=byBranch.vehicle;
+        try{
+          if(typeof getFleetUnit==='function'){
+            const unit=getFleetUnit(s,canonical);
+            if(unit) return {series:s,vehicle:canonical,branch:text(unit.rama)||byBranch.branch,unit};
+          }
+        }catch(e){ console.warn('ARGOS V74 · getFleetUnit por rama:',e); }
+        return {series:s,vehicle:canonical,branch:byBranch.branch,unit:byBranch.unit};
+      }
+    }
+
+    /* 2. Vehículo: usa exactamente el resolvedor principal de ARGOS. */
+    if(v){
+      try{
+        if(typeof getFleetUnit==='function'){
+          const unit=getFleetUnit(s,v);
+          if(unit){
+            return {
+              series:s,
+              vehicle:text(unit.vehiculoBase)||v,
+              branch:text(unit.rama),
+              unit
+            };
+          }
+        }
+      }catch(e){ console.warn('ARGOS V74 · getFleetUnit por vehículo:',e); }
+
+      const direct=directByVehicle(s,v);
+      if(direct) return {series:s,vehicle:direct.vehicle,branch:direct.branch,unit:direct.unit};
+    }
+
+    return null;
+  }
+
+  window.argosResolveFichaV74=resolve;
+
+  /*
+   * Envolvemos openFicha para que cualquier entrada antigua que conserve
+   * vehicle vacío pero sí tenga branch pueda abrir su ficha igualmente.
+   */
+  function installOpenFicha(){
+    if(typeof window.openFicha!=='function')return false;
+    if(window.__argosV74OpenFichaInstalled)return true;
+    const original=window.openFicha;
+    window.__argosV74OpenFichaOriginal=original;
+    window.openFicha=function(series,vehicle,service=null){
+      let resolved=null;
+      try{
+        resolved=resolve(
+          series,
+          text(vehicle)||text(service?.vehicle),
+          text(service?.branch)
+        );
+      }catch(e){ console.warn('ARGOS V74 · resolución de ficha:',e); }
+
+      if(resolved?.vehicle){
+        const patchedService=service
+          ? Object.assign({},service,{branch:resolved.branch||service.branch||'',vehicle:service.vehicle||resolved.vehicle})
+          : service;
+        return original(resolved.series,resolved.vehicle,patchedService);
+      }
+
+      /* Si no hay resolución, conservamos exactamente el comportamiento original. */
+      return original(series,vehicle,service);
+    };
+    window.__argosV74OpenFichaInstalled=true;
+    return true;
+  }
+
+  /*
+   * ArgosDex: interceptamos la consulta antes del handler V73/V34 existente.
+   * De esta forma no dependemos de simular clicks en el formulario de registro.
+   */
+  function installDex(){
+    const search=document.getElementById('argosDexSearch');
+    const seriesInput=document.getElementById('argosDexSeries');
+    const vehicleInput=document.getElementById('argosDexVehicle');
+    const branchInput=document.getElementById('argosDexBranchInput');
+    const branchBox=document.getElementById('argosDexBranch');
+    const branchValue=document.getElementById('argosDexBranchValue');
+    const status=document.getElementById('argosDexStatus');
+    const result=document.getElementById('argosDexResult');
+    const ficha=document.getElementById('argosDexFicha');
+    const title=document.getElementById('argosDexResultTitle');
+    const sub=document.getElementById('argosDexResultSub');
+    const badge=document.getElementById('argosDexBadge');
+    if(!search||!seriesInput||!vehicleInput||!branchInput||!branchBox||!result||!ficha)return false;
+    if(search.dataset.argosV74==='1')return true;
+    search.dataset.argosV74='1';
+
+    const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+    function statusMsg(message,type){
+      if(!status)return;
+      status.textContent=message;
+      status.className='argosdex-status show '+(type||'info');
+    }
+
+    function buildFicha(series,vehicle,branch){
+      /* Primero usamos el mismo motor visual de ficha de ARGOS. */
+      const content=document.getElementById('fichaContent');
+      const oldSeries=document.getElementById('series');
+      const oldVehicle=document.getElementById('vehicle');
+      if(!content||!oldSeries||!oldVehicle)return '';
+
+      const prevSeries=oldSeries.value;
+      const prevVehicle=oldVehicle.value;
+      const prevScreen=document.querySelector('.app-shell > .screen.active')?.id||'argosdex';
+      let html='';
+
+      try{
+        oldSeries.value=series;
+        oldVehicle.value=vehicle;
+        const resolved=resolve(series,vehicle,branch);
+        if(resolved?.vehicle)oldVehicle.value=resolved.vehicle;
+        oldSeries.dispatchEvent(new Event('input',{bubbles:true}));
+        oldVehicle.dispatchEvent(new Event('input',{bubbles:true}));
+
+        /* Llamada directa al motor de ficha; no se crea ni guarda servicio. */
+        if(typeof window.openFicha==='function'){
+          window.openFicha(series,oldVehicle.value,null);
+          html=String(content.innerHTML||'').trim();
+        }
+      }catch(e){
+        console.warn('ARGOS V74 · construcción de ficha ArgosDex:',e);
+      }finally{
+        oldSeries.value=prevSeries;
+        oldVehicle.value=prevVehicle;
+        try{
+          oldSeries.dispatchEvent(new Event('input',{bubbles:true}));
+          oldVehicle.dispatchEvent(new Event('input',{bubbles:true}));
+        }catch(e){}
+        if(typeof window.showScreen==='function')window.showScreen(prevScreen);
+      }
+      return html;
+    }
+
+    function consultV74(ev){
+      if(ev){ev.preventDefault();ev.stopImmediatePropagation();}
+
+      const series=digits(seriesInput.value).slice(0,3);
+      const vehicle=digits(vehicleInput.value);
+      const branch=digits(branchInput.value).slice(0,3);
+
+      if(!series){statusMsg('Introduce la serie.','error');return;}
+      if(!vehicle&&!branch){statusMsg('Introduce un vehículo o una rama.','error');return;}
+
+      const resolved=resolve(series,vehicle,branch);
+      if(!resolved){
+        branchBox.classList.add('invalid');
+        statusMsg('No se ha encontrado ese material para la serie indicada. Comprueba la serie, el vehículo o la rama.','error');
+        return;
+      }
+
+      branchBox.classList.remove('invalid');
+      branchBox.classList.add('located');
+      if(branchValue)branchValue.textContent='Rama '+(resolved.branch||branch||'—')+' localizada';
+      if(branchInput)branchInput.value=digits(resolved.branch||branch).slice(0,3);
+
+      const effectiveVehicle=resolved.vehicle||vehicle||'';
+      const effectiveBranch=resolved.branch||branch||'';
+      const html=buildFicha(series,effectiveVehicle,effectiveBranch);
+
+      if(title)title.textContent='Serie '+series+' · Rama '+effectiveBranch;
+      if(sub)sub.textContent=effectiveVehicle
+        ? 'Vehículo '+effectiveVehicle+' · Consulta sin registro de servicio'
+        : 'Consulta por rama · Sin registro de servicio';
+      if(badge)badge.textContent='RAMA '+effectiveBranch;
+
+      if(html) ficha.innerHTML=html;
+      else ficha.innerHTML=`
+        <div class="ficha-hero">
+          <div class="ficha-kicker">MATERIAL RENFE</div>
+          <h3>Serie ${esc(series)} · Rama ${esc(effectiveBranch)}</h3>
+          <p>${effectiveVehicle?'Vehículo '+esc(effectiveVehicle)+' · ':''}Consulta sin registro de servicio</p>
+        </div>
+        <div class="ficha-section">
+          <div class="ficha-section-title">IDENTIFICACIÓN</div>
+          <div class="ficha-grid">
+            <div><span>Serie</span><strong>${esc(series)}</strong></div>
+            <div><span>Vehículo</span><strong>${effectiveVehicle?esc(effectiveVehicle):'No necesario'}</strong></div>
+            <div><span>Rama</span><strong>${esc(effectiveBranch)}</strong></div>
+          </div>
+        </div>`;
+
+      result.classList.add('show');
+      result.scrollIntoView({behavior:'smooth',block:'start'});
+      statusMsg('Consulta realizada correctamente.','success');
+
+      /* No conservamos valores de una consulta anterior. */
+      seriesInput.value='';
+      vehicleInput.value='';
+      branchInput.value='';
+      branchBox.classList.remove('located');
+      if(branchValue)branchValue.textContent='Nueva consulta';
+    }
+
+    search.addEventListener('click',consultV74,true);
+    return true;
+  }
+
+  function install(){
+    installOpenFicha();
+    installDex();
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
+  else install();
+  window.addEventListener('load',install,{once:true});
+})();
+</script>
+
