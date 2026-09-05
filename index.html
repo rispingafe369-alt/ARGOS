@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="theme-color" content="#8a005c">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#7b006d">
 <meta name="description" content="ARGOS - Gestión de servicios ferroviarios">
 <link rel="manifest" href="manifest.webmanifest">
 
@@ -1541,82 +1539,6 @@ button:focus:not(:focus-visible),
 }
 </style>
 
-
-<style id="argos-mobile-viewport-v76">
-/* ================================================================
-   ARGOS · AJUSTE MÓVIL V76
-   - No pinta de morado el fondo de toda la aplicación.
-   - El color del área superior del sistema se solicita mediante
-     theme-color, manteniendo el contenido de ARGOS en su fondo normal.
-   - Se aprovecha el posible safe-area inferior sin tapar contenido.
-   - No modifica ninguna función ni lógica de la aplicación.
-   ================================================================ */
-
-@media(max-width:600px){
-  html{
-    background:var(--renfe,#8a005c)!important;
-  }
-
-  body{
-    background:var(--page,#f4f5f7)!important;
-  }
-
-  /* El formulario no añade aire artificial al final. */
-  #new-service{
-    padding-bottom:0!important;
-  }
-
-  #new-service .service-form{
-    padding-bottom:0!important;
-  }
-
-  /* Si el dispositivo expone zona segura inferior, la pantalla puede
-     extenderse hasta ella en lugar de dejar una franja vacía. */
-  .app-shell{
-    height:calc(100dvh + env(safe-area-inset-bottom, 0px))!important;
-    min-height:0!important;
-  }
-}
-</style>
-
-
-<style id="argos-mobile-system-bars-v77">
-/* ARGOS · BARRAS DEL SISTEMA MÓVIL V77
-   El fondo morado queda en el BODY (zonas fuera del app-shell),
-   mientras el app-shell conserva el fondo gris/blanco de la aplicación.
-   Así no se colorean de morado las pantallas.
-*/
-@media(max-width:600px){
-  html,body{
-    background:var(--renfe,#8a005c)!important;
-  }
-
-  .app-shell{
-    background:var(--page,#f4f5f7)!important;
-    height:100%!important;
-    min-height:100%!important;
-    max-height:none!important;
-  }
-
-  /* Reafirmamos el color para el área superior del sistema. */
-  meta[name="theme-color"]{color:#8a005c;}
-
-  /* En navegadores que respetan el estilo de barra de estado de iOS,
-     permite que el color del documento alcance esa zona. */
-  body{
-    -webkit-tap-highlight-color:transparent;
-  }
-
-  /* El formulario termina pegado al borde útil, sin hueco añadido. */
-  #new-service,
-  #new-service .service-form{
-    padding-bottom:0!important;
-    margin-bottom:0!important;
-  }
-}
-</style>
-
-\n\n<style id="argos-mobile-system-bars-v78">\n/* ================================================================\n   ARGOS · CORRECCIÓN REAL DE ZONAS SEGURAS MÓVILES V78\n   - iPhone/PWA: la cabecera puede pintar también bajo la barra superior.\n   - La aplicación no se vuelve morada: solo la zona del sistema.\n   - La pantalla ocupa el viewport completo, incluida la zona inferior.\n   - No se toca ninguna función ni lógica.\n   ================================================================ */\n@media (max-width:600px){\n  html, body{\n    width:100%;\n    min-width:100%;\n    height:100%;\n    margin:0!important;\n    padding:0!important;\n    background:#8a005c!important;\n  }\n\n  body{\n    min-height:100dvh!important;\n    overflow:hidden!important;\n  }\n\n  .app-shell{\n    position:relative!important;\n    width:100%!important;\n    height:100dvh!important;\n    min-height:100dvh!important;\n    max-height:none!important;\n    margin:0!important;\n    padding:0!important;\n    overflow:hidden!important;\n    background:var(--page,#f4f5f7)!important;\n  }\n\n  .app-header{\n    flex:0 0 auto!important;\n    width:100%!important;\n    margin:0!important;\n    padding:0!important;\n    background:var(--renfe,#8a005c)!important;\n  }\n\n  .brand-row{\n    box-sizing:border-box!important;\n    height:calc(64px + env(safe-area-inset-top, 0px))!important;\n    min-height:calc(64px + env(safe-area-inset-top, 0px))!important;\n    padding-top:env(safe-area-inset-top, 0px)!important;\n    border-radius:0 0 16px 16px!important;\n    background:var(--renfe,#8a005c)!important;\n  }\n\n  .app-shell > .screen{\n    flex:1 1 0!important;\n    min-height:0!important;\n    height:auto!important;\n    max-height:none!important;\n    padding-bottom:0!important;\n    margin-bottom:0!important;\n  }\n\n  #new-service{\n    padding-bottom:0!important;\n    margin-bottom:0!important;\n  }\n  #new-service .service-form{\n    padding-bottom:0!important;\n    margin-bottom:0!important;\n  }\n\n  /* El contenido puede llegar hasta el borde inferior del viewport. */\n  .screen.active{\n    min-height:0!important;\n  }\n}\n</style>\n
 </head>
 
 <body>
