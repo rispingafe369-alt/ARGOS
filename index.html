@@ -1539,6 +1539,37 @@ button:focus:not(:focus-visible),
 }
 </style>
 
+
+<style id="argos-mobile-viewport-v75">
+/* ================================================================
+   ARGOS · AJUSTE MÓVIL V75
+   - El área superior del viewport usa el morado Renfe.
+   - Se elimina el espacio inferior innecesario de "Añadir servicio"
+     para aprovechar todo el alto disponible.
+   ================================================================ */
+html{
+  background:var(--renfe,#8a005c)!important;
+}
+body{
+  background:var(--renfe,#8a005c)!important;
+}
+
+@media(max-width:600px){
+  html,body{
+    background:var(--renfe,#8a005c)!important;
+  }
+
+  /* No dejamos una franja blanca al final del formulario móvil. */
+  #new-service{
+    padding-bottom:0!important;
+  }
+
+  #new-service .service-form{
+    padding-bottom:0!important;
+  }
+}
+</style>
+
 </head>
 
 <body>
