@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="theme-color" content="#7b006d">
+<meta name="theme-color" content="#8a005c">
 <meta name="description" content="ARGOS - Gestión de servicios ferroviarios">
 <link rel="manifest" href="manifest.webmanifest">
 
@@ -1540,32 +1540,39 @@ button:focus:not(:focus-visible),
 </style>
 
 
-<style id="argos-mobile-viewport-v75">
+<style id="argos-mobile-viewport-v76">
 /* ================================================================
-   ARGOS · AJUSTE MÓVIL V75
-   - El área superior del viewport usa el morado Renfe.
-   - Se elimina el espacio inferior innecesario de "Añadir servicio"
-     para aprovechar todo el alto disponible.
+   ARGOS · AJUSTE MÓVIL V76
+   - No pinta de morado el fondo de toda la aplicación.
+   - El color del área superior del sistema se solicita mediante
+     theme-color, manteniendo el contenido de ARGOS en su fondo normal.
+   - Se aprovecha el posible safe-area inferior sin tapar contenido.
+   - No modifica ninguna función ni lógica de la aplicación.
    ================================================================ */
-html{
-  background:var(--renfe,#8a005c)!important;
-}
-body{
-  background:var(--renfe,#8a005c)!important;
-}
 
 @media(max-width:600px){
-  html,body{
+  html{
     background:var(--renfe,#8a005c)!important;
   }
 
-  /* No dejamos una franja blanca al final del formulario móvil. */
+  body{
+    background:var(--page,#f4f5f7)!important;
+  }
+
+  /* El formulario no añade aire artificial al final. */
   #new-service{
     padding-bottom:0!important;
   }
 
   #new-service .service-form{
     padding-bottom:0!important;
+  }
+
+  /* Si el dispositivo expone zona segura inferior, la pantalla puede
+     extenderse hasta ella en lugar de dejar una franja vacía. */
+  .app-shell{
+    height:calc(100dvh + env(safe-area-inset-bottom, 0px))!important;
+    min-height:0!important;
   }
 }
 </style>
