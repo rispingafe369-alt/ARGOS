@@ -6949,7 +6949,10 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
     const items=filtered.slice().sort((a,b)=>{
       const da=serviceDate(a),db=serviceDate(b);
-      return (db?db.getTime():-Infinity)-(da?da.getTime():-Infinity);
+      const dateDiff=(db?db.getTime():-Infinity)-(da?da.getTime():-Infinity);
+      if(dateDiff!==0)return dateDiff;
+      const ca=Number(a?.createdAt)||0,cb=Number(b?.createdAt)||0;
+      return cb-ca;
     });
     if(!items.length){
       list.innerHTML='<div class="empty">Todavía no hay servicios registrados.</div>';
