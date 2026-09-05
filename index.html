@@ -1577,6 +1577,43 @@ button:focus:not(:focus-visible),
 }
 </style>
 
+
+<style id="argos-mobile-system-bars-v77">
+/* ARGOS · BARRAS DEL SISTEMA MÓVIL V77
+   El fondo morado queda en el BODY (zonas fuera del app-shell),
+   mientras el app-shell conserva el fondo gris/blanco de la aplicación.
+   Así no se colorean de morado las pantallas.
+*/
+@media(max-width:600px){
+  html,body{
+    background:var(--renfe,#8a005c)!important;
+  }
+
+  .app-shell{
+    background:var(--page,#f4f5f7)!important;
+    height:100%!important;
+    min-height:100%!important;
+    max-height:none!important;
+  }
+
+  /* Reafirmamos el color para el área superior del sistema. */
+  meta[name="theme-color"]{color:#8a005c;}
+
+  /* En navegadores que respetan el estilo de barra de estado de iOS,
+     permite que el color del documento alcance esa zona. */
+  body{
+    -webkit-tap-highlight-color:transparent;
+  }
+
+  /* El formulario termina pegado al borde útil, sin hueco añadido. */
+  #new-service,
+  #new-service .service-form{
+    padding-bottom:0!important;
+    margin-bottom:0!important;
+  }
+}
+</style>
+
 </head>
 
 <body>
