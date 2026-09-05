@@ -7449,44 +7449,100 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       status.className='argosdex-status show '+(type||'info');
     }
 
-    function buildFicha(series,vehicle,branch){
+    function buildFicha(series,vehicle,branch,unitOverride=null){
       /*
-       * No simulamos la pantalla Registrar servicio ni hacemos clicks sobre
-       * sus controles. Eso podía dejar ArgoDex bloqueado porque varios
-       * listeners de la ficha trabajan sobre el formulario de registro.
-       *
-       * Utilizamos directamente el motor final de ficha de material que ya
-       * existe en ARGOS, capturamos su HTML y lo devolvemos a ArgoDex.
-       * No se crea ni se modifica ningún servicio.
+       * ArgoDex NO debe llamar a openFicha ni simular el formulario de Registro.
+       * El motor principal de ficha puede fallar si recibe una unidad inexistente
+       * y además cambia de pantalla. Aquí construimos la ficha directamente con
+       * la misma información de fleet, sin guardar ni modificar nada.
        */
-      const modalContent=document.getElementById('modalContent');
-      if(!modalContent)return '';
-
-      const previousHtml=modalContent.innerHTML;
-      let html='';
-
+      let unit=unitOverride||null;
       try{
-        if(typeof window.argosMostrarFichaMaterial==='function'){
-          window.argosMostrarFichaMaterial({
-            series:String(series||''),
-            vehicle:String(vehicle||''),
-            branch:String(branch||''),
-            data:(typeof ARGOS_MATERIAL_DATA!=='undefined'&&ARGOS_MATERIAL_DATA)
-              ? ARGOS_MATERIAL_DATA[String(series||'')]
-              : null
-          });
-          html=String(modalContent.innerHTML||'').trim();
-        }
-      }catch(e){
-        console.warn('ARGOS V74 · construcción de ficha ArgosDex:',e);
-      }finally{
-        try{
-          if(typeof window.closeModal==='function')window.closeModal();
-        }catch(e){}
-        modalContent.innerHTML=previousHtml;
+        if(!unit && typeof getFleetUnit==='function')unit=getFleetUnit(series,vehicle);
+      }catch(e){ console.warn('ARGOS V74 · resolución directa de ficha:',e); }
+
+      let seriesData=null;
+      try{
+        if(typeof getSeriesData==='function')seriesData=getSeriesData(series);
+        else seriesData=window.fleet?.[norm(series)]||null;
+      }catch(e){ seriesData=null; }
+
+      if(!unit){
+        return `<div class="ficha-empty"><strong>Ficha no disponible</strong><span>No hay información de material almacenada para Serie ${esc(series||'—')} · Vehículo ${esc(vehicle||'—')}.</span></div>`;
       }
 
-      return html;
+      const tech=unit.tech||seriesData||{};
+      const s=norm(series);
+      const fichaBranch=String(unit.rama||branch||'');
+      const fichaVehicle=['103','104','120','121'].includes(s)
+        ? String(unit.vehiculoBase||vehicle||'')
+        : (s==='730'?String(unit.numero||vehicle||''):String(unit.vehiculoBase||vehicle||''));
+      const fichaSubserie=s==='453'
+        ? (String(unit.numeroCoches||'').startsWith('8 coches')||String(unit.subserie||'').includes('453.6')?'453.6 · TL200 · 8 coches':'453.0 · TL100 · 4 coches')
+        : (s==='446'?String(unit.subserie||'').replace(/\s*·\s*(Primer lote|Segundo lote|Tercer lote)\s*$/i,''):String(unit.subserie||''));
+      const escList=a=>Array.isArray(a)?a.filter(Boolean).map(x=>esc(x)).join(' · '):esc(a||'—');
+
+      const identification=`
+        <div class="ficha-section">
+          <div class="ficha-section-title">IDENTIFICACIÓN</div>
+          <div class="ficha-grid">
+            <div><span>Serie</span><strong>${esc(series)}</strong></div>
+            <div><span>Vehículo</span><strong>${esc(fichaVehicle||'—')}</strong></div>
+            <div><span>Rama</span><strong>${esc(fichaBranch||'—')}</strong></div>
+            ${['446','463','464'].includes(s)?`<div><span>Lote</span><strong>${esc(unit.lote||'—')}</strong></div>`:''}
+            <div><span>Número completo</span><strong>${esc(unit.numero||'—')}</strong></div>
+            <div><span>Fabricante</span><strong>${esc(unit.fabricante||tech.fabricante||'—')}</strong></div>
+            <div><span>Número de coches</span><strong>${esc(unit.numeroCoches||tech.numeroCoches||'—')}</strong></div>
+            <div><span>Año</span><strong>${esc(unit.ano||'—')}</strong></div>
+            <div><span>Depósito / base</span><strong>${esc(unit.deposito||'—')}</strong></div>
+            ${unit.color?`<div><span>Color</span><strong>${esc(unit.color)}</strong></div>`:''}
+            ${unit.estado?`<div><span>Estado</span><strong>${esc(unit.estado)}</strong></div>`:''}
+            ${unit.fechaAlta?`<div><span>Fecha de alta</span><strong>${esc(unit.fechaAlta)}</strong></div>`:''}
+            ${unit.ancho||tech.anchoVia?`<div><span>Ancho de vía</span><strong>${esc(unit.ancho||tech.anchoVia)}${unit.ancho?' mm':''}</strong></div>`:''}
+            ${fichaSubserie?`<div><span>Subserie</span><strong>${esc(fichaSubserie)}</strong></div>`:''}
+            ${(unit.modelo||tech.modelo||seriesData?.modelo)?`<div><span>Modelo</span><strong>${esc(unit.modelo||tech.modelo||seriesData.modelo)}</strong></div>`:''}
+            ${(unit.tipoMaterial||tech.tipoMaterial||seriesData?.tipoMaterial)?`<div><span>Tipo de material</span><strong>${esc(unit.tipoMaterial||tech.tipoMaterial||seriesData.tipoMaterial)}</strong></div>`:''}
+            ${unit.red?`<div><span>Red</span><strong>${esc(unit.red)}</strong></div>`:''}
+            ${unit.vehiculosRama?.length?`<div><span>Vehículos de la rama</span><strong>${escList(unit.vehiculosRama)}</strong></div>`:''}
+            ${unit.composicionRama?`<div><span>Composición de la rama</span><strong>${esc(unit.composicionRama)}</strong></div>`:''}
+            ${unit.procedencia?`<div><span>Procedencia</span><strong>${esc(unit.procedencia)}</strong></div>`:''}
+            ${unit.transformadaA?`<div><span>Transformación</span><strong>${esc(unit.transformadaA)}</strong></div>`:''}
+            ${unit.estadoActual?`<div><span>Situación actual</span><strong>${esc(unit.estadoActual)}</strong></div>`:''}
+            ${tech.velocidadMaxima?`<div><span>Velocidad máxima</span><strong>${esc(tech.velocidadMaxima)}</strong></div>`:''}
+            ${tech.potencia?`<div><span>Potencia</span><strong>${esc(tech.potencia)}</strong></div>`:''}
+            ${tech.plazasSentadas?`<div><span>Plazas sentadas</span><strong>${esc(tech.plazasSentadas)}</strong></div>`:''}
+            ${tech.longitud?`<div><span>Longitud</span><strong>${esc(tech.longitud)}</strong></div>`:''}
+            ${tech.peso?`<div><span>Peso</span><strong>${esc(tech.peso)}</strong></div>`:''}
+            ${tech.tension?`<div><span>Tensión</span><strong>${esc(tech.tension)}</strong></div>`:''}
+            ${tech.traccion?`<div><span>Tracción</span><strong>${esc(tech.traccion)}</strong></div>`:''}
+            ${tech.señalizacion?`<div><span>Señalización</span><strong>${esc(tech.señalizacion)}</strong></div>`:''}
+            ${tech.frenos?`<div><span>Frenos</span><strong>${esc(tech.frenos)}</strong></div>`:''}
+            ${tech.mandoMultiple?`<div><span>Mando múltiple</span><strong>${esc(tech.mandoMultiple)}</strong></div>`:''}
+            ${tech.enganche?`<div><span>Enganche</span><strong>${esc(tech.enganche)}</strong></div>`:''}
+            ${tech.tipoBogies?`<div><span>Tipo de bogies</span><strong>${esc(tech.tipoBogies)}</strong></div>`:''}
+            ${tech.rodaje?`<div><span>Rodaje</span><strong>${esc(tech.rodaje)}</strong></div>`:''}
+          </div>
+        </div>`;
+
+      const notes=Array.isArray(unit.notas)?unit.notas.flat(Infinity).filter(Boolean):[];
+      const highlights=`
+        <div class="ficha-section">
+          <div class="ficha-section-title">DATOS DESTACADOS DE LA RAMA</div>
+          ${notes.length
+            ? `<div class="ficha-notes">${notes.map(n=>`<div class="ficha-note">${esc(n)}</div>`).join('')}</div>`
+            : `<div class="ficha-empty-inline">No hay acontecimientos destacados registrados para esta rama.</div>`}
+        </div>`;
+
+      const general=Array.isArray(unit.generalNotes)?unit.generalNotes.flat(Infinity).filter(Boolean)
+        :(Array.isArray(seriesData?.generalNotes)?seriesData.generalNotes.flat(Infinity).filter(Boolean):[]);
+      const generalBlock=general.length?`
+        <div class="ficha-section ficha-general-section">
+          <div class="ficha-section-title">INFORMACIÓN GENERAL DE LA SERIE ${esc(series)}</div>
+          <div class="ficha-general-grid">${general.map((n,i)=>`<div class="ficha-general-item"><span class="ficha-general-number">${String(i+1).padStart(2,'0')}</span><div>${esc(n)}</div></div>`).join('')}</div>
+        </div>`:'';
+
+      const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>Serie ${esc(series)}${fichaSubserie?` · ${esc(fichaSubserie)}`:''} · Rama ${esc(fichaBranch)}${unit.lote?` · ${esc(unit.lote)}`:''}</h3><p>Vehículo ${esc(fichaVehicle||'—')} · ${esc(unit.numero||'—')}</p></div>`;
+      return `${hero}${identification}${highlights}${generalBlock}`;
     }
 
     function consultV74(ev){
@@ -7513,7 +7569,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
       const effectiveVehicle=resolved.vehicle||vehicle||'';
       const effectiveBranch=resolved.branch||branch||'';
-      const html=buildFicha(series,effectiveVehicle,effectiveBranch);
+      const html=buildFicha(series,effectiveVehicle,effectiveBranch,resolved.unit);
 
       if(title)title.textContent='Serie '+series+' · Rama '+effectiveBranch;
       if(sub)sub.textContent=effectiveVehicle
@@ -7541,12 +7597,8 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       result.scrollIntoView({behavior:'smooth',block:'start'});
       statusMsg('Consulta realizada correctamente.','success');
 
-      /* No conservamos valores de una consulta anterior. */
-      seriesInput.value='';
-      vehicleInput.value='';
-      branchInput.value='';
-      branchBox.classList.remove('located');
-      if(branchValue)branchValue.textContent='Nueva consulta';
+      /* Conservamos la consulta visible para que la rama localizada siga a la vista.
+         "Nueva consulta" es quien limpia los campos cuando el usuario lo decide. */
     }
 
     search.addEventListener('click',consultV74,true);
