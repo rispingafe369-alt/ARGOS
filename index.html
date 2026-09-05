@@ -6881,16 +6881,76 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const list=$('historyList');
     if(!list)return;
     const all=readServices();
-    const source=Array.isArray(window.__argosHistoryFilterServices)?window.__argosHistoryFilterServices:all;
-    const dateTime=service=>{
-      const raw=text(service?.date??service?.fecha);
-      if(!raw)return -Infinity;
-      const iso=raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-      if(iso)return new Date(Number(iso[1]),Number(iso[2])-1,Number(iso[3])).getTime();
-      const d=new Date(raw);
-      return Number.isNaN(d.getTime())?-Infinity:d.getTime();
+
+    const filterYear=$("historyYear")?.value||"all";
+    const filterMonth=$("historyMonth")?.value||"all";
+    const filterProduct=$("historyProduct")?.value||"all";
+    const filterSeries=$("historySeries")?.value||"all";
+
+    const fieldValue=(service,names)=>{
+      for(const name of names){
+        const value=service?.[name];
+        if(value!==undefined&&value!==null&&String(value).trim()!=="")return String(value).trim();
+      }
+      return "";
     };
-    const items=source.slice().sort((a,b)=>dateTime(b)-dateTime(a));
+    const serviceDate=service=>{
+      const raw=fieldValue(service,["date","fecha","day","dia"]);
+      if(!raw)return null;
+      const iso=raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if(iso){
+        const d=new Date(Number(iso[1]),Number(iso[2])-1,Number(iso[3]));
+        return Number.isNaN(d.getTime())?null:d;
+      }
+      let d=new Date(raw);
+      if(Number.isNaN(d.getTime())){
+        const m=raw.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/);
+        if(m)d=new Date(Number(m[3]),Number(m[2])-1,Number(m[1]));
+      }
+      return Number.isNaN(d.getTime())?null:d;
+    };
+
+    const years=[...new Set(all.map(serviceDate).filter(Boolean).map(d=>d.getFullYear()))].sort((a,b)=>b-a);
+    const products=[...new Set(all.map(s=>fieldValue(s,["product","producto","serviceType","tipoProducto"])).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"es"));
+    const series=[...new Set(all.map(s=>fieldValue(s,["series","serie","trainSeries"])).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"es"));
+
+    const yearSelect=$("historyYear"),productSelect=$("historyProduct"),seriesSelect=$("historySeries");
+    if(yearSelect){
+      const current=yearSelect.value;
+      yearSelect.innerHTML='<option value="all">Todos</option>'+years.map(v=>'<option value="'+v+'">'+v+'</option>').join("");
+      if(years.includes(Number(current)))yearSelect.value=current;
+    }
+    if(productSelect){
+      const current=productSelect.value;
+      productSelect.innerHTML='<option value="all">Todos</option>'+products.map(v=>'<option value="'+esc(v)+'">'+esc(v)+'</option>').join("");
+      if(products.includes(current))productSelect.value=current;
+    }
+    if(seriesSelect){
+      const current=seriesSelect.value;
+      seriesSelect.innerHTML='<option value="all">Todas</option>'+series.map(v=>'<option value="'+esc(v)+'">'+esc(v)+'</option>').join("");
+      if(series.includes(current))seriesSelect.value=current;
+    }
+
+    const filtered=all.filter(service=>{
+      const d=serviceDate(service);
+      if(filterYear!=="all"&&(!d||String(d.getFullYear())!==filterYear))return false;
+      if(filterMonth!=="all"&&(!d||String(d.getMonth())!==filterMonth))return false;
+      if(filterProduct!=="all"&&fieldValue(service,["product","producto","serviceType","tipoProducto"])!==filterProduct)return false;
+      if(filterSeries!=="all"&&fieldValue(service,["series","serie","trainSeries"])!==filterSeries)return false;
+      return true;
+    });
+
+    const badge=$("historyFilterBadge");
+    if(badge){
+      const active=[filterYear,filterMonth,filterProduct,filterSeries].filter(v=>v!=="all").length;
+      badge.textContent=String(active);
+      badge.style.display=active?"inline-flex":"none";
+    }
+
+    const items=filtered.slice().sort((a,b)=>{
+      const da=serviceDate(a),db=serviceDate(b);
+      return (db?db.getTime():-Infinity)-(da?da.getTime():-Infinity);
+    });
     if(!items.length){
       list.innerHTML='<div class="empty">Todavía no hay servicios registrados.</div>';
       return;
@@ -6966,50 +7026,32 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     window.__argosHistoryEditDeleteV73=true;
     window.argosRenderHistoryEditDeleteV73=render;
     window.renderHistory=render;
+
+    const toggle=$("historyFilterToggle"),box=$("historyFilters");
+    if(toggle&&box){
+      toggle.addEventListener("click",()=>{
+        const opening=box.classList.contains("collapsed");
+        box.classList.toggle("collapsed",!opening);
+        toggle.classList.toggle("open",opening);
+        toggle.setAttribute("aria-expanded",String(opening));
+      });
+    }
+    ["historyYear","historyMonth","historyProduct","historySeries"].forEach(id=>{
+      $(id)?.addEventListener("change",render);
+    });
+    $("historyReset")?.addEventListener("click",()=>{
+      ["historyYear","historyMonth","historyProduct","historySeries"].forEach(id=>{
+        if($(id))$(id).value="all";
+      });
+      render();
+    });
+
     render();
   }
 
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
   else install();
   window.addEventListener('load',install,{once:true});
-})();
-</script>
-
-<!-- ARGOS · FILTROS DEL HISTORIAL -->
-<script id="argos-history-filters-v1">
-(function(){
-  'use strict';
-  const $=id=>document.getElementById(id);
-  const SERVICES_KEY='argos_services';
-  const field=(s,names)=>{for(const n of names){if(s&&s[n]!==undefined&&s[n]!==null&&String(s[n]).trim()!=='')return String(s[n]).trim();}return '';};
-  const dateOf=s=>{const raw=field(s,['date','fecha','day','dia']);if(!raw)return null;let d=new Date(raw);if(Number.isNaN(d.getTime())){const m=raw.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/);if(m)d=new Date(Number(m[3]),Number(m[2])-1,Number(m[1]));}return Number.isNaN(d.getTime())?null:d;};
-  const services=()=>{try{const a=JSON.parse(localStorage.getItem(SERVICES_KEY)||'[]');return Array.isArray(a)?a:[];}catch(e){return [];}};
-  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  function fillOptions(all){
-    const y=$('historyYear'),p=$('historyProduct'),s=$('historySeries');if(!y||!p||!s)return;
-    const oy=y.value,op=p.value,os=s.value;
-    const ys=[...new Set(all.map(dateOf).filter(Boolean).map(d=>d.getFullYear()))].sort((a,b)=>b-a);
-    y.innerHTML='<option value="all">Todos</option>'+ys.map(v=>'<option value="'+v+'">'+v+'</option>').join('');if(ys.includes(Number(oy)))y.value=oy;
-    const ps=[...new Set(all.map(x=>field(x,['product','producto','serviceType','tipoProducto'])).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));
-    p.innerHTML='<option value="all">Todos</option>'+ps.map(v=>'<option value="'+esc(v)+'">'+esc(v)+'</option>').join('');if(ps.includes(op))p.value=op;
-    const ss=[...new Set(all.map(x=>field(x,['series','serie','trainSeries'])).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));
-    s.innerHTML='<option value="all">Todas</option>'+ss.map(v=>'<option value="'+esc(v)+'">'+esc(v)+'</option>').join('');if(ss.includes(os))s.value=os;
-  }
-  function filtered(all){
-    const y=$('historyYear')?.value||'all',m=$('historyMonth')?.value||'all',p=$('historyProduct')?.value||'all',se=$('historySeries')?.value||'all';
-    return all.filter(x=>{const d=dateOf(x);return !(y!=='all'&&(!d||String(d.getFullYear())!==y)||m!=='all'&&(!d||String(d.getMonth())!==m)||p!=='all'&&field(x,['product','producto','serviceType','tipoProducto'])!==p||se!=='all'&&field(x,['series','serie','trainSeries'])!==se);}).sort((a,b)=>(dateOf(b)?.getTime()??-Infinity)-(dateOf(a)?.getTime()??-Infinity));
-  }
-  function badge(){let n=0;['historyYear','historyMonth','historyProduct','historySeries'].forEach(id=>{if(($(id)?.value||'all')!=='all')n++;});const b=$('historyFilterBadge');if(b){b.textContent=n;b.style.display=n?'inline-flex':'none';}}
-  function render(){const list=$('historyList');if(!list)return;const all=services();fillOptions(all);window.__argosHistoryFilterServices=filtered(all);badge();if(typeof window.argosRenderHistoryEditDeleteV73==='function')window.argosRenderHistoryEditDeleteV73();}
-  function install(){
-    if(window.__argosHistoryFiltersV1)return;window.__argosHistoryFiltersV1=true;
-    const toggle=$('historyFilterToggle'),box=$('historyFilters');
-    toggle?.addEventListener('click',()=>{const open=!box.classList.contains('collapsed');box.classList.toggle('collapsed',open);toggle.classList.toggle('open',!open);toggle.setAttribute('aria-expanded',String(!open));});
-    ['historyYear','historyMonth','historyProduct','historySeries'].forEach(id=>$(id)?.addEventListener('change',render));
-    $('historyReset')?.addEventListener('click',()=>{['historyYear','historyMonth','historyProduct','historySeries'].forEach(id=>{if($(id))$(id).value='all';});render();});
-    window.addEventListener('storage',render);render();
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
 })();
 </script>
 
