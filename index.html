@@ -1081,6 +1081,8 @@ body.dark .argosdex-status.error{background:#321d22;color:#ffb9b9;border-color:r
 
 <style id="argos-stats-v10-addon">
 .stats-filters-wrap{margin-bottom:12px}
+.history-filters-wrap{margin-bottom:12px}
+.history-filters-wrap .history-filters{margin-top:8px}
 .stats-filter-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:17px;padding:13px 15px;font-weight:900;box-shadow:var(--shadow);cursor:pointer}
 .stats-filter-toggle .left{display:flex;align-items:center;gap:9px}.stats-filter-toggle .ico{width:30px;height:30px;border-radius:10px;background:var(--soft);display:grid;place-items:center;color:var(--renfe)}.stats-filter-toggle .badge{min-width:20px;height:20px;padding:0 6px;border-radius:99px;background:var(--renfe);color:#fff;font-size:10px;display:none;align-items:center;justify-content:center}.stats-filter-toggle .chev{font-size:18px;color:var(--muted);transition:.2s}.stats-filter-toggle.open .chev{transform:rotate(180deg)}
 .stats-filters.collapsed{display:none}
@@ -1709,6 +1711,19 @@ button:focus:not(:focus-visible),
 
 <section id="history" class="screen">
   <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">REGISTROS</div><h2>Historial</h2></div></div>
+  <div class="history-filters-wrap">
+    <button id="historyFilterToggle" class="stats-filter-toggle history-filter-toggle" type="button" aria-expanded="false">
+      <span class="left"><span class="ico">☷</span><span>Filtros</span><span id="historyFilterBadge" class="badge">0</span></span>
+      <span class="chev">⌄</span>
+    </button>
+    <div id="historyFilters" class="stats-filters history-filters collapsed">
+      <div class="stats-filter"><label for="historyYear">Año</label><select id="historyYear"><option value="all">Todos</option></select></div>
+      <div class="stats-filter"><label for="historyMonth">Mes</label><select id="historyMonth"><option value="all">Todos</option><option value="0">Enero</option><option value="1">Febrero</option><option value="2">Marzo</option><option value="3">Abril</option><option value="4">Mayo</option><option value="5">Junio</option><option value="6">Julio</option><option value="7">Agosto</option><option value="8">Septiembre</option><option value="9">Octubre</option><option value="10">Noviembre</option><option value="11">Diciembre</option></select></div>
+      <div class="stats-filter"><label for="historyProduct">Producto</label><select id="historyProduct"><option value="all">Todos</option></select></div>
+      <div class="stats-filter"><label for="historySeries">Serie</label><select id="historySeries"><option value="all">Todas</option></select></div>
+      <button id="historyReset" class="stats-reset" type="button">↻ Restablecer</button>
+    </div>
+  </div>
   <div id="historyList" class="history-list"></div>
 </section>
 
@@ -6866,7 +6881,16 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const list=$('historyList');
     if(!list)return;
     const all=readServices();
-    const items=all.slice().reverse();
+    const source=Array.isArray(window.__argosHistoryFilterServices)?window.__argosHistoryFilterServices:all;
+    const dateTime=service=>{
+      const raw=text(service?.date??service?.fecha);
+      if(!raw)return -Infinity;
+      const iso=raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if(iso)return new Date(Number(iso[1]),Number(iso[2])-1,Number(iso[3])).getTime();
+      const d=new Date(raw);
+      return Number.isNaN(d.getTime())?-Infinity:d.getTime();
+    };
+    const items=source.slice().sort((a,b)=>dateTime(b)-dateTime(a));
     if(!items.length){
       list.innerHTML='<div class="empty">Todavía no hay servicios registrados.</div>';
       return;
@@ -6948,6 +6972,44 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
   else install();
   window.addEventListener('load',install,{once:true});
+})();
+</script>
+
+<!-- ARGOS · FILTROS DEL HISTORIAL -->
+<script id="argos-history-filters-v1">
+(function(){
+  'use strict';
+  const $=id=>document.getElementById(id);
+  const SERVICES_KEY='argos_services';
+  const field=(s,names)=>{for(const n of names){if(s&&s[n]!==undefined&&s[n]!==null&&String(s[n]).trim()!=='')return String(s[n]).trim();}return '';};
+  const dateOf=s=>{const raw=field(s,['date','fecha','day','dia']);if(!raw)return null;let d=new Date(raw);if(Number.isNaN(d.getTime())){const m=raw.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/);if(m)d=new Date(Number(m[3]),Number(m[2])-1,Number(m[1]));}return Number.isNaN(d.getTime())?null:d;};
+  const services=()=>{try{const a=JSON.parse(localStorage.getItem(SERVICES_KEY)||'[]');return Array.isArray(a)?a:[];}catch(e){return [];}};
+  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function fillOptions(all){
+    const y=$('historyYear'),p=$('historyProduct'),s=$('historySeries');if(!y||!p||!s)return;
+    const oy=y.value,op=p.value,os=s.value;
+    const ys=[...new Set(all.map(dateOf).filter(Boolean).map(d=>d.getFullYear()))].sort((a,b)=>b-a);
+    y.innerHTML='<option value="all">Todos</option>'+ys.map(v=>'<option value="'+v+'">'+v+'</option>').join('');if(ys.includes(Number(oy)))y.value=oy;
+    const ps=[...new Set(all.map(x=>field(x,['product','producto','serviceType','tipoProducto'])).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));
+    p.innerHTML='<option value="all">Todos</option>'+ps.map(v=>'<option value="'+esc(v)+'">'+esc(v)+'</option>').join('');if(ps.includes(op))p.value=op;
+    const ss=[...new Set(all.map(x=>field(x,['series','serie','trainSeries'])).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));
+    s.innerHTML='<option value="all">Todas</option>'+ss.map(v=>'<option value="'+esc(v)+'">'+esc(v)+'</option>').join('');if(ss.includes(os))s.value=os;
+  }
+  function filtered(all){
+    const y=$('historyYear')?.value||'all',m=$('historyMonth')?.value||'all',p=$('historyProduct')?.value||'all',se=$('historySeries')?.value||'all';
+    return all.filter(x=>{const d=dateOf(x);return !(y!=='all'&&(!d||String(d.getFullYear())!==y)||m!=='all'&&(!d||String(d.getMonth())!==m)||p!=='all'&&field(x,['product','producto','serviceType','tipoProducto'])!==p||se!=='all'&&field(x,['series','serie','trainSeries'])!==se);}).sort((a,b)=>(dateOf(b)?.getTime()??-Infinity)-(dateOf(a)?.getTime()??-Infinity));
+  }
+  function badge(){let n=0;['historyYear','historyMonth','historyProduct','historySeries'].forEach(id=>{if(($(id)?.value||'all')!=='all')n++;});const b=$('historyFilterBadge');if(b){b.textContent=n;b.style.display=n?'inline-flex':'none';}}
+  function render(){const list=$('historyList');if(!list)return;const all=services();fillOptions(all);window.__argosHistoryFilterServices=filtered(all);badge();if(typeof window.argosRenderHistoryEditDeleteV73==='function')window.argosRenderHistoryEditDeleteV73();}
+  function install(){
+    if(window.__argosHistoryFiltersV1)return;window.__argosHistoryFiltersV1=true;
+    const toggle=$('historyFilterToggle'),box=$('historyFilters');
+    toggle?.addEventListener('click',()=>{const open=!box.classList.contains('collapsed');box.classList.toggle('collapsed',open);toggle.classList.toggle('open',!open);toggle.setAttribute('aria-expanded',String(!open));});
+    ['historyYear','historyMonth','historyProduct','historySeries'].forEach(id=>$(id)?.addEventListener('change',render));
+    $('historyReset')?.addEventListener('click',()=>{['historyYear','historyMonth','historyProduct','historySeries'].forEach(id=>{if($(id))$(id).value='all';});render();});
+    window.addEventListener('storage',render);render();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
 })();
 </script>
 
