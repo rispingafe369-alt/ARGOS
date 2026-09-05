@@ -7450,41 +7450,42 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     }
 
     function buildFicha(series,vehicle,branch){
-      /* Primero usamos el mismo motor visual de ficha de ARGOS. */
-      const content=document.getElementById('fichaContent');
-      const oldSeries=document.getElementById('series');
-      const oldVehicle=document.getElementById('vehicle');
-      if(!content||!oldSeries||!oldVehicle)return '';
+      /*
+       * No simulamos la pantalla Registrar servicio ni hacemos clicks sobre
+       * sus controles. Eso podía dejar ArgoDex bloqueado porque varios
+       * listeners de la ficha trabajan sobre el formulario de registro.
+       *
+       * Utilizamos directamente el motor final de ficha de material que ya
+       * existe en ARGOS, capturamos su HTML y lo devolvemos a ArgoDex.
+       * No se crea ni se modifica ningún servicio.
+       */
+      const modalContent=document.getElementById('modalContent');
+      if(!modalContent)return '';
 
-      const prevSeries=oldSeries.value;
-      const prevVehicle=oldVehicle.value;
-      const prevScreen=document.querySelector('.app-shell > .screen.active')?.id||'argosdex';
+      const previousHtml=modalContent.innerHTML;
       let html='';
 
       try{
-        oldSeries.value=series;
-        oldVehicle.value=vehicle;
-        const resolved=resolve(series,vehicle,branch);
-        if(resolved?.vehicle)oldVehicle.value=resolved.vehicle;
-        oldSeries.dispatchEvent(new Event('input',{bubbles:true}));
-        oldVehicle.dispatchEvent(new Event('input',{bubbles:true}));
-
-        /* Llamada directa al motor de ficha; no se crea ni guarda servicio. */
-        if(typeof window.openFicha==='function'){
-          window.openFicha(series,oldVehicle.value,null);
-          html=String(content.innerHTML||'').trim();
+        if(typeof window.argosMostrarFichaMaterial==='function'){
+          window.argosMostrarFichaMaterial({
+            series:String(series||''),
+            vehicle:String(vehicle||''),
+            branch:String(branch||''),
+            data:(typeof ARGOS_MATERIAL_DATA!=='undefined'&&ARGOS_MATERIAL_DATA)
+              ? ARGOS_MATERIAL_DATA[String(series||'')]
+              : null
+          });
+          html=String(modalContent.innerHTML||'').trim();
         }
       }catch(e){
         console.warn('ARGOS V74 · construcción de ficha ArgosDex:',e);
       }finally{
-        oldSeries.value=prevSeries;
-        oldVehicle.value=prevVehicle;
         try{
-          oldSeries.dispatchEvent(new Event('input',{bubbles:true}));
-          oldVehicle.dispatchEvent(new Event('input',{bubbles:true}));
+          if(typeof window.closeModal==='function')window.closeModal();
         }catch(e){}
-        if(typeof window.showScreen==='function')window.showScreen(prevScreen);
+        modalContent.innerHTML=previousHtml;
       }
+
       return html;
     }
 
