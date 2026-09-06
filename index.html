@@ -5549,6 +5549,84 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();
 </script>
+
+<!-- ARGOS 4.0 · ESTADÍSTICAS · CORRECCIÓN FINAL DE RANKINGS -->
+<style id="argos-stats-v40-rankings-final">
+  #vehicleRanking .rank-main{display:flex;align-items:center;gap:7px;min-width:0;}
+  #vehicleRanking .rank-name{display:inline;flex:0 1 auto;min-width:0;}
+  #vehicleRanking .vehicle-rank-series{display:inline;flex:0 1 auto;margin:0;color:var(--muted);font-size:10px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  #vehicleRanking .rank-bar{flex:1 1 100%;min-width:24px;margin-top:0;}
+  @media(max-width:600px){#vehicleRanking .rank-main{gap:5px;}#vehicleRanking .vehicle-rank-series{font-size:9px;}}
+</style>
+<script id="argos-stats-v40-rankings-final-engine">
+(function(){
+  'use strict';
+  function txt(v){return String(v??'').trim();}
+  function val(o,names){for(const k of names){if(o&&o[k]!==undefined&&o[k]!==null&&o[k]!=='')return o[k];}return '';}
+  function field(s,t){
+    const map={series:['series','serie','trainSeries'],vehicle:['vehicle','vehiculo','vehicleNumber','numeroVehiculo'],branch:['branch','rama'],product:['product','producto','serviceType','tipoProducto'],train:['train','tren','number','numero'],origin:['origin','origen'],destination:['destination','destino']};
+    const value=txt(val(s,map[t]||[]));
+    return t==='branch'&&typeof window.ARGOS_NORMALIZE_BRANCH==='function'?window.ARGOS_NORMALIZE_BRANCH(value):value;
+  }
+  function route(s){const a=field(s,'origin'),b=field(s,'destination');return a&&b?a+' → '+b:(a||b||'Ruta no indicada');}
+  function services(){try{const x=JSON.parse(localStorage.getItem('argos_services')||'[]');return Array.isArray(x)?x:[];}catch(e){return[];}}
+  function dateOf(s){const raw=txt(val(s,['date','fecha','day','dia']));if(!raw)return null;let d=new Date(raw);if(isNaN(d)){const m=raw.match(/^(\d{1,2})[\\/.\-](\d{1,2})[\\/.\-](\d{4})$/);if(m)d=new Date(+m[3],+m[2]-1,+m[1]);}return isNaN(d)?null:d;}
+  function filtered(){
+    const y=document.getElementById('statsYear')?.value||'all',m=document.getElementById('statsMonth')?.value||'all',p=document.getElementById('statsProduct')?.value||'all',se=document.getElementById('statsSeries')?.value||'all';
+    return services().filter(s=>{const d=dateOf(s);return !(y!=='all'&&(!d||String(d.getFullYear())!==y)||m!=='all'&&(!d||String(d.getMonth())!==m)||p!=='all'&&field(s,'product')!==p||se!=='all'&&field(s,'series')!==se);});
+  }
+  function esc(x){return String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+  function countData(a,type){
+    const map=new Map();
+    a.forEach(s=>{const k=type==='route'?route(s):field(s,type);if(k)map.set(k,(map.get(k)||0)+1);});
+    return [...map.entries()].filter(x=>x[1]>=2).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'es')).slice(0,7);
+  }
+  function renderList(id,data,empty){
+    const e=document.getElementById(id);if(!e)return;
+    if(!data.length){e.innerHTML='<div class="ficha-empty-inline">'+esc(empty)+'</div>';return;}
+    const max=data[0][1];
+    e.innerHTML=data.map((x,i)=>'<div class="ranking-row"><span class="rank-number">'+(i+1)+'</span><div class="rank-main"><span class="rank-name">'+esc(x[0])+'</span><div class="rank-bar"><i style="width:'+Math.max(6,Math.round(x[1]/max*100))+'%"></i></div></div><span class="rank-value">'+x[1]+'</span></div>').join('');
+  }
+  function renderVehicles(a){
+    const e=document.getElementById('vehicleRanking');if(!e)return;
+    const map=new Map();
+    a.forEach(s=>{const v=field(s,'vehicle');if(!v)return;if(!map.has(v))map.set(v,{count:0,series:new Set()});const item=map.get(v);item.count++;const se=field(s,'series');if(se)item.series.add(se);});
+    const data=[...map.entries()].map(([vehicle,x])=>({vehicle,count:x.count,series:[...x.series].sort((a,b)=>a.localeCompare(b,'es'))})).filter(x=>x.count>=2).sort((a,b)=>b.count-a.count||a.vehicle.localeCompare(b.vehicle,'es')).slice(0,7);
+    if(!data.length){e.innerHTML='<div class="ficha-empty-inline">No hay vehículos registrados 2 o más veces</div>';return;}
+    const max=data[0].count;
+    e.innerHTML=data.map((x,i)=>{const label=x.series.length===1?'Serie '+x.series[0]:x.series.length>1?'Series '+x.series.join(' · '):'Serie no indicada';return '<div class="ranking-row"><span class="rank-number">'+(i+1)+'</span><div class="rank-main"><span class="rank-name">'+esc(x.vehicle)+'</span><span class="vehicle-rank-series">· '+esc(label)+'</span><div class="rank-bar"><i style="width:'+Math.max(6,Math.round(x.count/max*100))+'%"></i></div></div><span class="rank-value">'+x.count+'</span></div>';}).join('');
+  }
+  function incidentData(a){
+    const map=new Map();
+    a.forEach(s=>{
+      const raw=val(s,['incidents','incidencias','incident','incidencia','incidentsEntries','incidenciasEntries']);
+      const list=Array.isArray(raw)?raw:typeof raw==='string'?raw.split(/[,;\n]+/):[];
+      list.map(x=>txt(x)).filter(Boolean).forEach(x=>map.set(x,(map.get(x)||0)+1));
+    });
+    return [...map.entries()].filter(x=>x[1]>=2).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'es')).slice(0,7);
+  }
+  function render(){
+    const a=filtered();
+    renderList('seriesRanking',countData(a,'series'),'No hay series registradas 2 o más veces');
+    renderList('branchRanking',countData(a,'branch'),'No hay ramas registradas 2 o más veces');
+    renderList('productRanking',countData(a,'product'),'No hay productos registrados 2 o más veces');
+    renderList('routeRanking',countData(a,'route'),'No hay rutas registradas 2 o más veces');
+    renderVehicles(a);
+    renderList('incidentRanking',incidentData(a),'No hay incidencias registradas 2 o más veces');
+  }
+  function boot(){
+    render();
+    ['statsYear','statsMonth','statsProduct','statsSeries'].forEach(id=>document.getElementById(id)?.addEventListener('change',()=>setTimeout(render,20)));
+    window.addEventListener('storage',()=>setTimeout(render,20));
+    const oldShow=window.showScreen;
+    if(typeof oldShow==='function'&&!oldShow.__argosV40FinalRankings){
+      const wrapped=function(id){const r=oldShow.apply(this,arguments);if(id==='stats')setTimeout(render,40);return r;};
+      wrapped.__argosV40FinalRankings=true;window.showScreen=wrapped;
+    }
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+</script>
 </body>
 </html>
 <!-- ================================================================
