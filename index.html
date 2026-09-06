@@ -9853,7 +9853,10 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
   function renderBranchCards(items){
     const unique=uniqueUnits(items).sort((a,b)=>branchSort(a.branch,b.branch));
-    return unique.map(item=>`<div class="library-group-branch">Rama ${esc(item.branch)}</div>`).join('');
+    return unique.map(item=>{
+      const branch=window.ARGOS_NORMALIZE_BRANCH(item.branch)||clean(item.branch);
+      return `<div class="library-group-branch">Rama ${esc(branch)}</div>`;
+    }).join('');
   }
 
   function renderGroup(label,items,subGetter){
@@ -9994,17 +9997,103 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 </script>
 
 <!-- ================================================================
-     ARGOS 4.7 · AJUSTE VISUAL VENTANA BIBLIOTECA
-     Baja ligeramente la ventana de ramas para que quede más equilibrada
-     visualmente y no tan pegada a la parte superior.
+     ARGOS 4.7 · NORMALIZACIÓN FINAL DE RAMAS
+     Regla única: nunca mostrar ni introducir ceros a la izquierda.
+     Ejemplos: 001 -> 1 · 006 -> 6 · 022 -> 22.
+     No modifica la numeración interna de vehículos ni códigos de estación.
      ================================================================ -->
-<style id="argos-library-v47-window-position">
-  .library-branches-window{
-    transform:translateY(36px);
+<script id="argos-branch-leading-zero-final-v47">
+(function(){
+  'use strict';
+
+  const normalizeBranch=value=>{
+    const digits=String(value??'').replace(/\D/g,'');
+    if(!digits)return '';
+    return String(parseInt(digits,10));
+  };
+
+  // Mantener disponible una única regla global para todas las funciones de ARGOS.
+  window.ARGOS_NORMALIZE_BRANCH=normalizeBranch;
+
+  function isBranchField(el){
+    if(!el || !('value' in el))return false;
+    const id=String(el.id||'').toLowerCase();
+    const name=String(el.name||'').toLowerCase();
+    const aria=String(el.getAttribute?.('aria-label')||'').toLowerCase();
+    const placeholder=String(el.getAttribute?.('placeholder')||'').toLowerCase();
+    const cls=String(el.className||'').toLowerCase();
+    return /(^|[-_])(?:branch|rama)([-_]|$)/.test(id)
+      || /(?:branch|rama)/.test(name)
+      || /(?:branch|rama)/.test(aria)
+      || /(?:branch|rama)/.test(placeholder)
+      || /(?:branch|rama)/.test(cls);
   }
-  @media(max-width:600px){
-    .library-branches-window{
-      transform:translateY(30px);
+
+  function normalizeField(el){
+    if(!isBranchField(el))return;
+    const next=normalizeBranch(el.value);
+    if(String(el.value)!==next){
+      el.value=next;
+      try{el.dispatchEvent(new Event('input',{bubbles:true}));}catch(e){}
     }
   }
-</style>
+
+  // Al escribir o pegar una rama: 001 -> 1 inmediatamente.
+  document.addEventListener('input',function(ev){
+    normalizeField(ev.target);
+  },true);
+
+  document.addEventListener('change',function(ev){
+    normalizeField(ev.target);
+  },true);
+
+  // Antes de cualquier envío, dejamos la rama en formato canónico.
+  document.addEventListener('submit',function(ev){
+    const form=ev.target;
+    if(!form?.querySelectorAll)return;
+    form.querySelectorAll('input,textarea,select').forEach(normalizeField);
+  },true);
+
+  function normalizeDisplayedText(root){
+    if(!root)return;
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+    const nodes=[];
+    let node;
+    while((node=walker.nextNode()))nodes.push(node);
+    nodes.forEach(textNode=>{
+      const old=String(textNode.nodeValue||'');
+      const next=old.replace(/(Rama\s+)0+(\d+)/gi,'$1$2');
+      if(next!==old)textNode.nodeValue=next;
+    });
+  }
+
+  // Normaliza también fichas, avisos, historial, ArgoDex y cualquier otro
+  // texto visible que reciba una rama con formato antiguo desde la base.
+  function sweep(){
+    try{normalizeDisplayedText(document.body);}catch(e){}
+    document.querySelectorAll('input,textarea,select').forEach(normalizeField);
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',sweep,{once:true});
+  }else{
+    sweep();
+  }
+
+  const observer=new MutationObserver(mutations=>{
+    for(const m of mutations){
+      if(m.type==='childList' || m.type==='characterData'){
+        sweep();
+        break;
+      }
+    }
+  });
+
+  function startObserver(){
+    if(document.body)observer.observe(document.body,{subtree:true,childList:true,characterData:true});
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',startObserver,{once:true});
+  else startObserver();
+})();
+</script>
