@@ -1544,17 +1544,20 @@ button:focus:not(:focus-visible),
 
 <!-- ARGOS · VERSIÓN PÚBLICA Y REGISTRO DE ACTUALIZACIONES -->
 <script id="argos-app-version-config">
-  window.ARGOS_APP_VERSION = "3.8";
-  window.ARGOS_UPDATE_TITLE = "ARGOS 3.8";
+  window.ARGOS_APP_VERSION = "3.9";
+  window.ARGOS_UPDATE_TITLE = "ARGOS 3.9";
   window.ARGOS_UPDATE_ITEMS = [
-    "Nuevo apartado Actualizaciones para consultar la versión y las últimas funciones implementadas.",
-    "Historial con filtros por año, mes, producto y serie, y ordenado por fecha de servicio.",
-    "Historial con presentación tipo billete de tren, con origen y destino más claros.",
-    "ArgosDex mejorado para consultar material y visualizar la ficha completa con desplazamiento vertical.",
-    "Correcciones de funcionamiento y estabilidad manteniendo intactas las funciones existentes."
+    "Mejorada la indexación de ramas y simplificación de los números de rama."
   ];
 </script>
 
+<script id="argos-branch-number-normalizer-v39">
+  window.ARGOS_NORMALIZE_BRANCH = function(value){
+    const digits=String(value??'').replace(/\D/g,'');
+    if(!digits)return '';
+    return String(parseInt(digits,10));
+  };
+</script>
 
 <style id="argos-updates-style">
 .argos-updates-wrap{width:min(900px,100%);margin:0 auto;display:grid;gap:18px;}
@@ -2641,7 +2644,7 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
       const units=data?.units||{};
       for(const [key,unit] of Object.entries(units)){
         if(String(unit?.rama??'').replace(/\D/g,'')===b){
-          return {branch:String(unit.rama),vehicle:String(unit.vehiculoBase||key),record:unit};
+          return {branch:window.ARGOS_NORMALIZE_BRANCH(unit.rama),vehicle:String(unit.vehiculoBase||key),record:unit};
         }
       }
     }catch(e){
@@ -2662,7 +2665,7 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
     if(manualBranch){
       const direct=findBranchDirect(series,manualBranch);
       if(direct){
-        locatedBranch=direct.branch;
+        locatedBranch=window.ARGOS_NORMALIZE_BRANCH(direct.branch);
         locatedVehicle='';
         locatedBy='branch';
         branchBox.classList.add('located');
@@ -2698,13 +2701,13 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
     const found=readBranchFromExistingArgos(series,vehicle);
 
     if(found.found){
-      locatedBranch=found.branch;
+      locatedBranch=window.ARGOS_NORMALIZE_BRANCH(found.branch);
       locatedVehicle=vehicle;
       locatedBy='vehicle';
       branchBox.classList.add('located');
       branchBox.classList.remove('invalid');
       branchInput.classList.add('located');
-      branchInput.value=digits(found.branch).slice(0,3);
+      branchInput.value=window.ARGOS_NORMALIZE_BRANCH(found.branch);
       branchValue.textContent='Rama '+found.branch+' localizada';
       searchButton.disabled=false;
       hideStatus();
@@ -2875,7 +2878,7 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
 })();
 </script>
 
-<script id="argos-stats-engine">(function(){const $=id=>document.getElementById(id);const names={months:["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"],days:["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"]};function services(){try{const x=JSON.parse(localStorage.getItem("argos_services")||"[]");return Array.isArray(x)?x:[]}catch(e){return[]}}function val(o,n){for(const k of n)if(o&&o[k]!==undefined&&o[k]!==null&&o[k]!=="")return o[k];return""}function txt(v){return String(v??"").trim()}function num(v){if(typeof v==="number"&&isFinite(v))return v;const x=parseFloat(String(v??"").replace(/[^0-9,.-]/g,"").replace(",","."));return isFinite(x)?x:0}function dateOf(s){const d=txt(val(s,["date","fecha","day","dia"]));if(!d)return null;let x=new Date(d);if(isNaN(x)){const m=d.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/);if(m)x=new Date(+m[3],+m[2]-1,+m[1])}return isNaN(x)?null:x}function field(s,t){const map={series:["series","serie","trainSeries"],product:["product","producto","serviceType","tipoProducto"],train:["train","tren","number","numero"],vehicle:["vehicle","vehiculo","vehicleNumber","numeroVehiculo"],branch:["branch","rama"],origin:["origin","origen"],destination:["destination","destino"]};return txt(val(s,map[t]||[]))}function route(s){const a=field(s,"origin"),b=field(s,"destination");return a&&b?a+" → "+b:(a||b||"Ruta no indicada")}function km(s){return num(val(s,["km","kms","kilometres","kilometers","kilometros","kilómetros","distance","distancia"]))}function incidents(s){const a=val(s,["incidentsEntries","incidenciasEntries"]);if(Array.isArray(a))return a.length;const r=val(s,["incidents","incidencias","incident","incidencia"]);return typeof r==="string"&&r.trim()?r.split(/[,;\n]+/).filter(x=>x.trim()).length:0}function incidentNames(s){const r=val(s,["incidents","incidencias","incident","incidencia"]);return typeof r==="string"?r.split(/[,;\n]+/).map(x=>x.trim()).filter(Boolean):[]}function filtered(all){const y=$("statsYear").value,m=$("statsMonth").value,p=$("statsProduct").value,se=$("statsSeries").value;return all.filter(s=>{const d=dateOf(s);return !(y!=="all"&&(!d||String(d.getFullYear())!==y)||m!=="all"&&(!d||String(d.getMonth())!==m)||p!=="all"&&field(s,"product")!==p||se!=="all"&&field(s,"series")!==se)})}function counts(a,t){const m=new Map();a.forEach(s=>{const k=t==="route"?route(s):field(s,t);if(k)m.set(k,(m.get(k)||0)+1)});return[...m.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],"es"))}function ranking(id,data,empty){const e=$(id);if(!e)return;if(!data.length){e.innerHTML='<div class="ficha-empty-inline">'+empty+"</div>";return}const max=data[0][1];e.innerHTML=data.slice(0,7).map((x,i)=>'<div class="ranking-row"><span class="rank-number">'+(i+1)+'</span><div class="rank-main"><span class="rank-name">'+esc(x[0])+'</span><div class="rank-bar"><i style="width:'+Math.max(6,Math.round(x[1]/max*100))+'%"></i></div></div><span class="rank-value">'+x[1]+"</span></div>").join("")}function esc(x){return String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}function options(all){const y=$("statsYear"),old=y.value,ys=[...new Set(all.map(dateOf).filter(Boolean).map(d=>d.getFullYear()))].sort((a,b)=>b-a);y.innerHTML='<option value="all">Todos</option>'+ys.map(x=>'<option value="'+x+'">'+x+"</option>").join("");if(ys.includes(+old))y.value=old;[["statsProduct","product","Todos"],["statsSeries","series","Todas"]].forEach(([id,t,z])=>{const e=$(id),o=e.value,vs=[...new Set(all.map(s=>field(s,t)).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"es"));e.innerHTML='<option value="all">'+z+"</option>"+vs.map(x=>'<option value="'+esc(x)+'">'+esc(x)+"</option>").join("");if(vs.includes(o))e.value=o})}function monthly(a){
+<script id="argos-stats-engine">(function(){const $=id=>document.getElementById(id);const names={months:["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"],days:["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"]};function services(){try{const x=JSON.parse(localStorage.getItem("argos_services")||"[]");return Array.isArray(x)?x:[]}catch(e){return[]}}function val(o,n){for(const k of n)if(o&&o[k]!==undefined&&o[k]!==null&&o[k]!=="")return o[k];return""}function txt(v){return String(v??"").trim()}function num(v){if(typeof v==="number"&&isFinite(v))return v;const x=parseFloat(String(v??"").replace(/[^0-9,.-]/g,"").replace(",","."));return isFinite(x)?x:0}function dateOf(s){const d=txt(val(s,["date","fecha","day","dia"]));if(!d)return null;let x=new Date(d);if(isNaN(x)){const m=d.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/);if(m)x=new Date(+m[3],+m[2]-1,+m[1])}return isNaN(x)?null:x}function field(s,t){const map={series:["series","serie","trainSeries"],product:["product","producto","serviceType","tipoProducto"],train:["train","tren","number","numero"],vehicle:["vehicle","vehiculo","vehicleNumber","numeroVehiculo"],branch:["branch","rama"],origin:["origin","origen"],destination:["destination","destino"]};const value=txt(val(s,map[t]||[]));return t==="branch"?window.ARGOS_NORMALIZE_BRANCH(value):value}function route(s){const a=field(s,"origin"),b=field(s,"destination");return a&&b?a+" → "+b:(a||b||"Ruta no indicada")}function km(s){return num(val(s,["km","kms","kilometres","kilometers","kilometros","kilómetros","distance","distancia"]))}function incidents(s){const a=val(s,["incidentsEntries","incidenciasEntries"]);if(Array.isArray(a))return a.length;const r=val(s,["incidents","incidencias","incident","incidencia"]);return typeof r==="string"&&r.trim()?r.split(/[,;\n]+/).filter(x=>x.trim()).length:0}function incidentNames(s){const r=val(s,["incidents","incidencias","incident","incidencia"]);return typeof r==="string"?r.split(/[,;\n]+/).map(x=>x.trim()).filter(Boolean):[]}function filtered(all){const y=$("statsYear").value,m=$("statsMonth").value,p=$("statsProduct").value,se=$("statsSeries").value;return all.filter(s=>{const d=dateOf(s);return !(y!=="all"&&(!d||String(d.getFullYear())!==y)||m!=="all"&&(!d||String(d.getMonth())!==m)||p!=="all"&&field(s,"product")!==p||se!=="all"&&field(s,"series")!==se)})}function counts(a,t){const m=new Map();a.forEach(s=>{const k=t==="route"?route(s):field(s,t);if(k)m.set(k,(m.get(k)||0)+1)});return[...m.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],"es"))}function ranking(id,data,empty){const e=$(id);if(!e)return;if(!data.length){e.innerHTML='<div class="ficha-empty-inline">'+empty+"</div>";return}const max=data[0][1];e.innerHTML=data.slice(0,7).map((x,i)=>'<div class="ranking-row"><span class="rank-number">'+(i+1)+'</span><div class="rank-main"><span class="rank-name">'+esc(x[0])+'</span><div class="rank-bar"><i style="width:'+Math.max(6,Math.round(x[1]/max*100))+'%"></i></div></div><span class="rank-value">'+x[1]+"</span></div>").join("")}function esc(x){return String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}function options(all){const y=$("statsYear"),old=y.value,ys=[...new Set(all.map(dateOf).filter(Boolean).map(d=>d.getFullYear()))].sort((a,b)=>b-a);y.innerHTML='<option value="all">Todos</option>'+ys.map(x=>'<option value="'+x+'">'+x+"</option>").join("");if(ys.includes(+old))y.value=old;[["statsProduct","product","Todos"],["statsSeries","series","Todas"]].forEach(([id,t,z])=>{const e=$(id),o=e.value,vs=[...new Set(all.map(s=>field(s,t)).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"es"));e.innerHTML='<option value="all">'+z+"</option>"+vs.map(x=>'<option value="'+esc(x)+'">'+esc(x)+"</option>").join("");if(vs.includes(o))e.value=o})}function monthly(a){
   const yearEl=document.getElementById("statsYear");
   const y=yearEl&&yearEl.value!=="all"?+yearEl.value:(a.map(dateOf).filter(Boolean).length?Math.max(...a.map(dateOf).filter(Boolean).map(d=>d.getFullYear())):new Date().getFullYear());
   const quarter=Math.floor(new Date().getMonth()/3);
@@ -2932,7 +2935,7 @@ function weekdays(a){const c=Array(7).fill(0);a.forEach(s=>{const d=dateOf(s);if
 
     function setBranchManualUI(){
       const b=digits(branch.value).slice(0,3);
-      branch.value=b;
+      branch.value=window.ARGOS_NORMALIZE_BRANCH(b);
       manual=!!b;
       vehicle.required=!manual;
       if(manual){
@@ -2956,7 +2959,7 @@ function weekdays(a){const c=Array(7).fill(0);a.forEach(s=>{const d=dateOf(s);if
         const units=data?.units||{};
         for(const [key,unit] of Object.entries(units)){
           if(digits(unit?.rama)===b){
-            return {branch:String(unit.rama),vehicle:String(unit.vehiculoBase||key)};
+            return {branch:window.ARGOS_NORMALIZE_BRANCH(unit.rama),vehicle:String(unit.vehiculoBase||key)};
           }
         }
       }catch(e){}
@@ -2974,7 +2977,7 @@ function weekdays(a){const c=Array(7).fill(0);a.forEach(s=>{const d=dateOf(s);if
         if(typeof getFleetUnit==='function')unit=getFleetUnit(s,v);
       }catch(e){}
       if(unit){
-        branch.value=String(unit.rama);
+        branch.value=window.ARGOS_NORMALIZE_BRANCH(unit.rama);
         branch.classList.remove('manual');
         if(box)box.classList.add('visible');
         if(hint)hint.textContent='Rama detectada automáticamente · puedes modificarla manualmente.';
@@ -3035,7 +3038,7 @@ function weekdays(a){const c=Array(7).fill(0);a.forEach(s=>{const d=dateOf(s);if
 
       const train=document.getElementById('train')?.value.trim()||'';
       const s=series.value.trim();
-      const b=digits(branch.value).slice(0,3);
+      const b=window.ARGOS_NORMALIZE_BRANCH(branch.value);
       const product=document.getElementById('product')?.value||'';
       const origin=document.getElementById('origin')?.value.trim()||'';
       const destination=document.getElementById('destination')?.value.trim()||'';
@@ -3190,7 +3193,7 @@ function weekdays(a){const c=Array(7).fill(0);a.forEach(s=>{const d=dateOf(s);if
       content.innerHTML=`
         <div class="ficha-hero">
           <div class="ficha-kicker">REGISTRO ARGOS</div>
-          <h3>Serie ${esc(series)} · Rama ${esc(service.branch||'—')}</h3>
+          <h3>Serie ${esc(series)} · Rama ${esc(window.ARGOS_NORMALIZE_BRANCH(service.branch)||'—')}</h3>
           <p>Ficha consultada desde el historial</p>
         </div>
         <div class="ficha-section">
@@ -4307,7 +4310,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
           const unit=byBranch[1];
           return {
             vehicle:txt(unit?.vehiculoBase)||txt(byBranch[0]),
-            branch:txt(unit?.rama)||branch,
+            branch:window.ARGOS_NORMALIZE_BRANCH(unit?.rama)||window.ARGOS_NORMALIZE_BRANCH(branch),
             unit
           };
         }
@@ -4320,7 +4323,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
           if(unit){
             return {
               vehicle:txt(unit?.vehiculoBase)||vehicle,
-              branch:txt(unit?.rama),
+              branch:window.ARGOS_NORMALIZE_BRANCH(unit?.rama),
               unit
             };
           }
@@ -4332,7 +4335,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
           const unit=byKey[1];
           return {
             vehicle:txt(unit?.vehiculoBase)||txt(byKey[0])||vehicle,
-            branch:txt(unit?.rama),
+            branch:window.ARGOS_NORMALIZE_BRANCH(unit?.rama),
             unit
           };
         }
@@ -4342,7 +4345,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
           const unit=byBase[1];
           return {
             vehicle:txt(unit?.vehiculoBase)||vehicle,
-            branch:txt(unit?.rama),
+            branch:window.ARGOS_NORMALIZE_BRANCH(unit?.rama),
             unit
           };
         }
@@ -5518,7 +5521,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       const units=fleet[seriesNorm(series)]?.units||{};
       const b=digits(branch);
       for(const [key,unit] of Object.entries(units)){
-        if(digits(unit?.rama)===b)return {vehicle:String(unit?.vehiculoBase||key||''),branch:String(unit?.rama||branch)};
+        if(digits(unit?.rama)===b)return {vehicle:String(unit?.vehiculoBase||key||''),branch:window.ARGOS_NORMALIZE_BRANCH(unit?.rama||branch)};
       }
     }catch(e){console.warn('ARGOS V22 · rama:',e)}
     return null;
@@ -5536,7 +5539,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
         const keyDigits=digits(key);
         const searchCodes=Array.isArray(unit?.searchCodes)?unit.searchCodes.map(digits):[];
         if((base&&base===v)||(keyDigits&&keyDigits===v)||searchCodes.includes(v)){
-          return {vehicle:String(unit?.vehiculoBase||key||vehicle),branch:String(unit?.rama||'')};
+          return {vehicle:String(unit?.vehiculoBase||key||vehicle),branch:window.ARGOS_NORMALIZE_BRANCH(unit?.rama)};
         }
       }
     }catch(e){console.warn('ARGOS V23 · vehículo:',e)}
@@ -5592,7 +5595,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       this.value=digits(this.value).slice(0,3);
       if(this.value){
         const found=findUnitByVehicle(secondSeries.value,this.value);
-        if(found?.branch)secondBranch.value=found.branch;
+        if(found?.branch)secondBranch.value=window.ARGOS_NORMALIZE_BRANCH(found.branch);
         else secondBranch.value='';
       }else{
         secondBranch.value='';
@@ -5602,7 +5605,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       this.value=digits(this.value).slice(0,3);
       if(secondVehicle.value){
         const found=findUnitByVehicle(this.value,secondVehicle.value);
-        if(found?.branch)secondBranch.value=found.branch;
+        if(found?.branch)secondBranch.value=window.ARGOS_NORMALIZE_BRANCH(found.branch);
         else secondBranch.value='';
       }
     });
@@ -5617,7 +5620,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     if(!on)return null;
     const series=byId('doubleSeries')?.value.trim()||'';
     let vehicle=byId('doubleVehicle')?.value.trim()||'';
-    const branch=digits(byId('doubleBranch')?.value||'').slice(0,3);
+    const branch=window.ARGOS_NORMALIZE_BRANCH(byId('doubleBranch')?.value||'');
     if(!series)return {error:'Introduce la serie de la segunda composición'};
     if(!vehicle&&!branch)return {error:'Introduce el vehículo o la rama de la segunda composición'};
     if(branch&&!vehicle){
@@ -5645,7 +5648,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       const noTrain=!!byId('noTrainNumber')?.checked;
       const series=byId('series')?.value.trim()||'';
       const vehicle=byId('vehicle')?.value.trim()||'';
-      const branch=digits(byId('branchValue')?.value||'').slice(0,3);
+      const branch=window.ARGOS_NORMALIZE_BRANCH(byId('branchValue')?.value||'');
       const product=byId('product')?.value||'';
       const origin=byId('origin')?.value.trim()||'';
       const destination=byId('destination')?.value.trim()||'';
@@ -5813,8 +5816,9 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       : (service.branch||'');
     const found=findUnit(series,vehicle,branch);
     if(!branch && found?.unit?.rama)branch=found.unit.rama;
+     branch=window.ARGOS_NORMALIZE_BRANCH(branch);
     if(!vehicle && found?.unit?.vehiculoBase)vehicle=found.unit.vehiculoBase;
-    return {series:String(series||'').trim(),vehicle:String(vehicle||'').trim(),branch:String(branch||'').trim(),found};
+    return {series:String(series||'').trim(),vehicle:String(vehicle||'').trim(),branch:window.ARGOS_NORMALIZE_BRANCH(branch),found};
   }
 
   function serviceCompositions(service){
@@ -7026,7 +7030,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       train:text(service?.train??service?.tren??service?.number??service?.numero),
       series:text(service?.series??service?.serie??service?.trainSeries),
       vehicle:text(service?.vehicle??service?.vehiculo??service?.vehicleNumber),
-      branch:text(service?.branch??service?.rama),
+      branch:window.ARGOS_NORMALIZE_BRANCH(service?.branch??service?.rama),
       product:text(service?.product??service?.producto??service?.serviceType),
       origin:text(service?.origin??service?.origen),
       destination:text(service?.destination??service?.destino),
@@ -7161,7 +7165,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
         train:text($('argosEditTrain').value),
         series:text($('argosEditSeries').value),
         vehicle:text($('argosEditVehicle').value),
-        branch:text($('argosEditBranch').value),
+        branch:window.ARGOS_NORMALIZE_BRANCH($('argosEditBranch').value),
         product:text($('argosEditProduct').value),
         origin:text($('argosEditOrigin').value),
         destination:text($('argosEditDestination').value),
@@ -7306,7 +7310,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       const train=text(service.train??service.tren??service.number??service.numero);
       const series=text(service.series??service.serie??service.trainSeries);
       const vehicle=text(service.vehicle??service.vehiculo??service.vehicleNumber);
-      const branch=text(service.branch??service.rama);
+      const branch=window.ARGOS_NORMALIZE_BRANCH(service.branch??service.rama);
       const product=text(service.product??service.producto??service.serviceType);
       const origin=text(service.origin??service.origen);
       const destination=text(service.destination??service.destino);
@@ -7461,7 +7465,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
           key:String(key),
           unit,
           vehicle:text(unit?.vehiculoBase)||String(key),
-          branch:text(unit?.rama)||b
+          branch:window.ARGOS_NORMALIZE_BRANCH(unit?.rama)||window.ARGOS_NORMALIZE_BRANCH(b)
         };
       }
     }
@@ -7485,7 +7489,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
           key:String(key),
           unit,
           vehicle:text(unit?.vehiculoBase)||String(key)||text(vehicle),
-          branch:text(unit?.rama)
+          branch:window.ARGOS_NORMALIZE_BRANCH(unit?.rama)
         };
       }
     }
@@ -7506,10 +7510,10 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
         try{
           if(typeof getFleetUnit==='function'){
             const unit=getFleetUnit(s,canonical);
-            if(unit) return {series:s,vehicle:canonical,branch:text(unit.rama)||byBranch.branch,unit};
+            if(unit) return {series:s,vehicle:canonical,branch:window.ARGOS_NORMALIZE_BRANCH(unit.rama)||window.ARGOS_NORMALIZE_BRANCH(byBranch.branch),unit};
           }
         }catch(e){ console.warn('ARGOS V74 · getFleetUnit por rama:',e); }
-        return {series:s,vehicle:canonical,branch:byBranch.branch,unit:byBranch.unit};
+        return {series:s,vehicle:canonical,branch:window.ARGOS_NORMALIZE_BRANCH(byBranch.branch),unit:byBranch.unit};
       }
     }
 
@@ -7522,7 +7526,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
             return {
               series:s,
               vehicle:text(unit.vehiculoBase)||v,
-              branch:text(unit.rama),
+              branch:window.ARGOS_NORMALIZE_BRANCH(unit.rama),
               unit
             };
           }
@@ -7594,6 +7598,10 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
     const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
+    branchInput.addEventListener('input',function(){
+      this.value=window.ARGOS_NORMALIZE_BRANCH(this.value);
+    });
+
     function statusMsg(message,type){
       if(!status)return;
       status.textContent=message;
@@ -7624,7 +7632,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
       const tech=unit.tech||seriesData||{};
       const s=norm(series);
-      const fichaBranch=String(unit.rama||branch||'');
+      const fichaBranch=window.ARGOS_NORMALIZE_BRANCH(unit.rama||branch||'');
       const fichaVehicle=['103','104','120','121'].includes(s)
         ? String(unit.vehiculoBase||vehicle||'')
         : (s==='730'?String(unit.numero||vehicle||''):String(unit.vehiculoBase||vehicle||''));
@@ -7701,7 +7709,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
       const series=digits(seriesInput.value).slice(0,3);
       const vehicle=digits(vehicleInput.value);
-      const branch=digits(branchInput.value).slice(0,3);
+      const branch=window.ARGOS_NORMALIZE_BRANCH(branchInput.value);
 
       if(!series){statusMsg('Introduce la serie.','error');return;}
       if(!vehicle&&!branch){statusMsg('Introduce un vehículo o una rama.','error');return;}
@@ -7715,11 +7723,11 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
       branchBox.classList.remove('invalid');
       branchBox.classList.add('located');
-      if(branchValue)branchValue.textContent='Rama '+(resolved.branch||branch||'—')+' localizada';
-      if(branchInput)branchInput.value=digits(resolved.branch||branch).slice(0,3);
+      if(branchValue)branchValue.textContent='Rama '+(window.ARGOS_NORMALIZE_BRANCH(resolved.branch||branch)||'—')+' localizada';
+      if(branchInput)branchInput.value=window.ARGOS_NORMALIZE_BRANCH(resolved.branch||branch);
 
       const effectiveVehicle=resolved.vehicle||vehicle||'';
-      const effectiveBranch=resolved.branch||branch||'';
+      const effectiveBranch=window.ARGOS_NORMALIZE_BRANCH(resolved.branch||branch);
       const html=buildFicha(series,effectiveVehicle,effectiveBranch,resolved.unit);
 
       if(title)title.textContent='Serie '+series+' · Rama '+effectiveBranch;
