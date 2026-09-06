@@ -1593,106 +1593,44 @@ button:focus:not(:focus-visible),
 
 <style id="argos-v50-main-menu-layout">
 /* ARGOS 5.0 · Menú principal móvil.
-   El menú lateral no se modifica aquí. El botón de Nuevo servicio conserva su formato destacado. */
+   El menú lateral no se modifica. Nuevo servicio conserva su formato destacado.
+   El resto de accesos se presenta en parejas, sin leyendas secundarias. */
 @media(max-width:600px){
-  .menu-screen{
-    overflow:hidden!important;
-  }
+  .menu-screen{overflow:hidden!important}
   .argos-home{
-    width:100%;
-    height:100%;
-    box-sizing:border-box;
-    padding:10px 12px 12px;
-    gap:9px;
-    overflow:hidden!important;
+    width:100%;height:100%;box-sizing:border-box;
+    padding:9px 12px 10px;gap:7px;overflow:hidden!important;
   }
-  .welcome-card{
-    padding:11px 15px;
-    border-radius:17px;
+  .welcome-card{padding:9px 13px;border-radius:16px}
+  .welcome-pill{font-size:10px;padding:2px 7px;margin-bottom:2px}
+  .welcome-card h1{font-size:22px;margin-bottom:1px}
+  .welcome-card p{font-size:12px;line-height:1.15}
+  .home-card.primary{
+    min-height:64px;height:64px;padding:8px 11px;border-radius:16px;
+    grid-column:1/-1;
   }
-  .welcome-pill{
-    font-size:10px;
-    padding:3px 8px;
-    margin-bottom:3px;
-  }
-  .welcome-card h1{
-    font-size:22px;
-    margin-bottom:2px;
-  }
-  .welcome-card p{
-    font-size:12px;
-    line-height:1.2;
-  }
+  .home-card.primary h2{font-size:18px}
+  .home-card.primary p{display:block!important;font-size:11px;line-height:1.1;margin-top:2px}
   .home-list{
-    flex:1 1 auto;
-    min-height:0;
-    display:grid;
+    flex:1 1 auto;min-height:0;display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
-    grid-auto-rows:minmax(0,1fr);
-    gap:8px;
-    overflow:hidden;
+    grid-template-rows:repeat(5,minmax(0,1fr));
+    gap:7px;overflow:hidden;
   }
   .home-card{
-    width:100%;
-    min-width:0;
-    min-height:0;
-    height:100%;
-    box-sizing:border-box;
-    padding:9px 10px;
-    border-radius:16px;
-    grid-template-columns:42px minmax(0,1fr);
-    column-gap:9px;
+    width:100%;height:100%;min-width:0;min-height:0;box-sizing:border-box;
+    padding:8px 8px;border-radius:15px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;gap:5px;
   }
-  .home-card.primary{
-    grid-column:1/-1;
-    min-height:66px;
-    height:auto;
-  }
-  .home-icon{
-    width:42px;
-    height:42px;
-    border-radius:13px;
-    font-size:22px;
-  }
-  .home-card h2{
-    font-size:18px;
-    line-height:1.05;
-    letter-spacing:-.015em;
-    font-weight:800;
-    overflow-wrap:anywhere;
-  }
-  .home-card p{
-    font-size:12px;
-  }
-  .home-card:not(.primary) p{
-    display:none!important;
-  }
-  .latest-service-value{
-    margin-top:2px;
-    font-size:10px;
-    line-height:1.1;
-  }
-  .last-time-card{
-    display:grid;
-    grid-template-columns:42px minmax(0,1fr);
-    gap:9px;
-    align-items:center;
-  }
-  .last-time-card > span:last-child{
-    min-width:0;
-  }
-  .last-time-card label{
-    display:none!important;
-  }
-  .last-time-select{
-    width:100%;
-    min-width:0;
-    min-height:28px;
-    margin-top:4px;
-    padding:0 5px;
-    border-radius:8px;
-    font-size:10px;
-  }
+  .home-icon{width:40px;height:40px;border-radius:12px;font-size:22px;flex:0 0 40px}
+  .home-card h2{font-size:18px!important;line-height:1.05;letter-spacing:-.015em;font-weight:800;overflow-wrap:anywhere}
+  .home-card p{display:none!important}
+  .latest-service-value{font-size:10px;line-height:1.05;margin-top:2px;max-width:100%}
+  .last-time-card{display:flex;align-items:center;justify-content:center;gap:5px}
+  .last-time-card>span:last-child{min-width:0;width:100%}
+  .last-time-card label{display:none!important}
+  .last-time-select{width:100%;min-width:0;min-height:24px;margin-top:3px;padding:0 3px;border-radius:7px;font-size:10px}
 }
 </style>
 </head>
@@ -1725,33 +1663,43 @@ button:focus:not(:focus-visible),
       </button>
 
       <button class="home-card" data-screen="history" type="button">
-        <span class="home-icon">☷</span>
-        <span><h2>Ver historial</h2></span>
+        <span class="home-icon">☷</span><span><h2>Historial</h2></span>
+      </button>
+      <button class="home-card" data-screen="stats" type="button">
+        <span class="home-icon">◔</span><span><h2>Estadísticas</h2></span>
       </button>
 
       <button class="home-card" data-screen="argosdex" type="button">
-        <span class="home-icon">⌕</span>
-        <span><h2>ArgosDex</h2></span>
+        <span class="home-icon">⌕</span><span><h2>ArgosDex</h2></span>
       </button>
-
       <button class="home-card" data-screen="history" type="button">
-        <span class="home-icon">↗</span>
-        <span><h2>Último servicio</h2><span id="latestService" class="latest-service-value">Aún no hay servicios registrados</span></span>
+        <span class="home-icon">↗</span><span><h2>Último servicio</h2><span id="latestService" class="latest-service-value">Aún no hay servicios registrados</span></span>
       </button>
 
       <div class="home-card last-time-card">
         <span class="home-icon">◷</span>
-        <span>
-          <h2>Última vez</h2>
+        <span><h2>Última vez</h2>
           <select id="lastTripSelect" class="last-time-select" aria-label="Seleccionar trayecto para Última vez">
             <option value="">Selecciona un trayecto</option>
           </select>
         </span>
       </div>
+      <button class="home-card" data-screen="progress" type="button">
+        <span class="home-icon">▮▮</span><span><h2>Progreso</h2></span>
+      </button>
 
-      <button class="home-card" data-screen="stats" type="button">
-        <span class="home-icon">◔</span>
-        <span><h2>Estadísticas</h2></span>
+      <button class="home-card" data-screen="quality" type="button">
+        <span class="home-icon">★</span><span><h2>Calidad</h2></span>
+      </button>
+      <button class="home-card" data-screen="library" type="button">
+        <span class="home-icon">▤</span><span><h2>Biblioteca</h2></span>
+      </button>
+
+      <button class="home-card" data-screen="notes" type="button">
+        <span class="home-icon">▥</span><span><h2>Bloc de Notas</h2></span>
+      </button>
+      <button class="home-card" data-screen="updates" type="button">
+        <span class="home-icon">⚙</span><span><h2>Actualizaciones</h2></span>
       </button>
     </div>
   </div>
