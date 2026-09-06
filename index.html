@@ -5854,6 +5854,224 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();
 </script>
+
+<script id="argos-ficha-incidencias-final-v45">
+(function(){
+  'use strict';
+
+  /*
+   * V45 · Corrección final de incidencias en ficha.
+   * - La ficha muestra TODAS las incidencias del servicio, no solo la última.
+   * - Las casillas de "solventada" permanecen ocultas en la ficha normal.
+   * - Solo se muestran al entrar en modo "Editar ficha".
+   * - Al marcar una incidencia como solventada, desaparece de la ficha.
+   * - Las anotaciones no se convierten en incidencias ni reciben casillas.
+   */
+
+  const $=id=>document.getElementById(id);
+
+  function esc(v){
+    return String(v??'').replace(/[&<>"']/g,c=>({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[c]));
+  }
+
+  function readServices(){
+    try{
+      const a=JSON.parse(localStorage.getItem('argos_services')||'[]');
+      return Array.isArray(a)?a:[];
+    }catch(e){return[]}
+  }
+
+  function currentService(service){
+    if(!service)return null;
+    const id=String(service.id||'');
+    if(!id)return service;
+    return readServices().find(s=>String(s?.id||'')===id)||service;
+  }
+
+  function incidentEntries(service){
+    const out=[];
+    const seen=new Set();
+
+    if(Array.isArray(service?.incidentsEntries)){
+      service.incidentsEntries.forEach(x=>{
+        const obj=x&&typeof x==='object'?x:{text:x,solved:false};
+        const t=String(obj.text??obj.value??'').trim();
+        if(!t)return;
+        const key=t+'|'+(obj.solved===true?'1':'0');
+        if(seen.has(key))return;
+        seen.add(key);
+        out.push({text:t,solved:obj.solved===true});
+      });
+    }
+
+    const legacy=String(service?.incidents??'').trim();
+    if(legacy){
+      legacy.split(/\n+/).map(x=>x.trim()).filter(Boolean).forEach(t=>{
+        if(!out.some(x=>x.text===t)){
+          out.push({text:t,solved:false});
+        }
+      });
+    }
+    return out;
+  }
+
+  function persistIncidents(serviceId,entries){
+    const all=readServices();
+    const idx=all.findIndex(s=>String(s?.id||'')===String(serviceId||''));
+    if(idx<0)return false;
+
+    all[idx]={
+      ...all[idx],
+      incidents:entries.map(x=>x.text).filter(Boolean).join('\n'),
+      incidentsEntries:entries
+    };
+
+    try{
+      if(typeof saveServices==='function')saveServices(all);
+      else localStorage.setItem('argos_services',JSON.stringify(all));
+      return true;
+    }catch(e){
+      console.warn('ARGOS V45 · guardar ficha:',e);
+      return false;
+    }
+  }
+
+  function isEditMode(content){
+    const ficha=$('ficha');
+    if(!ficha)return false;
+    if(ficha.dataset.argosFichaEditing==='1')return true;
+
+    /*
+     * Compatibilidad con distintas implementaciones del botón inferior.
+     * Solo dentro de la ficha buscamos un control cuyo texto sea "Editar ficha".
+     */
+    const buttons=[...ficha.querySelectorAll('button,a,[role="button"]')];
+    return buttons.some(b=>/editar\s+ficha/i.test((b.textContent||'').trim()) && b.classList.contains('active'));
+  }
+
+  function removeOldIncidentBlocks(content){
+    content.querySelectorAll('.argos-v64-entries-section').forEach(section=>{
+      const title=(section.querySelector('.argos-v64-entries-title')?.textContent||'').trim();
+      if(/^INCIDENCIAS$/i.test(title))section.remove();
+    });
+
+    /* Algunas versiones antiguas usan clases genéricas para el bloque de incidencias. */
+    content.querySelectorAll('[data-argos-ficha-incidents],.ficha-incidents').forEach(el=>el.remove());
+  }
+
+  function render(service){
+    const content=$('fichaContent');
+    if(!content||!service?.id)return;
+
+    const fresh=currentService(service)||service;
+    const incidents=incidentEntries(fresh);
+    removeOldIncidentBlocks(content);
+
+    const old=$('argosV45FichaIncidents');
+    if(old)old.remove();
+    if(!incidents.length)return;
+
+    const editing=$('ficha')?.dataset.argosFichaEditing==='1';
+
+    const host=document.createElement('div');
+    host.id='argosV45FichaIncidents';
+    host.className='ficha-section argos-v45-ficha-incidents';
+    host.innerHTML=`
+      <div class="ficha-section-title">INCIDENCIAS</div>
+      <div class="argos-v45-ficha-incident-list">
+        ${incidents.map((item,index)=>`
+          <div class="argos-v45-ficha-incident ${item.solved?'is-solved':''}" data-incident-index="${index}">
+            <div class="argos-v45-ficha-incident-text">${esc(item.text)}</div>
+            ${editing?`
+              <label class="argos-v45-ficha-solved">
+                <input type="checkbox" data-v45-solved="${index}" ${item.solved?'checked':''}>
+                <span>Incidencia solventada</span>
+              </label>`:''}
+          </div>`).join('')}
+      </div>`;
+
+    const general=content.querySelector('.ficha-general-section');
+    if(general)content.insertBefore(host,general);
+    else content.appendChild(host);
+
+    host.querySelectorAll('[data-v45-solved]').forEach(input=>{
+      input.addEventListener('change',()=>{
+        if(!input.checked)return;
+        const index=Number(input.dataset.v45Solved);
+        const freshNow=currentService(service)||service;
+        const entries=incidentEntries(freshNow);
+        if(!entries[index])return;
+        entries[index].solved=true;
+
+        if(persistIncidents(service.id,entries)){
+          const row=input.closest('.argos-v45-ficha-incident');
+          if(row)row.remove();
+          if(!host.querySelector('.argos-v45-ficha-incident')){
+            host.remove();
+          }
+        }
+      });
+    });
+  }
+
+  function hookEditControls(){
+    const ficha=$('ficha');
+    if(!ficha||ficha.dataset.argosV45EditHook==='1')return;
+    ficha.dataset.argosV45EditHook='1';
+
+    ficha.addEventListener('click',ev=>{
+      const control=ev.target.closest('button,a,[role="button"]');
+      if(!control)return;
+      const label=(control.textContent||'').replace(/\s+/g,' ').trim();
+      if(/editar\s+ficha/i.test(label)){
+        ficha.dataset.argosFichaEditing='1';
+        const service=window.__argosV45FichaService;
+        if(service)setTimeout(()=>render(service),40);
+      }
+    },true);
+  }
+
+  function installOpenFicha(){
+    if(typeof window.openFicha!=='function')return;
+    if(window.__argosV45FichaWrapperInstalled)return;
+    window.__argosV45FichaWrapperInstalled=true;
+
+    const original=window.openFicha;
+    window.openFicha=function(series,vehicle,service=null){
+      window.__argosV45FichaService=service||null;
+      const ficha=$('ficha');
+      if(ficha)ficha.dataset.argosFichaEditing='0';
+
+      original(series,vehicle,service);
+
+      if(service){
+        setTimeout(()=>{
+          hookEditControls();
+          render(service);
+        },0);
+        setTimeout(()=>{
+          hookEditControls();
+          render(service);
+        },120);
+      }
+    };
+  }
+
+  function boot(){
+    hookEditControls();
+    installOpenFicha();
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',boot,{once:true});
+  }else boot();
+
+  window.addEventListener('load',boot,{once:true});
+})();
+</script>
+
 </body>
 </html>
 <!-- ================================================================
