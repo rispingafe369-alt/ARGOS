@@ -1547,7 +1547,7 @@ button:focus:not(:focus-visible),
   window.ARGOS_APP_VERSION = "4.3";
   window.ARGOS_UPDATE_TITLE = "ARGOS 4.3";
   window.ARGOS_UPDATE_ITEMS = [
-    "Mejorada la gestión de incidencias en ramas repetidas: ARGOS muestra las incidencias de la vez anterior y las nuevas incidencias registradas ahora por separado, permite marcar las anteriores como solventadas y muestra las anotaciones con opción de editarlas."
+    "Mejorada la gestión de incidencias en ramas repetidas: ARGOS muestra por separado las incidencias anteriores y las nuevas, permite marcar las anteriores como solventadas y muestra las anotaciones propias del tren con opción de editarlas."
   ];
 </script>
 
@@ -6356,7 +6356,6 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     overlay.className='argos-branch-visit-overlay';
 
     const isNew=items.some(x=>x.isNew);
-    const repeatedItems=items.filter(x=>!x.isNew);
     const title=isNew?'¡Primera vez con esta rama!':'Rama repetida';
     const intro=isNew
       ? 'Has registrado por primera vez esta rama en ARGOS.'
@@ -6367,7 +6366,6 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       const previousService=previous[previous.length-1]||null;
       const previousIncidents=incidentsOf(previousService);
       const currentIncidents=incidentsOf(x.service);
-      const previousNotes=notesOf(previousService);
       const currentNotes=notesOf(x.service);
 
       if(x.isNew){
@@ -6380,8 +6378,8 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
               ${currentIncidents.map(i=>`<div class="argos-branch-incident-current">${esc(i.text)}</div>`).join('')}
             </div>`:''}
           ${currentNotes.length?`
-            <div class="argos-branch-note-section">
-              <div class="argos-branch-note-title">Anotaciones de ahora</div>
+            <div class="argos-branch-notes-block">
+              <div class="argos-branch-notes-heading">Anotaciones del tren</div>
               ${currentNotes.map(n=>`<div class="argos-branch-note">${esc(n)}</div>`).join('')}
               <button type="button" class="argos-branch-annotation-edit" data-edit-service="${esc(x.service?.id||'')}">Editar anotaciones</button>
             </div>`:''}
@@ -6392,39 +6390,29 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
         <strong>Serie ${esc(x.series)} · Rama ${esc(x.branch)}</strong>
         <span>Última vez que la viste: ${esc(dateLabel(previousService))}</span>
 
-        <div class="argos-branch-history-block">
-          <div class="argos-branch-history-heading">Incidencias de la vez anterior</div>
-          ${previousIncidents.length
-            ? previousIncidents.map((inc,i)=>`
+        ${previousIncidents.length?`
+          <div class="argos-branch-history-block">
+            <div class="argos-branch-history-heading">Incidencias de la vez anterior</div>
+            ${previousIncidents.map((inc,i)=>`
               <label class="argos-branch-incident-old">
                 <input type="checkbox" data-incident-service="${esc(previousService?.id||'')}" data-incident-index="${i}" ${inc.solved?'checked':''}>
                 <span>${esc(inc.text)}</span>
                 <small>${inc.solved?'Solventada':'Pendiente'}</small>
-              </label>`).join('')
-            : '<div class="argos-branch-no-items">No había incidencias registradas.</div>'}
-        </div>
+              </label>`).join('')}
+          </div>`:''}
 
-        <div class="argos-branch-current-block">
-          <div class="argos-branch-current-heading">Incidencias añadidas ahora</div>
-          ${currentIncidents.length
-            ? currentIncidents.map(inc=>`<div class="argos-branch-incident-current">${esc(inc.text)}</div>`).join('')
-            : '<div class="argos-branch-no-items">No has añadido incidencias nuevas.</div>'}
-        </div>
+        ${currentIncidents.length?`
+          <div class="argos-branch-current-block">
+            <div class="argos-branch-current-heading">Incidencias añadidas ahora</div>
+            ${currentIncidents.map(inc=>`<div class="argos-branch-incident-current">${esc(inc.text)}</div>`).join('')}
+          </div>`:''}
 
-        <div class="argos-branch-notes-block">
-          <div class="argos-branch-notes-heading">Anotaciones de la vez anterior</div>
-          ${previousNotes.length
-            ? previousNotes.map(n=>`<div class="argos-branch-note">${esc(n)}</div>`).join('')
-            : '<div class="argos-branch-no-items">No había anotaciones.</div>'}
-        </div>
-
-        <div class="argos-branch-notes-block">
-          <div class="argos-branch-notes-heading">Anotaciones añadidas ahora</div>
-          ${currentNotes.length
-            ? currentNotes.map(n=>`<div class="argos-branch-note">${esc(n)}</div>`).join('')
-            : '<div class="argos-branch-no-items">No has añadido anotaciones nuevas.</div>'}
-          <button type="button" class="argos-branch-annotation-edit" data-edit-service="${esc(x.service?.id||'')}">Editar anotaciones</button>
-        </div>
+        ${currentNotes.length?`
+          <div class="argos-branch-notes-block">
+            <div class="argos-branch-notes-heading">Anotaciones del tren</div>
+            ${currentNotes.map(n=>`<div class="argos-branch-note">${esc(n)}</div>`).join('')}
+            <button type="button" class="argos-branch-annotation-edit" data-edit-service="${esc(x.service?.id||'')}">Editar anotaciones</button>
+          </div>`:''}
       </div>`;
     }).join('');
 
