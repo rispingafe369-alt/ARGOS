@@ -332,87 +332,6 @@ body.dark .welcome-card{background:linear-gradient(135deg,#242126 0%,#30212b 100
 body.dark .last-time-select{background:var(--card);color:#fff}
 body.dark .drawer-backdrop{background:rgba(0,0,0,.58)}
 
-/* ===== MENÚ 5.0 · AJUSTE AUTOMÁTICO EN MÓVIL ===== */
-@media(max-width:600px){
-  .menu-screen{
-    height:100%!important;
-    min-height:0!important;
-    overflow:hidden!important;
-  }
-  .menu-screen .argos-home{
-    height:100%!important;
-    min-height:0!important;
-    box-sizing:border-box!important;
-    padding:10px 12px 12px!important;
-    gap:8px!important;
-    overflow:hidden!important;
-  }
-  .menu-screen .welcome-card{
-    flex:0 0 auto!important;
-    padding:12px 16px!important;
-    border-radius:18px!important;
-  }
-  .menu-screen .welcome-pill{
-    font-size:10px!important;
-    padding:3px 9px!important;
-    margin-bottom:4px!important;
-  }
-  .menu-screen .welcome-card h1{
-    font-size:22px!important;
-    line-height:1.05!important;
-    margin:0!important;
-  }
-  .menu-screen .welcome-card p{
-    display:none!important;
-  }
-  .menu-screen .home-list{
-    flex:1 1 0!important;
-    min-height:0!important;
-    gap:7px!important;
-    overflow:hidden!important;
-  }
-  .menu-screen .home-card{
-    flex:1 1 0!important;
-    min-height:0!important;
-    height:auto!important;
-    padding:7px 12px!important;
-    border-radius:16px!important;
-    grid-template-columns:42px 1fr!important;
-    column-gap:12px!important;
-  }
-  .menu-screen .home-icon{
-    width:42px!important;
-    height:42px!important;
-    border-radius:12px!important;
-    font-size:22px!important;
-  }
-  .menu-screen .home-card h2{
-    font-size:16px!important;
-    line-height:1.05!important;
-    margin:0!important;
-  }
-  .menu-screen .home-card p{
-    display:none!important;
-  }
-  .menu-screen .latest-service-value{
-    display:none!important;
-  }
-  .menu-screen .last-time-card{
-    display:flex!important;
-    gap:12px!important;
-  }
-  .menu-screen .last-time-card label{
-    display:none!important;
-  }
-  .menu-screen .last-time-select{
-    margin-top:4px!important;
-    min-height:28px!important;
-    height:28px!important;
-    font-size:11px!important;
-    padding:0 7px!important;
-  }
-}
-
 /* ===== AJUSTES ESCRITORIO ===== */
 @media(min-width:601px){
   .argos-home{
@@ -1628,10 +1547,10 @@ button:focus:not(:focus-visible),
   window.ARGOS_APP_VERSION = "5.0";
   window.ARGOS_UPDATE_TITLE = "ARGOS 5.0";
   window.ARGOS_UPDATE_ITEMS = [
-    "ARGOS 5.0: nuevo apartado Más funciones con acceso a Progreso, Calidad, Biblioteca y Bloc de Notas, manteniendo el diseño del menú principal y con ajuste automático para móvil.",
     "Biblioteca reorganizada: las series y las ramas se muestran ordenadas de forma ascendente para localizar el material más rápido.",
     "Serie 453 dividida por número de coches: las ramas aparecen separadas en sus grupos de 4 coches, 8 coches u otras composiciones detectadas.",
-    "Las series que tienen lotes o subseries ahora muestran las ramas divididas dentro de cada lote o subserie, en lugar de presentar todas las ramas juntas."
+    "Las series que tienen lotes o subseries ahora muestran las ramas divididas dentro de cada lote o subserie, en lugar de presentar todas las ramas juntas.",
+    "ARGOS 5.0: nuevo apartado Más funciones con Progreso, Calidad, Biblioteca y Bloc de Notas, integrado con el mismo lenguaje visual de ARGOS y adaptado para móvil y escritorio."
   ];
 </script>
 
@@ -1672,272 +1591,269 @@ button:focus:not(:focus-visible),
   .argos-update-notice-card{padding:22px 18px;border-radius:20px;}
 }
 </style>
-<style id="argos-5-responsive-menu-final">
+
+<style id="argos-v5-menu-responsive-final">
 /* ================================================================
    ARGOS 5.0 · MENÚ RESPONSIVE FINAL
-   - El mensaje de bienvenida se conserva en móvil.
-   - Las funciones principales mantienen el mismo peso visual.
-   - "Más funciones" pasa a ser un control de navegación discreto.
-   - Escritorio 100% recibe una composición amplia y equilibrada.
+   - Móvil: todo el menú principal entra en una sola pantalla.
+   - Más funciones mantiene exactamente la misma escala visual.
+   - Escritorio: composición amplia, limpia y equilibrada al 100%.
    ================================================================ */
 .more-functions-link{
   width:100%;
-  min-height:40px;
-  border:1px solid rgba(138,0,92,.18);
+  min-height:30px;
+  height:30px;
+  border:0;
   border-radius:999px;
   background:transparent;
   color:var(--renfe);
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:7px;
-  padding:7px 14px;
-  font-size:14px;
+  gap:6px;
+  padding:4px 10px;
+  font-size:12px;
   line-height:1;
   font-weight:800;
-  letter-spacing:.01em;
   box-shadow:none;
-  margin-top:1px;
+  opacity:.78;
 }
 .more-functions-link:active{transform:scale(.985)}
 .more-functions-arrow{
-  width:20px;
-  height:20px;
+  width:18px;
+  height:18px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
   border-radius:50%;
   background:var(--soft);
-  font-size:19px;
+  font-size:17px;
   line-height:1;
 }
 
-/* ---------------- MÓVIL ---------------- */
 @media(max-width:600px){
-  .app-shell{height:100dvh!important;min-height:100dvh!important;overflow:hidden!important;}
-  .app-header{flex:0 0 68px!important;height:68px!important;}
-  .brand-row{height:68px!important;}
-  .menu-screen{height:calc(100dvh - 68px)!important;min-height:calc(100dvh - 68px)!important;max-height:calc(100dvh - 68px)!important;}
+  .app-shell{height:100dvh!important;min-height:100dvh!important;overflow:hidden!important}
+  .app-header{flex:0 0 64px!important;height:64px!important;min-height:64px!important}
+  .brand-row{height:64px!important;min-height:64px!important}
+
+  .menu-screen{
+    height:calc(100dvh - 64px)!important;
+    min-height:0!important;
+    max-height:calc(100dvh - 64px)!important;
+    overflow:hidden!important;
+  }
+
   .menu-screen .argos-home{
     width:100%!important;
     height:100%!important;
     min-height:0!important;
+    padding:7px 10px 6px!important;
+    gap:6px!important;
     box-sizing:border-box!important;
-    padding:8px 12px 8px!important;
-    gap:6px!important;
     overflow:hidden!important;
   }
 
-  /* El saludo vuelve a formar parte del menú principal. */
-  #menu .welcome-card{
-    flex:0 0 auto!important;
-    padding:11px 14px!important;
-    border-radius:18px!important;
-  }
-  #menu .welcome-pill{
-    font-size:10px!important;
-    padding:3px 9px!important;
-    margin-bottom:4px!important;
-  }
-  #menu .welcome-card h1{
-    font-size:24px!important;
-    line-height:1.03!important;
-    margin:0 0 3px!important;
-    letter-spacing:-.025em!important;
-  }
-  #menu .welcome-card p{
-    display:block!important;
-    margin:0!important;
-    font-size:11.5px!important;
-    line-height:1.2!important;
-  }
-
-  /* Las tarjetas se reparten el espacio disponible de forma automática. */
-  .menu-screen .home-list{
-    flex:1 1 auto!important;
-    min-height:0!important;
-    display:grid!important;
-    grid-template-rows:repeat(6,minmax(0,1fr)) auto!important;
-    gap:6px!important;
-    overflow:hidden!important;
-  }
-  .menu-screen .home-card{
-    flex:none!important;
-    min-height:0!important;
-    height:auto!important;
-    min-width:0!important;
-    padding:5px 11px!important;
-    border-radius:16px!important;
-    grid-template-columns:38px minmax(0,1fr)!important;
-    column-gap:11px!important;
-    overflow:hidden!important;
-  }
-  .menu-screen .home-icon{
-    width:38px!important;
-    height:38px!important;
-    border-radius:11px!important;
-    font-size:21px!important;
-  }
-  .menu-screen .home-card h2{
-    font-size:17px!important;
-    line-height:1.03!important;
-    font-weight:750!important;
-    letter-spacing:-.015em!important;
-  }
-  .menu-screen .home-card p{display:none!important}
-  .menu-screen .latest-service-value{display:none!important}
-
-  /* Última vez: se mantiene el control porque es parte de la función. */
-  #menu .last-time-card{
-    display:flex!important;
-    gap:11px!important;
-    padding-right:10px!important;
-  }
-  #menu .last-time-card label{display:none!important}
-  #menu .last-time-select{
-    margin-top:4px!important;
-    min-height:26px!important;
-    height:26px!important;
-    font-size:10.5px!important;
-    padding:0 6px!important;
-    border-radius:9px!important;
-  }
-
-  /* Control de paso de página: deliberadamente más pequeño que una función. */
-  #menu .more-functions-link{
-    flex:none!important;
-    min-height:30px!important;
-    height:30px!important;
-    margin:1px auto 0!important;
-    width:auto!important;
-    max-width:180px!important;
-    padding:5px 12px!important;
-    border-color:transparent!important;
-    font-size:12px!important;
-    font-weight:750!important;
-    opacity:.78;
-  }
-  #menu .more-functions-arrow{
-    width:17px!important;
-    height:17px!important;
-    font-size:16px!important;
-  }
-
-  /* El segundo menú usa exactamente la misma escala tipográfica. */
-  #more-functions .welcome-card{
-    padding:11px 14px!important;
-    border-radius:18px!important;
-  }
-  #more-functions .welcome-pill{
-    font-size:10px!important;
-    padding:3px 9px!important;
-    margin-bottom:4px!important;
-  }
-  #more-functions .welcome-card h1{
-    font-size:24px!important;
-    line-height:1.03!important;
-    margin:0!important;
-  }
-  #more-functions .home-list{
-    grid-template-rows:repeat(5,minmax(0,1fr))!important;
-  }
-  #more-functions .home-card h2{
-    font-size:17px!important;
-    line-height:1.03!important;
-    font-weight:750!important;
-  }
-  #more-functions .home-card{
-    min-height:0!important;
-  }
-}
-
-/* ---------------- ESCRITORIO ---------------- */
-@media(min-width:601px){
-  .menu-screen .argos-home{
-    width:min(1180px,100%)!important;
-    padding:30px 34px 28px!important;
-    gap:18px!important;
-    overflow:auto!important;
-    scrollbar-width:thin;
-  }
+  /* Saludo: conserva la esencia y nunca desaparece. */
   #menu .welcome-card,
   #more-functions .welcome-card{
-    padding:24px 30px!important;
-    border-radius:25px!important;
+    flex:0 0 clamp(84px,13.2vh,108px)!important;
+    min-height:0!important;
+    padding:10px 13px!important;
+    border-radius:18px!important;
+    overflow:hidden!important;
+  }
+  #menu .welcome-pill,
+  #more-functions .welcome-pill{
+    font-size:10px!important;
+    line-height:1!important;
+    padding:3px 8px!important;
+    margin-bottom:4px!important;
   }
   #menu .welcome-card h1,
   #more-functions .welcome-card h1{
-    font-size:36px!important;
-    line-height:1.04!important;
-    margin-bottom:5px!important;
+    font-size:clamp(21px,3.35vh,25px)!important;
+    line-height:1.03!important;
+    margin:0 0 3px!important;
+    letter-spacing:-.025em!important;
+    white-space:nowrap!important;
   }
-  #menu .welcome-card p{
-    font-size:16px!important;
-    line-height:1.3!important;
+  #menu .welcome-card p,
+  #more-functions .welcome-card p{
+    display:block!important;
+    margin:0!important;
+    font-size:clamp(10.5px,1.85vh,12px)!important;
+    line-height:1.15!important;
   }
 
-  /* Dos columnas limpias: aprovecha el ancho de escritorio sin hacer las tarjetas gigantes. */
+  /* Seis funciones + paso de página: el alto restante se distribuye automáticamente. */
+  #menu .home-list{
+    flex:1 1 auto!important;
+    min-height:0!important;
+    display:grid!important;
+    grid-template-rows:repeat(6,minmax(0,1fr)) 27px!important;
+    gap:5px!important;
+    overflow:hidden!important;
+  }
+
+  #more-functions .home-list{
+    flex:1 1 auto!important;
+    min-height:0!important;
+    display:grid!important;
+    grid-template-rows:repeat(5,minmax(0,1fr))!important;
+    gap:6px!important;
+    overflow:hidden!important;
+  }
+
+  #menu .home-card,
+  #more-functions .home-card{
+    min-height:0!important;
+    height:auto!important;
+    padding:4px 10px!important;
+    border-radius:17px!important;
+    grid-template-columns:clamp(38px,5.4vh,44px) minmax(0,1fr)!important;
+    column-gap:11px!important;
+    overflow:hidden!important;
+  }
+
+  #menu .home-icon,
+  #more-functions .home-icon{
+    width:clamp(38px,5.4vh,44px)!important;
+    height:clamp(38px,5.4vh,44px)!important;
+    border-radius:12px!important;
+    font-size:clamp(20px,3.2vh,24px)!important;
+    flex:0 0 auto!important;
+  }
+
+  #menu .home-card h2,
+  #more-functions .home-card h2{
+    margin:0!important;
+    font-size:clamp(15px,2.55vh,18px)!important;
+    line-height:1.04!important;
+    font-weight:800!important;
+    letter-spacing:-.015em!important;
+  }
+
+  /* No mostramos descripciones en el menú; solo el nombre de la función. */
+  #menu .home-card p,
+  #more-functions .home-card p,
+  #menu .latest-service-value{display:none!important}
+
+  #menu .last-time-card{display:grid!important}
+  #menu .last-time-card label{display:none!important}
+  #menu .last-time-select{
+    display:block!important;
+    width:min(100%,220px)!important;
+    margin-top:3px!important;
+    min-height:24px!important;
+    height:24px!important;
+    font-size:10px!important;
+    line-height:1!important;
+    padding:0 6px!important;
+    border-radius:8px!important;
+  }
+
+  #menu .more-functions-link{
+    align-self:center!important;
+    justify-self:center!important;
+    width:auto!important;
+    min-width:145px!important;
+    max-width:180px!important;
+    height:27px!important;
+    min-height:27px!important;
+    padding:3px 10px!important;
+    font-size:11px!important;
+    font-weight:800!important;
+    opacity:.72!important;
+  }
+  #menu .more-functions-arrow{width:16px!important;height:16px!important;font-size:15px!important}
+
+  /* Pantallas muy bajas: reducimos espacio, no la identidad del diseño. */
+  @media(max-height:720px){
+    .menu-screen .argos-home{padding:5px 9px 4px!important;gap:4px!important}
+    #menu .welcome-card,
+    #more-functions .welcome-card{flex-basis:78px!important;padding:8px 12px!important}
+    #menu .welcome-card h1,
+    #more-functions .welcome-card h1{font-size:20px!important}
+    #menu .welcome-card p,
+    #more-functions .welcome-card p{font-size:10px!important}
+    #menu .home-list{grid-template-rows:repeat(6,minmax(0,1fr)) 24px!important;gap:4px!important}
+    #more-functions .home-list{gap:5px!important}
+    #menu .home-card,
+    #more-functions .home-card{padding:3px 9px!important;border-radius:15px!important}
+    #menu .home-card h2,
+    #more-functions .home-card h2{font-size:15px!important}
+    #menu .last-time-select{height:21px!important;min-height:21px!important;font-size:9px!important}
+    #menu .more-functions-link{height:24px!important;min-height:24px!important;font-size:10px!important}
+    #menu .more-functions-arrow{width:14px!important;height:14px!important;font-size:14px!important}
+  }
+}
+
+@media(min-width:601px){
+  .menu-screen .argos-home{
+    width:min(1220px,100%)!important;
+    padding:30px 36px 32px!important;
+    gap:18px!important;
+    overflow:auto!important;
+  }
+
+  #menu .welcome-card,
+  #more-functions .welcome-card{
+    padding:24px 30px!important;
+    border-radius:26px!important;
+  }
+  #menu .welcome-card h1,
+  #more-functions .welcome-card h1{
+    font-size:40px!important;
+    line-height:1.03!important;
+    margin-bottom:6px!important;
+  }
+  #menu .welcome-card p,
+  #more-functions .welcome-card p{font-size:17px!important;line-height:1.35!important}
+
   .menu-screen .home-list{
     display:grid!important;
     grid-template-columns:repeat(2,minmax(0,1fr))!important;
-    grid-auto-rows:minmax(88px,auto)!important;
+    grid-auto-rows:minmax(104px,1fr)!important;
     align-content:start!important;
-    gap:14px!important;
+    gap:16px!important;
     overflow:visible!important;
   }
+
   .menu-screen .home-card{
-    min-height:88px!important;
-    padding:14px 18px!important;
-    border-radius:21px!important;
-    grid-template-columns:58px 1fr!important;
-    column-gap:16px!important;
+    min-height:104px!important;
+    padding:17px 20px!important;
+    border-radius:23px!important;
+    grid-template-columns:64px minmax(0,1fr)!important;
+    column-gap:18px!important;
   }
   .menu-screen .home-icon{
-    width:58px!important;
-    height:58px!important;
-    border-radius:17px!important;
-    font-size:30px!important;
+    width:64px!important;
+    height:64px!important;
+    border-radius:19px!important;
+    font-size:32px!important;
   }
-  .menu-screen .home-card h2{
-    font-size:22px!important;
-    line-height:1.05!important;
-    font-weight:760!important;
-  }
-  .menu-screen .home-card p,
-  .menu-screen .latest-service-value{
-    font-size:14px!important;
-  }
-  .menu-screen .last-time-card{
-    display:flex!important;
-    gap:16px!important;
-  }
-  .menu-screen .last-time-select{
-    min-height:36px!important;
-    height:36px!important;
-    font-size:13px!important;
-  }
+  .menu-screen .home-card h2{font-size:24px!important;line-height:1.05!important;font-weight:800!important}
+  .menu-screen .home-card p{font-size:15px!important}
+  .menu-screen .last-time-card{display:flex!important;gap:18px!important}
+  .menu-screen .last-time-select{min-height:38px!important;height:38px!important;font-size:14px!important}
 
-  /* El paso a Más funciones queda pequeño y centrado, no parece otra función. */
   #menu .more-functions-link{
     grid-column:1 / -1!important;
     justify-self:center!important;
     width:auto!important;
-    min-width:180px!important;
-    min-height:42px!important;
-    border-color:transparent!important;
+    min-width:185px!important;
+    height:40px!important;
+    min-height:40px!important;
     background:var(--soft)!important;
     font-size:14px!important;
-    opacity:.86;
+    opacity:.84!important;
   }
 
-  #more-functions .home-list{
-    grid-template-columns:repeat(2,minmax(0,1fr))!important;
-  }
+  #more-functions .home-list{grid-template-columns:repeat(2,minmax(0,1fr))!important}
   #more-functions .home-card:last-child{
     grid-column:1 / -1!important;
     justify-self:center!important;
-    width:50%!important;
-    min-width:340px;
+    width:min(520px,100%)!important;
   }
 }
 </style>
@@ -2003,7 +1919,7 @@ button:focus:not(:focus-visible),
       </div>
 
       <button class="more-functions-link" data-screen="more-functions" type="button" aria-label="Pasar a Más funciones">
-        <span class="more-functions-arrow">›</span>
+        <span class="more-functions-arrow" aria-hidden="true">›</span>
         <span>Más funciones</span>
       </button>
     </div>
@@ -2016,6 +1932,7 @@ button:focus:not(:focus-visible),
     <div class="welcome-card">
       <div class="welcome-pill">ARGOS · MÁS FUNCIONES</div>
       <h1>Más funciones</h1>
+      <p>Herramientas adicionales de ARGOS.</p>
     </div>
 
     <div class="home-list">
@@ -8938,7 +8855,11 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const train=text(service.train??service.tren??service.number??service.numero);
     const route=[text(service.origin??service.origen),text(service.destination??service.destino)].filter(Boolean).join(' → ');
     const label=[train?`Tren ${train}`:'Servicio',route].filter(Boolean).join(' · ');
-    if(!window.confirm(`¿Eliminar este servicio?\n\n${label}\n\nEsta acción no se puede deshacer.`))return;
+    if(!window.confirm(`¿Eliminar este servicio?
+
+${label}
+
+Esta acción no se puede deshacer.`))return;
 
     const all=readServices();
     const next=all.filter(s=>String(s?.id||'')!==String(service.id||''));
