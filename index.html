@@ -1544,12 +1544,12 @@ button:focus:not(:focus-visible),
 
 <!-- ARGOS · VERSIÓN PÚBLICA Y REGISTRO DE ACTUALIZACIONES -->
 <script id="argos-app-version-config">
-  window.ARGOS_APP_VERSION = "5.0";
-  window.ARGOS_UPDATE_TITLE = "ARGOS 5.0";
+  window.ARGOS_APP_VERSION = "4.7";
+  window.ARGOS_UPDATE_TITLE = "ARGOS 4.7";
   window.ARGOS_UPDATE_ITEMS = [
-    "ARGOS 5.0 inicia una nueva organización de la pantalla principal, pensada para aprovechar mejor el espacio del móvil sin reducir la legibilidad.",
-    "Las funciones del menú principal se presentan en parejas para acceder a ellas de forma más rápida y ordenada.",
-    "Se mantienen las funciones existentes y el menú lateral conserva su diseño actual; esta primera fase se centra únicamente en la nueva estructura visual del menú principal."
+    "Biblioteca reorganizada: las series y las ramas se muestran ordenadas de forma ascendente para localizar el material más rápido.",
+    "Serie 453 dividida por número de coches: las ramas aparecen separadas en sus grupos de 4 coches, 8 coches u otras composiciones detectadas.",
+    "Las series que tienen lotes o subseries ahora muestran las ramas divididas dentro de cada lote o subserie, en lugar de presentar todas las ramas juntas."
   ];
 </script>
 
@@ -1590,33 +1590,6 @@ button:focus:not(:focus-visible),
   .argos-update-notice-card{padding:22px 18px;border-radius:20px;}
 }
 </style>
-
-<style id="argos-v50-main-menu-layout">
-/* ARGOS 5.0 · Menú principal móvil · Iteración visual.
-   El menú lateral no se modifica. Nuevo servicio conserva su formato destacado.
-   El resto de accesos se presenta en cuadrados por parejas, sin leyendas secundarias. */
-@media(max-width:600px){
-  .menu-screen{overflow:hidden!important;background:var(--bg,#f5f5f7)!important}
-  .argos-home{width:100%;height:100%;box-sizing:border-box;padding:8px 12px 8px;gap:6px;overflow:hidden!important}
-  .welcome-card{flex:0 0 auto!important;min-height:82px!important;height:82px!important;padding:8px 12px!important;border-radius:17px!important;box-sizing:border-box!important}
-  .welcome-pill{font-size:9px!important;padding:2px 7px!important;margin-bottom:1px!important}
-  .welcome-card h1{font-size:22px!important;line-height:1.02!important;margin:1px 0 2px!important}
-  .welcome-card p{font-size:11px!important;line-height:1.12!important;margin:0!important}
-  .home-card.primary{flex:0 0 auto!important;min-height:62px!important;height:62px!important;padding:7px 11px!important;border-radius:17px!important;grid-column:1/-1;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;text-align:left!important;gap:11px!important}
-  .home-card.primary h2{font-size:18px!important;line-height:1.05!important}
-  .home-card.primary p{display:block!important;font-size:10px!important;line-height:1.05!important;margin-top:2px!important}
-  .home-list{flex:1 1 auto!important;min-height:0!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(5,minmax(0,1fr))!important;gap:6px!important;overflow:hidden!important}
-  .home-card{width:100%!important;height:100%!important;min-width:0!important;min-height:0!important;box-sizing:border-box!important;padding:7px 6px!important;border-radius:17px!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important;gap:5px!important}
-  .home-icon{width:38px!important;height:38px!important;border-radius:11px!important;font-size:21px!important;line-height:1!important;flex:0 0 38px!important}
-  .home-card h2{font-size:18px!important;line-height:1.02!important;letter-spacing:-.02em!important;font-weight:850!important;overflow-wrap:anywhere!important;margin:0!important}
-  .home-card p{display:none!important}
-  .latest-service-value{display:none!important}
-  .last-time-card{display:flex!important;align-items:center!important;justify-content:center!important;gap:4px!important}
-  .last-time-card>span:last-child{min-width:0!important;width:100%!important}
-  .last-time-card label{display:none!important}
-  .last-time-select{width:92%!important;min-width:0!important;min-height:21px!important;height:21px!important;margin:2px auto 0!important;padding:0 2px!important;border-radius:7px!important;font-size:9px!important;line-height:1!important;background:transparent!important;border:0!important;text-align:center!important;color:inherit!important}
-}
-</style>
 </head>
 
 <body>
@@ -1647,44 +1620,35 @@ button:focus:not(:focus-visible),
       </button>
 
       <button class="home-card" data-screen="history" type="button">
-        <span class="home-icon">☷</span><span><h2>Historial</h2></span>
-      </button>
-      <button class="home-card" data-screen="argosdex" type="button">
-        <span class="home-icon">⌕</span><span><h2>ArgosDex</h2></span>
+        <span class="home-icon">☷</span>
+        <span><h2>Ver historial</h2><p>Consultar todos tus servicios registrados</p></span>
       </button>
 
       <button class="home-card" data-screen="stats" type="button">
-        <span class="home-icon">◔</span><span><h2>Estadísticas</h2></span>
+        <span class="home-icon">◔</span>
+        <span><h2>Estadísticas</h2><p>Resumen de tu actividad ferroviaria</p></span>
       </button>
+
+      <button class="home-card" data-screen="argosdex" type="button">
+        <span class="home-icon">⌕</span>
+        <span><h2>ArgosDex</h2><p>Consultar una rama y su vehículo</p></span>
+      </button>
+
       <button class="home-card" data-screen="history" type="button">
-        <span class="home-icon">↗</span><span><h2>Último servicio</h2><span id="latestService" class="latest-service-value">Aún no hay servicios registrados</span></span>
+        <span class="home-icon">↗</span>
+        <span><h2>Último servicio</h2><span id="latestService" class="latest-service-value">Aún no hay servicios registrados</span></span>
       </button>
 
       <div class="home-card last-time-card">
         <span class="home-icon">◷</span>
-        <span><h2>Última vez</h2>
-          <select id="lastTripSelect" class="last-time-select" aria-label="Seleccionar trayecto para Última vez">
+        <span>
+          <h2>Última vez</h2>
+          <label for="lastTripSelect">¿Cuándo hiciste un trayecto?</label>
+          <select id="lastTripSelect" class="last-time-select">
             <option value="">Selecciona un trayecto</option>
           </select>
         </span>
       </div>
-      <button class="home-card" data-screen="progress" type="button">
-        <span class="home-icon">▮▮</span><span><h2>Progreso</h2></span>
-      </button>
-
-      <button class="home-card" data-screen="quality" type="button">
-        <span class="home-icon">★</span><span><h2>Calidad</h2></span>
-      </button>
-      <button class="home-card" data-screen="library" type="button">
-        <span class="home-icon">▤</span><span><h2>Biblioteca</h2></span>
-      </button>
-
-      <button class="home-card" data-screen="notes" type="button">
-        <span class="home-icon">▥</span><span><h2>Bloc de Notas</h2></span>
-      </button>
-      <button class="home-card" data-screen="updates" type="button">
-        <span class="home-icon">⚙</span><span><h2>Actualizaciones</h2></span>
-      </button>
     </div>
   </div>
 </section>
@@ -2219,7 +2183,7 @@ button:focus:not(:focus-visible),
   <div class="argos-updates-wrap">
     <div class="argos-updates-hero">
       <div class="argos-updates-kicker">VERSIÓN ACTUAL</div>
-      <div class="argos-updates-version" id="argosUpdatesVersion">ARGOS 5.0</div>
+      <div class="argos-updates-version" id="argosUpdatesVersion">ARGOS 3.8</div>
       <p>Estas son las últimas funciones y mejoras incorporadas a ARGOS.</p>
     </div>
     <div class="argos-updates-card">
@@ -10133,3 +10097,43 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   else startObserver();
 })();
 </script>
+
+<!-- ARGOS 4.7 · AJUSTE FINAL BIBLIOTECA MÓVIL
+     Solo corrige la posición de la ventana de ramas en móvil.
+     No modifica la Biblioteca de escritorio ni la lógica de agrupación.
+-->
+<style id="argos-library-mobile-window-final-v47">
+@media(max-width:600px){
+  .library-branches-modal{
+    position:fixed!important;
+    top:64px!important;
+    right:0!important;
+    bottom:0!important;
+    left:0!important;
+    width:100%!important;
+    height:calc(100dvh - 64px)!important;
+    max-height:none!important;
+    padding:10px 10px 12px!important;
+    box-sizing:border-box!important;
+    display:flex!important;
+    align-items:flex-start!important;
+    justify-content:center!important;
+  }
+
+  .library-branches-modal[hidden]{
+    display:none!important;
+  }
+
+  .library-branches-window{
+    width:100%!important;
+    max-width:720px!important;
+    max-height:calc(100dvh - 86px)!important;
+    margin:0!important;
+    overflow-y:auto!important;
+    -webkit-overflow-scrolling:touch!important;
+    border-radius:20px!important;
+    padding:17px!important;
+    box-sizing:border-box!important;
+  }
+}
+</style>
