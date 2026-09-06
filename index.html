@@ -1550,7 +1550,7 @@ button:focus:not(:focus-visible),
     "Biblioteca reorganizada: las series y las ramas se muestran ordenadas de forma ascendente para localizar el material más rápido.",
     "Serie 453 dividida por número de coches: las ramas aparecen separadas en sus grupos de 4 coches, 8 coches u otras composiciones detectadas.",
     "Las series que tienen lotes o subseries ahora muestran las ramas divididas dentro de cada lote o subserie, en lugar de presentar todas las ramas juntas.",
-    "ARGOS 5.0: nuevo apartado Más funciones con Progreso, Calidad, Biblioteca y Bloc de Notas, integrado con el mismo lenguaje visual de ARGOS y adaptado para móvil y escritorio."
+    "ARGOS 5.0: nuevo apartado Más funciones con Progreso, Calidad, Biblioteca y Bloc de Notas, integrado con el mismo lenguaje visual de ARGOS y adaptado a móvil y escritorio."
   ];
 </script>
 
@@ -1595,14 +1595,15 @@ button:focus:not(:focus-visible),
 <style id="argos-v5-menu-responsive-final">
 /* ================================================================
    ARGOS 5.0 · MENÚ RESPONSIVE FINAL
-   - Móvil: todo el menú principal entra en una sola pantalla.
-   - Más funciones mantiene exactamente la misma escala visual.
-   - Escritorio: composición amplia, limpia y equilibrada al 100%.
+   Objetivo: conservar la identidad de ARGOS y garantizar que el
+   menú principal completo sea visible en móvil sin desplazamiento.
+   El segundo menú usa exactamente la misma escala tipográfica y
+   de tarjetas. En escritorio se aprovecha el ancho con equilibrio.
    ================================================================ */
 .more-functions-link{
   width:100%;
-  min-height:30px;
   height:30px;
+  min-height:30px;
   border:0;
   border-radius:999px;
   background:transparent;
@@ -1610,36 +1611,55 @@ button:focus:not(:focus-visible),
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:6px;
-  padding:4px 10px;
-  font-size:12px;
+  gap:5px;
+  padding:3px 8px;
+  font-size:11px;
   line-height:1;
   font-weight:800;
   box-shadow:none;
-  opacity:.78;
+  opacity:.72;
 }
-.more-functions-link:active{transform:scale(.985)}
+.more-functions-link:active{transform:scale(.97)}
 .more-functions-arrow{
-  width:18px;
-  height:18px;
+  width:22px;
+  height:22px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
   border-radius:50%;
   background:var(--soft);
-  font-size:17px;
+  font-size:18px;
   line-height:1;
 }
+.more-functions-label{font-size:inherit;line-height:1}
 
 @media(max-width:600px){
-  .app-shell{height:100dvh!important;min-height:100dvh!important;overflow:hidden!important}
-  .app-header{flex:0 0 64px!important;height:64px!important;min-height:64px!important}
+  /* Ocupa exactamente el viewport seguro del teléfono. */
+  .app-shell{
+    width:100%;
+    height:100svh!important;
+    min-height:100svh!important;
+    max-height:100svh!important;
+    overflow:hidden!important;
+  }
+  .app-header{
+    flex:0 0 64px!important;
+    width:100%;
+    height:64px!important;
+    min-height:64px!important;
+    max-height:64px!important;
+  }
   .brand-row{height:64px!important;min-height:64px!important}
 
-  .menu-screen{
-    height:calc(100dvh - 64px)!important;
+  .menu-screen,
+  .menu-screen.active{
+    flex:1 1 auto!important;
+    width:100%!important;
+    height:calc(100svh - 64px)!important;
     min-height:0!important;
-    max-height:calc(100dvh - 64px)!important;
+    max-height:calc(100svh - 64px)!important;
+    padding:0!important;
+    margin:0!important;
     overflow:hidden!important;
   }
 
@@ -1647,17 +1667,23 @@ button:focus:not(:focus-visible),
     width:100%!important;
     height:100%!important;
     min-height:0!important;
-    padding:7px 10px 6px!important;
-    gap:6px!important;
+    margin:0 auto!important;
+    padding:8px 10px 6px!important;
     box-sizing:border-box!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    gap:6px!important;
     overflow:hidden!important;
   }
 
-  /* Saludo: conserva la esencia y nunca desaparece. */
+  /* Bienvenida siempre visible y reconocible. */
   #menu .welcome-card,
   #more-functions .welcome-card{
-    flex:0 0 clamp(84px,13.2vh,108px)!important;
+    flex:0 0 clamp(86px,10.8vh,100px)!important;
+    height:clamp(86px,10.8vh,100px)!important;
     min-height:0!important;
+    max-height:100px!important;
     padding:10px 13px!important;
     border-radius:18px!important;
     overflow:hidden!important;
@@ -1666,195 +1692,224 @@ button:focus:not(:focus-visible),
   #more-functions .welcome-pill{
     font-size:10px!important;
     line-height:1!important;
-    padding:3px 8px!important;
-    margin-bottom:4px!important;
+    padding:4px 9px!important;
+    margin:0 0 5px!important;
   }
   #menu .welcome-card h1,
   #more-functions .welcome-card h1{
-    font-size:clamp(21px,3.35vh,25px)!important;
-    line-height:1.03!important;
-    margin:0 0 3px!important;
+    margin:0 0 4px!important;
+    font-size:clamp(21px,3.1vh,25px)!important;
+    line-height:1.04!important;
     letter-spacing:-.025em!important;
     white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
   }
   #menu .welcome-card p,
   #more-functions .welcome-card p{
     display:block!important;
     margin:0!important;
-    font-size:clamp(10.5px,1.85vh,12px)!important;
-    line-height:1.15!important;
-  }
-
-  /* Seis funciones + paso de página: el alto restante se distribuye automáticamente. */
-  #menu .home-list{
-    flex:1 1 auto!important;
-    min-height:0!important;
-    display:grid!important;
-    grid-template-rows:repeat(6,minmax(0,1fr)) 27px!important;
-    gap:5px!important;
+    font-size:clamp(11px,1.65vh,12.5px)!important;
+    line-height:1.18!important;
     overflow:hidden!important;
+    display:-webkit-box!important;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
   }
 
+  /*
+     CLAVE: la lista NO se estira hasta ocupar todo el hueco restante.
+     Sus filas tienen una altura controlada, de modo que el séptimo
+     elemento (la flecha) siempre existe físicamente dentro del viewport.
+  */
+  #menu .home-list,
   #more-functions .home-list{
-    flex:1 1 auto!important;
+    flex:0 0 auto!important;
+    width:100%!important;
     min-height:0!important;
+    height:auto!important;
     display:grid!important;
-    grid-template-rows:repeat(5,minmax(0,1fr))!important;
-    gap:6px!important;
-    overflow:hidden!important;
+    align-content:start!important;
+    gap:5px!important;
+    overflow:visible!important;
+  }
+  #menu .home-list{
+    grid-template-rows:repeat(6,clamp(58px,9vh,74px)) 28px!important;
+  }
+  #more-functions .home-list{
+    grid-template-rows:repeat(5,clamp(58px,9vh,74px))!important;
+    gap:7px!important;
   }
 
   #menu .home-card,
   #more-functions .home-card{
+    width:100%!important;
+    min-width:0!important;
     min-height:0!important;
     height:auto!important;
-    padding:4px 10px!important;
+    padding:6px 10px!important;
     border-radius:17px!important;
-    grid-template-columns:clamp(38px,5.4vh,44px) minmax(0,1fr)!important;
-    column-gap:11px!important;
+    display:grid!important;
+    grid-template-columns:clamp(42px,6vh,48px) minmax(0,1fr)!important;
+    column-gap:12px!important;
+    align-items:center!important;
     overflow:hidden!important;
   }
 
   #menu .home-icon,
   #more-functions .home-icon{
-    width:clamp(38px,5.4vh,44px)!important;
-    height:clamp(38px,5.4vh,44px)!important;
-    border-radius:12px!important;
-    font-size:clamp(20px,3.2vh,24px)!important;
+    width:clamp(42px,6vh,48px)!important;
+    height:clamp(42px,6vh,48px)!important;
+    border-radius:13px!important;
+    font-size:clamp(21px,3.05vh,26px)!important;
     flex:0 0 auto!important;
   }
 
+  /* Solo nombres de función. */
+  #menu .home-card p,
+  #more-functions .home-card p,
+  #menu .latest-service-value,
+  #menu .last-time-card label,
+  #menu .last-time-select{
+    display:none!important;
+  }
   #menu .home-card h2,
   #more-functions .home-card h2{
     margin:0!important;
-    font-size:clamp(15px,2.55vh,18px)!important;
-    line-height:1.04!important;
+    font-size:clamp(17px,2.6vh,20px)!important;
+    line-height:1.05!important;
     font-weight:800!important;
-    letter-spacing:-.015em!important;
+    letter-spacing:-.018em!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
   }
+  #menu .last-time-card{cursor:default!important}
 
-  /* No mostramos descripciones en el menú; solo el nombre de la función. */
-  #menu .home-card p,
-  #more-functions .home-card p,
-  #menu .latest-service-value{display:none!important}
-
-  #menu .last-time-card{display:grid!important}
-  #menu .last-time-card label{display:none!important}
-  #menu .last-time-select{
-    display:block!important;
-    width:min(100%,220px)!important;
-    margin-top:3px!important;
-    min-height:24px!important;
-    height:24px!important;
-    font-size:10px!important;
-    line-height:1!important;
-    padding:0 6px!important;
-    border-radius:8px!important;
-  }
-
+  /* El cambio de página es deliberadamente secundario. */
   #menu .more-functions-link{
     align-self:center!important;
     justify-self:center!important;
-    width:auto!important;
-    min-width:145px!important;
-    max-width:180px!important;
-    height:27px!important;
-    min-height:27px!important;
-    padding:3px 10px!important;
-    font-size:11px!important;
-    font-weight:800!important;
+    width:30px!important;
+    min-width:30px!important;
+    max-width:30px!important;
+    height:28px!important;
+    min-height:28px!important;
+    max-height:28px!important;
+    padding:0!important;
+    gap:0!important;
+    font-size:0!important;
+    line-height:1!important;
     opacity:.72!important;
   }
-  #menu .more-functions-arrow{width:16px!important;height:16px!important;font-size:15px!important}
+  #menu .more-functions-label{display:none!important}
+  #menu .more-functions-arrow{
+    width:28px!important;
+    height:28px!important;
+    font-size:20px!important;
+    background:var(--soft)!important;
+  }
 
-  /* Pantallas muy bajas: reducimos espacio, no la identidad del diseño. */
+  /* Teléfonos bajos: reducimos estructura, nunca eliminamos el saludo. */
   @media(max-height:720px){
-    .menu-screen .argos-home{padding:5px 9px 4px!important;gap:4px!important}
+    .menu-screen .argos-home{padding:6px 9px 5px!important;gap:5px!important}
     #menu .welcome-card,
-    #more-functions .welcome-card{flex-basis:78px!important;padding:8px 12px!important}
+    #more-functions .welcome-card{
+      flex-basis:78px!important;
+      height:78px!important;
+      padding:8px 11px!important;
+      border-radius:16px!important;
+    }
+    #menu .welcome-pill,
+    #more-functions .welcome-pill{font-size:9px!important;padding:3px 8px!important;margin-bottom:4px!important}
     #menu .welcome-card h1,
-    #more-functions .welcome-card h1{font-size:20px!important}
+    #more-functions .welcome-card h1{font-size:20px!important;margin-bottom:3px!important}
     #menu .welcome-card p,
     #more-functions .welcome-card p{font-size:10px!important}
-    #menu .home-list{grid-template-rows:repeat(6,minmax(0,1fr)) 24px!important;gap:4px!important}
-    #more-functions .home-list{gap:5px!important}
+    #menu .home-list{grid-template-rows:repeat(6,clamp(52px,8vh,62px)) 24px!important;gap:4px!important}
+    #more-functions .home-list{grid-template-rows:repeat(5,clamp(52px,8vh,62px))!important;gap:5px!important}
     #menu .home-card,
-    #more-functions .home-card{padding:3px 9px!important;border-radius:15px!important}
+    #more-functions .home-card{padding:4px 9px!important;border-radius:15px!important;grid-template-columns:40px minmax(0,1fr)!important;column-gap:10px!important}
+    #menu .home-icon,
+    #more-functions .home-icon{width:40px!important;height:40px!important;border-radius:11px!important;font-size:20px!important}
     #menu .home-card h2,
-    #more-functions .home-card h2{font-size:15px!important}
-    #menu .last-time-select{height:21px!important;min-height:21px!important;font-size:9px!important}
-    #menu .more-functions-link{height:24px!important;min-height:24px!important;font-size:10px!important}
-    #menu .more-functions-arrow{width:14px!important;height:14px!important;font-size:14px!important}
+    #more-functions .home-card h2{font-size:16px!important}
+    #menu .more-functions-link{width:24px!important;min-width:24px!important;max-width:24px!important;height:24px!important;min-height:24px!important;max-height:24px!important}
+    #menu .more-functions-arrow{width:24px!important;height:24px!important;font-size:18px!important}
+  }
+
+  /* Móviles extremadamente bajos: modo compacto de seguridad. */
+  @media(max-height:620px){
+    .app-header,.brand-row{height:58px!important;min-height:58px!important}
+    .app-header{flex-basis:58px!important}
+    .menu-screen,.menu-screen.active{height:calc(100svh - 58px)!important;max-height:calc(100svh - 58px)!important}
+    .menu-screen .argos-home{padding:5px 8px 4px!important;gap:4px!important}
+    #menu .welcome-card,#more-functions .welcome-card{flex-basis:68px!important;height:68px!important;padding:7px 10px!important}
+    #menu .welcome-card h1,#more-functions .welcome-card h1{font-size:18px!important}
+    #menu .welcome-card p,#more-functions .welcome-card p{font-size:9px!important}
+    #menu .home-list{grid-template-rows:repeat(6,52px) 22px!important;gap:3px!important}
+    #more-functions .home-list{grid-template-rows:repeat(5,52px)!important;gap:4px!important}
+    #menu .home-card,#more-functions .home-card{grid-template-columns:36px minmax(0,1fr)!important;column-gap:8px!important;padding:3px 8px!important}
+    #menu .home-icon,#more-functions .home-icon{width:36px!important;height:36px!important;border-radius:10px!important;font-size:18px!important}
+    #menu .home-card h2,#more-functions .home-card h2{font-size:15px!important}
   }
 }
 
 @media(min-width:601px){
   .menu-screen .argos-home{
-    width:min(1220px,100%)!important;
-    padding:30px 36px 32px!important;
+    width:min(1240px,100%)!important;
+    padding:30px 40px 34px!important;
     gap:18px!important;
     overflow:auto!important;
   }
-
-  #menu .welcome-card,
-  #more-functions .welcome-card{
+  #menu .welcome-card,#more-functions .welcome-card{
     padding:24px 30px!important;
     border-radius:26px!important;
   }
-  #menu .welcome-card h1,
-  #more-functions .welcome-card h1{
+  #menu .welcome-card h1,#more-functions .welcome-card h1{
     font-size:40px!important;
-    line-height:1.03!important;
+    line-height:1.04!important;
     margin-bottom:6px!important;
   }
-  #menu .welcome-card p,
-  #more-functions .welcome-card p{font-size:17px!important;line-height:1.35!important}
-
+  #menu .welcome-card p,#more-functions .welcome-card p{font-size:17px!important;line-height:1.35!important}
   .menu-screen .home-list{
     display:grid!important;
     grid-template-columns:repeat(2,minmax(0,1fr))!important;
-    grid-auto-rows:minmax(104px,1fr)!important;
+    grid-auto-rows:118px!important;
     align-content:start!important;
     gap:16px!important;
     overflow:visible!important;
   }
-
-  .menu-screen .home-card{
-    min-height:104px!important;
-    padding:17px 20px!important;
+  #menu .home-card,#more-functions .home-card{
+    min-height:118px!important;
+    padding:18px 20px!important;
     border-radius:23px!important;
-    grid-template-columns:64px minmax(0,1fr)!important;
+    grid-template-columns:66px minmax(0,1fr)!important;
     column-gap:18px!important;
   }
-  .menu-screen .home-icon{
-    width:64px!important;
-    height:64px!important;
-    border-radius:19px!important;
-    font-size:32px!important;
+  #menu .home-icon,#more-functions .home-icon{
+    width:66px!important;height:66px!important;border-radius:20px!important;font-size:33px!important;
   }
-  .menu-screen .home-card h2{font-size:24px!important;line-height:1.05!important;font-weight:800!important}
-  .menu-screen .home-card p{font-size:15px!important}
-  .menu-screen .last-time-card{display:flex!important;gap:18px!important}
-  .menu-screen .last-time-select{min-height:38px!important;height:38px!important;font-size:14px!important}
-
+  #menu .home-card h2,#more-functions .home-card h2{font-size:25px!important;line-height:1.05!important;font-weight:800!important}
+  #menu .home-card p,#more-functions .home-card p{font-size:15px!important}
+  #menu .last-time-card{display:flex!important;gap:18px!important}
+  #menu .last-time-select{min-height:38px!important;height:38px!important;font-size:14px!important}
   #menu .more-functions-link{
     grid-column:1 / -1!important;
     justify-self:center!important;
-    width:auto!important;
-    min-width:185px!important;
+    width:40px!important;
+    min-width:40px!important;
+    max-width:40px!important;
     height:40px!important;
     min-height:40px!important;
-    background:var(--soft)!important;
-    font-size:14px!important;
-    opacity:.84!important;
+    padding:0!important;
+    font-size:0!important;
+    opacity:.82!important;
   }
-
+  #menu .more-functions-label{display:none!important}
+  #menu .more-functions-arrow{width:38px!important;height:38px!important;font-size:26px!important}
   #more-functions .home-list{grid-template-columns:repeat(2,minmax(0,1fr))!important}
-  #more-functions .home-card:last-child{
-    grid-column:1 / -1!important;
-    justify-self:center!important;
-    width:min(520px,100%)!important;
-  }
+  #more-functions .home-card:last-child{grid-column:1 / -1!important;justify-self:center!important;width:min(520px,100%)!important}
 }
 </style>
 
@@ -1909,18 +1964,12 @@ button:focus:not(:focus-visible),
 
       <div class="home-card last-time-card">
         <span class="home-icon">◷</span>
-        <span>
-          <h2>Última vez</h2>
-          <label for="lastTripSelect">¿Cuándo hiciste un trayecto?</label>
-          <select id="lastTripSelect" class="last-time-select">
-            <option value="">Selecciona un trayecto</option>
-          </select>
-        </span>
+        <span><h2>Última vez</h2></span>
       </div>
 
-      <button class="more-functions-link" data-screen="more-functions" type="button" aria-label="Pasar a Más funciones">
+      <button class="more-functions-link" data-screen="more-functions" type="button" aria-label="Pasar a Más funciones" title="Más funciones">
         <span class="more-functions-arrow" aria-hidden="true">›</span>
-        <span>Más funciones</span>
+        <span class="more-functions-label">Más funciones</span>
       </button>
     </div>
   </div>
@@ -2698,18 +2747,6 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
   document.querySelectorAll("#menu [data-screen]").forEach(b=>{
     b.addEventListener("click",()=>{
       if(typeof showScreen==="function") showScreen(b.dataset.screen);
-    });
-  });
-
-  document.querySelectorAll("#more-functions [data-screen]").forEach(b=>{
-    b.addEventListener("click",()=>{
-      if(typeof showScreen==="function") showScreen(b.dataset.screen);
-    });
-  });
-
-  document.querySelectorAll("#more-functions [data-more-placeholder]").forEach(b=>{
-    b.addEventListener("click",()=>{
-      if(typeof toast==="function") toast("Esta función se desarrollará próximamente");
     });
   });
 
@@ -8855,11 +8892,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const train=text(service.train??service.tren??service.number??service.numero);
     const route=[text(service.origin??service.origen),text(service.destination??service.destino)].filter(Boolean).join(' → ');
     const label=[train?`Tren ${train}`:'Servicio',route].filter(Boolean).join(' · ');
-    if(!window.confirm(`¿Eliminar este servicio?
-
-${label}
-
-Esta acción no se puede deshacer.`))return;
+    if(!window.confirm(`¿Eliminar este servicio?\n\n${label}\n\nEsta acción no se puede deshacer.`))return;
 
     const all=readServices();
     const next=all.filter(s=>String(s?.id||'')!==String(service.id||''));
