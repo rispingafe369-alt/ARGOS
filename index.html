@@ -1845,15 +1845,18 @@ button:focus:not(:focus-visible),
 
     <div id="argosLibrarySeries" class="library-series-list" aria-live="polite"></div>
 
-    <div id="argosLibraryBranches" class="library-branches-panel" hidden>
-      <div class="library-branches-head">
-        <button id="argosLibraryBack" type="button" class="library-back">‹</button>
-        <div>
-          <span class="library-hero-kicker">SERIE</span>
-          <h3 id="argosLibraryBranchesTitle">—</h3>
+    <div id="argosLibraryBranches" class="library-branches-modal" hidden aria-hidden="true">
+      <div class="library-branches-backdrop" data-library-close></div>
+      <div class="library-branches-window" role="dialog" aria-modal="true" aria-labelledby="argosLibraryBranchesTitle">
+        <div class="library-branches-head">
+          <div>
+            <span class="library-hero-kicker">SERIE</span>
+            <h3 id="argosLibraryBranchesTitle">—</h3>
+          </div>
+          <button id="argosLibraryBack" type="button" class="library-back" aria-label="Cerrar">×</button>
         </div>
+        <div id="argosLibraryBranchesList" class="library-branches-list"></div>
       </div>
-      <div id="argosLibraryBranchesList" class="library-branches-list"></div>
     </div>
   </div>
 </section>
@@ -6346,13 +6349,20 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   .library-series-number{font-size:22px;font-weight:900}
   .library-series-arrow{color:var(--renfe);font-size:25px;font-weight:900}
   .library-empty{padding:28px;text-align:center;border:1px dashed var(--line);border-radius:16px;color:var(--muted);background:var(--card)}
-  .library-branches-panel{margin-top:18px}
-  .library-branches-head{display:flex;align-items:center;gap:12px;padding:8px 0 18px;border-bottom:1px solid var(--line);margin-bottom:14px}
-  .library-back{width:42px;height:42px;flex:0 0 42px;border:1px solid var(--line);border-radius:13px;background:var(--card);color:var(--renfe);font-size:28px;cursor:pointer}
-  .library-branches-head h3{margin:3px 0 0;font-size:28px}
+  .library-branches-modal{position:fixed;inset:0;z-index:100000;display:flex;align-items:center;justify-content:center;padding:24px}
+  .library-branches-modal[hidden]{display:none!important}
+  .library-branches-backdrop{position:absolute;inset:0;background:rgba(20,18,24,.58);backdrop-filter:blur(5px)}
+  .library-branches-window{position:relative;width:min(720px,100%);max-height:min(82vh,760px);overflow:auto;padding:24px;border:1px solid var(--line);border-radius:24px;background:var(--card);box-shadow:0 25px 80px rgba(0,0,0,.3)}
+  .library-branches-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 0 18px;border-bottom:1px solid var(--line);margin-bottom:16px}
+  .library-back{width:46px;height:46px;flex:0 0 46px;border:1px solid var(--line);border-radius:14px;background:var(--soft);color:var(--renfe);font-size:31px;line-height:1;cursor:pointer}
+  .library-branches-head h3{margin:3px 0 0;font-size:30px}
   .library-branches-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
   .library-branch-card{padding:17px 18px;border:1px solid var(--line);border-radius:15px;background:var(--card);font-size:19px;font-weight:900}
   @media(max-width:600px){
+    .library-branches-modal{padding:12px}
+    .library-branches-window{max-height:88vh;padding:18px;border-radius:20px}
+    .library-branches-head h3{font-size:26px}
+    .library-branches-list{grid-template-columns:repeat(2,minmax(0,1fr))}
     .library-hero{padding:19px}
     .library-hero h3{font-size:25px}
     .library-hero-badge{width:50px;height:50px;flex-basis:50px}
@@ -6377,7 +6387,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       const source=(typeof fleet!=='undefined')?fleet:(window.fleet||{});
       return Object.keys(source||{})
         .filter(k=>/^\d+$/.test(String(k)))
-        .sort((a,b)=>Number(b)-Number(a));
+        .sort((a,b)=>Number(a)-Number(b));
     }catch(e){
       console.warn('ARGOS Biblioteca: no se pudo leer la base de material',e);
       return [];
@@ -6396,7 +6406,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
         const clean=norm(raw);
         if(clean!=='0')seen.add(clean);
       });
-      return [...seen].sort((a,b)=>Number(b)-Number(a));
+      return [...seen].sort((a,b)=>Number(a)-Number(b));
     }catch(e){
       console.warn('ARGOS Biblioteca: no se pudieron leer las ramas',e);
       return [];
@@ -6408,6 +6418,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const branches=$('argosLibraryBranches');
     if(!box)return;
     branches.hidden=true;
+    branches.setAttribute('aria-hidden','true');
     currentSeries='';
 
     const keys=seriesKeys();
@@ -6443,16 +6454,18 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       ? branches.map(branch=>`<div class="library-branch-card">Rama ${branch}</div>`).join('')
       : '<div class="library-empty">No hay ramas registradas para esta serie.</div>';
 
-    seriesBox.hidden=true;
     panel.hidden=false;
-    panel.scrollIntoView({behavior:'smooth',block:'start'});
+    panel.setAttribute('aria-hidden','false');
   }
 
   function backToSeries(){
     const box=$('argosLibrarySeries');
     const panel=$('argosLibraryBranches');
     if(box)box.hidden=false;
-    if(panel)panel.hidden=true;
+    if(panel){
+      panel.hidden=true;
+      panel.setAttribute('aria-hidden','true');
+    }
     currentSeries='';
   }
 
@@ -6461,6 +6474,14 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     if(back&&back.dataset.libraryInstalled!=='1'){
       back.dataset.libraryInstalled='1';
       back.addEventListener('click',backToSeries);
+    }
+
+    const panel=$('argosLibraryBranches');
+    if(panel&&panel.dataset.libraryBackdropInstalled!=='1'){
+      panel.dataset.libraryBackdropInstalled='1';
+      panel.querySelectorAll('[data-library-close]').forEach(el=>{
+        el.addEventListener('click',backToSeries);
+      });
     }
 
     const library=$('library');
