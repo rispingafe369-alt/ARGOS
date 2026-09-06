@@ -5855,17 +5855,102 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 })();
 </script>
 
-<script id="argos-ficha-incidencias-final-v45">
+
+<style id="argos-ficha-incidencias-v46-style">
+.argos-v45-ficha-incidents{
+  margin-top:18px!important;
+  padding-top:18px!important;
+  border-top:1px solid var(--line,#ddd)!important;
+}
+.argos-v45-ficha-incident-list{
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+.argos-v45-ficha-incident{
+  display:grid;
+  grid-template-columns:34px minmax(0,1fr) auto;
+  align-items:center;
+  gap:12px;
+  padding:13px 14px;
+  border:1px solid rgba(138,0,92,.14);
+  border-radius:14px;
+  background:var(--soft,#f7eaf2);
+}
+.argos-v45-ficha-incident-number{
+  width:30px;height:30px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--card,#fff);
+  color:var(--renfe,#8a005c);
+  font-weight:900;font-size:13px;
+}
+.argos-v45-ficha-incident-main{min-width:0}
+.argos-v45-ficha-incident-text{
+  color:var(--text,#222);
+  font-size:15px;
+  line-height:1.35;
+  font-weight:700;
+  overflow-wrap:anywhere;
+}
+.argos-v45-ficha-incident-source{
+  display:inline-flex;
+  margin-top:5px;
+  padding:3px 8px;
+  border-radius:999px;
+  background:var(--card,#fff);
+  color:var(--muted,#777);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.argos-v45-ficha-incident-status{
+  white-space:nowrap;
+  color:var(--renfe,#8a005c);
+  font-size:11px;
+  font-weight:900;
+}
+.argos-v45-ficha-solved{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  color:var(--renfe,#8a005c);
+  font-size:11px;
+  font-weight:900;
+  white-space:nowrap;
+}
+.argos-v45-ficha-solved input{width:18px;height:18px;accent-color:var(--renfe,#8a005c)}
+.argos-v45-ficha-empty{
+  padding:14px;
+  border:1px dashed var(--line,#ddd);
+  border-radius:14px;
+  color:var(--muted,#777);
+  background:var(--page,#fff);
+  font-size:13px;
+}
+@media(max-width:600px){
+  .argos-v45-ficha-incident{grid-template-columns:30px minmax(0,1fr);gap:9px;padding:12px}
+  .argos-v45-ficha-incident-status,.argos-v45-ficha-solved{grid-column:2}
+  .argos-v45-ficha-incident-text{font-size:14px}
+}
+</style>
+
+
+<script id="argos-ficha-incidencias-v46">
 (function(){
   'use strict';
 
   /*
-   * V45 · Corrección final de incidencias en ficha.
-   * - La ficha muestra TODAS las incidencias del servicio, no solo la última.
-   * - Las casillas de "solventada" permanecen ocultas en la ficha normal.
-   * - Solo se muestran al entrar en modo "Editar ficha".
-   * - Al marcar una incidencia como solventada, desaparece de la ficha.
-   * - Las anotaciones no se convierten en incidencias ni reciben casillas.
+   * V46 · Incidencias acumuladas en ficha.
+   * - La ficha reúne TODAS las incidencias pendientes del servicio actual
+   *   y las incidencias pendientes de visitas anteriores de la misma
+   *   serie + rama.
+   * - Una incidencia no desaparece por cambiar de servicio: se arrastra
+   *   mientras no esté marcada como solventada.
+   * - Se evita mostrar dos veces la misma incidencia.
+   * - En la ficha normal NO aparecen casillas ni controles de solventado.
+   * - Solo al pulsar "Editar ficha" aparecen las casillas.
+   * - Las anotaciones siguen siendo independientes y no participan aquí.
    */
 
   const $=id=>document.getElementById(id);
@@ -5890,41 +5975,180 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     return readServices().find(s=>String(s?.id||'')===id)||service;
   }
 
-  function incidentEntries(service){
+  function digits(v){return String(v??'').replace(/\D/g,'')}
+  function norm(v){return digits(v).replace(/^0+/,'')||''}
+
+  function compositions(service){
     const out=[];
-    const seen=new Set();
-
-    if(Array.isArray(service?.incidentsEntries)){
-      service.incidentsEntries.forEach(x=>{
-        const obj=x&&typeof x==='object'?x:{text:x,solved:false};
-        const t=String(obj.text??obj.value??'').trim();
-        if(!t)return;
-        const key=t+'|'+(obj.solved===true?'1':'0');
-        if(seen.has(key))return;
-        seen.add(key);
-        out.push({text:t,solved:obj.solved===true});
-      });
+    if(!service)return out;
+    const add=(s,b,v)=>{
+      const series=String(s??'').trim();
+      const branch=norm(b);
+      if(series&&branch)out.push({series,branch,vehicle:String(v??'').trim()});
+    };
+    add(service.series,service.branch,service.vehicle);
+    if(service.doubleComposition&&service.composition2){
+      add(service.composition2.series,service.composition2.branch,service.composition2.vehicle);
     }
+    return out;
+  }
 
+  function branchKey(series,branch){
+    const s=norm(series),b=norm(branch);
+    return s&&b?s+'|'+b:'';
+  }
+
+  function serviceMatches(service,targetSeries,targetBranch){
+    const wanted=branchKey(targetSeries,targetBranch);
+    if(!wanted)return false;
+    return compositions(service).some(c=>branchKey(c.series,c.branch)===wanted);
+  }
+
+  /*
+   * Devuelve referencias reales a las incidencias para poder marcar
+   * como solventada la incidencia en el servicio en el que fue registrada.
+   */
+  function incidentRefs(service){
+    const out=[];
+    const entries=Array.isArray(service?.incidentsEntries)?service.incidentsEntries:[];
+    const seenEntryText=new Set();
+
+    entries.forEach((x,index)=>{
+      const obj=x&&typeof x==='object'?x:{text:x,solved:false};
+      const t=String(obj.text??obj.value??'').trim();
+      if(!t)return;
+      seenEntryText.add(t);
+      out.push({
+        text:t,
+        solved:obj.solved===true,
+        serviceId:String(service?.id||''),
+        index,
+        legacy:false
+      });
+    });
+
+    /*
+     * Compatibilidad con registros antiguos que guardaban "incidents"
+     * sin incidentsEntries.
+     */
     const legacy=String(service?.incidents??'').trim();
     if(legacy){
       legacy.split(/\n+/).map(x=>x.trim()).filter(Boolean).forEach(t=>{
-        if(!out.some(x=>x.text===t)){
-          out.push({text:t,solved:false});
+        if(!seenEntryText.has(t)){
+          out.push({
+            text:t,
+            solved:false,
+            serviceId:String(service?.id||''),
+            index:-1,
+            legacy:true
+          });
         }
       });
     }
     return out;
   }
 
-  function persistIncidents(serviceId,entries){
-    const all=readServices();
-    const idx=all.findIndex(s=>String(s?.id||'')===String(serviceId||''));
-    if(idx<0)return false;
+  function sortServices(a){
+    return a.slice().sort((x,y)=>{
+      const dx=String(x?.date||x?.fecha||'');
+      const dy=String(y?.date||y?.fecha||'');
+      if(dx!==dy)return dy.localeCompare(dx);
+      return Number(y?.createdAt||0)-Number(x?.createdAt||0);
+    });
+  }
 
-    all[idx]={
-      ...all[idx],
-      incidents:entries.map(x=>x.text).filter(Boolean).join('\n'),
+  function collectIncidents(service){
+    const fresh=currentService(service)||service;
+    if(!fresh)return [];
+
+    const targetComps=compositions(fresh);
+    if(!targetComps.length)return [];
+
+    const all=sortServices(readServices());
+    const currentId=String(fresh.id||'');
+    const combined=[];
+    const seen=new Set();
+
+    /*
+     * Primero las incidencias pendientes que vienen de servicios
+     * anteriores. Se recorren de más reciente a más antiguo.
+     */
+    for(const historical of all){
+      if(String(historical?.id||'')===currentId)continue;
+
+      const matching=targetComps.some(c=>serviceMatches(historical,c.series,c.branch));
+      if(!matching)continue;
+
+      for(const ref of incidentRefs(historical)){
+        if(ref.solved)continue;
+        const key=ref.text.trim().toLocaleLowerCase('es');
+        if(seen.has(key))continue;
+        seen.add(key);
+        combined.push({
+          ...ref,
+          source:'anterior',
+          sourceService:historical
+        });
+      }
+    }
+
+    /*
+     * Después las incidencias del servicio que estamos viendo.
+     */
+    for(const ref of incidentRefs(fresh)){
+      if(ref.solved)continue;
+      const key=ref.text.trim().toLocaleLowerCase('es');
+      if(seen.has(key))continue;
+      seen.add(key);
+      combined.push({
+        ...ref,
+        source:'actual',
+        sourceService:fresh
+      });
+    }
+
+    return combined;
+  }
+
+  function persistIncidentSolved(ref){
+    const all=readServices();
+    const id=String(ref?.serviceId||'');
+    const pos=all.findIndex(s=>String(s?.id||'')===id);
+    if(pos<0)return false;
+
+    const service=all[pos];
+    let entries=Array.isArray(service.incidentsEntries)
+      ? service.incidentsEntries.map(x=>x)
+      : String(service.incidents??'').split(/\n+/).map(t=>t.trim()).filter(Boolean);
+
+    if(ref.index>=0&&entries[ref.index]!==undefined){
+      const old=entries[ref.index];
+      if(old&&typeof old==='object'){
+        entries[ref.index]={...old,solved:true};
+      }else{
+        entries[ref.index]={text:String(old??ref.text),solved:true};
+      }
+    }else{
+      const idx=entries.findIndex(x=>{
+        const t=x&&typeof x==='object'?String(x.text??x.value??''):String(x??'');
+        return t.trim()===ref.text.trim();
+      });
+      if(idx>=0){
+        const old=entries[idx];
+        entries[idx]=old&&typeof old==='object'
+          ? {...old,solved:true}
+          : {text:String(old??ref.text),solved:true};
+      }else{
+        entries.push({text:ref.text,solved:true});
+      }
+    }
+
+    all[pos]={
+      ...service,
+      incidents:entries.map(x=>{
+        const t=x&&typeof x==='object'?String(x.text??x.value??''):String(x??'');
+        return t.trim();
+      }).filter(Boolean).join('\n'),
       incidentsEntries:entries
     };
 
@@ -5933,22 +6157,13 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       else localStorage.setItem('argos_services',JSON.stringify(all));
       return true;
     }catch(e){
-      console.warn('ARGOS V45 · guardar ficha:',e);
+      console.warn('ARGOS V46 · guardar incidencia:',e);
       return false;
     }
   }
 
-  function isEditMode(content){
-    const ficha=$('ficha');
-    if(!ficha)return false;
-    if(ficha.dataset.argosFichaEditing==='1')return true;
-
-    /*
-     * Compatibilidad con distintas implementaciones del botón inferior.
-     * Solo dentro de la ficha buscamos un control cuyo texto sea "Editar ficha".
-     */
-    const buttons=[...ficha.querySelectorAll('button,a,[role="button"]')];
-    return buttons.some(b=>/editar\s+ficha/i.test((b.textContent||'').trim()) && b.classList.contains('active'));
+  function isEditMode(){
+    return $('ficha')?.dataset.argosFichaEditing==='1';
   }
 
   function removeOldIncidentBlocks(content){
@@ -5956,61 +6171,73 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       const title=(section.querySelector('.argos-v64-entries-title')?.textContent||'').trim();
       if(/^INCIDENCIAS$/i.test(title))section.remove();
     });
-
-    /* Algunas versiones antiguas usan clases genéricas para el bloque de incidencias. */
     content.querySelectorAll('[data-argos-ficha-incidents],.ficha-incidents').forEach(el=>el.remove());
+    const old=$('argosV45FichaIncidents');
+    if(old)old.remove();
   }
 
   function render(service){
     const content=$('fichaContent');
-    if(!content||!service?.id)return;
+    if(!content||!service)return;
 
     const fresh=currentService(service)||service;
-    const incidents=incidentEntries(fresh);
+    const incidents=collectIncidents(fresh);
     removeOldIncidentBlocks(content);
-
-    const old=$('argosV45FichaIncidents');
-    if(old)old.remove();
-    if(!incidents.length)return;
-
-    const editing=$('ficha')?.dataset.argosFichaEditing==='1';
 
     const host=document.createElement('div');
     host.id='argosV45FichaIncidents';
     host.className='ficha-section argos-v45-ficha-incidents';
-    host.innerHTML=`
-      <div class="ficha-section-title">INCIDENCIAS</div>
-      <div class="argos-v45-ficha-incident-list">
-        ${incidents.map((item,index)=>`
-          <div class="argos-v45-ficha-incident ${item.solved?'is-solved':''}" data-incident-index="${index}">
-            <div class="argos-v45-ficha-incident-text">${esc(item.text)}</div>
-            ${editing?`
-              <label class="argos-v45-ficha-solved">
-                <input type="checkbox" data-v45-solved="${index}" ${item.solved?'checked':''}>
-                <span>Incidencia solventada</span>
-              </label>`:''}
-          </div>`).join('')}
-      </div>`;
+
+    if(!incidents.length){
+      host.innerHTML=`
+        <div class="ficha-section-title">INCIDENCIAS</div>
+        <div class="argos-v45-ficha-empty">No hay incidencias pendientes.</div>`;
+    }else{
+      const editing=isEditMode();
+      host.innerHTML=`
+        <div class="ficha-section-title">INCIDENCIAS</div>
+        <div class="argos-v45-ficha-incident-list">
+          ${incidents.map((item,index)=>`
+            <div class="argos-v45-ficha-incident" data-incident-index="${index}">
+              <div class="argos-v45-ficha-incident-number">${index+1}</div>
+              <div class="argos-v45-ficha-incident-main">
+                <div class="argos-v45-ficha-incident-text">${esc(item.text)}</div>
+                <span class="argos-v45-ficha-incident-source">${item.source==='anterior'?'Arrastrada · anterior':'Registrada en este servicio'}</span>
+              </div>
+              ${editing
+                ? `<label class="argos-v45-ficha-solved">
+                    <input type="checkbox" data-v46-solved="${index}">
+                    <span>Solventada</span>
+                  </label>`
+                : `<span class="argos-v45-ficha-incident-status">Pendiente</span>`}
+            </div>`).join('')}
+        </div>`;
+    }
 
     const general=content.querySelector('.ficha-general-section');
     if(general)content.insertBefore(host,general);
     else content.appendChild(host);
 
-    host.querySelectorAll('[data-v45-solved]').forEach(input=>{
+    host.querySelectorAll('[data-v46-solved]').forEach(input=>{
       input.addEventListener('change',()=>{
         if(!input.checked)return;
-        const index=Number(input.dataset.v45Solved);
+        const index=Number(input.dataset.v46Solved);
         const freshNow=currentService(service)||service;
-        const entries=incidentEntries(freshNow);
-        if(!entries[index])return;
-        entries[index].solved=true;
+        const refs=collectIncidents(freshNow);
+        const ref=refs[index];
+        if(!ref)return;
 
-        if(persistIncidents(service.id,entries)){
+        if(persistIncidentSolved(ref)){
           const row=input.closest('.argos-v45-ficha-incident');
           if(row)row.remove();
           if(!host.querySelector('.argos-v45-ficha-incident')){
-            host.remove();
+            host.innerHTML=`
+              <div class="ficha-section-title">INCIDENCIAS</div>
+              <div class="argos-v45-ficha-empty">No hay incidencias pendientes.</div>`;
           }
+        }else{
+          input.checked=false;
+          if(typeof toast==='function')toast('No se ha podido guardar la incidencia');
         }
       });
     });
@@ -6018,8 +6245,8 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
   function hookEditControls(){
     const ficha=$('ficha');
-    if(!ficha||ficha.dataset.argosV45EditHook==='1')return;
-    ficha.dataset.argosV45EditHook='1';
+    if(!ficha||ficha.dataset.argosV46EditHook==='1')return;
+    ficha.dataset.argosV46EditHook='1';
 
     ficha.addEventListener('click',ev=>{
       const control=ev.target.closest('button,a,[role="button"]');
@@ -6035,8 +6262,8 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
   function installOpenFicha(){
     if(typeof window.openFicha!=='function')return;
-    if(window.__argosV45FichaWrapperInstalled)return;
-    window.__argosV45FichaWrapperInstalled=true;
+    if(window.__argosV46FichaWrapperInstalled)return;
+    window.__argosV46FichaWrapperInstalled=true;
 
     const original=window.openFicha;
     window.openFicha=function(series,vehicle,service=null){
@@ -6071,6 +6298,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   window.addEventListener('load',boot,{once:true});
 })();
 </script>
+
 
 </body>
 </html>
