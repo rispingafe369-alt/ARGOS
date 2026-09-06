@@ -1672,6 +1672,259 @@ button:focus:not(:focus-visible),
   .argos-update-notice-card{padding:22px 18px;border-radius:20px;}
 }
 </style>
+\n<style id="argos-5-responsive-menu-final">
+/* ================================================================
+   ARGOS 5.0 · MENÚ RESPONSIVE FINAL
+   - El mensaje de bienvenida se conserva en móvil.
+   - Las funciones principales mantienen el mismo peso visual.
+   - "Más funciones" pasa a ser un control de navegación discreto.
+   - Escritorio 100% recibe una composición amplia y equilibrada.
+   ================================================================ */
+.more-functions-link{
+  width:100%;
+  min-height:40px;
+  border:1px solid rgba(138,0,92,.18);
+  border-radius:999px;
+  background:transparent;
+  color:var(--renfe);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  padding:7px 14px;
+  font-size:14px;
+  line-height:1;
+  font-weight:800;
+  letter-spacing:.01em;
+  box-shadow:none;
+  margin-top:1px;
+}
+.more-functions-link:active{transform:scale(.985)}
+.more-functions-arrow{
+  width:20px;
+  height:20px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:var(--soft);
+  font-size:19px;
+  line-height:1;
+}
+
+/* ---------------- MÓVIL ---------------- */
+@media(max-width:600px){
+  .menu-screen .argos-home{
+    width:100%!important;
+    padding:8px 12px 10px!important;
+    gap:6px!important;
+    overflow:hidden!important;
+  }
+
+  /* El saludo vuelve a formar parte del menú principal. */
+  #menu .welcome-card{
+    flex:0 0 auto!important;
+    padding:11px 14px!important;
+    border-radius:18px!important;
+  }
+  #menu .welcome-pill{
+    font-size:10px!important;
+    padding:3px 9px!important;
+    margin-bottom:4px!important;
+  }
+  #menu .welcome-card h1{
+    font-size:24px!important;
+    line-height:1.03!important;
+    margin:0 0 3px!important;
+    letter-spacing:-.025em!important;
+  }
+  #menu .welcome-card p{
+    display:block!important;
+    margin:0!important;
+    font-size:11.5px!important;
+    line-height:1.2!important;
+  }
+
+  /* Las tarjetas se reparten el espacio disponible de forma automática. */
+  .menu-screen .home-list{
+    flex:1 1 auto!important;
+    min-height:0!important;
+    display:flex!important;
+    flex-direction:column!important;
+    gap:6px!important;
+    overflow:hidden!important;
+  }
+  .menu-screen .home-card{
+    flex:1 1 0!important;
+    min-height:0!important;
+    height:auto!important;
+    padding:5px 11px!important;
+    border-radius:16px!important;
+    grid-template-columns:38px 1fr!important;
+    column-gap:11px!important;
+  }
+  .menu-screen .home-icon{
+    width:38px!important;
+    height:38px!important;
+    border-radius:11px!important;
+    font-size:21px!important;
+  }
+  .menu-screen .home-card h2{
+    font-size:17px!important;
+    line-height:1.03!important;
+    font-weight:750!important;
+    letter-spacing:-.015em!important;
+  }
+  .menu-screen .home-card p{display:none!important}
+  .menu-screen .latest-service-value{display:none!important}
+
+  /* Última vez: se mantiene el control porque es parte de la función. */
+  #menu .last-time-card{
+    display:flex!important;
+    gap:11px!important;
+    padding-right:10px!important;
+  }
+  #menu .last-time-card label{display:none!important}
+  #menu .last-time-select{
+    margin-top:4px!important;
+    min-height:26px!important;
+    height:26px!important;
+    font-size:10.5px!important;
+    padding:0 6px!important;
+    border-radius:9px!important;
+  }
+
+  /* Control de paso de página: deliberadamente más pequeño que una función. */
+  #menu .more-functions-link{
+    flex:0 0 34px!important;
+    min-height:34px!important;
+    height:34px!important;
+    margin:1px auto 0!important;
+    width:auto!important;
+    max-width:180px!important;
+    padding:5px 12px!important;
+    border-color:transparent!important;
+    font-size:12px!important;
+    font-weight:750!important;
+    opacity:.78;
+  }
+  #menu .more-functions-arrow{
+    width:17px!important;
+    height:17px!important;
+    font-size:16px!important;
+  }
+
+  /* El segundo menú usa exactamente la misma escala tipográfica. */
+  #more-functions .welcome-card{
+    padding:11px 14px!important;
+    border-radius:18px!important;
+  }
+  #more-functions .welcome-pill{
+    font-size:10px!important;
+    padding:3px 9px!important;
+    margin-bottom:4px!important;
+  }
+  #more-functions .welcome-card h1{
+    font-size:24px!important;
+    line-height:1.03!important;
+    margin:0!important;
+  }
+  #more-functions .home-card h2{
+    font-size:17px!important;
+    line-height:1.03!important;
+    font-weight:750!important;
+  }
+}
+
+/* ---------------- ESCRITORIO ---------------- */
+@media(min-width:601px){
+  .menu-screen .argos-home{
+    width:min(1180px,100%)!important;
+    padding:30px 34px 28px!important;
+    gap:18px!important;
+    overflow:hidden!important;
+  }
+  #menu .welcome-card,
+  #more-functions .welcome-card{
+    padding:24px 30px!important;
+    border-radius:25px!important;
+  }
+  #menu .welcome-card h1,
+  #more-functions .welcome-card h1{
+    font-size:36px!important;
+    line-height:1.04!important;
+    margin-bottom:5px!important;
+  }
+  #menu .welcome-card p{
+    font-size:16px!important;
+    line-height:1.3!important;
+  }
+
+  /* Dos columnas limpias: aprovecha el ancho de escritorio sin hacer las tarjetas gigantes. */
+  .menu-screen .home-list{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-auto-rows:minmax(88px,auto)!important;
+    align-content:start!important;
+    gap:14px!important;
+    overflow:visible!important;
+  }
+  .menu-screen .home-card{
+    min-height:88px!important;
+    padding:14px 18px!important;
+    border-radius:21px!important;
+    grid-template-columns:58px 1fr!important;
+    column-gap:16px!important;
+  }
+  .menu-screen .home-icon{
+    width:58px!important;
+    height:58px!important;
+    border-radius:17px!important;
+    font-size:30px!important;
+  }
+  .menu-screen .home-card h2{
+    font-size:22px!important;
+    line-height:1.05!important;
+    font-weight:760!important;
+  }
+  .menu-screen .home-card p,
+  .menu-screen .latest-service-value{
+    font-size:14px!important;
+  }
+  .menu-screen .last-time-card{
+    display:flex!important;
+    gap:16px!important;
+  }
+  .menu-screen .last-time-select{
+    min-height:36px!important;
+    height:36px!important;
+    font-size:13px!important;
+  }
+
+  /* El paso a Más funciones queda pequeño y centrado, no parece otra función. */
+  #menu .more-functions-link{
+    grid-column:1 / -1!important;
+    justify-self:center!important;
+    width:auto!important;
+    min-width:180px!important;
+    min-height:42px!important;
+    border-color:transparent!important;
+    background:var(--soft)!important;
+    font-size:14px!important;
+    opacity:.86;
+  }
+
+  #more-functions .home-list{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  #more-functions .home-card:last-child{
+    grid-column:1 / -1!important;
+    justify-self:center!important;
+    width:50%!important;
+    min-width:340px;
+  }
+}
+</style>\n
 </head>
 
 <body>
@@ -1732,9 +1985,9 @@ button:focus:not(:focus-visible),
         </span>
       </div>
 
-      <button class="home-card" data-screen="more-functions" type="button">
-        <span class="home-icon">＋</span>
-        <span><h2>Más funciones</h2></span>
+      <button class="more-functions-link" data-screen="more-functions" type="button" aria-label="Pasar a Más funciones">
+        <span class="more-functions-arrow">›</span>
+        <span>Más funciones</span>
       </button>
     </div>
   </div>
@@ -1746,7 +1999,6 @@ button:focus:not(:focus-visible),
     <div class="welcome-card">
       <div class="welcome-pill">ARGOS · MÁS FUNCIONES</div>
       <h1>Más funciones</h1>
-      <p>Nuevas herramientas para ampliar ARGOS.</p>
     </div>
 
     <div class="home-list">
