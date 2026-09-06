@@ -1544,10 +1544,12 @@ button:focus:not(:focus-visible),
 
 <!-- ARGOS · VERSIÓN PÚBLICA Y REGISTRO DE ACTUALIZACIONES -->
 <script id="argos-app-version-config">
-  window.ARGOS_APP_VERSION = "4.5";
-  window.ARGOS_UPDATE_TITLE = "ARGOS 4.5";
+  window.ARGOS_APP_VERSION = "4.7";
+  window.ARGOS_UPDATE_TITLE = "ARGOS 4.7";
   window.ARGOS_UPDATE_ITEMS = [
-    "Mejorada la gestión de incidencias: al detectar una rama ya registrada, ARGOS muestra las incidencias pendientes de la última vez para evitar volver a registrarlas. En la ventana de rama repetida pueden marcarse como solventadas y desaparecen automáticamente. Las anotaciones continúan funcionando de forma independiente como peculiaridades del tren."
+    "Biblioteca reorganizada: las series y las ramas se muestran ordenadas de forma ascendente para localizar el material más rápido.",
+    "Serie 453 dividida por número de coches: las ramas aparecen separadas en sus grupos de 4 coches, 8 coches u otras composiciones detectadas.",
+    "Las series que tienen lotes o subseries ahora muestran las ramas divididas dentro de cada lote o subserie, en lugar de presentar todas las ramas juntas."
   ];
 </script>
 
@@ -9681,5 +9683,303 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     }
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+</script>
+
+
+<!-- ARGOS · BIBLIOTECA AGRUPACION DE RAMAS -->
+<style id="argos-library-v47-grouped-style">
+  .library-group-list{display:grid;gap:16px}
+  .library-group{border:1px solid var(--line);border-radius:18px;background:var(--soft);padding:16px}
+  .library-group-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 12px}
+  .library-group-title{font-size:15px;font-weight:900;color:var(--renfe);text-transform:uppercase;letter-spacing:.06em}
+  .library-group-count{font-size:11px;font-weight:800;color:var(--muted);white-space:nowrap}
+  .library-group-subgroup{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+  .library-group-subtitle{font-size:13px;font-weight:900;color:var(--text);margin:0 0 9px}
+  .library-group-branches{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:9px}
+  .library-group-branch{padding:13px 14px;border:1px solid var(--line);border-radius:13px;background:var(--card);font-size:17px;font-weight:900;color:var(--text)}
+  @media(max-width:600px){
+    .library-group{padding:13px}
+    .library-group-branches{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+    .library-group-branch{padding:12px 10px;font-size:16px}
+  }
+</style>
+
+<script id="argos-library-v47-grouped-engine">
+(function(){
+  'use strict';
+
+  const $=id=>document.getElementById(id);
+
+  function esc(v){
+    return String(v??'').replace(/[&<>"']/g,c=>({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[c]));
+  }
+
+  function clean(v){return String(v??'').trim();}
+
+  function sourceFleet(){
+    try{return (typeof fleet!=='undefined')?fleet:(window.fleet||{});}catch(e){return window.fleet||{};}
+  }
+
+  function numericValue(v){
+    const m=String(v??'').match(/\d+/);
+    return m?parseInt(m[0],10):NaN;
+  }
+
+  function branchSort(a,b){
+    const na=numericValue(a), nb=numericValue(b);
+    if(Number.isFinite(na)&&Number.isFinite(nb)&&na!==nb)return na-nb;
+    if(Number.isFinite(na)!==Number.isFinite(nb))return Number.isFinite(na)?-1:1;
+    return String(a).localeCompare(String(b),'es',{numeric:true,sensitivity:'base'});
+  }
+
+  function firstValue(obj,keys){
+    if(!obj)return '';
+    for(const key of keys){
+      const value=obj[key];
+      if(value!==undefined&&value!==null&&clean(value))return clean(value);
+    }
+    return '';
+  }
+
+  function getUnits(series){
+    const data=sourceFleet()?.[String(series)];
+    if(!data)return [];
+
+    const result=[];
+    const add=(collection,sourceLabel)=>{
+      if(!collection)return;
+      Object.entries(collection).forEach(([key,unit])=>{
+        if(!unit||typeof unit!=='object')return;
+        const branch=firstValue(unit,['rama','branch']);
+        if(!branch)return;
+        result.push({key,unit,branch,sourceLabel});
+      });
+    };
+
+    add(data.units,'units');
+    add(data.unitsTL200,'unitsTL200');
+    add(data.ramas,'ramas');
+    add(data.branches,'branches');
+
+    return result;
+  }
+
+  function uniqueUnits(items){
+    const map=new Map();
+    items.forEach(item=>{
+      const branchDigits=String(item.branch).replace(/\D/g,'');
+      const key=(branchDigits||item.branch.toLowerCase())+'|'+(item.sourceLabel||'');
+      if(!map.has(key))map.set(key,item);
+    });
+    return [...map.values()];
+  }
+
+  function metaObject(unit){
+    if(!unit||typeof unit!=='object')return {};
+    return Object.assign({},unit,unit.meta||{},unit.metadata||{},unit.ficha||{});
+  }
+
+  function carLabel(unit,series){
+    const u=metaObject(unit);
+    let raw=firstValue(u,['numeroCoches','numCoches','numeroDeCoches','coches','composicionCoches']);
+
+    // En 453 también queda indicado en la subserie (por ejemplo, "8 coches").
+    if(!raw)raw=firstValue(u,['subserie','subSerie']);
+
+    const m=String(raw).match(/(\d+)\s*coches?/i);
+    if(m)return m[1]+' coches';
+
+    // Último respaldo específico para la 453 si el registro separa TL200 de TL100.
+    if(String(series)==='453'){
+      const text=(firstValue(u,['subserie','subSerie'])+' '+firstValue(u,['tipo','modelo','serieMaterial'])).toLowerCase();
+      if(/tl200|453\.6/.test(text))return '8 coches';
+      if(/tl100|453\.0/.test(text))return '4 coches';
+    }
+
+    return 'Número de coches no indicado';
+  }
+
+  function lotLabel(unit){
+    const u=metaObject(unit);
+    let raw=firstValue(u,['lote','lotes','loteNombre','loteId','lot','batch']);
+    if(raw)return raw;
+
+    // Algunas fichas llevan el lote escrito dentro de la subserie.
+    const sub=firstValue(u,['subserie','subSerie']);
+    const m=sub.match(/(?:·|-)\s*(Primer|Segundo|Tercer|Cuarto|Quinto)\s+lote\b/i);
+    if(m)return m[1]+' lote';
+    return '';
+  }
+
+  function subserieLabel(unit){
+    const u=metaObject(unit);
+    return firstValue(u,['subserie','subSerie','sub_serie','subSeries']);
+  }
+
+  function groupBy(items,getter,includeBlank){
+    const map=new Map();
+    items.forEach(item=>{
+      let label=clean(getter(item.unit,item));
+      if(!label){
+        if(!includeBlank)return;
+        label='Sin especificar';
+      }
+      if(!map.has(label))map.set(label,[]);
+      map.get(label).push(item);
+    });
+    return map;
+  }
+
+  function orderedGroups(map){
+    return [...map.entries()].sort((a,b)=>{
+      const na=numericValue(a[0]), nb=numericValue(b[0]);
+      if(Number.isFinite(na)&&Number.isFinite(nb)&&na!==nb)return na-nb;
+      if(Number.isFinite(na)!==Number.isFinite(nb))return Number.isFinite(na)?-1:1;
+      return a[0].localeCompare(b[0],'es',{numeric:true,sensitivity:'base'});
+    });
+  }
+
+  function renderBranchCards(items){
+    const unique=uniqueUnits(items).sort((a,b)=>branchSort(a.branch,b.branch));
+    return unique.map(item=>`<div class="library-group-branch">Rama ${esc(item.branch)}</div>`).join('');
+  }
+
+  function renderGroup(label,items,subGetter){
+    const unique=uniqueUnits(items);
+    let inner='';
+
+    if(subGetter){
+      const subgroups=groupBy(unique,subGetter,true);
+      const arr=orderedGroups(subgroups);
+      inner=arr.map(([sub,subItems])=>`
+        <div class="library-group-subgroup">
+          <div class="library-group-subtitle">${esc(sub)}</div>
+          <div class="library-group-branches">${renderBranchCards(subItems)}</div>
+        </div>
+      `).join('');
+    }else{
+      inner=`<div class="library-group-branches">${renderBranchCards(unique)}</div>`;
+    }
+
+    const count=unique.length;
+    return `
+      <section class="library-group">
+        <div class="library-group-head">
+          <span class="library-group-title">${esc(label)}</span>
+          <span class="library-group-count">${count} ${count===1?'rama':'ramas'}</span>
+        </div>
+        ${inner}
+      </section>`;
+  }
+
+  function renderGroupedSeries(series){
+    const list=$('argosLibraryBranchesList');
+    const title=$('argosLibraryBranchesTitle');
+    const panel=$('argosLibraryBranches');
+    if(!list||!title||!panel)return;
+
+    const all=uniqueUnits(getUnits(series));
+    title.textContent='Serie '+series;
+
+    if(!all.length){
+      list.className='library-branches-list';
+      list.innerHTML='<div class="library-empty">No hay ramas registradas para esta serie.</div>';
+      panel.hidden=false;
+      panel.setAttribute('aria-hidden','false');
+      return;
+    }
+
+    let html='';
+
+    if(String(series)==='453'){
+      // 453: separación obligatoria por número de coches.
+      const groups=groupBy(all,(unit)=>carLabel(unit,series),true);
+      html=orderedGroups(groups).map(([label,items])=>renderGroup(label,items,null)).join('');
+    }else{
+      // Primero lote. Si dentro de un lote existen varias subseries, se vuelven a dividir.
+      const lots=groupBy(all,(unit)=>lotLabel(unit),false);
+      const subs=groupBy(all,(unit)=>subserieLabel(unit),false);
+
+      if(lots.size>1){
+        html=orderedGroups(lots).map(([lot,items])=>{
+          const inside=groupBy(items,(unit)=>subserieLabel(unit),false);
+          return renderGroup(lot,items,inside.size>1?subserieLabel:null);
+        }).join('');
+      }else if(subs.size>1){
+        html=orderedGroups(subs).map(([sub,items])=>renderGroup(sub,items,null)).join('');
+      }else if(lots.size===1 && [...lots.keys()][0]){
+        // Existe un lote único: se muestra igualmente como encabezado para que la estructura sea clara.
+        const [lot,items]=[...lots.entries()][0];
+        html=renderGroup(lot,items,subs.size>1?subserieLabel:null);
+      }else{
+        html=`<section class="library-group"><div class="library-group-branches">${renderBranchCards(all)}</div></section>`;
+      }
+    }
+
+    list.className='library-group-list';
+    list.innerHTML=html;
+    panel.hidden=false;
+    panel.setAttribute('aria-hidden','false');
+  }
+
+  function renderSeriesCards(){
+    const box=$('argosLibrarySeries');
+    if(!box)return false;
+    const source=sourceFleet();
+    const keys=Object.keys(source||{}).filter(k=>/^\d+$/.test(String(k))).sort((a,b)=>Number(a)-Number(b));
+    if(!keys.length)return false;
+
+    box.innerHTML=keys.map(series=>`
+      <button type="button" class="library-series-card" data-library-series-v47="${esc(series)}">
+        <span class="library-series-number">Serie ${esc(series)}</span>
+        <span class="library-series-arrow">›</span>
+      </button>
+    `).join('');
+
+    box.querySelectorAll('[data-library-series-v47]').forEach(btn=>{
+      btn.addEventListener('click',()=>renderGroupedSeries(btn.dataset.librarySeriesV47));
+    });
+    return true;
+  }
+
+  function closePanel(){
+    const panel=$('argosLibraryBranches');
+    if(panel){panel.hidden=true;panel.setAttribute('aria-hidden','true');}
+  }
+
+  function install(){
+    const box=$('argosLibrarySeries');
+    if(!box)return;
+
+    // Este motor se instala al final para que prevalezca sobre la biblioteca antigua.
+    renderSeriesCards();
+
+    const back=$('argosLibraryBack');
+    if(back&&back.dataset.libraryV47Installed!=='1'){
+      back.dataset.libraryV47Installed='1';
+      back.addEventListener('click',closePanel);
+    }
+
+    const panel=$('argosLibraryBranches');
+    if(panel&&panel.dataset.libraryV47CloseInstalled!=='1'){
+      panel.dataset.libraryV47CloseInstalled='1';
+      panel.querySelectorAll('[data-library-close]').forEach(el=>el.addEventListener('click',closePanel));
+    }
+
+    // Si la flota se termina de cargar después del arranque, se vuelve a pintar una sola vez.
+    let tries=0;
+    const retry=()=>{
+      tries++;
+      if(renderSeriesCards()||tries>=20)return;
+      setTimeout(retry,250);
+    };
+    setTimeout(retry,250);
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
+  else install();
 })();
 </script>
