@@ -8195,7 +8195,9 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       const k=text(fn(s));
       if(k&&k!=='Ruta no indicada')map.set(k,(map.get(k)||0)+1);
     });
-    return [...map.entries()].sort((x,y)=>y[1]-x[1]||x[0].localeCompare(y[0],'es'));
+    return [...map.entries()]
+      .filter(x=>Number(x[1])>=2)
+      .sort((x,y)=>y[1]-x[1]||x[0].localeCompare(y[0],'es'));
   }
 
   function modalOpen(kicker,title,sub,body){
@@ -8353,19 +8355,51 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   function materialModalV40(){
     const a=filtered();
     const series=countBy(a,s=>field(s,'series'));
-    const vehicles=countBy(a,s=>field(s,'vehicle'));
     const branches=countBy(a,s=>field(s,'branch'));
     const products=countBy(a,s=>field(s,'product'));
+
+    const vehicleMap=new Map();
+    a.forEach(s=>{
+      const vehicle=text(field(s,'vehicle'));
+      if(!vehicle)return;
+      if(!vehicleMap.has(vehicle))vehicleMap.set(vehicle,{count:0,series:new Set()});
+      const item=vehicleMap.get(vehicle);
+      item.count++;
+      const serie=text(field(s,'series'));
+      if(serie)item.series.add(serie);
+    });
+
+    const vehicles=[...vehicleMap.entries()]
+      .map(([vehicle,item])=>({
+        vehicle,
+        count:item.count,
+        series:[...item.series].sort((x,y)=>x.localeCompare(y,'es'))
+      }))
+      .filter(x=>x.count>=2)
+      .sort((x,y)=>y.count-x.count||x.vehicle.localeCompare(y.vehicle,'es'))
+      .slice(0,15);
+
+    const vehicleRows=vehicles.map(x=>[
+      x.vehicle+' · '+(x.series.length===1?'Serie '+x.series[0]:x.series.length>1?'Series '+x.series.join(' · '):'Serie no indicada'),
+      x.count
+    ]);
+
     modalOpen('ARGOS · MATERIAL','Perfil de material','Detalle del material utilizado',
       note()+kpis([
         ['Series',series.length],['Vehículos',vehicles.length],['Ramas',branches.length]
       ])+
       list('Series más utilizadas',series.slice(0,15))+
-      list('Vehículos más utilizados',vehicles.slice(0,15))+
+      list('Vehículos más utilizados',vehicleRows)+
       list('Ramas más utilizadas',branches.slice(0,15))+
       list('Productos asociados',products.slice(0,10))
     );
   }
+
+  /* V40 · En Perfil de material, vehículo y serie permanecen en la misma línea. */
+  const materialStyle=document.createElement('style');
+  materialStyle.id='argos-v40-material-inline';
+  materialStyle.textContent='.stats-modal .modal-row span{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}';
+  document.head.appendChild(materialStyle);
 
   function handle(type){
     switch(type){
