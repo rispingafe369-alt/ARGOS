@@ -9782,21 +9782,30 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     return Object.assign({},unit,unit.meta||{},unit.metadata||{},unit.ficha||{});
   }
 
-  function carLabel(unit,series){
+  function carLabel(unit,series,sourceLabel){
     const u=metaObject(unit);
-    let raw=firstValue(u,['numeroCoches','numCoches','numeroDeCoches','coches','composicionCoches']);
+    const source=String(sourceLabel||'').toLowerCase();
 
-    // En 453 también queda indicado en la subserie (por ejemplo, "8 coches").
+    // 453: la colección es la referencia principal.
+    // 'units' contiene las ramas TL100 de 4 coches y 'unitsTL200' las TL200 de 8.
+    // Esto evita que una ficha incompleta o un dato heredado clasifique mal una rama.
+    if(String(series)==='453'){
+      if(source==='unitstl200')return '8 coches';
+      if(source==='units')return '4 coches';
+    }
+
+    let raw=firstValue(u,['numeroCoches','numCoches','numeroDeCoches','coches','composicionCoches']);
     if(!raw)raw=firstValue(u,['subserie','subSerie']);
 
     const m=String(raw).match(/(\d+)\s*coches?/i);
     if(m)return m[1]+' coches';
 
-    // Último respaldo específico para la 453 si el registro separa TL200 de TL100.
+    // Respaldo específico de la 453 si el registro no conserva la colección de origen.
     if(String(series)==='453'){
       const text=(firstValue(u,['subserie','subSerie'])+' '+firstValue(u,['tipo','modelo','serieMaterial'])).toLowerCase();
       if(/tl200|453\.6/.test(text))return '8 coches';
       if(/tl100|453\.0/.test(text))return '4 coches';
+      return '4 coches';
     }
 
     return 'Número de coches no indicado';
@@ -9896,7 +9905,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
     if(String(series)==='453'){
       // 453: separación obligatoria por número de coches.
-      const groups=groupBy(all,(unit)=>carLabel(unit,series),true);
+      const groups=groupBy(all,(unit,item)=>carLabel(unit,series,item?.sourceLabel||''),true);
       html=orderedGroups(groups).map(([label,items])=>renderGroup(label,items,null)).join('');
     }else{
       // Primero lote. Si dentro de un lote existen varias subseries, se vuelven a dividir.
