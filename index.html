@@ -1544,10 +1544,10 @@ button:focus:not(:focus-visible),
 
 <!-- ARGOS · VERSIÓN PÚBLICA Y REGISTRO DE ACTUALIZACIONES -->
 <script id="argos-app-version-config">
-  window.ARGOS_APP_VERSION = "4.0";
-  window.ARGOS_UPDATE_TITLE = "ARGOS 4.0";
+  window.ARGOS_APP_VERSION = "4.2";
+  window.ARGOS_UPDATE_TITLE = "ARGOS 4.2";
   window.ARGOS_UPDATE_ITEMS = [
-    "Estadísticas mejoradas: ahora los indicadores y tarjetas de análisis son interactivos y muestran información adicional al pulsarlos."
+    "Añadido automático de origen y destino al introducir un número de tren ya registrado: ARGOS recupera la última ruta conocida de ese tren y, si es la primera vez que se registra, permite introducir el origen y destino manualmente."
   ];
 </script>
 
@@ -2391,6 +2391,110 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
   document.addEventListener("DOMContentLoaded",refreshHome);
   window.addEventListener("storage",refreshHome);
   refreshHome();
+})();
+</script>
+
+<script id="argos-train-route-memory-v42">
+(function(){
+  'use strict';
+
+  const trainInput=document.getElementById('train');
+  const originInput=document.getElementById('origin');
+  const destinationInput=document.getElementById('destination');
+  const noTrain=document.getElementById('noTrainNumber');
+  if(!trainInput||!originInput||!destinationInput)return;
+
+  function text(v){return String(v??'').trim();}
+  function trainKey(v){return text(v).replace(/\D/g,'');}
+
+  function readServices(){
+    try{
+      const raw=localStorage.getItem('argos_services');
+      const data=raw?JSON.parse(raw):[];
+      return Array.isArray(data)?data:[];
+    }catch(e){return []}
+  }
+
+  function serviceTrain(s){return text(s?.train??s?.tren??s?.number??s?.numero);}
+  function serviceOrigin(s){return text(s?.origin??s?.origen);}
+  function serviceDestination(s){return text(s?.destination??s?.destino);}
+
+  let autoOrigin='';
+  let autoDestination='';
+  let autoRouteTrain='';
+
+  function clearAutoRoute(){
+    if(autoRouteTrain){
+      if(text(originInput.value)===autoOrigin)originInput.value='';
+      if(text(destinationInput.value)===autoDestination)destinationInput.value='';
+    }
+    autoOrigin='';
+    autoDestination='';
+    autoRouteTrain='';
+  }
+
+  function findPreviousRoute(train){
+    const key=trainKey(train);
+    if(!key)return null;
+    const data=readServices();
+    for(let i=data.length-1;i>=0;i--){
+      const s=data[i];
+      if(trainKey(serviceTrain(s))!==key)continue;
+      const origin=serviceOrigin(s);
+      const destination=serviceDestination(s);
+      if(origin&&destination)return {origin,destination};
+    }
+    return null;
+  }
+
+  function applyRoute(){
+    if(noTrain?.checked){clearAutoRoute();return;}
+    const train=text(trainInput.value);
+    const key=trainKey(train);
+    if(!key){clearAutoRoute();return;}
+
+    const found=findPreviousRoute(train);
+    if(!found){
+      clearAutoRoute();
+      return;
+    }
+
+    // Solo rellenamos automáticamente si los campos están vacíos o contienen
+    // exactamente la ruta que ARGOS había rellenado anteriormente.
+    const originCurrent=text(originInput.value);
+    const destinationCurrent=text(destinationInput.value);
+    const canFillOrigin=!originCurrent||originCurrent===autoOrigin;
+    const canFillDestination=!destinationCurrent||destinationCurrent===autoDestination;
+
+    if(canFillOrigin)originInput.value=found.origin;
+    if(canFillDestination)destinationInput.value=found.destination;
+
+    autoOrigin=canFillOrigin?found.origin:'';
+    autoDestination=canFillDestination?found.destination:'';
+    autoRouteTrain=key;
+
+    originInput.dispatchEvent(new Event('input',{bubbles:true}));
+    destinationInput.dispatchEvent(new Event('input',{bubbles:true}));
+  }
+
+  trainInput.addEventListener('input',function(){
+    // Esperamos a que el usuario termine de escribir el número antes de buscar.
+    window.clearTimeout(trainInput.__argosRouteTimer);
+    trainInput.__argosRouteTimer=window.setTimeout(applyRoute,180);
+  });
+
+  trainInput.addEventListener('blur',applyRoute);
+  noTrain?.addEventListener('change',function(){
+    if(this.checked)clearAutoRoute();
+    else applyRoute();
+  });
+
+  const form=document.getElementById('serviceForm');
+  form?.addEventListener('reset',function(){
+    autoOrigin='';
+    autoDestination='';
+    autoRouteTrain='';
+  });
 })();
 </script>
 
