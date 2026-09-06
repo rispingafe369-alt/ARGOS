@@ -7615,3 +7615,79 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   window.addEventListener('load',install,{once:true});
 })();
 </script>
+
+<style id="argosdex-real-scroll-final-v1">
+/* ================================================================
+   ARGOSDEX · SCROLL REAL DE LA FICHA
+   SOLO ARGOSEX: permite que la pantalla crezca y que el contenido
+   completo de la ficha se pueda recorrer verticalmente.
+   No modifica datos, búsqueda ni ninguna otra pantalla.
+   ================================================================ */
+#argosdex.argosdex-screen,
+#argosdex.argosdex-screen.active{
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  -webkit-overflow-scrolling:touch!important;
+  box-sizing:border-box!important;
+}
+
+#argosdex.argosdex-screen .argosdex-shell{
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  overflow:visible!important;
+}
+
+#argosdex.argosdex-screen .argosdex-result,
+#argosdex.argosdex-screen .argosdex-result.show{
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  overflow:visible!important;
+  flex:0 0 auto!important;
+}
+
+#argosdex.argosdex-screen .argosdex-ficha-wrap{
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  overflow:visible!important;
+}
+
+@media(max-width:600px){
+  #argosdex.argosdex-screen,
+  #argosdex.argosdex-screen.active{
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+  }
+
+  #argosdex.argosdex-screen .argosdex-shell{
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    overflow:visible!important;
+  }
+
+  #argosdex.argosdex-screen .argosdex-result,
+  #argosdex.argosdex-screen .argosdex-result.show{
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    overflow:visible!important;
+    flex:0 0 auto!important;
+  }
+
+  #argosdex.argosdex-screen .argosdex-ficha-wrap{
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    overflow:visible!important;
+  }
+}
+</style>
