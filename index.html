@@ -9992,3 +9992,19 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   else install();
 })();
 </script>
+
+<!-- ================================================================
+     ARGOS 4.7 · AJUSTE VISUAL VENTANA BIBLIOTECA
+     Baja ligeramente la ventana de ramas para que quede más equilibrada
+     visualmente y no tan pegada a la parte superior.
+     ================================================================ -->
+<style id="argos-library-v47-window-position">
+  .library-branches-window{
+    transform:translateY(36px);
+  }
+  @media(max-width:600px){
+    .library-branches-window{
+      transform:translateY(30px);
+    }
+  }
+</style>
