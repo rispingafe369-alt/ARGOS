@@ -1544,10 +1544,10 @@ button:focus:not(:focus-visible),
 
 <!-- ARGOS · VERSIÓN PÚBLICA Y REGISTRO DE ACTUALIZACIONES -->
 <script id="argos-app-version-config">
-  window.ARGOS_APP_VERSION = "4.3";
-  window.ARGOS_UPDATE_TITLE = "ARGOS 4.3";
+  window.ARGOS_APP_VERSION = "4.5";
+  window.ARGOS_UPDATE_TITLE = "ARGOS 4.5";
   window.ARGOS_UPDATE_ITEMS = [
-    "Mejorada la gestión de incidencias en ramas repetidas: ARGOS muestra por separado las incidencias anteriores y las nuevas, permite marcar las anteriores como solventadas y muestra las anotaciones propias del tren con opción de editarlas."
+    "Mejorada la gestión de incidencias: al detectar una rama ya registrada, ARGOS muestra las incidencias pendientes de la última vez para evitar volver a registrarlas. En la ventana de rama repetida pueden marcarse como solventadas y desaparecen automáticamente. Las anotaciones continúan funcionando de forma independiente como peculiaridades del tren."
   ];
 </script>
 
@@ -1748,6 +1748,7 @@ button:focus:not(:focus-visible),
       </div>
       <button id="addIncident" class="add-entry-button" type="button">＋ Añadir incidencia</button>
       <div id="incidentsEntries" class="entries-list"></div>
+      <div id="argosPreviousBranchIncidents" class="argos-previous-branch-incidents" aria-live="polite" hidden></div>
     </div>
 
     <div class="form-actions">
@@ -4772,6 +4773,108 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 })();
 </script>
 
+
+<script id="argos-previous-branch-incidents-v45">
+(function(){
+  'use strict';
+
+  function $(id){return document.getElementById(id)}
+  function digits(v){return String(v??'').replace(/\D/g,'')}
+  function norm(v){return digits(v).replace(/^0+/,'')||''}
+  function branchKey(series,branch){
+    const s=norm(series),b=norm(branch);
+    return s&&b?s+'|'+b:'';
+  }
+
+  function services(){
+    try{
+      const a=JSON.parse(localStorage.getItem('argos_services')||'[]');
+      return Array.isArray(a)?a:[];
+    }catch(e){return[]}
+  }
+
+  function getBranch(s){
+    return {
+      series:norm(s?.series??s?.serie),
+      branch:norm(s?.branch??s?.rama)
+    };
+  }
+
+  function incidents(s){
+    if(!s)return[];
+    let raw=Array.isArray(s.incidentsEntries)
+      ? s.incidentsEntries
+      : String(s.incidents??'').split(/\n+/).filter(Boolean);
+
+    return raw.map(x=>{
+      if(x&&typeof x==='object'){
+        return {text:String(x.text??x.value??'').trim(),solved:x.solved===true};
+      }
+      return {text:String(x??'').trim(),solved:false};
+    }).filter(x=>x.text&&!x.solved);
+  }
+
+  function previousService(series,branch){
+    const wanted=branchKey(series,branch);
+    if(!wanted)return null;
+    const all=services();
+    for(let i=all.length-1;i>=0;i--){
+      const b=getBranch(all[i]);
+      if(branchKey(b.series,b.branch)===wanted)return all[i];
+    }
+    return null;
+  }
+
+  function escapeHtml(v){
+    return String(v??'').replace(/[&<>"']/g,c=>({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[c]));
+  }
+
+  function render(){
+    const box=$('argosPreviousBranchIncidents');
+    const series=$('series');
+    const branch=$('branchValue');
+    if(!box||!series||!branch)return;
+
+    const s=norm(series.value);
+    const b=norm(branch.value);
+    const prev=previousService(s,b);
+    const list=incidents(prev);
+
+    if(!s||!b||!list.length){
+      box.hidden=true;
+      box.innerHTML='';
+      return;
+    }
+
+    box.hidden=false;
+    box.innerHTML=
+      '<div class="argos-previous-branch-incidents-title">Incidencias pendientes de la última vez</div>'+
+      '<div class="argos-previous-branch-incidents-subtitle">Ya están registradas en la última visita de esta rama. No es necesario volver a introducirlas.</div>'+
+      list.map(x=>'<div class="argos-previous-branch-incident">'+escapeHtml(x.text)+'</div>').join('');
+  }
+
+  function install(){
+    const series=$('series'),branch=$('branchValue');
+    if(!series||!branch||series.dataset.previousIncidentsV45==='1')return;
+    series.dataset.previousIncidentsV45='1';
+
+    ['input','change'].forEach(ev=>{
+      series.addEventListener(ev,()=>setTimeout(render,30));
+      branch.addEventListener(ev,()=>setTimeout(render,30));
+    });
+
+    const observer=new MutationObserver(()=>setTimeout(render,30));
+    observer.observe(branch,{attributes:true,attributeFilter:['value','class']});
+    setTimeout(render,100);
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
+  else install();
+  window.addEventListener('load',install,{once:true});
+})();
+</script>
 <style id="argos-stats-mobile-v41">
 /* ================================================================
    ARGOS V41 · ESTADÍSTICAS MÓVIL
@@ -6101,6 +6204,14 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     .argos-branch-annotation-actions{flex-direction:column}
   }
 </style>
+<style id="argos-branch-incidents-v45-style">
+  .argos-previous-branch-incidents{margin-top:14px;padding:14px 15px;border:1px solid rgba(138,0,92,.15);border-radius:15px;background:var(--soft,#f7eaf2)}
+  .argos-previous-branch-incidents[hidden]{display:none!important}
+  .argos-previous-branch-incidents-title{color:var(--renfe,#8a005c);font-size:11px;font-weight:900;letter-spacing:.07em;text-transform:uppercase;margin-bottom:7px}
+  .argos-previous-branch-incidents-subtitle{color:var(--muted,#777);font-size:12px;line-height:1.4;margin-bottom:8px}
+  .argos-previous-branch-incident{padding:9px 10px;margin-top:6px;border-radius:10px;background:var(--card,#fff);border:1px solid var(--line,#ddd);font-size:13px;line-height:1.35}
+  .argos-previous-branch-incident::before{content:'•';color:var(--renfe,#8a005c);font-weight:900;margin-right:7px}
+</style>
 
 <style id="argos-branch-visit-v33-style">
   .argos-branch-visit-overlay{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.52);display:flex;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(4px)}
@@ -6364,7 +6475,9 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const cards=items.map(x=>{
       const previous=x.previous;
       const previousService=previous[previous.length-1]||null;
-      const previousIncidents=incidentsOf(previousService);
+      const previousIncidents=incidentsOf(previousService)
+        .map((inc,index)=>({...inc,index}))
+        .filter(inc=>!inc.solved);
       const currentIncidents=incidentsOf(x.service);
       const currentNotes=notesOf(x.service);
 
@@ -6393,11 +6506,11 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
         ${previousIncidents.length?`
           <div class="argos-branch-history-block">
             <div class="argos-branch-history-heading">Incidencias de la vez anterior</div>
-            ${previousIncidents.map((inc,i)=>`
+            ${previousIncidents.map(inc=>`
               <label class="argos-branch-incident-old">
-                <input type="checkbox" data-incident-service="${esc(previousService?.id||'')}" data-incident-index="${i}" ${inc.solved?'checked':''}>
+                <input type="checkbox" data-incident-service="${esc(previousService?.id||'')}" data-incident-index="${inc.index}">
                 <span>${esc(inc.text)}</span>
-                <small>${inc.solved?'Solventada':'Pendiente'}</small>
+                <small>Pendiente</small>
               </label>`).join('')}
           </div>`:''}
 
@@ -6431,13 +6544,17 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
     overlay.querySelectorAll('[data-incident-service]').forEach(input=>{
       input.addEventListener('change',()=>{
+        const row=input.closest('.argos-branch-incident-old');
         updateIncidentSolved(
           input.dataset.incidentService,
           Number(input.dataset.incidentIndex),
           input.checked
         );
-        const small=input.closest('.argos-branch-incident-old')?.querySelector('small');
-        if(small)small.textContent=input.checked?'Solventada':'Pendiente';
+        if(input.checked){
+          if(row)row.remove();
+          const block=overlay.querySelector('.argos-branch-history-block');
+          if(block&&!block.querySelector('.argos-branch-incident-old'))block.remove();
+        }
       });
     });
 
