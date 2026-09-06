@@ -8355,18 +8355,31 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   function materialModalV40(){
     const a=filtered();
     const series=countBy(a,s=>field(s,'series'));
-    const branches=countBy(a,s=>field(s,'branch'));
     const products=countBy(a,s=>field(s,'product'));
 
+    /* Vehículos: solo los que aparecen 2+ veces, mostrando sus series en la misma línea. */
     const vehicleMap=new Map();
+    /* Ramas: solo las que aparecen 2+ veces, mostrando sus series en la misma línea. */
+    const branchMap=new Map();
+
     a.forEach(s=>{
       const vehicle=text(field(s,'vehicle'));
-      if(!vehicle)return;
-      if(!vehicleMap.has(vehicle))vehicleMap.set(vehicle,{count:0,series:new Set()});
-      const item=vehicleMap.get(vehicle);
-      item.count++;
-      const serie=text(field(s,'series'));
-      if(serie)item.series.add(serie);
+      if(vehicle){
+        if(!vehicleMap.has(vehicle))vehicleMap.set(vehicle,{count:0,series:new Set()});
+        const item=vehicleMap.get(vehicle);
+        item.count++;
+        const serie=text(field(s,'series'));
+        if(serie)item.series.add(serie);
+      }
+
+      const branch=text(field(s,'branch'));
+      if(branch){
+        if(!branchMap.has(branch))branchMap.set(branch,{count:0,series:new Set()});
+        const item=branchMap.get(branch);
+        item.count++;
+        const serie=text(field(s,'series'));
+        if(serie)item.series.add(serie);
+      }
     });
 
     const vehicles=[...vehicleMap.entries()]
@@ -8379,8 +8392,23 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       .sort((x,y)=>y.count-x.count||x.vehicle.localeCompare(y.vehicle,'es'))
       .slice(0,15);
 
+    const branches=[...branchMap.entries()]
+      .map(([branch,item])=>({
+        branch,
+        count:item.count,
+        series:[...item.series].sort((x,y)=>x.localeCompare(y,'es'))
+      }))
+      .filter(x=>x.count>=2)
+      .sort((x,y)=>y.count-x.count||x.branch.localeCompare(y.branch,'es'))
+      .slice(0,15);
+
     const vehicleRows=vehicles.map(x=>[
       x.vehicle+' · '+(x.series.length===1?'Serie '+x.series[0]:x.series.length>1?'Series '+x.series.join(' · '):'Serie no indicada'),
+      x.count
+    ]);
+
+    const branchRows=branches.map(x=>[
+      'Rama '+x.branch+' · '+(x.series.length===1?'Serie '+x.series[0]:x.series.length>1?'Series '+x.series.join(' · '):'Serie no indicada'),
       x.count
     ]);
 
@@ -8390,7 +8418,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       ])+
       list('Series más utilizadas',series.slice(0,15))+
       list('Vehículos más utilizados',vehicleRows)+
-      list('Ramas más utilizadas',branches.slice(0,15))+
+      list('Ramas más utilizadas',branchRows)+
       list('Productos asociados',products.slice(0,10))
     );
   }
@@ -8398,7 +8426,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   /* V40 · En Perfil de material, vehículo y serie permanecen en la misma línea. */
   const materialStyle=document.createElement('style');
   materialStyle.id='argos-v40-material-inline';
-  materialStyle.textContent='.stats-modal .modal-row span{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}';
+  materialStyle.textContent='.stats-modal .modal-row span{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;} .stats-modal .modal-row{min-width:0;}';
   document.head.appendChild(materialStyle);
 
   function handle(type){
