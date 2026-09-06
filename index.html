@@ -1544,9 +1544,10 @@ button:focus:not(:focus-visible),
 
 <!-- ARGOS · VERSIÓN PÚBLICA Y REGISTRO DE ACTUALIZACIONES -->
 <script id="argos-app-version-config">
-  window.ARGOS_APP_VERSION = "4.7";
-  window.ARGOS_UPDATE_TITLE = "ARGOS 4.7";
+  window.ARGOS_APP_VERSION = "5.0";
+  window.ARGOS_UPDATE_TITLE = "ARGOS 5.0";
   window.ARGOS_UPDATE_ITEMS = [
+    "ARGOS 5.0: nuevo apartado Más funciones con acceso a Progreso, Calidad, Biblioteca y Bloc de Notas, manteniendo el diseño del menú principal.",
     "Biblioteca reorganizada: las series y las ramas se muestran ordenadas de forma ascendente para localizar el material más rápido.",
     "Serie 453 dividida por número de coches: las ramas aparecen separadas en sus grupos de 4 coches, 8 coches u otras composiciones detectadas.",
     "Las series que tienen lotes o subseries ahora muestran las ramas divididas dentro de cada lote o subserie, en lugar de presentar todas las ramas juntas."
@@ -1649,6 +1650,49 @@ button:focus:not(:focus-visible),
           </select>
         </span>
       </div>
+
+      <button class="home-card" data-screen="more-functions" type="button">
+        <span class="home-icon">＋</span>
+        <span><h2>Más funciones</h2><p>Nuevas herramientas para ARGOS</p></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- MÁS FUNCIONES · ARGOS 5.0 -->
+<section id="more-functions" class="screen menu-screen" aria-label="Más funciones">
+  <div class="argos-home">
+    <div class="welcome-card">
+      <div class="welcome-pill">ARGOS · MÁS FUNCIONES</div>
+      <h1>Más funciones</h1>
+      <p>Nuevas herramientas para ampliar ARGOS.</p>
+    </div>
+
+    <div class="home-list">
+      <button class="home-card" type="button" data-more-placeholder="1">
+        <span class="home-icon">↗</span>
+        <span><h2>Progreso</h2><p>Consulta y sigue tu progreso en ARGOS</p></span>
+      </button>
+
+      <button class="home-card" type="button" data-more-placeholder="1">
+        <span class="home-icon">★</span>
+        <span><h2>Calidad</h2><p>Herramientas para revisar la calidad de tus servicios</p></span>
+      </button>
+
+      <button class="home-card" data-screen="library" type="button">
+        <span class="home-icon">▤</span>
+        <span><h2>Biblioteca</h2><p>Consultar las series y ramas de la flota</p></span>
+      </button>
+
+      <button class="home-card" type="button" data-more-placeholder="1">
+        <span class="home-icon">✎</span>
+        <span><h2>Bloc de Notas</h2><p>Guardar tus notas y apuntes de ARGOS</p></span>
+      </button>
+
+      <button class="home-card" data-screen="menu" type="button">
+        <span class="home-icon">‹</span>
+        <span><h2>Volver al menú principal</h2><p>Regresar al menú principal de ARGOS</p></span>
+      </button>
     </div>
   </div>
 </section>
@@ -2387,6 +2431,18 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
   document.querySelectorAll("#menu [data-screen]").forEach(b=>{
     b.addEventListener("click",()=>{
       if(typeof showScreen==="function") showScreen(b.dataset.screen);
+    });
+  });
+
+  document.querySelectorAll("#more-functions [data-screen]").forEach(b=>{
+    b.addEventListener("click",()=>{
+      if(typeof showScreen==="function") showScreen(b.dataset.screen);
+    });
+  });
+
+  document.querySelectorAll("#more-functions [data-more-placeholder]").forEach(b=>{
+    b.addEventListener("click",()=>{
+      if(typeof toast==="function") toast("Esta función se desarrollará próximamente");
     });
   });
 
