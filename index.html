@@ -2473,6 +2473,14 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
     autoDestination=canFillDestination?found.destination:'';
     autoRouteTrain=key;
 
+    /*
+     * La ruta recuperada por ARGOS es un valor ya conocido.
+     * Marcamos estos dos eventos para que el buscador de estaciones
+     * no abra su desplegable como si el usuario estuviera escribiendo.
+     */
+    if(canFillOrigin)originInput.dataset.argosAutoRoute='1';
+    if(canFillDestination)destinationInput.dataset.argosAutoRoute='1';
+
     originInput.dispatchEvent(new Event('input',{bubbles:true}));
     destinationInput.dispatchEvent(new Event('input',{bubbles:true}));
   }
@@ -4059,6 +4067,18 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const close=()=>{box.classList.remove("show");box.innerHTML="";};
 
     const doSearch=async()=>{
+      /*
+       * Si el valor acaba de ser rellenado automáticamente desde la memoria
+       * de rutas, no debemos mostrar el buscador de estaciones.
+       * Consumimos la marca antes de cualquier búsqueda, incluida la parte
+       * asíncrona del catálogo oficial.
+       */
+      if(input.dataset.argosAutoRoute==='1'){
+        delete input.dataset.argosAutoRoute;
+        close();
+        return;
+      }
+
       const value=input.value.trim();
       delete input.dataset.stationCode;
       if(!value){close();return;}
