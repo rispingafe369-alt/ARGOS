@@ -1827,6 +1827,37 @@ button:focus:not(:focus-visible),
   </div>
 </section>
 
+<section id="library" class="screen library-screen">
+  <div class="screen-header">
+    <button class="back-button" data-back type="button">‹</button>
+    <div><div class="screen-kicker">ARGOS · BASE DE DATOS</div><h2>Biblioteca</h2></div>
+  </div>
+
+  <div class="library-dashboard">
+    <div class="library-hero">
+      <div>
+        <span class="library-hero-kicker">ARGOS · BIBLIOTECA</span>
+        <h3>Series y ramas</h3>
+        <p>Consulta las series disponibles en la base de datos de ARGOS y las ramas que forman cada una.</p>
+      </div>
+      <div class="library-hero-badge">▤</div>
+    </div>
+
+    <div id="argosLibrarySeries" class="library-series-list" aria-live="polite"></div>
+
+    <div id="argosLibraryBranches" class="library-branches-panel" hidden>
+      <div class="library-branches-head">
+        <button id="argosLibraryBack" type="button" class="library-back">‹</button>
+        <div>
+          <span class="library-hero-kicker">SERIE</span>
+          <h3 id="argosLibraryBranchesTitle">—</h3>
+        </div>
+      </div>
+      <div id="argosLibraryBranchesList" class="library-branches-list"></div>
+    </div>
+  </div>
+</section>
+
 <section id="stats" class="screen stats-screen">
   <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">DATOS</div><h2>Estadísticas</h2></div></div>
   <div class="stats-dashboard">
@@ -2186,6 +2217,7 @@ button:focus:not(:focus-visible),
       <button class="drawer-item" data-screen="history" type="button"><span class="drawer-icon">☷</span>Ver historial</button>
       <button class="drawer-item" data-screen="stats" type="button"><span class="drawer-icon">◔</span>Estadísticas</button>
       <button class="drawer-item" data-screen="argosdex" type="button"><span class="drawer-icon">⌕</span>ArgosDex</button>
+      <button class="drawer-item" data-screen="library" type="button"><span class="drawer-icon">▤</span>Biblioteca</button>
       <button class="drawer-item" data-screen="instructions" type="button"><span class="drawer-icon">?</span>Instrucciones</button>
       <button class="drawer-item" data-screen="updates" type="button"><span class="drawer-icon">↻</span>Actualizaciones</button>
       <button id="openSettings" class="drawer-item" data-screen="settings" type="button"><span class="drawer-icon">⚙</span>Ajustes</button>
@@ -6299,6 +6331,149 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 })();
 </script>
 
+
+<style id="argos-library-v1-style">
+  .library-screen{padding-bottom:32px}
+  .library-dashboard{max-width:980px;margin:0 auto}
+  .library-hero{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px;border:1px solid var(--line);border-radius:22px;background:var(--card);box-shadow:0 10px 30px rgba(20,20,30,.05);margin-bottom:18px}
+  .library-hero-kicker{display:block;color:var(--renfe);font-size:11px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}
+  .library-hero h3{margin:5px 0 6px;font-size:30px}
+  .library-hero p{margin:0;color:var(--muted);font-size:14px;line-height:1.45}
+  .library-hero-badge{width:58px;height:58px;flex:0 0 58px;border-radius:18px;background:var(--soft);color:var(--renfe);display:flex;align-items:center;justify-content:center;font-size:29px;font-weight:900}
+  .library-series-list{display:grid;gap:10px}
+  .library-series-card{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:17px 19px;border:1px solid var(--line);border-radius:16px;background:var(--card);color:var(--text);text-align:left;cursor:pointer;box-shadow:0 5px 18px rgba(20,20,30,.04)}
+  .library-series-card:hover{border-color:rgba(138,0,92,.28)}
+  .library-series-number{font-size:22px;font-weight:900}
+  .library-series-arrow{color:var(--renfe);font-size:25px;font-weight:900}
+  .library-empty{padding:28px;text-align:center;border:1px dashed var(--line);border-radius:16px;color:var(--muted);background:var(--card)}
+  .library-branches-panel{margin-top:18px}
+  .library-branches-head{display:flex;align-items:center;gap:12px;padding:8px 0 18px;border-bottom:1px solid var(--line);margin-bottom:14px}
+  .library-back{width:42px;height:42px;flex:0 0 42px;border:1px solid var(--line);border-radius:13px;background:var(--card);color:var(--renfe);font-size:28px;cursor:pointer}
+  .library-branches-head h3{margin:3px 0 0;font-size:28px}
+  .library-branches-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+  .library-branch-card{padding:17px 18px;border:1px solid var(--line);border-radius:15px;background:var(--card);font-size:19px;font-weight:900}
+  @media(max-width:600px){
+    .library-hero{padding:19px}
+    .library-hero h3{font-size:25px}
+    .library-hero-badge{width:50px;height:50px;flex-basis:50px}
+    .library-branches-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+</style>
+
+<script id="argos-library-v1-engine">
+(function(){
+  'use strict';
+
+  const $=id=>document.getElementById(id);
+  let currentSeries='';
+
+  function norm(v){
+    const n=String(v??'').replace(/\D/g,'').replace(/^0+/,'');
+    return n||'0';
+  }
+
+  function seriesKeys(){
+    try{
+      const source=(typeof fleet!=='undefined')?fleet:(window.fleet||{});
+      return Object.keys(source||{})
+        .filter(k=>/^\d+$/.test(String(k)))
+        .sort((a,b)=>Number(b)-Number(a));
+    }catch(e){
+      console.warn('ARGOS Biblioteca: no se pudo leer la base de material',e);
+      return [];
+    }
+  }
+
+  function branchesFor(series){
+    try{
+      const source=(typeof fleet!=='undefined')?fleet:(window.fleet||{});
+      const data=source?.[series];
+      const units=data?.units||{};
+      const seen=new Set();
+      Object.values(units).forEach(unit=>{
+        const raw=String(unit?.rama??'').trim();
+        if(!raw)return;
+        const clean=norm(raw);
+        if(clean!=='0')seen.add(clean);
+      });
+      return [...seen].sort((a,b)=>Number(b)-Number(a));
+    }catch(e){
+      console.warn('ARGOS Biblioteca: no se pudieron leer las ramas',e);
+      return [];
+    }
+  }
+
+  function renderSeries(){
+    const box=$('argosLibrarySeries');
+    const branches=$('argosLibraryBranches');
+    if(!box)return;
+    branches.hidden=true;
+    currentSeries='';
+
+    const keys=seriesKeys();
+    if(!keys.length){
+      box.innerHTML='<div class="library-empty">No hay series disponibles en la base de datos.</div>';
+      return;
+    }
+
+    box.innerHTML=keys.map(series=>`
+      <button type="button" class="library-series-card" data-library-series="${series}">
+        <span class="library-series-number">Serie ${series}</span>
+        <span class="library-series-arrow">›</span>
+      </button>
+    `).join('');
+
+    box.querySelectorAll('[data-library-series]').forEach(btn=>{
+      btn.addEventListener('click',()=>showBranches(btn.dataset.librarySeries));
+    });
+  }
+
+  function showBranches(series){
+    const list=$('argosLibraryBranchesList');
+    const panel=$('argosLibraryBranches');
+    const title=$('argosLibraryBranchesTitle');
+    const seriesBox=$('argosLibrarySeries');
+    if(!list||!panel||!title)return;
+
+    currentSeries=String(series||'');
+    const branches=branchesFor(currentSeries);
+
+    title.textContent='Serie '+currentSeries;
+    list.innerHTML=branches.length
+      ? branches.map(branch=>`<div class="library-branch-card">Rama ${branch}</div>`).join('')
+      : '<div class="library-empty">No hay ramas registradas para esta serie.</div>';
+
+    seriesBox.hidden=true;
+    panel.hidden=false;
+    panel.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  function backToSeries(){
+    const box=$('argosLibrarySeries');
+    const panel=$('argosLibraryBranches');
+    if(box)box.hidden=false;
+    if(panel)panel.hidden=true;
+    currentSeries='';
+  }
+
+  function install(){
+    const back=$('argosLibraryBack');
+    if(back&&back.dataset.libraryInstalled!=='1'){
+      back.dataset.libraryInstalled='1';
+      back.addEventListener('click',backToSeries);
+    }
+
+    const library=$('library');
+    if(library&&!library.dataset.libraryRendered){
+      library.dataset.libraryRendered='1';
+      renderSeries();
+    }
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
+  else install();
+})();
+</script>
 
 </body>
 </html>
