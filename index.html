@@ -8443,3 +8443,71 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 })();
 </script>
 
+
+
+<!-- ARGOS 4.0 · ESTADÍSTICAS · RAMAS + SERIE · ÚLTIMO MOTOR -->
+<style id="argos-v40-branch-series-inline">
+  #branchRanking .rank-main{display:flex;align-items:center;gap:7px;min-width:0;}
+  #branchRanking .rank-name{display:inline;flex:0 1 auto;min-width:0;}
+  #branchRanking .branch-rank-series{display:inline;flex:0 1 auto;margin:0;color:var(--muted);font-size:10px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  #branchRanking .rank-bar{flex:1 1 100%;min-width:24px;margin-top:0;}
+  @media(max-width:600px){#branchRanking .rank-main{gap:5px;}#branchRanking .branch-rank-series{font-size:9px;}}
+</style>
+<script id="argos-v40-branch-series-final">
+(function(){
+  'use strict';
+  const $=id=>document.getElementById(id);
+  function txt(v){return String(v??'').trim();}
+  function val(o,names){for(const k of names){if(o&&o[k]!==undefined&&o[k]!==null&&o[k]!=='')return o[k];}return '';}
+  function field(s,t){
+    const map={series:['series','serie','trainSeries'],branch:['branch','rama'],product:['product','producto','serviceType','tipoProducto']};
+    const value=txt(val(s,map[t]||[]));
+    return t==='branch'&&typeof window.ARGOS_NORMALIZE_BRANCH==='function'?window.ARGOS_NORMALIZE_BRANCH(value):value;
+  }
+  function services(){try{const x=JSON.parse(localStorage.getItem('argos_services')||'[]');return Array.isArray(x)?x:[];}catch(e){return[];}}
+  function dateOf(s){
+    const raw=txt(val(s,['date','fecha','day','dia']));
+    if(!raw)return null;
+    let d=new Date(raw);
+    if(isNaN(d)){const m=raw.match(/^(\d{1,2})[\\/.\-](\d{1,2})[\\/.\-](\d{4})$/);if(m)d=new Date(+m[3],+m[2]-1,+m[1]);}
+    return isNaN(d)?null:d;
+  }
+  function filtered(){
+    const y=$('statsYear')?.value||'all',m=$('statsMonth')?.value||'all',p=$('statsProduct')?.value||'all',se=$('statsSeries')?.value||'all';
+    return services().filter(s=>{const d=dateOf(s);return !(y!=='all'&&(!d||String(d.getFullYear())!==y)||m!=='all'&&(!d||String(d.getMonth())!==m)||p!=='all'&&field(s,'product')!==p||se!=='all'&&field(s,'series')!==se);});
+  }
+  function esc(x){return String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+  function renderBranches(){
+    const e=$('branchRanking');if(!e)return;
+    const map=new Map();
+    filtered().forEach(s=>{
+      const branch=field(s,'branch');if(!branch)return;
+      if(!map.has(branch))map.set(branch,{count:0,series:new Set()});
+      const item=map.get(branch);item.count++;
+      const serie=field(s,'series');if(serie)item.series.add(serie);
+    });
+    const data=[...map.entries()]
+      .map(([branch,item])=>({branch,count:item.count,series:[...item.series].sort((a,b)=>a.localeCompare(b,'es'))}))
+      .filter(x=>x.count>=2)
+      .sort((a,b)=>b.count-a.count||a.branch.localeCompare(b.branch,'es'))
+      .slice(0,7);
+    if(!data.length){e.innerHTML='<div class="ficha-empty-inline">No hay ramas registradas 2 o más veces</div>';return;}
+    const max=data[0].count;
+    e.innerHTML=data.map((x,i)=>{
+      const label=x.series.length===1?'Serie '+x.series[0]:x.series.length>1?'Series '+x.series.join(' · '):'Serie no indicada';
+      return '<div class="ranking-row"><span class="rank-number">'+(i+1)+'</span><div class="rank-main"><span class="rank-name">'+esc(x.branch)+'</span><span class="branch-rank-series">· '+esc(label)+'</span><div class="rank-bar"><i style="width:'+Math.max(6,Math.round(x.count/max*100))+'%"></i></div></div><span class="rank-value">'+x.count+'</span></div>';
+    }).join('');
+  }
+  function boot(){
+    renderBranches();
+    ['statsYear','statsMonth','statsProduct','statsSeries'].forEach(id=>$(id)?.addEventListener('change',()=>setTimeout(renderBranches,30)));
+    window.addEventListener('storage',()=>setTimeout(renderBranches,30));
+    const oldShow=window.showScreen;
+    if(typeof oldShow==='function'&&!oldShow.__argosV40BranchSeries){
+      const wrapped=function(id){const r=oldShow.apply(this,arguments);if(id==='stats')setTimeout(renderBranches,50);return r;};
+      wrapped.__argosV40BranchSeries=true;window.showScreen=wrapped;
+    }
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+</script>
