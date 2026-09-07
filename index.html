@@ -1998,6 +1998,76 @@ html,body{background:var(--renfe)!important;}
   }
 }
 </style>
+
+<style id="argos-requested-fixes-v50">
+/* Cambios solicitados: controles claros, botón Más funciones y fechas. */
+body:not(.dark) input:not([type="checkbox"]):not([type="radio"]),
+body:not(.dark) textarea,
+body:not(.dark) select{
+  background:#fff!important;
+  color:#17171b!important;
+  color-scheme:light!important;
+}
+#menu .more-functions-link{
+  border:1px solid var(--line)!important;
+  background:var(--card)!important;
+  color:var(--ink)!important;
+  border-radius:18px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:8px!important;
+  cursor:pointer!important;
+  font-weight:800!important;
+  box-shadow:none!important;
+  padding:0 16px!important;
+  width:220px!important;
+  height:46px!important;
+  min-height:46px!important;
+  max-height:46px!important;
+  margin:0 auto!important;
+}
+#menu .more-functions-arrow{
+  width:25px!important;
+  height:25px!important;
+  min-width:25px!important;
+  min-height:25px!important;
+  border-radius:50%!important;
+  background:var(--soft)!important;
+  color:var(--renfe)!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  font-size:18px!important;
+  font-weight:900!important;
+  line-height:1!important;
+}
+@media(max-width:600px){
+  #menu .more-functions-link{
+    position:static!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:none!important;
+    height:38px!important;
+    min-height:38px!important;
+    max-height:38px!important;
+    margin:0!important;
+    padding:0 16px!important;
+    border-radius:18px!important;
+    gap:8px!important;
+    font-size:14px!important;
+    justify-self:stretch!important;
+    align-self:stretch!important;
+  }
+  #menu .more-functions-arrow{
+    width:22px!important;height:22px!important;
+    min-width:22px!important;min-height:22px!important;
+    max-width:22px!important;max-height:22px!important;
+    font-size:16px!important;
+    background:var(--soft)!important;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -2840,7 +2910,9 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
   }
   function refreshHome(){
     const services=readServices();
-    const latest=services.length?services[services.length-1]:null;
+    const latest=typeof window.ARGOS_LATEST_SERVICE_BY_DATE==='function'
+      ? window.ARGOS_LATEST_SERVICE_BY_DATE(services)
+      : (services.length?services[services.length-1]:null);
     if(latest){
       const train=val(latest,["train","tren","number","numero"]);
       const origin=val(latest,["origin","origen"]);
@@ -2858,7 +2930,7 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
       const date=val(s,["date","fecha"]);
       const o=document.createElement("option");
       o.value=String(i);
-      o.textContent=[train,origin&&destination?origin+" → "+destination:"",date].filter(Boolean).join(" · ")||"Servicio registrado";
+      o.textContent=[train,origin&&destination?origin+" → "+destination:"",(window.ARGOS_FORMAT_DATE?window.ARGOS_FORMAT_DATE(date):date)].filter(Boolean).join(" · ")||"Servicio registrado";
       select.appendChild(o);
     });
     if(current) select.value=current;
@@ -3004,6 +3076,23 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
     button.addEventListener("click",function(){
       const value=input.value.trim();
       if(!value) return;
+
+      if(inputId==="incidents") {
+        const normalizeIncidentText=v=>String(v??"").trim().toLocaleLowerCase("es-ES")
+          .normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+        const key=normalizeIncidentText(value);
+        const activeBox=document.getElementById("argosPreviousBranchIncidents");
+        const activeDuplicate=[...(activeBox?.querySelectorAll(".argos-previous-branch-incident")||[])]
+          .some(el=>normalizeIncidentText(el.textContent)===key);
+        const currentDuplicate=[...(list.querySelectorAll(".entry-chip span")||[])]
+          .some(el=>normalizeIncidentText(el.textContent)===key);
+        if(activeDuplicate || currentDuplicate){
+          if(typeof window.toast==="function")window.toast("Esa incidencia ya está activa y no se ha añadido");
+          input.value="";
+          input.focus();
+          return;
+        }
+      }
 
       const item=document.createElement("div");
       item.className="entry-chip";
@@ -3493,7 +3582,7 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
 function quarterDataLocal(a,year,q){
   return a.filter(s=>{const d=dateOf(s);return d&&d.getFullYear()===year&&Math.floor(d.getMonth()/3)===q});
 }
-function weekdays(a){const c=Array(7).fill(0);a.forEach(s=>{const d=dateOf(s);if(d)c[(d.getDay()+6)%7]++});const max=Math.max(1,...c);const now=new Date();const todayIndex=(now.getDay()+6)%7;const todayName=names.days[todayIndex];const todayKey=now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0")+"-"+String(now.getDate()).padStart(2,"0");const todayCount=a.reduce((n,s)=>{const d=dateOf(s);if(!d)return n;const key=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");return n+(key===todayKey?1:0)},0);$("weekdayChart").innerHTML=c.map((v,i)=>{const today=i===todayIndex;const cls="day-column"+(today?" today":"");const title=today?`Hoy · ${todayName} ${now.getDate()}/${now.getMonth()+1} · ${todayCount} servicios`:"";const label=today?`Hoy · ${names.days[i]}`:names.days[i];return `<div class="${cls}" title="${title}"><span class="day-value">${v||""}</span><div class="day-track"><i class="day-fill" style="height:${Math.max(v?3:0,Math.round(v/max*100))}%"></i></div><span class="day-label">${label}</span><span class="day-today">${today?todayCount+" hoy":""}</span></div>`}).join("")}function records(a){const kmv=a.reduce((x,s)=>x+km(s),0),inc=a.reduce((x,s)=>x+incidents(s),0),ss=counts(a,"series"),tr=counts(a,"train"),br=counts(a,"branch"),rt=counts(a,"route"),pr=counts(a,"product");let md=["—",0],m=new Map();a.forEach(s=>{const d=dateOf(s);if(d){const k=d.toLocaleDateString("es-ES");m.set(k,(m.get(k)||0)+1)}});for(const x of m)if(x[1]>md[1])md=x;$("recordsGrid").innerHTML=[record("Tren más repetido",tr[0]?.[0]||"—",tr[0]?.[1]?tr[0][1]+" servicios":"Sin datos"),record("Serie dominante",ss[0]?.[0]||"—",ss[0]?.[1]?ss[0][1]+" servicios":"Sin datos"),record("Rama más utilizada",br[0]?.[0]||"—",br[0]?.[1]?br[0][1]+" servicios":"Sin datos"),record("Ruta favorita",rt[0]?.[0]||"—",rt[0]?.[1]?rt[0][1]+" servicios":"Sin datos"),record("Producto principal",pr[0]?.[0]||"—",pr[0]?.[1]?pr[0][1]+" servicios":"Sin datos"),record("Día récord",md[0],md[1]?md[1]+" servicios":"Sin datos"),record("Kilómetros",kmv?kmv.toLocaleString("es-ES")+" km":"No registrados",a.length&&kmv?(kmv/a.length).toFixed(1)+" km/servicio":"Sin datos"),record("Incidencias",String(inc),inc===1?"1 registrada":inc+" registradas")].join("")}function record(a,b,c){return'<div class="record"><span>'+esc(a)+'</span><strong title="'+esc(b)+'">'+esc(b)+'</strong><small>'+esc(c)+"</small></div>"}function details(a){const ds=a.map(dateOf).filter(Boolean).sort((x,y)=>x-y),kmv=a.reduce((x,s)=>x+km(s),0),days=new Set(ds.map(d=>d.toISOString().slice(0,10))).size,months=new Set(ds.map(d=>d.getFullYear()+"-"+d.getMonth())).size,span=ds.length?Math.round((ds.at(-1)-ds[0])/86400000)+1:0,inc=a.reduce((x,s)=>x+incidents(s),0),routes=new Set(a.map(route).filter(x=>x!=="Ruta no indicada")).size,branches=new Set(a.map(s=>field(s,"branch")).filter(Boolean)).size,vehicles=new Set(a.map(s=>field(s,"vehicle")).filter(Boolean)).size;$("statsDetails").innerHTML=[detail("Primer servicio",ds[0]?ds[0].toLocaleDateString("es-ES"):"—"),detail("Último servicio",ds.length?ds.at(-1).toLocaleDateString("es-ES"):"—"),detail("Días con actividad",days||"0"),detail("Periodo cubierto",span?span+" días":"—"),detail("Media servicios/día",days?(a.length/days).toFixed(1):"—"),detail("Media servicios/mes",months?(a.length/months).toFixed(1):"—"),detail("Km medios/servicio",a.length&&kmv?(kmv/a.length).toFixed(1)+" km":"—"),detail("Incidencias/servicio",a.length?(inc/a.length).toFixed(2):"0"),detail("Rutas diferentes",routes),detail("Ramas diferentes",branches),detail("Vehículos diferentes",vehicles),detail("Incidencias totales",inc)].join("")}function detail(a,b){return'<div class="detail"><span>'+esc(a)+'</span><strong>'+esc(b)+'</strong></div>'}function insights(a){const days=new Set(a.map(dateOf).filter(Boolean).map(d=>d.toISOString().slice(0,10))).size,k=a.reduce((x,s)=>x+km(s),0),ss=new Set(a.map(s=>field(s,"series")).filter(Boolean)).size,pp=new Set(a.map(s=>field(s,"product")).filter(Boolean)).size,rr=new Set(a.map(route).filter(x=>x!=="Ruta no indicada")).size;$("insightPace").textContent=days?(a.length/days).toFixed(1)+" servicios/día":"—";$("insightKmAverage").textContent=k&&a.length?(k/a.length).toFixed(1)+" km":"—";$("insightVariety").textContent=ss+" series · "+pp+" productos · "+rr+" rutas"}function render(){const all=services(),a=filtered(all);options(all);$("statsEmpty").hidden=a.length>0;$("statServices").textContent=a.length.toLocaleString("es-ES");$("statSeries").textContent=new Set(a.map(s=>field(s,"series")).filter(Boolean)).size;$("statTrains").textContent=new Set(a.map(s=>field(s,"train")).filter(Boolean)).size;$("statProducts").textContent=new Set(a.map(s=>field(s,"product")).filter(Boolean)).size;$("statIncidents").textContent=a.reduce((x,s)=>x+incidents(s),0).toLocaleString("es-ES");$("statsChartTotal").textContent=a.length+" servicio"+(a.length===1?"":"s");monthly(a);weekdays(a);ranking("seriesRanking",counts(a,"series"),"No hay series registradas");ranking("branchRanking",counts(a,"branch"),"No hay ramas registradas");ranking("productRanking",counts(a,"product"),"No hay productos registrados");ranking("routeRanking",counts(a,"route"),"No hay rutas registradas");rankingVehicles("vehicleRanking",a,"No hay vehículos registrados");const im=new Map();a.forEach(s=>incidentNames(s).forEach(x=>im.set(x,(im.get(x)||0)+1)));ranking("incidentRanking",[...im.entries()].sort((x,y)=>y[1]-x[1]),"No hay incidencias registradas");records(a);details(a);insights(a)}["statsYear","statsMonth","statsProduct","statsSeries"].forEach(id=>$(id)?.addEventListener("change",render));$("statsReset")?.addEventListener("click",()=>{["statsYear","statsMonth","statsProduct","statsSeries"].forEach((id,i)=>$(id).value=i<1?"all":"all");render()});document.addEventListener("DOMContentLoaded",render);window.addEventListener("storage",render);const oldShow=window.showScreen;window.showScreen=function(id){if(typeof oldShow==="function")oldShow(id);if(id==="stats")setTimeout(render,0)}})();</script>
+function weekdays(a){const c=Array(7).fill(0);a.forEach(s=>{const d=dateOf(s);if(d)c[(d.getDay()+6)%7]++});const max=Math.max(1,...c);const now=new Date();const todayIndex=(now.getDay()+6)%7;const todayName=names.days[todayIndex];const todayKey=now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0")+"-"+String(now.getDate()).padStart(2,"0");const todayCount=a.reduce((n,s)=>{const d=dateOf(s);if(!d)return n;const key=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");return n+(key===todayKey?1:0)},0);$("weekdayChart").innerHTML=c.map((v,i)=>{const today=i===todayIndex;const cls="day-column"+(today?" today":"");const title=today?`Hoy · ${todayName} ${String(now.getDate()).padStart(2,"0")}/${String(now.getMonth()+1).padStart(2,"0")}/${now.getFullYear()} · ${todayCount} servicios`:"";const label=today?`Hoy · ${names.days[i]}`:names.days[i];return `<div class="${cls}" title="${title}"><span class="day-value">${v||""}</span><div class="day-track"><i class="day-fill" style="height:${Math.max(v?3:0,Math.round(v/max*100))}%"></i></div><span class="day-label">${label}</span><span class="day-today">${today?todayCount+" hoy":""}</span></div>`}).join("")}function records(a){const kmv=a.reduce((x,s)=>x+km(s),0),inc=a.reduce((x,s)=>x+incidents(s),0),ss=counts(a,"series"),tr=counts(a,"train"),br=counts(a,"branch"),rt=counts(a,"route"),pr=counts(a,"product");let md=["—",0],m=new Map();a.forEach(s=>{const d=dateOf(s);if(d){const k=`${String(d.getDate()).padStart(2,"0")}/${String(d.getMonth()+1).padStart(2,"0")}/${d.getFullYear()}`;m.set(k,(m.get(k)||0)+1)}});for(const x of m)if(x[1]>md[1])md=x;$("recordsGrid").innerHTML=[record("Tren más repetido",tr[0]?.[0]||"—",tr[0]?.[1]?tr[0][1]+" servicios":"Sin datos"),record("Serie dominante",ss[0]?.[0]||"—",ss[0]?.[1]?ss[0][1]+" servicios":"Sin datos"),record("Rama más utilizada",br[0]?.[0]||"—",br[0]?.[1]?br[0][1]+" servicios":"Sin datos"),record("Ruta favorita",rt[0]?.[0]||"—",rt[0]?.[1]?rt[0][1]+" servicios":"Sin datos"),record("Producto principal",pr[0]?.[0]||"—",pr[0]?.[1]?pr[0][1]+" servicios":"Sin datos"),record("Día récord",md[0],md[1]?md[1]+" servicios":"Sin datos"),record("Kilómetros",kmv?kmv.toLocaleString("es-ES")+" km":"No registrados",a.length&&kmv?(kmv/a.length).toFixed(1)+" km/servicio":"Sin datos"),record("Incidencias",String(inc),inc===1?"1 registrada":inc+" registradas")].join("")}function record(a,b,c){return'<div class="record"><span>'+esc(a)+'</span><strong title="'+esc(b)+'">'+esc(b)+'</strong><small>'+esc(c)+"</small></div>"}function details(a){const ds=a.map(dateOf).filter(Boolean).sort((x,y)=>x-y),kmv=a.reduce((x,s)=>x+km(s),0),days=new Set(ds.map(d=>d.toISOString().slice(0,10))).size,months=new Set(ds.map(d=>d.getFullYear()+"-"+d.getMonth())).size,span=ds.length?Math.round((ds.at(-1)-ds[0])/86400000)+1:0,inc=a.reduce((x,s)=>x+incidents(s),0),routes=new Set(a.map(route).filter(x=>x!=="Ruta no indicada")).size,branches=new Set(a.map(s=>field(s,"branch")).filter(Boolean)).size,vehicles=new Set(a.map(s=>field(s,"vehicle")).filter(Boolean)).size;$("statsDetails").innerHTML=[detail("Primer servicio",ds[0]?`${String(ds[0].getDate()).padStart(2,"0")}/${String(ds[0].getMonth()+1).padStart(2,"0")}/${ds[0].getFullYear()}`:"—"),detail("Último servicio",ds.length?`${String(ds.at(-1).getDate()).padStart(2,"0")}/${String(ds.at(-1).getMonth()+1).padStart(2,"0")}/${ds.at(-1).getFullYear()}`:"—"),detail("Días con actividad",days||"0"),detail("Periodo cubierto",span?span+" días":"—"),detail("Media servicios/día",days?(a.length/days).toFixed(1):"—"),detail("Media servicios/mes",months?(a.length/months).toFixed(1):"—"),detail("Km medios/servicio",a.length&&kmv?(kmv/a.length).toFixed(1)+" km":"—"),detail("Incidencias/servicio",a.length?(inc/a.length).toFixed(2):"0"),detail("Rutas diferentes",routes),detail("Ramas diferentes",branches),detail("Vehículos diferentes",vehicles),detail("Incidencias totales",inc)].join("")}function detail(a,b){return'<div class="detail"><span>'+esc(a)+'</span><strong>'+esc(b)+'</strong></div>'}function insights(a){const days=new Set(a.map(dateOf).filter(Boolean).map(d=>d.toISOString().slice(0,10))).size,k=a.reduce((x,s)=>x+km(s),0),ss=new Set(a.map(s=>field(s,"series")).filter(Boolean)).size,pp=new Set(a.map(s=>field(s,"product")).filter(Boolean)).size,rr=new Set(a.map(route).filter(x=>x!=="Ruta no indicada")).size;$("insightPace").textContent=days?(a.length/days).toFixed(1)+" servicios/día":"—";$("insightKmAverage").textContent=k&&a.length?(k/a.length).toFixed(1)+" km":"—";$("insightVariety").textContent=ss+" series · "+pp+" productos · "+rr+" rutas"}function render(){const all=services(),a=filtered(all);options(all);$("statsEmpty").hidden=a.length>0;$("statServices").textContent=a.length.toLocaleString("es-ES");$("statSeries").textContent=new Set(a.map(s=>field(s,"series")).filter(Boolean)).size;$("statTrains").textContent=new Set(a.map(s=>field(s,"train")).filter(Boolean)).size;$("statProducts").textContent=new Set(a.map(s=>field(s,"product")).filter(Boolean)).size;$("statIncidents").textContent=a.reduce((x,s)=>x+incidents(s),0).toLocaleString("es-ES");$("statsChartTotal").textContent=a.length+" servicio"+(a.length===1?"":"s");monthly(a);weekdays(a);ranking("seriesRanking",counts(a,"series"),"No hay series registradas");ranking("branchRanking",counts(a,"branch"),"No hay ramas registradas");ranking("productRanking",counts(a,"product"),"No hay productos registrados");ranking("routeRanking",counts(a,"route"),"No hay rutas registradas");rankingVehicles("vehicleRanking",a,"No hay vehículos registrados");const im=new Map();a.forEach(s=>incidentNames(s).forEach(x=>im.set(x,(im.get(x)||0)+1)));ranking("incidentRanking",[...im.entries()].sort((x,y)=>y[1]-x[1]),"No hay incidencias registradas");records(a);details(a);insights(a)}["statsYear","statsMonth","statsProduct","statsSeries"].forEach(id=>$(id)?.addEventListener("change",render));$("statsReset")?.addEventListener("click",()=>{["statsYear","statsMonth","statsProduct","statsSeries"].forEach((id,i)=>$(id).value=i<1?"all":"all");render()});document.addEventListener("DOMContentLoaded",render);window.addEventListener("storage",render);const oldShow=window.showScreen;window.showScreen=function(id){if(typeof oldShow==="function")oldShow(id);if(id==="stats")setTimeout(render,0)}})();</script>
 
 <script id="argos-branch-manual-registration">
 (function(){
@@ -3993,7 +4082,7 @@ function incidentEntityModal(name){
   a.forEach(s=>{
     const train=field(s,"train")||"Sin número de tren";
     trains.set(train,(trains.get(train)||0)+1);
-    services.push([train+" · "+(dateOf(s)?dateOf(s).toLocaleDateString("es-ES"):"Sin fecha"),1]);
+    services.push([train+" · "+(dateOf(s)?`${String(dateOf(s).getDate()).padStart(2,"0")}/${String(dateOf(s).getMonth()+1).padStart(2,"0")}/${dateOf(s).getFullYear()}`:"Sin fecha"),1]);
   });
   const trainRows=[...trains.entries()].sort((x,y)=>y[1]-x[1]||x[0].localeCompare(y[0],"es"));
   const routeRows=countBy(a,"route");
@@ -5255,6 +5344,10 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   function $(id){return document.getElementById(id)}
   function digits(v){return String(v??'').replace(/\D/g,'')}
   function norm(v){return digits(v).replace(/^0+/,'')||''}
+  function normalizeText(v){
+    return String(v??'').trim().toLocaleLowerCase('es-ES')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  }
   function branchKey(series,branch){
     const s=norm(series),b=norm(branch);
     return s&&b?s+'|'+b:'';
@@ -5274,47 +5367,83 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     };
   }
 
-  function incidents(s){
+  function serviceDateStamp(service){
+    const raw=String(service?.date??service?.fecha??'').trim();
+    let d=null;
+    let m=raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if(m)d=new Date(Number(m[1]),Number(m[2])-1,Number(m[3]));
+    else{
+      m=raw.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/);
+      if(m)d=new Date(Number(m[3]),Number(m[2])-1,Number(m[1]));
+    }
+    if(!d||Number.isNaN(d.getTime())){
+      const created=Number(service?.createdAt)||0;
+      return created>0?created:0;
+    }
+    return d.getTime();
+  }
+
+  function incidentItems(s){
     if(!s)return[];
-    let raw=Array.isArray(s.incidentsEntries)
+    const out=[];
+    const raw=Array.isArray(s.incidentsEntries)
       ? s.incidentsEntries
       : String(s.incidents??'').split(/\n+/).filter(Boolean);
 
-    return raw.map(x=>{
-      if(x&&typeof x==='object'){
-        return {text:String(x.text??x.value??'').trim(),solved:x.solved===true};
-      }
-      return {text:String(x??'').trim(),solved:false};
-    }).filter(x=>x.text&&!x.solved);
+    raw.forEach(x=>{
+      const text=x&&typeof x==='object'
+        ? String(x.text??x.value??x.description??'').trim()
+        : String(x??'').trim();
+      if(!text)return;
+      out.push({text,solved:!!(x&&typeof x==='object'&&x.solved===true)});
+    });
+    return out;
   }
 
-  function previousService(series,branch){
+  function activeIncidents(series,branch){
     const wanted=branchKey(series,branch);
-    if(!wanted)return null;
-    const all=services();
-    for(let i=all.length-1;i>=0;i--){
-      const b=getBranch(all[i]);
-      if(branchKey(b.series,b.branch)===wanted)return all[i];
-    }
-    return null;
-  }
+    if(!wanted)return[];
 
-  function escapeHtml(v){
-    return String(v??'').replace(/[&<>"']/g,c=>({
-      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-    }[c]));
+    const now=Date.now();
+    const ordered=services().map((service,index)=>({service,index,dateStamp:serviceDateStamp(service)}))
+      .filter(item=>{
+        const raw=String(item.service?.date??item.service?.fecha??'').trim();
+        if(!raw)return true;
+        return item.dateStamp<=now;
+      })
+      .filter(item=>{
+        const b=getBranch(item.service);
+        return branchKey(b.series,b.branch)===wanted;
+      })
+      .sort((a,b)=>a.dateStamp-b.dateStamp || a.index-b.index);
+
+    const active=new Map();
+    ordered.forEach(({service})=>{
+      incidentItems(service).forEach(item=>{
+        const key=normalizeText(item.text);
+        if(!key)return;
+        if(item.solved){
+          active.delete(key);
+        }else{
+          active.set(key,item.text);
+        }
+      });
+    });
+
+    return [...active.values()];
   }
 
   function render(){
     const box=$('argosPreviousBranchIncidents');
     const series=$('series');
     const branch=$('branchValue');
+    const incidentsInput=$('incidents');
+    const incidentsList=$('incidentsEntries');
     if(!box||!series||!branch)return;
 
     const s=norm(series.value);
     const b=norm(branch.value);
-    const prev=previousService(s,b);
-    const list=incidents(prev);
+    const list=activeIncidents(s,b);
 
     if(!s||!b||!list.length){
       box.hidden=true;
@@ -5324,9 +5453,30 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
     box.hidden=false;
     box.innerHTML=
-      '<div class="argos-previous-branch-incidents-title">Incidencias pendientes de la última vez</div>'+
-      '<div class="argos-previous-branch-incidents-subtitle">Ya están registradas en la última visita de esta rama. No es necesario volver a introducirlas.</div>'+
-      list.map(x=>'<div class="argos-previous-branch-incident">'+escapeHtml(x.text)+'</div>').join('');
+      '<div class="argos-previous-branch-incidents-title">Incidencias activas de esta rama</div>'+
+      '<div class="argos-previous-branch-incidents-subtitle">Estas incidencias siguen pendientes y se arrastran desde servicios anteriores. No vuelvas a introducirlas.</div>'+
+      list.map(x=>'<div class="argos-previous-branch-incident">'+escapeHtml(x)+'</div>').join('');
+
+    // Si el usuario ya ha escrito una de las incidencias activas, la eliminamos
+    // del campo temporal para evitar que termine duplicada al guardar.
+    const activeKeys=new Set(list.map(normalizeText));
+    if(incidentsInput&&activeKeys.size){
+      const current=String(incidentsInput.value||'').split(/\n+/).map(x=>x.trim()).filter(Boolean);
+      const filtered=current.filter(x=>!activeKeys.has(normalizeText(x)));
+      if(filtered.length!==current.length)incidentsInput.value=filtered.join('\n');
+    }
+
+    if(incidentsList){
+      incidentsList.querySelectorAll('.entry-chip span').forEach(span=>{
+        if(activeKeys.has(normalizeText(span.textContent||'')))span.closest('.entry-chip')?.remove();
+      });
+    }
+  }
+
+  function escapeHtml(v){
+    return String(v??'').replace(/[&<>"']/g,c=>( {
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[c]));
   }
 
   function install(){
@@ -5337,6 +5487,11 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     ['input','change'].forEach(ev=>{
       series.addEventListener(ev,()=>setTimeout(render,30));
       branch.addEventListener(ev,()=>setTimeout(render,30));
+    });
+
+    ['input','change'].forEach(ev=>{
+      $('incidents')?.addEventListener(ev,()=>setTimeout(render,30));
+      $('incidentsEntries')?.addEventListener(ev,()=>setTimeout(render,30));
     });
 
     const observer=new MutationObserver(()=>setTimeout(render,30));
@@ -5962,7 +6117,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   const names={days:["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"]};
 
   function fmtDate(d){
-    return d.toLocaleDateString("es-ES",{day:"numeric",month:"short"}).replace(".","");
+    return `${String(d.getDate()).padStart(2,"0")}/${String(d.getMonth()+1).padStart(2,"0")}/${d.getFullYear()}`;
   }
 
   function renderWeek(){
@@ -7408,11 +7563,11 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const raw=service?.date||service?.fecha||'';
     if(raw){
       const d=new Date(String(raw).slice(0,10)+'T00:00:00');
-      if(!Number.isNaN(d.getTime()))return d.toLocaleDateString('es-ES',{day:'2-digit',month:'long',year:'numeric'});
+      if(!Number.isNaN(d.getTime()))return `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`;
     }
     if(service?.createdAt){
       const d=new Date(Number(service.createdAt));
-      if(!Number.isNaN(d.getTime()))return d.toLocaleDateString('es-ES',{day:'2-digit',month:'long',year:'numeric'});
+      if(!Number.isNaN(d.getTime()))return `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`;
     }
     return 'fecha no disponible';
   }
@@ -9114,7 +9269,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       return `<article class="history-card history-card-clickable" data-service-id="${esc(service.id)}" tabindex="0">
         <div class="history-ticket-head">
           <span class="history-ticket-number">${train?`Tren ${esc(train)}`:'Sin número de tren'}</span>
-          <span class="history-ticket-date">${esc(date)}</span>
+          <span class="history-ticket-date">${esc((window.ARGOS_FORMAT_DATE?window.ARGOS_FORMAT_DATE(date):date)||'—')}</span>
         </div>
         <div class="history-ticket-route">
           <div class="history-ticket-line" aria-hidden="true">
