@@ -1594,16 +1594,17 @@ button:focus:not(:focus-visible),
 
 <style id="argos-v5-menu-responsive-final">
 /* ================================================================
-   ARGOS 5.0 · MENÚ RESPONSIVE FINAL
-   Objetivo: conservar la identidad de ARGOS y garantizar que el
-   menú principal completo sea visible en móvil sin desplazamiento.
-   El segundo menú usa exactamente la misma escala tipográfica y
-   de tarjetas. En escritorio se aprovecha el ancho con equilibrio.
+   ARGOS 5.0 · MENÚ RESPONSIVE
+   Móvil: todo el menú principal entra en una sola ventana, usando
+   el espacio disponible de forma proporcional sin reducir las
+   fuentes a tamaños diminutos.
+   Más funciones conserva exactamente la misma escala visual.
+   Escritorio: composición amplia y equilibrada a 100% de zoom.
    ================================================================ */
 .more-functions-link{
   width:100%;
-  height:30px;
-  min-height:30px;
+  height:34px;
+  min-height:34px;
   border:0;
   border-radius:999px;
   background:transparent;
@@ -1621,25 +1622,24 @@ button:focus:not(:focus-visible),
 }
 .more-functions-link:active{transform:scale(.97)}
 .more-functions-arrow{
-  width:22px;
-  height:22px;
+  width:30px;
+  height:30px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
   border-radius:50%;
   background:var(--soft);
-  font-size:18px;
+  font-size:20px;
   line-height:1;
 }
 .more-functions-label{font-size:inherit;line-height:1}
 
 @media(max-width:600px){
-  /* Ocupa exactamente el viewport seguro del teléfono. */
   .app-shell{
     width:100%;
-    height:100svh!important;
-    min-height:100svh!important;
-    max-height:100svh!important;
+    height:100dvh!important;
+    min-height:100dvh!important;
+    max-height:100dvh!important;
     overflow:hidden!important;
   }
   .app-header{
@@ -1655,37 +1655,38 @@ button:focus:not(:focus-visible),
   .menu-screen.active{
     flex:1 1 auto!important;
     width:100%!important;
-    height:calc(100svh - 64px)!important;
+    height:calc(100dvh - 64px)!important;
     min-height:0!important;
-    max-height:calc(100svh - 64px)!important;
+    max-height:calc(100dvh - 64px)!important;
     padding:0!important;
     margin:0!important;
     overflow:hidden!important;
   }
 
+  /* La ventana de ARGOS se reparte de arriba a abajo sin scroll. */
   .menu-screen .argos-home{
     width:100%!important;
     height:100%!important;
     min-height:0!important;
     margin:0 auto!important;
-    padding:8px 10px 6px!important;
+    padding:10px 11px 8px!important;
     box-sizing:border-box!important;
     display:flex!important;
     flex-direction:column!important;
     align-items:stretch!important;
-    gap:6px!important;
+    gap:7px!important;
     overflow:hidden!important;
   }
 
-  /* Bienvenida siempre visible y reconocible. */
+  /* La bienvenida conserva presencia y nunca desaparece. */
   #menu .welcome-card,
   #more-functions .welcome-card{
-    flex:0 0 clamp(86px,10.8vh,100px)!important;
-    height:clamp(86px,10.8vh,100px)!important;
+    flex:0 0 clamp(88px,12.2vh,108px)!important;
+    height:clamp(88px,12.2vh,108px)!important;
     min-height:0!important;
-    max-height:100px!important;
+    max-height:108px!important;
     padding:10px 13px!important;
-    border-radius:18px!important;
+    border-radius:19px!important;
     overflow:hidden!important;
   }
   #menu .welcome-pill,
@@ -1698,7 +1699,7 @@ button:focus:not(:focus-visible),
   #menu .welcome-card h1,
   #more-functions .welcome-card h1{
     margin:0 0 4px!important;
-    font-size:clamp(21px,3.1vh,25px)!important;
+    font-size:clamp(21px,3.05vh,25px)!important;
     line-height:1.04!important;
     letter-spacing:-.025em!important;
     white-space:nowrap!important;
@@ -1709,7 +1710,7 @@ button:focus:not(:focus-visible),
   #more-functions .welcome-card p{
     display:block!important;
     margin:0!important;
-    font-size:clamp(11px,1.65vh,12.5px)!important;
+    font-size:clamp(10.5px,1.75vh,13px)!important;
     line-height:1.18!important;
     overflow:hidden!important;
     display:-webkit-box!important;
@@ -1718,26 +1719,24 @@ button:focus:not(:focus-visible),
   }
 
   /*
-     CLAVE: la lista NO se estira hasta ocupar todo el hueco restante.
-     Sus filas tienen una altura controlada, de modo que el séptimo
-     elemento (la flecha) siempre existe físicamente dentro del viewport.
+     CLAVE: la lista ocupa TODO el espacio restante disponible.
+     Cada tarjeta recibe exactamente la misma fracción de altura,
+     por lo que Más funciones siempre tiene sitio debajo.
   */
   #menu .home-list,
   #more-functions .home-list{
-    flex:0 0 auto!important;
+    flex:1 1 auto!important;
     width:100%!important;
     min-height:0!important;
     height:auto!important;
     display:grid!important;
-    align-content:start!important;
-    gap:5px!important;
-    overflow:visible!important;
-  }
-  #menu .home-list{
-    grid-template-rows:repeat(6,clamp(58px,9vh,74px)) 28px!important;
+    grid-template-rows:repeat(6,minmax(0,1fr)) 30px!important;
+    align-content:stretch!important;
+    gap:6px!important;
+    overflow:hidden!important;
   }
   #more-functions .home-list{
-    grid-template-rows:repeat(5,clamp(58px,9vh,74px))!important;
+    grid-template-rows:repeat(5,minmax(0,1fr))!important;
     gap:7px!important;
   }
 
@@ -1747,25 +1746,25 @@ button:focus:not(:focus-visible),
     min-width:0!important;
     min-height:0!important;
     height:auto!important;
-    padding:6px 10px!important;
-    border-radius:17px!important;
+    padding:8px 11px!important;
+    border-radius:18px!important;
     display:grid!important;
-    grid-template-columns:clamp(42px,6vh,48px) minmax(0,1fr)!important;
-    column-gap:12px!important;
+    grid-template-columns:clamp(44px,6.5vh,52px) minmax(0,1fr)!important;
+    column-gap:13px!important;
     align-items:center!important;
     overflow:hidden!important;
   }
 
   #menu .home-icon,
   #more-functions .home-icon{
-    width:clamp(42px,6vh,48px)!important;
-    height:clamp(42px,6vh,48px)!important;
-    border-radius:13px!important;
-    font-size:clamp(21px,3.05vh,26px)!important;
+    width:clamp(44px,6.5vh,52px)!important;
+    height:clamp(44px,6.5vh,52px)!important;
+    border-radius:14px!important;
+    font-size:clamp(22px,3.2vh,28px)!important;
     flex:0 0 auto!important;
   }
 
-  /* Solo nombres de función. */
+  /* En las tarjetas solo queda el nombre de la función. */
   #menu .home-card p,
   #more-functions .home-card p,
   #menu .latest-service-value,
@@ -1776,8 +1775,8 @@ button:focus:not(:focus-visible),
   #menu .home-card h2,
   #more-functions .home-card h2{
     margin:0!important;
-    font-size:clamp(17px,2.6vh,20px)!important;
-    line-height:1.05!important;
+    font-size:clamp(18px,2.85vh,21px)!important;
+    line-height:1.06!important;
     font-weight:800!important;
     letter-spacing:-.018em!important;
     white-space:nowrap!important;
@@ -1786,16 +1785,16 @@ button:focus:not(:focus-visible),
   }
   #menu .last-time-card{cursor:default!important}
 
-  /* El cambio de página es deliberadamente secundario. */
+  /* Más funciones es una transición, no una función principal. */
   #menu .more-functions-link{
     align-self:center!important;
     justify-self:center!important;
     width:30px!important;
     min-width:30px!important;
     max-width:30px!important;
-    height:28px!important;
-    min-height:28px!important;
-    max-height:28px!important;
+    height:30px!important;
+    min-height:30px!important;
+    max-height:30px!important;
     padding:0!important;
     gap:0!important;
     font-size:0!important;
@@ -1804,19 +1803,19 @@ button:focus:not(:focus-visible),
   }
   #menu .more-functions-label{display:none!important}
   #menu .more-functions-arrow{
-    width:28px!important;
-    height:28px!important;
+    width:30px!important;
+    height:30px!important;
     font-size:20px!important;
     background:var(--soft)!important;
   }
 
-  /* Teléfonos bajos: reducimos estructura, nunca eliminamos el saludo. */
+  /* Teléfonos bajos: la fórmula sigue repartiendo el espacio. */
   @media(max-height:720px){
-    .menu-screen .argos-home{padding:6px 9px 5px!important;gap:5px!important}
+    .menu-screen .argos-home{padding:7px 9px 6px!important;gap:5px!important}
     #menu .welcome-card,
     #more-functions .welcome-card{
-      flex-basis:78px!important;
-      height:78px!important;
+      flex-basis:82px!important;
+      height:82px!important;
       padding:8px 11px!important;
       border-radius:16px!important;
     }
@@ -1826,32 +1825,31 @@ button:focus:not(:focus-visible),
     #more-functions .welcome-card h1{font-size:20px!important;margin-bottom:3px!important}
     #menu .welcome-card p,
     #more-functions .welcome-card p{font-size:10px!important}
-    #menu .home-list{grid-template-rows:repeat(6,clamp(52px,8vh,62px)) 24px!important;gap:4px!important}
-    #more-functions .home-list{grid-template-rows:repeat(5,clamp(52px,8vh,62px))!important;gap:5px!important}
+    #menu .home-list,
+    #more-functions .home-list{gap:4px!important}
+    #menu .home-list{grid-template-rows:repeat(6,minmax(0,1fr)) 26px!important}
+    #more-functions .home-list{grid-template-rows:repeat(5,minmax(0,1fr))!important}
     #menu .home-card,
-    #more-functions .home-card{padding:4px 9px!important;border-radius:15px!important;grid-template-columns:40px minmax(0,1fr)!important;column-gap:10px!important}
+    #more-functions .home-card{padding:5px 9px!important;border-radius:16px!important;grid-template-columns:42px minmax(0,1fr)!important;column-gap:10px!important}
     #menu .home-icon,
-    #more-functions .home-icon{width:40px!important;height:40px!important;border-radius:11px!important;font-size:20px!important}
+    #more-functions .home-icon{width:42px!important;height:42px!important;border-radius:12px!important;font-size:20px!important}
     #menu .home-card h2,
-    #more-functions .home-card h2{font-size:16px!important}
-    #menu .more-functions-link{width:24px!important;min-width:24px!important;max-width:24px!important;height:24px!important;min-height:24px!important;max-height:24px!important}
-    #menu .more-functions-arrow{width:24px!important;height:24px!important;font-size:18px!important}
+    #more-functions .home-card h2{font-size:17px!important}
   }
 
-  /* Móviles extremadamente bajos: modo compacto de seguridad. */
   @media(max-height:620px){
     .app-header,.brand-row{height:58px!important;min-height:58px!important}
     .app-header{flex-basis:58px!important}
-    .menu-screen,.menu-screen.active{height:calc(100svh - 58px)!important;max-height:calc(100svh - 58px)!important}
+    .menu-screen,.menu-screen.active{height:calc(100dvh - 58px)!important;max-height:calc(100dvh - 58px)!important}
     .menu-screen .argos-home{padding:5px 8px 4px!important;gap:4px!important}
-    #menu .welcome-card,#more-functions .welcome-card{flex-basis:68px!important;height:68px!important;padding:7px 10px!important}
+    #menu .welcome-card,#more-functions .welcome-card{flex-basis:70px!important;height:70px!important;padding:7px 10px!important}
     #menu .welcome-card h1,#more-functions .welcome-card h1{font-size:18px!important}
     #menu .welcome-card p,#more-functions .welcome-card p{font-size:9px!important}
-    #menu .home-list{grid-template-rows:repeat(6,52px) 22px!important;gap:3px!important}
-    #more-functions .home-list{grid-template-rows:repeat(5,52px)!important;gap:4px!important}
-    #menu .home-card,#more-functions .home-card{grid-template-columns:36px minmax(0,1fr)!important;column-gap:8px!important;padding:3px 8px!important}
-    #menu .home-icon,#more-functions .home-icon{width:36px!important;height:36px!important;border-radius:10px!important;font-size:18px!important}
-    #menu .home-card h2,#more-functions .home-card h2{font-size:15px!important}
+    #menu .home-list{grid-template-rows:repeat(6,minmax(0,1fr)) 24px!important;gap:3px!important}
+    #more-functions .home-list{grid-template-rows:repeat(5,minmax(0,1fr))!important;gap:4px!important}
+    #menu .home-card,#more-functions .home-card{grid-template-columns:38px minmax(0,1fr)!important;column-gap:8px!important;padding:4px 8px!important}
+    #menu .home-icon,#more-functions .home-icon{width:38px!important;height:38px!important;border-radius:11px!important;font-size:18px!important}
+    #menu .home-card h2,#more-functions .home-card h2{font-size:16px!important}
   }
 }
 
