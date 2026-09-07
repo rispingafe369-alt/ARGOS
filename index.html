@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="theme-color" content="#8a005c">
-<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#8a005c" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#8a005c" media="(prefers-color-scheme: dark)">
 <meta name="description" content="ARGOS - Gestión de servicios ferroviarios">
 <link rel="manifest" href="manifest.webmanifest">
 
@@ -1793,6 +1794,7 @@ html,body{background:var(--renfe)!important;}
 .app-shell{background:var(--page)!important;}
 
 @media(max-width:600px){
+  html,body{background:var(--renfe)!important;}
   #menu.menu-screen.active,
   #more-functions.menu-screen.active{
     position:relative!important;
@@ -1804,7 +1806,7 @@ html,body{background:var(--renfe)!important;}
   #menu .more-functions-link{
     position:absolute!important;
     left:50%!important;
-    bottom:10px!important;
+    bottom:-18px!important;
     transform:translateX(-50%)!important;
     width:auto!important;
     min-width:152px!important;
