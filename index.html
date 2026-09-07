@@ -4,8 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="theme-color" content="#8a005c">
-<meta name="theme-color" content="#8a005c" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#8a005c" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="dark">
 <meta name="description" content="ARGOS - Gestión de servicios ferroviarios">
 <link rel="manifest" href="manifest.webmanifest">
 
@@ -1794,7 +1793,6 @@ html,body{background:var(--renfe)!important;}
 .app-shell{background:var(--page)!important;}
 
 @media(max-width:600px){
-  html,body{background:var(--renfe)!important;}
   #menu.menu-screen.active,
   #more-functions.menu-screen.active{
     position:relative!important;
@@ -1806,7 +1804,7 @@ html,body{background:var(--renfe)!important;}
   #menu .more-functions-link{
     position:absolute!important;
     left:50%!important;
-    bottom:-18px!important;
+    bottom:10px!important;
     transform:translateX(-50%)!important;
     width:auto!important;
     min-width:152px!important;
@@ -1866,6 +1864,68 @@ html,body{background:var(--renfe)!important;}
   }
 }
 </style>
+
+<style id="argos-5-mobile-bottom-band-final">
+/* ARGOS 5.0 · AJUSTE MÓVIL FINAL
+   Solo mueve el control "Más funciones" hacia el espacio libre inferior.
+   No cambia las seis tarjetas ni su tamaño.
+*/
+@media(max-width:600px){
+  #menu.menu-screen.active{
+    overflow:visible!important;
+  }
+
+  #menu .argos-home{
+    overflow:visible!important;
+  }
+
+  #menu .home-list{
+    overflow:visible!important;
+  }
+
+  #menu .more-functions-link{
+    position:absolute!important;
+    left:50%!important;
+    bottom:-22px!important;
+    transform:translateX(-50%)!important;
+    z-index:20!important;
+    width:auto!important;
+    min-width:152px!important;
+    height:34px!important;
+    min-height:34px!important;
+    max-height:34px!important;
+    margin:0!important;
+    padding:0 12px!important;
+    border:0!important;
+    border-radius:999px!important;
+    background:var(--soft)!important;
+    color:var(--renfe)!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:7px!important;
+    font-size:13px!important;
+    font-weight:800!important;
+    line-height:1!important;
+    box-shadow:none!important;
+  }
+
+  #menu .more-functions-arrow{
+    width:22px!important;
+    height:22px!important;
+    min-width:22px!important;
+    min-height:22px!important;
+    font-size:19px!important;
+    background:transparent!important;
+  }
+
+  #menu .more-functions-label{
+    display:inline!important;
+    white-space:nowrap!important;
+  }
+}
+</style>
+
 </head>
 
 <body>
