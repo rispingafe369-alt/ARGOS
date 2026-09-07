@@ -1,9 +1,15 @@
 {
+  "id": "./",
   "name": "ARGOS",
   "short_name": "ARGOS",
   "description": "Gestión de servicios ferroviarios",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone"
+  ],
   "background_color": "#8a005c",
   "theme_color": "#8a005c",
   "orientation": "portrait",
