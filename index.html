@@ -1667,6 +1667,123 @@ button:focus:not(:focus-visible),
 }
 </style>
 
+
+<style id="argos-5-mobile-final-layout">
+/* ARGOS 5.0 · ÚLTIMO BLOQUE RESPONSIVE DEL MENÚ */
+@media (max-width:600px){
+  html,body{width:100%;height:100%;overflow:hidden!important;}
+  .app-shell{width:100%!important;height:100dvh!important;min-height:100dvh!important;max-height:100dvh!important;overflow:hidden!important;display:flex!important;flex-direction:column!important;}
+  .app-header{flex:0 0 64px!important;height:64px!important;min-height:64px!important;max-height:64px!important;}
+  .brand-row{height:64px!important;min-height:64px!important;max-height:64px!important;}
+  .app-shell > .menu-screen.active,
+  #menu.menu-screen.active,
+  #more-functions.menu-screen.active{
+    display:flex!important;
+    flex:1 1 auto!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    padding:0!important;
+    margin:0!important;
+    overflow:hidden!important;
+    box-sizing:border-box!important;
+  }
+  #menu .argos-home,
+  #more-functions .argos-home{
+    width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:10px 12px 8px!important;
+    display:grid!important;
+    grid-template-rows:auto minmax(0,1fr)!important;
+    gap:8px!important;
+    overflow:hidden!important;
+    box-sizing:border-box!important;
+  }
+  #menu .welcome-card,
+  #more-functions .welcome-card{
+    width:100%!important;
+    min-height:0!important;
+    height:auto!important;
+    max-height:120px!important;
+    margin:0!important;
+    padding:12px 15px!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+  }
+  #menu .welcome-pill,
+  #more-functions .welcome-pill{font-size:10px!important;padding:4px 9px!important;margin:0 0 5px!important;}
+  #menu .welcome-card h1,
+  #more-functions .welcome-card h1{font-size:24px!important;line-height:1.05!important;margin:0 0 4px!important;}
+  #menu .welcome-card p,
+  #more-functions .welcome-card p{display:block!important;font-size:12px!important;line-height:1.18!important;margin:0!important;}
+
+  #menu .home-list,
+  #more-functions .home-list{
+    width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:0!important;
+    display:grid!important;
+    align-self:stretch!important;
+    align-content:stretch!important;
+    box-sizing:border-box!important;
+    gap:6px!important;
+    overflow:hidden!important;
+  }
+  #menu .home-list{grid-template-rows:repeat(6,minmax(0,1fr)) 30px!important;}
+  #more-functions .home-list{grid-template-rows:repeat(4,minmax(0,1fr)) 38px!important;}
+  #menu .home-card,
+  #more-functions .home-card{
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:7px 12px!important;
+    border-radius:16px!important;
+    display:grid!important;
+    grid-template-columns:46px minmax(0,1fr)!important;
+    column-gap:11px!important;
+    align-items:center!important;
+    align-self:stretch!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+  }
+  #menu .home-icon,
+  #more-functions .home-icon{width:46px!important;height:46px!important;border-radius:13px!important;font-size:23px!important;}
+  #menu .home-card h2,
+  #more-functions .home-card h2{margin:0!important;font-size:18px!important;line-height:1.05!important;font-weight:800!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;}
+  #menu .home-card p,
+  #menu .latest-service-value,
+  #menu .last-time-card label,
+  #menu .last-time-select,
+  #more-functions .home-card p{display:none!important;}
+  #menu .more-functions-link{
+    width:30px!important;height:30px!important;min-width:30px!important;min-height:30px!important;max-width:30px!important;max-height:30px!important;
+    margin:0 auto!important;padding:0!important;justify-self:center!important;align-self:center!important;
+  }
+  #menu .more-functions-arrow{width:30px!important;height:30px!important;font-size:22px!important;}
+  #more-functions .more-functions-back{height:38px!important;min-height:38px!important;margin:0!important;}
+}
+
+@media (max-width:600px) and (max-height:680px){
+  #menu .argos-home,#more-functions .argos-home{padding:7px 10px 6px!important;gap:6px!important;}
+  #menu .welcome-card,#more-functions .welcome-card{padding:9px 12px!important;}
+  #menu .welcome-card h1,#more-functions .welcome-card h1{font-size:22px!important;}
+  #menu .welcome-card p,#more-functions .welcome-card p{font-size:10.5px!important;}
+  #menu .home-list{grid-template-rows:repeat(6,minmax(0,1fr)) 28px!important;gap:5px!important;}
+  #menu .home-card,#more-functions .home-card{grid-template-columns:42px minmax(0,1fr)!important;padding:5px 9px!important;}
+  #menu .home-icon,#more-functions .home-icon{width:42px!important;height:42px!important;font-size:21px!important;}
+  #menu .home-card h2,#more-functions .home-card h2{font-size:17px!important;}
+}
+</style>
+
 </head>
 
 <body>
