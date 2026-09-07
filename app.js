@@ -60,6 +60,46 @@ const services=()=>{try{const v=JSON.parse(localStorage.getItem(KEY)||"[]");retu
 const saveServices=a=>localStorage.setItem(KEY,JSON.stringify(a));
 const esc=s=>String(s??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;");
 
+const formatDateDMY=value=>{
+  const raw=String(value??"").trim();
+  if(!raw)return "";
+  if(/^\d{4}$/.test(raw))return raw;
+  let m=raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if(m)return `${m[3]}/${m[2]}/${m[1]}`;
+  m=raw.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/);
+  if(m)return `${String(m[1]).padStart(2,"0")}/${String(m[2]).padStart(2,"0")}/${m[3]}`;
+  const d=new Date(raw);
+  if(Number.isNaN(d.getTime()))return raw;
+  return `${String(d.getDate()).padStart(2,"0")}/${String(d.getMonth()+1).padStart(2,"0")}/${d.getFullYear()}`;
+};
+
+const latestServiceByDate=list=>{
+  const all=Array.isArray(list)?list:[];
+  const now=new Date();
+  now.setHours(23,59,59,999);
+  let best=null,bestDate=-Infinity,bestCreated=-Infinity,bestIndex=-1;
+  all.forEach((service,index)=>{
+    const raw=String(service?.date??service?.fecha??"").trim();
+    let d=null;
+    if(/^\d{4}-\d{2}-\d{2}$/.test(raw))d=new Date(Number(raw.slice(0,4)),Number(raw.slice(5,7))-1,Number(raw.slice(8,10)));
+    else if(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/.test(raw)){
+      const m=raw.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/);
+      d=new Date(Number(m[3]),Number(m[2])-1,Number(m[1]));
+    }else if(raw){
+      const parsed=new Date(raw);
+      if(!Number.isNaN(parsed.getTime()))d=parsed;
+    }
+    if(!d||Number.isNaN(d.getTime())||d>now)return;
+    const stamp=d.getTime(),created=Number(service?.createdAt)||0;
+    if(stamp>bestDate||(stamp===bestDate&&created>bestCreated)||(stamp===bestDate&&created===bestCreated&&index>bestIndex)){
+      best=service;bestDate=stamp;bestCreated=created;bestIndex=index;
+    }
+  });
+  return best;
+};
+window.ARGOS_FORMAT_DATE=formatDateDMY;
+window.ARGOS_LATEST_SERVICE_BY_DATE=latestServiceByDate;
+
 function showScreen(id){
   const ficha=$("ficha");
   if(ficha && id!=="ficha") ficha.classList.remove("argos-last-time-ficha");
@@ -25975,7 +26015,7 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Producto</span><strong>${esc(service.product||"—")}</strong></div>
         <div><span>Origen</span><strong>${esc(service.origin||"—")}</strong></div>
         <div><span>Destino</span><strong>${esc(service.destination||"—")}</strong></div>
-        <div><span>Fecha</span><strong>${esc(service.date||"—")}</strong></div>
+        <div><span>Fecha</span><strong>${esc(formatDateDMY(service.date||"—")||"—")}</strong></div>
       </div>
     </div>`:"";
 
@@ -26113,7 +26153,7 @@ function card(s){
   const notes=[...(s.notesEntries||[]),s.notes||""].filter(Boolean);
   const incidents=[...(s.incidentsEntries||[]),s.incidents||""].filter(Boolean);
   const label=s.train?`Tren ${esc(s.train)}`:"Sin número de tren";
-  return `<article class="history-card history-card-clickable" data-service-id="${esc(s.id||"")}" tabindex="0" role="button" aria-label="Ver ficha de ${label}"><div class="history-top"><span class="train-number">${label}</span><span class="service-date">${esc(s.date)}</span></div><div class="route">${esc(s.origin)} → ${esc(s.destination)}</div><div class="service-meta">Serie ${esc(s.series)}${s.vehicle?" · Vehículo "+esc(s.vehicle):""}${s.branch?" · Rama "+esc(s.branch):""}${s.product?" · "+esc(s.product):""}${s.kilometres?" · "+esc(s.kilometres)+" km":""}</div>${notes.length?`<div class="service-meta"><b>Anotaciones:</b> ${notes.map(esc).join(" · ")}</div>`:""}${incidents.length?`<div class="service-meta"><b>Incidencias:</b> ${incidents.map(esc).join(" · ")}</div>`:""}<div class="history-open-hint">Toca para ver ficha ›</div></article>`;
+  return `<article class="history-card history-card-clickable" data-service-id="${esc(s.id||"")}" tabindex="0" role="button" aria-label="Ver ficha de ${label}"><div class="history-top"><span class="train-number">${label}</span><span class="service-date">${esc(formatDateDMY(s.date)||"—")}</span></div><div class="route">${esc(s.origin)} → ${esc(s.destination)}</div><div class="service-meta">Serie ${esc(s.series)}${s.vehicle?" · Vehículo "+esc(s.vehicle):""}${s.branch?" · Rama "+esc(s.branch):""}${s.product?" · "+esc(s.product):""}${s.kilometres?" · "+esc(s.kilometres)+" km":""}</div>${notes.length?`<div class="service-meta"><b>Anotaciones:</b> ${notes.map(esc).join(" · ")}</div>`:""}${incidents.length?`<div class="service-meta"><b>Incidencias:</b> ${incidents.map(esc).join(" · ")}</div>`:""}<div class="history-open-hint">Toca para ver ficha ›</div></article>`;
 }
 function renderHistory(){
   const list=$("historyList");if(!list)return;
@@ -26131,16 +26171,16 @@ function renderStats(){
   if($("statServices"))$("statServices").textContent=a.length;
   if($("statKm"))$("statKm").textContent=a.reduce((n,s)=>n+Number(s.kilometres||0),0).toLocaleString("es-ES");
   if($("statSeries"))$("statSeries").textContent=new Set(a.map(s=>norm(s.series)).filter(Boolean)).size;
-  if($("statLast"))$("statLast").textContent=a.length?(a[a.length-1].train||"Sin número"):"—";
+  if($("statLast")){const latestStat=latestServiceByDate(a);$("statLast").textContent=latestStat?(latestStat.train||"Sin número"):"—";}
 }
 function refreshHome(){
-  const a=services(),latest=a.length?a[a.length-1]:null;
+  const a=services(),latest=latestServiceByDate(a);
   if($("latestService")){
-    $("latestService").textContent=latest?[latest.train?"Tren "+latest.train:"Sin número",latest.origin&&latest.destination?latest.origin+" → "+latest.destination:"",latest.date].filter(Boolean).join(" · "):"Aún no hay servicios registrados";
+    $("latestService").textContent=latest?[latest.train?"Tren "+latest.train:"Sin número",latest.origin&&latest.destination?latest.origin+" → "+latest.destination:"",formatDateDMY(latest.date)||""].filter(Boolean).join(" · "):"Aún no hay servicios registrados";
   }
   const select=$("lastTripSelect");if(!select)return;
   const current=select.value;while(select.options.length>1)select.remove(1);
-  a.slice().reverse().forEach((s,i)=>{const o=document.createElement("option");o.value=String(i);o.textContent=[s.train?"Tren "+s.train:"Sin número",s.origin&&s.destination?s.origin+" → "+s.destination:"",s.date].filter(Boolean).join(" · ");select.appendChild(o)});
+  a.slice().reverse().forEach((s,i)=>{const o=document.createElement("option");o.value=String(i);o.textContent=[s.train?"Tren "+s.train:"Sin número",s.origin&&s.destination?s.origin+" → "+s.destination:"",formatDateDMY(s.date)||""].filter(Boolean).join(" · ");select.appendChild(o)});
   if(current)select.value=current;
 }
 function toast(t){
@@ -26188,7 +26228,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     try{
       const raw=localStorage.getItem('argos_services')||'[]';
       const list=JSON.parse(raw);
-      return Array.isArray(list)&&list.length?list[list.length-1]:null;
+      return Array.isArray(list)&&list.length?latestServiceByDate(list):null;
     }catch(e){
       console.warn('ARGOS · último servicio:',e);
       return null;
@@ -26320,7 +26360,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
         ${argosField('Producto',service.product||'—')}
         ${argosField('Origen',service.origin||'—')}
         ${argosField('Destino',service.destination||'—')}
-        ${argosField('Fecha',service.date||'—')}
+        ${argosField('Fecha',formatDateDMY(service.date)||'—')}
         ${argosField('Kilómetros',service.kilometres?`${service.kilometres} km`: '')}
       </div>
 
@@ -26534,11 +26574,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   function atDateLabel(service){
     const raw=atVal(service,['date','fecha']);
     if(!raw) return 'Fecha no indicada';
-    const d=new Date(raw+'T00:00:00');
-    if(Number.isNaN(d.getTime())) return raw;
-    return d.toLocaleDateString('es-ES',{
-      day:'2-digit',month:'short',year:'numeric'
-    }).replace('.','');
+    return formatDateDMY(raw)||raw;
   }
 
   function atProductName(service){
@@ -27266,7 +27302,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     const train=atVal(service,['train','tren','number','numero'])||'Sin número';
     const product=atProductName(service);
     const {origin,destination}=atServiceTitle(service);
-    const date=atVal(service,['date','fecha'])||'—';
+    const date=atDateLabel(service);
 
     const materialTitle=`Serie ${series}${branch?` · Rama ${branch}`:''}`;
     const vehicleLine=[
@@ -29781,13 +29817,9 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     const incidents=normalizeIncidents(service);
     if(!notes.length&&!incidents.length)return '';
 
-    const noteHtml=notes.length?notes.map((text,index)=>`
-      <div class="argos-v64-entry" data-v64-kind="note" data-v64-index="${index}">
+    const noteHtml=notes.length?notes.map((text)=>`
+      <div class="argos-v64-entry" data-v64-kind="note">
         <div class="argos-v64-entry-main"><span class="argos-v64-entry-text">${escV64(text)}</span></div>
-        <div class="argos-v64-entry-actions">
-          <button type="button" data-v64-edit="note" data-v64-index="${index}">Editar</button>
-          <button type="button" class="danger" data-v64-delete="note" data-v64-index="${index}">Eliminar</button>
-        </div>
       </div>`).join(''):`<div class="argos-v64-entry-empty">No hay anotaciones.</div>`;
 
     const incidentHtml=incidents.length?incidents.map((item,index)=>`
@@ -30243,4 +30275,3 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
 
   document.addEventListener('DOMContentLoaded',boot,{once:true});
 })();
-
