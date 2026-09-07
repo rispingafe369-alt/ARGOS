@@ -1865,38 +1865,104 @@ html,body{background:var(--renfe)!important;}
 }
 </style>
 
-<style id="argos-5-mobile-bottom-band-final">
-/* ARGOS 5.0 · AJUSTE MÓVIL FINAL
-   Solo mueve el control "Más funciones" hacia el espacio libre inferior.
-   No cambia las seis tarjetas ni su tamaño.
+<style id="argos-5-mobile-edge-layout">
+/* ARGOS 5.0 · AJUSTE FINAL DE ÁREA ÚTIL
+   Solo corrige el área visible inferior/superior del menú.
 */
-@media(max-width:600px){
-  #menu.menu-screen.active{
-    overflow:visible!important;
+@media (max-width:600px){
+  html,body{
+    width:100%!important;
+    height:100%!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
   }
 
-  #menu .argos-home{
-    overflow:visible!important;
+  .app-shell{
+    width:100%!important;
+    height:100dvh!important;
+    min-height:0!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    display:flex!important;
+    flex-direction:column!important;
   }
 
-  #menu .home-list{
-    overflow:visible!important;
+  .app-header{
+    flex:0 0 64px!important;
+    height:64px!important;
+    min-height:64px!important;
+    max-height:64px!important;
+    margin:0!important;
+    padding:0!important;
+  }
+
+  .brand-row{
+    height:64px!important;
+    min-height:64px!important;
+    max-height:64px!important;
+    margin:0!important;
+    padding:0!important;
+    background:#8a005c!important;
+  }
+
+  .app-shell > .menu-screen.active{
+    flex:1 1 0!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    display:flex!important;
+  }
+
+  .app-shell > .menu-screen.active .argos-home{
+    width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:10px 12px 0!important;
+    box-sizing:border-box!important;
+    display:grid!important;
+    grid-template-rows:auto minmax(0,1fr)!important;
+    gap:8px!important;
+    overflow:hidden!important;
+  }
+
+  .app-shell > .menu-screen.active .home-list{
+    width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:0 0 8px!important;
+    box-sizing:border-box!important;
+    display:grid!important;
+    grid-template-rows:repeat(6,minmax(0,1fr)) 44px!important;
+    gap:6px!important;
+    overflow:hidden!important;
   }
 
   #menu .more-functions-link{
-    position:absolute!important;
-    left:50%!important;
-    bottom:-22px!important;
-    transform:translateX(-50%)!important;
-    z-index:20!important;
+    position:static!important;
+    left:auto!important;
+    right:auto!important;
+    bottom:auto!important;
+    transform:none!important;
+    justify-self:center!important;
+    align-self:center!important;
     width:auto!important;
-    min-width:152px!important;
-    height:34px!important;
-    min-height:34px!important;
-    max-height:34px!important;
+    min-width:170px!important;
+    height:38px!important;
+    min-height:38px!important;
+    max-height:38px!important;
     margin:0!important;
-    padding:0 12px!important;
-    border:0!important;
+    padding:0 15px!important;
     border-radius:999px!important;
     background:var(--soft)!important;
     color:var(--renfe)!important;
@@ -1907,7 +1973,7 @@ html,body{background:var(--renfe)!important;}
     font-size:13px!important;
     font-weight:800!important;
     line-height:1!important;
-    box-shadow:none!important;
+    z-index:2!important;
   }
 
   #menu .more-functions-arrow{
@@ -1918,14 +1984,20 @@ html,body{background:var(--renfe)!important;}
     font-size:19px!important;
     background:transparent!important;
   }
+}
 
-  #menu .more-functions-label{
-    display:inline!important;
-    white-space:nowrap!important;
+/* En pantallas que respetan el área segura, no se crea una franja inferior artificial. */
+@supports (padding: max(0px)){
+  @media (max-width:600px){
+    .app-shell,.app-shell > .screen,.app-shell > .menu-screen.active,.argos-home,.home-list{
+      padding-bottom:0!important;
+    }
+    .home-list{
+      padding-bottom:0!important;
+    }
   }
 }
 </style>
-
 </head>
 
 <body>
