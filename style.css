@@ -508,34 +508,125 @@ h1 {
   transform: translate(-50%, 0);
 }
 
-/* Estilos de botones compactos estilo píldora (Más funciones / Volver) */
+/* Botones compactos · Más funciones / Volver */
 .btn-compact {
-  min-height: 54px !important;
-  height: 54px !important;
+  position: relative !important;
+  min-height: 46px !important;
+  height: 46px !important;
+  border: 1px solid rgba(138, 0, 92, .18) !important;
   border-radius: 999px !important;
-  padding: 10px 24px !important;
+  padding: 6px 18px 6px 8px !important;
   flex-direction: row !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 12px !important;
+  gap: 10px !important;
+  background: linear-gradient(135deg, var(--surface) 0%, #fbf7fa 100%) !important;
+  color: var(--purple) !important;
+  box-shadow:
+    0 7px 18px rgba(138, 0, 92, .10),
+    inset 0 1px 0 rgba(255, 255, 255, .85) !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    border-color .18s ease,
+    background .18s ease !important;
+}
+
+.btn-compact::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 255, 255, .68) 42%,
+    transparent 64%
+  ) !important;
+  transform: translateX(-120%) !important;
+  transition: transform .45s ease !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
+
+.btn-compact:hover {
+  transform: translateY(-2px) !important;
+  border-color: rgba(138, 0, 92, .35) !important;
+  box-shadow:
+    0 10px 24px rgba(138, 0, 92, .15),
+    inset 0 1px 0 rgba(255, 255, 255, .9) !important;
+}
+
+.btn-compact:hover::before {
+  transform: translateX(120%) !important;
+}
+
+.btn-compact:active {
+  transform: translateY(0) scale(.985) !important;
+  box-shadow:
+    0 5px 12px rgba(138, 0, 92, .10),
+    inset 0 1px 0 rgba(255, 255, 255, .8) !important;
+}
+
+.btn-compact:focus-visible {
+  outline: 3px solid rgba(138, 0, 92, .18) !important;
+  outline-offset: 3px !important;
 }
 
 .btn-compact .card-icon,
 .btn-compact-icon {
-  width: 30px !important;
-  height: 30px !important;
-  min-width: 30px !important;
+  position: relative !important;
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  border: 1px solid rgba(138, 0, 92, .08) !important;
   border-radius: 50% !important;
-  background: var(--surface-2) !important;
+  background: linear-gradient(145deg, #f8eaf3 0%, #f2dce9 100%) !important;
+  color: var(--purple) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   font-size: 16px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
   margin: 0 !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8) !important;
+}
+
+.btn-compact .card-content {
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
 }
 
 .btn-compact .card-content strong {
-  font-size: 18px !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  letter-spacing: -.2px !important;
+  color: var(--purple) !important;
+  white-space: nowrap !important;
+}
+
+@media(max-width:700px) {
+  .btn-compact {
+    min-height: 44px !important;
+    height: 44px !important;
+    padding: 5px 16px 5px 7px !important;
+    gap: 9px !important;
+  }
+
+  .btn-compact .card-icon,
+  .btn-compact-icon {
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+    font-size: 15px !important;
+  }
+
+  .btn-compact .card-content strong {
+    font-size: 15px !important;
+  }
 }
 
 @media(max-width:700px) {
