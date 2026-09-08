@@ -7775,6 +7775,30 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 })();
 </script>
 
+<script id="argos-quality-final-navigation">
+(function(){
+  /*
+   * Este es el último enlace de navegación de ARGOS. Algunos módulos
+   * anteriores envuelven window.showScreen; por eso Calidad se actualiza
+   * aquí, al final, para que siempre se ejecute después de cualquier
+   * otro navegador interno.
+   */
+  const previousShowScreen=window.showScreen;
+  window.showScreen=function(id){
+    if(typeof previousShowScreen==="function")previousShowScreen(id);
+    if(id==="quality")setTimeout(()=>{
+      if(typeof window.renderQuality==="function")window.renderQuality();
+    },0);
+    if(id==="qualityBranches")setTimeout(()=>{
+      if(typeof window.renderQualityBranches==="function")window.renderQualityBranches();
+    },0);
+    if(id==="qualityIncidents")setTimeout(()=>{
+      if(typeof window.renderQualityIncidents==="function")window.renderQualityIncidents();
+    },0);
+  };
+})();
+</script>
+
 </body>
 </html>
 <!-- ================================================================
