@@ -213,8 +213,6 @@ button{cursor:pointer;-webkit-tap-highlight-color:transparent}
   font-size:12px;
   padding:0 8px;
 }
-
-.screen:not(#menu){overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 .argos-footer{display:none!important}
 
 /* Drawer del menú de los tres puntos */
@@ -1617,8 +1615,6 @@ button:focus:not(:focus-visible),
   .menu-screen .home-card p,.menu-screen .latest-service-value,.menu-screen .last-time-card label,.menu-screen .last-time-select{display:none!important;}
   .menu-screen .last-time-card{cursor:default!important;}
 
-  #more-functions .home-list{grid-template-rows:repeat(4,minmax(0,1fr)) 38px!important;}
-
 }
 @media(max-width:600px) and (max-height:700px){
   .menu-screen .argos-home{padding:7px 10px 6px!important;gap:6px!important;}
@@ -1655,8 +1651,6 @@ button:focus:not(:focus-visible),
   .menu-screen .home-card h2{font-size:20px!important;margin:0!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;}
   .menu-screen .home-card p,.menu-screen .latest-service-value,.menu-screen .last-time-card label,.menu-screen .last-time-select{display:none!important;}
 
-  #more-functions .home-list{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(2,minmax(0,1fr)) 46px!important;}
-  #more-functions .home-card:last-of-type{grid-column:1 / -1;max-width:none;}
 
 }
 </style>
@@ -1669,108 +1663,31 @@ button:focus:not(:focus-visible),
   .app-shell{width:100%!important;height:100dvh!important;min-height:100dvh!important;max-height:100dvh!important;overflow:hidden!important;display:flex!important;flex-direction:column!important;}
   .app-header{flex:0 0 64px!important;height:64px!important;min-height:64px!important;max-height:64px!important;}
   .brand-row{height:64px!important;min-height:64px!important;max-height:64px!important;}
-  .app-shell > .menu-screen.active,
-  #menu.menu-screen.active,
-  #more-functions.menu-screen.active{
-    display:flex!important;
-    flex:1 1 auto!important;
-    width:100%!important;
-    height:auto!important;
-    min-height:0!important;
-    max-height:none!important;
-    padding:0!important;
-    margin:0!important;
-    overflow:hidden!important;
-    box-sizing:border-box!important;
-  }
-  #menu .argos-home,
-  #more-functions .argos-home{
-    width:100%!important;
-    height:100%!important;
-    min-height:0!important;
-    max-height:none!important;
-    margin:0!important;
-    padding:10px 12px 8px!important;
-    display:grid!important;
-    grid-template-rows:auto minmax(0,1fr)!important;
-    gap:8px!important;
-    overflow:hidden!important;
-    box-sizing:border-box!important;
-  }
-  #menu .welcome-card,
-  #more-functions .welcome-card{
-    width:100%!important;
-    min-height:0!important;
-    height:auto!important;
-    max-height:120px!important;
-    margin:0!important;
-    padding:12px 15px!important;
-    box-sizing:border-box!important;
-    overflow:hidden!important;
-  }
-  #menu .welcome-pill,
-  #more-functions .welcome-pill{font-size:10px!important;padding:4px 9px!important;margin:0 0 5px!important;}
-  #menu .welcome-card h1,
-  #more-functions .welcome-card h1{font-size:24px!important;line-height:1.05!important;margin:0 0 4px!important;}
-  #menu .welcome-card p,
-  #more-functions .welcome-card p{display:block!important;font-size:12px!important;line-height:1.18!important;margin:0!important;}
 
-  #menu .home-list,
-  #more-functions .home-list{
-    width:100%!important;
-    height:100%!important;
-    min-height:0!important;
-    max-height:none!important;
-    margin:0!important;
-    padding:0!important;
-    display:grid!important;
-    align-self:stretch!important;
-    align-content:stretch!important;
-    box-sizing:border-box!important;
-    gap:6px!important;
-    overflow:hidden!important;
-  }
-  #menu .home-list{grid-template-rows:repeat(6,minmax(0,1fr))!important;}
-  #more-functions .home-list{grid-template-rows:repeat(4,minmax(0,1fr)) 38px!important;}
-  #menu .home-card,
-  #more-functions .home-card{
-    width:100%!important;
-    height:auto!important;
-    min-height:0!important;
-    max-height:none!important;
-    margin:0!important;
-    padding:7px 12px!important;
-    border-radius:16px!important;
-    display:grid!important;
-    grid-template-columns:46px minmax(0,1fr)!important;
-    column-gap:11px!important;
-    align-items:center!important;
-    align-self:stretch!important;
-    box-sizing:border-box!important;
-    overflow:hidden!important;
-  }
-  #menu .home-icon,
-  #more-functions .home-icon{width:46px!important;height:46px!important;border-radius:13px!important;font-size:23px!important;}
-  #menu .home-card h2,
-  #more-functions .home-card h2{margin:0!important;font-size:18px!important;line-height:1.05!important;font-weight:800!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;}
-  #menu .home-card p,
-  #menu .latest-service-value,
-  #menu .last-time-card label,
-  #menu .last-time-select,
-  #more-functions .home-card p{display:none!important;}
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
 
 @media (max-width:600px) and (max-height:680px){
-  #menu .argos-home,#more-functions .argos-home{padding:7px 10px 6px!important;gap:6px!important;}
-  #menu .welcome-card,#more-functions .welcome-card{padding:9px 12px!important;}
-  #menu .welcome-card h1,#more-functions .welcome-card h1{font-size:22px!important;}
-  #menu .welcome-card p,#more-functions .welcome-card p{font-size:10.5px!important;}
-  #menu .home-list{grid-template-rows:repeat(6,minmax(0,1fr))!important;gap:5px!important;}
-  #menu .home-card,#more-functions .home-card{grid-template-columns:42px minmax(0,1fr)!important;padding:5px 9px!important;}
-  #menu .home-icon,#more-functions .home-icon{width:42px!important;height:42px!important;font-size:21px!important;}
-  #menu .home-card h2,#more-functions .home-card h2{font-size:17px!important;}
+
+
+
+
+
+
+
+
 }
 </style>
 
@@ -1782,20 +1699,9 @@ html,body{background:var(--renfe)!important;}
 .app-shell{background:var(--page)!important;}
 
 @media(max-width:600px){
-  #menu.menu-screen.active,
-  #more-functions.menu-screen.active{
-    position:relative!important;
-  }
-  #menu .argos-home,
-  #more-functions .argos-home{
-    position:relative!important;
-  }
 
-  #menu .more-functions-label{
-    display:inline!important;
-    white-space:nowrap!important;
-    line-height:1!important;
-  }
+
+
 }
 
 @media(max-width:600px) and (max-height:580px){
@@ -1882,7 +1788,7 @@ html,body{background:var(--renfe)!important;}
     padding:0 0 8px!important;
     box-sizing:border-box!important;
     display:grid!important;
-    grid-template-rows:repeat(6,minmax(0,1fr)) 38px!important;
+    grid-template-rows:repeat(6,minmax(0,1fr))!important;
     gap:6px!important;
     overflow:hidden!important;
   }
@@ -1921,24 +1827,15 @@ body:not(.dark) select{
 <style id="argos-more-functions-mobile-final-fix">
 /* AJUSTE FINAL: Más funciones ocupa la misma posición y estilo que Volver. */
 @media (max-width:600px){
-  #menu .argos-home{
-    position:relative!important;
-  }
-  #menu .home-list{
-    position:relative!important;
-    padding-bottom:0!important;
-    overflow:hidden!important;
-    display:grid!important;
-    grid-template-rows:repeat(6,minmax(0,1fr)) 38px!important;
-    gap:6px!important;
-  }
+
+
 
 }
 @media (max-width:600px) and (max-height:680px){
-  #menu .home-list{padding-bottom:0!important;grid-template-rows:repeat(6,minmax(0,1fr)) 38px!important;}
+
 }
 @media (max-width:600px) and (max-height:580px){
-  #menu .home-list{padding-bottom:0!important;grid-template-rows:repeat(6,minmax(0,1fr)) 34px!important;}
+
 
 }
 </style>
@@ -1961,30 +1858,13 @@ body:not(.dark) select{
    Las seis opciones ocupan el espacio disponible y Más funciones
    tiene una altura fija y el mismo ancho que las demás tarjetas. */
 @media (max-width:600px){
-  #menu .home-list{
-    display:flex!important;
-    flex-direction:column!important;
-    width:100%!important;
-    height:100%!important;
-    min-height:0!important;
-    max-height:none!important;
-    gap:6px!important;
-    overflow:hidden!important;
-    padding:0!important;
-    box-sizing:border-box!important;
-  }
 
-  #menu .home-list > .home-card{
-    flex:1 1 0!important;
-    min-height:0!important;
-    max-height:none!important;
-    width:100%!important;
-  }
+
 
 }
 
 @media (max-width:600px) and (max-height:580px){
-  #menu .home-list{gap:5px!important;}
+
 
 }
 </style>
@@ -1992,21 +1872,8 @@ body:not(.dark) select{
 <style id="argos-more-functions-mobile-compact-real">
 /* Más funciones: botón compacto independiente de las tarjetas del menú. */
 @media (max-width:600px){
-  #menu .argos-home{
-    display:grid!important;
-    grid-template-rows:auto minmax(0,1fr) auto!important;
-    gap:6px!important;
-    overflow:hidden!important;
-  }
-  #menu .home-list{
-    grid-row:2!important;
-    display:grid!important;
-    grid-template-rows:repeat(6,minmax(0,1fr))!important;
-    gap:6px!important;
-    min-height:0!important;
-    height:100%!important;
-    overflow:hidden!important;
-  }
+
+
 
 }
 @media (max-width:600px) and (max-height:580px){
@@ -2024,38 +1891,17 @@ body:not(.dark) select{
 @media (max-width:600px){
 
 
-
-  #menu .more-functions-label{
-    display:inline!important;
-    white-space:nowrap!important;
-    line-height:1!important;
-  }
-
   /*
    * Las seis opciones siguen siendo las únicas tarjetas.
    * Más funciones ocupa una única fila baja independiente.
    */
-  #menu .argos-home{
-    display:grid!important;
-    grid-template-rows:auto minmax(0,1fr) auto!important;
-    gap:6px!important;
-    overflow:hidden!important;
-  }
 
-  #menu .home-list{
-    grid-row:2!important;
-    display:grid!important;
-    grid-template-rows:repeat(6,minmax(0,1fr))!important;
-    gap:6px!important;
-    min-height:0!important;
-    height:100%!important;
-    overflow:hidden!important;
-  }
+
 }
 
 /* Móviles muy pequeños: un poco más compacto, sin cambiar la estructura. */
 @media (max-width:600px) and (max-height:580px){
-  #menu .argos-home{gap:5px!important;}
+
 
 }
 </style>
@@ -2079,18 +1925,11 @@ body:not(.dark) select{
 
 
 @media(max-width:600px){
-  #menu > .argos-home{
-    grid-template-rows:auto minmax(0,1fr) 38px!important;
-    gap:6px!important;
-    overflow:hidden!important;
-  }
+
 }
 
 @media(max-width:600px) and (max-height:580px){
-  #menu > .argos-home{
-    grid-template-rows:auto minmax(0,1fr) 34px!important;
-    gap:5px!important;
-  }
+
 
 }
 </style>
@@ -2102,13 +1941,93 @@ body:not(.dark) select{
    MISMO COMPONENTE VISUAL
    ========================================================= */
 
-#menu > .argos-home > .home-list{
-  min-height:0 !important;
-}
 
 /* Botón común */
-#menu > .argos-home > .more-functions-back,
-#more-functions .home-list > .more-functions-back{
+
+
+/* Flecha común */
+
+
+/* Mismo comportamiento */
+
+
+
+/* MENÚ PRINCIPAL · el botón es una fila independiente,
+   sin modificar el tamaño de ninguna de las seis tarjetas. */
+@media(max-width:600px){
+
+
+
+
+
+  /* VOLVER · mismo tamaño */
+
+}
+
+/* Móviles muy bajos · ambos reducen exactamente igual */
+@media(max-width:600px) and (max-height:580px){
+
+
+
+}
+</style>
+
+
+<style id="argos-botones-unicos-final">
+/* =========================================================
+   MÁS FUNCIONES Y VOLVER
+   Misma estructura, mismo contenedor y mismo componente.
+   ========================================================= */
+
+#menu > .argos-home,
+#more-functions > .argos-home{
+  display:flex !important;
+  flex-direction:column !important;
+  box-sizing:border-box !important;
+}
+
+#menu > .argos-home > .home-list,
+#more-functions > .argos-home > .home-list{
+  width:100% !important;
+  min-width:0 !important;
+  min-height:0 !important;
+  flex:1 1 auto !important;
+  box-sizing:border-box !important;
+}
+
+/* En ambos menús la lista ocupa el espacio disponible */
+@media(min-width:601px){
+  #menu > .argos-home > .home-list,
+  #more-functions > .argos-home > .home-list{
+    display:grid !important;
+  }
+}
+
+/* CONTENEDOR IDÉNTICO */
+#menu > .argos-home > .argos-footer-action,
+#more-functions > .argos-home > .argos-footer-action{
+  width:100% !important;
+  min-width:0 !important;
+  min-height:0 !important;
+  flex:0 0 auto !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  margin:0 !important;
+  padding:0 !important;
+  box-sizing:border-box !important;
+}
+
+/* BOTÓN IDÉNTICO */
+#menu > .argos-home > .argos-footer-action > .argos-identical-action,
+#more-functions > .argos-home > .argos-footer-action > .argos-identical-action{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  flex:0 0 220px !important;
   width:220px !important;
   min-width:220px !important;
   max-width:220px !important;
@@ -2117,7 +2036,7 @@ body:not(.dark) select{
   min-height:46px !important;
   max-height:46px !important;
 
-  margin:0 auto !important;
+  margin:0 !important;
   padding:0 16px !important;
 
   border:1px solid var(--line) !important;
@@ -2126,27 +2045,22 @@ body:not(.dark) select{
   color:var(--ink) !important;
   box-shadow:var(--shadow) !important;
 
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  gap:8px !important;
-
   box-sizing:border-box !important;
   cursor:pointer !important;
 
-  font:inherit !important;
+  font-family:inherit !important;
   font-size:15px !important;
   font-weight:800 !important;
   line-height:1 !important;
   text-align:center !important;
 
-  flex:0 0 auto !important;
+  position:relative !important;
+  float:none !important;
   transform:none !important;
 }
 
-/* Flecha común */
-#menu > .argos-home > .more-functions-back .more-functions-back-arrow,
-#more-functions .home-list > .more-functions-back .more-functions-back-arrow{
+#menu > .argos-home > .argos-footer-action > .argos-identical-action .more-functions-back-arrow,
+#more-functions > .argos-home > .argos-footer-action > .argos-identical-action .more-functions-back-arrow{
   display:flex !important;
   align-items:center !important;
   justify-content:center !important;
@@ -2155,7 +2069,6 @@ body:not(.dark) select{
   width:25px !important;
   min-width:25px !important;
   max-width:25px !important;
-
   height:25px !important;
   min-height:25px !important;
   max-height:25px !important;
@@ -2164,62 +2077,56 @@ body:not(.dark) select{
   background:var(--soft) !important;
   color:var(--renfe) !important;
 
+  margin:0 !important;
+  padding:0 !important;
+
   font-size:18px !important;
   font-weight:900 !important;
   line-height:1 !important;
 }
 
-/* Mismo comportamiento */
-#menu > .argos-home > .more-functions-back:hover,
-#more-functions .home-list > .more-functions-back:hover{
-  border-color:rgba(138,0,92,.28) !important;
-}
-
-#menu > .argos-home > .more-functions-back:active,
-#more-functions .home-list > .more-functions-back:active{
-  transform:translateY(1px) !important;
-}
-
-/* MENÚ PRINCIPAL · el botón es una fila independiente,
-   sin modificar el tamaño de ninguna de las seis tarjetas. */
+/* MÓVIL: MISMA MEDIDA PARA LOS DOS */
 @media(max-width:600px){
-  #menu > .argos-home{
-    display:grid !important;
-    grid-template-rows:auto minmax(0,1fr) 38px !important;
+  #menu > .argos-home,
+  #more-functions > .argos-home{
     gap:6px !important;
-    overflow:hidden !important;
   }
 
-  #menu > .argos-home > .home-list{
-    grid-row:2 !important;
-    min-height:0 !important;
-    height:100% !important;
+  #menu > .argos-home > .home-list,
+  #more-functions > .argos-home > .home-list{
     display:grid !important;
     grid-template-rows:repeat(6,minmax(0,1fr)) !important;
     gap:6px !important;
     overflow:hidden !important;
   }
 
-  #menu > .argos-home > .more-functions-back{
-    grid-row:3 !important;
-    justify-self:center !important;
-    align-self:center !important;
+  #more-functions > .argos-home > .home-list{
+    grid-template-rows:repeat(4,minmax(0,1fr)) !important;
+  }
 
-    width:220px !important;
-    min-width:220px !important;
-    max-width:calc(100% - 20px) !important;
-
+  #menu > .argos-home > .argos-footer-action,
+  #more-functions > .argos-home > .argos-footer-action{
+    width:100% !important;
     height:38px !important;
     min-height:38px !important;
     max-height:38px !important;
+  }
 
-    margin:0 !important;
+  #menu > .argos-home > .argos-footer-action > .argos-identical-action,
+  #more-functions > .argos-home > .argos-footer-action > .argos-identical-action{
+    flex:0 0 220px !important;
+    width:220px !important;
+    min-width:220px !important;
+    max-width:calc(100% - 20px) !important;
+    height:38px !important;
+    min-height:38px !important;
+    max-height:38px !important;
     padding:0 16px !important;
     font-size:14px !important;
   }
 
-  #menu > .argos-home > .more-functions-back .more-functions-back-arrow,
-  #more-functions .home-list > .more-functions-back .more-functions-back-arrow{
+  #menu > .argos-home > .argos-footer-action > .argos-identical-action .more-functions-back-arrow,
+  #more-functions > .argos-home > .argos-footer-action > .argos-identical-action .more-functions-back-arrow{
     flex:0 0 22px !important;
     width:22px !important;
     min-width:22px !important;
@@ -2229,29 +2136,20 @@ body:not(.dark) select{
     max-height:22px !important;
     font-size:16px !important;
   }
-
-  /* VOLVER · mismo tamaño */
-  #more-functions .home-list > .more-functions-back{
-    width:220px !important;
-    min-width:220px !important;
-    max-width:calc(100% - 20px) !important;
-    height:38px !important;
-    min-height:38px !important;
-    max-height:38px !important;
-    margin:0 auto !important;
-    padding:0 16px !important;
-    font-size:14px !important;
-  }
 }
 
-/* Móviles muy bajos · ambos reducen exactamente igual */
+/* MÓVIL MUY BAJO: ambos exactamente igual */
 @media(max-width:600px) and (max-height:580px){
-  #menu > .argos-home{
-    grid-template-rows:auto minmax(0,1fr) 34px !important;
+  #menu > .argos-home > .argos-footer-action,
+  #more-functions > .argos-home > .argos-footer-action{
+    height:34px !important;
+    min-height:34px !important;
+    max-height:34px !important;
   }
 
-  #menu > .argos-home > .more-functions-back,
-  #more-functions .home-list > .more-functions-back{
+  #menu > .argos-home > .argos-footer-action > .argos-identical-action,
+  #more-functions > .argos-home > .argos-footer-action > .argos-identical-action{
+    flex-basis:200px !important;
     width:200px !important;
     min-width:200px !important;
     max-width:calc(100% - 20px) !important;
@@ -2261,8 +2159,8 @@ body:not(.dark) select{
     font-size:13px !important;
   }
 
-  #menu > .argos-home > .more-functions-back .more-functions-back-arrow,
-  #more-functions .home-list > .more-functions-back .more-functions-back-arrow{
+  #menu > .argos-home > .argos-footer-action > .argos-identical-action .more-functions-back-arrow,
+  #more-functions > .argos-home > .argos-footer-action > .argos-identical-action .more-functions-back-arrow{
     flex-basis:20px !important;
     width:20px !important;
     min-width:20px !important;
@@ -2327,10 +2225,12 @@ body:not(.dark) select{
         </select>
       </div>
     </div>
-    <button class="more-functions-back" data-screen="more-functions" type="button" aria-label="Más funciones" title="Más funciones">
-      <span class="more-functions-back-arrow" aria-hidden="true">›</span>
-      <span>Más funciones</span>
-    </button>
+    <div class="argos-footer-action">
+      <button class="more-functions-back argos-identical-action" data-screen="more-functions" type="button" aria-label="Más funciones" title="Más funciones">
+        <span class="more-functions-back-arrow" aria-hidden="true">›</span>
+        <span>Más funciones</span>
+      </button>
+    </div>
   </div>
 </section>
 
@@ -2359,7 +2259,9 @@ body:not(.dark) select{
         <span class="home-icon">✎</span>
         <span><h2>Bloc de Notas</h2></span>
       </button>
-      <button class="more-functions-back" type="button" aria-label="Volver al menú principal">
+    </div>
+    <div class="argos-footer-action">
+      <button class="more-functions-back argos-identical-action" type="button" aria-label="Volver al menú principal">
         <span class="more-functions-back-arrow" aria-hidden="true">‹</span>
         <span>Volver</span>
       </button>
