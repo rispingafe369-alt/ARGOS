@@ -1267,7 +1267,7 @@ body.dark .suggestions{box-shadow:0 14px 35px rgba(0,0,0,.45)}
     -webkit-overflow-scrolling:touch!important;
   }
 
-  /* Ficha abierta desde Última vez: TODO en una pantalla. */
+  /* Ficha abierta desde Último acceso: TODO en una pantalla. */
   #ficha.argos-last-time-ficha{
     overflow:hidden!important;
     min-height:0!important;
@@ -2662,11 +2662,11 @@ body:not(.dark) select{
     <div class="home-list">
       <button class="home-card primary" data-screen="new-service" type="button">
         <span class="home-icon">＋</span>
-        <span><h2>Añadir nuevo servicio</h2></span>
+        <span><h2>Nuevo servicio</h2></span>
       </button>
       <button class="home-card" data-screen="history" type="button">
         <span class="home-icon">☷</span>
-        <span><h2>Ver historial</h2></span>
+        <span><h2>Historial</h2></span>
       </button>
       <button class="home-card" data-screen="stats" type="button">
         <span class="home-icon">◔</span>
@@ -2682,7 +2682,7 @@ body:not(.dark) select{
       </button>
       <div class="home-card last-time-card">
         <span class="home-icon">◷</span>
-        <span><h2>Última vez</h2></span>
+        <span><h2>Último acceso</h2></span>
         <select id="lastTripSelect" class="last-time-select" aria-label="Último trayecto" tabindex="-1">
           <option value="">Selecciona un trayecto</option>
         </select>
@@ -2720,7 +2720,7 @@ body:not(.dark) select{
       </button>
       <button class="home-card" type="button" data-more-placeholder="1">
         <span class="home-icon">✎</span>
-        <span><h2>Bloc de Notas</h2></span>
+        <span><h2>Notas</h2></span>
       </button>
     </div>
     <div class="argos-footer-action">
@@ -3002,7 +3002,7 @@ body:not(.dark) select{
         <p>El menú lateral es el punto de entrada a las principales funciones de la aplicación. Puedes abrirlo desde el botón correspondiente de la cabecera y entrar en el apartado que necesites.</p>
         <ul>
           <li><strong>Añadir un servicio:</strong> registra un servicio realizado.</li>
-          <li><strong>Ver historial:</strong> consulta todos los servicios guardados.</li>
+          <li><strong>Historial:</strong> consulta todos los servicios guardados.</li>
           <li><strong>Estadísticas:</strong> analiza tu actividad y el uso del material.</li>
           <li><strong>ArgosDex:</strong> consulta información del material sin necesidad de crear un servicio.</li>
           <li><strong>Instrucciones:</strong> vuelve a esta guía cuando tengas alguna duda.</li>
@@ -3098,7 +3098,7 @@ body:not(.dark) select{
       <div class="instructions-number">07</div>
       <div>
         <h4>Historial y fichas</h4>
-        <p><strong>Ver historial</strong> reúne los servicios que has registrado para que puedas consultarlos posteriormente.</p>
+        <p><strong>Historial</strong> reúne los servicios que has registrado para que puedas consultarlos posteriormente.</p>
         <ul>
           <li>Los servicios aparecen organizados como registros independientes.</li>
           <li>Pulsa sobre un registro para abrir su ficha.</li>
@@ -3116,7 +3116,7 @@ body:not(.dark) select{
         <p>ARGOS dispone de herramientas para localizar rápidamente servicios recientes y recordar cuándo utilizaste determinado material o recorrido.</p>
         <ul>
           <li><strong>Último servicio:</strong> sirve para consultar rápidamente el servicio registrado más recientemente.</li>
-          <li><strong>Última vez:</strong> permite localizar registros anteriores y consultar cuándo realizaste un determinado trayecto o cuándo utilizaste una serie.</li>
+          <li><strong>Último acceso:</strong> permite localizar registros anteriores y consultar cuándo realizaste un determinado trayecto o cuándo utilizaste una serie.</li>
           <li>Los registros se pueden abrir para consultar su ficha con mayor detalle.</li>
         </ul>
       </div>
@@ -3246,7 +3246,7 @@ body:not(.dark) select{
 
     <div class="instructions-tip">
       <strong>💡 Consejo</strong>
-      <p>Cuanto más completos sean tus registros —especialmente serie, vehículo, rama, producto, origen y destino— más información podrá ofrecerte ARGOS posteriormente en las fichas, el historial, Última vez y las estadísticas.</p>
+      <p>Cuanto más completos sean tus registros —especialmente serie, vehículo, rama, producto, origen y destino— más información podrá ofrecerte ARGOS posteriormente en las fichas, el historial, Último acceso y las estadísticas.</p>
     </div>
 
     <div class="instructions-tip">
@@ -3298,7 +3298,7 @@ body:not(.dark) select{
     <div class="drawer-title"><strong>ARGOS</strong><button id="closeMenu" class="drawer-close" type="button" aria-label="Cerrar">×</button></div>
     <nav class="drawer-nav">
       <button class="drawer-item" data-screen="new-service" type="button"><span class="drawer-icon">＋</span>Añadir un servicio</button>
-      <button class="drawer-item" data-screen="history" type="button"><span class="drawer-icon">☷</span>Ver historial</button>
+      <button class="drawer-item" data-screen="history" type="button"><span class="drawer-icon">☷</span>Historial</button>
       <button class="drawer-item" data-screen="stats" type="button"><span class="drawer-icon">◔</span>Estadísticas</button>
       <button class="drawer-item" data-screen="argosdex" type="button"><span class="drawer-icon">⌕</span>ArgosDex</button>
       <button class="drawer-item" data-screen="library" type="button"><span class="drawer-icon">▤</span>Biblioteca</button>
@@ -8336,7 +8336,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
       return `<div class="argos-branch-visit-card">
         <strong>Serie ${esc(x.series)} · Rama ${esc(x.branch)}</strong>
-        <span>Última vez que la viste: ${esc(dateLabel(previousService))}</span>
+        <span>Último acceso que la viste: ${esc(dateLabel(previousService))}</span>
 
         ${previousIncidents.length?`
           <div class="argos-branch-history-block">
@@ -9955,7 +9955,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
    * ARGOS V74 — UNIFICACIÓN DEL MOTOR DE LOCALIZACIÓN DE FICHAS
    *
    * Objetivo:
-   * - ArgosDex, Historial, Última vez y consultas por rama deben terminar
+   * - ArgosDex, Historial, Último acceso y consultas por rama deben terminar
    *   siempre en el mismo motor de ficha que utiliza ARGOS.
    * - Una rama puede localizarse aunque el servicio tenga vehicle vacío.
    * - Para series con reglas especiales (103, 104, 106, 121, 730, 446, ...)
@@ -11617,6 +11617,70 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   #menu.menu-screen.active > .argos-home > .home-list > .home-card h2,
   #more-functions.menu-screen.active > .argos-home > .home-list > .home-card h2{
     font-size:17px !important;
+  }
+}
+</style>
+
+
+<style id="argos-mobile-menu-contenido-final">
+/* =========================================================
+   ARGOS 5.0 · LAVADO DE CARA DEL MENÚ MÓVIL
+   SOLO CONTENIDO INTERNO DE LAS TARJETAS.
+   NO CAMBIA EL TAMAÑO EXTERIOR NI LA POSICIÓN DE LOS BOTONES.
+   ========================================================= */
+@media (max-width:600px){
+  #menu.menu-screen.active > .argos-home > .home-list > .home-card,
+  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card{
+    padding:12px 14px !important;
+    grid-template-columns:46px minmax(0,1fr) !important;
+    column-gap:10px !important;
+    align-items:center !important;
+  }
+
+  #menu.menu-screen.active > .argos-home > .home-list > .home-card .home-icon,
+  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card .home-icon{
+    width:46px !important;
+    height:46px !important;
+    min-width:46px !important;
+    min-height:46px !important;
+    border-radius:14px !important;
+    font-size:25px !important;
+  }
+
+  #menu.menu-screen.active > .argos-home > .home-list > .home-card h2,
+  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card h2{
+    margin:0 !important;
+    font-size:19px !important;
+    line-height:1.08 !important;
+    font-weight:800 !important;
+    letter-spacing:-.25px !important;
+    white-space:nowrap !important;
+    overflow:visible !important;
+    text-overflow:clip !important;
+    max-width:none !important;
+  }
+
+  #menu.menu-screen.active > .argos-home > .home-list > .home-card > span:last-child,
+  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card > span:last-child{
+    min-width:0 !important;
+    width:auto !important;
+    overflow:visible !important;
+  }
+
+  /* Datos secundarios: el menú debe quedar limpio y directo. */
+  #menu.menu-screen.active > .argos-home > .home-list > .home-card .latest-service-value,
+  #menu.menu-screen.active > .argos-home > .home-list > .last-time-card label,
+  #menu.menu-screen.active > .argos-home > .home-list > .last-time-card select,
+  #menu.menu-screen.active > .argos-home > .home-list > .home-card p,
+  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card p{
+    display:none !important;
+  }
+}
+
+@media (max-width:380px){
+  #menu.menu-screen.active > .argos-home > .home-list > .home-card h2,
+  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card h2{
+    font-size:18px !important;
   }
 }
 </style>
