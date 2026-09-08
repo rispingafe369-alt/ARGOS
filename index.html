@@ -8676,8 +8676,27 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const serviceId=String(service.id||'');
     if(serviceId && window.__argosBranchVisitShown===serviceId)return;
     if(serviceId)window.__argosBranchVisitShown=serviceId;
+
+    const compositions=serviceCompositions(service);
+
+    // Seguridad: algunos servicios antiguos o guardados por rutas especiales
+    // pueden no traer la rama persistida aunque el vehículo permita obtenerla.
+    // En ese caso reconstruimos la primera composición antes de decidir si la
+    // rama es nueva o repetida.
+    if(!compositions.length){
+      const series=String(service.series||service.serie||'').trim();
+      let vehicle=String(service.vehicle||service.vehiculo||'').trim();
+      let branch=window.ARGOS_NORMALIZE_BRANCH(service.branch||service.rama||'');
+      if(!branch&&series&&vehicle){
+        const found=findUnit(series,vehicle,'');
+        if(found?.unit?.rama)branch=window.ARGOS_NORMALIZE_BRANCH(found.unit.rama);
+        if(!vehicle&&found?.unit?.vehiculoBase)vehicle=String(found.unit.vehiculoBase);
+      }
+      if(series&&branch)compositions.push({series,vehicle,branch});
+    }
+
     const items=[];
-    serviceCompositions(service).forEach(c=>{
+    compositions.forEach(c=>{
       const previous=previousOccurrences(before,c.series,c.branch);
       items.push({series:c.series,branch:c.branch,vehicle:c.vehicle,isNew:previous.length===0,previous,service});
     });
