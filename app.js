@@ -25990,6 +25990,11 @@ function saveCurrentService(e){
     toast("Servicio guardado");
     showScreen("menu");
   }
+  // Aviso de rama: además de la llamada directa anterior, emitimos un evento
+  // para que la capa visual pueda reaccionar de forma fiable al servicio recién guardado.
+  try{
+    document.dispatchEvent(new CustomEvent("argos:service-saved",{detail:{before:beforeList,after:afterList,service:service}}));
+  }catch(error){console.warn("ARGOS · evento de servicio guardado:",error)}
 }
 if($("serviceForm"))$("serviceForm").addEventListener("submit",saveCurrentService);
 
