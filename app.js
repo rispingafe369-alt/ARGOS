@@ -110,6 +110,7 @@ function showScreen(id){
   window.scrollTo({top:0,behavior:"instant"});
   if(id==="history")renderHistory();
   if(id==="stats")renderStats();
+  if(id==="progress")renderProgress();
   refreshHome();
 }
 window.showScreen=showScreen;
@@ -26173,6 +26174,91 @@ function renderStats(){
   if($("statSeries"))$("statSeries").textContent=new Set(a.map(s=>norm(s.series)).filter(Boolean)).size;
   if($("statLast")){const latestStat=latestServiceByDate(a);$("statLast").textContent=latestStat?(latestStat.train||"Sin número"):"—";}
 }
+
+/* ================================================================
+   ARGOS · PROGRESO
+   Muestra únicamente las series que ya tienen registros.
+   El porcentaje se calcula con ramas únicas registradas frente a
+   las ramas disponibles en la base de material de esa serie.
+   ================================================================ */
+function progressSeriesKey(value){
+  return String(value??"").replace(/\D/g,"").replace(/^0+/,"")||"";
+}
+
+function progressBranchKey(value){
+  const raw=String(value??"").trim();
+  if(!raw)return"";
+  if(/prototipo/i.test(raw))return"";
+  const digits=raw.replace(/\D/g,"");
+  return digits?String(Number(digits)):"";
+}
+
+function progressFleetBranches(series){
+  const key=progressSeriesKey(series);
+  const data=typeof fleet!=="undefined"?fleet[key]:null;
+  if(!data)return[];
+
+  const units=data.units||{};
+  const branches=new Set();
+  Object.values(units).forEach(unit=>{
+    const branch=progressBranchKey(unit?.rama);
+    if(branch)branches.add(branch);
+  });
+
+  return [...branches];
+}
+
+function renderProgress(){
+  const list=$("progressList");
+  if(!list)return;
+
+  const registered=new Map();
+  services().forEach(service=>{
+    const series=progressSeriesKey(service?.series);
+    if(!series)return;
+    const branch=progressBranchKey(service?.branch);
+    if(!registered.has(series))registered.set(series,new Set());
+    if(branch)registered.get(series).add(branch);
+  });
+
+  const data=[...registered.entries()]
+    .map(([series,branches])=>{
+      const totalBranches=progressFleetBranches(series);
+      if(!totalBranches.length)return null;
+      const seen=[...branches].filter(branch=>totalBranches.includes(branch));
+      const total=totalBranches.length;
+      const visited=Math.min(seen.length,total);
+      const percentage=Math.min(100,Math.round(visited/total*100));
+      return{series,visited,total,percentage};
+    })
+    .filter(Boolean)
+    .sort((a,b)=>{
+      const na=Number(a.series),nb=Number(b.series);
+      return Number.isFinite(na)&&Number.isFinite(nb)?na-nb:a.series.localeCompare(b.series,"es",{numeric:true});
+    });
+
+  if(!data.length){
+    list.innerHTML='<div class="progress-empty">Todavía no has registrado ninguna serie con ramas identificables.</div>';
+    return;
+  }
+
+  list.innerHTML=data.map(item=>`
+    <article class="progress-card">
+      <div class="progress-card-head">
+        <div>
+          <span class="progress-kicker">SERIE</span>
+          <h3>${esc(item.series)}</h3>
+        </div>
+        <strong>${item.percentage}%</strong>
+      </div>
+      <div class="progress-track" aria-label="Serie ${esc(item.series)}: ${item.percentage}%">
+        <i style="width:${item.percentage}%"></i>
+      </div>
+      <div class="progress-meta">${item.visited} de ${item.total} ramas registradas</div>
+    </article>`).join('');
+}
+window.renderProgress=renderProgress;
+
 function refreshHome(){
   const a=services(),latest=latestServiceByDate(a);
   if($("latestService")){
@@ -26196,7 +26282,7 @@ if($("viewFichaFromForm")) $("viewFichaFromForm").addEventListener("click",()=>{
 
 
 
-document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();renderStats()});
+document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();renderStats();renderProgress()});
 
 (function(){
   if(document.getElementById("argos-general-ficha-clean")) return;
