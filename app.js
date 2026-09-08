@@ -25981,7 +25981,7 @@ function saveCurrentService(e){
   if($("date"))$("date").valueAsDate=new Date();
   if($("product"))$("product").selectedIndex=0;
   if($("productSelectValue")){ $("productSelectValue").textContent="Selecciona un producto";$("productSelectValue").classList.add("product-select-placeholder"); }
-  refreshHome();renderHistory();renderStats();renderProgress();updateBranchBox();toast("Servicio guardado");showScreen("menu");
+  refreshHome();renderHistory();renderStats();renderProgress();renderQuality();updateBranchBox();toast("Servicio guardado");showScreen("menu");
 }
 if($("serviceForm"))$("serviceForm").addEventListener("submit",saveCurrentService);
 
@@ -26265,18 +26265,202 @@ window.renderProgress=renderProgress;
 
 let qualityCurrentSeries="";
 let qualityCurrentBranch="";
-function qualitySeriesKey(value){const raw=String(value??"").trim();const digits=raw.replace(/\D/g,"");return digits?String(Number(digits)):"";}
-function qualityBranchKey(value){const raw=String(value??"").trim();if(!raw||/prototipo/i.test(raw))return"";const digits=raw.replace(/\D/g,"");return digits?String(Number(digits)):"";}
-function qualityServiceBranch(service){const direct=qualityBranchKey(service?.branch);if(direct)return direct;try{return qualityBranchKey(getFleetUnit(service?.series||"",service?.vehicle||"")?.rama);}catch(e){return"";}}
-function qualityIncidentEntries(service){const out=[];if(Array.isArray(service?.incidentsEntries)){service.incidentsEntries.forEach(entry=>{const text=String(entry&&typeof entry==="object"?(entry.text??entry.value??""):entry??"").trim();if(text)out.push(text);});}const legacy=String(service?.incidents??"").trim();if(legacy){legacy.split(/\n+/).map(x=>x.trim()).filter(Boolean).forEach(text=>{if(!out.includes(text))out.push(text);});}return out;}
-function qualityIncidentKey(text){return String(text??"").trim().replace(/\s+/g," ").toLocaleLowerCase("es-ES");}
-function qualityDate(service){const raw=String(service?.date??service?.fecha??"").trim();if(!raw)return 0;if(/^\d{4}-\d{2}-\d{2}$/.test(raw)){const [y,m,d]=raw.split("-").map(Number);return new Date(y,m-1,d).getTime();}const m=raw.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/);if(m){const d=new Date(Number(m[3]),Number(m[2])-1,Number(m[1]));return Number.isNaN(d.getTime())?0:d.getTime();}const d=new Date(raw);return Number.isNaN(d.getTime())?0:d.getTime();}
-function qualityDateLabel(service){const raw=String(service?.date??service?.fecha??"").trim();if(!raw)return"Fecha no indicada";if(/^\d{4}-\d{2}-\d{2}$/.test(raw)){const [y,m,d]=raw.split("-");return `${d}/${m}/${y}`;}return raw;}
-function qualityIncidentServices(){return services().filter(service=>Boolean(qualitySeriesKey(service?.series)&&qualityIncidentEntries(service).length));}
-function renderQuality(){const list=$("qualitySeriesList");if(!list)return;qualityCurrentSeries="";qualityCurrentBranch="";const seriesSet=new Set();qualityIncidentServices().forEach(service=>{const series=qualitySeriesKey(service?.series);if(series)seriesSet.add(series);});const series=[...seriesSet].sort((a,b)=>Number(a)-Number(b));if(!series.length){list.innerHTML='<div class="quality-empty">Todavía no tienes incidencias registradas.</div>';return;}list.innerHTML=series.map(value=>`<button type="button" class="quality-card" data-quality-series="${value}"><span><span class="quality-card-kicker">SERIE</span><strong>${value}</strong></span><span class="quality-arrow">›</span></button>`).join("");list.querySelectorAll("[data-quality-series]").forEach(button=>button.addEventListener("click",()=>{qualityCurrentSeries=qualitySeriesKey(button.dataset.qualitySeries);if(typeof window.showScreen==="function")window.showScreen("qualityBranches");else renderQualityBranches();}));}
-function renderQualityBranches(){const list=$("qualityBranchesList"),title=$("qualityBranchesTitle");if(!list)return;const series=qualitySeriesKey(qualityCurrentSeries);if(!series){if(typeof window.showScreen==="function")window.showScreen("quality");return;}if(title)title.textContent="Serie "+series;const branches=new Set();qualityIncidentServices().forEach(service=>{if(qualitySeriesKey(service?.series)!==series)return;const branch=qualityServiceBranch(service);if(branch)branches.add(branch);});const values=[...branches].sort((a,b)=>Number(a)-Number(b));if(!values.length){list.innerHTML='<div class="quality-empty">No hay ramas con incidencias registradas para esta serie.</div>';return;}list.innerHTML=values.map(value=>`<button type="button" class="quality-card" data-quality-branch="${value}"><span><span class="quality-card-kicker">RAMA</span><strong>${value.padStart(3,"0")}</strong></span><span class="quality-arrow">›</span></button>`).join("");list.querySelectorAll("[data-quality-branch]").forEach(button=>button.addEventListener("click",()=>{qualityCurrentBranch=qualityBranchKey(button.dataset.qualityBranch);if(typeof window.showScreen==="function")window.showScreen("qualityIncidents");else renderQualityIncidents();}));}
-function renderQualityIncidents(){const list=$("qualityIncidentsList"),title=$("qualityIncidentsTitle");if(!list)return;const series=qualitySeriesKey(qualityCurrentSeries),branch=qualityBranchKey(qualityCurrentBranch);if(!series||!branch){if(typeof window.showScreen==="function")window.showScreen("qualityBranches");return;}if(title)title.textContent="Rama "+branch.padStart(3,"0");const unique=new Map();qualityIncidentServices().forEach(service=>{if(qualitySeriesKey(service?.series)!==series||qualityServiceBranch(service)!==branch)return;const date=qualityDate(service);qualityIncidentEntries(service).forEach(text=>{const key=qualityIncidentKey(text);if(!key)return;const existing=unique.get(key);if(!existing)unique.set(key,{text,count:1,lastDate:date,lastDateLabel:qualityDateLabel(service)});else{existing.count++;if(date>=existing.lastDate){existing.lastDate=date;existing.lastDateLabel=qualityDateLabel(service);}}});});const incidents=[...unique.values()].sort((a,b)=>b.lastDate-a.lastDate||a.text.localeCompare(b.text,"es"));if(!incidents.length){list.innerHTML='<div class="quality-empty">Esta rama todavía no tiene incidencias registradas.</div>';return;}list.innerHTML=incidents.map(item=>`<article class="quality-incident-card"><div class="quality-incident-text">${esc(item.text)}</div><div class="quality-incident-meta"><span>Última vez: ${esc(item.lastDateLabel)}</span>${item.count>1?`<span>Registrada ${item.count} veces</span>`:""}</div></article>`).join("");}
-window.renderQuality=renderQuality;window.renderQualityBranches=renderQualityBranches;window.renderQualityIncidents=renderQualityIncidents;
+
+function qualitySeriesKey(value){
+  const raw=String(value??"").trim();
+  const digits=raw.replace(/\D/g,"");
+  return digits?String(Number(digits)):"";
+}
+
+function qualityBranchKey(value){
+  const raw=String(value??"").trim();
+  if(!raw||/prototipo/i.test(raw))return"";
+  const digits=raw.replace(/\D/g,"");
+  return digits?String(Number(digits)):"";
+}
+
+function qualityServiceBranch(service){
+  const direct=qualityBranchKey(service?.branch);
+  if(direct)return direct;
+  try{
+    const unit=getFleetUnit(service?.series||"",service?.vehicle||"");
+    return qualityBranchKey(unit?.rama);
+  }catch(e){return"";}
+}
+
+function qualityIncidentEntries(service){
+  const out=[];
+  if(Array.isArray(service?.incidentsEntries)){
+    service.incidentsEntries.forEach(entry=>{
+      const text=String(entry&&typeof entry==="object"?(entry.text??entry.value??entry.description??""):entry??"").trim();
+      if(text)out.push(text);
+    });
+  }
+  const legacy=String(service?.incidents??"").trim();
+  if(legacy){
+    legacy.split(/\n+/).map(x=>x.trim()).filter(Boolean).forEach(text=>{
+      if(!out.some(existing=>qualityIncidentKey(existing)===qualityIncidentKey(text)))out.push(text);
+    });
+  }
+  return out;
+}
+
+function qualityIncidentKey(text){
+  return String(text??"").trim().replace(/\s+/g," ").toLocaleLowerCase("es-ES");
+}
+
+function qualityDate(service){
+  const raw=String(service?.date??service?.fecha??"").trim();
+  if(!raw)return 0;
+  if(/^\d{4}-\d{2}-\d{2}$/.test(raw)){
+    const [y,m,d]=raw.split("-").map(Number);
+    return new Date(y,m-1,d).getTime();
+  }
+  const m=raw.match(/^(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{4})$/);
+  if(m){
+    const d=new Date(Number(m[3]),Number(m[2])-1,Number(m[1]));
+    return Number.isNaN(d.getTime())?0:d.getTime();
+  }
+  const d=new Date(raw);
+  return Number.isNaN(d.getTime())?0:d.getTime();
+}
+
+function qualityDateLabel(service){
+  const raw=String(service?.date??service?.fecha??"").trim();
+  if(!raw)return"Fecha no indicada";
+  if(/^\d{4}-\d{2}-\d{2}$/.test(raw)){
+    const [y,m,d]=raw.split("-");
+    return `${d}/${m}/${y}`;
+  }
+  return raw;
+}
+
+function qualityRegisteredServices(){
+  return services().filter(service=>Boolean(qualitySeriesKey(service?.series)));
+}
+
+function renderQuality(){
+  const list=$("qualitySeriesList");
+  if(!list)return;
+  qualityCurrentSeries="";
+  qualityCurrentBranch="";
+
+  const seriesSet=new Set();
+  qualityRegisteredServices().forEach(service=>{
+    const series=qualitySeriesKey(service?.series);
+    if(series)seriesSet.add(series);
+  });
+
+  const series=[...seriesSet].sort((a,b)=>Number(a)-Number(b));
+
+  if(!series.length){
+    list.innerHTML='<div class="quality-empty">Todavía no tienes ninguna serie registrada.</div>';
+    return;
+  }
+
+  list.innerHTML=series.map(value=>`
+    <button type="button" class="quality-card" data-quality-series="${esc(value)}">
+      <span><span class="quality-card-kicker">SERIE</span><strong>${esc(value)}</strong></span>
+      <span class="quality-arrow">›</span>
+    </button>`).join("");
+
+  list.querySelectorAll("[data-quality-series]").forEach(button=>{
+    button.addEventListener("click",()=>{
+      qualityCurrentSeries=qualitySeriesKey(button.dataset.qualitySeries);
+      if(typeof window.showScreen==="function")window.showScreen("qualityBranches");
+    });
+  });
+}
+
+function renderQualityBranches(){
+  const list=$("qualityBranchesList"),title=$("qualityBranchesTitle");
+  if(!list)return;
+  const series=qualitySeriesKey(qualityCurrentSeries);
+  if(!series){
+    if(typeof window.showScreen==="function")window.showScreen("quality");
+    return;
+  }
+  if(title)title.textContent="Serie "+series;
+
+  const branches=new Set();
+  qualityRegisteredServices().forEach(service=>{
+    if(qualitySeriesKey(service?.series)!==series)return;
+    const branch=qualityServiceBranch(service);
+    if(branch)branches.add(branch);
+  });
+
+  const values=[...branches].sort((a,b)=>Number(a)-Number(b));
+  if(!values.length){
+    list.innerHTML='<div class="quality-empty">No hay ramas registradas para esta serie.</div>';
+    return;
+  }
+
+  list.innerHTML=values.map(value=>`
+    <button type="button" class="quality-card" data-quality-branch="${esc(value)}">
+      <span><span class="quality-card-kicker">RAMA</span><strong>${esc(value.padStart(3,"0"))}</strong></span>
+      <span class="quality-arrow">›</span>
+    </button>`).join("");
+
+  list.querySelectorAll("[data-quality-branch]").forEach(button=>{
+    button.addEventListener("click",()=>{
+      qualityCurrentBranch=qualityBranchKey(button.dataset.qualityBranch);
+      if(typeof window.showScreen==="function")window.showScreen("qualityIncidents");
+    });
+  });
+}
+
+function renderQualityIncidents(){
+  const list=$("qualityIncidentsList"),title=$("qualityIncidentsTitle");
+  if(!list)return;
+  const series=qualitySeriesKey(qualityCurrentSeries),branch=qualityBranchKey(qualityCurrentBranch);
+  if(!series||!branch){
+    if(typeof window.showScreen==="function")window.showScreen("qualityBranches");
+    return;
+  }
+  if(title)title.textContent="Rama "+branch.padStart(3,"0");
+
+  const unique=new Map();
+  qualityRegisteredServices().forEach(service=>{
+    if(qualitySeriesKey(service?.series)!==series)return;
+    if(qualityServiceBranch(service)!==branch)return;
+
+    const date=qualityDate(service);
+    qualityIncidentEntries(service).forEach(text=>{
+      const key=qualityIncidentKey(text);
+      if(!key)return;
+      const existing=unique.get(key);
+      if(!existing){
+        unique.set(key,{text,count:1,lastDate:date,lastDateLabel:qualityDateLabel(service)});
+      }else{
+        existing.count++;
+        if(date>=existing.lastDate){
+          existing.lastDate=date;
+          existing.lastDateLabel=qualityDateLabel(service);
+        }
+      }
+    });
+  });
+
+  const incidents=[...unique.values()].sort((a,b)=>b.lastDate-a.lastDate||a.text.localeCompare(b.text,"es"));
+  if(!incidents.length){
+    list.innerHTML='<div class="quality-empty">Esta rama todavía no tiene incidencias registradas.</div>';
+    return;
+  }
+
+  list.innerHTML=incidents.map(item=>`
+    <article class="quality-incident-card">
+      <div class="quality-incident-text">${esc(item.text)}</div>
+      <div class="quality-incident-meta">
+        <span>Última vez: ${esc(item.lastDateLabel)}</span>
+        ${item.count>1?`<span>Registrada ${item.count} veces</span>`:""}
+      </div>
+    </article>`).join("");
+}
+
+window.renderQuality=renderQuality;
+window.renderQualityBranches=renderQualityBranches;
+window.renderQualityIncidents=renderQualityIncidents;
+
 const NOTES_KEY="argos_notes";
 
 function updateNotesCount(){
@@ -26350,7 +26534,7 @@ if($("viewFichaFromForm")) $("viewFichaFromForm").addEventListener("click",()=>{
 
 
 
-document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();renderStats();renderProgress();initNotes()});
+document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();renderStats();renderProgress();renderQuality();initNotes()});
 
 (function(){
   if(document.getElementById("argos-general-ficha-clean")) return;
@@ -30284,6 +30468,7 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       if(typeof window.renderHistory==='function')window.renderHistory();
       if(typeof window.renderStats==='function')window.renderStats();
       if(typeof window.renderProgress==='function')window.renderProgress();
+      if(typeof window.renderQuality==='function')window.renderQuality();
       if(typeof window.argosRenderHistoryFilteredV62==='function')window.argosRenderHistoryFilteredV62();
       applyCloudProfileToUI();
       if(typeof window.loadProfile==='function')window.loadProfile();
