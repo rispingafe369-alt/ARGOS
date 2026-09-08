@@ -944,3 +944,23 @@ h1 {
     min-height:360px;
   }
 }
+
+
+/* ================================================================
+   ARGOS · CALIDAD
+   ================================================================ */
+.quality-screen{padding-bottom:35px;}
+.quality-intro{margin:0 0 16px;}
+.quality-kicker{display:block;color:var(--purple);font-size:11px;font-weight:900;letter-spacing:.08em;margin-bottom:5px;}
+.quality-intro p{margin:0;color:var(--muted);font-size:13px;line-height:1.45;}
+.quality-list,.quality-incidents-list{display:flex;flex-direction:column;gap:12px;}
+.quality-card{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;border:1px solid var(--border);border-radius:18px;background:var(--surface);color:var(--text);padding:18px 20px;box-shadow:var(--shadow);cursor:pointer;font:inherit;transition:transform .15s ease,border-color .15s ease;}
+.quality-card:hover{transform:translateY(-1px);border-color:var(--purple);}
+.quality-card-kicker{display:block;color:var(--muted);font-size:10px;font-weight:900;letter-spacing:.08em;margin-bottom:5px;}
+.quality-card strong{display:block;font-size:23px;line-height:1.05;}
+.quality-arrow{flex:0 0 auto;color:var(--purple);font-size:30px;line-height:1;}
+.quality-incident-card{border:1px solid var(--border);border-radius:18px;background:var(--surface);padding:17px 18px;box-shadow:var(--shadow);}
+.quality-incident-text{color:var(--text);font-size:15px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere;}
+.quality-incident-meta{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:9px;color:var(--muted);font-size:11px;}
+.quality-empty{padding:24px 18px;border:1px dashed var(--border);border-radius:16px;color:var(--muted);text-align:center;line-height:1.5;}
+@media(max-width:700px){.quality-screen{padding:22px 0 35px;}.quality-card{padding:17px 18px;}.quality-card strong{font-size:21px;}}
