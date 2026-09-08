@@ -4419,9 +4419,10 @@ function weekdays(a){const c=Array(7).fill(0);a.forEach(s=>{const d=dateOf(s);if
         if(typeof renderHistory==='function')renderHistory();
         if(typeof renderStats==='function')renderStats();
         if(typeof updateBranchBox==='function')updateBranchBox();
-        if(typeof window.argosHandleFirstNewBranches==='function'){
-          window.argosHandleFirstNewBranches(beforeList, list, service);
-        }else{
+        try{
+          document.dispatchEvent(new CustomEvent('argos:service-saved',{detail:{before:beforeList,after:list,service:service}}));
+        }catch(error){
+          console.warn('ARGOS · evento de rama manual:',error);
           if(typeof toast==='function')toast('Servicio guardado');
           if(typeof showScreen==='function')showScreen('menu');
         }
@@ -8113,9 +8114,10 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
         if(typeof renderHistory==='function')renderHistory();
         if(typeof renderStats==='function')renderStats();
         if(typeof updateBranchBox==='function')updateBranchBox();
-        if(typeof window.argosHandleFirstNewBranches==='function'){
-          window.argosHandleFirstNewBranches(beforeList, list, service);
-        }else{
+        try{
+          document.dispatchEvent(new CustomEvent('argos:service-saved',{detail:{before:beforeList,after:list,service:service}}));
+        }catch(error){
+          console.warn('ARGOS · evento de doble composición:',error);
           if(typeof toast==='function')toast('Servicio en doble composición guardado');
           if(typeof showScreen==='function')showScreen('menu');
         }
@@ -8548,6 +8550,8 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const overlay=document.createElement('div');
     overlay.id='argosBranchVisitOverlay';
     overlay.className='argos-branch-visit-overlay';
+    overlay.style.zIndex='2147483000';
+    overlay.style.display='flex';
 
     const isNew=items.some(x=>x.isNew);
     const title=isNew?'¡Primera vez con esta rama!':'Rama repetida';
@@ -12161,6 +12165,12 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
         }
       }catch(e){}
     }
+    if(!branch && !second){
+      try{
+        const live=document.getElementById('branchValue');
+        if(live?.value) branch=String(live.value);
+      }catch(e){}
+    }
     branch=typeof window.ARGOS_NORMALIZE_BRANCH==='function'?window.ARGOS_NORMALIZE_BRANCH(branch):norm(branch);
     return {series,vehicle,branch};
   }
@@ -12249,8 +12259,8 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       }catch(e){}
     }
     close();
-    if(typeof openFicha==='function'){openFicha(series,vehicle,service);return}
-    if(typeof window.openFicha==='function')window.openFicha(series,vehicle,service);
+    const fichaFn=window.openFicha;
+    if(typeof fichaFn==='function' && fichaFn!==openFicha) fichaFn(series,vehicle,service);
   }
   function show(items){
     if(!items.length)return;
@@ -12338,12 +12348,22 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   // submit bloquea otros listeners, este evento sigue llegando porque lo emite
   // directamente la rutina que acaba de guardar el servicio.
   document.addEventListener('argos:service-saved',function(ev){
-    const d=ev.detail||{};
-    const service=d.service;
-    if(!service)return;
-    const id=String(service.id||'');
-    if(id&&window.__argosBranchVisitShownV10===id)return;
-    window.argosHandleFirstNewBranches(d.before,d.after,service);
+    try{
+      const d=ev.detail||{};
+      const service=d.service;
+      if(!service)return;
+      const id=String(service.id||'');
+      if(id&&window.__argosBranchVisitShownV10===id)return;
+      window.argosHandleFirstNewBranches(
+        Array.isArray(d.before)?d.before:[],
+        Array.isArray(d.after)?d.after:[],
+        service
+      );
+    }catch(error){
+      console.error('ARGOS V11 · aviso de rama tras guardado:',error);
+      if(typeof toast==='function')toast('Servicio guardado');
+      if(typeof showScreen==='function')showScreen('menu');
+    }
   });
 })();
 </script>
