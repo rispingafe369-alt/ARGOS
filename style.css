@@ -821,3 +821,122 @@ h1 {
   }
 }
 
+
+
+/* ================================================================
+   ARGOS · CALIDAD
+   Solo afecta a las pantallas de Calidad.
+   ================================================================ */
+.quality-screen{
+  padding:30px 0 45px;
+}
+
+.quality-intro{
+  margin:0 0 18px;
+}
+
+.quality-kicker,
+.quality-card-kicker{
+  display:block;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1.2px;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:5px;
+}
+
+.quality-intro p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.45;
+}
+
+.quality-list,
+.quality-incidents-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.quality-card{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:19px 20px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:var(--surface);
+  color:var(--text);
+  box-shadow:var(--shadow);
+  text-align:left;
+  cursor:pointer;
+}
+
+.quality-card strong{
+  display:block;
+  font-size:24px;
+  line-height:1.05;
+}
+
+.quality-arrow{
+  flex:0 0 auto;
+  font-size:30px;
+  line-height:1;
+  color:var(--purple);
+}
+
+.quality-incident-card{
+  padding:19px 20px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:var(--surface);
+  box-shadow:var(--shadow);
+}
+
+.quality-incident-text{
+  color:var(--text);
+  font-size:17px;
+  line-height:1.45;
+  white-space:pre-wrap;
+}
+
+.quality-incident-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 18px;
+  margin-top:12px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.quality-empty{
+  padding:28px 20px;
+  border:1px dashed var(--border);
+  border-radius:18px;
+  color:var(--muted);
+  text-align:center;
+  background:var(--surface);
+}
+
+@media(max-width:700px){
+  .quality-screen{
+    padding:22px 0 35px;
+  }
+
+  .quality-card{
+    padding:18px;
+    border-radius:18px;
+  }
+
+  .quality-card strong{
+    font-size:22px;
+  }
+
+  .quality-incident-card{
+    padding:18px;
+    border-radius:18px;
+  }
+}
