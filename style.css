@@ -714,3 +714,110 @@ h1 {
     padding-bottom: 12px;
   }
 }
+
+/* ================================================================
+   ARGOS · PROGRESO · NUEVA FUNCIONALIDAD
+   Solo afecta a la pantalla #progress.
+   ================================================================ */
+.progress-screen{
+  padding-bottom:50px;
+}
+
+.progress-list{
+  width:min(900px,100%);
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.progress-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:20px;
+  box-shadow:var(--shadow);
+}
+
+.progress-card-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:13px;
+}
+
+.progress-kicker{
+  display:block;
+  color:var(--purple-2);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1px;
+  margin-bottom:4px;
+}
+
+.progress-card h3{
+  color:var(--text);
+  font-size:24px;
+  line-height:1.05;
+  margin:0;
+}
+
+.progress-card-head>strong{
+  color:var(--purple);
+  font-size:30px;
+  line-height:1;
+  white-space:nowrap;
+}
+
+.progress-track{
+  width:100%;
+  height:16px;
+  border-radius:999px;
+  background:var(--surface-2);
+  overflow:hidden;
+}
+
+.progress-track i{
+  display:block;
+  width:0;
+  height:100%;
+  border-radius:inherit;
+  background:var(--purple);
+  transition:width .25s ease;
+}
+
+.progress-meta{
+  color:var(--muted);
+  font-size:13px;
+  margin-top:10px;
+}
+
+.progress-empty{
+  padding:40px 20px;
+  text-align:center;
+  background:var(--surface);
+  border:1px dashed var(--border);
+  border-radius:18px;
+  color:var(--muted);
+}
+
+@media(max-width:700px){
+  .progress-screen{
+    padding:22px 0 35px;
+  }
+
+  .progress-card{
+    padding:18px;
+    border-radius:18px;
+  }
+
+  .progress-card h3{
+    font-size:22px;
+  }
+
+  .progress-card-head>strong{
+    font-size:28px;
+  }
+}
+
