@@ -25871,10 +25871,10 @@ function updateBranchBox(){
   const unit=getFleetUnit(seriesEl.value, vehicleEl.value);
   if(unit){
     const lote=unit.lote ? ` · ${unit.lote}` : "";
-    value.textContent=`Rama ${unit.rama}${lote}`;
+    value.value=String(unit.rama||"");
     box.classList.add("visible");
   }
-  else { value.textContent=""; box.classList.remove("visible"); }
+  else { value.value=""; box.classList.remove("visible"); }
 }
 
 function getCurrentFleetUnit(){
