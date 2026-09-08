@@ -12108,8 +12108,8 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 })();
 </script>
 
-<!-- ARGOS · AVISO DE RAMA · CORRECCIÓN FINAL -->
-<script id="argos-branch-visit-final-v9">
+<!-- ARGOS · AVISO DE RAMA · CORRECCIÓN FINAL V10 -->
+<script id="argos-branch-visit-final-v10">
 (function(){
   'use strict';
 
@@ -12132,14 +12132,14 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   function allEntries(service,type){
     const out=[];
     const entries=Array.isArray(service?.[type+'Entries'])?service[type+'Entries']:[];
-    entries.forEach(x=>{
+    entries.forEach((x,index)=>{
       const text=x&&typeof x==='object'?String(x.text??x.value??x.description??'').trim():String(x??'').trim();
-      if(text)out.push({text,solved:x&&typeof x==='object'&&x.solved===true});
+      if(text)out.push({text,solved:x&&typeof x==='object'&&x.solved===true,index});
     });
     const legacy=String(service?.[type]??'').trim();
     if(legacy){
       legacy.split(/\n+/).map(x=>x.trim()).filter(Boolean).forEach(text=>{
-        if(!out.some(x=>normalizeText(x.text)===normalizeText(text)))out.push({text,solved:false});
+        if(!out.some(x=>normalizeText(x.text)===normalizeText(text)))out.push({text,solved:false,index:-1});
       });
     }
     return out;
@@ -12157,7 +12157,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
         const v=norm(vehicle);
         for(const [k,u] of Object.entries(units)){
           const codes=[k,u?.vehiculoBase,u?.numero,...(Array.isArray(u?.searchCodes)?u.searchCodes:[])].map(norm).filter(Boolean);
-          if(v&&codes.includes(v)){branch=String(u?.rama||'');if(!vehicle)vehicle=String(u?.vehiculoBase||k||'');break}
+          if(v&&codes.includes(v)){branch=String(u?.rama||'');break}
         }
       }catch(e){}
     }
@@ -12166,44 +12166,63 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   }
   function compositions(service){
     const out=[];
-    const a=findBranch(service,false); if(a.series&&a.branch)out.push(a);
+    const a=findBranch(service,false);if(a.series&&a.branch)out.push(a);
     if(service?.doubleComposition){const b=findBranch(service,true);if(b.series&&b.branch)out.push(b)}
     return out;
   }
   function previous(before,c){
     const wanted=key(c.series,c.branch);
-    return before.filter(s=>compositions(s).some(x=>key(x.series,x.branch)===wanted));
+    return (Array.isArray(before)?before:[]).filter(s=>compositions(s).some(x=>key(x.series,x.branch)===wanted));
   }
   function pendingIncidents(list){
     const active=new Map();
-    list.slice().sort((a,b)=>String(a?.date||a?.fecha||'').localeCompare(String(b?.date||b?.fecha||''))||Number(a?.createdAt||0)-Number(b?.createdAt||0)).forEach(s=>{
-      allEntries(s,'incidents').forEach((item,index)=>{
+    (Array.isArray(list)?list:[]).slice().sort((a,b)=>
+      String(a?.date||a?.fecha||'').localeCompare(String(b?.date||b?.fecha||''))||
+      Number(a?.createdAt||0)-Number(b?.createdAt||0)
+    ).forEach(s=>{
+      allEntries(s,'incidents').forEach(item=>{
         const k=normalizeText(item.text);if(!k)return;
-        const ref={serviceId:String(s?.id||''),index,text:item.text};
+        const ref={serviceId:String(s?.id||''),index:item.index,text:item.text};
         if(item.solved){active.delete(k);return}
         const old=active.get(k);
-        if(old){old.refs.push(ref);old.text=item.text}else active.set(k,{text:item.text,refs:[ref]});
+        if(old){old.refs.push(ref);old.text=item.text}
+        else active.set(k,{text:item.text,refs:[ref]});
       });
     });
     return [...active.values()];
   }
-  function markSolved(group){
+  function markRefsSolved(refs){
+    if(!Array.isArray(refs)||!refs.length)return false;
     const all=stored();let changed=false;
-    group.refs.forEach(ref=>{
-      const pos=all.findIndex(s=>String(s?.id||'')===ref.serviceId);if(pos<0)return;
-      const s=all[pos];
-      const raw=Array.isArray(s.incidentsEntries)?s.incidentsEntries.slice():allEntries(s,'incidents').map(x=>({text:x.text,solved:x.solved}));
-      if(ref.index<0||ref.index>=raw.length)return;
-      const old=raw[ref.index];
+    refs.forEach(ref=>{
+      const pos=all.findIndex(s=>String(s?.id||'')===String(ref.serviceId||''));
+      if(pos<0)return;
+      const service=all[pos];
+      let entries=Array.isArray(service.incidentsEntries)
+        ? service.incidentsEntries.map(x=>x)
+        : allEntries(service,'incidents').map(x=>({text:x.text,solved:x.solved}));
+      let index=Number(ref.index);
+      if(index<0||index>=entries.length){
+        index=entries.findIndex(x=>normalizeText(x&&typeof x==='object'?(x.text??x.value??x.description??''):x)===normalizeText(ref.text));
+      }
+      if(index<0||index>=entries.length)return;
+      const old=entries[index];
       const text=old&&typeof old==='object'?String(old.text??old.value??old.description??'').trim():String(old??'').trim();
-      if(!text||normalizeText(text)!==normalizeText(group.text))return;
+      if(!text||normalizeText(text)!==normalizeText(ref.text))return;
       if(old&&typeof old==='object'&&old.solved===true)return;
-      raw[ref.index]=old&&typeof old==='object'?{...old,solved:true}:{text,solved:true};
-      all[pos]={...s,incidentsEntries:raw,incidents:raw.map(x=>String(x&&typeof x==='object'?(x.text??x.value??x.description??''):x).trim()).filter(Boolean).join('\n')};
+      entries[index]=old&&typeof old==='object'?{...old,solved:true}:{text,solved:true};
+      all[pos]={...service,incidentsEntries:entries,incidents:entries.map(x=>String(x&&typeof x==='object'?(x.text??x.value??x.description??''):x).trim()).filter(Boolean).join('\n')};
       changed=true;
     });
     if(!changed)return false;
-    try{if(typeof saveServices==='function')saveServices(all);else localStorage.setItem('argos_services',JSON.stringify(all));return true}catch(e){return false}
+    try{
+      if(typeof saveServices==='function')saveServices(all);
+      else localStorage.setItem('argos_services',JSON.stringify(all));
+      return true;
+    }catch(e){
+      console.error('ARGOS V10 · guardar incidencia solventada:',e);
+      return false;
+    }
   }
   function dateLabel(s){
     const raw=String(s?.date||s?.fecha||'').slice(0,10);
@@ -12211,7 +12230,28 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     if(s?.createdAt){const d=new Date(Number(s.createdAt));if(!Number.isNaN(d.getTime()))return `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`}
     return 'fecha no disponible';
   }
-  function close(){document.getElementById('argosBranchVisitOverlay')?.remove();document.getElementById('argosFirstBranchOverlay')?.remove()}
+  function close(){
+    document.getElementById('argosBranchVisitOverlay')?.remove();
+    document.getElementById('argosFirstBranchOverlay')?.remove();
+  }
+  function openFicha(service,composition){
+    if(!service)return;
+    const c=composition||findBranch(service,false);
+    const series=String(c?.series||service.series||'').trim();
+    let vehicle=String(c?.vehicle||service.vehicle||'').trim();
+    if(!vehicle&&typeof fleet!=='undefined'){
+      try{
+        const units=fleet[norm(series)]?.units||{};
+        const target=norm(c?.branch||service.branch);
+        for(const [k,u] of Object.entries(units)){
+          if(norm(u?.rama)===target){vehicle=String(u?.vehiculoBase||k||'');break}
+        }
+      }catch(e){}
+    }
+    close();
+    if(typeof openFicha==='function'){openFicha(series,vehicle,service);return}
+    if(typeof window.openFicha==='function')window.openFicha(series,vehicle,service);
+  }
   function show(items){
     if(!items.length)return;
     close();
@@ -12219,48 +12259,91 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     overlay.id='argosBranchVisitOverlay';
     overlay.className='argos-branch-visit-overlay';
     const isNew=items.some(x=>x.isNew);
-    const cards=items.map(x=>{
-      const currentIncidents=allEntries(x.service,'incidents');
+    const cards=items.map((x,cardIndex)=>{
+      const currentIncidents=allEntries(x.service,'incidents').filter(i=>!i.solved);
       const currentNotes=allEntries(x.service,'notes').map(a=>a.text);
-      if(x.isNew){
-        return `<div class="argos-branch-visit-card"><strong>Serie ${esc(x.series)} · Rama ${esc(x.branch)}</strong><span>Primera vez registrada</span>${currentIncidents.length?`<div class="argos-branch-incident-section"><div class="argos-branch-incident-title">Incidencias registradas ahora</div>${currentIncidents.map(i=>`<div class="argos-branch-incident-current">${esc(i.text)}</div>`).join('')}</div>`:''}${currentNotes.length?`<div class="argos-branch-notes-block"><div class="argos-branch-notes-heading">Anotaciones del tren</div>${currentNotes.map(n=>`<div class="argos-branch-note">${esc(n)}</div>`).join('')}</div>`:''}</div>`;
-      }
-      const pending=pendingIncidents(x.previous);
-      return `<div class="argos-branch-visit-card"><strong>Serie ${esc(x.series)} · Rama ${esc(x.branch)}</strong><span>Último acceso que la viste: ${esc(dateLabel(x.previous[x.previous.length-1]))}</span>${pending.length?`<div class="argos-branch-history-block"><div class="argos-branch-history-heading">Incidencias pendientes anteriores</div><div class="argos-branch-history-help">Estas incidencias siguen pendientes desde visitas anteriores. Márcalas como solventadas cuando ya estén resueltas.</div>${pending.map((g,i)=>`<label class="argos-branch-incident-old"><input type="checkbox" data-v9-group="${i}"><span>${esc(g.text)}</span><small>Pendiente</small></label>`).join('')}</div>`:`<div class="argos-branch-history-block"><div class="argos-branch-history-heading">Incidencias pendientes anteriores</div><div class="argos-branch-history-help">No hay incidencias antiguas pendientes para esta rama.</div></div>`}${currentIncidents.length?`<div class="argos-branch-current-block"><div class="argos-branch-current-heading">Incidencias añadidas ahora</div>${currentIncidents.map(i=>`<div class="argos-branch-incident-current">${esc(i.text)}</div>`).join('')}</div>`:''}${currentNotes.length?`<div class="argos-branch-notes-block"><div class="argos-branch-notes-heading">Anotaciones del tren</div>${currentNotes.map(n=>`<div class="argos-branch-note">${esc(n)}</div>`).join('')}</div>`:''}</div>`;
+      const historical=pendingIncidents(x.previous);
+      const seen=new Set();
+      const active=[];
+      historical.forEach(g=>{
+        const k=normalizeText(g.text);if(seen.has(k))return;seen.add(k);
+        active.push({text:g.text,refs:g.refs,type:'historical'});
+      });
+      currentIncidents.forEach(i=>{
+        const k=normalizeText(i.text);if(seen.has(k))return;seen.add(k);
+        active.push({text:i.text,refs:[{serviceId:String(x.service?.id||''),index:i.index,text:i.text}],type:'current'});
+      });
+      return `<div class="argos-branch-visit-card" data-v10-card="${cardIndex}">
+        <strong>Serie ${esc(x.series)} · Rama ${esc(x.branch)}</strong>
+        <span>${x.isNew?'Primera vez registrada':'Último acceso que la viste: '+esc(dateLabel(x.previous[x.previous.length-1]))}</span>
+        ${active.length?`<div class="argos-branch-history-block"><div class="argos-branch-history-heading">Incidencias activas de esta rama</div><div class="argos-branch-history-help">Marca una incidencia cuando ya esté solventada. El estado quedará guardado en el historial.</div>${active.map((g,i)=>`<label class="argos-branch-incident-old"><input type="checkbox" data-v10-card="${cardIndex}" data-v10-incident="${i}"><span>${esc(g.text)}</span><small>${g.type==='current'?'Registrada ahora':'Pendiente'}</small></label>`).join('')}</div>`:`<div class="argos-branch-history-block"><div class="argos-branch-history-heading">Incidencias activas de esta rama</div><div class="argos-branch-history-help">No hay incidencias activas pendientes para esta rama.</div></div>`}
+        ${currentNotes.length?`<div class="argos-branch-notes-block"><div class="argos-branch-notes-heading">Anotaciones del tren</div>${currentNotes.map(n=>`<div class="argos-branch-note">${esc(n)}</div>`).join('')}</div>`:''}
+      </div>`;
     }).join('');
-    overlay.innerHTML=`<div class="argos-branch-visit-modal argos-branch-visit-modal-v43" role="dialog" aria-modal="true"><div class="argos-branch-visit-kicker">${isNew?'NUEVA RAMA':'RAMA REPETIDA'}</div><h2>${isNew?'¡Primera vez con esta rama!':'Rama repetida'}</h2><p>${isNew?'Has registrado por primera vez esta rama en ARGOS.':'Esta rama ya estaba registrada. Revisa las incidencias anteriores y las que acabas de registrar.'}</p>${cards}<div class="argos-branch-visit-actions"><button type="button" class="argos-branch-visit-menu" id="argosBranchVisitMenuV9">Aceptar y volver al menú</button></div></div>`;
+    overlay.innerHTML=`<div class="argos-branch-visit-modal argos-branch-visit-modal-v43" role="dialog" aria-modal="true"><div class="argos-branch-visit-kicker">${isNew?'NUEVA RAMA':'RAMA REPETIDA'}</div><h2>${isNew?'¡Primera vez con esta rama!':'Rama repetida'}</h2><p>${isNew?'Has registrado por primera vez esta rama en ARGOS.':'Esta rama ya estaba registrada. Revisa las incidencias activas y marca las que ya estén solventadas.'}</p>${cards}<div class="argos-branch-visit-actions"><button type="button" class="argos-branch-visit-menu" id="argosBranchVisitMenuV10">Aceptar y volver al menú</button><button type="button" class="argos-branch-visit-ficha" id="argosBranchVisitFichaV10">Ver ficha</button></div></div>`;
     document.body.appendChild(overlay);
-    overlay.querySelectorAll('[data-v9-group]').forEach(input=>input.addEventListener('change',()=>{
+
+    overlay.querySelectorAll('[data-v10-incident]').forEach(input=>input.addEventListener('change',()=>{
       if(!input.checked)return;
+      const cardIndex=Number(input.dataset.v10Card);
+      const incidentIndex=Number(input.dataset.v10Incident);
+      const item=items[cardIndex];
+      if(!item){input.checked=false;return}
+      const historical=pendingIncidents(item.previous);
+      const current=allEntries(item.service,'incidents').filter(i=>!i.solved);
+      const seen=new Set(),active=[];
+      historical.forEach(g=>{const k=normalizeText(g.text);if(seen.has(k))return;seen.add(k);active.push({text:g.text,refs:g.refs})});
+      current.forEach(i=>{const k=normalizeText(i.text);if(seen.has(k))return;seen.add(k);active.push({text:i.text,refs:[{serviceId:String(item.service?.id||''),index:i.index,text:i.text}]})});
+      const target=active[incidentIndex];
+      if(!target||!markRefsSolved(target.refs)){input.checked=false;return}
+      input.closest('.argos-branch-incident-old')?.remove();
       const card=input.closest('.argos-branch-visit-card');
-      const idx=[...overlay.querySelectorAll('.argos-branch-visit-card')].indexOf(card);
-      const item=items[idx];const groups=item?pendingIncidents(item.previous):[];const group=groups[Number(input.dataset.v9Group)];
-      if(group&&markSolved(group)){input.closest('.argos-branch-incident-old')?.remove()}else input.checked=false;
+      if(card&&!card.querySelector('[data-v10-incident]')){
+        const block=card.querySelector('.argos-branch-history-block');
+        if(block)block.innerHTML='<div class="argos-branch-history-heading">Incidencias activas de esta rama</div><div class="argos-branch-history-help">No quedan incidencias activas pendientes para esta rama.</div>';
+      }
     }));
-    overlay.querySelector('#argosBranchVisitMenuV9').onclick=()=>{close();if(typeof showScreen==='function')showScreen('menu')};
+    overlay.querySelector('#argosBranchVisitMenuV10').onclick=()=>{close();if(typeof showScreen==='function')showScreen('menu')};
+    overlay.querySelector('#argosBranchVisitFichaV10').onclick=()=>openFicha(items[0]?.service,items[0]);
   }
 
   window.argosHandleFirstNewBranches=function(beforeList,afterList,service){
     try{
+      const id=String(service?.id||'');
+      if(id&&window.__argosBranchVisitShownV10===id)return;
       const before=Array.isArray(beforeList)?beforeList:[];
       const comps=compositions(service);
-      const items=comps.map(c=>({series:c.series,branch:c.branch,vehicle:c.vehicle,previous:previous(before,c),isNew:previous(before,c).length===0,service}));
-      if(items.length){show(items);return}
-      // Último recurso: si el servicio trae serie/vehículo pero la flota no responde,
-      // intentamos usar la rama guardada directamente.
+      const items=comps.map(c=>{
+        const prev=previous(before,c);
+        return {...c,previous:prev,isNew:prev.length===0,service};
+      });
+      if(items.length){if(id)window.__argosBranchVisitShownV10=id;show(items);return}
       const fallback=findBranch(service,false);
       if(fallback.series&&fallback.branch){
         const prev=previous(before,fallback);
+        if(id)window.__argosBranchVisitShownV10=id;
         show([{...fallback,previous:prev,isNew:prev.length===0,service}]);
         return;
       }
       if(typeof toast==='function')toast('Servicio guardado');
       if(typeof showScreen==='function')showScreen('menu');
     }catch(error){
-      console.error('ARGOS V9 · aviso de rama:',error);
+      console.error('ARGOS V10 · aviso de rama:',error);
       if(typeof toast==='function')toast('Servicio guardado');
       if(typeof showScreen==='function')showScreen('menu');
     }
   };
+
+  // Ruta fiable para el guardado normal de app.js. Si una versión anterior del
+  // submit bloquea otros listeners, este evento sigue llegando porque lo emite
+  // directamente la rutina que acaba de guardar el servicio.
+  document.addEventListener('argos:service-saved',function(ev){
+    const d=ev.detail||{};
+    const service=d.service;
+    if(!service)return;
+    const id=String(service.id||'');
+    if(id&&window.__argosBranchVisitShownV10===id)return;
+    window.argosHandleFirstNewBranches(d.before,d.after,service);
+  });
 })();
 </script>
