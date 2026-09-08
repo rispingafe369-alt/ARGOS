@@ -25962,7 +25962,7 @@ function saveCurrentService(e){
       const unit=getFleetUnit($("series")?.value||"",entered);
       return ["103","104"].includes(normalizeFleetValue($("series")?.value||"")) ? (unit?.vehiculoBase||entered) : entered;
     })(),
-    branch:getFleetUnit($("series")?.value||"", $("vehicle")?.value||"")?.rama||"",
+    branch:(($("branchValue")?.value||"").trim() || getFleetUnit($("series")?.value||"", $("vehicle")?.value||"")?.rama || ""),
     product:$("product")?.value||"",
     origin:$("origin")?.value.trim()||"",
     destination:$("destination")?.value.trim()||"",
@@ -25984,17 +25984,15 @@ function saveCurrentService(e){
   if($("product"))$("product").selectedIndex=0;
   if($("productSelectValue")){ $("productSelectValue").textContent="Selecciona un producto";$("productSelectValue").classList.add("product-select-placeholder"); }
   refreshHome();renderHistory();renderStats();renderProgress();renderQuality();updateBranchBox();
-  if(typeof window.argosHandleFirstNewBranches==='function'){
-    window.argosHandleFirstNewBranches(beforeList,afterList,service);
-  }else{
+  // El aviso de rama se dispara únicamente mediante este evento, después de que
+  // el servicio quede guardado. Así evitamos competir con otros manejadores de submit.
+  try{
+    document.dispatchEvent(new CustomEvent("argos:service-saved",{detail:{before:beforeList,after:afterList,service:service}}));
+  }catch(error){
+    console.warn("ARGOS · evento de servicio guardado:",error);
     toast("Servicio guardado");
     showScreen("menu");
   }
-  // Aviso de rama: además de la llamada directa anterior, emitimos un evento
-  // para que la capa visual pueda reaccionar de forma fiable al servicio recién guardado.
-  try{
-    document.dispatchEvent(new CustomEvent("argos:service-saved",{detail:{before:beforeList,after:afterList,service:service}}));
-  }catch(error){console.warn("ARGOS · evento de servicio guardado:",error)}
 }
 if($("serviceForm"))$("serviceForm").addEventListener("submit",saveCurrentService);
 
