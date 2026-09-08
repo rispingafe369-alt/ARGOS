@@ -2714,7 +2714,7 @@ body:not(.dark) select{
         <span class="home-icon">▤</span>
         <span><h2>Biblioteca</h2></span>
       </button>
-      <button class="home-card" type="button" data-more-placeholder="1">
+      <button class="home-card" type="button" data-screen="notesPad">
         <span class="home-icon">✎</span>
         <span><h2>Notas</h2></span>
       </button>
@@ -2735,6 +2735,30 @@ body:not(.dark) select{
     <div><div class="screen-kicker">ARGOS · PROGRESO</div><h2>Progreso</h2></div>
   </div>
   <div id="progressList" class="progress-list"></div>
+</section>
+
+<!-- BLOC DE NOTAS · ARGOS -->
+<section id="notesPad" class="screen notes-screen" aria-label="Bloc de notas">
+  <div class="screen-header">
+    <button class="back-button" data-back type="button">‹</button>
+    <div><div class="screen-kicker">ARGOS · NOTAS</div><h2>Bloc de notas</h2></div>
+  </div>
+  <div class="notes-wrap">
+    <div class="notes-card">
+      <div class="notes-toolbar">
+        <div>
+          <span class="notes-kicker">NOTA LOCAL</span>
+          <p>Lo que escribas aquí se guarda automáticamente en este dispositivo.</p>
+        </div>
+        <span id="notesSaved" class="notes-saved" aria-live="polite">Guardado</span>
+      </div>
+      <textarea id="notesEditor" class="notes-editor" aria-label="Bloc de notas" placeholder="Escribe aquí lo que necesites recordar…" spellcheck="true"></textarea>
+      <div class="notes-footer">
+        <span id="notesCount">0 caracteres</span>
+        <button id="notesClear" class="notes-clear" type="button">Borrar notas</button>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- PANTALLAS SECUNDARIAS -->
