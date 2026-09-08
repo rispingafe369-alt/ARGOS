@@ -25976,12 +25976,20 @@ function saveCurrentService(e){
   };
   if(!service.train && !$("noTrainNumber")?.checked){toast("Introduce el número de tren");return}
   if(!service.series||!service.origin||!service.destination||!service.date){toast("Completa los campos obligatorios");return}
-  const a=services();a.push(service);saveServices(a);
+  const beforeList=services().slice();
+  const afterList=beforeList.concat([service]);
+  saveServices(afterList);
   e.target.reset();clearFormExtras();
   if($("date"))$("date").valueAsDate=new Date();
   if($("product"))$("product").selectedIndex=0;
   if($("productSelectValue")){ $("productSelectValue").textContent="Selecciona un producto";$("productSelectValue").classList.add("product-select-placeholder"); }
-  refreshHome();renderHistory();renderStats();renderProgress();renderQuality();updateBranchBox();toast("Servicio guardado");showScreen("menu");
+  refreshHome();renderHistory();renderStats();renderProgress();renderQuality();updateBranchBox();
+  if(typeof window.argosHandleFirstNewBranches==='function'){
+    window.argosHandleFirstNewBranches(beforeList,afterList,service);
+  }else{
+    toast("Servicio guardado");
+    showScreen("menu");
+  }
 }
 if($("serviceForm"))$("serviceForm").addEventListener("submit",saveCurrentService);
 
