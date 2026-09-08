@@ -1599,7 +1599,7 @@ button:focus:not(:focus-visible),
 .menu-screen.active{display:flex!important;min-height:0!important;overflow:hidden!important;box-sizing:border-box!important;}
 .menu-screen .argos-home{box-sizing:border-box!important;width:min(760px,100%)!important;max-width:100%!important;margin:0 auto!important;min-height:0!important;}
 .menu-screen .home-list{min-height:0!important;}
-.more-functions-link{border:0;background:transparent;color:var(--renfe);padding:0;margin:0;box-shadow:none;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+
 
 @media(max-width:600px){
   .app-shell{height:100dvh!important;max-height:100dvh!important;overflow:hidden!important;}
@@ -1616,8 +1616,7 @@ button:focus:not(:focus-visible),
   .menu-screen .home-card h2{margin:0!important;font-size:clamp(17px,3.0vh,21px)!important;line-height:1.05!important;font-weight:800!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;}
   .menu-screen .home-card p,.menu-screen .latest-service-value,.menu-screen .last-time-card label,.menu-screen .last-time-select{display:none!important;}
   .menu-screen .last-time-card{cursor:default!important;}
-  #menu .more-functions-link{width:30px!important;height:30px!important;min-width:30px!important;min-height:30px!important;max-width:30px!important;max-height:30px!important;justify-self:center!important;align-self:center!important;}
-  #menu .more-functions-arrow{width:30px!important;height:30px!important;font-size:22px!important;}
+
   #more-functions .home-list{grid-template-rows:repeat(4,minmax(0,1fr)) 38px!important;}
 
 }
@@ -1631,8 +1630,7 @@ button:focus:not(:focus-visible),
   .menu-screen .home-card{padding:4px 9px!important;border-radius:14px!important;grid-template-columns:42px minmax(0,1fr)!important;column-gap:9px!important;}
   .menu-screen .home-icon{width:42px!important;height:42px!important;border-radius:12px!important;font-size:21px!important;}
   .menu-screen .home-card h2{font-size:18px!important;}
-  #menu .more-functions-link,#menu .more-functions-arrow{width:27px!important;height:27px!important;min-width:27px!important;min-height:27px!important;max-width:27px!important;max-height:27px!important;}
-  #menu .more-functions-arrow{font-size:20px!important;}
+
 }
 @media(max-width:600px) and (max-height:580px){
   .menu-screen .argos-home{padding:5px 8px 4px!important;gap:5px!important;}
@@ -1643,8 +1641,7 @@ button:focus:not(:focus-visible),
   .menu-screen .home-card{padding:3px 8px!important;grid-template-columns:38px minmax(0,1fr)!important;column-gap:8px!important;border-radius:13px!important;}
   .menu-screen .home-icon{width:38px!important;height:38px!important;border-radius:11px!important;font-size:20px!important;}
   .menu-screen .home-card h2{font-size:17px!important;}
-  #menu .more-functions-link,#menu .more-functions-arrow{width:24px!important;height:24px!important;min-width:24px!important;min-height:24px!important;max-width:24px!important;max-height:24px!important;}
-  #menu .more-functions-arrow{font-size:18px!important;}
+
 }
 @media(min-width:601px){
   .menu-screen.active{height:calc(100dvh - 68px)!important;max-height:calc(100dvh - 68px)!important;padding:0!important;}
@@ -1652,13 +1649,12 @@ button:focus:not(:focus-visible),
   .menu-screen .welcome-card{padding:22px 28px!important;border-radius:24px!important;}
   .menu-screen .welcome-card h1{font-size:34px!important;}
   .menu-screen .welcome-card p{font-size:15px!important;}
-  .menu-screen .home-list{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(3,minmax(0,1fr))!important;gap:14px!important;overflow:hidden!important;}
+  .menu-screen .home-list{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(3,minmax(0,1fr)) 40px!important;gap:14px!important;overflow:hidden!important;}
   .menu-screen .home-card{min-height:0!important;padding:14px 18px!important;border-radius:20px!important;display:grid!important;grid-template-columns:58px minmax(0,1fr)!important;column-gap:15px!important;align-items:center!important;box-sizing:border-box!important;}
   .menu-screen .home-icon{width:58px!important;height:58px!important;border-radius:17px!important;font-size:30px!important;display:flex!important;align-items:center!important;justify-content:center!important;}
   .menu-screen .home-card h2{font-size:20px!important;margin:0!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;}
   .menu-screen .home-card p,.menu-screen .latest-service-value,.menu-screen .last-time-card label,.menu-screen .last-time-select{display:none!important;}
-  #menu .more-functions-link{grid-column:1 / -1!important;justify-self:center!important;width:40px!important;height:40px!important;min-width:40px!important;min-height:40px!important;}
-  #menu .more-functions-arrow{width:40px!important;height:40px!important;font-size:28px!important;}
+
   #more-functions .home-list{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(2,minmax(0,1fr)) 46px!important;}
   #more-functions .home-card:last-of-type{grid-column:1 / -1;max-width:none;}
 
@@ -1762,11 +1758,8 @@ button:focus:not(:focus-visible),
   #menu .last-time-card label,
   #menu .last-time-select,
   #more-functions .home-card p{display:none!important;}
-  #menu .more-functions-link{
-    width:30px!important;height:30px!important;min-width:30px!important;min-height:30px!important;max-width:30px!important;max-height:30px!important;
-    margin:0 auto!important;padding:0!important;justify-self:center!important;align-self:center!important;
-  }
-  #menu .more-functions-arrow{width:30px!important;height:30px!important;font-size:22px!important;}
+
+
 }
 
 @media (max-width:600px) and (max-height:680px){
@@ -1797,41 +1790,7 @@ html,body{background:var(--renfe)!important;}
   #more-functions .argos-home{
     position:relative!important;
   }
-  #menu .more-functions-link{
-    position:absolute!important;
-    left:50%!important;
-    bottom:10px!important;
-    transform:translateX(-50%)!important;
-    width:auto!important;
-    min-width:152px!important;
-    max-width:none!important;
-    height:34px!important;
-    min-height:34px!important;
-    max-height:34px!important;
-    padding:0 12px!important;
-    border-radius:999px!important;
-    background:var(--soft)!important;
-    color:var(--renfe)!important;
-    display:flex!important;
-    align-items:center!important;
-    justify-content:center!important;
-    gap:7px!important;
-    font-size:13px!important;
-    font-weight:800!important;
-    line-height:1!important;
-    box-shadow:none!important;
-    z-index:5!important;
-  }
-  #menu .more-functions-arrow{
-    width:22px!important;
-    height:22px!important;
-    min-width:22px!important;
-    min-height:22px!important;
-    max-width:22px!important;
-    max-height:22px!important;
-    font-size:19px!important;
-    background:transparent!important;
-  }
+
   #menu .more-functions-label{
     display:inline!important;
     white-space:nowrap!important;
@@ -1840,24 +1799,8 @@ html,body{background:var(--renfe)!important;}
 }
 
 @media(max-width:600px) and (max-height:580px){
-  #menu .more-functions-link{
-    bottom:-2px!important;
-    min-width:140px!important;
-    height:30px!important;
-    min-height:30px!important;
-    max-height:30px!important;
-    font-size:12px!important;
-    gap:5px!important;
-  }
-  #menu .more-functions-arrow{
-    width:20px!important;
-    height:20px!important;
-    min-width:20px!important;
-    min-height:20px!important;
-    max-width:20px!important;
-    max-height:20px!important;
-    font-size:17px!important;
-  }
+
+
 }
 </style>
 
@@ -1944,55 +1887,6 @@ html,body{background:var(--renfe)!important;}
     overflow:hidden!important;
   }
 
-  /* Más funciones en móvil: exactamente el mismo tipo de botón que Volver. */
-  #menu .more-functions-link{
-    position:static!important;
-    left:auto!important;
-    right:auto!important;
-    bottom:auto!important;
-    transform:none!important;
-    justify-self:center!important;
-    align-self:center!important;
-    width:100%!important;
-    min-width:0!important;
-    max-width:none!important;
-    height:38px!important;
-    min-height:38px!important;
-    max-height:38px!important;
-    margin:0!important;
-    padding:0 16px!important;
-    border:1px solid var(--line)!important;
-    border-radius:18px!important;
-    background:var(--card)!important;
-    color:var(--ink)!important;
-    display:flex!important;
-    align-items:center!important;
-    justify-content:center!important;
-    gap:8px!important;
-    font-size:14px!important;
-    font-weight:800!important;
-    line-height:1!important;
-    box-shadow:none!important;
-    box-sizing:border-box!important;
-    z-index:2!important;
-  }
-
-  #menu .more-functions-arrow{
-    width:22px!important;
-    height:22px!important;
-    min-width:22px!important;
-    min-height:22px!important;
-    max-width:22px!important;
-    max-height:22px!important;
-    font-size:16px!important;
-    background:var(--soft)!important;
-    color:var(--renfe)!important;
-    border-radius:50%!important;
-    display:flex!important;
-    align-items:center!important;
-    justify-content:center!important;
-    line-height:1!important;
-  }
 }
 
 /* En pantallas que respetan el área segura, no se crea una franja inferior artificial. */
@@ -2017,64 +1911,10 @@ body:not(.dark) select{
   color:#17171b!important;
   color-scheme:light!important;
 }
-#menu .more-functions-link{
-  border:1px solid var(--line)!important;
-  background:var(--card)!important;
-  color:var(--ink)!important;
-  border-radius:18px!important;
-  display:flex!important;
-  align-items:center!important;
-  justify-content:center!important;
-  gap:8px!important;
-  cursor:pointer!important;
-  font-weight:800!important;
-  box-shadow:none!important;
-  padding:0 16px!important;
-  width:220px!important;
-  height:46px!important;
-  min-height:46px!important;
-  max-height:46px!important;
-  margin:0 auto!important;
-}
-#menu .more-functions-arrow{
-  width:25px!important;
-  height:25px!important;
-  min-width:25px!important;
-  min-height:25px!important;
-  border-radius:50%!important;
-  background:var(--soft)!important;
-  color:var(--renfe)!important;
-  display:flex!important;
-  align-items:center!important;
-  justify-content:center!important;
-  font-size:18px!important;
-  font-weight:900!important;
-  line-height:1!important;
-}
+
 @media(max-width:600px){
-  #menu .more-functions-link{
-    position:static!important;
-    width:100%!important;
-    min-width:0!important;
-    max-width:none!important;
-    height:38px!important;
-    min-height:38px!important;
-    max-height:38px!important;
-    margin:0!important;
-    padding:0 16px!important;
-    border-radius:18px!important;
-    gap:8px!important;
-    font-size:14px!important;
-    justify-self:stretch!important;
-    align-self:stretch!important;
-  }
-  #menu .more-functions-arrow{
-    width:22px!important;height:22px!important;
-    min-width:22px!important;min-height:22px!important;
-    max-width:22px!important;max-height:22px!important;
-    font-size:16px!important;
-    background:var(--soft)!important;
-  }
+
+
 }
 </style>
 
@@ -2182,51 +2022,8 @@ body:not(.dark) select{
  * No participa como tarjeta y no modifica el aspecto de escritorio.
  */
 @media (max-width:600px){
-  #menu .more-functions-link{
-    position:static!important;
-    width:100%!important;
-    min-width:0!important;
-    max-width:none!important;
-    height:42px!important;
-    min-height:42px!important;
-    max-height:42px!important;
-    margin:0!important;
-    padding:0 14px!important;
-    border:1px solid var(--line)!important;
-    border-radius:18px!important;
-    background:var(--card)!important;
-    color:var(--ink)!important;
-    display:flex!important;
-    align-items:center!important;
-    justify-content:center!important;
-    gap:8px!important;
-    box-sizing:border-box!important;
-    box-shadow:none!important;
-    overflow:hidden!important;
-    line-height:1!important;
-    font-size:14px!important;
-    font-weight:800!important;
-    transform:none!important;
-  }
 
-  #menu .more-functions-arrow{
-    flex:0 0 22px!important;
-    width:22px!important;
-    min-width:22px!important;
-    max-width:22px!important;
-    height:22px!important;
-    min-height:22px!important;
-    max-height:22px!important;
-    border-radius:50%!important;
-    background:var(--soft)!important;
-    color:var(--renfe)!important;
-    display:flex!important;
-    align-items:center!important;
-    justify-content:center!important;
-    font-size:18px!important;
-    line-height:1!important;
-    box-sizing:border-box!important;
-  }
+
 
   #menu .more-functions-label{
     display:inline!important;
@@ -2254,44 +2051,231 @@ body:not(.dark) select{
     height:100%!important;
     overflow:hidden!important;
   }
-
-  #menu > .argos-home > .more-functions-link{
-    grid-row:3!important;
-    justify-self:stretch!important;
-    align-self:center!important;
-  }
 }
 
 /* Móviles muy pequeños: un poco más compacto, sin cambiar la estructura. */
 @media (max-width:600px) and (max-height:580px){
   #menu .argos-home{gap:5px!important;}
-  #menu > .argos-home > .more-functions-link{
-    height:38px!important;
-    min-height:38px!important;
-    max-height:38px!important;
-    font-size:13px!important;
-  }
-  #menu .more-functions-arrow{
-    flex-basis:20px!important;
-    width:20px!important;
-    min-width:20px!important;
-    height:20px!important;
-    min-height:20px!important;
-    max-height:20px!important;
-    font-size:16px!important;
-  }
+
 }
 </style>
 
 
+<style id="argos-more-functions-copy-volver">
+@media (max-width:600px){
+
+
+}
+
+@media (max-width:600px) and (max-height:580px){
+
+
+}
+</style>
+
+
+<style id="argos-more-functions-real-button-final">
 
 
 
+@media(max-width:600px){
+  #menu > .argos-home{
+    grid-template-rows:auto minmax(0,1fr) 38px!important;
+    gap:6px!important;
+    overflow:hidden!important;
+  }
+}
+
+@media(max-width:600px) and (max-height:580px){
+  #menu > .argos-home{
+    grid-template-rows:auto minmax(0,1fr) 34px!important;
+    gap:5px!important;
+  }
+
+}
+</style>
 
 
+<style id="argos-botones-finales-unificados">
+/* =========================================================
+   ARGOS · MÁS FUNCIONES / VOLVER
+   MISMO COMPONENTE VISUAL
+   ========================================================= */
 
+#menu > .argos-home > .home-list{
+  min-height:0 !important;
+}
 
-\n<style id="argos-mas-funciones-y-volver-mismo-boton">\n/* =========================================================\n   MÁS FUNCIONES Y VOLVER: MISMO COMPONENTE, MISMO LAYOUT\n   Ambos son hijos directos de .home-list.\n   Solo cambia el texto y la dirección de la flecha.\n   ========================================================= */\n\n#menu .home-list > .more-functions-back,\n#more-functions .home-list > .more-functions-back{\n  width:220px !important;\n  min-width:220px !important;\n  max-width:220px !important;\n  height:46px !important;\n  min-height:46px !important;\n  max-height:46px !important;\n  margin:0 auto !important;\n  padding:0 16px !important;\n  box-sizing:border-box !important;\n  border:1px solid var(--line) !important;\n  border-radius:18px !important;\n  background:var(--card) !important;\n  color:var(--ink) !important;\n  box-shadow:var(--shadow) !important;\n  display:flex !important;\n  align-items:center !important;\n  justify-content:center !important;\n  gap:8px !important;\n  cursor:pointer !important;\n  font-size:15px !important;\n  font-weight:800 !important;\n  line-height:1 !important;\n  text-align:center !important;\n  flex:none !important;\n  transform:none !important;\n  overflow:hidden !important;\n}\n\n#menu .home-list > .more-functions-back .more-functions-back-arrow,\n#more-functions .home-list > .more-functions-back .more-functions-back-arrow{\n  display:flex !important;\n  align-items:center !important;\n  justify-content:center !important;\n  flex:0 0 25px !important;\n  width:25px !important;\n  min-width:25px !important;\n  max-width:25px !important;\n  height:25px !important;\n  min-height:25px !important;\n  max-height:25px !important;\n  border-radius:50% !important;\n  background:var(--soft) !important;\n  color:var(--renfe) !important;\n  font-size:18px !important;\n  font-weight:900 !important;\n  line-height:1 !important;\n}\n\n@media(max-width:600px){\n  /* O mesmo sistema de lista para os dois ecrãs. */\n  #menu .home-list,\n  #more-functions .home-list{\n    display:grid !important;\n    min-height:0 !important;\n    width:100% !important;\n    box-sizing:border-box !important;\n    gap:6px !important;\n    overflow:hidden !important;\n  }\n\n  #menu .home-list{\n    grid-template-rows:repeat(6,minmax(0,1fr)) 38px !important;\n  }\n\n  #more-functions .home-list{\n    grid-template-rows:repeat(4,minmax(0,1fr)) 38px !important;\n  }\n\n  #menu .home-list > .more-functions-back,\n  #more-functions .home-list > .more-functions-back{\n    grid-column:1 / -1 !important;\n    width:220px !important;\n    min-width:220px !important;\n    max-width:calc(100% - 20px) !important;\n    height:38px !important;\n    min-height:38px !important;\n    max-height:38px !important;\n    justify-self:center !important;\n    align-self:center !important;\n    margin:0 auto !important;\n    padding:0 16px !important;\n    font-size:14px !important;\n  }\n\n  #menu .home-list > .more-functions-back .more-functions-back-arrow,\n  #more-functions .home-list > .more-functions-back .more-functions-back-arrow{\n    flex-basis:22px !important;\n    width:22px !important;\n    min-width:22px !important;\n    max-width:22px !important;\n    height:22px !important;\n    min-height:22px !important;\n    max-height:22px !important;\n    font-size:16px !important;\n  }\n}\n\n@media(max-width:600px) and (max-height:580px){\n  #menu .home-list,\n  #more-functions .home-list{\n    gap:5px !important;\n  }\n  #menu .home-list{\n    grid-template-rows:repeat(6,minmax(0,1fr)) 34px !important;\n  }\n  #more-functions .home-list{\n    grid-template-rows:repeat(4,minmax(0,1fr)) 34px !important;\n  }\n  #menu .home-list > .more-functions-back,\n  #more-functions .home-list > .more-functions-back{\n    width:200px !important;\n    min-width:200px !important;\n    max-width:calc(100% - 20px) !important;\n    height:34px !important;\n    min-height:34px !important;\n    max-height:34px !important;\n    font-size:13px !important;\n  }\n  #menu .home-list > .more-functions-back .more-functions-back-arrow,\n  #more-functions .home-list > .more-functions-back .more-functions-back-arrow{\n    flex-basis:20px !important;\n    width:20px !important;\n    min-width:20px !important;\n    max-width:20px !important;\n    height:20px !important;\n    min-height:20px !important;\n    max-height:20px !important;\n    font-size:15px !important;\n  }\n}\n</style>\n</head>
+/* Botón común */
+#menu > .argos-home > .more-functions-back,
+#more-functions .home-list > .more-functions-back{
+  width:220px !important;
+  min-width:220px !important;
+  max-width:220px !important;
+
+  height:46px !important;
+  min-height:46px !important;
+  max-height:46px !important;
+
+  margin:0 auto !important;
+  padding:0 16px !important;
+
+  border:1px solid var(--line) !important;
+  border-radius:18px !important;
+  background:var(--card) !important;
+  color:var(--ink) !important;
+  box-shadow:var(--shadow) !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:8px !important;
+
+  box-sizing:border-box !important;
+  cursor:pointer !important;
+
+  font:inherit !important;
+  font-size:15px !important;
+  font-weight:800 !important;
+  line-height:1 !important;
+  text-align:center !important;
+
+  flex:0 0 auto !important;
+  transform:none !important;
+}
+
+/* Flecha común */
+#menu > .argos-home > .more-functions-back .more-functions-back-arrow,
+#more-functions .home-list > .more-functions-back .more-functions-back-arrow{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  flex:0 0 25px !important;
+  width:25px !important;
+  min-width:25px !important;
+  max-width:25px !important;
+
+  height:25px !important;
+  min-height:25px !important;
+  max-height:25px !important;
+
+  border-radius:50% !important;
+  background:var(--soft) !important;
+  color:var(--renfe) !important;
+
+  font-size:18px !important;
+  font-weight:900 !important;
+  line-height:1 !important;
+}
+
+/* Mismo comportamiento */
+#menu > .argos-home > .more-functions-back:hover,
+#more-functions .home-list > .more-functions-back:hover{
+  border-color:rgba(138,0,92,.28) !important;
+}
+
+#menu > .argos-home > .more-functions-back:active,
+#more-functions .home-list > .more-functions-back:active{
+  transform:translateY(1px) !important;
+}
+
+/* MENÚ PRINCIPAL · el botón es una fila independiente,
+   sin modificar el tamaño de ninguna de las seis tarjetas. */
+@media(max-width:600px){
+  #menu > .argos-home{
+    display:grid !important;
+    grid-template-rows:auto minmax(0,1fr) 38px !important;
+    gap:6px !important;
+    overflow:hidden !important;
+  }
+
+  #menu > .argos-home > .home-list{
+    grid-row:2 !important;
+    min-height:0 !important;
+    height:100% !important;
+    display:grid !important;
+    grid-template-rows:repeat(6,minmax(0,1fr)) !important;
+    gap:6px !important;
+    overflow:hidden !important;
+  }
+
+  #menu > .argos-home > .more-functions-back{
+    grid-row:3 !important;
+    justify-self:center !important;
+    align-self:center !important;
+
+    width:220px !important;
+    min-width:220px !important;
+    max-width:calc(100% - 20px) !important;
+
+    height:38px !important;
+    min-height:38px !important;
+    max-height:38px !important;
+
+    margin:0 !important;
+    padding:0 16px !important;
+    font-size:14px !important;
+  }
+
+  #menu > .argos-home > .more-functions-back .more-functions-back-arrow,
+  #more-functions .home-list > .more-functions-back .more-functions-back-arrow{
+    flex:0 0 22px !important;
+    width:22px !important;
+    min-width:22px !important;
+    max-width:22px !important;
+    height:22px !important;
+    min-height:22px !important;
+    max-height:22px !important;
+    font-size:16px !important;
+  }
+
+  /* VOLVER · mismo tamaño */
+  #more-functions .home-list > .more-functions-back{
+    width:220px !important;
+    min-width:220px !important;
+    max-width:calc(100% - 20px) !important;
+    height:38px !important;
+    min-height:38px !important;
+    max-height:38px !important;
+    margin:0 auto !important;
+    padding:0 16px !important;
+    font-size:14px !important;
+  }
+}
+
+/* Móviles muy bajos · ambos reducen exactamente igual */
+@media(max-width:600px) and (max-height:580px){
+  #menu > .argos-home{
+    grid-template-rows:auto minmax(0,1fr) 34px !important;
+  }
+
+  #menu > .argos-home > .more-functions-back,
+  #more-functions .home-list > .more-functions-back{
+    width:200px !important;
+    min-width:200px !important;
+    max-width:calc(100% - 20px) !important;
+    height:34px !important;
+    min-height:34px !important;
+    max-height:34px !important;
+    font-size:13px !important;
+  }
+
+  #menu > .argos-home > .more-functions-back .more-functions-back-arrow,
+  #more-functions .home-list > .more-functions-back .more-functions-back-arrow{
+    flex-basis:20px !important;
+    width:20px !important;
+    min-width:20px !important;
+    max-width:20px !important;
+    height:20px !important;
+    min-height:20px !important;
+    max-height:20px !important;
+    font-size:15px !important;
+  }
+}
+</style>
+
+</head>
 
 <body>
 
@@ -2342,11 +2326,11 @@ body:not(.dark) select{
           <option value="">Selecciona un trayecto</option>
         </select>
       </div>
-      <button class="more-functions-back" data-screen="more-functions" type="button" aria-label="Más funciones" title="Más funciones">
-        <span class="more-functions-back-arrow" aria-hidden="true">›</span>
-        <span>Más funciones</span>
-      </button>
     </div>
+    <button class="more-functions-back" data-screen="more-functions" type="button" aria-label="Más funciones" title="Más funciones">
+      <span class="more-functions-back-arrow" aria-hidden="true">›</span>
+      <span>Más funciones</span>
+    </button>
   </div>
 </section>
 
