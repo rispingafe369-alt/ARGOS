@@ -2706,7 +2706,7 @@ body:not(.dark) select{
         <span class="home-icon">↗</span>
         <span><h2>Progreso</h2></span>
       </button>
-      <button class="home-card" type="button" data-more-placeholder="1">
+      <button class="home-card" type="button" data-screen="quality">
         <span class="home-icon">★</span>
         <span><h2>Calidad</h2></span>
       </button>
@@ -2714,7 +2714,7 @@ body:not(.dark) select{
         <span class="home-icon">▤</span>
         <span><h2>Biblioteca</h2></span>
       </button>
-      <button class="home-card" type="button" data-more-placeholder="1">
+      <button class="home-card" type="button" data-screen="notesPad">
         <span class="home-icon">✎</span>
         <span><h2>Notas</h2></span>
       </button>
@@ -2735,6 +2735,67 @@ body:not(.dark) select{
     <div><div class="screen-kicker">ARGOS · PROGRESO</div><h2>Progreso</h2></div>
   </div>
   <div id="progressList" class="progress-list"></div>
+</section>
+
+<!-- BLOC DE NOTAS · ARGOS -->
+<section id="notesPad" class="screen notes-screen" aria-label="Bloc de notas">
+  <div class="screen-header">
+    <button class="back-button" data-back type="button">‹</button>
+    <div><div class="screen-kicker">ARGOS · NOTAS</div><h2>Bloc de notas</h2></div>
+  </div>
+  <div class="notes-wrap">
+    <div class="notes-card">
+      <div class="notes-toolbar">
+        <div>
+          <span class="notes-kicker">NOTA LOCAL</span>
+          <p>Lo que escribas aquí se guarda automáticamente en este dispositivo.</p>
+        </div>
+        <span id="notesSaved" class="notes-saved" aria-live="polite">Guardado</span>
+      </div>
+      <textarea id="notesEditor" class="notes-editor" aria-label="Bloc de notas" placeholder="Escribe aquí lo que necesites recordar…" spellcheck="true"></textarea>
+      <div class="notes-footer">
+        <span id="notesCount">0 caracteres</span>
+        <button id="notesClear" class="notes-clear" type="button">Borrar notas</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALIDAD · ARGOS -->
+<section id="quality" class="screen quality-screen" aria-label="Calidad">
+  <div class="screen-header">
+    <button class="back-button" data-quality-back="menu" type="button">‹</button>
+    <div><div class="screen-kicker">ARGOS · CALIDAD</div><h2>Calidad</h2></div>
+  </div>
+  <div class="quality-intro">
+    <span class="quality-kicker">SERIES REGISTRADAS</span>
+    <p>Selecciona una serie para consultar sus ramas e incidencias históricas.</p>
+  </div>
+  <div id="qualitySeriesList" class="quality-list"></div>
+</section>
+
+<section id="qualityBranches" class="screen quality-screen" aria-label="Ramas de la serie">
+  <div class="screen-header">
+    <button class="back-button" data-quality-back="quality" type="button">‹</button>
+    <div><div class="screen-kicker">ARGOS · CALIDAD</div><h2 id="qualityBranchesTitle">Ramas</h2></div>
+  </div>
+  <div class="quality-intro">
+    <span class="quality-kicker">RAMAS REGISTRADAS</span>
+    <p>Selecciona una rama para ver todas sus incidencias históricas.</p>
+  </div>
+  <div id="qualityBranchesList" class="quality-list"></div>
+</section>
+
+<section id="qualityIncidents" class="screen quality-screen" aria-label="Historial de incidencias">
+  <div class="screen-header">
+    <button class="back-button" data-quality-back="qualityBranches" type="button">‹</button>
+    <div><div class="screen-kicker">ARGOS · CALIDAD</div><h2 id="qualityIncidentsTitle">Incidencias</h2></div>
+  </div>
+  <div class="quality-intro">
+    <span class="quality-kicker">HISTORIAL DE INCIDENCIAS</span>
+    <p>Se muestran las incidencias registradas a lo largo del tiempo sin repetir la misma incidencia.</p>
+  </div>
+  <div id="qualityIncidentsList" class="quality-incidents-list"></div>
 </section>
 
 <!-- PANTALLAS SECUNDARIAS -->
@@ -3394,6 +3455,12 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
     target.classList.add("active");
     target.setAttribute("aria-hidden","false");
     target.style.display=(id==="menu") ? "flex" : "block";
+
+    /* ARGOS: solo las nuevas pantallas secundarias. */
+    if(id==="quality" && typeof window.renderQuality==="function") window.renderQuality();
+    if(id==="qualityBranches" && typeof window.renderQualityBranches==="function") window.renderQualityBranches();
+    if(id==="qualityIncidents" && typeof window.renderQualityIncidents==="function") window.renderQualityIncidents();
+    if(id==="notesPad" && typeof window.renderNotes==="function") window.renderNotes();
 
     var menu=document.getElementById("menu");
     if(menu){
@@ -7687,6 +7754,21 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       if(el.dataset.placeholderBound==='1') return;
       el.dataset.placeholderBound='1';
       el.addEventListener('click',function(){ return; });
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',install,{once:true});
+  else install();
+})();
+</script>
+
+<script id="argos-quality-navigation">
+(function(){
+  function go(id){ if(typeof window.showScreen==='function') window.showScreen(id); }
+  function install(){
+    document.querySelectorAll('[data-quality-back]').forEach(function(el){
+      if(el.dataset.qualityBackBound==='1') return;
+      el.dataset.qualityBackBound='1';
+      el.addEventListener('click',function(){go(el.dataset.qualityBack)});
     });
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',install,{once:true});
