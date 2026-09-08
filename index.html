@@ -1574,7 +1574,7 @@ button:focus:not(:focus-visible),
 .argos-updates-card-title{font-size:13px;font-weight:900;letter-spacing:.08em;color:var(--renfe,#8a005c);margin-bottom:16px;}
 .argos-updates-list{list-style:none;padding:0;margin:0;display:grid;gap:12px;}
 .argos-updates-list li{position:relative;padding:15px 16px 15px 46px;background:var(--soft,#f6edf3);border-radius:14px;color:var(--ink,#222);font-weight:650;line-height:1.45;}
-.argos-updates-list li::before{content:'✓';position:absolute;left:16px;top:13px;width:23px;height:23px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--renfe,#8a005c);color:#fff;font-size:13px;font-weight:900;}
+.argos-updates-list li::before{content:"✓";position:absolute;left:16px;top:13px;width:23px;height:23px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--renfe,#8a005c);color:#fff;font-size:13px;font-weight:900;}
 
 /* Aviso de actualización: aparece una sola vez por versión y dispositivo. */
 .argos-update-notice{position:fixed;inset:0;z-index:11000;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(10,8,10,.42);backdrop-filter:blur(4px);box-sizing:border-box;}
@@ -1600,6 +1600,8 @@ button:focus:not(:focus-visible),
 .menu-screen .argos-home{box-sizing:border-box!important;width:min(760px,100%)!important;max-width:100%!important;margin:0 auto!important;min-height:0!important;}
 .menu-screen .home-list{min-height:0!important;}
 
+
+
 @media(max-width:600px){
   .app-shell{height:100dvh!important;max-height:100dvh!important;overflow:hidden!important;}
   .app-header,.brand-row{height:64px!important;min-height:64px!important;max-height:64px!important;flex-basis:64px!important;}
@@ -1609,15 +1611,17 @@ button:focus:not(:focus-visible),
   .menu-screen .welcome-pill{font-size:10px!important;padding:4px 9px!important;margin:0 0 5px!important;}
   .menu-screen .welcome-card h1{font-size:25px!important;line-height:1.05!important;margin:0 0 4px!important;white-space:nowrap!important;}
   .menu-screen .welcome-card p{font-size:12px!important;line-height:1.18!important;margin:0!important;white-space:normal!important;}
-  .menu-screen .home-list{height:auto!important;width:100%!important;display:grid!important;grid-template-rows:repeat(6,minmax(0,1fr))!important;gap:6px!important;overflow:hidden!important;}
+  .menu-screen .home-list{height:auto!important;width:100%!important;display:grid!important;grid-template-rows:repeat(6,minmax(0,1fr)) 30px!important;gap:6px!important;overflow:hidden!important;}
   .menu-screen .home-card{width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;padding:6px 11px!important;border-radius:16px!important;display:grid!important;grid-template-columns:46px minmax(0,1fr)!important;column-gap:11px!important;align-items:center!important;overflow:hidden!important;box-sizing:border-box!important;}
   .menu-screen .home-icon{width:46px!important;height:46px!important;border-radius:13px!important;font-size:23px!important;display:flex!important;align-items:center!important;justify-content:center!important;}
   .menu-screen .home-card h2{margin:0!important;font-size:clamp(17px,3.0vh,21px)!important;line-height:1.05!important;font-weight:800!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;}
   .menu-screen .home-card p,.menu-screen .latest-service-value,.menu-screen .last-time-card label,.menu-screen .last-time-select{display:none!important;}
   .menu-screen .last-time-card{cursor:default!important;}
-
+  
+  
   #more-functions .home-list{grid-template-rows:repeat(4,minmax(0,1fr)) 38px!important;}
-
+  
+  
 }
 @media(max-width:600px) and (max-height:700px){
   .menu-screen .argos-home{padding:7px 10px 6px!important;gap:6px!important;}
@@ -1625,22 +1629,24 @@ button:focus:not(:focus-visible),
   .menu-screen .welcome-pill{font-size:9px!important;padding:3px 8px!important;margin-bottom:3px!important;}
   .menu-screen .welcome-card h1{font-size:22px!important;margin-bottom:3px!important;}
   .menu-screen .welcome-card p{font-size:10.5px!important;line-height:1.12!important;}
-  .menu-screen .home-list{grid-template-rows:repeat(6,minmax(0,1fr))!important;gap:5px!important;}
+  .menu-screen .home-list{grid-template-rows:repeat(6,minmax(0,1fr)) 27px!important;gap:5px!important;}
   .menu-screen .home-card{padding:4px 9px!important;border-radius:14px!important;grid-template-columns:42px minmax(0,1fr)!important;column-gap:9px!important;}
   .menu-screen .home-icon{width:42px!important;height:42px!important;border-radius:12px!important;font-size:21px!important;}
   .menu-screen .home-card h2{font-size:18px!important;}
-
+  
+  
 }
 @media(max-width:600px) and (max-height:580px){
   .menu-screen .argos-home{padding:5px 8px 4px!important;gap:5px!important;}
   .menu-screen .welcome-card{padding:7px 10px!important;}
   .menu-screen .welcome-card h1{font-size:20px!important;}
   .menu-screen .welcome-card p{font-size:9.5px!important;}
-  .menu-screen .home-list{grid-template-rows:repeat(6,minmax(0,1fr))!important;gap:4px!important;}
+  .menu-screen .home-list{grid-template-rows:repeat(6,minmax(0,1fr)) 24px!important;gap:4px!important;}
   .menu-screen .home-card{padding:3px 8px!important;grid-template-columns:38px minmax(0,1fr)!important;column-gap:8px!important;border-radius:13px!important;}
   .menu-screen .home-icon{width:38px!important;height:38px!important;border-radius:11px!important;font-size:20px!important;}
   .menu-screen .home-card h2{font-size:17px!important;}
-
+  
+  
 }
 @media(min-width:601px){
   .menu-screen.active{height:calc(100dvh - 68px)!important;max-height:calc(100dvh - 68px)!important;padding:0!important;}
@@ -1648,15 +1654,17 @@ button:focus:not(:focus-visible),
   .menu-screen .welcome-card{padding:22px 28px!important;border-radius:24px!important;}
   .menu-screen .welcome-card h1{font-size:34px!important;}
   .menu-screen .welcome-card p{font-size:15px!important;}
-  .menu-screen .home-list{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(3,minmax(0,1fr))!important;gap:14px!important;overflow:hidden!important;}
+  .menu-screen .home-list{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(3,minmax(0,1fr)) 40px!important;gap:14px!important;overflow:hidden!important;}
   .menu-screen .home-card{min-height:0!important;padding:14px 18px!important;border-radius:20px!important;display:grid!important;grid-template-columns:58px minmax(0,1fr)!important;column-gap:15px!important;align-items:center!important;box-sizing:border-box!important;}
   .menu-screen .home-icon{width:58px!important;height:58px!important;border-radius:17px!important;font-size:30px!important;display:flex!important;align-items:center!important;justify-content:center!important;}
   .menu-screen .home-card h2{font-size:20px!important;margin:0!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;}
   .menu-screen .home-card p,.menu-screen .latest-service-value,.menu-screen .last-time-card label,.menu-screen .last-time-select{display:none!important;}
-
+  
+  
   #more-functions .home-list{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(2,minmax(0,1fr)) 46px!important;}
   #more-functions .home-card:last-of-type{grid-column:1 / -1;max-width:none;}
-
+  
+  
 }
 </style>
 
@@ -1729,7 +1737,7 @@ button:focus:not(:focus-visible),
     gap:6px!important;
     overflow:hidden!important;
   }
-  #menu .home-list{grid-template-rows:repeat(6,minmax(0,1fr))!important;}
+  #menu .home-list{grid-template-rows:repeat(6,minmax(0,1fr)) 30px!important;}
   #more-functions .home-list{grid-template-rows:repeat(4,minmax(0,1fr)) 38px!important;}
   #menu .home-card,
   #more-functions .home-card{
@@ -1757,7 +1765,9 @@ button:focus:not(:focus-visible),
   #menu .last-time-card label,
   #menu .last-time-select,
   #more-functions .home-card p{display:none!important;}
-
+  
+  
+  
 }
 
 @media (max-width:600px) and (max-height:680px){
@@ -1765,7 +1775,7 @@ button:focus:not(:focus-visible),
   #menu .welcome-card,#more-functions .welcome-card{padding:9px 12px!important;}
   #menu .welcome-card h1,#more-functions .welcome-card h1{font-size:22px!important;}
   #menu .welcome-card p,#more-functions .welcome-card p{font-size:10.5px!important;}
-  #menu .home-list{grid-template-rows:repeat(6,minmax(0,1fr))!important;gap:5px!important;}
+  #menu .home-list{grid-template-rows:repeat(6,minmax(0,1fr)) 28px!important;gap:5px!important;}
   #menu .home-card,#more-functions .home-card{grid-template-columns:42px minmax(0,1fr)!important;padding:5px 9px!important;}
   #menu .home-icon,#more-functions .home-icon{width:42px!important;height:42px!important;font-size:21px!important;}
   #menu .home-card h2,#more-functions .home-card h2{font-size:17px!important;}
@@ -1788,7 +1798,8 @@ html,body{background:var(--renfe)!important;}
   #more-functions .argos-home{
     position:relative!important;
   }
-
+  
+  
   #menu .more-functions-label{
     display:inline!important;
     white-space:nowrap!important;
@@ -1796,10 +1807,7 @@ html,body{background:var(--renfe)!important;}
   }
 }
 
-@media(max-width:600px) and (max-height:580px){
 
-
-}
 </style>
 
 <style id="argos-5-mobile-edge-layout">
@@ -1885,6 +1893,10 @@ html,body{background:var(--renfe)!important;}
     overflow:hidden!important;
   }
 
+  /* Más funciones en móvil: exactamente el mismo tipo de botón que Volver. */
+  
+
+  
 }
 
 /* En pantallas que respetan el área segura, no se crea una franja inferior artificial. */
@@ -1911,6 +1923,7 @@ body:not(.dark) select{
 }
 
 
+
 </style>
 
 <style id="argos-more-functions-mobile-final-fix">
@@ -1927,24 +1940,24 @@ body:not(.dark) select{
     grid-template-rows:repeat(6,minmax(0,1fr)) 38px!important;
     gap:6px!important;
   }
-
+  
+  
 }
 @media (max-width:600px) and (max-height:680px){
   #menu .home-list{padding-bottom:0!important;grid-template-rows:repeat(6,minmax(0,1fr)) 38px!important;}
+  
 }
 @media (max-width:600px) and (max-height:580px){
   #menu .home-list{padding-bottom:0!important;grid-template-rows:repeat(6,minmax(0,1fr)) 34px!important;}
-
+  
+  
 }
 </style>
 
 
 <style id="argos-more-functions-final-compact">
 
-@media (max-width:600px) and (max-height:580px){
 
-
-}
 </style>
 
 
@@ -1973,11 +1986,15 @@ body:not(.dark) select{
     width:100%!important;
   }
 
+  
+
+  
 }
 
 @media (max-width:600px) and (max-height:580px){
   #menu .home-list{gap:5px!important;}
-
+  
+  
 }
 </style>
 
@@ -1999,12 +2016,10 @@ body:not(.dark) select{
     height:100%!important;
     overflow:hidden!important;
   }
-
+  
+  
 }
-@media (max-width:600px) and (max-height:580px){
 
-
-}
 </style>
 
 <style id="argos-more-functions-mobile-only-final">
@@ -2014,8 +2029,9 @@ body:not(.dark) select{
  * No participa como tarjeta y no modifica el aspecto de escritorio.
  */
 @media (max-width:600px){
+  
 
-
+  
 
   #menu .more-functions-label{
     display:inline!important;
@@ -2043,34 +2059,64 @@ body:not(.dark) select{
     height:100%!important;
     overflow:hidden!important;
   }
+
+  
 }
 
 /* Móviles muy pequeños: un poco más compacto, sin cambiar la estructura. */
 @media (max-width:600px) and (max-height:580px){
   #menu .argos-home{gap:5px!important;}
-
+  
+  
 }
 </style>
 
 
+<style id="argos-more-functions-copy-volver">
+
+
+
+</style>
+
+
+<style id="argos-more-functions-real-button-final">
+/* BOTÓN MÁS FUNCIONES — MISMA APARIENCIA QUE "VOLVER" */
 
 
 
 
 
 
+@media(max-width:600px){
+  #menu > .argos-home{
+    grid-template-rows:auto minmax(0,1fr) 38px!important;
+    gap:6px!important;
+    overflow:hidden!important;
+  }
+
+  
+}
+
+@media(max-width:600px) and (max-height:580px){
+  #menu > .argos-home{
+    grid-template-rows:auto minmax(0,1fr) 34px!important;
+    gap:5px!important;
+  }
+
+  
+
+  
+}
+</style>
 
 
-
-
-
-
-<style id="argos-botones-identicos-unico">
+<style id="argos-botones-una-sola-definicion">
 /* =========================================================
-   MÁS FUNCIONES / VOLVER
-   MISMO CONTENEDOR · MISMO BOTÓN · MISMO CSS
+   MÁS FUNCIONES Y VOLVER · MISMO COMPONENTE
+   Mismo contenedor, mismo botón, mismo CSS.
+   Solo cambian flecha y texto.
    ========================================================= */
-.argos-footer-action{
+.argos-button-zone{
   width:100% !important;
   flex:0 0 auto !important;
   min-height:0 !important;
@@ -2081,28 +2127,32 @@ body:not(.dark) select{
   justify-content:center !important;
 }
 
-.argos-identical-action{
+.argos-button-zone .more-functions-back{
   appearance:none !important;
   -webkit-appearance:none !important;
   box-sizing:border-box !important;
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  flex:0 0 220px !important;
   width:220px !important;
   min-width:220px !important;
   max-width:220px !important;
   height:46px !important;
   min-height:46px !important;
   max-height:46px !important;
+  flex:0 0 220px !important;
+
   margin:0 !important;
   padding:0 16px !important;
+
   border:1px solid var(--line) !important;
   border-radius:18px !important;
   background:var(--card) !important;
   color:var(--ink) !important;
   box-shadow:var(--shadow) !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
   gap:8px !important;
+
   cursor:pointer !important;
   font:inherit !important;
   font-size:15px !important;
@@ -2110,9 +2160,11 @@ body:not(.dark) select{
   line-height:1 !important;
   text-align:center !important;
   transform:none !important;
+  overflow:hidden !important;
 }
 
-.argos-identical-action .more-functions-back-arrow{
+.argos-button-zone .more-functions-back-arrow{
+  box-sizing:border-box !important;
   display:flex !important;
   align-items:center !important;
   justify-content:center !important;
@@ -2133,36 +2185,28 @@ body:not(.dark) select{
   line-height:1 !important;
 }
 
-.argos-identical-action:hover{border-color:rgba(138,0,92,.28) !important;}
-.argos-identical-action:active{transform:translateY(1px) !important;}
+.argos-button-zone .more-functions-back:hover{
+  border-color:rgba(138,0,92,.28) !important;
+}
 
-/* Ambos .argos-home mantienen una zona inferior idéntica para el botón. */
+.argos-button-zone .more-functions-back:active{
+  transform:translateY(1px) !important;
+}
+
 @media(max-width:600px){
-  #menu > .argos-home,
-  #more-functions > .argos-home{
-    display:grid !important;
-    grid-template-rows:auto minmax(0,1fr) auto !important;
-    gap:6px !important;
-    overflow:hidden !important;
-  }
-
-  #menu > .argos-home > .home-list,
-  #more-functions > .argos-home > .home-list{
-    min-height:0 !important;
-  }
-
-  .argos-identical-action{
-    flex-basis:220px !important;
+  .argos-button-zone .more-functions-back{
     width:220px !important;
     min-width:220px !important;
     max-width:calc(100% - 20px) !important;
     height:38px !important;
     min-height:38px !important;
     max-height:38px !important;
+    flex-basis:220px !important;
+    padding:0 16px !important;
     font-size:14px !important;
   }
 
-  .argos-identical-action .more-functions-back-arrow{
+  .argos-button-zone .more-functions-back-arrow{
     flex-basis:22px !important;
     width:22px !important;
     min-width:22px !important;
@@ -2172,35 +2216,21 @@ body:not(.dark) select{
     max-height:22px !important;
     font-size:16px !important;
   }
-
-  #menu > .argos-home > .argos-footer-action,
-  #more-functions > .argos-home > .argos-footer-action{
-    grid-row:3 !important;
-    width:100% !important;
-    align-self:center !important;
-    justify-self:stretch !important;
-  }
 }
 
 @media(max-width:600px) and (max-height:580px){
-  #menu > .argos-home,
-  #more-functions > .argos-home{
-    grid-template-rows:auto minmax(0,1fr) auto !important;
-    gap:5px !important;
-  }
-
-  .argos-identical-action{
-    flex-basis:200px !important;
+  .argos-button-zone .more-functions-back{
     width:200px !important;
     min-width:200px !important;
     max-width:calc(100% - 20px) !important;
     height:34px !important;
     min-height:34px !important;
     max-height:34px !important;
+    flex-basis:200px !important;
     font-size:13px !important;
   }
 
-  .argos-identical-action .more-functions-back-arrow{
+  .argos-button-zone .more-functions-back-arrow{
     flex-basis:20px !important;
     width:20px !important;
     min-width:20px !important;
@@ -2265,8 +2295,8 @@ body:not(.dark) select{
         </select>
       </div>
     </div>
-    <div class="argos-footer-action">
-      <button class="more-functions-back argos-identical-action" data-screen="more-functions" type="button" aria-label="Más funciones" title="Más funciones">
+    <div class="argos-button-zone">
+      <button class="more-functions-back" data-screen="more-functions" type="button" aria-label="Más funciones" title="Más funciones">
         <span class="more-functions-back-arrow" aria-hidden="true">›</span>
         <span>Más funciones</span>
       </button>
@@ -2300,8 +2330,8 @@ body:not(.dark) select{
         <span><h2>Bloc de Notas</h2></span>
       </button>
     </div>
-    <div class="argos-footer-action">
-      <button class="more-functions-back argos-identical-action" type="button" aria-label="Volver al menú principal">
+    <div class="argos-button-zone">
+      <button class="more-functions-back" type="button" aria-label="Volver al menú principal">
         <span class="more-functions-back-arrow" aria-hidden="true">‹</span>
         <span>Volver</span>
       </button>
@@ -4980,7 +5010,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   .stats-panel:has(#seriesRanking){grid-column:1/-1 !important;}
   .stats-panel:has(#seriesRanking) .stats-panel-head{margin-bottom:14px;}
   .stats-panel:has(#seriesRanking) .stats-panel-head::after{
-    content:'Pulsa una serie para ver los vehículos y las ramas repetidas';
+    content:"Pulsa una serie para ver los vehículos y las ramas repetidas";
     display:block;
     color:var(--muted);
     font-size:10px;
@@ -5002,7 +5032,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     transition:transform .15s ease,border-color .15s ease,background .15s ease;
   }
   #seriesRanking .ranking-row::after{
-    content:'›';
+    content:"›";
     color:var(--muted);
     font-size:20px;
     font-weight:500;
@@ -7622,7 +7652,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   .argos-previous-branch-incidents-title{color:var(--renfe,#8a005c);font-size:11px;font-weight:900;letter-spacing:.07em;text-transform:uppercase;margin-bottom:7px}
   .argos-previous-branch-incidents-subtitle{color:var(--muted,#777);font-size:12px;line-height:1.4;margin-bottom:8px}
   .argos-previous-branch-incident{padding:9px 10px;margin-top:6px;border-radius:10px;background:var(--card,#fff);border:1px solid var(--line,#ddd);font-size:13px;line-height:1.35}
-  .argos-previous-branch-incident::before{content:'•';color:var(--renfe,#8a005c);font-weight:900;margin-right:7px}
+  .argos-previous-branch-incident::before{content:"•";color:var(--renfe,#8a005c);font-weight:900;margin-right:7px}
 </style>
 
 <style id="argos-branch-visit-v33-style">
