@@ -3456,11 +3456,10 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
     target.setAttribute("aria-hidden","false");
     target.style.display=(id==="menu") ? "flex" : "block";
 
-    /* ARGOS: solo las nuevas pantallas secundarias. */
+    /* ARGOS: actualizar únicamente Calidad al entrar en sus pantallas. */
     if(id==="quality" && typeof window.renderQuality==="function") window.renderQuality();
     if(id==="qualityBranches" && typeof window.renderQualityBranches==="function") window.renderQualityBranches();
     if(id==="qualityIncidents" && typeof window.renderQualityIncidents==="function") window.renderQualityIncidents();
-    if(id==="notesPad" && typeof window.renderNotes==="function") window.renderNotes();
 
     var menu=document.getElementById("menu");
     if(menu){
