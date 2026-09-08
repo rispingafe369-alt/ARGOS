@@ -26293,9 +26293,10 @@ function qualityIncidentEntries(service){
   if(Array.isArray(service?.incidentsEntries)){
     service.incidentsEntries.forEach(entry=>{
       const text=String(entry&&typeof entry==="object"?(entry.text??entry.value??entry.description??""):entry??"").trim();
-      if(text)out.push(text);
+      if(text&&!out.some(existing=>qualityIncidentKey(existing)===qualityIncidentKey(text)))out.push(text);
     });
   }
+
   const legacy=String(service?.incidents??"").trim();
   if(legacy){
     legacy.split(/\n+/).map(x=>x.trim()).filter(Boolean).forEach(text=>{
@@ -26335,18 +26336,26 @@ function qualityDateLabel(service){
   return raw;
 }
 
-function qualityRegisteredServices(){
-  return services().filter(service=>Boolean(qualitySeriesKey(service?.series)));
+/*
+ * CALIDAD trabaja exclusivamente con servicios que tengan al menos
+ * una incidencia registrada. De esta forma una serie solo aparece si
+ * existe historial real de incidencias para esa serie.
+ */
+function qualityIncidentServices(){
+  return services().filter(service=>{
+    return Boolean(qualitySeriesKey(service?.series)) && qualityIncidentEntries(service).length>0;
+  });
 }
 
 function renderQuality(){
   const list=$("qualitySeriesList");
   if(!list)return;
+
   qualityCurrentSeries="";
   qualityCurrentBranch="";
 
   const seriesSet=new Set();
-  qualityRegisteredServices().forEach(service=>{
+  qualityIncidentServices().forEach(service=>{
     const series=qualitySeriesKey(service?.series);
     if(series)seriesSet.add(series);
   });
@@ -26354,7 +26363,7 @@ function renderQuality(){
   const series=[...seriesSet].sort((a,b)=>Number(a)-Number(b));
 
   if(!series.length){
-    list.innerHTML='<div class="quality-empty">Todavía no tienes ninguna serie registrada.</div>';
+    list.innerHTML='<div class="quality-empty">Todavía no tienes ninguna incidencia registrada.</div>';
     return;
   }
 
@@ -26367,6 +26376,7 @@ function renderQuality(){
   list.querySelectorAll("[data-quality-series]").forEach(button=>{
     button.addEventListener("click",()=>{
       qualityCurrentSeries=qualitySeriesKey(button.dataset.qualitySeries);
+      qualityCurrentBranch="";
       if(typeof window.showScreen==="function")window.showScreen("qualityBranches");
     });
   });
@@ -26375,23 +26385,31 @@ function renderQuality(){
 function renderQualityBranches(){
   const list=$("qualityBranchesList"),title=$("qualityBranchesTitle");
   if(!list)return;
+
   const series=qualitySeriesKey(qualityCurrentSeries);
   if(!series){
     if(typeof window.showScreen==="function")window.showScreen("quality");
     return;
   }
+
   if(title)title.textContent="Serie "+series;
 
+  /*
+   * Solo se muestran ramas que tengan incidencias. Se buscan en TODO
+   * el historial guardado, sin importar la fecha ni si la rama sigue
+   * activa actualmente en la flota.
+   */
   const branches=new Set();
-  qualityRegisteredServices().forEach(service=>{
+  qualityIncidentServices().forEach(service=>{
     if(qualitySeriesKey(service?.series)!==series)return;
     const branch=qualityServiceBranch(service);
     if(branch)branches.add(branch);
   });
 
   const values=[...branches].sort((a,b)=>Number(a)-Number(b));
+
   if(!values.length){
-    list.innerHTML='<div class="quality-empty">No hay ramas registradas para esta serie.</div>';
+    list.innerHTML='<div class="quality-empty">No hay ramas con incidencias registradas para esta serie.</div>';
     return;
   }
 
@@ -26412,25 +26430,45 @@ function renderQualityBranches(){
 function renderQualityIncidents(){
   const list=$("qualityIncidentsList"),title=$("qualityIncidentsTitle");
   if(!list)return;
-  const series=qualitySeriesKey(qualityCurrentSeries),branch=qualityBranchKey(qualityCurrentBranch);
+
+  const series=qualitySeriesKey(qualityCurrentSeries);
+  const branch=qualityBranchKey(qualityCurrentBranch);
+
   if(!series||!branch){
     if(typeof window.showScreen==="function")window.showScreen("qualityBranches");
     return;
   }
-  if(title)title.textContent="Rama "+branch.padStart(3,"0");
 
+  if(title)title.textContent="Serie "+series+" · Rama "+branch.padStart(3,"0");
+
+  /*
+   * El historial se construye desde el principio de los registros del
+   * usuario para esa serie y esa rama. Una misma incidencia se agrupa
+   * aunque se haya escrito varias veces, conservando la última fecha
+   * en la que apareció y el número total de registros.
+   */
   const unique=new Map();
-  qualityRegisteredServices().forEach(service=>{
+
+  services().forEach(service=>{
     if(qualitySeriesKey(service?.series)!==series)return;
     if(qualityServiceBranch(service)!==branch)return;
 
+    const entries=qualityIncidentEntries(service);
+    if(!entries.length)return;
+
     const date=qualityDate(service);
-    qualityIncidentEntries(service).forEach(text=>{
+    entries.forEach(text=>{
       const key=qualityIncidentKey(text);
       if(!key)return;
+
       const existing=unique.get(key);
       if(!existing){
-        unique.set(key,{text,count:1,lastDate:date,lastDateLabel:qualityDateLabel(service)});
+        unique.set(key,{
+          text,
+          count:1,
+          lastDate:date,
+          lastDateLabel:qualityDateLabel(service)
+        });
       }else{
         existing.count++;
         if(date>=existing.lastDate){
@@ -26441,7 +26479,10 @@ function renderQualityIncidents(){
     });
   });
 
-  const incidents=[...unique.values()].sort((a,b)=>b.lastDate-a.lastDate||a.text.localeCompare(b.text,"es"));
+  const incidents=[...unique.values()].sort((a,b)=>{
+    return b.lastDate-a.lastDate||a.text.localeCompare(b.text,"es");
+  });
+
   if(!incidents.length){
     list.innerHTML='<div class="quality-empty">Esta rama todavía no tiene incidencias registradas.</div>';
     return;
