@@ -2387,6 +2387,24 @@ body:not(.dark) select{
 }
 </style>
 
+
+<style id="argos-mas-funciones-mismo-contenedor">
+/* El botón Más funciones vive en un .home-list igual que Volver.
+   El contenedor solo ocupa el alto del botón. */
+#menu > .argos-home > .home-list-more-functions{
+  flex:0 0 auto !important;
+  min-height:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:0 !important;
+}
+
+#menu > .argos-home > .home-list-more-functions > .more-functions-back{
+  margin:0 auto !important;
+}
+</style>
+
 </head>
 
 <body>
@@ -2439,10 +2457,12 @@ body:not(.dark) select{
         </select>
       </div>
     </div>
-    <button class="more-functions-back" data-screen="more-functions" type="button" aria-label="Más funciones" title="Más funciones">
-      <span class="more-functions-back-arrow" aria-hidden="true">›</span>
-      <span>Más funciones</span>
-    </button>
+    <div class="home-list home-list-more-functions">
+      <button class="more-functions-back" data-screen="more-functions" type="button" aria-label="Más funciones" title="Más funciones">
+        <span class="more-functions-back-arrow" aria-hidden="true">›</span>
+        <span>Más funciones</span>
+      </button>
+    </div>
   </div>
 </section>
 
