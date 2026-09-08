@@ -8604,6 +8604,10 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   }
 
   function process(before,service){
+    if(!service)return;
+    const serviceId=String(service.id||'');
+    if(serviceId && window.__argosBranchVisitShown===serviceId)return;
+    if(serviceId)window.__argosBranchVisitShown=serviceId;
     const items=[];
     serviceCompositions(service).forEach(c=>{
       const previous=previousOccurrences(before,c.series,c.branch);
