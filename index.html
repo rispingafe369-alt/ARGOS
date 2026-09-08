@@ -5835,154 +5835,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   }
   body.dark .argos-first-branch-overlay{background:rgba(0,0,0,.68)}
 </style>
-<script id="argos-first-branch-v30">
-(function(){
-  'use strict';
 
-  function digits(v){return String(v??'').replace(/\D/g,'')}
-  function norm(v){return digits(v).replace(/^0+/,'')||''}
-  function branchKey(series,branch){
-    const s=norm(series), b=digits(branch).replace(/^0+/,'')||'';
-    return s&&b ? s+'|'+b : '';
-  }
-
-  function serviceBranches(service){
-    if(!service)return [];
-    const out=[];
-    const digitsOnly=v=>String(v??'').replace(/\D/g,'');
-    const normDigits=v=>digitsOnly(v).replace(/^0+/,'')||'';
-    const findBranch=(series,vehicle,branch)=>{
-      const direct=digitsOnly(branch);
-      if(direct)return normDigits(direct);
-      const s=normDigits(series), v=digitsOnly(vehicle);
-      if(!s||!v||typeof fleet==='undefined')return '';
-      try{
-        const units=fleet[s]?.units||{};
-        for(const [key,u] of Object.entries(units)){
-          const codes=[key,u?.vehiculoBase,u?.numero,...(Array.isArray(u?.searchCodes)?u.searchCodes:[])].map(digitsOnly);
-          if(codes.some(code=>code&&normDigits(code)===normDigits(v))){
-            return normDigits(u?.rama);
-          }
-        }
-      }catch(e){console.warn('ARGOS V32 · detección de rama:',e)}
-      return '';
-    };
-    const add=(series,branch,vehicle)=>{
-      const b=findBranch(series,vehicle,branch);
-      const key=branchKey(series,b);
-      if(key)out.push({key,series:String(series||'').trim(),branch:b,vehicle:String(vehicle||'').trim()});
-    };
-    add(service.series,service.branch,service.vehicle);
-    if(service.doubleComposition&&service.composition2){
-      const c=service.composition2;
-      add(c.series,c.branch,c.vehicle);
-    }
-    return out;
-  }
-
-  function allKnownBranches(list){
-    const set=new Set();
-    (Array.isArray(list)?list:[]).forEach(s=>serviceBranches(s).forEach(x=>set.add(x.key)));
-    return set;
-  }
-
-  function findVehicleForBranch(series,branch){
-    try{
-      const data=(typeof fleet!=='undefined')?fleet[norm(series)]:null;
-      const units=data?.units||{};
-      const target=digits(branch).replace(/^0+/,'')||'';
-      for(const [key,unit] of Object.entries(units)){
-        if((digits(unit?.rama).replace(/^0+/,'')||'')===target){
-          return String(unit?.vehiculoBase||key||'').trim();
-        }
-      }
-    }catch(e){console.warn('ARGOS V30 · búsqueda de rama:',e)}
-    return '';
-  }
-
-  function closeModal(){
-    const old=document.getElementById('argosFirstBranchOverlay');
-    if(old)old.remove();
-  }
-
-  function openFichaFromService(service){
-    closeModal();
-    if(!service)return;
-    const series=String(service.series||'').trim();
-    const vehicle=String(service.vehicle||'').trim()||findVehicleForBranch(series,service.branch);
-    if(typeof openFicha==='function'){
-      openFicha(series,vehicle,service);
-      return;
-    }
-    if(typeof window.openFicha==='function')window.openFicha(series,vehicle,service);
-  }
-
-  function showModal(newBranches,service){
-    closeModal();
-    const overlay=document.createElement('div');
-    overlay.id='argosFirstBranchOverlay';
-    overlay.className='argos-first-branch-overlay';
-    const names=newBranches.map(x=>'Serie '+x.series+' · Rama '+x.branch);
-    const title=newBranches.length===1?'¡Primera vez con esta rama!':'¡Primera vez con estas ramas!';
-    const intro=newBranches.length===1
-      ? 'Has registrado por primera vez esta rama en ARGOS.'
-      : 'Has registrado por primera vez estas ramas en ARGOS.';
-    overlay.innerHTML=`
-      <div class="argos-first-branch-modal" role="dialog" aria-modal="true" aria-labelledby="argosFirstBranchTitle">
-        <div class="argos-first-branch-kicker">NUEVA RAMA</div>
-        <h2 id="argosFirstBranchTitle">${title}</h2>
-        <p>${intro}</p>
-        <div class="argos-first-branch-highlight">
-          ${names.map(n=>'<strong>'+n.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))+'</strong>').join('')}
-        </div>
-        <div class="argos-first-branch-actions">
-          <button type="button" class="argos-first-branch-menu" id="argosFirstBranchMenu">Aceptar y volver al menú</button>
-          <button type="button" class="argos-first-branch-ficha" id="argosFirstBranchFicha">Ver ficha</button>
-        </div>
-      </div>`;
-    document.body.appendChild(overlay);
-    overlay.querySelector('#argosFirstBranchMenu')?.addEventListener('click',()=>{
-      closeModal();
-      if(typeof showScreen==='function')showScreen('menu');
-    });
-    overlay.querySelector('#argosFirstBranchFicha')?.addEventListener('click',()=>openFichaFromService(service));
-    overlay.addEventListener('click',e=>{if(e.target===overlay)closeModal()});
-  }
-
-  window.argosHandleFirstNewBranches=function(beforeList,afterList,service){
-    const before=allKnownBranches(beforeList);
-    const after=allKnownBranches(afterList);
-    const newBranches=serviceBranches(service).filter(x=>!before.has(x.key)&&after.has(x.key));
-
-    if(newBranches.length){
-      if(typeof showScreen==='function')showScreen('menu');
-      showModal(newBranches,service);
-    }else{
-      if(typeof toast==='function')toast(service?.doubleComposition?'Servicio en doble composición guardado':'Servicio guardado');
-      if(typeof showScreen==='function')showScreen('menu');
-    }
-  };
-
-  /*
-   * Servicios normales: el guardado original de app.js sigue intacto.
-   * Solo observamos el estado antes y después del submit para detectar
-   * una rama nueva. No intervenimos en el submit de rama manual ni doble,
-   * porque esos dos ya llaman directamente a la función anterior.
-   */
-  document.addEventListener('submit',function(ev){
-    const form=document.getElementById('serviceForm');
-    if(!form||ev.target!==form)return;
-    if(document.getElementById('doubleComposition')?.checked)return;
-    const before=typeof services==='function'?services():[];
-    setTimeout(function(){
-      const after=typeof services==='function'?services():[];
-      if(after.length<=before.length)return;
-      const service=after[after.length-1];
-      window.argosHandleFirstNewBranches(before,after,service);
-    },0);
-  });
-})();
-</script>
 
 
 <script id="argos-previous-branch-incidents-v45">
@@ -8246,498 +8099,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   .argos-branch-visit-ficha{border:0;background:var(--renfe,#8a005c);color:#fff}
   @media(max-width:600px){.argos-branch-visit-overlay{padding:14px}.argos-branch-visit-modal{padding:21px;border-radius:22px}.argos-branch-visit-actions{grid-template-columns:1fr}}
 </style>
-<script id="argos-branch-visit-v34">
-(function(){
-  'use strict';
 
-  function digits(v){return String(v??'').replace(/\D/g,'')}
-  function norm(v){return digits(v).replace(/^0+/,'')||''}
-  function branchKey(series,branch){
-    const s=norm(series),b=norm(branch);
-    return s&&b?s+'|'+b:'';
-  }
-  function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-
-  function findUnit(series,vehicle,branch){
-    try{
-      if(typeof fleet==='undefined')return null;
-      const units=fleet[norm(series)]?.units||{};
-      const b=norm(branch),v=norm(vehicle);
-      if(b){
-        for(const [key,u] of Object.entries(units)){
-          if(norm(u?.rama)===b)return {key,unit:u};
-        }
-      }
-      if(v){
-        for(const [key,u] of Object.entries(units)){
-          const codes=[key,u?.vehiculoBase,u?.numero,...(Array.isArray(u?.searchCodes)?u.searchCodes:[])].map(norm).filter(Boolean);
-          if(codes.includes(v))return {key,unit:u};
-        }
-      }
-    }catch(e){console.warn('ARGOS V34 · búsqueda de unidad:',e)}
-    return null;
-  }
-
-  function getComposition(service,second){
-    if(!service)return null;
-    const series=second
-      ? (service.composition2?.series||service.secondSeries||service.series2||'')
-      : (service.series||service.serie||'');
-    let vehicle=second
-      ? (service.composition2?.vehicle||service.secondVehicle||service.vehicle2||'')
-      : (service.vehicle||'');
-    let branch=second
-      ? (service.composition2?.branch||service.secondBranch||service.branch2||'')
-      : (service.branch||'');
-    const found=findUnit(series,vehicle,branch);
-    if(!branch && found?.unit?.rama)branch=found.unit.rama;
-     branch=window.ARGOS_NORMALIZE_BRANCH(branch);
-    if(!vehicle && found?.unit?.vehiculoBase)vehicle=found.unit.vehiculoBase;
-    return {series:String(series||'').trim(),vehicle:String(vehicle||'').trim(),branch:window.ARGOS_NORMALIZE_BRANCH(branch),found};
-  }
-
-  function serviceCompositions(service){
-    const out=[];
-    const a=getComposition(service,false);
-    if(a?.series&&a?.branch)out.push(a);
-    if(service?.doubleComposition){
-      const b=getComposition(service,true);
-      if(b?.series&&b?.branch)out.push(b);
-    }
-    return out;
-  }
-
-  function previousOccurrences(before,series,branch){
-    const key=branchKey(series,branch);
-    return (Array.isArray(before)?before:[]).filter(s=>
-      serviceCompositions(s).some(c=>branchKey(c.series,c.branch)===key)
-    );
-  }
-
-  function dateLabel(service){
-    const raw=service?.date||service?.fecha||'';
-    if(raw){
-      const d=new Date(String(raw).slice(0,10)+'T00:00:00');
-      if(!Number.isNaN(d.getTime()))return `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`;
-    }
-    if(service?.createdAt){
-      const d=new Date(Number(service.createdAt));
-      if(!Number.isNaN(d.getTime()))return `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`;
-    }
-    return 'fecha no disponible';
-  }
-
-  function close(){document.getElementById('argosBranchVisitOverlay')?.remove()}
-
-  function readStoredServices(){
-    try{
-      const raw=localStorage.getItem('argos_services')||'[]';
-      const a=JSON.parse(raw);
-      return Array.isArray(a)?a:[];
-    }catch(e){return[]}
-  }
-
-  function saveStoredServices(all){
-    try{
-      if(typeof saveServices==='function')saveServices(all);
-      else localStorage.setItem('argos_services',JSON.stringify(all));
-      return true;
-    }catch(e){
-      console.warn('ARGOS V43 · guardar incidencias:',e);
-      return false;
-    }
-  }
-
-  function notesOf(service){
-    const out=[];
-    if(Array.isArray(service?.notesEntries)){
-      service.notesEntries.forEach(x=>{
-        const v=typeof x==='object'&&x!==null?(x.text??x.value??''):x;
-        const t=String(v??'').trim();
-        if(t)out.push(t);
-      });
-    }
-    const legacy=String(service?.notes??'').trim();
-    if(legacy&&!out.includes(legacy))out.push(legacy);
-    return out;
-  }
-
-  function incidentsOf(service){
-    const out=[];
-    if(Array.isArray(service?.incidentsEntries)){
-      service.incidentsEntries.forEach(x=>{
-        const obj=typeof x==='object'&&x!==null?x:{text:x,solved:false};
-        const t=String(obj.text??obj.value??'').trim();
-        if(t)out.push({text:t,solved:obj.solved===true});
-      });
-    }
-    const legacy=String(service?.incidents??'').trim();
-    if(legacy&&!out.some(x=>x.text===legacy)){
-      legacy.split(/\n+/).map(x=>String(x).trim()).filter(Boolean)
-        .forEach(t=>out.push({text:t,solved:false}));
-    }
-    return out;
-  }
-
-  function serviceTitle(service){
-    const train=String(service?.train??service?.tren??service?.number??service?.numero??'').trim();
-    const date=dateLabel(service);
-    return train?`Tren ${train} · ${date}`:date;
-  }
-
-  function updateIncidentSolved(serviceId,index,solved){
-    const all=readStoredServices();
-    const pos=all.findIndex(s=>String(s?.id||'')===String(serviceId||''));
-    if(pos<0)return;
-
-    const old=all[pos];
-    const entries=incidentsOf(old);
-    if(!entries[index])return;
-
-    entries[index].solved=!!solved;
-    all[pos]={
-      ...old,
-      incidents:entries.map(x=>x.text).join('\n'),
-      incidentsEntries:entries
-    };
-
-    if(!saveStoredServices(all) && typeof toast==='function'){
-      toast('No se ha podido guardar el estado de la incidencia');
-    }
-  }
-
-  function openAnnotationEditor(service){
-    if(!service)return;
-    const existing=notesOf(service);
-    const overlay=document.createElement('div');
-    overlay.className='argos-branch-annotation-editor';
-    overlay.innerHTML=`
-      <div class="argos-branch-annotation-modal" role="dialog" aria-modal="true">
-        <div class="argos-branch-annotation-head">
-          <div>
-            <div class="argos-branch-visit-kicker">ARGOS · ANOTACIONES</div>
-            <h3>Editar anotaciones</h3>
-          </div>
-          <button type="button" class="argos-branch-annotation-close" aria-label="Cerrar">×</button>
-        </div>
-        <p class="argos-branch-annotation-help">Puedes cambiar o eliminar las anotaciones registradas en este servicio.</p>
-        <div class="argos-branch-annotation-list">
-          ${existing.length?existing.map((x,i)=>`
-            <div class="argos-branch-annotation-item">
-              <textarea data-note-index="${i}">${esc(x)}</textarea>
-              <button type="button" data-note-delete="${i}">Eliminar</button>
-            </div>`).join(''):'<div class="argos-branch-annotation-empty">No hay anotaciones registradas.</div>'}
-        </div>
-        <div class="argos-branch-annotation-actions">
-          <button type="button" class="argos-branch-annotation-cancel">Cancelar</button>
-          <button type="button" class="argos-branch-annotation-save">Guardar anotaciones</button>
-        </div>
-      </div>`;
-
-    document.body.appendChild(overlay);
-
-    const closeEditor=()=>overlay.remove();
-    overlay.addEventListener('click',e=>{if(e.target===overlay)closeEditor()});
-    overlay.querySelector('.argos-branch-annotation-close').onclick=closeEditor;
-    overlay.querySelector('.argos-branch-annotation-cancel').onclick=closeEditor;
-
-    overlay.querySelectorAll('[data-note-delete]').forEach(btn=>{
-      btn.onclick=()=>{
-        const item=btn.closest('.argos-branch-annotation-item');
-        if(item)item.remove();
-      };
-    });
-
-    overlay.querySelector('.argos-branch-annotation-save').onclick=()=>{
-      const values=[...overlay.querySelectorAll('textarea[data-note-index]')]
-        .map(x=>x.value.trim()).filter(Boolean);
-
-      const all=readStoredServices();
-      const pos=all.findIndex(s=>String(s?.id||'')===String(service.id||''));
-      if(pos<0){
-        closeEditor();
-        if(typeof toast==='function')toast('El servicio ya no existe');
-        return;
-      }
-
-      all[pos]={
-        ...all[pos],
-        notes:values.join('\n'),
-        notesEntries:values
-      };
-
-      if(saveStoredServices(all)){
-        service=all[pos];
-        closeEditor();
-        if(typeof toast==='function')toast('Anotaciones actualizadas');
-      }else if(typeof toast==='function'){
-        toast('No se han podido guardar las anotaciones');
-      }
-    };
-  }
-
-  function pendingHistoricalIncidents(previousServices){
-    const ordered=(Array.isArray(previousServices)?previousServices:[]).slice().sort((a,b)=>{
-      const da=String(a?.date||a?.fecha||'');
-      const db=String(b?.date||b?.fecha||'');
-      if(da!==db)return da.localeCompare(db);
-      return Number(a?.createdAt||0)-Number(b?.createdAt||0);
-    });
-
-    const active=new Map();
-    ordered.forEach(service=>{
-      incidentsOf(service).forEach((incident,index)=>{
-        const key=normalizeText(incident.text);
-        if(!key)return;
-        if(incident.solved){
-          active.delete(key);
-          return;
-        }
-        const existing=active.get(key);
-        const ref={
-          serviceId:String(service?.id||''),
-          index,
-          text:incident.text
-        };
-        if(existing){
-          existing.refs.push(ref);
-          existing.text=incident.text;
-        }else{
-          active.set(key,{text:incident.text,refs:[ref]});
-        }
-      });
-    });
-    return [...active.values()];
-  }
-
-  function markHistoricalIncidentGroupSolved(group){
-    if(!group?.refs?.length)return false;
-    const all=readStoredServices();
-    let changed=false;
-    group.refs.forEach(ref=>{
-      const service=all.find(s=>String(s?.id||'')===String(ref.serviceId||''));
-      if(!service)return;
-      const entries=Array.isArray(service.incidentsEntries)
-        ? service.incidentsEntries.map(x=>x)
-        : incidentsOf(service).map(x=>({text:x.text,solved:x.solved}));
-      if(ref.index<0||ref.index>=entries.length)return;
-      const old=entries[ref.index];
-      const textValue=old&&typeof old==='object'
-        ? String(old.text??old.value??old.description??'').trim()
-        : String(old??'').trim();
-      if(!textValue||normalizeText(textValue)!==normalizeText(group.text))return;
-      if(old&&typeof old==='object'){
-        if(old.solved===true)return;
-        entries[ref.index]={...old,solved:true};
-      }else{
-        entries[ref.index]={text:textValue,solved:true};
-      }
-      all[all.indexOf(service)]={
-        ...service,
-        incidents:entries.map(x=>String(x&&typeof x==='object'?(x.text??x.value??x.description??''):x).trim()).filter(Boolean).join('\n'),
-        incidentsEntries:entries
-      };
-      changed=true;
-    });
-    if(!changed)return false;
-    return saveStoredServices(all);
-  }
-
-  function showModal(items){
-    if(!items.length)return;
-    close();
-
-    const overlay=document.createElement('div');
-    overlay.id='argosBranchVisitOverlay';
-    overlay.className='argos-branch-visit-overlay';
-    overlay.style.zIndex='2147483000';
-    overlay.style.display='flex';
-
-    const isNew=items.some(x=>x.isNew);
-    const title=isNew?'¡Primera vez con esta rama!':'Rama repetida';
-    const intro=isNew
-      ? 'Has registrado por primera vez esta rama en ARGOS.'
-      : 'Esta rama ya estaba registrada. Revisa las incidencias anteriores y las que acabas de registrar.';
-
-    const cards=items.map(x=>{
-      const previous=x.previous;
-      const previousService=previous[previous.length-1]||null;
-      const pendingGroups=pendingHistoricalIncidents(previous);
-      const currentIncidents=incidentsOf(x.service);
-      const currentNotes=notesOf(x.service);
-
-      if(x.isNew){
-        return `<div class="argos-branch-visit-card">
-          <strong>Serie ${esc(x.series)} · Rama ${esc(x.branch)}</strong>
-          <span>Primera vez registrada</span>
-          ${currentIncidents.length?`
-            <div class="argos-branch-incident-section">
-              <div class="argos-branch-incident-title">Incidencias registradas ahora</div>
-              ${currentIncidents.map(i=>`<div class="argos-branch-incident-current">${esc(i.text)}</div>`).join('')}
-            </div>`:''}
-          ${currentNotes.length?`
-            <div class="argos-branch-notes-block">
-              <div class="argos-branch-notes-heading">Anotaciones del tren</div>
-              ${currentNotes.map(n=>`<div class="argos-branch-note">${esc(n)}</div>`).join('')}
-              <button type="button" class="argos-branch-annotation-edit" data-edit-service="${esc(x.service?.id||'')}">Editar anotaciones</button>
-            </div>`:''}
-        </div>`;
-      }
-
-      return `<div class="argos-branch-visit-card">
-        <strong>Serie ${esc(x.series)} · Rama ${esc(x.branch)}</strong>
-        <span>Último acceso que la viste: ${esc(dateLabel(previousService))}</span>
-
-        ${pendingGroups.length?`
-          <div class="argos-branch-history-block">
-            <div class="argos-branch-history-heading">Incidencias pendientes anteriores</div>
-            <div class="argos-branch-history-help">Estas incidencias siguen pendientes desde visitas anteriores. Márcalas como solventadas cuando ya estén resueltas.</div>
-            ${pendingGroups.map((group,index)=>`
-              <label class="argos-branch-incident-old">
-                <input type="checkbox" data-incident-group="${index}">
-                <span>${esc(group.text)}</span>
-                <small>Pendiente</small>
-              </label>`).join('')}
-          </div>`:`
-          <div class="argos-branch-history-block">
-            <div class="argos-branch-history-heading">Incidencias pendientes anteriores</div>
-            <div class="argos-branch-history-help">No hay incidencias antiguas pendientes para esta rama.</div>
-          </div>`}
-
-        ${currentIncidents.length?`
-          <div class="argos-branch-current-block">
-            <div class="argos-branch-current-heading">Incidencias añadidas ahora</div>
-            ${currentIncidents.map(inc=>`<div class="argos-branch-incident-current">${esc(inc.text)}</div>`).join('')}
-          </div>`:''}
-
-        ${currentNotes.length?`
-          <div class="argos-branch-notes-block">
-            <div class="argos-branch-notes-heading">Anotaciones del tren</div>
-            ${currentNotes.map(n=>`<div class="argos-branch-note">${esc(n)}</div>`).join('')}
-            <button type="button" class="argos-branch-annotation-edit" data-edit-service="${esc(x.service?.id||'')}">Editar anotaciones</button>
-          </div>`:''}
-      </div>`;
-    }).join('');
-
-    overlay.innerHTML=`<div class="argos-branch-visit-modal argos-branch-visit-modal-v43" role="dialog" aria-modal="true">
-      <div class="argos-branch-visit-kicker">${isNew?'NUEVA RAMA':'RAMA REPETIDA'}</div>
-      <h2>${title}</h2>
-      <p>${intro}</p>
-      ${cards}
-      <div class="argos-branch-visit-actions">
-        <button type="button" class="argos-branch-visit-menu" id="argosBranchVisitMenu">Aceptar y volver al menú</button>
-        <button type="button" class="argos-branch-visit-ficha" id="argosBranchVisitFicha">Ver ficha</button>
-      </div>
-    </div>`;
-
-    document.body.appendChild(overlay);
-
-    overlay.querySelectorAll('[data-incident-group]').forEach(input=>{
-      input.addEventListener('change',()=>{
-        if(!input.checked)return;
-        const card=input.closest('.argos-branch-visit-card');
-        const cardIndex=[...overlay.querySelectorAll('.argos-branch-visit-card')].indexOf(card);
-        const item=items[cardIndex];
-        const groups=item?pendingHistoricalIncidents(item.previous):[];
-        const group=groups[Number(input.dataset.incidentGroup)];
-        if(!group)return;
-        if(markHistoricalIncidentGroupSolved(group)){
-          const row=input.closest('.argos-branch-incident-old');
-          if(row)row.remove();
-          const block=card?.querySelector('.argos-branch-history-block');
-          if(block&&!block.querySelector('.argos-branch-incident-old')){
-            block.innerHTML='<div class="argos-branch-history-heading">Incidencias pendientes anteriores</div><div class="argos-branch-history-help">No quedan incidencias antiguas pendientes para esta rama.</div>';
-          }
-        }else{
-          input.checked=false;
-          if(typeof toast==='function')toast('No se ha podido guardar el estado de la incidencia');
-        }
-      });
-    });
-
-    overlay.querySelectorAll('[data-edit-service]').forEach(btn=>{
-      btn.onclick=()=>{
-        const service=readStoredServices().find(s=>String(s?.id||'')===String(btn.dataset.editService||''))||null;
-        if(service)openAnnotationEditor(service);
-      };
-    });
-
-    overlay.querySelector('#argosBranchVisitMenu').onclick=()=>{
-      close();
-      if(typeof showScreen==='function')showScreen('menu');
-    };
-
-    overlay.querySelector('#argosBranchVisitFicha').onclick=()=>{
-      const x=items[0];
-      close();
-      const vehicle=x.vehicle||findUnit(x.series,'',x.branch)?.unit?.vehiculoBase||'';
-      if(typeof openFicha==='function')openFicha(x.series,vehicle,x.service||null);
-    };
-  }
-
-  function process(before,service){
-    if(!service)return;
-    const serviceId=String(service.id||'');
-    if(serviceId && window.__argosBranchVisitShown===serviceId)return;
-    if(serviceId)window.__argosBranchVisitShown=serviceId;
-
-    const compositions=serviceCompositions(service);
-
-    // Seguridad: algunos servicios antiguos o guardados por rutas especiales
-    // pueden no traer la rama persistida aunque el vehículo permita obtenerla.
-    // En ese caso reconstruimos la primera composición antes de decidir si la
-    // rama es nueva o repetida.
-    if(!compositions.length){
-      const series=String(service.series||service.serie||'').trim();
-      let vehicle=String(service.vehicle||service.vehiculo||'').trim();
-      let branch=window.ARGOS_NORMALIZE_BRANCH(service.branch||service.rama||'');
-      if(!branch&&series&&vehicle){
-        const found=findUnit(series,vehicle,'');
-        if(found?.unit?.rama)branch=window.ARGOS_NORMALIZE_BRANCH(found.unit.rama);
-        if(!vehicle&&found?.unit?.vehiculoBase)vehicle=String(found.unit.vehiculoBase);
-      }
-      if(series&&branch)compositions.push({series,vehicle,branch});
-    }
-
-    const items=[];
-    compositions.forEach(c=>{
-      const previous=previousOccurrences(before,c.series,c.branch);
-      items.push({series:c.series,branch:c.branch,vehicle:c.vehicle,isNew:previous.length===0,previous,service});
-    });
-    if(items.length)showModal(items);
-  }
-
-  // Esta función es la que ya utilizan las extensiones de rama manual y doble composición.
-  // La reemplazamos para que ambas entren en exactamente la misma lógica.
-  window.argosHandleFirstNewBranches=function(beforeList,afterList,service){
-    process(Array.isArray(beforeList)?beforeList:[],service);
-  };
-
-  function install(){
-    const form=document.getElementById('serviceForm');
-    if(!form||form.dataset.branchVisitV34==='1')return;
-    form.dataset.branchVisitV34='1';
-
-    // CAPTURA: tiene que ejecutarse antes que los handlers que usan stopImmediatePropagation
-    // para guardar ramas manuales y dobles composiciones.
-    form.addEventListener('submit',function(){
-      const before=typeof services==='function'?services().slice():[];
-      setTimeout(function(){
-        try{
-          const after=typeof services==='function'?services():[];
-          if(after.length<=before.length)return;
-          const current=after[after.length-1];
-          if(current)process(before,current);
-        }catch(e){console.warn('ARGOS V34 · aviso rama:',e)}
-      },350);
-    },true);
-  }
-
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
-  else install();
-  window.addEventListener('load',install,{once:true});
-})();
-</script>
 
 <!-- Conserva íntegramente el filtro de productos V29 -->
 
@@ -12317,17 +11679,57 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     overlay.querySelector('#argosBranchVisitFichaV10').onclick=()=>openFicha(items[0]?.service,items[0]);
   }
 
+  function showNoBranch(service,error){
+    close();
+    const overlay=document.createElement('div');
+    overlay.id='argosBranchVisitOverlay';
+    overlay.className='argos-branch-visit-overlay';
+    overlay.style.zIndex='2147483647';
+    overlay.innerHTML=`<div class="argos-branch-visit-modal argos-branch-visit-modal-v43" role="dialog" aria-modal="true">
+      <div class="argos-branch-visit-kicker">SERVICIO GUARDADO</div>
+      <h2>No se ha podido identificar la rama</h2>
+      <p>El servicio se ha guardado correctamente, pero ARGOS no ha podido determinar la rama asociada. Puedes volver al menú o abrir la ficha para comprobar los datos.</p>
+      <div class="argos-branch-visit-card">
+        <strong>Serie ${esc(service?.series||service?.serie||'—')}</strong>
+        <span>Vehículo ${esc(service?.vehicle||service?.vehiculo||'—')}</span>
+      </div>
+      <div class="argos-branch-visit-actions">
+        <button type="button" class="argos-branch-visit-menu" id="argosBranchVisitMenuV10">Aceptar y volver al menú</button>
+        <button type="button" class="argos-branch-visit-ficha" id="argosBranchVisitFichaV10">Ver ficha</button>
+      </div>
+    </div>`;
+    document.body.appendChild(overlay);
+    overlay.querySelector('#argosBranchVisitMenuV10').onclick=()=>{close();if(typeof showScreen==='function')showScreen('menu')};
+    overlay.querySelector('#argosBranchVisitFichaV10').onclick=()=>{
+      const series=String(service?.series||service?.serie||'').trim();
+      const vehicle=String(service?.vehicle||service?.vehiculo||'').trim();
+      close();
+      if(typeof openFicha==='function')openFicha(series,vehicle,service);
+      else if(typeof window.openFicha==='function')window.openFicha(series,vehicle,service);
+    };
+    if(error) console.error('ARGOS · detalle de identificación de rama:',error);
+  }
+
   window.argosHandleFirstNewBranches=function(beforeList,afterList,service){
     try{
       const id=String(service?.id||'');
       if(id&&window.__argosBranchVisitShownV10===id)return;
+
       const before=Array.isArray(beforeList)?beforeList:[];
       const comps=compositions(service);
       const items=comps.map(c=>{
         const prev=previous(before,c);
         return {...c,previous:prev,isNew:prev.length===0,service};
       });
-      if(items.length){if(id)window.__argosBranchVisitShownV10=id;show(items);return}
+
+      if(items.length){
+        if(id)window.__argosBranchVisitShownV10=id;
+        show(items);
+        return;
+      }
+
+      // Último intento: reconstruir la rama usando serie + vehículo, incluso
+      // cuando el servicio proceda de una versión antigua de ARGOS.
       const fallback=findBranch(service,false);
       if(fallback.series&&fallback.branch){
         const prev=previous(before,fallback);
@@ -12335,12 +11737,13 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
         show([{...fallback,previous:prev,isNew:prev.length===0,service}]);
         return;
       }
-      if(typeof toast==='function')toast('Servicio guardado');
-      if(typeof showScreen==='function')showScreen('menu');
+
+      // Nunca dejamos al usuario en Añadir servicio ni mostramos un toast que
+      // desaparece. El aviso permanece hasta que el usuario decide qué hacer.
+      showNoBranch(service);
     }catch(error){
-      console.error('ARGOS V10 · aviso de rama:',error);
-      if(typeof toast==='function')toast('Servicio guardado');
-      if(typeof showScreen==='function')showScreen('menu');
+      console.error('ARGOS · aviso de rama:',error);
+      showNoBranch(service,error);
     }
   };
 
