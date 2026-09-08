@@ -11585,3 +11585,38 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 }
 </style>
 
+
+
+<style id="argos-mobile-texto-final">
+/* ARGOS · SOLO AJUSTE DE TEXTO EN TARJETAS MÓVILES
+   NO CAMBIA EL TAMAÑO NI LA POSICIÓN DE LOS BOTONES */
+@media (max-width:600px){
+  #menu.menu-screen.active > .argos-home > .home-list > .home-card h2,
+  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card h2{
+    font-size:18px !important;
+    line-height:1.05 !important;
+    font-weight:800 !important;
+    white-space:normal !important;
+    overflow:visible !important;
+    text-overflow:clip !important;
+    word-break:normal !important;
+    overflow-wrap:normal !important;
+    hyphens:none !important;
+    max-width:100% !important;
+  }
+
+  #menu.menu-screen.active > .argos-home > .home-list > .home-card > span:last-child,
+  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card > span:last-child{
+    min-width:0 !important;
+    max-width:100% !important;
+    overflow:visible !important;
+  }
+}
+
+@media (max-width:600px) and (max-height:700px){
+  #menu.menu-screen.active > .argos-home > .home-list > .home-card h2,
+  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card h2{
+    font-size:17px !important;
+  }
+}
+</style>
