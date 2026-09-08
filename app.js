@@ -111,6 +111,7 @@ function showScreen(id){
   if(id==="history")renderHistory();
   if(id==="stats")renderStats();
   if(id==="progress")renderProgress();
+  if(id==="notesPad")renderNotes();
   refreshHome();
 }
 window.showScreen=showScreen;
@@ -26259,6 +26260,56 @@ function renderProgress(){
 }
 window.renderProgress=renderProgress;
 
+const NOTES_KEY="argos_notes";
+
+function updateNotesCount(){
+  const editor=$("notesEditor"),count=$("notesCount");
+  if(!editor||!count)return;
+  const total=editor.value.length;
+  count.textContent=total===1?"1 carácter":`${total} caracteres`;
+}
+
+function renderNotes(){
+  const editor=$("notesEditor"),saved=$("notesSaved");
+  if(!editor)return;
+  try{
+    editor.value=localStorage.getItem(NOTES_KEY)||"";
+  }catch(e){
+    editor.value="";
+  }
+  updateNotesCount();
+  if(saved)saved.textContent="Guardado";
+}
+
+function initNotes(){
+  const editor=$("notesEditor"),clear=$("notesClear");
+  if(!editor||editor.dataset.notesReady==="1")return;
+  editor.dataset.notesReady="1";
+  renderNotes();
+  editor.addEventListener("input",()=>{
+    try{
+      localStorage.setItem(NOTES_KEY,editor.value);
+      const saved=$("notesSaved");
+      if(saved)saved.textContent="Guardado";
+    }catch(e){
+      const saved=$("notesSaved");
+      if(saved)saved.textContent="No se pudo guardar";
+    }
+    updateNotesCount();
+  });
+  if(clear)clear.addEventListener("click",()=>{
+    if(!editor.value)return;
+    if(!window.confirm("¿Quieres borrar todas las notas guardadas en este dispositivo?"))return;
+    editor.value="";
+    try{localStorage.removeItem(NOTES_KEY)}catch(e){}
+    updateNotesCount();
+    const saved=$("notesSaved");
+    if(saved)saved.textContent="Guardado";
+    editor.focus();
+  });
+}
+window.renderNotes=renderNotes;
+
 function refreshHome(){
   const a=services(),latest=latestServiceByDate(a);
   if($("latestService")){
@@ -26282,7 +26333,7 @@ if($("viewFichaFromForm")) $("viewFichaFromForm").addEventListener("click",()=>{
 
 
 
-document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();renderStats();renderProgress()});
+document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();renderStats();renderProgress();initNotes()});
 
 (function(){
   if(document.getElementById("argos-general-ficha-clean")) return;
