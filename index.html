@@ -1543,9 +1543,10 @@ button:focus:not(:focus-visible),
 
 <!-- ARGOS · VERSIÓN PÚBLICA Y REGISTRO DE ACTUALIZACIONES -->
 <script id="argos-app-version-config">
-  window.ARGOS_APP_VERSION = "5.0";
-  window.ARGOS_UPDATE_TITLE = "ARGOS 5.0";
+  window.ARGOS_APP_VERSION = "5.5";
+  window.ARGOS_UPDATE_TITLE = "ARGOS 5.5";
   window.ARGOS_UPDATE_ITEMS = [
+    "En esta actualización se ha modificado el menú de ARGOS, renovando su diseño para hacerlo más claro, moderno y cómodo de usar.",
     "Nuevo menú Más funciones para las herramientas adicionales de ARGOS.",
     "Nuevo diseño responsive: el menú principal se adapta al tamaño real de la pantalla del móvil y conserva la bienvenida y la esencia visual de ARGOS.",
     "Biblioteca reorganizada: las series y las ramas se muestran ordenadas de forma ascendente para localizar el material más rápido.",
@@ -3315,7 +3316,7 @@ body:not(.dark) select{
 <div id="argosUpdateNotice" class="argos-update-notice" role="dialog" aria-modal="true" aria-labelledby="argosUpdateNoticeTitle" aria-describedby="argosUpdateNoticeIntro">
   <div class="argos-update-notice-card">
     <div class="argos-update-notice-kicker">ACTUALIZACIÓN DISPONIBLE</div>
-    <h3 id="argosUpdateNoticeTitle">ARGOS se ha actualizado</h3>
+    <h3 id="argosUpdateNoticeTitle">ARGOS 5.5 · Menú renovado</h3>
     <p id="argosUpdateNoticeIntro" class="argos-update-intro">Esta actualización contiene:</p>
     <ul id="argosUpdateNoticeList" class="argos-update-notice-list"></ul>
     <button id="argosUpdateNoticeAccept" class="argos-update-notice-accept" type="button">Aceptar</button>
@@ -11681,104 +11682,6 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   #menu.menu-screen.active > .argos-home > .home-list > .home-card h2,
   #more-functions.menu-screen.active > .argos-home > .home-list > .home-card h2{
     font-size:18px !important;
-  }
-}
-</style>
-
-
-<style id="argos-mobile-texto-sin-pictogramas-final">
-/* =========================================================
-   ARGOS 5.0 · MENÚ MÓVIL · TEXTO LIMPIO / ESTILO RENFE
-   SOLO modifica el CONTENIDO INTERNO de las tarjetas.
-   NO modifica tamaño, posición, separación ni estructura exterior.
-   ========================================================= */
-@media (max-width:600px){
-
-  /* Eliminar pictogramas SOLO en móvil. */
-  #menu.menu-screen.active > .argos-home > .home-list > .home-card .home-icon,
-  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card .home-icon{
-    display:none !important;
-  }
-
-  /* La tarjeta queda dedicada al texto. */
-  #menu.menu-screen.active > .argos-home > .home-list > .home-card,
-  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card{
-    display:flex !important;
-    align-items:center !important;
-    justify-content:center !important;
-    text-align:center !important;
-    padding:10px 16px !important;
-    box-sizing:border-box !important;
-  }
-
-  /* Contenedor del título: todo el ancho útil. */
-  #menu.menu-screen.active > .argos-home > .home-list > .home-card > span:last-child,
-  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card > span:last-child{
-    display:flex !important;
-    align-items:center !important;
-    justify-content:center !important;
-    width:100% !important;
-    min-width:0 !important;
-    max-width:100% !important;
-    overflow:visible !important;
-    text-align:center !important;
-  }
-
-  /* Títulos grandes, limpios y sin recortes. */
-  #menu.menu-screen.active > .argos-home > .home-list > .home-card h2,
-  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card h2{
-    display:block !important;
-    width:100% !important;
-    max-width:100% !important;
-    margin:0 !important;
-    padding:0 !important;
-    color:inherit !important;
-    font-size:22px !important;
-    line-height:1.05 !important;
-    font-weight:800 !important;
-    letter-spacing:-.45px !important;
-    white-space:normal !important;
-    overflow:visible !important;
-    text-overflow:clip !important;
-    overflow-wrap:normal !important;
-    word-break:normal !important;
-    hyphens:none !important;
-  }
-
-  /* La tarjeta principal conserva el magenta y el texto blanco. */
-  #menu.menu-screen.active > .argos-home > .home-list > .home-card.primary h2{
-    color:#fff !important;
-  }
-
-  /* Sin información secundaria en estas tarjetas. */
-  #menu.menu-screen.active > .argos-home > .home-list > .home-card .latest-service-value,
-  #menu.menu-screen.active > .argos-home > .home-list > .last-time-card label,
-  #menu.menu-screen.active > .argos-home > .home-list > .last-time-card select,
-  #menu.menu-screen.active > .argos-home > .home-list > .home-card p,
-  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card p{
-    display:none !important;
-  }
-
-  /* Bienvenida: exactamente 1 punto menos que el tamaño actual. */
-  #menu.menu-screen.active > .argos-home > .welcome-card h1,
-  #more-functions.menu-screen.active > .argos-home > .welcome-card h1{
-    font-size:33px !important;
-    line-height:1.05 !important;
-    letter-spacing:-.035em !important;
-  }
-
-  /* En pantallas especialmente estrechas, mantenemos el título grande
-     pero permitimos dos líneas sin cortar nada. */
-  @media (max-width:380px){
-    #menu.menu-screen.active > .argos-home > .home-list > .home-card h2,
-    #more-functions.menu-screen.active > .argos-home > .home-list > .home-card h2{
-      font-size:21px !important;
-    }
-
-    #menu.menu-screen.active > .argos-home > .welcome-card h1,
-    #more-functions.menu-screen.active > .argos-home > .welcome-card h1{
-      font-size:32px !important;
-    }
   }
 }
 </style>
