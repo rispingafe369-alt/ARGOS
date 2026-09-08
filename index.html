@@ -2884,6 +2884,7 @@ body:not(.dark) select{
       </div>
       <button id="addNote" class="add-entry-button" type="button">＋ Añadir anotación</button>
       <div id="notesEntries" class="entries-list"></div>
+      <div id="argosPreviousBranchNotes" class="argos-previous-branch-notes" aria-live="polite" hidden></div>
     </div>
 
     <div class="form-section-title">INCIDENCIAS</div>
@@ -6029,6 +6030,48 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     return d.getTime();
   }
 
+  function noteItems(s){
+    if(!s)return[];
+    const out=[];
+    if(Array.isArray(s.notesEntries)){
+      s.notesEntries.forEach(x=>{
+        const text=x&&typeof x==='object'
+          ? String(x.text??x.value??x.description??'').trim()
+          : String(x??'').trim();
+        if(text)out.push(text);
+      });
+    }
+    const legacy=String(s.notes??'').trim();
+    if(legacy&&!out.some(x=>normalizeText(x)===normalizeText(legacy)))out.push(legacy);
+    return out;
+  }
+
+  function branchNotes(series,branch){
+    const wanted=branchKey(series,branch);
+    if(!wanted)return[];
+
+    const ordered=services().map((service,index)=>({service,index,dateStamp:serviceDateStamp(service)}))
+      .filter(item=>{
+        const raw=String(item.service?.date??item.service?.fecha??'').trim();
+        if(!raw)return true;
+        return item.dateStamp<=Date.now();
+      })
+      .filter(item=>{
+        const b=getBranch(item.service);
+        return branchKey(b.series,b.branch)===wanted;
+      })
+      .sort((a,b)=>a.dateStamp-b.dateStamp || a.index-b.index);
+
+    const seen=new Map();
+    ordered.forEach(({service})=>{
+      noteItems(service).forEach(text=>{
+        const key=normalizeText(text);
+        if(key&&!seen.has(key))seen.set(key,text);
+      });
+    });
+    return [...seen.values()];
+  }
+
   function incidentItems(s){
     if(!s)return[];
     const out=[];
@@ -6081,27 +6124,43 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
   function render(){
     const box=$('argosPreviousBranchIncidents');
+    const notesBox=$('argosPreviousBranchNotes');
     const series=$('series');
     const branch=$('branchValue');
     const incidentsInput=$('incidents');
     const incidentsList=$('incidentsEntries');
-    if(!box||!series||!branch)return;
+    if(!series||!branch)return;
 
     const s=norm(series.value);
     const b=norm(branch.value);
     const list=activeIncidents(s,b);
+    const notes=branchNotes(s,b);
 
-    if(!s||!b||!list.length){
-      box.hidden=true;
-      box.innerHTML='';
-      return;
+    if(box){
+      if(!s||!b||!list.length){
+        box.hidden=true;
+        box.innerHTML='';
+      }else{
+        box.hidden=false;
+        box.innerHTML=
+          '<div class="argos-previous-branch-incidents-title">Incidencias activas de esta rama</div>'+
+          '<div class="argos-previous-branch-incidents-subtitle">Estas incidencias siguen pendientes y se arrastran desde servicios anteriores. No vuelvas a introducirlas.</div>'+
+          list.map(x=>'<div class="argos-previous-branch-incident">'+escapeHtml(x)+'</div>').join('');
+      }
     }
 
-    box.hidden=false;
-    box.innerHTML=
-      '<div class="argos-previous-branch-incidents-title">Incidencias activas de esta rama</div>'+
-      '<div class="argos-previous-branch-incidents-subtitle">Estas incidencias siguen pendientes y se arrastran desde servicios anteriores. No vuelvas a introducirlas.</div>'+
-      list.map(x=>'<div class="argos-previous-branch-incident">'+escapeHtml(x)+'</div>').join('');
+    if(notesBox){
+      if(!s||!b||!notes.length){
+        notesBox.hidden=true;
+        notesBox.innerHTML='';
+      }else{
+        notesBox.hidden=false;
+        notesBox.innerHTML=
+          '<div class="argos-previous-branch-notes-title">Anotaciones registradas de esta rama</div>'+
+          '<div class="argos-previous-branch-notes-subtitle">Estas anotaciones ya se registraron anteriormente con esta rama. Revísalas antes de añadir una nueva para evitar duplicados.</div>'+
+          notes.map(x=>'<div class="argos-previous-branch-note">'+escapeHtml(x)+'</div>').join('');
+      }
+    }
 
     // Si el usuario ya ha escrito una de las incidencias activas, la eliminamos
     // del campo temporal para evitar que termine duplicada al guardar.
@@ -8151,6 +8210,15 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     .argos-branch-annotation-item button{width:100%}
     .argos-branch-annotation-actions{flex-direction:column}
   }
+</style>
+
+<style id="argos-branch-notes-preview-v7-style">
+  .argos-previous-branch-notes{margin-top:14px;padding:14px 15px;border:1px solid rgba(138,0,92,.15);border-radius:15px;background:var(--soft,#f7eaf2)}
+  .argos-previous-branch-notes[hidden]{display:none!important}
+  .argos-previous-branch-notes-title{color:var(--renfe,#8a005c);font-size:11px;font-weight:900;letter-spacing:.07em;text-transform:uppercase;margin-bottom:7px}
+  .argos-previous-branch-notes-subtitle{color:var(--muted,#777);font-size:12px;line-height:1.4;margin-bottom:8px}
+  .argos-previous-branch-note{padding:9px 10px;margin-top:6px;border-radius:10px;background:var(--card,#fff);border:1px solid var(--line,#ddd);font-size:13px;line-height:1.35}
+  .argos-previous-branch-note::before{content:'•';color:var(--renfe,#8a005c);font-weight:900;margin-right:7px}
 </style>
 <style id="argos-branch-incidents-v45-style">
   .argos-previous-branch-incidents{margin-top:14px;padding:14px 15px;border:1px solid rgba(138,0,92,.15);border-radius:15px;background:var(--soft,#f7eaf2)}
