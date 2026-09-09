@@ -11957,3 +11957,176 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   });
 })();
 </script>
+
+
+<!-- ARGOS · DATOS DESTACADOS COMPARTIDOS TAMBIÉN EN FICHAS DEL HISTORIAL -->
+<script id="argos-shared-highlights-history-v1">
+(function(){
+  'use strict';
+
+  const TABLE='argos_branch_highlights';
+
+  function esc(v){
+    return String(v??'').replace(/[&<>"']/g,c=>({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[c]));
+  }
+
+  function norm(v){
+    return String(v??'').trim().replace(/\s+/g,' ').replace(/[._-]+$/g,'');
+  }
+
+  function digits(v){return String(v??'').replace(/\D/g,'')}
+
+  function branchFromService(service){
+    const series=norm(service?.series||service?.serie||'');
+    let vehicle=norm(service?.vehicle||service?.vehiculo||'');
+    let branch=norm(service?.branch||service?.rama||'');
+
+    if((!series||!vehicle)&&service?.composition2){
+      // La ficha normal utiliza la composición que se le pasa; este bloque no
+      // sustituye la principal, solo sirve como respaldo para registros antiguos.
+      const s2=norm(service.composition2.series),v2=norm(service.composition2.vehicle),b2=norm(service.composition2.branch);
+      if(!series&&s2) return {series:s2,vehicle:v2,branch:b2};
+    }
+
+    if(!branch&&series&&vehicle&&typeof window.getFleetUnit==='function'){
+      try{
+        const unit=window.getFleetUnit(series,vehicle);
+        if(unit?.rama)branch=norm(unit.rama);
+      }catch(e){}
+    }
+
+    if(!branch&&series&&vehicle&&typeof window.fleet!=='undefined'){
+      try{
+        const units=window.fleet?.[digits(series)]?.units||{};
+        const v=digits(vehicle);
+        for(const [k,u] of Object.entries(units)){
+          const codes=[k,u?.vehiculoBase,u?.numero,...(Array.isArray(u?.searchCodes)?u.searchCodes:[])].map(digits).filter(Boolean);
+          if(v&&codes.includes(v)){branch=norm(u?.rama||'');break;}
+        }
+      }catch(e){}
+    }
+
+    if(typeof window.ARGOS_NORMALIZE_BRANCH==='function'){
+      try{branch=window.ARGOS_NORMALIZE_BRANCH(branch)}catch(e){}
+    }
+    return {series,vehicle,branch};
+  }
+
+  async function getClient(){
+    const client=window.argosSupabase||window.argosSupabaseClient||null;
+    if(!client)throw new Error('Cliente Supabase no disponible.');
+    const session=await client.auth.getSession();
+    if(session?.error)throw session.error;
+    if(!session?.data?.session)throw new Error('Sesión no disponible.');
+    return client;
+  }
+
+  async function fetchHighlights(series,branch){
+    if(!series||!branch)return [];
+    const client=await getClient();
+    const {data,error}=await client
+      .from(TABLE)
+      .select('id,series,branch,content,created_at')
+      .eq('series',series)
+      .eq('branch',branch)
+      .order('created_at',{ascending:true});
+    if(error)throw error;
+    return Array.isArray(data)?data:[];
+  }
+
+  function findHistoryService(){
+    const content=document.getElementById('fichaContent');
+    if(!content)return null;
+    let service=window.__argosV45FichaService||window.__argosV74FichaService||null;
+    if(service)return service;
+
+    const ficha=document.getElementById('ficha');
+    const id=ficha?.dataset?.argosServiceId||'';
+    if(!id)return null;
+    try{
+      const all=JSON.parse(localStorage.getItem('argos_services')||'[]');
+      return Array.isArray(all)?all.find(s=>String(s?.id||'')===String(id))||null:null;
+    }catch(e){return null}
+  }
+
+  function render(section,items){
+    const list=section.querySelector('[data-argos-history-shared-list]');
+    if(!list)return;
+    const seen=new Set();
+    const values=(Array.isArray(items)?items:[])
+      .map(x=>String(x?.content??'').trim())
+      .filter(Boolean)
+      .filter(v=>{
+        const k=v.toLocaleLowerCase('es-ES').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+        if(seen.has(k))return false;
+        seen.add(k);return true;
+      });
+
+    list.innerHTML=values.length
+      ? values.map(v=>`<div class="ficha-note">${esc(v)}</div>`).join('')
+      : `<div class="ficha-empty-inline">No hay datos destacados registrados para esta rama.</div>`;
+  }
+
+  async function attachToHistory(service){
+    const content=document.getElementById('fichaContent');
+    if(!content||!service)return;
+
+    // ArgosDex ya crea su propia sección y su propio cargador. No duplicamos nada.
+    if(content.querySelector('[data-argos-shared-highlights]'))return;
+
+    const info=branchFromService(service);
+    if(!info.series||!info.branch)return;
+
+    let section=content.querySelector('#argosHistorySharedHighlights');
+    if(!section){
+      section=document.createElement('div');
+      section.id='argosHistorySharedHighlights';
+      section.className='ficha-section argos-shared-highlights-section';
+      section.innerHTML=`
+        <div class="argos-shared-highlights-head">
+          <div class="ficha-section-title">DATOS DESTACADOS DE LA RAMA</div>
+        </div>
+        <div class="argos-shared-highlights-list" data-argos-history-shared-list>
+          <div class="ficha-empty-inline">Cargando datos destacados compartidos…</div>
+        </div>`;
+      content.appendChild(section);
+    }
+
+    section.dataset.series=info.series;
+    section.dataset.branch=info.branch;
+
+    try{
+      const items=await fetchHighlights(info.series,info.branch);
+      render(section,items);
+    }catch(error){
+      console.error('ARGOS · datos destacados del historial:',error);
+      const list=section.querySelector('[data-argos-history-shared-list]');
+      if(list)list.innerHTML='<div class="ficha-empty-inline">No se han podido cargar los datos destacados compartidos.</div>';
+    }
+  }
+
+  function install(){
+    if(typeof window.openFicha!=='function')return;
+    if(window.__argosSharedHighlightsHistoryInstalled)return;
+    window.__argosSharedHighlightsHistoryInstalled=true;
+
+    const original=window.openFicha;
+    window.openFicha=function(series,vehicle,service=null){
+      const result=original(series,vehicle,service);
+      if(service){
+        // Dos intentos cubren tanto la construcción inmediata como las fichas
+        // que otras capas de ARGOS terminan de pintar unos milisegundos después.
+        setTimeout(()=>attachToHistory(service),30);
+        setTimeout(()=>attachToHistory(service),220);
+      }
+      return result;
+    };
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
+  else install();
+  window.addEventListener('load',install,{once:true});
+})();
+</script>
