@@ -9835,11 +9835,16 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
       const notes=Array.isArray(unit.notas)?unit.notas.flat(Infinity).filter(Boolean):[];
       const highlights=`
-        <div class="ficha-section">
-          <div class="ficha-section-title">DATOS DESTACADOS DE LA RAMA</div>
-          ${notes.length
-            ? `<div class="ficha-notes">${notes.map(n=>`<div class="ficha-note">${esc(n)}</div>`).join('')}</div>`
-            : `<div class="ficha-empty-inline">No hay acontecimientos destacados registrados para esta rama.</div>`}
+        <div class="ficha-section argos-shared-highlights-section" data-argos-shared-highlights data-series="${esc(series)}" data-branch="${esc(fichaBranch)}">
+          <div class="argos-shared-highlights-head">
+            <div class="ficha-section-title">DATOS DESTACADOS DE LA RAMA</div>
+            <button type="button" class="argos-shared-highlights-add" data-argos-branch-add aria-label="Añadir dato destacado" title="Añadir dato destacado">＋</button>
+          </div>
+          <div class="argos-shared-highlights-list" data-argos-shared-list>
+            ${notes.length
+              ? notes.map(n=>`<div class="ficha-note">${esc(n)}</div>`).join('')
+              : `<div class="ficha-empty-inline">Cargando datos destacados compartidos…</div>`}
+          </div>
         </div>`;
 
       const general=Array.isArray(unit.generalNotes)?unit.generalNotes.flat(Infinity).filter(Boolean)
@@ -9852,6 +9857,157 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
       const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>Serie ${esc(series)}${fichaSubserie?` · ${esc(fichaSubserie)}`:''} · Rama ${esc(fichaBranch)}${unit.lote?` · ${esc(unit.lote)}`:''}</h3><p>Vehículo ${esc(fichaVehicle||'—')} · ${esc(unit.numero||'—')}</p></div>`;
       return `${hero}${identification}${highlights}${generalBlock}`;
+    }
+
+    const SHARED_SUPABASE_URL='https://ujophjilcqnphvdiamex.supabase.co';
+    const SHARED_SUPABASE_KEY='sb_publishable_0Q7GZKAXlAwDB0bm9tU63A_VPv5gaSC';
+    const SHARED_HIGHLIGHTS_TABLE='argos_branch_highlights';
+    let sharedClient=null;
+
+    function sharedNormalize(value){
+      return String(value??'').trim().replace(/\s+/g,' ').replace(/[._-]+$/g,'');
+    }
+
+    async function getSharedClient(){
+      try{
+        const existing=window.argosSupabase||window.argosSupabaseClient||null;
+        if(existing){
+          sharedClient=existing;
+          const sessionResult=await sharedClient.auth.getSession();
+          if(sessionResult.error)throw sessionResult.error;
+          if(!sessionResult.data?.session)throw new Error('Necesitas iniciar sesión para utilizar esta función.');
+          return sharedClient;
+        }
+        throw new Error('Servicio de datos no disponible.');
+      }catch(error){
+        sharedClient=null;
+        throw error;
+      }
+    }
+
+    async function loadSharedHighlights(series,branch){
+      const s=sharedNormalize(series),b=sharedNormalize(branch);
+      if(!s||!b)return [];
+      const client=await getSharedClient();
+      const {data,error}=await client
+        .from(SHARED_HIGHLIGHTS_TABLE)
+        .select('id,series,branch,content,created_at')
+        .eq('series',s)
+        .eq('branch',b)
+        .order('created_at',{ascending:true});
+      if(error)throw error;
+      return Array.isArray(data)?data:[];
+    }
+
+    function renderSharedHighlights(section,items,staticNotes=[]){
+      if(!section)return;
+      const list=section.querySelector('[data-argos-shared-list]');
+      if(!list)return;
+      const escLocal=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+      const shared=Array.isArray(items)?items.map(x=>String(x?.content??'').trim()).filter(Boolean):[];
+      const all=[];
+      const seen=new Set();
+      [...(Array.isArray(staticNotes)?staticNotes:[]),...shared].forEach(value=>{
+        const key=sharedNormalize(value).toLowerCase();
+        if(!key||seen.has(key))return;
+        seen.add(key);
+        all.push(value);
+      });
+      list.innerHTML=all.length
+        ? all.map(n=>`<div class="ficha-note">${escLocal(n)}</div>`).join('')
+        : `<div class="ficha-empty-inline">No hay datos destacados registrados para esta rama.</div>`;
+    }
+
+    async function refreshSharedHighlights(section){
+      if(!section)return;
+      const series=sharedNormalize(section.dataset.series),branch=sharedNormalize(section.dataset.branch);
+      const list=section.querySelector('[data-argos-shared-list]');
+      const staticNotes=Array.isArray(section.__argosStaticNotes)?section.__argosStaticNotes:[];
+      try{
+        const items=await loadSharedHighlights(series,branch);
+        section.__argosSharedItems=items;
+        renderSharedHighlights(section,items,staticNotes);
+      }catch(error){
+        console.error('ARGOSdex · datos destacados compartidos:',error);
+        if(list){
+          const fallback=staticNotes.length
+            ? staticNotes.map(n=>`<div class="ficha-note">${String(n??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]) )}</div>`).join('')
+            : `<div class="ficha-empty-inline">No se han podido cargar los datos destacados compartidos.</div>`;
+          list.innerHTML=fallback;
+        }
+      }
+    }
+
+    function openSharedHighlightDialog(section){
+      if(!section||document.getElementById('argosSharedHighlightDialog'))return;
+      const overlay=document.createElement('div');
+      overlay.id='argosSharedHighlightDialog';
+      overlay.className='argos-shared-highlight-overlay';
+      const series=sharedNormalize(section.dataset.series),branch=sharedNormalize(section.dataset.branch);
+      const escDialog=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+      overlay.innerHTML=`
+        <div class="argos-shared-highlight-modal" role="dialog" aria-modal="true" aria-labelledby="argosSharedHighlightTitle">
+          <div class="argos-shared-highlight-kicker">ARGOSDEX · RAMA ${escDialog(branch)}</div>
+          <h3 id="argosSharedHighlightTitle">Añadir dato destacado</h3>
+          <p>El dato será compartido con el resto de usuarios de ARGOS.</p>
+          <textarea id="argosSharedHighlightInput" maxlength="500" rows="5" placeholder="Escribe el dato destacado…"></textarea>
+          <div class="argos-shared-highlight-count"><span id="argosSharedHighlightCount">0</span>/500</div>
+          <div class="argos-shared-highlight-actions">
+            <button type="button" class="argos-shared-highlight-cancel" id="argosSharedHighlightCancel">Cancelar</button>
+            <button type="button" class="argos-shared-highlight-save" id="argosSharedHighlightSave">Guardar</button>
+          </div>
+          <div id="argosSharedHighlightMessage" class="argos-shared-highlight-message" role="status" aria-live="polite"></div>
+        </div>`;
+      document.body.appendChild(overlay);
+      const input=overlay.querySelector('#argosSharedHighlightInput');
+      const save=overlay.querySelector('#argosSharedHighlightSave');
+      const cancel=overlay.querySelector('#argosSharedHighlightCancel');
+      const message=overlay.querySelector('#argosSharedHighlightMessage');
+      const count=overlay.querySelector('#argosSharedHighlightCount');
+      const close=()=>overlay.remove();
+      const updateCount=()=>{if(count)count.textContent=String(input?.value.length||0)};
+      input?.addEventListener('input',updateCount);
+      cancel?.addEventListener('click',close);
+      overlay.addEventListener('click',e=>{if(e.target===overlay)close()});
+      input?.addEventListener('keydown',e=>{
+        if((e.ctrlKey||e.metaKey)&&e.key==='Enter'){e.preventDefault();save?.click();}
+        if(e.key==='Escape'){e.preventDefault();close();}
+      });
+      save?.addEventListener('click',async()=>{
+        const content=String(input?.value||'').trim();
+        if(!content){if(message)message.textContent='Escribe el dato antes de guardar.';input?.focus();return;}
+        save.disabled=true;
+        cancel.disabled=true;
+        if(message)message.textContent='Guardando…';
+        try{
+          const client=await getSharedClient();
+          const {error}=await client.from(SHARED_HIGHLIGHTS_TABLE).insert({series,branch,content});
+          if(error)throw error;
+          const items=await loadSharedHighlights(series,branch);
+          section.__argosSharedItems=items;
+          renderSharedHighlights(section,items,Array.isArray(section.__argosStaticNotes)?section.__argosStaticNotes:[]);
+          close();
+        }catch(error){
+          console.error('ARGOSdex · guardar dato destacado:',error);
+          if(message)message.textContent='No se ha podido guardar el dato. Comprueba la configuración de datos compartidos.';
+          save.disabled=false;
+          cancel.disabled=false;
+        }
+      });
+      updateCount();
+      setTimeout(()=>input?.focus(),0);
+    }
+
+    async function bindSharedHighlights(series,branch,staticNotes=[]){
+      const section=ficha.querySelector('[data-argos-shared-highlights]');
+      if(!section)return;
+      section.__argosStaticNotes=Array.isArray(staticNotes)?staticNotes.slice():[];
+      const add=section.querySelector('[data-argos-branch-add]');
+      if(add&&!add.dataset.bound){
+        add.dataset.bound='1';
+        add.addEventListener('click',()=>openSharedHighlightDialog(section));
+      }
+      await refreshSharedHighlights(section);
     }
 
     function consultV74(ev){
@@ -9902,6 +10058,9 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
           </div>
         </div>`;
 
+      const staticBranchNotes=Array.isArray(resolved.unit?.notas)?resolved.unit.notas.flat(Infinity).filter(Boolean):[];
+      void bindSharedHighlights(series, effectiveBranch, staticBranchNotes);
+
       result.classList.add('show');
       result.scrollIntoView({behavior:'smooth',block:'start'});
       statusMsg('Consulta realizada correctamente.','success');
@@ -9924,6 +10083,34 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   window.addEventListener('load',install,{once:true});
 })();
 </script>
+
+<style id="argosdex-shared-highlights-v1">
+.argos-shared-highlights-section{position:relative}
+.argos-shared-highlights-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.argos-shared-highlights-head .ficha-section-title{margin-bottom:0}
+.argos-shared-highlights-add{width:34px;height:34px;flex:0 0 34px;border:1px solid rgba(0,0,0,.10);border-radius:11px;background:var(--card,#fff);color:var(--accent,#a00060);font-size:22px;line-height:1;font-weight:900;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.07);display:flex;align-items:center;justify-content:center}
+.argos-shared-highlights-add:active{transform:scale(.97)}
+.argos-shared-highlights-list{display:grid;gap:7px}
+.argos-shared-highlights-list .ficha-note{margin:0}
+.argos-shared-highlight-overlay{position:fixed;inset:0;z-index:100000;background:rgba(8,8,12,.48);display:flex;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(3px)}
+.argos-shared-highlight-modal{width:min(460px,100%);background:var(--card,#fff);color:var(--ink,#15151a);border:1px solid var(--line,rgba(0,0,0,.08));border-radius:22px;box-shadow:0 24px 70px rgba(0,0,0,.25);padding:22px}
+.argos-shared-highlight-kicker{font-size:10px;letter-spacing:.14em;font-weight:900;opacity:.72;margin-bottom:5px}
+.argos-shared-highlight-modal h3{margin:0;font-size:22px}
+.argos-shared-highlight-modal p{margin:7px 0 14px;opacity:.74;font-size:13px;line-height:1.4}
+.argos-shared-highlight-modal textarea{display:block;width:100%;min-height:130px;resize:vertical;box-sizing:border-box;border:1px solid var(--line,rgba(0,0,0,.12));border-radius:14px;background:var(--page,#f6f6f8);color:var(--ink,#15151a);padding:12px;font:inherit;line-height:1.45;outline:none}
+.argos-shared-highlight-modal textarea:focus{border-color:var(--accent,#a00060);box-shadow:0 0 0 3px rgba(160,0,96,.10)}
+.argos-shared-highlight-count{margin-top:6px;font-size:11px;text-align:right;opacity:.58}
+.argos-shared-highlight-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:15px}
+.argos-shared-highlight-actions button{min-height:46px;border-radius:13px;border:1px solid var(--line,rgba(0,0,0,.10));font:inherit;font-weight:900;cursor:pointer}
+.argos-shared-highlight-cancel{background:var(--page,#f4f4f6);color:var(--ink,#15151a)}
+.argos-shared-highlight-save{background:var(--accent,#a00060);color:#fff;border-color:transparent}
+.argos-shared-highlight-message{min-height:18px;margin-top:10px;font-size:12px;opacity:.78}
+@media(max-width:600px){
+  .argos-shared-highlights-add{width:32px;height:32px;flex-basis:32px}
+  .argos-shared-highlight-overlay{align-items:flex-end;padding:12px}
+  .argos-shared-highlight-modal{border-radius:22px 22px 16px 16px;padding:18px}
+}
+</style>
 
 <style id="argosdex-real-scroll-final-v1">
 /* ================================================================
