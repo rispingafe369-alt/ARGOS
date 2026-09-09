@@ -2718,6 +2718,10 @@ body:not(.dark) select{
         <span class="home-icon">✎</span>
         <span><h2>Notas</h2></span>
       </button>
+      <button class="home-card" type="button" data-screen="exportServices">
+        <span class="home-icon">⇩</span>
+        <span><h2>Exportación</h2></span>
+      </button>
     </div>
     <div class="argos-footer-action">
       <button class="more-functions-back argos-identical-action" type="button" aria-label="Volver al menú principal">
@@ -2725,6 +2729,71 @@ body:not(.dark) select{
         <span>Volver</span>
       </button>
     </div>
+  </div>
+</section>
+
+<!-- EXPORTACIÓN · ARGOS -->
+<section id="exportServices" class="screen argos-export-screen" aria-label="Exportación">
+  <div class="screen-header">
+    <button class="back-button" data-back type="button">‹</button>
+    <div><div class="screen-kicker">ARGOS · EXPORTACIÓN</div><h2>Exportación</h2></div>
+  </div>
+  <div class="argos-export-shell">
+    <div class="argos-export-hero">
+      <div>
+        <span class="argos-export-kicker">ARGOS · SERVICIOS</span>
+        <h3>Generar PDF</h3>
+        <p>Selecciona los filtros y los campos que quieres incluir. Sin filtros se exportan todos los registros.</p>
+      </div>
+      <div class="argos-export-badge">PDF</div>
+    </div>
+
+    <div class="argos-export-panel">
+      <div class="argos-export-panel-head">
+        <div>
+          <span class="argos-export-panel-kicker">FILTROS DE EXPORTACIÓN</span>
+          <h4>Acota los registros</h4>
+        </div>
+        <button id="argosExportReset" class="argos-export-reset" type="button">↻ Restablecer</button>
+      </div>
+      <div class="argos-export-filters">
+        <div class="argos-export-filter"><label for="argosExportYear">Año</label><select id="argosExportYear"><option value="all">Todos</option></select></div>
+        <div class="argos-export-filter"><label for="argosExportMonth">Mes</label><select id="argosExportMonth"><option value="all">Todos</option><option value="0">Enero</option><option value="1">Febrero</option><option value="2">Marzo</option><option value="3">Abril</option><option value="4">Mayo</option><option value="5">Junio</option><option value="6">Julio</option><option value="7">Agosto</option><option value="8">Septiembre</option><option value="9">Octubre</option><option value="10">Noviembre</option><option value="11">Diciembre</option></select></div>
+        <div class="argos-export-filter"><label for="argosExportProduct">Producto</label><select id="argosExportProduct"><option value="all">Todos</option></select></div>
+        <div class="argos-export-filter"><label for="argosExportSeries">Serie</label><select id="argosExportSeries"><option value="all">Todas</option></select></div>
+      </div>
+    </div>
+
+    <div class="argos-export-panel">
+      <div class="argos-export-panel-head">
+        <div>
+          <span class="argos-export-panel-kicker">CONTENIDO DEL PDF</span>
+          <h4>Campos a exportar</h4>
+        </div>
+        <button id="argosExportAllFields" class="argos-export-reset" type="button">Seleccionar todos</button>
+      </div>
+      <div class="argos-export-fields">
+        <label><input type="checkbox" data-argos-export-field="date" checked><span>Fecha</span></label>
+        <label><input type="checkbox" data-argos-export-field="train" checked><span>Tren</span></label>
+        <label><input type="checkbox" data-argos-export-field="series" checked><span>Serie</span></label>
+        <label><input type="checkbox" data-argos-export-field="branch" checked><span>Rama</span></label>
+        <label><input type="checkbox" data-argos-export-field="vehicle" checked><span>Vehículo</span></label>
+        <label><input type="checkbox" data-argos-export-field="product" checked><span>Producto</span></label>
+        <label><input type="checkbox" data-argos-export-field="origin" checked><span>Origen</span></label>
+        <label><input type="checkbox" data-argos-export-field="destination" checked><span>Destino</span></label>
+        <label><input type="checkbox" data-argos-export-field="kilometres" checked><span>Kilómetros</span></label>
+        <label><input type="checkbox" data-argos-export-field="notes" checked><span>Anotaciones</span></label>
+        <label><input type="checkbox" data-argos-export-field="incidents" checked><span>Incidencias</span></label>
+      </div>
+      <div id="argosExportFieldMessage" class="argos-export-message" role="status" aria-live="polite"></div>
+    </div>
+
+    <div class="argos-export-summary" aria-live="polite">
+      <div><span>Registros</span><strong id="argosExportCount">0</strong></div>
+      <div class="argos-export-summary-text"><span id="argosExportShowing">Mostrando todos los registros</span><small id="argosExportFieldsSummary">11 campos seleccionados</small></div>
+    </div>
+
+    <button id="argosExportGenerate" class="argos-export-generate" type="button">⇩ Generar PDF</button>
   </div>
 </section>
 
@@ -3436,6 +3505,10 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
 .argos-auth-message.ok{color:#16794c;}
 @media(max-width:600px){.argos-auth-screen{padding:16px;align-items:flex-start;padding-top:7vh}.argos-auth-card{padding:22px 18px;border-radius:20px}.argos-auth-logo-wrap{height:70px;border-radius:16px;margin-bottom:12px}.argos-auth-logo-img{width:min(175px,70%);max-height:46px}.argos-auth-kicker{margin-bottom:16px}.argos-auth-card h1{font-size:clamp(24px,8vw,28px);line-height:1.18}.argos-auth-card p{font-size:13.5px;line-height:1.5}}
 </style>
+
+<!-- ARGOS · PDF · jsPDF + AutoTable -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/5.0.8/jspdf.plugin.autotable.min.js"></script>
 
 <script src="app.js"></script>
 
@@ -11960,6 +12033,57 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
 
 <!-- ARGOS · DATOS DESTACADOS COMPARTIDOS TAMBIÉN EN FICHAS DEL HISTORIAL · V15 -->
+
+<style id="argos-export-pdf-v16-style">
+.argos-export-screen{padding:18px 14px 32px!important;overflow-y:auto!important;}
+.argos-export-shell{width:min(980px,100%);margin:0 auto;display:flex;flex-direction:column;gap:12px;}
+.argos-export-hero{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:20px 22px;border-radius:20px;background:linear-gradient(135deg,var(--renfe),#a51b78);color:#fff;box-shadow:0 10px 28px rgba(138,0,92,.15);}
+.argos-export-kicker,.argos-export-panel-kicker{font-size:10px;font-weight:900;letter-spacing:.11em;}
+.argos-export-hero h3{margin:5px 0 4px;font-size:25px;}
+.argos-export-hero p{margin:0;color:rgba(255,255,255,.86);font-size:12px;line-height:1.45;max-width:690px;}
+.argos-export-badge{width:60px;height:60px;flex:0 0 60px;border-radius:17px;background:rgba(255,255,255,.14);display:grid;place-items:center;font-weight:950;font-size:18px;letter-spacing:.06em;}
+.argos-export-panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:15px;box-shadow:var(--shadow);}
+.argos-export-panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:11px;}
+.argos-export-panel-kicker{display:block;color:var(--renfe);}
+.argos-export-panel h4{margin:3px 0 0;font-size:16px;}
+.argos-export-reset{border:1px solid var(--line);border-radius:11px;background:var(--soft);color:var(--renfe);padding:8px 11px;font-size:11px;font-weight:900;cursor:pointer;white-space:nowrap;}
+.argos-export-filters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;}
+.argos-export-filter label{display:block;color:var(--muted);font-size:10px;font-weight:800;margin:0 0 5px;}
+.argos-export-filter select{width:100%;min-height:42px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);padding:8px 10px;font-size:13px;box-sizing:border-box;}
+.argos-export-fields{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;}
+.argos-export-fields label{display:flex;align-items:center;gap:8px;min-height:42px;padding:9px 10px;border:1px solid var(--line);border-radius:12px;background:var(--page);font-size:12px;font-weight:800;cursor:pointer;}
+.argos-export-fields input{width:17px;height:17px;accent-color:var(--renfe);margin:0;flex:0 0 auto;}
+.argos-export-message{min-height:18px;margin-top:8px;color:var(--renfe);font-size:11px;font-weight:800;}
+.argos-export-summary{display:flex;align-items:center;gap:13px;padding:13px 15px;border:1px solid rgba(138,0,92,.15);border-radius:16px;background:var(--soft);}
+.argos-export-summary>div:first-child{min-width:74px;padding-right:13px;border-right:1px solid rgba(138,0,92,.15);}
+.argos-export-summary span,.argos-export-summary small{display:block;color:var(--muted);font-size:10px;font-weight:800;}
+.argos-export-summary strong{display:block;color:var(--renfe);font-size:24px;line-height:1.1;margin-top:2px;}
+.argos-export-summary-text{min-width:0;}
+.argos-export-summary-text span{color:var(--ink);font-size:12px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.argos-export-summary-text small{margin-top:4px;}
+.argos-export-generate{width:100%;min-height:52px;border:0;border-radius:14px;background:var(--renfe);color:#fff;font-size:15px;font-weight:950;cursor:pointer;box-shadow:0 10px 22px rgba(138,0,92,.16);}
+.argos-export-generate:disabled{opacity:.65;cursor:wait;}
+@media(max-width:720px){
+  .argos-export-filters{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .argos-export-fields{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media(max-width:600px){
+  .argos-export-screen{padding:12px 10px 24px!important;}
+  .argos-export-hero{padding:16px;border-radius:18px;}
+  .argos-export-hero h3{font-size:21px;}
+  .argos-export-hero p{font-size:11px;}
+  .argos-export-badge{width:49px;height:49px;flex-basis:49px;font-size:15px;border-radius:14px;}
+  .argos-export-panel{padding:12px;}
+  .argos-export-panel-head{align-items:center;}
+  .argos-export-panel-head h4{font-size:14px;}
+  .argos-export-reset{font-size:10px;padding:7px 9px;}
+  .argos-export-fields{grid-template-columns:1fr 1fr;gap:7px;}
+  .argos-export-fields label{font-size:11px;min-height:40px;padding:8px;}
+  .argos-export-summary{padding:11px 12px;}
+  .argos-export-summary-text span{font-size:11px;}
+}
+</style>
+
 <script id="argos-shared-highlights-history-v15">
 (function(){
   'use strict';
@@ -12175,4 +12299,300 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   else install();
   window.addEventListener('load',install,{once:true});
 })();
+</script>\n<script id="argos-export-pdf-v16">
+(function(){
+  'use strict';
+
+  const MONTHS=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  const FIELD_DEFS={
+    date:{label:'Fecha',get:s=>text(s?.date??s?.fecha)},
+    train:{label:'Tren',get:s=>text(s?.train??s?.tren??s?.number??s?.numero)},
+    series:{label:'Serie',get:s=>text(s?.series??s?.serie??s?.trainSeries)},
+    branch:{label:'Rama',get:s=>{const raw=s?.branch??s?.rama;try{return typeof window.ARGOS_NORMALIZE_BRANCH==='function'?text(window.ARGOS_NORMALIZE_BRANCH(raw)):text(raw)}catch(e){return text(raw)}}},
+    vehicle:{label:'Vehículo',get:s=>text(s?.vehicle??s?.vehiculo??s?.vehicleNumber)},
+    product:{label:'Producto',get:s=>text(s?.product??s?.producto??s?.serviceType??s?.tipoProducto)},
+    origin:{label:'Origen',get:s=>text(s?.origin??s?.origen)},
+    destination:{label:'Destino',get:s=>text(s?.destination??s?.destino)},
+    kilometres:{label:'Kilómetros',get:s=>{const v=s?.kilometres??s?.kilometros??s?.kms;return v===null||v===undefined||String(v).trim()===''?'':String(v)}},
+    notes:{label:'Anotaciones',get:s=>notesOf(s).join(' · ')},
+    incidents:{label:'Incidencias',get:s=>incidentsOf(s).map(x=>x.text).filter(Boolean).join(' · ')}
+  };
+
+  function text(v){return String(v??'').trim()}
+
+  function allServices(){
+    try{
+      if(typeof services==='function'){const a=services();if(Array.isArray(a))return a.slice();}
+    }catch(e){}
+    try{
+      const a=JSON.parse(localStorage.getItem('argos_services')||'[]');
+      return Array.isArray(a)?a:[];
+    }catch(e){return []}
+  }
+
+  function fieldValue(service,names){
+    for(const name of names){
+      const value=service?.[name];
+      if(value!==undefined&&value!==null&&String(value).trim()!=='')return String(value).trim();
+    }
+    return '';
+  }
+
+  function serviceDate(service){
+    const raw=fieldValue(service,['date','fecha','day','dia']);
+    if(!raw)return null;
+    const iso=raw.match(/^(\\d{4})-(\\d{2})-(\\d{2})$/);
+    if(iso){const d=new Date(Number(iso[1]),Number(iso[2])-1,Number(iso[3]));return Number.isNaN(d.getTime())?null:d}
+    let d=new Date(raw);
+    if(Number.isNaN(d.getTime())){const m=raw.match(/^(\\d{1,2})[\\/.-](\\d{1,2})[\\/.-](\\d{4})$/);if(m)d=new Date(Number(m[3]),Number(m[2])-1,Number(m[1]))}
+    return Number.isNaN(d.getTime())?null:d;
+  }
+
+  function notesOf(service){
+    const entries=Array.isArray(service?.notesEntries)?service.notesEntries:[];
+    const out=entries.map(x=>{if(x&&typeof x==='object')return text(x.text??x.value??x.description??'');return text(x)}).filter(Boolean);
+    if(out.length)return out;
+    return text(service?.notes??service?.anotaciones).split(/\\n+/).map(text).filter(Boolean);
+  }
+
+  function incidentsOf(service){
+    const entries=Array.isArray(service?.incidentsEntries)?service.incidentsEntries:[];
+    const out=entries.map(x=>{
+      if(x&&typeof x==='object')return {text:text(x.text??x.value??x.description??''),solved:x.solved===true};
+      return {text:text(x),solved:false};
+    }).filter(x=>x.text);
+    if(out.length)return out;
+    return text(service?.incidents??service?.incidencias).split(/\\n+/).map(text).filter(Boolean).map(t=>({text:t,solved:false}));
+  }
+
+  function activeFilterValues(){
+    return {
+      year:$('argosExportYear')?.value||'all',
+      month:$('argosExportMonth')?.value||'all',
+      product:$('argosExportProduct')?.value||'all',
+      series:$('argosExportSeries')?.value||'all'
+    };
+  }
+
+  function filteredServices(){
+    const all=allServices(),f=activeFilterValues();
+    return all.filter(service=>{
+      const d=serviceDate(service);
+      if(f.year!=='all'&&(!d||String(d.getFullYear())!==String(f.year)))return false;
+      if(f.month!=='all'&&(!d||String(d.getMonth())!==String(f.month)))return false;
+      if(f.product!=='all'&&fieldValue(service,['product','producto','serviceType','tipoProducto'])!==f.product)return false;
+      if(f.series!=='all'&&fieldValue(service,['series','serie','trainSeries'])!==f.series)return false;
+      return true;
+    }).sort((a,b)=>{
+      const da=serviceDate(a),db=serviceDate(b);
+      const diff=(db?db.getTime():-Infinity)-(da?da.getTime():-Infinity);
+      if(diff!==0)return diff;
+      return (Number(b?.createdAt)||0)-(Number(a?.createdAt)||0);
+    });
+  }
+
+  function escHtml(v){
+    return text(v).replace(/[&<>"']/g,c=>{
+      if(c==='&')return '&amp;';
+      if(c==='<')return '&lt;';
+      if(c==='>')return '&gt;';
+      if(c==='"')return '&quot;';
+      return '&#39;';
+    });
+  }
+
+  function selectedFields(){
+    return [...document.querySelectorAll('[data-argos-export-field]')].filter(i=>i.checked).map(i=>i.dataset.argosExportField).filter(k=>FIELD_DEFS[k]);
+  }
+
+  function populateFilterSelects(){
+    const all=allServices();
+    const years=[...new Set(all.map(serviceDate).filter(Boolean).map(d=>d.getFullYear()))].sort((a,b)=>b-a);
+    const products=[...new Set(all.map(s=>fieldValue(s,['product','producto','serviceType','tipoProducto'])).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));
+    const series=[...new Set(all.map(s=>fieldValue(s,['series','serie','trainSeries'])).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));
+    const fill=(id,base,values)=>{
+      const el=$(id);if(!el)return;
+      const current=el.value;
+      el.innerHTML=base+values.map(v=>`<option value="${escHtml(v)}">${escHtml(v)}</option>`).join('');
+      if(values.map(String).includes(String(current)))el.value=current;
+    };
+    fill('argosExportYear','<option value="all">Todos</option>',years);
+    fill('argosExportProduct','<option value="all">Todos</option>',products);
+    fill('argosExportSeries','<option value="all">Todas</option>',series);
+  }
+
+  function filterLabel(){
+    const f=activeFilterValues(),parts=[];
+    if(f.product!=='all'&&f.series!=='all'){
+      parts.push((f.product+' '+f.series).toUpperCase());
+    }else{
+      if(f.product!=='all')parts.push(f.product.toUpperCase());
+      if(f.series!=='all')parts.push(String(f.series).toUpperCase());
+    }
+    if(f.year!=='all')parts.push(String(f.year));
+    if(f.month!=='all')parts.push(MONTHS[Number(f.month)]?.toUpperCase()||'');
+    return parts.filter(Boolean);
+  }
+
+  function updateSummary(){
+    const items=filteredServices(),fields=selectedFields(),parts=filterLabel();
+    const count=$('argosExportCount');if(count)count.textContent=String(items.length);
+    const showing=$('argosExportShowing');
+    if(showing)showing.textContent=parts.length?'Mostrando: '+parts.join(' · '):'Mostrando todos los registros';
+    const fs=$('argosExportFieldsSummary');if(fs)fs.textContent=`${fields.length} campo${fields.length===1?'':'s'} seleccionado${fields.length===1?'':'s'}`;
+    const msg=$('argosExportFieldMessage');if(msg)msg.textContent=fields.length?'':'Selecciona al menos un campo para generar el PDF.';
+  }
+
+  function normalizeDateForPdf(value){
+    const raw=text(value);
+    if(!raw)return '';
+    const iso=raw.match(/^(\\d{4})-(\\d{2})-(\\d{2})$/);
+    if(iso)return `${iso[3]}/${iso[2]}/${iso[1]}`;
+    const m=raw.match(/^(\\d{1,2})[\\/.-](\\d{1,2})[\\/.-](\\d{4})$/);
+    if(m)return `${m[1].padStart(2,'0')}/${m[2].padStart(2,'0')}/${m[3]}`;
+    return raw;
+  }
+
+  async function imageDataUrl(src){
+    return new Promise(resolve=>{
+      const img=new Image();
+      img.onload=()=>{
+        try{
+          const canvas=document.createElement('canvas');
+          canvas.width=img.naturalWidth||320;canvas.height=img.naturalHeight||120;
+          const ctx=canvas.getContext('2d');ctx.drawImage(img,0,0);
+          resolve(canvas.toDataURL('image/png'));
+        }catch(e){resolve(null)}
+      };
+      img.onerror=()=>resolve(null);
+      img.src=src;
+    });
+  }
+
+  function getJsPDF(){
+    const root=window.jspdf||window.jsPDF||null;
+    return root?.jsPDF||root||null;
+  }
+
+  function safeCell(value){
+    const v=text(value);
+    return v.length>220?v.slice(0,217)+'…':v;
+  }
+
+  function buildRows(items,fields){
+    return items.map(service=>fields.map(key=>{
+      let value=FIELD_DEFS[key]?.get(service)||'';
+      if(key==='date')value=normalizeDateForPdf(value);
+      if(key==='kilometres'&&value)value=Number(value).toLocaleString('es-ES');
+      return safeCell(value);
+    }));
+  }
+
+  function makeFilename(){
+    const f=activeFilterValues();
+    const p=[];
+    if(f.product!=='all')p.push(String(f.product).replace(/\\s+/g,'_'));
+    if(f.series!=='all')p.push('Serie_'+String(f.series));
+    if(f.year!=='all')p.push(String(f.year));
+    if(f.month!=='all')p.push(MONTHS[Number(f.month)]||'');
+    const suffix=p.filter(Boolean).join('_')||'Todos';
+    const stamp=new Date().toISOString().slice(0,10);
+    return `ARGOS_Exportacion_${suffix}_${stamp}.pdf`;
+  }
+
+  async function generatePdf(){
+    const button=$('argosExportGenerate'),fields=selectedFields();
+    if(!fields.length){updateSummary();return;}
+    const JsPDF=getJsPDF();
+    if(typeof JsPDF!=='function'){
+      if(typeof toast==='function')toast('No se ha podido cargar el generador PDF');
+      return;
+    }
+    const items=filteredServices();
+    button.disabled=true;
+    const originalText=button.textContent;button.textContent='Generando PDF…';
+    try{
+      const landscape=fields.length>7;
+      const doc=new JsPDF({orientation:landscape?'landscape':'portrait',unit:'mm',format:'a4'});
+      if(typeof doc.autoTable!=='function')throw new Error('AutoTable no está disponible');
+
+      const W=doc.internal.pageSize.getWidth(),H=doc.internal.pageSize.getHeight();
+      const renfe=[138,0,92];
+      doc.setFillColor(...renfe);doc.rect(0,0,W,30,'F');
+      const logo=await imageDataUrl('icons/renfe-logo-blanco.png');
+      if(logo){
+        try{doc.addImage(logo,'PNG',10,7,30,11,'RENFE_LOGO','FAST')}catch(e){}
+      }
+      doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(15);doc.text('ARGOS · EXPORTACIÓN DE SERVICIOS',46,13);
+      doc.setFontSize(8.5);doc.setFont('helvetica','normal');doc.text('Registro de servicios',46,19);
+
+      const parts=filterLabel();
+      doc.setTextColor(40,40,45);doc.setFont('helvetica','bold');doc.setFontSize(11);
+      doc.text(parts.length?'MOSTRANDO: '+parts.join(' · '):'MOSTRANDO: TODOS LOS REGISTROS',10,39);
+      doc.setFont('helvetica','normal');doc.setFontSize(8.5);doc.setTextColor(100,100,108);
+      doc.text(`Registros: ${items.length} · Generado el ${new Date().toLocaleDateString('es-ES')}`,10,45);
+
+      const head=[fields.map(k=>FIELD_DEFS[k].label)];
+      const body=buildRows(items,fields);
+
+      doc.autoTable({
+        startY:51,
+        head,body,
+        margin:{left:10,right:10,top:51,bottom:18},
+        theme:'grid',
+        styles:{font:'helvetica',fontSize:landscape?6.6:7.1,cellPadding:2.1,overflow:'linebreak',valign:'top',textColor:[40,40,45],lineColor:[220,220,225],lineWidth:0.2},
+        headStyles:{fillColor:renfe,textColor:[255,255,255],fontStyle:'bold',fontSize:landscape?6.8:7.2},
+        alternateRowStyles:{fillColor:[249,246,249]},
+        tableWidth:'auto',
+        didDrawPage:data=>{
+          doc.setDrawColor(220,220,225);doc.line(10,H-12,W-10,H-12);
+          doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(110,110,118);
+          doc.text('ARGOS',10,H-6);
+          doc.text(`Página ${data.pageNumber}`,W-10,H-6,{align:'right'});
+        }
+      });
+
+      if(items.length===0){
+        const y=(doc.lastAutoTable?.finalY||55)+8;
+        doc.setFont('helvetica','normal');doc.setFontSize(10);doc.setTextColor(100,100,108);
+        doc.text('No hay registros que coincidan con los filtros seleccionados.',10,y);
+      }
+
+      doc.setProperties({title:'ARGOS · Exportación de servicios',subject:parts.length?'Exportación filtrada':'Exportación completa'});
+      doc.save(makeFilename());
+      if(typeof toast==='function')toast('PDF generado correctamente');
+    }catch(error){
+      console.error('ARGOS · exportación PDF:',error);
+      if(typeof toast==='function')toast('No se ha podido generar el PDF');
+    }finally{
+      button.disabled=false;button.textContent=originalText;
+    }
+  }
+
+  function $(id){return document.getElementById(id)}
+
+  function install(){
+    const screen=$('exportServices');if(!screen)return;
+    populateFilterSelects();
+    ['argosExportYear','argosExportMonth','argosExportProduct','argosExportSeries'].forEach(id=>$(id)?.addEventListener('change',updateSummary));
+    document.querySelectorAll('[data-argos-export-field]').forEach(input=>input.addEventListener('change',updateSummary));
+    $('argosExportReset')?.addEventListener('click',()=>{
+      ['argosExportYear','argosExportMonth','argosExportProduct','argosExportSeries'].forEach(id=>{if($(id))$(id).value='all'});
+      document.querySelectorAll('[data-argos-export-field]').forEach(i=>i.checked=true);
+      populateFilterSelects();updateSummary();
+    });
+    $('argosExportAllFields')?.addEventListener('click',()=>{
+      const boxes=[...document.querySelectorAll('[data-argos-export-field]')];
+      const anyOff=boxes.some(i=>!i.checked);boxes.forEach(i=>i.checked=anyOff);updateSummary();
+      $('argosExportAllFields').textContent=anyOff?'Deseleccionar todos':'Seleccionar todos';
+    });
+    $('argosExportGenerate')?.addEventListener('click',generatePdf);
+    updateSummary();
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
+  else install();
+  window.addEventListener('load',()=>{populateFilterSelects();updateSummary()},{once:true});
+})();
 </script>
+
