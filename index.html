@@ -11959,8 +11959,8 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 </script>
 
 
-<!-- ARGOS · DATOS DESTACADOS COMPARTIDOS TAMBIÉN EN FICHAS DEL HISTORIAL -->
-<script id="argos-shared-highlights-history-v1">
+<!-- ARGOS · DATOS DESTACADOS COMPARTIDOS TAMBIÉN EN FICHAS DEL HISTORIAL · V15 -->
+<script id="argos-shared-highlights-history-v15">
 (function(){
   'use strict';
 
@@ -11972,28 +11972,36 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     }[c]));
   }
 
-  function norm(v){
-    return String(v??'').trim().replace(/\s+/g,' ').replace(/[._-]+$/g,'');
-  }
-
+  function clean(v){return String(v??'').trim().replace(/\s+/g,' ')}
   function digits(v){return String(v??'').replace(/\D/g,'')}
 
-  function branchFromService(service){
-    const series=norm(service?.series||service?.serie||'');
-    let vehicle=norm(service?.vehicle||service?.vehiculo||'');
-    let branch=norm(service?.branch||service?.rama||'');
+  function canonicalBranch(v){
+    let value=clean(v);
+    try{
+      if(typeof window.ARGOS_NORMALIZE_BRANCH==='function') value=clean(window.ARGOS_NORMALIZE_BRANCH(value));
+    }catch(e){}
+    return value;
+  }
 
-    if((!series||!vehicle)&&service?.composition2){
-      // La ficha normal utiliza la composición que se le pasa; este bloque no
-      // sustituye la principal, solo sirve como respaldo para registros antiguos.
-      const s2=norm(service.composition2.series),v2=norm(service.composition2.vehicle),b2=norm(service.composition2.branch);
-      if(!series&&s2) return {series:s2,vehicle:v2,branch:b2};
-    }
+  function branchVariants(v){
+    const raw=canonicalBranch(v);
+    const values=[];
+    const add=x=>{x=clean(x);if(x&&!values.includes(x))values.push(x)};
+    add(raw);
+    add(digits(raw));
+    const noSpaces=raw.replace(/\s+/g,''); add(noSpaces);
+    return values;
+  }
+
+  function branchFromService(service){
+    let series=clean(service?.series||service?.serie||'');
+    let vehicle=clean(service?.vehicle||service?.vehiculo||'');
+    let branch=clean(service?.branch||service?.rama||'');
 
     if(!branch&&series&&vehicle&&typeof window.getFleetUnit==='function'){
       try{
         const unit=window.getFleetUnit(series,vehicle);
-        if(unit?.rama)branch=norm(unit.rama);
+        if(unit?.rama)branch=String(unit.rama);
       }catch(e){}
     }
 
@@ -12003,15 +12011,12 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
         const v=digits(vehicle);
         for(const [k,u] of Object.entries(units)){
           const codes=[k,u?.vehiculoBase,u?.numero,...(Array.isArray(u?.searchCodes)?u.searchCodes:[])].map(digits).filter(Boolean);
-          if(v&&codes.includes(v)){branch=norm(u?.rama||'');break;}
+          if(v&&codes.includes(v)){branch=String(u?.rama||'');break;}
         }
       }catch(e){}
     }
 
-    if(typeof window.ARGOS_NORMALIZE_BRANCH==='function'){
-      try{branch=window.ARGOS_NORMALIZE_BRANCH(branch)}catch(e){}
-    }
-    return {series,vehicle,branch};
+    return {series:clean(series),vehicle:clean(vehicle),branch:canonicalBranch(branch)};
   }
 
   async function getClient(){
@@ -12024,39 +12029,89 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   }
 
   async function fetchHighlights(series,branch){
-    if(!series||!branch)return [];
+    const s=clean(series);
+    const variants=branchVariants(branch);
+    if(!s||!variants.length)return [];
+
     const client=await getClient();
-    const {data,error}=await client
+    const first=await client
       .from(TABLE)
       .select('id,series,branch,content,created_at')
-      .eq('series',series)
-      .eq('branch',branch)
+      .eq('series',s)
+      .eq('branch',variants[0])
       .order('created_at',{ascending:true});
-    if(error)throw error;
-    return Array.isArray(data)?data:[];
+
+    if(first.error)throw first.error;
+    if(Array.isArray(first.data)&&first.data.length)return first.data;
+
+    // Respaldo para registros guardados con una variante equivalente de rama.
+    const all=await client
+      .from(TABLE)
+      .select('id,series,branch,content,created_at')
+      .eq('series',s)
+      .order('created_at',{ascending:true});
+    if(all.error)throw all.error;
+
+    const wanted=new Set(variants.map(v=>clean(v).toLocaleLowerCase('es-ES')));
+    return (Array.isArray(all.data)?all.data:[]).filter(row=>{
+      const rb=clean(row?.branch).toLocaleLowerCase('es-ES');
+      return wanted.has(rb) || digits(rb)===digits(variants[0]);
+    });
   }
 
   function findHistoryService(){
     const content=document.getElementById('fichaContent');
     if(!content)return null;
-    let service=window.__argosV45FichaService||window.__argosV74FichaService||null;
-    if(service)return service;
+
+    const direct=window.__argosV45FichaService||window.__argosV74FichaService||null;
+    if(direct)return direct;
 
     const ficha=document.getElementById('ficha');
     const id=ficha?.dataset?.argosServiceId||'';
     if(!id)return null;
+
     try{
       const all=JSON.parse(localStorage.getItem('argos_services')||'[]');
       return Array.isArray(all)?all.find(s=>String(s?.id||'')===String(id))||null:null;
     }catch(e){return null}
   }
 
+  function findExistingSection(content){
+    const sections=content.querySelectorAll('.ficha-section');
+    for(const section of sections){
+      const title=clean(section.querySelector('.ficha-section-title')?.textContent||'');
+      if(title.toLocaleUpperCase('es-ES')==='DATOS DESTACADOS DE LA RAMA') return section;
+    }
+    return null;
+  }
+
+  function ensureList(section){
+    let list=section.querySelector('[data-argos-history-shared-list]');
+    if(list)return list;
+
+    list=section.querySelector('.ficha-note-list,.ficha-notes,.ficha-grid,.ficha-general-grid');
+    if(list){
+      list.dataset.argosHistorySharedList='1';
+      return list;
+    }
+
+    list=document.createElement('div');
+    list.className='argos-shared-highlights-list';
+    list.dataset.argosHistorySharedList='1';
+    const title=section.querySelector('.ficha-section-title');
+    if(title)title.insertAdjacentElement('afterend',list);
+    else section.appendChild(list);
+    return list;
+  }
+
   function render(section,items){
-    const list=section.querySelector('[data-argos-history-shared-list]');
+    if(!section)return;
+    const list=ensureList(section);
     if(!list)return;
+
     const seen=new Set();
     const values=(Array.isArray(items)?items:[])
-      .map(x=>String(x?.content??'').trim())
+      .map(x=>clean(x?.content))
       .filter(Boolean)
       .filter(v=>{
         const k=v.toLocaleLowerCase('es-ES').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
@@ -12073,53 +12128,44 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const content=document.getElementById('fichaContent');
     if(!content||!service)return;
 
-    // ArgosDex ya crea su propia sección y su propio cargador. No duplicamos nada.
-    if(content.querySelector('[data-argos-shared-highlights]'))return;
-
     const info=branchFromService(service);
     if(!info.series||!info.branch)return;
 
-    let section=content.querySelector('#argosHistorySharedHighlights');
-    if(!section){
-      section=document.createElement('div');
-      section.id='argosHistorySharedHighlights';
-      section.className='ficha-section argos-shared-highlights-section';
-      section.innerHTML=`
-        <div class="argos-shared-highlights-head">
-          <div class="ficha-section-title">DATOS DESTACADOS DE LA RAMA</div>
-        </div>
-        <div class="argos-shared-highlights-list" data-argos-history-shared-list>
-          <div class="ficha-empty-inline">Cargando datos destacados compartidos…</div>
-        </div>`;
-      content.appendChild(section);
-    }
+    // Importante: reutilizamos LA MISMA sección que ya muestra la ficha del historial.
+    // No creamos una segunda sección debajo, por lo que el "-" que se veía antes
+    // se sustituye directamente por los datos compartidos de Supabase.
+    const section=findExistingSection(content);
+    if(!section)return;
 
+    section.dataset.argosHistoryShared='1';
     section.dataset.series=info.series;
     section.dataset.branch=info.branch;
+
+    const list=ensureList(section);
+    if(list)list.innerHTML='<div class="ficha-empty-inline">Cargando datos destacados compartidos…</div>';
 
     try{
       const items=await fetchHighlights(info.series,info.branch);
       render(section,items);
     }catch(error){
       console.error('ARGOS · datos destacados del historial:',error);
-      const list=section.querySelector('[data-argos-history-shared-list]');
       if(list)list.innerHTML='<div class="ficha-empty-inline">No se han podido cargar los datos destacados compartidos.</div>';
     }
   }
 
   function install(){
     if(typeof window.openFicha!=='function')return;
-    if(window.__argosSharedHighlightsHistoryInstalled)return;
-    window.__argosSharedHighlightsHistoryInstalled=true;
+    if(window.__argosSharedHighlightsHistoryV15Installed)return;
+    window.__argosSharedHighlightsHistoryV15Installed=true;
 
     const original=window.openFicha;
     window.openFicha=function(series,vehicle,service=null){
       const result=original(series,vehicle,service);
-      if(service){
-        // Dos intentos cubren tanto la construcción inmediata como las fichas
-        // que otras capas de ARGOS terminan de pintar unos milisegundos después.
-        setTimeout(()=>attachToHistory(service),30);
-        setTimeout(()=>attachToHistory(service),220);
+      const currentService=service||findHistoryService();
+      if(currentService){
+        setTimeout(()=>attachToHistory(currentService),60);
+        setTimeout(()=>attachToHistory(currentService),260);
+        setTimeout(()=>attachToHistory(currentService),600);
       }
       return result;
     };
