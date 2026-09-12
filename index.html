@@ -9836,7 +9836,50 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
           </div>
         </div>`;
 
-      const notes=Array.isArray(unit.notas)?unit.notas.flat(Infinity).filter(Boolean):[];
+      function localBranchAnnotations(seriesValue,branchValue){
+        const out=[];
+        const normalizeSeries=v=>String(v??'').replace(/\D/g,'').replace(/^0+/,'')||'';
+        const normalizeBranch=v=>String(v??'').replace(/\D/g,'').replace(/^0+/,'')||'';
+        const wantedSeries=normalizeSeries(seriesValue), wantedBranch=normalizeBranch(branchValue);
+        if(!wantedSeries||!wantedBranch)return out;
+        try{
+          const stored=JSON.parse(localStorage.getItem('argos_services')||'[]');
+          if(!Array.isArray(stored))return out;
+          const seen=new Set();
+          stored.forEach(service=>{
+            const serviceSeries=normalizeSeries(service?.series??service?.serie);
+            if(serviceSeries!==wantedSeries)return;
+            const branches=[];
+            const addBranch=v=>{const b=normalizeBranch(v);if(b&&!branches.includes(b))branches.push(b)};
+            addBranch(service?.branch??service?.rama);
+            if(service?.doubleComposition&&service?.composition2)addBranch(service.composition2?.branch??service.composition2?.rama);
+            if(!branches.includes(wantedBranch))return;
+            const entries=[];
+            const add=v=>{
+              if(Array.isArray(v)){v.forEach(add);return;}
+              if(v===null||v===undefined)return;
+              const text=typeof v==='object'?String(v.text??v.value??v.description??'').trim():String(v).trim();
+              if(!text)return;
+              text.split(/\n+/).map(x=>x.trim()).filter(Boolean).forEach(x=>entries.push(x));
+            };
+            add(service?.notesEntries);add(service?.notes);
+            entries.forEach(text=>{
+              const key=text.toLocaleLowerCase('es-ES').replace(/\s+/g,' ');
+              if(key&&!seen.has(key)){seen.add(key);out.push(text)}
+            });
+          });
+        }catch(error){console.warn('ARGOSdex · anotaciones locales de rama:',error)}
+        return out;
+      }
+
+      const staticUnitNotes=Array.isArray(unit.notas)
+        ? unit.notas.flat(Infinity).filter(v=>String(v??'').trim()&&String(v??'').trim()!=='-')
+        : [];
+      const branchAnnotations=localBranchAnnotations(series,fichaBranch);
+      const notes=[...staticUnitNotes,...branchAnnotations].filter((value,index,array)=>{
+        const key=String(value??'').trim().toLocaleLowerCase('es-ES').replace(/\s+/g,' ');
+        return key&&array.findIndex(v=>String(v??'').trim().toLocaleLowerCase('es-ES').replace(/\s+/g,' ')===key)===index;
+      });
       const highlights=`
         <div class="ficha-section argos-shared-highlights-section" data-argos-shared-highlights data-series="${esc(series)}" data-branch="${esc(fichaBranch)}">
           <div class="argos-shared-highlights-head">
@@ -10061,8 +10104,40 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
           </div>
         </div>`;
 
-      const staticBranchNotes=Array.isArray(resolved.unit?.notas)?resolved.unit.notas.flat(Infinity).filter(Boolean):[];
-      void bindSharedHighlights(series, effectiveBranch, staticBranchNotes);
+      const staticBranchNotes=Array.isArray(resolved.unit?.notas)
+        ? resolved.unit.notas.flat(Infinity).filter(v=>String(v??'').trim()&&String(v??'').trim()!=='-')
+        : [];
+      const localNotes=(()=>{
+        const out=[];
+        const wantedSeries=digits(series).replace(/^0+/,'')||'';
+        const wantedBranch=window.ARGOS_NORMALIZE_BRANCH(effectiveBranch||'');
+        try{
+          const stored=JSON.parse(localStorage.getItem('argos_services')||'[]');
+          const seen=new Set();
+          (Array.isArray(stored)?stored:[]).forEach(service=>{
+            const ss=digits(service?.series??service?.serie).replace(/^0+/,'')||'';
+            if(ss!==wantedSeries)return;
+            const branches=[];
+            const addBranch=v=>{const b=window.ARGOS_NORMALIZE_BRANCH(v);if(b&&!branches.includes(b))branches.push(b)};
+            addBranch(service?.branch??service?.rama);
+            if(service?.doubleComposition&&service?.composition2)addBranch(service.composition2?.branch??service.composition2?.rama);
+            if(!branches.includes(wantedBranch))return;
+            const add=v=>{
+              if(Array.isArray(v)){v.forEach(add);return;}
+              const text=v&&typeof v==='object'?String(v.text??v.value??v.description??'').trim():String(v??'').trim();
+              if(!text)return;
+              text.split(/\n+/).map(x=>x.trim()).filter(Boolean).forEach(x=>{const key=x.toLocaleLowerCase('es-ES').replace(/\s+/g,' ');if(key&&!seen.has(key)){seen.add(key);out.push(x)}});
+            };
+            add(service?.notesEntries);add(service?.notes);
+          });
+        }catch(error){console.warn('ARGOSdex · anotaciones locales:',error)}
+        return out;
+      })();
+      const mergedBranchNotes=[...staticBranchNotes,...localNotes].filter((value,index,array)=>{
+        const key=String(value??'').trim().toLocaleLowerCase('es-ES').replace(/\s+/g,' ');
+        return key&&array.findIndex(v=>String(v??'').trim().toLocaleLowerCase('es-ES').replace(/\s+/g,' ')===key)===index;
+      });
+      void bindSharedHighlights(series, effectiveBranch, mergedBranchNotes);
 
       result.classList.add('show');
       result.scrollIntoView({behavior:'smooth',block:'start'});
@@ -12530,7 +12605,32 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 <style id="argos-export-menu-button-size-fix">
 #more-functions > .argos-home > .home-list > .home-card[data-screen="exportServices"]{grid-column:1 / -1 !important}
 @media(min-width:601px){#more-functions > .argos-home > .home-list{grid-template-rows:repeat(3,minmax(0,1fr)) !important}#more-functions > .argos-home > .home-list > .home-card{min-height:76px !important}}
-@media(max-width:600px){#more-functions > .argos-home > .home-list > .home-card[data-screen="exportServices"]{grid-column:auto !important}}
+@media(max-width:600px){
+  #more-functions > .argos-home > .home-list{grid-template-rows:repeat(5,minmax(0,1fr)) !important;grid-template-columns:minmax(0,1fr) !important;}
+  #more-functions > .argos-home > .home-list > .home-card[data-screen="exportServices"]{grid-column:1 !important;grid-row:5 !important;width:100% !important;min-width:0 !important;max-width:none !important;}
+}
+</style>
+
+<style id="argos-export-mobile-final-fix">
+@media(max-width:600px){
+  #more-functions > .argos-home > .home-list{
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) !important;
+    grid-template-rows:repeat(5,minmax(0,1fr)) !important;
+    gap:5px !important;
+  }
+  #more-functions > .argos-home > .home-list > .home-card{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:none !important;
+    min-height:0 !important;
+    height:auto !important;
+    grid-column:1 !important;
+  }
+  #more-functions > .argos-home > .home-list > .home-card[data-screen="exportServices"]{
+    grid-row:5 !important;
+  }
+}
 </style>
 
 <style id="argos-instructions-v2">
