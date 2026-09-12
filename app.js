@@ -26260,7 +26260,10 @@ function progressFleetBranches(series){
     if(branch)branches.add(branch);
   });
 
-  return [...branches];
+  return [...branches].sort((a,b)=>{
+    const na=Number(a),nb=Number(b);
+    return Number.isFinite(na)&&Number.isFinite(nb)?na-nb:String(a).localeCompare(String(b),'es',{numeric:true});
+  });
 }
 
 function renderProgress(){
@@ -26285,14 +26288,18 @@ function renderProgress(){
 }
 function openProgressBranchModal(series){
   const modal=$("progressBranchModal"); if(!modal)return;
+  initProgressModal();
   const key=progressSeriesKey(series), all=progressFleetBranches(key), registered=new Set();
   services().forEach(service=>{if(progressSeriesKey(service?.series)!==key)return;const b=progressBranchKey(service?.branch);if(b)registered.add(b);const second=service?.doubleComposition&&service?.composition2;const b2=progressBranchKey(second?.branch??second?.rama);if(b2)registered.add(b2)});
   const have=all.filter(b=>registered.has(b)), missing=all.filter(b=>!registered.has(b));
   $("progressBranchModalTitle").textContent=`Serie ${key}`;
-  $("progressBranchModalSummary").textContent=`${have.length} de ${all.length} ramas registradas · ${missing.length} pendientes`;
-  $("progressBranchHaveCount").textContent=String(have.length); $("progressBranchMissingCount").textContent=String(missing.length);
+  $("progressBranchModalSummary").textContent=missing.length===0
+    ?'Has registrado todas las ramas de esta serie.'
+    :`${have.length} de ${all.length} ramas registradas · ${missing.length} pendientes`;
+  $("progressBranchHaveCount").textContent=String(have.length);
+  $("progressBranchMissingCount").textContent=String(missing.length);
   $("progressBranchHaveList").innerHTML=have.length?have.map(b=>`<span class="progress-branch-chip">Rama ${esc(b)}</span>`).join(''):'<div class="progress-branch-empty">Todavía no tienes ninguna rama registrada de esta serie.</div>';
-  $("progressBranchMissingList").innerHTML=missing.length?missing.map(b=>`<span class="progress-branch-chip">Rama ${esc(b)}</span>`).join(''):'<div class="progress-branch-empty">¡Completa! No quedan ramas pendientes.</div>';
+  $("progressBranchMissingList").innerHTML=missing.length?missing.map(b=>`<span class="progress-branch-chip">Rama ${esc(b)}</span>`).join(''):'<div class="progress-branch-empty progress-branch-complete">Has registrado todas las ramas de esta serie.</div>';
   modal.hidden=false; document.body.classList.add('argos-progress-modal-open');
   const close=modal.querySelector('[data-progress-modal-close]'); if(close&&close.matches('button'))setTimeout(()=>close.focus(),0);
 }
@@ -26613,7 +26620,7 @@ if($("viewFichaFromForm")) $("viewFichaFromForm").addEventListener("click",()=>{
 
 
 
-document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();renderStats();renderProgress();renderQuality();initNotes()});
+document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();renderStats();renderProgress();renderQuality();initNotes();initProgressModal()});
 
 (function(){
   if(document.getElementById("argos-general-ficha-clean")) return;
