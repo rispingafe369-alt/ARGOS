@@ -30212,6 +30212,55 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     return out;
   }
 
+  function branchAnnotationsForService(service){
+    if(!service)return[];
+    const norm=v=>String(v??'').replace(/\D/g,'').replace(/^0+/,'')||'';
+    const wantedSeries=norm(service?.series??service?.serie);
+    if(!wantedSeries)return[];
+    const wantedBranches=[];
+    const addBranch=v=>{const b=norm(v);if(b&&!wantedBranches.includes(b))wantedBranches.push(b)};
+    addBranch(service?.branch??service?.rama);
+    if(service?.doubleComposition&&service?.composition2){
+      addBranch(service.composition2?.branch??service.composition2?.rama);
+    }
+    if(!wantedBranches.length)return[];
+    const out=[];
+    const seen=new Set();
+    const read=()=>{
+      try{
+        const raw=JSON.parse(localStorage.getItem('argos_services')||'[]');
+        return Array.isArray(raw)?raw:[];
+      }catch(e){return[]}
+    };
+    const textOf=v=>{
+      if(v===null||v===undefined)return '';
+      if(typeof v==='object')return String(v.text??v.value??v.description??'').trim();
+      return String(v).trim();
+    };
+    const add=v=>{
+      if(Array.isArray(v)){v.forEach(add);return;}
+      const raw=textOf(v);
+      if(!raw)return;
+      raw.split(/\n+/).map(x=>x.trim()).filter(Boolean).forEach(x=>{
+        const key=x.toLocaleLowerCase('es-ES').replace(/\s+/g,' ');
+        if(key&&!seen.has(key)){seen.add(key);out.push(x)}
+      });
+    };
+    read().forEach(item=>{
+      if(norm(item?.series??item?.serie)!==wantedSeries)return;
+      const branches=[];
+      const addItemBranch=v=>{const b=norm(v);if(b&&!branches.includes(b))branches.push(b)};
+      addItemBranch(item?.branch??item?.rama);
+      if(item?.doubleComposition&&item?.composition2){
+        addItemBranch(item.composition2?.branch??item.composition2?.rama);
+      }
+      if(!branches.some(b=>wantedBranches.includes(b)))return;
+      add(item?.notesEntries);
+      add(item?.notes);
+    });
+    return out;
+  }
+
   function normalizeIncidents(service){
     const out=[];
     const add=v=>{
@@ -30237,7 +30286,12 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   }
 
   function renderEntries(service){
-    const notes=normalizeNotes(service);
+    const ownNotes=normalizeNotes(service);
+    const branchNotes=branchAnnotationsForService(service);
+    const notes=[...ownNotes,...branchNotes].filter((value,index,array)=>{
+      const key=String(value??'').trim().toLocaleLowerCase('es-ES').replace(/\s+/g,' ');
+      return key&&array.findIndex(v=>String(v??'').trim().toLocaleLowerCase('es-ES').replace(/\s+/g,' ')===key)===index;
+    });
     const incidents=normalizeIncidents(service);
     if(!notes.length&&!incidents.length)return '';
 
