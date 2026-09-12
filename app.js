@@ -26014,24 +26014,36 @@ if($("cancelService"))$("cancelService").addEventListener("click",cancelCurrentS
 
 function serviceAnnotationsHtml(service){
   if(!service)return '';
+  const splitText=v=>String(v??'').split(/\n+/).map(x=>x.trim()).filter(Boolean);
   const textOf=v=>{
     if(v===null||v===undefined)return '';
     if(typeof v==='string')return v.trim();
-    return String(v.text??v.value??v.description??'').trim();
+    if(typeof v==='object')return String(v.text??v.value??v.description??'').trim();
+    return String(v).trim();
   };
   const notes=[];
-  if(Array.isArray(service.notesEntries))service.notesEntries.forEach(v=>{const t=textOf(v);if(t)notes.push(t)});
-  const legacyNote=textOf(service.notes);
-  if(legacyNote&&!notes.includes(legacyNote))notes.push(legacyNote);
+  const addNote=v=>{
+    if(Array.isArray(v)){v.forEach(addNote);return;}
+    const t=textOf(v);
+    if(t)splitText(t).forEach(x=>{if(!notes.includes(x))notes.push(x)});
+  };
+  if(Array.isArray(service.notesEntries))service.notesEntries.forEach(addNote);
+  addNote(service.notes);
   const incidents=[];
-  if(Array.isArray(service.incidentsEntries))service.incidentsEntries.forEach(v=>{const t=textOf(v);if(t)incidents.push({text:t,solved:!!(v&&typeof v==='object'&&v.solved===true)})});
-  const legacyIncident=textOf(service.incidents);
-  if(legacyIncident&&!incidents.some(v=>v.text===legacyIncident))legacyIncident.split(/\n+/).map(v=>v.trim()).filter(Boolean).forEach(t=>incidents.push({text:t,solved:false}));
+  const addIncident=v=>{
+    if(Array.isArray(v)){v.forEach(addIncident);return;}
+    const t=textOf(v);
+    if(!t)return;
+    const solved=!!(v&&typeof v==='object'&&v.solved===true);
+    splitText(t).forEach(x=>{if(!incidents.some(item=>item.text===x))incidents.push({text:x,solved})});
+  };
+  if(Array.isArray(service.incidentsEntries))service.incidentsEntries.forEach(addIncident);
+  addIncident(service.incidents);
   if(!notes.length&&!incidents.length)return '';
   return `
     <div class="ficha-section argos-service-annotations-section" id="argosServiceAnnotations">
       <div class="ficha-section-title">ANOTACIONES DEL SERVICIO</div>
-      <div class="ficha-notes">${notes.length?notes.map(t=>`<div class="ficha-note">${esc(t)}</div>`).join(''):'<div class="ficha-empty-inline">No hay anotaciones.</div>'}</div>
+      <div class="ficha-notes">${notes.length?notes.map(t=>`<div class="ficha-note">${esc(t)}</div>`).join(''):'<div class="ficha-empty-inline">No hay anotaciones registradas en este servicio.</div>'}</div>
       ${incidents.length?`<div class="ficha-section-title" style="margin-top:14px">INCIDENCIAS DEL SERVICIO</div><div class="ficha-notes">${incidents.map(v=>`<div class="ficha-note${v.solved?' solved':''}">${esc(v.text)}${v.solved?' · Solventada':''}</div>`).join('')}</div>`:''}
     </div>`;
 }
@@ -26252,54 +26264,41 @@ function progressFleetBranches(series){
 }
 
 function renderProgress(){
-  const list=$("progressList");
-  if(!list)return;
-
+  const list=$("progressList"); if(!list)return;
   const registered=new Map();
   services().forEach(service=>{
-    const series=progressSeriesKey(service?.series);
-    if(!series)return;
-    const branch=progressBranchKey(service?.branch);
+    const series=progressSeriesKey(service?.series); if(!series)return;
     if(!registered.has(series))registered.set(series,new Set());
-    if(branch)registered.get(series).add(branch);
+    const b=progressBranchKey(service?.branch); if(b)registered.get(series).add(b);
+    const second=service?.doubleComposition&&service?.composition2;
+    const b2=progressBranchKey(second?.branch??second?.rama); if(b2)registered.get(series).add(b2);
   });
-
-  const data=[...registered.entries()]
-    .map(([series,branches])=>{
-      const totalBranches=progressFleetBranches(series);
-      if(!totalBranches.length)return null;
-      const seen=[...branches].filter(branch=>totalBranches.includes(branch));
-      const total=totalBranches.length;
-      const visited=Math.min(seen.length,total);
-      const percentage=Math.min(100,Math.round(visited/total*100));
-      return{series,visited,total,percentage};
-    })
-    .filter(Boolean)
-    .sort((a,b)=>{
-      const na=Number(a.series),nb=Number(b.series);
-      return Number.isFinite(na)&&Number.isFinite(nb)?na-nb:a.series.localeCompare(b.series,"es",{numeric:true});
-    });
-
-  if(!data.length){
-    list.innerHTML='<div class="progress-empty">Todavía no has registrado ninguna serie con ramas identificables.</div>';
-    return;
-  }
-
-  list.innerHTML=data.map(item=>`
-    <article class="progress-card">
-      <div class="progress-card-head">
-        <div>
-          <span class="progress-kicker">SERIE</span>
-          <h3>${esc(item.series)}</h3>
-        </div>
-        <strong>${item.percentage}%</strong>
-      </div>
-      <div class="progress-track" aria-label="Serie ${esc(item.series)}: ${item.percentage}%">
-        <i style="width:${item.percentage}%"></i>
-      </div>
-      <div class="progress-meta">${item.visited} de ${item.total} ramas registradas</div>
-    </article>`).join('');
+  const data=[...registered.entries()].map(([series,branches])=>{
+    const totalBranches=progressFleetBranches(series); if(!totalBranches.length)return null;
+    const seen=[...branches].filter(b=>totalBranches.includes(b));
+    const total=totalBranches.length, visited=Math.min(seen.length,total);
+    return{series,visited,total,percentage:Math.min(100,Math.round(visited/total*100))};
+  }).filter(Boolean).sort((a,b)=>{const na=Number(a.series),nb=Number(b.series);return Number.isFinite(na)&&Number.isFinite(nb)?na-nb:a.series.localeCompare(b.series,"es",{numeric:true})});
+  if(!data.length){list.innerHTML='<div class="progress-empty">Todavía no has registrado ninguna serie con ramas identificables.</div>';return;}
+  list.innerHTML=data.map(item=>`<article class="progress-card" data-progress-series="${esc(item.series)}" tabindex="0" role="button" aria-label="Ver ramas de la serie ${esc(item.series)}"><div class="progress-card-head"><div><span class="progress-kicker">SERIE</span><h3>${esc(item.series)}</h3></div><strong>${item.percentage}%</strong></div><div class="progress-track" aria-label="Serie ${esc(item.series)}: ${item.percentage}%"><i style="width:${item.percentage}%"></i></div><div class="progress-meta">${item.visited} de ${item.total} ramas registradas</div></article>`).join('');
+  list.querySelectorAll('[data-progress-series]').forEach(card=>{const open=()=>openProgressBranchModal(card.dataset.progressSeries);card.addEventListener('click',open);card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}})});
 }
+function openProgressBranchModal(series){
+  const modal=$("progressBranchModal"); if(!modal)return;
+  const key=progressSeriesKey(series), all=progressFleetBranches(key), registered=new Set();
+  services().forEach(service=>{if(progressSeriesKey(service?.series)!==key)return;const b=progressBranchKey(service?.branch);if(b)registered.add(b);const second=service?.doubleComposition&&service?.composition2;const b2=progressBranchKey(second?.branch??second?.rama);if(b2)registered.add(b2)});
+  const have=all.filter(b=>registered.has(b)), missing=all.filter(b=>!registered.has(b));
+  $("progressBranchModalTitle").textContent=`Serie ${key}`;
+  $("progressBranchModalSummary").textContent=`${have.length} de ${all.length} ramas registradas · ${missing.length} pendientes`;
+  $("progressBranchHaveCount").textContent=String(have.length); $("progressBranchMissingCount").textContent=String(missing.length);
+  $("progressBranchHaveList").innerHTML=have.length?have.map(b=>`<span class="progress-branch-chip">Rama ${esc(b)}</span>`).join(''):'<div class="progress-branch-empty">Todavía no tienes ninguna rama registrada de esta serie.</div>';
+  $("progressBranchMissingList").innerHTML=missing.length?missing.map(b=>`<span class="progress-branch-chip">Rama ${esc(b)}</span>`).join(''):'<div class="progress-branch-empty">¡Completa! No quedan ramas pendientes.</div>';
+  modal.hidden=false; document.body.classList.add('argos-progress-modal-open');
+  const close=modal.querySelector('[data-progress-modal-close]'); if(close&&close.matches('button'))setTimeout(()=>close.focus(),0);
+}
+function closeProgressBranchModal(){const modal=$("progressBranchModal");if(!modal)return;modal.hidden=true;document.body.classList.remove('argos-progress-modal-open')}
+function initProgressModal(){const modal=$("progressBranchModal");if(!modal||modal.dataset.bound==='1')return;modal.dataset.bound='1';modal.querySelectorAll('[data-progress-modal-close]').forEach(el=>el.addEventListener('click',closeProgressBranchModal));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!modal.hidden)closeProgressBranchModal()})}
+
 window.renderProgress=renderProgress;
 
 let qualityCurrentSeries="";
@@ -30196,26 +30195,26 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
 
   function normalizeNotes(service){
     const out=[];
-    if(Array.isArray(service?.notesEntries)){
-      service.notesEntries.forEach(x=>{const text=textOf(x);if(text)out.push(text)});
-    }
-    const legacy=textOf(service?.notes);
-    if(legacy && !out.some(x=>x===legacy))out.push(legacy);
+    const add=v=>{
+      if(Array.isArray(v)){v.forEach(add);return;}
+      const raw=textOf(v); if(!raw)return;
+      raw.split(/\n+/).map(x=>x.trim()).filter(Boolean).forEach(text=>{if(!out.includes(text))out.push(text)});
+    };
+    if(Array.isArray(service?.notesEntries))service.notesEntries.forEach(add);
+    add(service?.notes);
     return out;
   }
 
   function normalizeIncidents(service){
     const out=[];
-    if(Array.isArray(service?.incidentsEntries)){
-      service.incidentsEntries.forEach(x=>{
-        const text=textOf(x);
-        if(text)out.push({text,solved:typeof x==='object'&&x!==null&&x.solved===true});
-      });
-    }
-    const legacy=textOf(service?.incidents);
-    if(legacy && !out.some(x=>x.text===legacy)){
-      legacy.split(/\n+/).map(x=>x.trim()).filter(Boolean).forEach(text=>out.push({text,solved:false}));
-    }
+    const add=v=>{
+      if(Array.isArray(v)){v.forEach(add);return;}
+      const raw=textOf(v); if(!raw)return;
+      const solved=typeof v==='object'&&v!==null&&v.solved===true;
+      raw.split(/\n+/).map(x=>x.trim()).filter(Boolean).forEach(text=>{if(!out.some(x=>x.text===text))out.push({text,solved})});
+    };
+    if(Array.isArray(service?.incidentsEntries))service.incidentsEntries.forEach(add);
+    add(service?.incidents);
     return out;
   }
 
