@@ -9487,8 +9487,6 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       const origin=text(service.origin??service.origen);
       const destination=text(service.destination??service.destino);
       const date=text(service.date??service.fecha);
-      const notes=notesOf(service);
-      const incidents=incidentsOf(service);
       return `<article class="history-card history-card-clickable" data-service-id="${esc(service.id)}" tabindex="0">
         <div class="history-ticket-head">
           <span class="history-ticket-number">${train?`Tren ${esc(train)}`:'Sin número de tren'}</span>
@@ -9516,7 +9514,6 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
           <span class="history-ticket-detail">${esc(branchLabel)}</span>
           <span class="history-ticket-detail">${esc(product||'—')}</span>
         </div>
-        ${(notes.length||incidents.length)?`<div class="history-ticket-notes">${notes.length?`<b>Anotaciones:</b> ${notes.map(esc).join(' · ')}`:''}${notes.length&&incidents.length?' · ':''}${incidents.length?`<b>Incidencias:</b> ${incidents.map(x=>esc(x.text)).join(' · ')}`:''}</div>`:''}
       </article>`;
     }).join('');
 
@@ -12635,6 +12632,88 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
 <style id="argos-instructions-v2">
 .instructions-shell{width:min(980px,100%);margin:0 auto;padding:6px 0 36px;display:flex;flex-direction:column;gap:12px}.instructions-hero{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px;border:1px solid rgba(138,0,92,.14);border-radius:22px;background:linear-gradient(135deg,rgba(138,0,92,.11),rgba(138,0,92,.035));box-shadow:0 10px 28px rgba(30,20,30,.04)}.instructions-hero h3{margin:5px 0 7px;font-size:29px}.instructions-hero p{margin:0;color:var(--muted,#73747d);line-height:1.5;font-size:14px;max-width:760px}.instructions-hero-badge{width:56px;height:56px;flex:0 0 56px;border-radius:18px;display:grid;place-items:center;background:var(--renfe,#8a005c);color:#fff;font-size:25px;font-weight:900}.instructions-quick{padding:16px;border:1px solid var(--line,#ddd);border-radius:19px;background:var(--card,#fff);box-shadow:0 8px 25px rgba(30,20,30,.045)}.instructions-quick-title,.instructions-section-head span{display:block;color:var(--renfe,#8a005c);font-size:10px;font-weight:900;letter-spacing:.12em}.instructions-quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:10px}.instructions-quick-grid button{min-width:0;text-align:left;border:1px solid var(--line,#ddd);border-radius:14px;background:var(--page,#f7f7f7);padding:12px;cursor:pointer}.instructions-quick-grid button:hover{border-color:rgba(138,0,92,.35);transform:translateY(-1px)}.instructions-quick-grid span{display:block;color:var(--renfe,#8a005c);font-size:10px;font-weight:900}.instructions-quick-grid strong{display:block;margin-top:3px;color:var(--ink,#222);font-size:13px}.instructions-quick-grid small{display:block;margin-top:3px;color:var(--muted,#777);font-size:10px;line-height:1.3}.instructions-section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:4px 2px}.instructions-section-head strong{display:block;margin-top:3px;font-size:16px}.instructions-section-head button{border:1px solid var(--line,#ddd);border-radius:10px;background:var(--card,#fff);color:var(--renfe,#8a005c);padding:8px 11px;font-size:11px;font-weight:900;cursor:pointer}details.instructions-card{display:block;padding:0;border:1px solid var(--line,#ddd);border-radius:18px;background:var(--card,#fff);box-shadow:0 7px 22px rgba(30,20,30,.04);overflow:hidden}details.instructions-card[open]{border-color:rgba(138,0,92,.22)}details.instructions-card summary{list-style:none;display:grid;grid-template-columns:44px minmax(0,1fr) 28px;align-items:center;gap:13px;padding:14px 16px;cursor:pointer;user-select:none}details.instructions-card summary::-webkit-details-marker{display:none}.instructions-number{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(138,0,92,.10);color:var(--renfe,#8a005c);font-weight:900;font-size:11px}.instructions-summary-copy{min-width:0}.instructions-summary-copy strong{display:block;color:var(--ink,#222);font-size:15px;line-height:1.25}.instructions-summary-copy small{display:block;margin-top:3px;color:var(--muted,#777);font-size:11px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.instructions-summary-arrow{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--soft,#f6edf3);color:var(--renfe,#8a005c);font-size:17px;font-weight:900;transition:transform .15s ease}details.instructions-card[open] .instructions-summary-arrow{transform:rotate(180deg)}.instructions-card-body{padding:0 18px 18px 73px;color:var(--muted,#6f7078)}.instructions-card-body p{margin:0 0 8px;line-height:1.5;font-size:13px}.instructions-card-body ul,.instructions-card-body ol{margin:8px 0 0;padding-left:19px;line-height:1.55;font-size:13px}.instructions-card-body li{margin:4px 0}.instructions-card-body strong{color:var(--ink,#24242a)}.instructions-card-body .instructions-note{margin-top:10px;padding:10px 12px;border-radius:11px;background:var(--soft,#f7edf3)}.instructions-tip{padding:16px 18px;border-radius:17px;background:#f7e9f2;border:1px solid rgba(138,0,92,.12);color:#62636b;line-height:1.5;font-size:13px}.instructions-tip strong{display:block;color:#8a005c;margin-bottom:4px}.instructions-tip p{margin:0}@media(max-width:700px){.instructions-shell{padding:4px 0 28px}.instructions-hero{padding:19px 17px;border-radius:18px}.instructions-hero h3{font-size:23px}.instructions-hero p{font-size:12px}.instructions-hero-badge{width:46px;height:46px;flex-basis:46px;border-radius:14px;font-size:20px}.instructions-quick{padding:13px;border-radius:17px}.instructions-quick-grid{grid-template-columns:1fr 1fr}.instructions-section-head strong{font-size:14px}details.instructions-card{border-radius:16px}details.instructions-card summary{grid-template-columns:38px minmax(0,1fr) 26px;padding:12px 13px;gap:10px}.instructions-number{width:35px;height:35px;border-radius:10px}.instructions-summary-copy strong{font-size:14px}.instructions-summary-copy small{font-size:10px}.instructions-card-body{padding:0 14px 15px 58px}.instructions-card-body p,.instructions-card-body ul,.instructions-card-body ol{font-size:12px}}
+</style>
+<style id="argos-more-functions-mobile-final-layout-v2">
+/* V2 · Más funciones en móvil: cinco botones uniformes, sin filas implícitas. */
+@media(max-width:600px){
+  #more-functions > .argos-home{
+    width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+    padding:10px 12px 10px!important;
+    display:grid!important;
+    grid-template-rows:auto minmax(0,1fr) auto!important;
+    gap:10px!important;
+    overflow:hidden!important;
+    box-sizing:border-box!important;
+  }
+  #more-functions > .argos-home > .welcome-card{
+    width:100%!important;
+    min-height:0!important;
+    padding:14px 16px!important;
+    margin:0!important;
+    box-sizing:border-box!important;
+  }
+  #more-functions > .argos-home > .home-list{
+    width:100%!important;
+    min-width:0!important;
+    min-height:0!important;
+    height:auto!important;
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    grid-template-rows:repeat(5,minmax(0,1fr))!important;
+    gap:8px!important;
+    overflow:hidden!important;
+    margin:0!important;
+    padding:0!important;
+  }
+  #more-functions > .argos-home > .home-list > .home-card{
+    grid-column:1!important;
+    grid-row:auto!important;
+    width:100%!important;
+    min-width:0!important;
+    min-height:0!important;
+    max-height:none!important;
+    height:auto!important;
+    padding:8px 12px!important;
+    border-radius:16px!important;
+    display:grid!important;
+    grid-template-columns:46px minmax(0,1fr)!important;
+    column-gap:11px!important;
+    align-items:center!important;
+    box-sizing:border-box!important;
+  }
+  #more-functions > .argos-home > .home-list > .home-card .home-icon{
+    width:46px!important;height:46px!important;
+    border-radius:13px!important;font-size:23px!important;
+  }
+  #more-functions > .argos-home > .home-list > .home-card h2{
+    margin:0!important;font-size:clamp(17px,3.2vw,21px)!important;
+    line-height:1.05!important;white-space:nowrap!important;
+    overflow:hidden!important;text-overflow:ellipsis!important;
+  }
+  #more-functions > .argos-home > .home-list > .home-card p{display:none!important}
+  #more-functions > .argos-home > .argos-footer-action{
+    width:100%!important;height:42px!important;min-height:42px!important;
+    max-height:42px!important;flex:0 0 42px!important;
+    margin:0!important;padding:0!important;
+    display:flex!important;align-items:center!important;justify-content:center!important;
+  }
+  #more-functions > .argos-home > .argos-footer-action > .argos-identical-action{
+    width:min(240px,100%)!important;min-width:0!important;max-width:240px!important;
+    height:42px!important;min-height:42px!important;max-height:42px!important;
+    flex:1 1 auto!important;padding:0 16px!important;font-size:14px!important;
+  }
+}
+@media(max-width:600px) and (max-height:700px){
+  #more-functions > .argos-home{padding:7px 10px 7px!important;gap:7px!important}
+  #more-functions > .argos-home > .home-list{gap:6px!important}
+  #more-functions > .argos-home > .home-list > .home-card{padding:5px 10px!important;grid-template-columns:42px minmax(0,1fr)!important;column-gap:9px!important;border-radius:14px!important}
+  #more-functions > .argos-home > .home-list > .home-card .home-icon{width:42px!important;height:42px!important;border-radius:12px!important;font-size:21px!important}
+  #more-functions > .argos-home > .home-list > .home-card h2{font-size:18px!important}
+  #more-functions > .argos-home > .argos-footer-action{height:38px!important;min-height:38px!important;max-height:38px!important;flex-basis:38px!important}
+  #more-functions > .argos-home > .argos-footer-action > .argos-identical-action{height:38px!important;min-height:38px!important;max-height:38px!important}
+}
 </style>
 <script id="argos-literal-newline-cleanup">(function(){
   function clean(){
