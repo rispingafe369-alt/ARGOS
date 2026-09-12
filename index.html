@@ -2802,8 +2802,19 @@ body:not(.dark) select{
     <button class="back-button" data-back type="button">‹</button>
     <div><div class="screen-kicker">ARGOS · PROGRESO</div><h2>Progreso</h2></div>
   </div>
+  <div class="progress-intro"><div class="progress-intro-icon">✓</div><div><strong>Controla tus ramas</strong><span>Pulsa una serie para ver las ramas que ya tienes registradas y las que todavía te faltan.</span></div></div>
   <div id="progressList" class="progress-list"></div>
 </section>
+<div id="progressBranchModal" class="progress-modal" role="dialog" aria-modal="true" aria-labelledby="progressBranchModalTitle" hidden>
+  <div class="progress-modal-backdrop" data-progress-modal-close></div>
+  <div class="progress-modal-card" role="document">
+    <div class="progress-modal-head"><div><span class="progress-kicker">DETALLE DE PROGRESO</span><h3 id="progressBranchModalTitle">Serie —</h3><p id="progressBranchModalSummary"></p></div><button class="progress-modal-close" type="button" aria-label="Cerrar" data-progress-modal-close>×</button></div>
+    <div class="progress-branch-columns">
+      <section class="progress-branch-group"><div class="progress-branch-group-head"><strong>✓ Las que tienes</strong><span id="progressBranchHaveCount">0</span></div><div id="progressBranchHaveList" class="progress-branch-list"></div></section>
+      <section class="progress-branch-group"><div class="progress-branch-group-head"><strong>＋ Las que te faltan</strong><span id="progressBranchMissingCount">0</span></div><div id="progressBranchMissingList" class="progress-branch-list"></div></section>
+    </div>
+  </div>
+</div>
 
 <!-- BLOC DE NOTAS · ARGOS -->
 <section id="notesPad" class="screen notes-screen" aria-label="Bloc de notas">
@@ -3124,17 +3135,10 @@ body:not(.dark) select{
 <section id="instructions" class="screen instructions-screen" aria-label="Instrucciones">
   <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">AYUDA</div><h2>Instrucciones</h2></div></div>
   <div class="instructions-shell">
-    <div class="instructions-hero">
-      <span class="instructions-kicker">ARGOS · GUÍA COMPLETA</span>
-      <h3>Aprende a usar ARGOS</h3>
-      <p>Esta guía explica paso a paso cómo registrar servicios, consultar el material, revisar tu historial, interpretar las estadísticas y aprovechar todas las funciones de ARGOS.</p>
-    </div>
-
-    <article class="instructions-card">
-      <div class="instructions-number">01</div>
-      <div>
-        <h4>Empezar a usar ARGOS</h4>
-        <p>El menú lateral es el punto de entrada a las principales funciones de la aplicación. Puedes abrirlo desde el botón correspondiente de la cabecera y entrar en el apartado que necesites.</p>
+    <div class="instructions-hero"><div><span class="instructions-kicker">ARGOS · GUÍA RÁPIDA</span><h3>Aprende ARGOS sin perderte</h3><p>Todo lo que necesitas para registrar servicios, controlar tus ramas, consultar material y aprovechar el historial, las estadísticas y la exportación.</p></div><div class="instructions-hero-badge">?</div></div>
+    <div class="instructions-quick"><div class="instructions-quick-title">SI SOLO NECESITAS LO ESENCIAL</div><div class="instructions-quick-grid"><button type="button" data-instruction-target="instruction-02"><span>01</span><strong>Registra</strong><small>Añade el servicio</small></button><button type="button" data-instruction-target="instruction-03"><span>02</span><strong>Comprueba</strong><small>Serie, vehículo y rama</small></button><button type="button" data-instruction-target="instruction-07"><span>03</span><strong>Consulta</strong><small>Ficha e historial</small></button><button type="button" data-instruction-target="instruction-09"><span>04</span><strong>Analiza</strong><small>Estadísticas y progreso</small></button></div></div>
+    <div class="instructions-section-head"><div><span>GUÍA COMPLETA</span><strong>Todo explicado, por bloques</strong></div><button type="button" id="instructionsToggleAll" aria-expanded="false">Abrir todo</button></div>
+    <details class="instructions-card" id="instruction-01"><summary><span class="instructions-number">01</span><span class="instructions-summary-copy"><strong>Empezar a usar ARGOS</strong><small>El menú lateral es el punto de entrada a las principales funciones de la aplicación. Puedes abrirlo de…</small></span><span class="instructions-summary-arrow" aria-hidden="true">⌄</span></summary><div class="instructions-card-body"><p>El menú lateral es el punto de entrada a las principales funciones de la aplicación. Puedes abrirlo desde el botón correspondiente de la cabecera y entrar en el apartado que necesites.</p>
         <ul>
           <li><strong>Añadir un servicio:</strong> registra un servicio realizado.</li>
           <li><strong>Historial:</strong> consulta todos los servicios guardados.</li>
@@ -3142,15 +3146,9 @@ body:not(.dark) select{
           <li><strong>ArgosDex:</strong> consulta información del material sin necesidad de crear un servicio.</li>
           <li><strong>Instrucciones:</strong> vuelve a esta guía cuando tengas alguna duda.</li>
           <li><strong>Ajustes:</strong> configura tu perfil y la apariencia de ARGOS.</li>
-        </ul>
-      </div>
-    </article>
+        </ul></div></details>
 
-    <article class="instructions-card">
-      <div class="instructions-number">02</div>
-      <div>
-        <h4>Añadir un servicio · paso a paso</h4>
-        <p>Entra en <strong>Añadir un servicio</strong> y completa los datos del servicio. Cuando hayas terminado, pulsa únicamente <strong>Guardar</strong>.</p>
+    <details class="instructions-card" id="instruction-02"><summary><span class="instructions-number">02</span><span class="instructions-summary-copy"><strong>Añadir un servicio · paso a paso</strong><small>Entra en Añadir un servicio y completa los datos del servicio. Cuando hayas terminado, pulsa únicament…</small></span><span class="instructions-summary-arrow" aria-hidden="true">⌄</span></summary><div class="instructions-card-body"><p>Entra en <strong>Añadir un servicio</strong> y completa los datos del servicio. Cuando hayas terminado, pulsa únicamente <strong>Guardar</strong>.</p>
         <ul>
           <li><strong>Número de tren:</strong> introduce el número correspondiente. El campo admite entrada numérica y, en móvil, mostrará un teclado numérico.</li>
           <li><strong>Sin número de tren:</strong> marca esta opción cuando el servicio no tenga número de tren. En ese caso no necesitas introducirlo.</li>
@@ -3163,45 +3161,27 @@ body:not(.dark) select{
           <li><strong>Incidencias:</strong> si ha ocurrido alguna, puedes registrarla y añadir varias incidencias dentro del mismo servicio.</li>
           <li><strong>Guardar:</strong> al terminar, pulsa <strong>Guardar</strong>. El servicio queda incorporado al historial y pasa a formar parte de las estadísticas.</li>
         </ul>
-        <p class="instructions-note"><strong>En móvil:</strong> los campos de número de tren, serie, vehículo y rama están preparados para entrada numérica. El resto de campos mantiene el teclado que corresponda a su contenido.</p>
-      </div>
-    </article>
+        <p class="instructions-note"><strong>En móvil:</strong> los campos de número de tren, serie, vehículo y rama están preparados para entrada numérica. El resto de campos mantiene el teclado que corresponda a su contenido.</p></div></details>
 
-    <article class="instructions-card">
-      <div class="instructions-number">03</div>
-      <div>
-        <h4>Cómo funciona la rama</h4>
-        <p>La rama es uno de los datos más importantes para identificar correctamente el material. ARGOS puede detectarla automáticamente cuando conoce la serie y el vehículo.</p>
+    <details class="instructions-card" id="instruction-03"><summary><span class="instructions-number">03</span><span class="instructions-summary-copy"><strong>Cómo funciona la rama</strong><small>La rama es uno de los datos más importantes para identificar correctamente el material. ARGOS puede de…</small></span><span class="instructions-summary-arrow" aria-hidden="true">⌄</span></summary><div class="instructions-card-body"><p>La rama es uno de los datos más importantes para identificar correctamente el material. ARGOS puede detectarla automáticamente cuando conoce la serie y el vehículo.</p>
         <ul>
           <li>Introduce la <strong>serie</strong> y el <strong>vehículo</strong>.</li>
           <li>ARGOS intenta localizar automáticamente la rama correspondiente.</li>
           <li>La rama detectada aparece en su propio bloque y puedes modificarla manualmente si es necesario.</li>
           <li>También puedes escribir directamente una rama cuando sea la forma que prefieras de registrar el servicio.</li>
           <li>La información de rama se utiliza posteriormente en historial, fichas, estadísticas y avisos de primera vez.</li>
-        </ul>
-      </div>
-    </article>
+        </ul></div></details>
 
-    <article class="instructions-card">
-      <div class="instructions-number">04</div>
-      <div>
-        <h4>Tipo de producto</h4>
-        <p>El selector de producto está pensado para que no tengas que buscar entre todas las modalidades existentes.</p>
+    <details class="instructions-card" id="instruction-04"><summary><span class="instructions-number">04</span><span class="instructions-summary-copy"><strong>Tipo de producto</strong><small>El selector de producto está pensado para que no tengas que buscar entre todas las modalidades existen…</small></span><span class="instructions-summary-arrow" aria-hidden="true">⌄</span></summary><div class="instructions-card-body"><p>El selector de producto está pensado para que no tengas que buscar entre todas las modalidades existentes.</p>
         <ul>
           <li>Primero introduce la <strong>serie</strong>.</li>
           <li>ARGOS determina qué productos son aplicables a esa serie.</li>
           <li>El desplegable muestra solamente las opciones correspondientes a esa serie.</li>
           <li><strong>Charter</strong> está disponible como opción adicional según la configuración de ARGOS.</li>
           <li>Si cambias la serie, las opciones del selector se actualizan para adaptarse a la nueva serie.</li>
-        </ul>
-      </div>
-    </article>
+        </ul></div></details>
 
-    <article class="instructions-card">
-      <div class="instructions-number">05</div>
-      <div>
-        <h4>Doble composición</h4>
-        <p>Utiliza <strong>Doble composición</strong> cuando el servicio esté formado por dos composiciones que deban quedar registradas conjuntamente.</p>
+    <details class="instructions-card" id="instruction-05"><summary><span class="instructions-number">05</span><span class="instructions-summary-copy"><strong>Doble composición</strong><small>Utiliza Doble composición cuando el servicio esté formado por dos composiciones que deban quedar regis…</small></span><span class="instructions-summary-arrow" aria-hidden="true">⌄</span></summary><div class="instructions-card-body"><p>Utiliza <strong>Doble composición</strong> cuando el servicio esté formado por dos composiciones que deban quedar registradas conjuntamente.</p>
         <ul>
           <li>Marca la casilla <strong>Doble composición</strong>.</li>
           <li>Completa la primera composición con sus datos habituales.</li>
@@ -3210,58 +3190,34 @@ body:not(.dark) select{
           <li>También puedes escribir directamente la <strong>rama</strong> de la segunda composición.</li>
           <li>La segunda composición tiene su propia identificación de serie, vehículo y rama.</li>
           <li>La ficha final identifica el tren como <strong>doble composición</strong> y permite cambiar entre una composición y la otra para consultar sus datos sin crear una ficha excesivamente larga.</li>
-        </ul>
-      </div>
-    </article>
+        </ul></div></details>
 
-    <article class="instructions-card">
-      <div class="instructions-number">06</div>
-      <div>
-        <h4>Aviso de primera vez y rama repetida</h4>
-        <p>Cuando guardas un servicio, ARGOS comprueba la rama registrada para informarte de si es una rama nueva para ti o si ya la habías utilizado anteriormente.</p>
+    <details class="instructions-card" id="instruction-06"><summary><span class="instructions-number">06</span><span class="instructions-summary-copy"><strong>Aviso de primera vez y rama repetida</strong><small>Cuando guardas un servicio, ARGOS comprueba la rama registrada para informarte de si es una rama nueva…</small></span><span class="instructions-summary-arrow" aria-hidden="true">⌄</span></summary><div class="instructions-card-body"><p>Cuando guardas un servicio, ARGOS comprueba la rama registrada para informarte de si es una rama nueva para ti o si ya la habías utilizado anteriormente.</p>
         <ul>
           <li><strong>Primera vez con esta rama:</strong> aparece cuando ARGOS detecta que nunca habías registrado esa rama anteriormente.</li>
           <li><strong>Rama repetida:</strong> aparece cuando la rama ya formaba parte de tus registros.</li>
           <li>En una rama repetida se muestra también <strong>la última vez que la viste</strong>.</li>
           <li>La comprobación tiene en cuenta la rama aunque haya sido detectada automáticamente o introducida manualmente.</li>
           <li>En una doble composición, ARGOS también puede comprobar las ramas de las dos composiciones.</li>
-        </ul>
-      </div>
-    </article>
+        </ul></div></details>
 
-    <article class="instructions-card">
-      <div class="instructions-number">07</div>
-      <div>
-        <h4>Historial y fichas</h4>
-        <p><strong>Historial</strong> reúne los servicios que has registrado para que puedas consultarlos posteriormente.</p>
+    <details class="instructions-card" id="instruction-07"><summary><span class="instructions-number">07</span><span class="instructions-summary-copy"><strong>Historial y fichas</strong><small>Historial reúne los servicios que has registrado para que puedas consultarlos posteriormente.</small></span><span class="instructions-summary-arrow" aria-hidden="true">⌄</span></summary><div class="instructions-card-body"><p><strong>Historial</strong> reúne los servicios que has registrado para que puedas consultarlos posteriormente.</p>
         <ul>
           <li>Los servicios aparecen organizados como registros independientes.</li>
           <li>Pulsa sobre un registro para abrir su ficha.</li>
           <li>La ficha muestra la información del servicio y del material asociado.</li>
           <li>Las ramas registradas directamente también pueden consultarse aunque el vehículo no esté indicado de la misma forma que en un registro convencional.</li>
           <li>Si se trata de una doble composición, la ficha permite consultar cada composición por separado.</li>
-        </ul>
-      </div>
-    </article>
+        </ul></div></details>
 
-    <article class="instructions-card">
-      <div class="instructions-number">08</div>
-      <div>
-        <h4>Último servicio y última vez</h4>
-        <p>ARGOS dispone de herramientas para localizar rápidamente servicios recientes y recordar cuándo utilizaste determinado material o recorrido.</p>
+    <details class="instructions-card" id="instruction-08"><summary><span class="instructions-number">08</span><span class="instructions-summary-copy"><strong>Último servicio y última vez</strong><small>ARGOS dispone de herramientas para localizar rápidamente servicios recientes y recordar cuándo utiliza…</small></span><span class="instructions-summary-arrow" aria-hidden="true">⌄</span></summary><div class="instructions-card-body"><p>ARGOS dispone de herramientas para localizar rápidamente servicios recientes y recordar cuándo utilizaste determinado material o recorrido.</p>
         <ul>
           <li><strong>Último servicio:</strong> sirve para consultar rápidamente el servicio registrado más recientemente.</li>
           <li><strong>Último acceso:</strong> permite localizar registros anteriores y consultar cuándo realizaste un determinado trayecto o cuándo utilizaste una serie.</li>
           <li>Los registros se pueden abrir para consultar su ficha con mayor detalle.</li>
-        </ul>
-      </div>
-    </article>
+        </ul></div></details>
 
-    <article class="instructions-card">
-      <div class="instructions-number">09</div>
-      <div>
-        <h4>Estadísticas · cuadro de mando</h4>
-        <p>El apartado <strong>Estadísticas</strong> transforma los servicios registrados en información útil sobre tu actividad.</p>
+    <details class="instructions-card" id="instruction-09"><summary><span class="instructions-number">09</span><span class="instructions-summary-copy"><strong>Estadísticas · cuadro de mando</strong><small>El apartado Estadísticas transforma los servicios registrados en información útil sobre tu actividad.</small></span><span class="instructions-summary-arrow" aria-hidden="true">⌄</span></summary><div class="instructions-card-body"><p>El apartado <strong>Estadísticas</strong> transforma los servicios registrados en información útil sobre tu actividad.</p>
         <ul>
           <li><strong>Servicios:</strong> número total de servicios que cumplen los filtros seleccionados.</li>
           <li><strong>Kilómetros:</strong> suma de los kilómetros registrados.</li>
@@ -3278,15 +3234,9 @@ body:not(.dark) select{
           <li><strong>Incidencias registradas:</strong> resume los tipos de incidencia introducidos.</li>
           <li><strong>Actividad por día:</strong> permite ver qué días de la semana concentran más servicios.</li>
           <li><strong>Récords ARGOS:</strong> reúne algunos de tus principales hitos, como tren, serie, rama, ruta o producto más repetidos.</li>
-        </ul>
-      </div>
-    </article>
+        </ul></div></details>
 
-    <article class="instructions-card">
-      <div class="instructions-number">10</div>
-      <div>
-        <h4>Filtros de estadísticas</h4>
-        <p>Los filtros permiten analizar solamente una parte de tus servicios.</p>
+    <details class="instructions-card" id="instruction-10"><summary><span class="instructions-number">10</span><span class="instructions-summary-copy"><strong>Filtros de estadísticas</strong><small>Los filtros permiten analizar solamente una parte de tus servicios.</small></span><span class="instructions-summary-arrow" aria-hidden="true">⌄</span></summary><div class="instructions-card-body"><p>Los filtros permiten analizar solamente una parte de tus servicios.</p>
         <ul>
           <li><strong>Año:</strong> limita el análisis a un año concreto.</li>
           <li><strong>Mes:</strong> limita el análisis a un mes concreto.</li>
@@ -3296,72 +3246,42 @@ body:not(.dark) select{
           <li>El contador de filtros indica cuántos criterios están activos.</li>
           <li><strong>Restablecer:</strong> elimina los filtros y devuelve la vista general.</li>
           <li>Muchas tarjetas de estadísticas son interactivas: púlsalas para entrar en un análisis más detallado cuando aparezca esa posibilidad.</li>
-        </ul>
-      </div>
-    </article>
+        </ul></div></details>
 
-    <article class="instructions-card">
-      <div class="instructions-number">11</div>
-      <div>
-        <h4>ArgosDex · consultar material</h4>
-        <p><strong>ArgosDex</strong> es la herramienta de consulta de material. Es útil cuando quieres saber qué corresponde a una serie, vehículo o rama sin necesidad de registrar un servicio.</p>
+    <details class="instructions-card" id="instruction-11"><summary><span class="instructions-number">11</span><span class="instructions-summary-copy"><strong>ArgosDex · consultar material</strong><small>ArgosDex es la herramienta de consulta de material. Es útil cuando quieres saber qué corresponde a una…</small></span><span class="instructions-summary-arrow" aria-hidden="true">⌄</span></summary><div class="instructions-card-body"><p><strong>ArgosDex</strong> es la herramienta de consulta de material. Es útil cuando quieres saber qué corresponde a una serie, vehículo o rama sin necesidad de registrar un servicio.</p>
         <ul>
           <li>Introduce los datos que conozcas del material.</li>
           <li>Utiliza la búsqueda para localizar la unidad correspondiente.</li>
           <li>Cuando el material está identificado, ARGOS muestra su ficha.</li>
           <li>Puedes utilizar ArgosDex como consulta rápida antes de registrar un servicio o simplemente para comprobar un dato.</li>
-        </ul>
-      </div>
-    </article>
+        </ul></div></details>
 
-    <article class="instructions-card">
-      <div class="instructions-number">12</div>
-      <div>
-        <h4>Incidencias</h4>
-        <p>Las incidencias se guardan asociadas al servicio correspondiente y posteriormente pueden aparecer reflejadas en las estadísticas.</p>
+    <details class="instructions-card" id="instruction-12"><summary><span class="instructions-number">12</span><span class="instructions-summary-copy"><strong>Incidencias</strong><small>Las incidencias se guardan asociadas al servicio correspondiente y posteriormente pueden aparecer refl…</small></span><span class="instructions-summary-arrow" aria-hidden="true">⌄</span></summary><div class="instructions-card-body"><p>Las incidencias se guardan asociadas al servicio correspondiente y posteriormente pueden aparecer reflejadas en las estadísticas.</p>
         <ul>
           <li>Escribe la incidencia en el campo correspondiente.</li>
           <li>Pulsa <strong>Añadir incidencia</strong> para incorporarla al servicio.</li>
           <li>Puedes añadir más de una incidencia al mismo registro.</li>
           <li>Las incidencias contribuyen al recuento de calidad dentro de Estadísticas.</li>
-        </ul>
-      </div>
-    </article>
+        </ul></div></details>
 
-    <article class="instructions-card">
-      <div class="instructions-number">13</div>
-      <div>
-        <h4>Ajustes y apariencia</h4>
-        <p>Desde <strong>Ajustes</strong> puedes personalizar la aplicación sin modificar tus servicios registrados.</p>
+    <details class="instructions-card" id="instruction-13"><summary><span class="instructions-number">13</span><span class="instructions-summary-copy"><strong>Ajustes y apariencia</strong><small>Desde Ajustes puedes personalizar la aplicación sin modificar tus servicios registrados.</small></span><span class="instructions-summary-arrow" aria-hidden="true">⌄</span></summary><div class="instructions-card-body"><p>Desde <strong>Ajustes</strong> puedes personalizar la aplicación sin modificar tus servicios registrados.</p>
         <ul>
           <li><strong>Nombre del usuario:</strong> guarda el nombre que quieras utilizar en ARGOS.</li>
           <li><strong>Puesto en Renfe:</strong> permite indicar tu puesto para personalizar la pantalla principal.</li>
           <li><strong>Tema claro:</strong> utiliza la apariencia clara.</li>
           <li><strong>Tema oscuro:</strong> utiliza la apariencia oscura.</li>
           <li>Los cambios de apariencia afectan a la presentación de la aplicación, no a los datos de tus servicios.</li>
-        </ul>
-      </div>
-    </article>
+        </ul></div></details>
 
-    <article class="instructions-card">
-      <div class="instructions-number">14</div>
-      <div>
-        <h4>Navegación y volver atrás</h4>
-        <p>ARGOS está diseñado para que puedas moverte entre sus pantallas sin perder el punto en el que estabas.</p>
+    <details class="instructions-card" id="instruction-14"><summary><span class="instructions-number">14</span><span class="instructions-summary-copy"><strong>Navegación y volver atrás</strong><small>ARGOS está diseñado para que puedas moverte entre sus pantallas sin perder el punto en el que estabas.</small></span><span class="instructions-summary-arrow" aria-hidden="true">⌄</span></summary><div class="instructions-card-body"><p>ARGOS está diseñado para que puedas moverte entre sus pantallas sin perder el punto en el que estabas.</p>
         <ul>
           <li>Utiliza la flecha de cada pantalla para volver al menú correspondiente.</li>
           <li>El menú lateral permite saltar directamente a otra sección.</li>
           <li>El botón de cierre del menú lateral vuelve a mostrar la pantalla que estabas consultando.</li>
           <li>En móvil, la navegación está preparada para evitar que el botón de retroceso del navegador saque accidentalmente de ARGOS durante la navegación interna.</li>
-        </ul>
-      </div>
-    </article>
+        </ul></div></details>
 
-    <article class="instructions-card">
-      <div class="instructions-number">15</div>
-      <div>
-        <h4>Flujo recomendado para registrar un servicio</h4>
-        <p>Si quieres hacerlo de forma rápida y ordenada, este es el flujo recomendado:</p>
+    <details class="instructions-card" id="instruction-15"><summary><span class="instructions-number">15</span><span class="instructions-summary-copy"><strong>Flujo recomendado para registrar un servicio</strong><small>Si quieres hacerlo de forma rápida y ordenada, este es el flujo recomendado:</small></span><span class="instructions-summary-arrow" aria-hidden="true">⌄</span></summary><div class="instructions-card-body"><p>Si quieres hacerlo de forma rápida y ordenada, este es el flujo recomendado:</p>
         <ol>
           <li>Entra en <strong>Añadir un servicio</strong>.</li>
           <li>Introduce el número de tren o marca <strong>Sin número de tren</strong>.</li>
@@ -3375,22 +3295,18 @@ body:not(.dark) select{
           <li>Pulsa <strong>Guardar</strong>.</li>
           <li>Consulta el aviso de <strong>primera vez</strong> o <strong>rama repetida</strong> cuando corresponda.</li>
           <li>Después puedes consultar el registro desde <strong>Historial</strong> y ver cómo se incorpora a <strong>Estadísticas</strong>.</li>
-        </ol>
-      </div>
-    </article>
+        </ol></div></details>
 
-    <div class="instructions-tip">
-      <strong>💡 Consejo</strong>
-      <p>Cuanto más completos sean tus registros —especialmente serie, vehículo, rama, producto, origen y destino— más información podrá ofrecerte ARGOS posteriormente en las fichas, el historial, Último acceso y las estadísticas.</p>
-    </div>
+    <details class="instructions-card" id="instruction-16"><summary><span class="instructions-number">16</span><span class="instructions-summary-copy"><strong>Progreso · controlar tus ramas</strong><small>Consulta qué ramas ya has registrado y cuáles te faltan.</small></span><span class="instructions-summary-arrow" aria-hidden="true">⌄</span></summary><div class="instructions-card-body"><p><strong>Progreso</strong> te permite controlar de un vistazo cuánto material has registrado por serie.</p><ul><li>Las tarjetas muestran el porcentaje de ramas registradas de cada serie.</li><li><strong>Pulsa una serie</strong> para abrir una ventana con dos listas: las ramas que ya tienes y las que te faltan.</li><li>Las ramas se normalizan para que, por ejemplo, <strong>005</strong> y <strong>5</strong> representen la misma rama.</li><li>En una doble composición también se tienen en cuenta las ramas de la segunda composición.</li><li>El porcentaje se calcula comparando tus registros con las ramas disponibles en la base de material de ARGOS.</li></ul></div></details>
 
-    <div class="instructions-tip">
-      <strong>📌 Regla rápida</strong>
-      <p><strong>Registrar → consultar ficha → revisar historial → analizar estadísticas.</strong> Si solamente necesitas identificar material, utiliza <strong>ArgosDex</strong> sin crear un servicio.</p>
-    </div>
+    <details class="instructions-card" id="instruction-17"><summary><span class="instructions-number">17</span><span class="instructions-summary-copy"><strong>Exportación · generar un PDF</strong><small>Filtra tus servicios y decide qué información quieres incluir.</small></span><span class="instructions-summary-arrow" aria-hidden="true">⌄</span></summary><div class="instructions-card-body"><p>En <strong>Más funciones → Exportación</strong> puedes crear un PDF con tus registros.</p><ul><li>Utiliza los filtros de <strong>año, mes, producto y serie</strong> para limitar los servicios incluidos.</li><li>Selecciona los campos que quieres mostrar: fecha, tren, serie, rama, vehículo, producto, origen, destino, anotaciones e incidencias.</li><li><strong>Seleccionar todos</strong> activa todos los campos disponibles.</li><li><strong>Restablecer</strong> devuelve los filtros a su estado inicial.</li><li>El contador indica cuántos registros y campos se incluirán en la exportación.</li><li>Finalmente pulsa <strong>Generar PDF</strong>.</li></ul></div></details>
+
+    <details class="instructions-card" id="instruction-18"><summary><span class="instructions-number">18</span><span class="instructions-summary-copy"><strong>Más funciones · herramientas adicionales</strong><small>Qué encontrarás en Progreso, Calidad, Biblioteca, Notas y Exportación.</small></span><span class="instructions-summary-arrow" aria-hidden="true">⌄</span></summary><div class="instructions-card-body"><p>El apartado <strong>Más funciones</strong> reúne herramientas que no necesitas para registrar un servicio, pero que ayudan a sacar más partido a tus datos.</p><ul><li><strong>Progreso:</strong> controla las ramas registradas y pendientes por serie.</li><li><strong>Calidad:</strong> consulta los análisis específicos de calidad disponibles en ARGOS.</li><li><strong>Biblioteca:</strong> accede al contenido de consulta almacenado en la aplicación.</li><li><strong>Notas:</strong> utiliza el bloc para apuntes personales que se guardan en este dispositivo.</li><li><strong>Exportación:</strong> genera un PDF de tus servicios con los filtros y campos que elijas.</li></ul></div></details>
+
+    <div class="instructions-tip"><strong>💡 Consejo</strong><p>Cuanto más completos sean tus registros —especialmente serie, vehículo, rama, producto, origen y destino— más información podrá ofrecerte ARGOS posteriormente en las fichas, el historial, Último acceso y las estadísticas.</p></div>
+    <div class="instructions-tip"><strong>📌 Regla rápida</strong><p><strong>Registrar → consultar ficha → revisar historial → analizar estadísticas.</strong> Si solamente necesitas identificar material, utiliza <strong>ArgosDex</strong> sin crear un servicio.</p></div>
   </div>
 </section>
-
 
 <section id="updates" class="screen argos-updates-screen" aria-label="Actualizaciones">
   <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">ARGOS</div><h2>Actualizaciones</h2></div></div>
@@ -12312,7 +12228,8 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   else install();
   window.addEventListener('load',install,{once:true});
 })();
-</script>\n<script id="argos-export-pdf-v16">
+</script>
+<script id="argos-export-pdf-v16">
 (function(){
   'use strict';
 
@@ -12365,7 +12282,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const entries=Array.isArray(service?.notesEntries)?service.notesEntries:[];
     const out=entries.map(x=>{if(x&&typeof x==='object')return text(x.text??x.value??x.description??'');return text(x)}).filter(Boolean);
     if(out.length)return out;
-    return text(service?.notes??service?.anotaciones).split(/\\n+/).map(text).filter(Boolean);
+    return text(service?.notes??service?.anotaciones).split(/\n+/).map(text).filter(Boolean);
   }
 
   function incidentsOf(service){
@@ -12375,7 +12292,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       return {text:text(x),solved:false};
     }).filter(x=>x.text);
     if(out.length)return out;
-    return text(service?.incidents??service?.incidencias).split(/\\n+/).map(text).filter(Boolean).map(t=>({text:t,solved:false}));
+    return text(service?.incidents??service?.incidencias).split(/\n+/).map(text).filter(Boolean).map(t=>({text:t,solved:false}));
   }
 
   function activeFilterValues(){
@@ -12608,3 +12525,14 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   window.addEventListener('load',()=>{populateFilterSelects();updateSummary()},{once:true});
 })();
 </script>
+
+<style id="argos-export-menu-button-size-fix">
+#more-functions > .argos-home > .home-list > .home-card[data-screen="exportServices"]{grid-column:1 / -1 !important}
+@media(min-width:601px){#more-functions > .argos-home > .home-list{grid-template-rows:repeat(3,minmax(0,1fr)) !important}#more-functions > .argos-home > .home-list > .home-card{min-height:76px !important}}
+@media(max-width:600px){#more-functions > .argos-home > .home-list > .home-card[data-screen="exportServices"]{grid-column:auto !important}}
+</style>
+
+<style id="argos-instructions-v2">
+.instructions-shell{width:min(980px,100%);margin:0 auto;padding:6px 0 36px;display:flex;flex-direction:column;gap:12px}.instructions-hero{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px;border:1px solid rgba(138,0,92,.14);border-radius:22px;background:linear-gradient(135deg,rgba(138,0,92,.11),rgba(138,0,92,.035));box-shadow:0 10px 28px rgba(30,20,30,.04)}.instructions-hero h3{margin:5px 0 7px;font-size:29px}.instructions-hero p{margin:0;color:var(--muted,#73747d);line-height:1.5;font-size:14px;max-width:760px}.instructions-hero-badge{width:56px;height:56px;flex:0 0 56px;border-radius:18px;display:grid;place-items:center;background:var(--renfe,#8a005c);color:#fff;font-size:25px;font-weight:900}.instructions-quick{padding:16px;border:1px solid var(--line,#ddd);border-radius:19px;background:var(--card,#fff);box-shadow:0 8px 25px rgba(30,20,30,.045)}.instructions-quick-title,.instructions-section-head span{display:block;color:var(--renfe,#8a005c);font-size:10px;font-weight:900;letter-spacing:.12em}.instructions-quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:10px}.instructions-quick-grid button{min-width:0;text-align:left;border:1px solid var(--line,#ddd);border-radius:14px;background:var(--page,#f7f7f7);padding:12px;cursor:pointer}.instructions-quick-grid button:hover{border-color:rgba(138,0,92,.35);transform:translateY(-1px)}.instructions-quick-grid span{display:block;color:var(--renfe,#8a005c);font-size:10px;font-weight:900}.instructions-quick-grid strong{display:block;margin-top:3px;color:var(--ink,#222);font-size:13px}.instructions-quick-grid small{display:block;margin-top:3px;color:var(--muted,#777);font-size:10px;line-height:1.3}.instructions-section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:4px 2px}.instructions-section-head strong{display:block;margin-top:3px;font-size:16px}.instructions-section-head button{border:1px solid var(--line,#ddd);border-radius:10px;background:var(--card,#fff);color:var(--renfe,#8a005c);padding:8px 11px;font-size:11px;font-weight:900;cursor:pointer}details.instructions-card{display:block;padding:0;border:1px solid var(--line,#ddd);border-radius:18px;background:var(--card,#fff);box-shadow:0 7px 22px rgba(30,20,30,.04);overflow:hidden}details.instructions-card[open]{border-color:rgba(138,0,92,.22)}details.instructions-card summary{list-style:none;display:grid;grid-template-columns:44px minmax(0,1fr) 28px;align-items:center;gap:13px;padding:14px 16px;cursor:pointer;user-select:none}details.instructions-card summary::-webkit-details-marker{display:none}.instructions-number{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(138,0,92,.10);color:var(--renfe,#8a005c);font-weight:900;font-size:11px}.instructions-summary-copy{min-width:0}.instructions-summary-copy strong{display:block;color:var(--ink,#222);font-size:15px;line-height:1.25}.instructions-summary-copy small{display:block;margin-top:3px;color:var(--muted,#777);font-size:11px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.instructions-summary-arrow{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--soft,#f6edf3);color:var(--renfe,#8a005c);font-size:17px;font-weight:900;transition:transform .15s ease}details.instructions-card[open] .instructions-summary-arrow{transform:rotate(180deg)}.instructions-card-body{padding:0 18px 18px 73px;color:var(--muted,#6f7078)}.instructions-card-body p{margin:0 0 8px;line-height:1.5;font-size:13px}.instructions-card-body ul,.instructions-card-body ol{margin:8px 0 0;padding-left:19px;line-height:1.55;font-size:13px}.instructions-card-body li{margin:4px 0}.instructions-card-body strong{color:var(--ink,#24242a)}.instructions-card-body .instructions-note{margin-top:10px;padding:10px 12px;border-radius:11px;background:var(--soft,#f7edf3)}.instructions-tip{padding:16px 18px;border-radius:17px;background:#f7e9f2;border:1px solid rgba(138,0,92,.12);color:#62636b;line-height:1.5;font-size:13px}.instructions-tip strong{display:block;color:#8a005c;margin-bottom:4px}.instructions-tip p{margin:0}@media(max-width:700px){.instructions-shell{padding:4px 0 28px}.instructions-hero{padding:19px 17px;border-radius:18px}.instructions-hero h3{font-size:23px}.instructions-hero p{font-size:12px}.instructions-hero-badge{width:46px;height:46px;flex-basis:46px;border-radius:14px;font-size:20px}.instructions-quick{padding:13px;border-radius:17px}.instructions-quick-grid{grid-template-columns:1fr 1fr}.instructions-section-head strong{font-size:14px}details.instructions-card{border-radius:16px}details.instructions-card summary{grid-template-columns:38px minmax(0,1fr) 26px;padding:12px 13px;gap:10px}.instructions-number{width:35px;height:35px;border-radius:10px}.instructions-summary-copy strong{font-size:14px}.instructions-summary-copy small{font-size:10px}.instructions-card-body{padding:0 14px 15px 58px}.instructions-card-body p,.instructions-card-body ul,.instructions-card-body ol{font-size:12px}}
+</style>
+<script id="argos-instructions-v2-script">(function(){function init(){const root=document.getElementById('instructions');if(!root||root.dataset.instructionsV2==='1')return;root.dataset.instructionsV2='1';root.querySelectorAll('[data-instruction-target]').forEach(btn=>btn.addEventListener('click',()=>{const target=document.getElementById(btn.dataset.instructionTarget);if(!target)return;target.open=true;target.scrollIntoView({behavior:'smooth',block:'start'})}));const toggle=document.getElementById('instructionsToggleAll');const cards=[...root.querySelectorAll('details.instructions-card')];if(toggle)toggle.addEventListener('click',()=>{const open=!cards.every(card=>card.open);cards.forEach(card=>card.open=open);toggle.textContent=open?'Cerrar todo':'Abrir todo';toggle.setAttribute('aria-expanded',String(open))})}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init()})();</script>
