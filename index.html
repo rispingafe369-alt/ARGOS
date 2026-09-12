@@ -2781,7 +2781,6 @@ body:not(.dark) select{
         <label><input type="checkbox" data-argos-export-field="product" checked><span>Producto</span></label>
         <label><input type="checkbox" data-argos-export-field="origin" checked><span>Origen</span></label>
         <label><input type="checkbox" data-argos-export-field="destination" checked><span>Destino</span></label>
-        <label><input type="checkbox" data-argos-export-field="kilometres" checked><span>Kilómetros</span></label>
         <label><input type="checkbox" data-argos-export-field="notes" checked><span>Anotaciones</span></label>
         <label><input type="checkbox" data-argos-export-field="incidents" checked><span>Incidencias</span></label>
       </div>
@@ -2993,7 +2992,7 @@ body:not(.dark) select{
 </section>
 
 <section id="ficha" class="screen">
-  <div class="screen-header"><button class="back-button" data-back type="button">‹</button><div><div class="screen-kicker">MATERIAL</div><h2>Ficha del tren</h2></div></div>
+  <div class="screen-header"><button id="fichaBackButton" class="back-button" type="button" aria-label="Volver">‹</button><div><div class="screen-kicker">MATERIAL</div><h2>Ficha del tren</h2></div></div>
   <div class="ficha-shell"><div id="fichaContent" class="ficha-card"></div></div>
 </section>
 
@@ -4036,8 +4035,9 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
       const data=(typeof fleet!=='undefined') ? fleet[s] : null;
       const units=data?.units||{};
       for(const [key,unit] of Object.entries(units)){
-        if(String(unit?.rama??'').replace(/\D/g,'')===b){
-          return {branch:window.ARGOS_NORMALIZE_BRANCH(unit.rama),vehicle:String(unit.vehiculoBase||key),record:unit};
+        const unitBranch=window.ARGOS_NORMALIZE_BRANCH(unit?.rama??'');
+        if(unitBranch && unitBranch===window.ARGOS_NORMALIZE_BRANCH(b)){
+          return {branch:unitBranch,vehicle:String(unit.vehiculoBase||key),record:unit};
         }
       }
     }catch(e){
@@ -9556,6 +9556,16 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       const series=text(service.series??service.serie??service.trainSeries);
       const vehicle=text(service.vehicle??service.vehiculo??service.vehicleNumber);
       const branch=window.ARGOS_NORMALIZE_BRANCH(service.branch??service.rama);
+      const composition2=service?.doubleComposition&&service?.composition2?service.composition2:null;
+      let branch2=composition2?window.ARGOS_NORMALIZE_BRANCH(composition2.branch||composition2.rama):'';
+      if(composition2&&!branch2&&composition2.series&&composition2.vehicle){
+        try{
+          const secondUnit=typeof getFleetUnit==='function'?getFleetUnit(composition2.series,composition2.vehicle):null;
+          branch2=window.ARGOS_NORMALIZE_BRANCH(secondUnit?.rama||'');
+        }catch(e){}
+      }
+      const branches=[branch,branch2].filter(Boolean).filter((v,i,a)=>a.indexOf(v)===i);
+      const branchLabel=branches.length>1?`Ramas ${branches.join(' · ')}`:(branches[0]?`Rama ${branches[0]}`:'Rama —');
       const product=text(service.product??service.producto??service.serviceType);
       const origin=text(service.origin??service.origen);
       const destination=text(service.destination??service.destino);
@@ -9586,7 +9596,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
         <div class="history-ticket-divider"></div>
         <div class="history-ticket-details">
           <span class="history-ticket-detail series">Serie ${esc(series||'—')}</span>
-          <span class="history-ticket-detail">Rama ${esc(branch||'—')}</span>
+          <span class="history-ticket-detail">${esc(branchLabel)}</span>
           <span class="history-ticket-detail">${esc(product||'—')}</span>
         </div>
         ${(notes.length||incidents.length)?`<div class="history-ticket-notes">${notes.length?`<b>Anotaciones:</b> ${notes.map(esc).join(' · ')}`:''}${notes.length&&incidents.length?' · ':''}${incidents.length?`<b>Incidencias:</b> ${incidents.map(x=>esc(x.text)).join(' · ')}`:''}</div>`:''}
@@ -9596,8 +9606,11 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     list.querySelectorAll('[data-service-id]').forEach(card=>{
       const open=()=>{
         const service=getService(card.dataset.serviceId);
-        if(service&&typeof openServiceFicha==='function')openServiceFicha(service);
-        else if(service&&typeof openFicha==='function')openFicha(service.series||'',service.vehicle||'',service);
+        if(service){
+          window.__argosNextFichaOrigin="history";
+          if(typeof openServiceFicha==='function')openServiceFicha(service);
+          else if(typeof openFicha==='function')openFicha(service.series||'',service.vehicle||'',service);
+        }
       };
       card.addEventListener('click',e=>{
         if(e.target.closest('.argos-history-actions'))return;
@@ -12595,4 +12608,3 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   window.addEventListener('load',()=>{populateFilterSelects();updateSummary()},{once:true});
 })();
 </script>
-
