@@ -120,6 +120,7 @@ function showScreen(id){
 window.showScreen=showScreen;
 document.querySelectorAll("[data-screen]").forEach(b=>b.addEventListener("click",()=>showScreen(b.dataset.screen)));
 document.querySelectorAll("[data-back]").forEach(b=>b.addEventListener("click",()=>showScreen("menu")));
+if($("fichaBackButton")) $("fichaBackButton").addEventListener("click",()=>showScreen(window.__argosFichaOrigin==="history"?"history":"menu"));
 if($("openSettings")) $("openSettings").onclick=()=>showScreen("settings");
 
 function applyTheme(theme){
@@ -26011,6 +26012,30 @@ function cancelCurrentService(){
 }
 if($("cancelService"))$("cancelService").addEventListener("click",cancelCurrentService);
 
+function serviceAnnotationsHtml(service){
+  if(!service)return '';
+  const textOf=v=>{
+    if(v===null||v===undefined)return '';
+    if(typeof v==='string')return v.trim();
+    return String(v.text??v.value??v.description??'').trim();
+  };
+  const notes=[];
+  if(Array.isArray(service.notesEntries))service.notesEntries.forEach(v=>{const t=textOf(v);if(t)notes.push(t)});
+  const legacyNote=textOf(service.notes);
+  if(legacyNote&&!notes.includes(legacyNote))notes.push(legacyNote);
+  const incidents=[];
+  if(Array.isArray(service.incidentsEntries))service.incidentsEntries.forEach(v=>{const t=textOf(v);if(t)incidents.push({text:t,solved:!!(v&&typeof v==='object'&&v.solved===true)})});
+  const legacyIncident=textOf(service.incidents);
+  if(legacyIncident&&!incidents.some(v=>v.text===legacyIncident))legacyIncident.split(/\n+/).map(v=>v.trim()).filter(Boolean).forEach(t=>incidents.push({text:t,solved:false}));
+  if(!notes.length&&!incidents.length)return '';
+  return `
+    <div class="ficha-section argos-service-annotations-section" id="argosServiceAnnotations">
+      <div class="ficha-section-title">ANOTACIONES DEL SERVICIO</div>
+      <div class="ficha-notes">${notes.length?notes.map(t=>`<div class="ficha-note">${esc(t)}</div>`).join(''):'<div class="ficha-empty-inline">No hay anotaciones.</div>'}</div>
+      ${incidents.length?`<div class="ficha-section-title" style="margin-top:14px">INCIDENCIAS DEL SERVICIO</div><div class="ficha-notes">${incidents.map(v=>`<div class="ficha-note${v.solved?' solved':''}">${esc(v.text)}${v.solved?' · Solventada':''}</div>`).join('')}</div>`:''}
+    </div>`;
+}
+
 function fleetFichaHtml(series,vehicle,service=null){
   const unit=getFleetUnit(series,vehicle);
   const seriesData=getSeriesData(series);
@@ -26142,9 +26167,12 @@ function fleetFichaHtml(series,vehicle,service=null){
     ${serviceBlock}
     ${identification}
     ${highlights}
+    ${serviceAnnotationsHtml(service)}
     ${generalBlock}`;
 }
 function openFicha(series,vehicle,service=null){
+  window.__argosFichaOrigin=window.__argosNextFichaOrigin==="history"?"history":"menu";
+  delete window.__argosNextFichaOrigin;
   const fichaScreen=$("ficha");
 
   /*
@@ -30249,6 +30277,8 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     if(!content||!current)return;
     const old=$v64('argosV64ServiceEntries');
     if(old)old.remove();
+    const existing=$v64('argosServiceAnnotations');
+    if(existing)existing.remove();
     const host=document.createElement('div');
     host.id='argosV64ServiceEntries';
     host.innerHTML=renderEntries(current);
