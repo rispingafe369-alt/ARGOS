@@ -14244,3 +14244,157 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   .stats-chart-panel.argos-calendar-annual #quarterNext{right:-4px !important;}
 }
 </style>
+
+
+<!-- ARGOS · CORRECCIÓN FINAL · CALENDARIO RESPONSIVE -->
+<style id="argos-calendar-responsive-v3">
+/* Escritorio: tres meses en una fila, flechas independientes y nunca superpuestas. */
+.stats-chart-panel .quarter-carousel{
+  display:grid !important;
+  grid-template-columns:46px minmax(0,1fr) 46px !important;
+  grid-template-rows:auto !important;
+  align-items:center !important;
+  column-gap:12px !important;
+  row-gap:0 !important;
+  position:relative !important;
+  min-height:0 !important;
+  width:100% !important;
+}
+.stats-chart-panel .quarter-viewport{
+  grid-column:2 !important;
+  grid-row:1 !important;
+  min-width:0 !important;
+  width:100% !important;
+  overflow:visible !important;
+}
+.stats-chart-panel .quarter-month-view{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:14px !important;
+  width:100% !important;
+  min-width:0 !important;
+}
+.stats-chart-panel .quarter-month-card{
+  width:100% !important;
+  min-width:0 !important;
+  min-height:210px !important;
+  height:210px !important;
+  box-sizing:border-box !important;
+  padding:18px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:flex-start !important;
+  border-radius:18px !important;
+  overflow:hidden !important;
+}
+/* Las flechas solo se muestran cuando el motor anual añade esta clase. */
+.stats-chart-panel .quarter-nav{
+  display:none !important;
+  position:static !important;
+  transform:none !important;
+  margin:0 !important;
+  z-index:3 !important;
+}
+.stats-chart-panel.argos-calendar-annual .quarter-nav{
+  display:grid !important;
+  width:46px !important;
+  height:46px !important;
+  min-width:46px !important;
+  min-height:46px !important;
+  place-items:center !important;
+  padding:0 !important;
+  border-radius:14px !important;
+  font-size:30px !important;
+  line-height:1 !important;
+}
+.stats-chart-panel.argos-calendar-annual #quarterPrev{
+  grid-column:1 !important;
+  grid-row:1 !important;
+  justify-self:center !important;
+  left:auto !important;
+  right:auto !important;
+}
+.stats-chart-panel.argos-calendar-annual #quarterNext{
+  grid-column:3 !important;
+  grid-row:1 !important;
+  justify-self:center !important;
+  left:auto !important;
+  right:auto !important;
+}
+.stats-chart-panel .quarter-month-name{font-size:18px !important;line-height:1.15 !important;}
+.stats-chart-panel .quarter-month-total{font-size:18px !important;line-height:1.15 !important;}
+.stats-chart-panel .quarter-month-caption{font-size:10px !important;margin:8px 0 12px !important;}
+.stats-chart-panel .quarter-month-track{height:18px !important;margin-top:auto !important;}
+.stats-chart-panel .quarter-month-bottom{margin-top:10px !important;}
+
+@media (max-width:600px){
+  /* En móvil: flechas en una fila propia. Nunca se colocan sobre las tarjetas. */
+  .stats-chart-panel .quarter-carousel{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    grid-template-rows:44px auto !important;
+    column-gap:10px !important;
+    row-gap:12px !important;
+    width:100% !important;
+    min-height:0 !important;
+  }
+  .stats-chart-panel .quarter-viewport{
+    grid-column:1 / -1 !important;
+    grid-row:2 !important;
+    width:100% !important;
+    min-width:0 !important;
+    overflow:visible !important;
+  }
+  .stats-chart-panel .quarter-month-view{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:10px !important;
+    width:100% !important;
+  }
+  .stats-chart-panel .quarter-month-card{
+    width:100% !important;
+    min-height:132px !important;
+    height:132px !important;
+    padding:15px !important;
+    border-radius:16px !important;
+  }
+  .stats-chart-panel .quarter-month-name{font-size:18px !important;}
+  .stats-chart-panel .quarter-month-total{font-size:17px !important;}
+  .stats-chart-panel .quarter-month-caption{font-size:10px !important;margin:7px 0 10px !important;}
+  .stats-chart-panel .quarter-month-track{height:16px !important;margin-top:auto !important;}
+  .stats-chart-panel .quarter-month-bottom{font-size:9px !important;margin-top:8px !important;}
+  .stats-chart-panel.argos-calendar-annual .quarter-nav{
+    display:grid !important;
+    position:static !important;
+    width:44px !important;
+    height:44px !important;
+    min-width:44px !important;
+    min-height:44px !important;
+    border-radius:13px !important;
+    font-size:28px !important;
+    transform:none !important;
+    align-self:center !important;
+    justify-self:center !important;
+  }
+  .stats-chart-panel.argos-calendar-annual #quarterPrev{
+    grid-column:1 !important;
+    grid-row:1 !important;
+    left:auto !important;
+    right:auto !important;
+  }
+  .stats-chart-panel.argos-calendar-annual #quarterNext{
+    grid-column:2 !important;
+    grid-row:1 !important;
+    left:auto !important;
+    right:auto !important;
+  }
+  /* En la vista trimestral no queda ningún hueco reservado a flechas. */
+  .stats-chart-panel:not(.argos-calendar-annual) .quarter-carousel{
+    grid-template-rows:auto !important;
+  }
+  .stats-chart-panel:not(.argos-calendar-annual) .quarter-viewport{
+    grid-column:1 / -1 !important;
+    grid-row:1 !important;
+  }
+}
+</style>
