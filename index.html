@@ -8102,6 +8102,134 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 })();
 </script>
 
+
+
+<!-- ARGOS · PARCHE DEFINITIVO MENÚ MÁS FUNCIONES MÓVIL
+     Este bloque fuerza la geometría del menú desde JS para evitar que reglas
+     responsive antiguas o inyectadas vuelvan a reducir el ancho de la lista. -->
+<style id="argos-more-functions-mobile-definitive">
+@media (max-width:600px){
+  #more-functions.menu-screen.active,
+  #more-functions.menu-screen.active > .argos-home,
+  #more-functions.menu-screen.active > .argos-home > .welcome-card,
+  #more-functions.menu-screen.active > .argos-home > .home-list,
+  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card{
+    box-sizing:border-box !important;
+  }
+  #more-functions.menu-screen.active > .argos-home{
+    width:100% !important;
+    max-width:760px !important;
+    margin:0 auto !important;
+    padding-left:12px !important;
+    padding-right:12px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+  }
+  #more-functions.menu-screen.active > .argos-home > .welcome-card{
+    width:100% !important;
+    align-self:stretch !important;
+    flex:none !important;
+  }
+  #more-functions.menu-screen.active > .argos-home > .home-list{
+    width:100% !important;
+    align-self:stretch !important;
+    flex:1 1 auto !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+    gap:10px !important;
+    margin:0 !important;
+    padding:0 !important;
+    min-width:0 !important;
+    min-height:0 !important;
+    height:auto !important;
+    max-width:none !important;
+  }
+  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card,
+  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card[data-screen="exportServices"]{
+    width:100% !important;
+    max-width:none !important;
+    min-width:0 !important;
+    min-height:0 !important;
+    height:auto !important;
+    flex:1 1 0 !important;
+    align-self:stretch !important;
+    margin:0 !important;
+    grid-column:auto !important;
+    grid-row:auto !important;
+  }
+}
+</style>
+<script id="argos-more-functions-mobile-definitive-script">
+(function(){
+  'use strict';
+  function px(el, prop, value){
+    if(el) el.style.setProperty(prop, value, 'important');
+  }
+  function fixMoreFunctions(){
+    if(window.innerWidth > 600) return;
+    const screen=document.getElementById('more-functions');
+    if(!screen) return;
+    const home=screen.querySelector(':scope > .argos-home');
+    if(!home) return;
+    const welcome=home.querySelector(':scope > .welcome-card');
+    const list=home.querySelector(':scope > .home-list');
+    const cards=list ? Array.from(list.querySelectorAll(':scope > .home-card')) : [];
+
+    px(screen,'width','100%');
+    px(screen,'max-width','100%');
+    px(home,'width','100%');
+    px(home,'max-width','760px');
+    px(home,'margin-left','auto');
+    px(home,'margin-right','auto');
+    px(home,'align-items','stretch');
+    px(home,'display','flex');
+    px(home,'flex-direction','column');
+
+    px(welcome,'width','100%');
+    px(welcome,'align-self','stretch');
+    px(welcome,'flex','0 0 auto');
+
+    px(list,'width','100%');
+    px(list,'max-width','none');
+    px(list,'min-width','0');
+    px(list,'align-self','stretch');
+    px(list,'display','flex');
+    px(list,'flex-direction','column');
+    px(list,'align-items','stretch');
+    px(list,'gap','10px');
+    px(list,'margin','0');
+    px(list,'padding','0');
+    px(list,'height','auto');
+    px(list,'min-height','0');
+    px(list,'grid-template-columns','none');
+    px(list,'grid-template-rows','none');
+
+    cards.forEach(function(card){
+      px(card,'width','100%');
+      px(card,'max-width','none');
+      px(card,'min-width','0');
+      px(card,'min-height','0');
+      px(card,'height','auto');
+      px(card,'flex','1 1 0');
+      px(card,'align-self','stretch');
+      px(card,'grid-column','auto');
+      px(card,'grid-row','auto');
+      px(card,'margin','0');
+    });
+  }
+
+  fixMoreFunctions();
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',fixMoreFunctions);
+  window.addEventListener('load',fixMoreFunctions,{once:true});
+  window.addEventListener('resize',fixMoreFunctions);
+  const observer=new MutationObserver(function(){
+    if(document.getElementById('more-functions')) fixMoreFunctions();
+  });
+  observer.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['class','style']});
+})();
+</script>
 </body>
 </html>
 <!-- ================================================================
