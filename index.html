@@ -8485,22 +8485,6 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   observer.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});
 })();
 </script>
-<style id="argos-stats-modal-focus-v61">
-/* V61 · Estadísticas: modales específicos, limpios y no repetitivos */
-.stats-detail-section{margin-top:12px;}
-.stats-detail-section h4{font-size:13px !important;letter-spacing:.01em;}
-.stats-detail-section .modal-list{gap:6px;}
-.stats-detail-section .modal-row{padding:10px 11px;border:1px solid rgba(138,0,92,.06);}
-@media(max-width:600px){
-  #statsModal .stats-modal-card{max-height:88vh;padding:14px;border-radius:18px;}
-  #statsModal .stats-modal-top{margin-bottom:10px;}
-  #statsModal .stats-modal h3{font-size:21px;}
-  #statsModal .stats-modal p{font-size:10px;}
-  #statsModal .modal-kpi{padding:10px;}
-  #statsModal .modal-kpi strong{font-size:16px;}
-  #statsModal .modal-row{grid-template-columns:22px minmax(0,1fr) auto;padding:9px 10px;}
-}
-</style>
 </body>
 </html>
 <!-- ================================================================
@@ -11262,86 +11246,68 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     return '<div class="stats-v40-note">'+(labels.length?'Detalle calculado con los filtros activos: '+esc(labels.join(' · '))+'.':'Detalle calculado con todos los servicios registrados.')+'</div>';
   }
 
-  function countAll(a,fn){
-    const map=new Map();
-    a.forEach(s=>{
-      const k=text(fn(s));
-      if(k && k!=='Ruta no indicada')map.set(k,(map.get(k)||0)+1);
-    });
-    return [...map.entries()].sort((x,y)=>y[1]-x[1]||x[0].localeCompare(y[0],'es'));
-  }
-
-  function pct(value,total){
-    return total?Math.round((value/total)*100)+'%':'0%';
-  }
-
-  function cleanList(title,data,empty='No hay datos registrados.'){
-    if(!data.length)return '<div class="modal-section stats-detail-section"><h4>'+esc(title)+'</h4><p>'+esc(empty)+'</p></div>';
-    return '<div class="modal-section stats-detail-section"><h4>'+esc(title)+'</h4><div class="modal-list">'+
-      data.map((x,i)=>'<div class="modal-row"><b>'+(i+1)+'</b><span>'+esc(x[0])+'</span><strong>'+esc(x[1])+'</strong></div>').join('')+
-      '</div></div>';
-  }
-
   function servicesModal(){
     const a=filtered();
-    const dates=a.map(dateOf).filter(Boolean).sort((x,y)=>x-y);
-    const days=new Set(dates.map(d=>d.toISOString().slice(0,10))).size;
-    const average=days?(a.length/days).toFixed(1):'0';
-    const first=dates[0], last=dates[dates.length-1];
-    const period=first&&last ? (first.toLocaleDateString('es-ES')+' → '+last.toLocaleDateString('es-ES')) : 'Sin fechas';
-    const recent=[...a]
-      .sort((x,y)=>(dateOf(y)?.getTime()||0)-(dateOf(x)?.getTime()||0))
-      .slice(0,8)
-      .map((s)=>{
-        const d=dateOf(s);
-        const train=text(field(s,'train'))||'Sin tren';
-        const r=route(s);
-        return [train, (d?d.toLocaleDateString('es-ES'):'Sin fecha')+' · '+r];
-      });
-    modalOpen('ARGOS · ACTIVIDAD','Servicios','Resumen exclusivo de los servicios registrados',
+    const days=new Set(a.map(dateOf).filter(Boolean).map(d=>d.toISOString().slice(0,10))).size;
+    const routes=countBy(a,route), series=countBy(a,s=>field(s,'series')), trains=countBy(a,s=>field(s,'train'));
+    modalOpen('ARGOS · ESTADÍSTICAS','Servicios','Detalle de los servicios seleccionados',
       note()+kpis([
-        ['Total',a.length],['Días activos',days],['Media / día',average],['Periodo',period]
+        ['Servicios',a.length],['Días activos',days],['Series',series.length],['Trenes',trains.length]
       ])+
-      cleanList('Últimos servicios',recent)
+      list('Rutas más realizadas',routes.slice(0,10))+
+      list('Series más utilizadas',series.slice(0,10))+
+      list('Trenes más utilizados',trains.slice(0,10))
     );
   }
 
   function seriesModal(){
     const a=filtered();
-    const series=countAll(a,s=>field(s,'series'));
-    const total=a.length;
-    const rows=series.map(([name,n])=>[name,n+' servicios · '+pct(n,total)]);
-    modalOpen('ARGOS · MATERIAL','Series','Solo información relacionada con las series',
+    const series=countBy(a,s=>field(s,'series'));
+    const vehicles=countBy(a,s=>field(s,'vehicle'));
+    const branches=countBy(a,s=>field(s,'branch'));
+    const products=countBy(a,s=>field(s,'product'));
+    modalOpen('ARGOS · MATERIAL','Series','Perfil del material registrado',
       note()+kpis([
-        ['Series diferentes',series.length],['Servicios',total],['Más utilizada',series[0]?.[0]||'—']
+        ['Series diferentes',series.length],['Vehículos',vehicles.length],['Ramas',branches.length]
       ])+
-      cleanList('Series registradas',rows)
+      list('Series más utilizadas',series.slice(0,10))+
+      list('Vehículos más utilizados',vehicles.slice(0,10))+
+      list('Ramas más utilizadas',branches.slice(0,10))+
+      list('Productos asociados',products.slice(0,10))
     );
   }
 
   function trainsModal(){
     const a=filtered();
-    const trains=countAll(a,s=>field(s,'train'));
-    const total=a.length;
-    const rows=trains.map(([name,n])=>[name,n+' servicios · '+pct(n,total)]);
-    modalOpen('ARGOS · MATERIAL','Trenes','Solo información relacionada con los números de tren',
+    const trains=countBy(a,s=>field(s,'train'));
+    const detail=trains.slice(0,10).map(([name,n])=>{
+      const rows=a.filter(s=>field(s,'train')===name);
+      const ss=countBy(rows,s=>field(s,'series')).slice(0,3).map(x=>x[0]).join(', ')||'Serie no indicada';
+      const rr=countBy(rows,route).slice(0,2).map(x=>x[0]).join(' · ')||'Ruta no indicada';
+      return [name,n+' servicios · '+ss+' · '+rr];
+    });
+    modalOpen('ARGOS · MATERIAL','Trenes','Detalle de vehículos utilizados',
       note()+kpis([
-        ['Trenes diferentes',trains.length],['Servicios',total],['Más utilizado',trains[0]?.[0]||'—']
+        ['Trenes diferentes',trains.length],['Servicios',a.length],['Más utilizado',trains[0]?.[0]||'—']
       ])+
-      cleanList('Trenes registrados',rows)
+      list('Vehículos más utilizados',detail)
     );
   }
 
   function productsModal(){
     const a=filtered();
-    const products=countAll(a,s=>field(s,'product'));
-    const total=a.length;
-    const rows=products.map(([name,n])=>[name,n+' servicios · '+pct(n,total)]);
-    modalOpen('ARGOS · SERVICIOS','Productos','Solo información relacionada con los productos registrados',
+    const products=countBy(a,s=>field(s,'product'));
+    const detail=products.slice(0,10).map(([name,n])=>{
+      const rows=a.filter(s=>field(s,'product')===name);
+      const ss=countBy(rows,s=>field(s,'series')).slice(0,4).map(x=>x[0]).join(', ')||'Serie no indicada';
+      const rr=countBy(rows,route).slice(0,3).map(x=>x[0]).join(' · ')||'Ruta no indicada';
+      return [name,n+' servicios · Series: '+ss+' · Rutas: '+rr];
+    });
+    modalOpen('ARGOS · SERVICIOS','Productos','Distribución de productos registrados',
       note()+kpis([
-        ['Productos diferentes',products.length],['Servicios',total],['Más utilizado',products[0]?.[0]||'—']
+        ['Productos diferentes',products.length],['Servicios',a.length],['Más utilizado',products[0]?.[0]||'—']
       ])+
-      cleanList('Distribución por producto',rows)
+      list('Distribución por producto',detail)
     );
   }
 
@@ -11350,14 +11316,15 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const map=new Map();
     a.forEach(s=>incidentNames(s).forEach(x=>map.set(x,(map.get(x)||0)+1)));
     const types=[...map.entries()].sort((x,y)=>y[1]-x[1]||x[0].localeCompare(y[0],'es'));
-    const total=types.reduce((z,x)=>z+x[1],0);
-    const affected=a.filter(s=>incidentNames(s).length).length;
-    const rows=types.map(([name,n])=>[name,n+' incidencias · '+pct(n,total)]);
-    modalOpen('ARGOS · CALIDAD','Incidencias','Solo información relacionada con las incidencias',
+    const affected=a.filter(s=>incidentNames(s).length);
+    const trains=new Set(affected.map(s=>field(s,'train')).filter(Boolean));
+    const routes=countBy(affected,route);
+    modalOpen('ARGOS · CALIDAD','Incidencias','Detalle de las incidencias registradas',
       note()+kpis([
-        ['Incidencias',total],['Servicios afectados',affected],['Tipos',types.length],['Media / servicio',affected?(total/affected).toFixed(2):'0']
+        ['Incidencias',types.reduce((z,x)=>z+x[1],0)],['Servicios afectados',affected.length],['Tipos',types.length],['Trenes afectados',trains.size]
       ])+
-      cleanList('Tipos de incidencia',rows)
+      list('Tipos de incidencia',types.slice(0,15))+
+      list('Rutas afectadas',routes.slice(0,10))
     );
   }
 
@@ -13725,3 +13692,393 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   }
 }
 </style>
+
+
+<!-- ARGOS · ESTADÍSTICAS · ÁMBITO TRIMESTRE / VISIÓN ANUAL -->
+<style id="argos-stats-scope-v1">
+  .argos-stats-scope-switch{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin:0 0 12px;
+    padding:12px 14px;
+    border:1px solid var(--line,#dedee3);
+    border-radius:16px;
+    background:var(--card,#fff);
+    box-shadow:0 6px 20px rgba(0,0,0,.04);
+  }
+  .argos-stats-scope-copy{min-width:0;}
+  .argos-stats-scope-copy strong{display:block;color:var(--ink);font-size:13px;font-weight:900;}
+  .argos-stats-scope-copy span{display:block;margin-top:2px;color:var(--muted);font-size:10px;line-height:1.25;}
+  .argos-stats-scope-toggle{position:relative;display:inline-flex;align-items:center;gap:8px;flex:0 0 auto;cursor:pointer;user-select:none;}
+  .argos-stats-scope-toggle input{position:absolute;opacity:0;pointer-events:none;}
+  .argos-stats-scope-track{
+    position:relative;width:50px;height:28px;border-radius:999px;background:var(--soft);border:1px solid var(--line);transition:.2s;
+  }
+  .argos-stats-scope-track::after{
+    content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;
+    box-shadow:0 2px 6px rgba(0,0,0,.18);transition:.2s;
+  }
+  .argos-stats-scope-toggle input:checked + .argos-stats-scope-track{background:var(--renfe);border-color:var(--renfe);}
+  .argos-stats-scope-toggle input:checked + .argos-stats-scope-track::after{transform:translateX(22px);}
+  .argos-stats-scope-label{font-size:10px;font-weight:900;color:var(--ink);white-space:nowrap;}
+  #statsScopePeriod{color:var(--renfe);font-weight:900;}
+  #statsScopeYearMonth,#statsScopeYear{font-weight:800;}
+  @media(max-width:600px){
+    .argos-stats-scope-switch{align-items:flex-start;padding:11px 12px;border-radius:14px;}
+    .argos-stats-scope-copy strong{font-size:12px;}
+    .argos-stats-scope-copy span{font-size:9px;max-width:230px;}
+    .argos-stats-scope-label{font-size:9px;}
+  }
+</style>
+
+<script id="argos-stats-scope-v1-engine">
+(function(){
+  'use strict';
+
+  const qs=s=>document.querySelector(s);
+  const $=id=>document.getElementById(id);
+  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const text=v=>String(v??'').trim();
+
+  function getServices(){
+    try{
+      const x=JSON.parse(localStorage.getItem('argos_services')||'[]');
+      return Array.isArray(x)?x:[];
+    }catch(e){return [];}
+  }
+
+  function value(o,names){
+    for(const n of names){
+      if(o&&o[n]!==undefined&&o[n]!==null&&String(o[n]).trim()!=='') return o[n];
+    }
+    return '';
+  }
+
+  function field(s,type){
+    const map={
+      train:['train','tren','number','numero'],
+      series:['series','serie','trainSeries'],
+      vehicle:['vehicle','vehiculo','vehicleNumber','numeroVehiculo'],
+      branch:['branch','rama'],
+      product:['product','producto','serviceType','tipoProducto'],
+      origin:['origin','origen'],
+      destination:['destination','destino']
+    };
+    let v=text(value(s,map[type]||[]));
+    if(type==='branch'&&typeof window.ARGOS_NORMALIZE_BRANCH==='function') v=window.ARGOS_NORMALIZE_BRANCH(v);
+    return v;
+  }
+
+  function parseDate(s){
+    const raw=text(value(s,['date','fecha','day','dia']));
+    if(!raw)return null;
+    const iso=raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if(iso){
+      const d=new Date(+iso[1],+iso[2]-1,+iso[3]);
+      return isNaN(d)?null:d;
+    }
+    let d=new Date(raw);
+    if(isNaN(d)){
+      const m=raw.match(/^(\d{1,2})[\\/.\-](\d{1,2})[\\/.\-](\d{4})$/);
+      if(m)d=new Date(+m[3],+m[2]-1,+m[1]);
+    }
+    return isNaN(d)?null:d;
+  }
+
+  function route(s){
+    const a=field(s,'origin'),b=field(s,'destination');
+    return a&&b ? a+' → '+b : (a||b||'Ruta no indicada');
+  }
+
+  function incidentNames(s){
+    const out=[];
+    const add=v=>{
+      if(v===undefined||v===null)return;
+      if(Array.isArray(v)){
+        v.forEach(x=>add(typeof x==='object'?value(x,['text','name','title','label']):x));
+        return;
+      }
+      if(typeof v==='object'){
+        add(value(v,['text','name','title','label']));
+        return;
+      }
+      String(v).split(/[,;\n]+/).map(text).filter(Boolean).forEach(x=>out.push(x));
+    };
+    add(s?.incidentsEntries); add(s?.incidenciasEntries); add(s?.incidents); add(s?.incidencias); add(s?.incident); add(s?.incidencia);
+    return [...new Set(out)];
+  }
+
+  function currentScope(){
+    const annual=!!$('argosStatsAnnualToggle')?.checked;
+    const now=new Date();
+    const year=now.getFullYear();
+    const quarter=Math.floor(now.getMonth()/3);
+    return {annual,year,quarter};
+  }
+
+  function activeData(){
+    const scope=currentScope();
+    const product=$('statsProduct')?.value||'all';
+    const series=$('statsSeries')?.value||'all';
+    return getServices().filter(s=>{
+      const d=parseDate(s);
+      if(!d)return false;
+      if(d.getFullYear()!==scope.year)return false;
+      if(!scope.annual && Math.floor(d.getMonth()/3)!==scope.quarter)return false;
+      if(product!=='all'&&field(s,'product')!==product)return false;
+      if(series!=='all'&&field(s,'series')!==series)return false;
+      return true;
+    });
+  }
+
+  function labelPeriod(){
+    const s=currentScope();
+    if(s.annual)return `Año ${s.year}`;
+    return `${['1.º','2.º','3.º','4.º'][s.quarter]} trimestre ${s.year}`;
+  }
+
+  function ensureSwitch(){
+    if($('argosStatsAnnualToggle'))return;
+    const wrap=qs('.stats-filters-wrap');
+    if(!wrap)return;
+    const el=document.createElement('div');
+    el.className='argos-stats-scope-switch';
+    el.innerHTML=`
+      <div class="argos-stats-scope-copy">
+        <strong id="statsScopePeriod">Trimestre actual</strong>
+        <span id="statsScopeDescription">Mostrando solo los servicios del trimestre en curso.</span>
+      </div>
+      <label class="argos-stats-scope-toggle" aria-label="Cambiar a visión anual">
+        <span class="argos-stats-scope-label">VISIÓN ANUAL</span>
+        <input id="argosStatsAnnualToggle" type="checkbox" aria-label="Visión anual">
+        <span class="argos-stats-scope-track" aria-hidden="true"></span>
+      </label>`;
+    wrap.insertBefore(el,wrap.firstChild);
+    $('argosStatsAnnualToggle')?.addEventListener('change',()=>{
+      // La vista de estadísticas nunca debe heredar el año/mes seleccionados en filtros antiguos.
+      if($('statsYear'))$('statsYear').value='all';
+      if($('statsMonth'))$('statsMonth').value='all';
+      renderAll();
+    });
+  }
+
+  function countBy(data,fn){
+    const map=new Map();
+    data.forEach(s=>{
+      const k=text(fn(s));
+      if(!k)return;
+      map.set(k,(map.get(k)||0)+1);
+    });
+    return [...map.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'es'));
+  }
+
+  function renderRank(id,rows,empty='Sin datos en este periodo'){
+    const root=$(id);
+    if(!root)return;
+    if(!rows.length){root.innerHTML=`<div class="stats-empty" style="padding:20px 8px"><strong>${esc(empty)}</strong></div>`;return;}
+    const max=Math.max(1,rows[0][1]);
+    root.innerHTML=rows.slice(0,10).map(([name,n],i)=>{
+      const pct=Math.max(6,Math.round(n/max*100));
+      return `<div class="ranking-row"><span class="rank-number">${i+1}</span><div class="rank-main"><span class="rank-name">${esc(name)}</span><div class="rank-bar"><i style="width:${pct}%"></i></div></div><span class="rank-value">${n}</span></div>`;
+    }).join('');
+  }
+
+  function renderVehicles(data){
+    const rows=countBy(data,s=>field(s,'vehicle'));
+    const root=$('vehicleRanking');
+    if(!root)return;
+    if(!rows.length){root.innerHTML='<div class="stats-empty" style="padding:20px 8px"><strong>Sin vehículos registrados en este periodo</strong></div>';return;}
+    const max=Math.max(1,rows[0][1]);
+    root.innerHTML=rows.slice(0,10).map(([name,n],i)=>{
+      const subset=data.filter(s=>field(s,'vehicle')===name);
+      const series=[...new Set(subset.map(s=>field(s,'series')).filter(Boolean))].join(' · ');
+      const pct=Math.max(6,Math.round(n/max*100));
+      return `<div class="ranking-row"><span class="rank-number">${i+1}</span><div class="rank-main"><span class="rank-name">${esc(name)}</span>${series?`<span class="vehicle-rank-series">· ${esc(series)}</span>`:''}<div class="rank-bar"><i style="width:${pct}%"></i></div></div><span class="rank-value">${n}</span></div>`;
+    }).join('');
+  }
+
+  function renderIncidents(data){
+    const map=new Map();
+    data.forEach(s=>incidentNames(s).forEach(name=>map.set(name,(map.get(name)||0)+1)));
+    renderRank('incidentRanking',[...map.entries()],'Sin incidencias registradas en este periodo');
+  }
+
+  function renderWeekday(data){
+    const root=$('weekdayChart');
+    if(!root)return;
+    const names=['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'];
+    const counts=Array(7).fill(0);
+    data.forEach(s=>{const d=parseDate(s);if(d)counts[(d.getDay()+6)%7]++;});
+    const max=Math.max(1,...counts);
+    const today=new Date();
+    root.classList.remove('weekly-view');
+    root.innerHTML=counts.map((n,i)=>{
+      const pct=n?Math.max(4,Math.round(n/max*100)):0;
+      return `<div class="day-column"><span class="day-value">${n||0}</span><div class="day-track"><i class="day-fill" style="height:${pct}%"></i></div><span class="day-label">${names[i]}</span></div>`;
+    }).join('');
+    const panel=root.closest('.stats-panel');
+    if(panel) panel.querySelector('.weekday-week-nav')?.remove();
+    void today;
+  }
+
+  function monthNames(){return ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];}
+
+  function renderMonthChart(data){
+    const chart=$('monthlyChart');
+    if(!chart)return;
+    const scope=currentScope();
+    const months=scope.annual ? Array.from({length:12},(_,i)=>i) : [scope.quarter*3,scope.quarter*3+1,scope.quarter*3+2];
+    const names=monthNames();
+    const counts=months.map(m=>data.filter(s=>{const d=parseDate(s);return d&&d.getMonth()===m;}).length);
+    const max=Math.max(1,...counts);
+    chart.innerHTML=months.map((m,i)=>{
+      const n=counts[i],pct=n?Math.max(4,Math.round(n/max*100)):0;
+      const current=(m===new Date().getMonth()&&scope.year===new Date().getFullYear());
+      return `<button type="button" class="quarter-month-card ${current?'current':''}" tabindex="-1"><div class="quarter-month-top"><span class="quarter-month-name">${esc(scope.annual?names[m]:names[m])}</span><span class="quarter-month-total">${n}</span></div><div class="quarter-month-caption">${scope.annual?scope.year:`${['1.º','2.º','3.º','4.º'][scope.quarter]} trimestre · ${scope.year}`}</div><div class="quarter-month-track"><i class="quarter-month-fill" style="width:${pct}%;height:100%;--quarter-pct:${pct}%"></i></div></button>`;
+    }).join('');
+    const label=$('statsChartTotal');
+    if(label)label.textContent=scope.annual?`Año ${scope.year} · ${data.length} servicios`:`${['1.º','2.º','3.º','4.º'][scope.quarter]} trimestre · ${scope.year} · ${data.length} servicios`;
+  }
+
+  function renderRecords(data){
+    const root=$('recordsGrid');
+    if(!root)return;
+    const entries=[
+      ['Tren más repetido',countBy(data,s=>field(s,'train'))[0]?.[0]||'—',countBy(data,s=>field(s,'train'))[0]?.[1]||0],
+      ['Serie más utilizada',countBy(data,s=>field(s,'series'))[0]?.[0]||'—',countBy(data,s=>field(s,'series'))[0]?.[1]||0],
+      ['Rama más utilizada',countBy(data,s=>field(s,'branch'))[0]?.[0]||'—',countBy(data,s=>field(s,'branch'))[0]?.[1]||0],
+      ['Ruta más realizada',countBy(data,s=>route(s))[0]?.[0]||'—',countBy(data,s=>route(s))[0]?.[1]||0],
+      ['Producto más utilizado',countBy(data,s=>field(s,'product'))[0]?.[0]||'—',countBy(data,s=>field(s,'product'))[0]?.[1]||0],
+      ['Vehículo más utilizado',countBy(data,s=>field(s,'vehicle'))[0]?.[0]||'—',countBy(data,s=>field(s,'vehicle'))[0]?.[1]||0]
+    ];
+    root.innerHTML=entries.map(([label,name,n])=>`<div class="record"><span>${esc(label)}</span><strong>${esc(name)}</strong><small>${n||0} servicio${n===1?'':'s'}</small></div>`).join('');
+  }
+
+  function renderDetails(data){
+    const root=$('statsDetails');
+    if(!root)return;
+    const dates=data.map(parseDate).filter(Boolean);
+    const dayKeys=new Set(dates.map(d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')));
+    const series=new Set(data.map(s=>field(s,'series')).filter(Boolean));
+    const routes=new Set(data.map(route).filter(x=>x!=='Ruta no indicada'));
+    root.innerHTML=[
+      ['Periodo',labelPeriod()],
+      ['Servicios',data.length],
+      ['Días con actividad',dayKeys.size],
+      ['Media por día activo',dayKeys.size?(data.length/dayKeys.size).toFixed(1):'0.0'],
+      ['Series diferentes',series.size],
+      ['Rutas diferentes',routes.size],
+      ['Productos diferentes',new Set(data.map(s=>field(s,'product')).filter(Boolean)).size],
+      ['Incidencias',data.reduce((n,s)=>n+incidentNames(s).length,0)]
+    ].map(([a,b])=>`<div class="detail"><span>${esc(a)}</span><strong>${esc(b)}</strong></div>`).join('');
+  }
+
+  function renderInsights(data){
+    const pace=$('insightPace'),variety=$('insightVariety');
+    const dates=data.map(parseDate).filter(Boolean);
+    const days=new Set(dates.map(d=>d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate())).size;
+    if(pace)pace.textContent=days?(data.length/days).toFixed(1):'0.0';
+    if(variety)variety.textContent=`${new Set(data.map(s=>field(s,'series')).filter(Boolean)).size} series · ${new Set(data.map(s=>field(s,'product')).filter(Boolean)).size} productos · ${new Set(data.map(route).filter(x=>x!=='Ruta no indicada')).size} rutas`;
+  }
+
+  function updateScopeText(){
+    const s=currentScope();
+    const title=$('statsScopePeriod'),desc=$('statsScopeDescription');
+    if(s.annual){
+      if(title)title.textContent=`Visión anual · ${s.year}`;
+      if(desc)desc.textContent='Mostrando toda la actividad registrada durante este año.';
+    }else{
+      if(title)title.textContent=`Trimestre actual · ${['1.º','2.º','3.º','4.º'][s.quarter]} ${s.year}`;
+      if(desc)desc.textContent='Mostrando únicamente la actividad registrada en el trimestre en curso.';
+    }
+  }
+
+  function hideLegacyTimeFilters(){
+    ['statsYear','statsMonth'].forEach(id=>{
+      const el=$(id); if(!el)return;
+      const box=el.closest('.stats-filter');
+      if(box)box.style.display='none';
+    });
+  }
+
+  function renderAll(){
+    ensureSwitch();
+    hideLegacyTimeFilters();
+    if($('statsYear'))$('statsYear').value='all';
+    if($('statsMonth'))$('statsMonth').value='all';
+    const data=activeData();
+    updateScopeText();
+    renderMonthChart(data);
+    renderRank('seriesRanking',countBy(data,s=>field(s,'series')),'Sin series registradas en este periodo');
+    renderRank('branchRanking',countBy(data,s=>field(s,'branch')),'Sin ramas registradas en este periodo');
+    renderRank('productRanking',countBy(data,s=>field(s,'product')),'Sin productos registrados en este periodo');
+    renderRank('routeRanking',countBy(data,s=>route(s)),'Sin rutas registradas en este periodo');
+    renderVehicles(data);
+    renderIncidents(data);
+    renderWeekday(data);
+    renderRecords(data);
+    renderDetails(data);
+    renderInsights(data);
+
+    const totalInc=data.reduce((n,s)=>n+incidentNames(s).length,0);
+    const series=new Set(data.map(s=>field(s,'series')).filter(Boolean));
+    const trains=new Set(data.map(s=>field(s,'train')).filter(Boolean));
+    const products=new Set(data.map(s=>field(s,'product')).filter(Boolean));
+    if($('statServices'))$('statServices').textContent=data.length;
+    if($('statSeries'))$('statSeries').textContent=series.size;
+    if($('statTrains'))$('statTrains').textContent=trains.size;
+    if($('statProducts'))$('statProducts').textContent=products.size;
+    if($('statIncidents'))$('statIncidents').textContent=totalInc;
+    if($('statsEmpty'))$('statsEmpty').hidden=data.length!==0;
+
+    // En este modo no hay navegación de trimestres: el interruptor controla el único ámbito temporal.
+    $('quarterPrev')?.setAttribute('disabled','disabled');
+    $('quarterNext')?.setAttribute('disabled','disabled');
+    if($('quarterPrev'))$('quarterPrev').style.display='none';
+    if($('quarterNext'))$('quarterNext').style.display='none';
+  }
+
+  function install(){
+    ensureSwitch();
+    renderAll();
+
+    // Impide que los motores históricos vuelvan a aplicar el filtro año/mes por su cuenta.
+    document.addEventListener('change',function(e){
+      const el=e.target;
+      if(!(el instanceof HTMLSelectElement))return;
+      if(!['statsYear','statsMonth','statsProduct','statsSeries'].includes(el.id))return;
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      if(el.id==='statsYear'||el.id==='statsMonth')el.value='all';
+      setTimeout(renderAll,0);
+    },true);
+
+    window.addEventListener('storage',()=>setTimeout(renderAll,20));
+
+    if(typeof window.showScreen==='function'&&!window.showScreen.__argosScopeWrapper){
+      const old=window.showScreen;
+      const wrapped=function(id){const r=old.apply(this,arguments);if(id==='stats')setTimeout(renderAll,30);return r;};
+      wrapped.__argosScopeWrapper=true;
+      window.showScreen=wrapped;
+    }
+
+    const oldRender=window.renderStats;
+    if(typeof oldRender==='function'&&!oldRender.__argosScopeFinal){
+      const wrapped=function(){
+        // No dejamos que los renders antiguos cambien el ámbito temporal; actualizamos al final.
+        try{oldRender.apply(this,arguments);}catch(e){}
+        renderAll();
+      };
+      wrapped.__argosScopeFinal=true;
+      window.renderStats=wrapped;
+    }else if(typeof window.renderStats!=='function'){
+      window.renderStats=renderAll;
+    }
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
+  else install();
+})();
+</script>
