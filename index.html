@@ -8486,6 +8486,297 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 })();
 </script>
 </body>
+
+
+<!-- ARGOS · ESTADÍSTICAS · DIAGRAMA DE BARRAS MENSUAL/ANUAL · FINAL -->
+<style id="argos-stats-annual-bar-final">
+  .stats-chart-panel.argos-bar-chart-panel .quarter-carousel{
+    display:block !important;
+    min-height:0 !important;
+    width:100% !important;
+  }
+  .stats-chart-panel.argos-bar-chart-panel .quarter-viewport{
+    width:100% !important;
+    min-width:0 !important;
+    overflow:visible !important;
+  }
+  .stats-chart-panel.argos-bar-chart-panel .quarter-nav{display:none !important;}
+  .stats-chart-panel.argos-bar-chart-panel .argos-bar-scroll{
+    width:100%;
+    overflow:visible;
+    padding:4px 2px 2px;
+  }
+  .stats-chart-panel.argos-bar-chart-panel .argos-annual-bars{
+    width:100%;
+    height:210px;
+    display:grid;
+    grid-template-columns:repeat(12,minmax(0,1fr));
+    align-items:end;
+    gap:8px;
+    padding:0 4px;
+    box-sizing:border-box;
+  }
+  .stats-chart-panel.argos-bar-chart-panel .argos-bar-col{
+    min-width:0;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    align-items:center;
+    gap:6px;
+    border:0;
+    background:transparent;
+    padding:0;
+    cursor:pointer;
+  }
+  .stats-chart-panel.argos-bar-chart-panel .argos-bar-value{
+    min-height:15px;
+    font-size:10px;
+    line-height:1;
+    font-weight:900;
+    color:var(--renfe);
+    text-align:center;
+  }
+  .stats-chart-panel.argos-bar-chart-panel .argos-bar-track{
+    width:100%;
+    max-width:42px;
+    height:150px;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+    background:var(--soft);
+    border-radius:10px 10px 7px 7px;
+  }
+  .stats-chart-panel.argos-bar-chart-panel .argos-bar-fill{
+    width:100%;
+    min-height:2px;
+    background:var(--renfe);
+    border-radius:10px 10px 6px 6px;
+    transition:height .2s ease,opacity .2s ease;
+  }
+  .stats-chart-panel.argos-bar-chart-panel .argos-bar-label{
+    font-size:10px;
+    line-height:1;
+    font-weight:900;
+    color:var(--muted);
+    white-space:nowrap;
+  }
+  .stats-chart-panel.argos-bar-chart-panel .argos-bar-col.current .argos-bar-label{color:var(--renfe);}
+  .stats-chart-panel.argos-bar-chart-panel .argos-bar-col.current .argos-bar-fill{box-shadow:0 0 0 2px rgba(138,0,92,.10);}
+
+  .stats-chart-panel.argos-bar-chart-panel.argos-bar-quarter .argos-annual-bars{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    max-width:760px;
+    margin:0 auto;
+  }
+  .stats-chart-panel.argos-bar-chart-panel.argos-bar-quarter .argos-bar-track{max-width:90px;}
+
+  @media(max-width:600px){
+    .stats-chart-panel.argos-bar-chart-panel .argos-bar-scroll{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;padding:4px 1px 8px;}
+    .stats-chart-panel.argos-bar-chart-panel .argos-annual-bars{
+      min-width:100%;
+      height:190px;
+      gap:5px;
+      padding:0 2px;
+    }
+    .stats-chart-panel.argos-bar-chart-panel .argos-bar-value{font-size:9px;}
+    .stats-chart-panel.argos-bar-chart-panel .argos-bar-track{height:132px;max-width:28px;border-radius:8px 8px 6px 6px;}
+    .stats-chart-panel.argos-bar-chart-panel .argos-bar-label{font-size:9px;}
+    .stats-chart-panel.argos-bar-chart-panel.argos-bar-quarter .argos-annual-bars{min-width:100%;max-width:none;}
+    .stats-chart-panel.argos-bar-chart-panel.argos-bar-quarter .argos-bar-track{max-width:56px;}
+  }
+</style>
+
+<script id="argos-stats-annual-bar-final-engine">
+(function(){
+  'use strict';
+  const $=id=>document.getElementById(id);
+  const q=s=>document.querySelector(s);
+  const text=v=>String(v??'').trim();
+  const MONTHS=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  const SHORT=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+  const Q=['1.º','2.º','3.º','4.º'];
+
+  function services(){
+    try{
+      const x=JSON.parse(localStorage.getItem('argos_services')||'[]');
+      return Array.isArray(x)?x:[];
+    }catch(e){return []}
+  }
+  function value(o,names){
+    for(const n of names){
+      if(o&&o[n]!==undefined&&o[n]!==null&&String(o[n]).trim()!=='')return o[n];
+    }
+    return '';
+  }
+  function field(s,type){
+    const map={
+      series:['series','serie','trainSeries'],
+      product:['product','producto','serviceType','tipoProducto']
+    };
+    return text(value(s,map[type]||[]));
+  }
+  function dateOf(s){
+    const raw=text(value(s,['date','fecha','day','dia']));
+    if(!raw)return null;
+    const iso=raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if(iso){
+      const d=new Date(+iso[1],+iso[2]-1,+iso[3]);
+      return Number.isNaN(d.getTime())?null:d;
+    }
+    let d=new Date(raw);
+    if(Number.isNaN(d.getTime())){
+      const m=raw.match(/^(\d{1,2})[\\/.\-](\d{1,2})[\\/.\-](\d{4})$/);
+      if(m)d=new Date(+m[3],+m[2]-1,+m[1]);
+    }
+    return Number.isNaN(d.getTime())?null:d;
+  }
+  function mode(){return window.__argosStatsMode||'quarterly';}
+  function year(){
+    const n=parseInt($('statsYear')?.value||'',10);
+    return Number.isFinite(n)?n:new Date().getFullYear();
+  }
+  function quarter(){
+    const qn=Number.isInteger(window.__argosStatsQuarter)?window.__argosStatsQuarter:Math.floor(new Date().getMonth()/3);
+    return Math.max(0,Math.min(3,qn));
+  }
+  function month(){
+    const v=$('statsMonth')?.value;
+    if(v!==undefined&&v!==null&&v!==''&&v!=='all'){
+      const n=Number(v); if(Number.isInteger(n)&&n>=0&&n<=11)return n;
+    }
+    return new Date().getMonth();
+  }
+  function dataForScope(){
+    const m=mode(),y=year(),qtr=quarter(),mo=month();
+    const product=$('statsProduct')?.value||'all';
+    const series=$('statsSeries')?.value||'all';
+    return services().filter(s=>{
+      const d=dateOf(s);
+      if(!d||d.getFullYear()!==y)return false;
+      if(product!=='all'&&field(s,'product')!==product)return false;
+      if(series!=='all'&&field(s,'series')!==series)return false;
+      if(m==='annual')return true;
+      if(m==='quarterly')return Math.floor(d.getMonth()/3)===qtr;
+      return d.getMonth()===mo;
+    });
+  }
+  function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+  function renderBarChart(){
+    const panel=q('.stats-chart-panel');
+    const chart=$('monthlyChart');
+    if(!panel||!chart)return;
+    const m=mode(),y=year(),qtr=quarter(),mo=month();
+    panel.classList.add('argos-bar-chart-panel');
+    panel.classList.remove('argos-calendar-annual','argos-calendar-panel');
+    panel.classList.toggle('argos-bar-quarter',m==='quarterly');
+    panel.classList.toggle('argos-monthly-hidden',m==='monthly');
+
+    const kicker=panel.querySelector('.stats-panel-kicker');
+    const title=panel.querySelector('.stats-panel-head h4');
+    if(kicker)kicker.textContent=m==='annual'?'EVOLUCIÓN ANUAL':m==='quarterly'?'EVOLUCIÓN TRIMESTRAL':'EVOLUCIÓN MENSUAL';
+    if(title)title.textContent=m==='annual'?'Comparativa mensual':m==='quarterly'?'Comparativa mensual del trimestre':'Detalle mensual';
+
+    if(m==='monthly'){
+      chart.innerHTML='';
+      const lab=$('statsChartTotal');
+      if(lab)lab.textContent=`Visión mensual · ${MONTHS[mo]} ${y}`;
+      return;
+    }
+
+    let indexes=[];
+    if(m==='annual')indexes=Array.from({length:12},(_,i)=>i);
+    else indexes=[qtr*3,qtr*3+1,qtr*3+2];
+
+    const allScope=dataForScope();
+    const values=indexes.map(i=>allScope.filter(s=>dateOf(s)?.getMonth()===i).length);
+    const max=Math.max(1,...values);
+    const isCurrentYear=y===new Date().getFullYear();
+    const isCurrentMonth=mo===new Date().getMonth();
+
+    const bars=indexes.map((idx,i)=>{
+      const n=values[i];
+      const pct=n?Math.max(3,Math.round(n/max*100)):0;
+      const current=isCurrentYear&&idx===new Date().getMonth();
+      return `<button type="button" class="argos-bar-col ${current?'current':''}" data-annual-month="${idx}" aria-label="${esc(MONTHS[idx])} ${y}: ${n} servicios">
+        <span class="argos-bar-value">${n||''}</span>
+        <span class="argos-bar-track"><i class="argos-bar-fill" style="height:${pct}%"></i></span>
+        <span class="argos-bar-label">${SHORT[idx]}</span>
+      </button>`;
+    }).join('');
+
+    chart.innerHTML=`<div class="argos-bar-scroll"><div class="argos-annual-bars">${bars}</div></div>`;
+
+    const lab=$('statsChartTotal');
+    if(lab){
+      if(m==='annual')lab.textContent=`Visión anual · ${y} · ${dataForScope().length} servicio${dataForScope().length===1?'':'s'}`;
+      else lab.textContent=`${Q[qtr]} trimestre · ${y} · ${allScope.length} servicio${allScope.length===1?'':'s'}`;
+    }
+
+    chart.querySelectorAll('[data-annual-month]').forEach(btn=>btn.addEventListener('click',()=>{
+      const selected=Number(btn.dataset.annualMonth);
+      const sel=$('statsMonth');
+      if(sel){
+        sel.value=String(selected);
+        window.__argosStatsMode='monthly';
+        if(typeof window.renderStats==='function')window.renderStats();
+        setTimeout(renderBarChart,20);
+      }
+    }));
+  }
+
+  function refresh(){setTimeout(renderBarChart,0);}
+
+  function install(){
+    ['statsYear','statsMonth','statsProduct','statsSeries'].forEach(id=>$(id)?.addEventListener('change',refresh));
+    document.addEventListener('click',e=>{
+      const b=e.target.closest('.argos-stats-view-button');
+      if(b)setTimeout(renderBarChart,10);
+    },true);
+
+    const panel=q('.stats-chart-panel');
+    const chart=$('monthlyChart');
+    if(panel&&chart){
+      const mo=new MutationObserver(()=>{
+        if(chart.dataset.argosBarRendering==='1')return;
+        window.requestAnimationFrame(()=>{
+          if(mode()!=='monthly')renderBarChart();
+        });
+      });
+      mo.observe(chart,{childList:true,subtree:true});
+    }
+
+    const oldShow=window.showScreen;
+    if(typeof oldShow==='function'&&!oldShow.__argosAnnualBarFinal){
+      const wrapped=function(id){
+        const r=oldShow.apply(this,arguments);
+        if(id==='stats')setTimeout(renderBarChart,35);
+        return r;
+      };
+      wrapped.__argosAnnualBarFinal=true;
+      window.showScreen=wrapped;
+    }
+
+    const oldRender=window.renderStats;
+    if(typeof oldRender==='function'&&!oldRender.__argosAnnualBarFinal){
+      const wrapped=function(){
+        const r=oldRender.apply(this,arguments);
+        setTimeout(renderBarChart,10);
+        return r;
+      };
+      wrapped.__argosAnnualBarFinal=true;
+      window.renderStats=wrapped;
+    }
+
+    setTimeout(renderBarChart,20);
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
+  else install();
+})();
+</script>
+
 </html>
 <!-- ================================================================
      ARGOS V23 · DOBLE COMPOSICIÓN
