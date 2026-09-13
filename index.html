@@ -8338,58 +8338,151 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const welcome=home.querySelector(':scope > .welcome-card');
     const list=home.querySelector(':scope > .home-list');
     const cards=list ? Array.from(list.querySelectorAll(':scope > .home-card')) : [];
+    const footer=home.querySelector(':scope > .argos-footer-action');
+    const back=footer ? footer.querySelector(':scope > .argos-identical-action') : null;
 
+    /* Pantalla y contenedor */
     px(screen,'width','100%');
     px(screen,'max-width','100%');
+    px(screen,'height','auto');
+    px(screen,'min-height','calc(100dvh - 64px)');
+    px(screen,'max-height','none');
+    px(screen,'overflow-x','hidden');
+    px(screen,'overflow-y','auto');
+
     px(home,'width','100%');
     px(home,'max-width','760px');
+    px(home,'height','auto');
+    px(home,'min-height','0');
     px(home,'margin-left','auto');
     px(home,'margin-right','auto');
-    px(home,'align-items','stretch');
+    px(home,'padding','16px 16px 24px');
+    px(home,'box-sizing','border-box');
     px(home,'display','flex');
     px(home,'flex-direction','column');
+    px(home,'align-items','stretch');
+    px(home,'gap','14px');
+    px(home,'overflow','visible');
 
+    /* Cabecera */
     px(welcome,'width','100%');
-    px(welcome,'align-self','stretch');
+    px(welcome,'max-width','none');
+    px(welcome,'height','auto');
+    px(welcome,'min-height','0');
+    px(welcome,'margin','0');
+    px(welcome,'padding','18px 18px');
+    px(welcome,'box-sizing','border-box');
     px(welcome,'flex','0 0 auto');
+    px(welcome,'align-self','stretch');
 
+    const title=welcome ? welcome.querySelector('h1') : null;
+    const subtitle=welcome ? welcome.querySelector('p') : null;
+    const pill=welcome ? welcome.querySelector('.welcome-pill') : null;
+    px(title,'margin','4px 0 6px');
+    px(title,'font-size','32px');
+    px(title,'line-height','1.05');
+    px(subtitle,'margin','0');
+    px(subtitle,'font-size','14px');
+    px(subtitle,'line-height','1.3');
+    px(pill,'font-size','10px');
+    px(pill,'padding','4px 9px');
+    px(pill,'margin','0 0 5px');
+
+    /* Lista: una sola columna, ancho completo, cinco botones iguales. */
     px(list,'width','100%');
     px(list,'max-width','none');
     px(list,'min-width','0');
-    px(list,'align-self','stretch');
+    px(list,'height','auto');
+    px(list,'min-height','0');
+    px(list,'margin','0');
+    px(list,'padding','0');
+    px(list,'box-sizing','border-box');
     px(list,'display','flex');
     px(list,'flex-direction','column');
     px(list,'align-items','stretch');
+    px(list,'justify-content','flex-start');
     px(list,'gap','10px');
-    px(list,'margin','0');
-    px(list,'padding','0');
-    px(list,'height','auto');
-    px(list,'min-height','0');
+    px(list,'overflow','visible');
     px(list,'grid-template-columns','none');
     px(list,'grid-template-rows','none');
 
     cards.forEach(function(card){
+      px(card,'display','flex');
+      px(card,'flex-direction','row');
+      px(card,'align-items','center');
+      px(card,'justify-content','center');
+      px(card,'flex','0 0 72px');
       px(card,'width','100%');
       px(card,'max-width','none');
       px(card,'min-width','0');
-      px(card,'min-height','0');
-      px(card,'height','auto');
-      px(card,'flex','1 1 0');
-      px(card,'align-self','stretch');
+      px(card,'height','72px');
+      px(card,'min-height','72px');
+      px(card,'max-height','72px');
+      px(card,'margin','0');
+      px(card,'padding','0 18px');
+      px(card,'box-sizing','border-box');
+      px(card,'border-radius','18px');
+      px(card,'gap','0');
+      px(card,'overflow','hidden');
       px(card,'grid-column','auto');
       px(card,'grid-row','auto');
-      px(card,'margin','0');
+
+      /* En móvil no se muestran los pictogramas. */
+      const icon=card.querySelector('.home-icon');
+      px(icon,'display','none');
+
+      const text=card.querySelector('span:not(.home-icon)');
+      const h2=card.querySelector('h2');
+      px(text,'display','flex');
+      px(text,'width','100%');
+      px(text,'min-width','0');
+      px(text,'align-items','center');
+      px(text,'justify-content','center');
+      px(h2,'margin','0');
+      px(h2,'font-size','22px');
+      px(h2,'line-height','1.1');
+      px(h2,'font-weight','800');
+      px(h2,'text-align','center');
+      px(h2,'white-space','nowrap');
+      px(h2,'overflow','hidden');
+      px(h2,'text-overflow','ellipsis');
     });
+
+    /* Volver, separado de las cinco opciones. */
+    px(footer,'width','100%');
+    px(footer,'height','52px');
+    px(footer,'min-height','52px');
+    px(footer,'max-height','52px');
+    px(footer,'margin','2px 0 0');
+    px(footer,'padding','0');
+    px(footer,'display','flex');
+    px(footer,'align-items','center');
+    px(footer,'justify-content','center');
+    px(footer,'box-sizing','border-box');
+    px(back,'width','min(300px,100%)');
+    px(back,'height','52px');
+    px(back,'min-height','52px');
+    px(back,'max-height','52px');
+    px(back,'margin','0');
+    px(back,'flex','0 1 300px');
+    px(back,'box-sizing','border-box');
   }
 
-  fixMoreFunctions();
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',fixMoreFunctions);
-  window.addEventListener('load',fixMoreFunctions,{once:true});
-  window.addEventListener('resize',fixMoreFunctions);
+  function run(){
+    try{ fixMoreFunctions(); }catch(e){ /* no afectar al resto de ARGOS */ }
+  }
+
+  run();
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run,{once:true});
+  window.addEventListener('load',run,{once:true});
+  window.addEventListener('resize',run);
+
+  /* Solo reaccionamos a cambios de clase/contenido; no observamos style,
+     para evitar que el propio ajuste entre en un bucle de modificaciones. */
   const observer=new MutationObserver(function(){
-    if(document.getElementById('more-functions')) fixMoreFunctions();
+    run();
   });
-  observer.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['class','style']});
+  observer.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});
 })();
 </script>
 </body>
