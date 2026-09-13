@@ -14243,68 +14243,169 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       return `<div class="ranking-row"><span class="rank-number">${i+1}</span><div class="rank-main"><span class="rank-name">${esc(name)}</span>${series?`<span class="vehicle-rank-series">· ${esc(series)}</span>`:''}<div class="rank-bar"><i style="width:${pct}%"></i></div></div><span class="rank-value">${n}</span></div>`;
     }).join('');
   }
-  function normalizeIncidentWords(value){
-    return text(value).toLocaleLowerCase('es-ES')
+  /*
+   * Incidencias: limpieza y agrupación semántica.
+   *
+   * Problemas que corrige:
+   *  - Un número aislado como "005" no es una incidencia: normalmente es un
+   *    identificador de vehículo/rama que se coló en el campo de incidencias.
+   *    No se cuenta ni se muestra como "Remolque 005".
+   *  - Las variantes de una misma incidencia se agrupan por palabras
+   *    significativas compartidas, no por palabras genéricas.
+   *  - Las referencias a vehículos, series y números de material no se usan
+   *    para decidir si dos incidencias son diferentes.
+   */
+  const INCIDENT_STOP_WORDS=new Set([
+    'a','al','algo','alguna','alguno','algun','con','como','cuando','de','del','el','en',
+    'la','las','lo','los','muy','no','para','por','que','se','su','sus','un','una','unos',
+    'unas','y','en','hay','esta','este','ese','esa','un','poco','poca','pocos','pocas'
+  ]);
+
+  const INCIDENT_GENERIC_WORDS=new Set([
+    'tren','trenes','vehiculo','vehiculos','vehículo','vehículos','coche','coches',
+    'unidad','unidades','remolque','remolques','cabina','cabeza','motor','serie',
+    'ramas','rama','en','servicio','servicios','zona','parte','lado','interior','exterior'
+  ]);
+
+  function incidentIsVehicleOnly(value){
+    const raw=text(value).replace(/\s+/g,' ').trim();
+    if(!raw)return true;
+    const compact=raw.replace(/[\s.-]/g,'');
+    /* 005, 204, 801204, 801-204, 9-801-005-0, etc. */
+    if(/^\d{3,4}$/.test(compact))return true;
+    if(/^(?:[5789]-?)?\d{3}-?\d{3}-?\d$/.test(raw.replace(/\s+/g,'')))return true;
+    if(/^(?:\d{3}\s*){2}$/.test(raw))return true;
+
+    /* También descartamos textos que solo dicen dónde está el problema,
+       pero no describen cuál es el problema: "remolque 005",
+       "vehículo 204", "coche 006", etc. */
+    const withoutCodes=raw
+      .toLocaleLowerCase('es-ES')
       .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
-      .replace(/[^a-z0-9\s-]/g,' ')
-      .split(/\s+/)
-      .map(w=>w.trim())
-      .filter(Boolean)
-      .map(w=>{
-        if(/^\d+$/.test(w))return w;
-        // Normalizamos plurales muy frecuentes para que “asientos” y “asiento”,
-        // “sucios” y “sucio”, etc. puedan reconocerse como la misma idea.
-        if(w.length>5 && /es$/.test(w))w=w.slice(0,-2);
-        else if(w.length>4 && /s$/.test(w))w=w.slice(0,-1);
-        return w;
-      });
+      .replace(/\b(?:9|7|8)?[- ]?\d{3}[- ]?\d{3}[- ]?\d\b/g,' ')
+      .replace(/\b\d{3}[- ]\d{3}\b/g,' ')
+      .replace(/\b\d{1,4}\b/g,' ');
+    const remaining=withoutCodes.split(/\s+/)
+      .map(x=>x.replace(/[^a-z]/g,''))
+      .filter(x=>x && !INCIDENT_GENERIC_WORDS.has(x) && !INCIDENT_STOP_WORDS.has(x));
+    return remaining.length===0;
   }
 
-  function normalizeIncidentLabel(value){
+  function normalizeIncidentToken(word){
+    let w=text(word).toLocaleLowerCase('es-ES')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+    w=w.replace(/[^a-z0-9]/g,'');
+    if(!w)return '';
+    if(/^\d+$/.test(w))return '';
+    /* Normalización de plurales y algunas terminaciones frecuentes. */
+    if(w.length>6 && /aciones$/.test(w))w=w.slice(0,-7)+'acion';
+    else if(w.length>6 && /iciones$/.test(w))w=w.slice(0,-6)+'icion';
+    else if(w.length>5 && /es$/.test(w))w=w.slice(0,-2);
+    else if(w.length>4 && /s$/.test(w))w=w.slice(0,-1);
+    if(w.length>6 && /ando$/.test(w))w=w.slice(0,-4);
+    if(w.length>6 && /iendo$/.test(w))w=w.slice(0,-5);
+    return w;
+  }
+
+  function incidentWords(value){
+    const raw=text(value);
+    if(!raw||incidentIsVehicleOnly(raw))return [];
+    /* Eliminamos referencias típicas de material para que no separen la misma
+       incidencia cuando cambia el remolque/vehículo donde ocurre. */
+    const cleaned=raw
+      .replace(/\b(?:9|7|8)?[- ]?\d{3}[- ]?\d{3}[- ]?\d\b/gi,' ')
+      .replace(/\b\d{3}[- ]\d{3}\b/gi,' ')
+      .replace(/\b\d{3}\b/g,' ');
+    return cleaned.split(/\s+/)
+      .map(normalizeIncidentToken)
+      .filter(w=>w && !INCIDENT_STOP_WORDS.has(w) && !INCIDENT_GENERIC_WORDS.has(w) && w.length>=3);
+  }
+
+  function incidentDisplayText(value){
     const raw=text(value).replace(/\s+/g,' ').trim();
-    if(!raw)return '';
-    // Algunos registros antiguos contienen solo el número del vehículo.
-    // En estadísticas lo presentamos de forma comprensible.
-    if(/^\d{3}$/.test(raw))return `Remolque ${raw}`;
+    if(!raw||incidentIsVehicleOnly(raw))return '';
     return raw;
   }
 
-  function groupAnnualIncidents(names){
-    // Agrupación conservadora para las vistas anual y trimestral: dos incidencias
-    // se consideran la misma familia cuando comparten al menos 2 palabras significativas.
-    // De esta forma,
-    // “chirría al frenar en ciudad” y “chirría un poco al frenar” se unen,
-    // mientras que coincidencias genéricas de una sola palabra no bastan.
-    const STOP=new Set(['a','al','algo','con','de','del','el','en','la','las','lo','los','muy','no','por','que','se','un','una','unos','unas','y','algun','alguna','alguno','algo','poco','poca','pocos','pocas','como','en','para']);
-    const prepared=names.map(([name,count],idx)=>({name,count,idx,words:new Set(normalizeIncidentWords(name).filter(w=>!STOP.has(w)&&w.length>=3))}));
+  function incidentNamesClean(s){
+    const out=[];
+    const add=raw=>{
+      if(Array.isArray(raw)){
+        raw.forEach(x=>{
+          const t=typeof x==='string'?x:(x&&typeof x==='object'?value(x,['text','value','name','incidence','incidencia','description']):'');
+          const label=incidentDisplayText(t);
+          if(label)out.push(label);
+        });
+      }else{
+        const rawText=text(raw);
+        if(rawText){
+          rawText.split(/[,;\n]+/).forEach(t=>{
+            const label=incidentDisplayText(t);
+            if(label)out.push(label);
+          });
+        }
+      }
+    };
+    add(s?.incidentsEntries); add(s?.incidenciasEntries); add(s?.incidents); add(s?.incidencias);
+    add(s?.incident); add(s?.incidencia);
+    return [...new Set(out)];
+  }
+
+  function groupIncidentRows(rows){
+    /*
+     * Agrupación por familias. Dos incidencias se unen cuando comparten al
+     * menos dos términos realmente descriptivos. También aceptamos una
+     * coincidencia única cuando es una palabra muy específica y larga.
+     */
+    const prepared=rows.map(([name,count],idx)=>({
+      name,count,idx,words:new Set(incidentWords(name))
+    })).filter(x=>x.words.size>0);
     const parent=prepared.map((_,i)=>i);
-    const find=i=>{while(parent[i]!==i){parent[i]=parent[parent[i]];i=parent[i]}return i};
-    const union=(a,b)=>{a=find(a);b=find(b);if(a!==b)parent[b]=a};
-    for(let i=0;i<prepared.length;i++)for(let j=i+1;j<prepared.length;j++){
-      let common=0;
-      prepared[i].words.forEach(w=>{if(prepared[j].words.has(w))common++});
-      if(common>=2)union(i,j);
+    const find=i=>{ while(parent[i]!==i){ parent[i]=parent[parent[i]]; i=parent[i]; } return i; };
+    const union=(a,b)=>{a=find(a);b=find(b);if(a!==b)parent[b]=a;};
+
+    for(let i=0;i<prepared.length;i++){
+      for(let j=i+1;j<prepared.length;j++){
+        const a=prepared[i].words,b=prepared[j].words;
+        let common=0;
+        a.forEach(w=>{if(b.has(w))common++;});
+        const shared=[...a].filter(w=>b.has(w)).sort((x,y)=>y.length-x.length);
+        const verySpecific=shared.some(w=>w.length>=8);
+        if(common>=2 || (common>=1 && verySpecific))union(i,j);
+      }
     }
+
     const groups=new Map();
     prepared.forEach(item=>{
       const root=find(item.idx);
       if(!groups.has(root))groups.set(root,{members:[],count:0});
-      const g=groups.get(root); g.members.push(item); g.count+=item.count;
+      const g=groups.get(root);g.members.push(item);g.count+=item.count;
     });
+
     return [...groups.values()].map(g=>{
-      g.members.sort((a,b)=>a.name.length-b.name.length||b.count-a.count||a.name.localeCompare(b.name,'es'));
+      /* Elegimos la formulación más limpia: preferimos la que tenga menos
+         referencias numéricas/contextuales y luego la más corta. */
+      g.members.sort((a,b)=>{
+        const score=name=>{
+          const digitPenalty=/\b\d{2,4}\b/.test(name)?20:0;
+          const lenPenalty=Math.min(20,name.length);
+          return digitPenalty+lenPenalty;
+        };
+        return score(a.name)-score(b.name)||a.name.length-b.name.length||a.name.localeCompare(b.name,'es');
+      });
       return [g.members[0].name,g.count];
     }).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'es'));
   }
 
+  function validIncidentCount(data){
+    return data.reduce((n,s)=>n+incidentNamesClean(s).length,0);
+  }
+
   function renderIncidents(data){
     const m=new Map();
-    data.forEach(s=>incidentNames(s).forEach(n=>{
-      const label=normalizeIncidentLabel(n);
-      if(label)m.set(label,(m.get(label)||0)+1);
-    }));
+    data.forEach(s=>incidentNamesClean(s).forEach(n=>m.set(n,(m.get(n)||0)+1)));
     let rows=[...m.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'es'));
-    if(getMode()==='annual'||getMode()==='quarterly')rows=groupAnnualIncidents(rows);
+    if(getMode()==='annual'||getMode()==='quarterly')rows=groupIncidentRows(rows);
     renderRank('incidentRanking',rows,'Sin incidencias registradas en este periodo');
   }
   function renderWeekday(){
@@ -14366,7 +14467,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       ['Series diferentes',series.size],
       ['Rutas diferentes',routes.size],
       ['Productos diferentes',new Set(data.map(s=>field(s,'product')).filter(Boolean)).size],
-      ['Incidencias',data.reduce((n,s)=>n+incidentNames(s).length,0)]
+      ['Incidencias',validIncidentCount(data)]
     ].map(([a,b])=>`<div class="detail"><span>${esc(a)}</span><strong>${esc(b)}</strong></div>`).join('');
   }
   function renderInsights(data){
@@ -14445,7 +14546,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     renderDetails(data);
     renderInsights(data);
 
-    const totalInc=data.reduce((n,s)=>n+incidentNames(s).length,0);
+    const totalInc=validIncidentCount(data);
     const series=new Set(data.map(s=>field(s,'series')).filter(Boolean));
     const trains=new Set(data.map(s=>field(s,'train')).filter(Boolean));
     const products=new Set(data.map(s=>field(s,'product')).filter(Boolean));
