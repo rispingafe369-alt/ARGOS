@@ -13813,7 +13813,8 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   function currentScope(){
     const annual=!!$('argosStatsAnnualToggle')?.checked;
     const now=new Date();
-    const year=now.getFullYear();
+    const selectedYear=$('statsYear')?.value||'all';
+    const year=(annual && selectedYear!=='all' && /^\d{4}$/.test(selectedYear)) ? Number(selectedYear) : now.getFullYear();
     const quarter=Math.floor(now.getMonth()/3);
     return {annual,year,quarter};
   }
@@ -13822,11 +13823,13 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const scope=currentScope();
     const product=$('statsProduct')?.value||'all';
     const series=$('statsSeries')?.value||'all';
+    const month=$('statsMonth')?.value||'all';
     return getServices().filter(s=>{
       const d=parseDate(s);
       if(!d)return false;
       if(d.getFullYear()!==scope.year)return false;
       if(!scope.annual && Math.floor(d.getMonth()/3)!==scope.quarter)return false;
+      if(scope.annual && month!=='all' && String(d.getMonth())!==String(month))return false;
       if(product!=='all'&&field(s,'product')!==product)return false;
       if(series!=='all'&&field(s,'series')!==series)return false;
       return true;
@@ -13858,9 +13861,8 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       </label>`;
     wrap.insertBefore(el,wrap.firstChild);
     $('argosStatsAnnualToggle')?.addEventListener('change',()=>{
-      // La vista de estadísticas nunca debe heredar el año/mes seleccionados en filtros antiguos.
-      if($('statsYear'))$('statsYear').value='all';
-      if($('statsMonth'))$('statsMonth').value='all';
+      // Al volver a trimestre, la vista queda fijada al trimestre actual.
+      // En visión anual se conservan los filtros de Año/Mes/Producto/Serie.
       window.__argosCalendarQuarter=Math.floor(new Date().getMonth()/3);
       renderAll();
     });
@@ -14027,27 +14029,28 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const s=currentScope();
     const title=$('statsScopePeriod'),desc=$('statsScopeDescription');
     if(s.annual){
-      if(title)title.textContent=`Visión anual · ${s.year}`;
-      if(desc)desc.textContent='Mostrando toda la actividad registrada durante este año.';
+      const month=$('statsMonth')?.value||'all';
+      const monthNames=month!=='all'?['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']:null;
+      if(title)title.textContent=monthNames?`Visión anual · ${monthNames[Number(month)]} ${s.year}`:`Visión anual · ${s.year}`;
+      if(desc)desc.textContent=monthNames?`Mostrando la actividad de ${monthNames[Number(month)].toLowerCase()} de ${s.year}.`:'Mostrando toda la actividad registrada durante este año.';
     }else{
       if(title)title.textContent=`Trimestre actual · ${['1.º','2.º','3.º','4.º'][s.quarter]} ${s.year}`;
       if(desc)desc.textContent='Mostrando únicamente la actividad registrada en el trimestre en curso.';
     }
   }
 
-  function hideLegacyTimeFilters(){
+  function syncTimeFiltersVisibility(){
+    const annual=!!$('argosStatsAnnualToggle')?.checked;
     ['statsYear','statsMonth'].forEach(id=>{
       const el=$(id); if(!el)return;
       const box=el.closest('.stats-filter');
-      if(box)box.style.display='none';
+      if(box)box.style.display=annual?'':'none';
     });
   }
 
   function renderAll(){
     ensureSwitch();
-    hideLegacyTimeFilters();
-    if($('statsYear'))$('statsYear').value='all';
-    if($('statsMonth'))$('statsMonth').value='all';
+    syncTimeFiltersVisibility();
     const data=activeData();
     updateScopeText();
     renderMonthChart(data);
@@ -14077,10 +14080,10 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const annual=$('argosStatsAnnualToggle')?.checked===true;
     const currentQuarter=Math.floor(new Date().getMonth()/3);
     if(!annual)window.__argosCalendarQuarter=currentQuarter;
+    const chartPanel=document.querySelector('.stats-chart-panel');
+    if(chartPanel)chartPanel.classList.toggle('argos-calendar-annual',annual);
     const prev=$('quarterPrev'),next=$('quarterNext');
     if(prev&&next){
-      prev.style.display=annual?'grid':'none';
-      next.style.display=annual?'grid':'none';
       prev.disabled=!annual||window.__argosCalendarQuarter===0;
       next.disabled=!annual||window.__argosCalendarQuarter===3;
     }
@@ -14107,9 +14110,16 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       const el=e.target;
       if(!(el instanceof HTMLSelectElement))return;
       if(!['statsYear','statsMonth','statsProduct','statsSeries'].includes(el.id))return;
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      if(el.id==='statsYear'||el.id==='statsMonth')el.value='all';
+      const annual=!!$('argosStatsAnnualToggle')?.checked;
+      if((el.id==='statsYear'||el.id==='statsMonth')&&!annual){
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        // En modo trimestral Año/Mes quedan bloqueados: manda el trimestre actual.
+        el.value='all';
+      }else{
+        e.preventDefault();
+        e.stopImmediatePropagation();
+      }
       setTimeout(renderAll,0);
     },true);
 
@@ -14142,114 +14152,95 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 </script>
 
 
-<style id="argos-calendar-quarter-final-v2">
-/* ARGOS · CALENDARIO DE ESTADÍSTICAS · CORRECCIÓN FINAL
-   Siempre 3 meses por trimestre. En trimestre actual queda fijo.
-   En visión anual se navega T1/T2/T3/T4 con las flechas. */
-.stats-chart-panel .quarter-month-view{
-  display:grid !important;
-  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
-  gap:10px !important;
+<style id="argos-calendar-quarter-final-v3">
+/* ARGOS · CALENDARIO · V3
+   Trimestre: siempre los 3 meses del trimestre actual.
+   Visión anual: 3 meses por página con flechas para cambiar T1/T2/T3/T4. */
+.stats-chart-panel .quarter-carousel{
+  position:relative !important;
+  display:block !important;
   width:100% !important;
+  min-height:0 !important;
 }
-.stats-chart-panel .quarter-month-card{
-  display:flex !important;
-  flex-direction:column !important;
+.stats-chart-panel .quarter-viewport{
+  display:block !important;
   width:100% !important;
   min-width:0 !important;
-  min-height:180px !important;
-  height:180px !important;
+  overflow:visible !important;
+}
+.stats-chart-panel .quarter-month-view{
+  display:flex !important;
+  flex-wrap:nowrap !important;
+  align-items:stretch !important;
+  gap:14px !important;
+  width:100% !important;
+  min-width:0 !important;
+}
+.stats-chart-panel .quarter-month-card{
+  flex:1 1 0 !important;
+  width:auto !important;
+  min-width:0 !important;
+  min-height:220px !important;
+  height:220px !important;
   box-sizing:border-box !important;
-  padding:14px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  padding:18px !important;
+  border-radius:18px !important;
+  overflow:hidden !important;
 }
 .stats-chart-panel .quarter-month-top{
   display:flex !important;
   align-items:center !important;
   justify-content:space-between !important;
-  gap:8px !important;
+  gap:10px !important;
   width:100% !important;
 }
-.stats-chart-panel .quarter-month-name{
-  font-size:18px !important;
-  line-height:1.1 !important;
-  font-weight:900 !important;
+.stats-chart-panel .quarter-month-name{font-size:20px !important;line-height:1.1 !important;font-weight:900 !important;}
+.stats-chart-panel .quarter-month-total{font-size:19px !important;line-height:1.1 !important;font-weight:900 !important;}
+.stats-chart-panel .quarter-month-caption{display:block !important;margin:9px 0 12px !important;font-size:10px !important;line-height:1.25 !important;color:var(--muted) !important;}
+.stats-chart-panel .quarter-month-track{width:100% !important;height:20px !important;margin:auto 0 0 !important;border-radius:999px !important;background:var(--soft) !important;overflow:hidden !important;}
+.stats-chart-panel .quarter-month-fill{display:block !important;width:var(--quarter-pct,0%) !important;height:100% !important;min-height:0 !important;border-radius:999px !important;}
+.stats-chart-panel .quarter-month-bottom{margin-top:10px !important;}
+/* Por defecto (trimestre actual) las flechas están ocultas. */
+.stats-chart-panel .quarter-nav{display:none !important;}
+/* En visión anual aparecen las dos flechas, aunque existan reglas antiguas con !important. */
+.stats-chart-panel.argos-calendar-annual .quarter-nav{
+  display:grid !important;
+  position:absolute !important;
+  top:50% !important;
+  transform:translateY(-50%) !important;
+  z-index:20 !important;
+  width:44px !important;
+  height:44px !important;
+  min-width:44px !important;
+  min-height:44px !important;
+  padding:0 !important;
+  place-items:center !important;
+  border-radius:14px !important;
+  background:var(--card,#fff) !important;
+  border:1px solid var(--line,#dedee3) !important;
+  box-shadow:0 8px 20px rgba(0,0,0,.10) !important;
+  font-size:30px !important;
+  line-height:1 !important;
 }
-.stats-chart-panel .quarter-month-total{
-  font-size:18px !important;
-  line-height:1.1 !important;
-  font-weight:900 !important;
-}
-.stats-chart-panel .quarter-month-caption{
-  display:block !important;
-  margin:7px 0 10px !important;
-  color:var(--muted) !important;
-  font-size:10px !important;
-  line-height:1.2 !important;
-}
-.stats-chart-panel .quarter-month-track{
-  display:block !important;
-  width:100% !important;
-  height:18px !important;
-  margin:auto 0 0 !important;
-  border-radius:999px !important;
-  background:var(--soft) !important;
-  overflow:hidden !important;
-}
-.stats-chart-panel .quarter-month-fill{
-  display:block !important;
-  width:var(--quarter-pct,0%) !important;
-  height:100% !important;
-  min-height:0 !important;
-  border-radius:999px !important;
-}
-
-/* Las flechas solo aparecen en Visión anual; en trimestre actual el calendario es fijo. */
-.stats-chart-panel .quarter-nav{
-  display:none !important;
-}
-
+.stats-chart-panel.argos-calendar-annual #quarterPrev{left:-10px !important;right:auto !important;}
+.stats-chart-panel.argos-calendar-annual #quarterNext{right:-10px !important;left:auto !important;}
+.stats-chart-panel.argos-calendar-annual .quarter-nav:disabled{opacity:.25 !important;}
 @media(max-width:600px){
-  .stats-chart-panel .quarter-carousel{
-    display:grid !important;
-    grid-template-columns:1fr !important;
-    gap:8px !important;
-    min-height:0 !important;
-    position:relative !important;
-  }
-  .stats-chart-panel .quarter-viewport{
-    width:100% !important;
-    overflow:visible !important;
-  }
-  .stats-chart-panel .quarter-month-view{
-    display:grid !important;
-    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
-    gap:6px !important;
-    width:100% !important;
-  }
+  .stats-chart-panel .quarter-month-view{gap:7px !important;}
   .stats-chart-panel .quarter-month-card{
-    min-height:125px !important;
-    height:125px !important;
-    padding:10px 8px !important;
-    border-radius:14px !important;
+    min-height:155px !important;
+    height:155px !important;
+    padding:12px !important;
+    border-radius:15px !important;
   }
-  .stats-chart-panel .quarter-month-name{font-size:13px !important;}
+  .stats-chart-panel .quarter-month-name{font-size:15px !important;}
   .stats-chart-panel .quarter-month-total{font-size:16px !important;}
-  .stats-chart-panel .quarter-month-caption{font-size:8px !important;margin:5px 0 7px !important;}
-  .stats-chart-panel .quarter-month-track{height:12px !important;}
-  .stats-chart-panel .quarter-nav{
-    position:absolute !important;
-    top:-54px !important;
-    z-index:5 !important;
-    width:40px !important;
-    height:40px !important;
-    min-width:40px !important;
-    min-height:40px !important;
-    place-items:center !important;
-    padding:0 !important;
-    font-size:28px !important;
-    border-radius:12px !important;
-  }
-  .stats-chart-panel #quarterPrev{left:0 !important;right:auto !important;}
-  .stats-chart-panel #quarterNext{right:0 !important;left:auto !important;}
+  .stats-chart-panel .quarter-month-caption{font-size:8px !important;margin:6px 0 9px !important;}
+  .stats-chart-panel .quarter-month-track{height:14px !important;}
+  .stats-chart-panel.argos-calendar-annual .quarter-nav{width:38px !important;height:38px !important;min-width:38px !important;min-height:38px !important;font-size:25px !important;}
+  .stats-chart-panel.argos-calendar-annual #quarterPrev{left:-4px !important;}
+  .stats-chart-panel.argos-calendar-annual #quarterNext{right:-4px !important;}
 }
 </style>
