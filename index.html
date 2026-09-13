@@ -3676,7 +3676,7 @@ body:not(.dark) select{
 </div></article>
       <article class="stats-panel"><div class="stats-panel-head"><div><span class="stats-panel-kicker">MATERIAL</span><h4>Series más utilizadas</h4></div></div><div id="seriesRanking" class="ranking-list"></div></article>
       <article class="stats-panel"><div class="stats-panel-head"><div><span class="stats-panel-kicker">RAMAS</span><h4>Ramas más utilizadas</h4></div></div><div id="branchRanking" class="ranking-list"></div></article><article class="stats-panel"><div class="stats-panel-head"><div><span class="stats-panel-kicker">PRODUCTO</span><h4>Distribución por producto</h4></div></div><div id="productRanking" class="ranking-list"></div></article>
-      <article class="stats-panel"><div class="stats-panel-head"><div><span class="stats-panel-kicker">RECORRIDOS</span><h4>Rutas más realizadas</h4></div></div><div id="routeRanking" class="ranking-list"></div></article><article class="stats-panel"><div class="stats-panel-head"><div><span class="stats-panel-kicker">TRENES</span><h4>Vehículos más utilizados</h4></div></div><div id="vehicleRanking" class="ranking-list"></div></article><article class="stats-panel"><div class="stats-panel-head"><div><span class="stats-panel-kicker">INCIDENCIAS</span><h4>Incidencias registradas</h4></div></div><div id="incidentRanking" class="ranking-list"></div></article>
+      <article class="stats-panel"><div class="stats-panel-head"><div><span class="stats-panel-kicker">RECORRIDOS</span><h4>Rutas realizadas</h4></div></div><div id="routeRanking" class="ranking-list"></div></article><article class="stats-panel"><div class="stats-panel-head"><div><span class="stats-panel-kicker">TRENES</span><h4>Vehículos más utilizados</h4></div></div><div id="vehicleRanking" class="ranking-list"></div></article><article class="stats-panel"><div class="stats-panel-head"><div><span class="stats-panel-kicker">INCIDENCIAS</span><h4>Incidencias registradas</h4></div></div><div id="incidentRanking" class="ranking-list"></div></article>
       <article class="stats-panel"><div class="stats-panel-head"><div><span class="stats-panel-kicker">CALENDARIO</span><h4>Actividad por día</h4></div></div><div id="weekdayChart" class="weekday-chart"></div></article>
       <article class="stats-panel"><div class="stats-panel-head"><div><span class="stats-panel-kicker">RÉCORDS ARGOS</span><h4>Tus hitos</h4></div></div><div id="recordsGrid" class="records-grid"></div></article>
     </div>
@@ -14248,13 +14248,37 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     data.forEach(s=>incidentNames(s).forEach(n=>m.set(n,(m.get(n)||0)+1)));
     renderRank('incidentRanking',[...m.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'es')),'Sin incidencias registradas en este periodo');
   }
-  function renderWeekday(data){
+  function renderWeekday(){
     const root=$('weekdayChart');if(!root)return;
-    const names=['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'],c=Array(7).fill(0);
-    data.forEach(s=>{const d=parseDate(s);if(d)c[(d.getDay()+6)%7]++});
-    const max=Math.max(1,...c);
-    root.classList.remove('weekly-view');
-    root.innerHTML=c.map((n,i)=>`<div class="day-column"><span class="day-value">${n}</span><div class="day-track"><i class="day-fill" style="height:${n?Math.max(4,Math.round(n/max*100)):0}%"></i></div><span class="day-label">${names[i]}</span></div>`).join('');
+    /* El calendario es independiente de la visión seleccionada: siempre muestra
+       la semana natural en curso (lunes-domingo) y nunca cambia al filtrar.
+       No permite navegar a otras semanas. */
+    const names=['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'];
+    const now=new Date();
+    const monday=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+    monday.setDate(monday.getDate()-((monday.getDay()+6)%7));
+    const all=services();
+    const dates=Array.from({length:7},(_,i)=>{
+      const d=new Date(monday);
+      d.setDate(monday.getDate()+i);
+      return d;
+    });
+    const keyOf=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+    const counts=dates.map(target=>{
+      const key=keyOf(target);
+      return all.reduce((n,s)=>{
+        const d=parseDate(s);
+        return n+(d&&keyOf(d)===key?1:0);
+      },0);
+    });
+    const max=Math.max(1,...counts);
+    root.classList.add('weekly-view');
+    root.innerHTML=counts.map((n,i)=>{
+      const d=dates[i],isToday=keyOf(d)===keyOf(now);
+      const label=isToday?'Hoy':names[i];
+      const dateLabel=d.getDate()+'/'+(d.getMonth()+1);
+      return `<div class="day-column${isToday?' today':''}" title="${label} ${dateLabel} · ${n} servicio${n===1?'':'s'}"><span class="day-value">${n||''}</span><div class="day-track"><i class="day-fill" style="height:${n?Math.max(4,Math.round(n/max*100)):0}%"></i></div><span class="day-label">${label}</span><span class="day-date">${dateLabel}</span></div>`;
+    }).join('');
     root.closest('.stats-panel')?.querySelector('.weekday-week-nav')?.remove();
   }
   function renderRecords(data){
@@ -14357,7 +14381,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     renderRank('routeRanking',countBy(data,s=>route(s)),'Sin rutas registradas en este periodo');
     renderVehicles(data);
     renderIncidents(data);
-    renderWeekday(data);
+    renderWeekday();
     renderRecords(data);
     renderDetails(data);
     renderInsights(data);
