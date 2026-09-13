@@ -2811,6 +2811,224 @@ body:not(.dark) select{
 }
 </style>
 
+
+<style id="argos-mobile-more-functions-hard-reset">
+/* =========================================================
+   ARGOS · CORRECCIÓN DEFINITIVA «MÁS FUNCIONES» EN MÓVIL
+   Este bloque está al FINAL para anular las reglas antiguas.
+   NO afecta a escritorio.
+   ========================================================= */
+@media (max-width:600px){
+  /* Pantalla y contenedor */
+  #more-functions.menu-screen.active{
+    width:100% !important;
+    height:calc(100dvh - 64px) !important;
+    min-height:0 !important;
+    max-height:calc(100dvh - 64px) !important;
+    margin:0 !important;
+    padding:0 !important;
+    overflow:hidden !important;
+    display:block !important;
+  }
+
+  #more-functions.menu-screen.active > .argos-home{
+    width:100% !important;
+    height:100% !important;
+    min-height:0 !important;
+    max-height:none !important;
+    margin:0 !important;
+    padding:12px 12px 8px !important;
+    box-sizing:border-box !important;
+    display:flex !important;
+    flex-direction:column !important;
+    gap:8px !important;
+    overflow:hidden !important;
+  }
+
+  /* Cabecera: tamaño natural, nunca crece */
+  #more-functions.menu-screen.active > .argos-home > .welcome-card{
+    flex:0 0 auto !important;
+    width:100% !important;
+    min-width:0 !important;
+    min-height:0 !important;
+    max-height:none !important;
+    margin:0 !important;
+    box-sizing:border-box !important;
+    padding:14px 16px !important;
+  }
+
+  #more-functions.menu-screen.active > .argos-home > .welcome-card h1{
+    margin:0 0 4px !important;
+    font-size:28px !important;
+    line-height:1 !important;
+    white-space:nowrap !important;
+  }
+
+  #more-functions.menu-screen.active > .argos-home > .welcome-card p{
+    margin:0 !important;
+    font-size:13px !important;
+    line-height:1.15 !important;
+  }
+
+  #more-functions.menu-screen.active > .argos-home > .welcome-card .welcome-pill{
+    margin:0 0 6px !important;
+  }
+
+  /* LAS 5 OPCIONES: FLEX, NO GRID.
+     Cada botón recibe exactamente 1/5 del espacio disponible. */
+  #more-functions.menu-screen.active > .argos-home > .home-list{
+    flex:1 1 auto !important;
+    width:100% !important;
+    min-width:0 !important;
+    min-height:0 !important;
+    height:auto !important;
+    max-height:none !important;
+    margin:0 !important;
+    padding:0 !important;
+    box-sizing:border-box !important;
+    display:flex !important;
+    flex-direction:column !important;
+    gap:7px !important;
+    overflow:hidden !important;
+  }
+
+  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card{
+    flex:1 1 0 !important;
+    width:100% !important;
+    min-width:0 !important;
+    min-height:0 !important;
+    height:auto !important;
+    max-height:none !important;
+    margin:0 !important;
+    padding:8px 14px !important;
+    box-sizing:border-box !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:12px !important;
+    border-radius:18px !important;
+    overflow:hidden !important;
+  }
+
+  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card .home-icon{
+    flex:0 0 42px !important;
+    width:42px !important;
+    height:42px !important;
+    min-width:42px !important;
+    min-height:42px !important;
+    max-width:42px !important;
+    max-height:42px !important;
+    box-sizing:border-box !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+
+  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card > span:last-child{
+    flex:1 1 auto !important;
+    min-width:0 !important;
+    width:auto !important;
+    max-width:none !important;
+    overflow:hidden !important;
+  }
+
+  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card h2{
+    margin:0 !important;
+    font-size:21px !important;
+    line-height:1.05 !important;
+    white-space:nowrap !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+  }
+
+  /* Pie separado */
+  #more-functions.menu-screen.active > .argos-home > .argos-footer-action{
+    flex:0 0 42px !important;
+    width:100% !important;
+    height:42px !important;
+    min-height:42px !important;
+    max-height:42px !important;
+    margin:0 !important;
+    padding:0 !important;
+    box-sizing:border-box !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    overflow:visible !important;
+  }
+
+  #more-functions.menu-screen.active > .argos-home > .argos-footer-action > .argos-identical-action{
+    flex:0 1 260px !important;
+    width:min(260px,100%) !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    height:42px !important;
+    min-height:42px !important;
+    max-height:42px !important;
+    margin:0 !important;
+    padding:0 16px !important;
+    box-sizing:border-box !important;
+  }
+}
+
+/* Móviles bajos: misma estructura, algo más compacta */
+@media (max-width:600px) and (max-height:700px){
+  #more-functions.menu-screen.active > .argos-home{
+    padding:8px 10px 6px !important;
+    gap:6px !important;
+  }
+
+  #more-functions.menu-screen.active > .argos-home > .welcome-card{
+    padding:10px 13px !important;
+  }
+
+  #more-functions.menu-screen.active > .argos-home > .welcome-card h1{
+    font-size:23px !important;
+  }
+
+  #more-functions.menu-screen.active > .argos-home > .welcome-card p{
+    font-size:11px !important;
+  }
+
+  #more-functions.menu-screen.active > .argos-home > .home-list{
+    gap:5px !important;
+  }
+
+  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card{
+    padding:6px 11px !important;
+    border-radius:15px !important;
+    gap:9px !important;
+  }
+
+  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card .home-icon{
+    flex-basis:36px !important;
+    width:36px !important;
+    height:36px !important;
+    min-width:36px !important;
+    min-height:36px !important;
+    max-width:36px !important;
+    max-height:36px !important;
+  }
+
+  #more-functions.menu-screen.active > .argos-home > .home-list > .home-card h2{
+    font-size:18px !important;
+  }
+
+  #more-functions.menu-screen.active > .argos-home > .argos-footer-action{
+    flex-basis:36px !important;
+    height:36px !important;
+    min-height:36px !important;
+    max-height:36px !important;
+  }
+
+  #more-functions.menu-screen.active > .argos-home > .argos-footer-action > .argos-identical-action{
+    height:36px !important;
+    min-height:36px !important;
+    max-height:36px !important;
+  }
+}
+</style>
+
 </head>
 
 <body>
