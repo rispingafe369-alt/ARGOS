@@ -14870,3 +14870,135 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   .stats-chart-panel .quarter-nav,.stats-chart-panel.argos-calendar-annual .quarter-nav{display:none !important;}
 }
 </style>
+
+<!-- ARGOS · ESTADÍSTICAS · RUTAS SEGÚN VISTA · ÚLTIMA CORRECCIÓN -->
+<script id="argos-stats-routes-scope-final">
+(function(){
+  'use strict';
+  const $=id=>document.getElementById(id);
+  const text=v=>String(v??'').trim();
+  function value(o,names){
+    for(const n of names){
+      if(o&&o[n]!==undefined&&o[n]!==null&&String(o[n]).trim()!=='')return o[n];
+    }
+    return '';
+  }
+  function services(){
+    try{
+      const x=JSON.parse(localStorage.getItem('argos_services')||'[]');
+      return Array.isArray(x)?x:[];
+    }catch(e){return []}
+  }
+  function parseDate(s){
+    const raw=text(value(s,['date','fecha','day','dia']));
+    if(!raw)return null;
+    const iso=raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if(iso){
+      const d=new Date(+iso[1],+iso[2]-1,+iso[3]);
+      return isNaN(d.getTime())?null:d;
+    }
+    let d=new Date(raw);
+    if(isNaN(d.getTime())){
+      const m=raw.match(/^(\d{1,2})[\\/.\-](\d{1,2})[\\/.\-](\d{4})$/);
+      if(m)d=new Date(+m[3],+m[2]-1,+m[1]);
+    }
+    return isNaN(d.getTime())?null:d;
+  }
+  function field(s,type){
+    const map={
+      product:['product','producto','serviceType','tipoProducto'],
+      series:['series','serie','trainSeries'],
+      origin:['origin','origen'],
+      destination:['destination','destino']
+    };
+    return text(value(s,map[type]||[]));
+  }
+  function route(s){
+    const a=field(s,'origin'),b=field(s,'destination');
+    return a&&b?a+' → '+b:(a||b||'Ruta no indicada');
+  }
+  function getMode(){return window.__argosStatsMode||'quarterly';}
+  function getYear(){
+    const n=parseInt($('statsYear')?.value||'',10);
+    return Number.isFinite(n)&&n>=2000&&n<=2100?n:new Date().getFullYear();
+  }
+  function getMonth(){
+    const v=$('statsMonth')?.value;
+    return v!==undefined&&v!==null&&v!==''&&v!=='all'?Number(v):null;
+  }
+  function getQuarter(){
+    const q=Number.isInteger(window.__argosStatsQuarter)?window.__argosStatsQuarter:Math.floor(new Date().getMonth()/3);
+    return Math.max(0,Math.min(3,q));
+  }
+  function filteredData(){
+    const mode=getMode(),year=getYear(),quarter=getQuarter(),month=getMonth();
+    const product=$('statsProduct')?.value||'all';
+    const series=$('statsSeries')?.value||'all';
+    return services().filter(s=>{
+      const d=parseDate(s);
+      if(!d||d.getFullYear()!==year)return false;
+      if(mode==='annual'){
+        if(month!==null&&d.getMonth()!==month)return false;
+      }else if(mode==='quarterly'){
+        if(Math.floor(d.getMonth()/3)!==quarter)return false;
+      }else{
+        const m=month===null?new Date().getMonth():month;
+        if(d.getMonth()!==m)return false;
+      }
+      if(product!=='all'&&field(s,'product')!==product)return false;
+      if(series!=='all'&&field(s,'series')!==series)return false;
+      return true;
+    });
+  }
+  function countRoutes(data){
+    const map=new Map();
+    data.forEach(s=>{
+      const r=route(s);
+      if(!r||r==='Ruta no indicada')return;
+      map.set(r,(map.get(r)||0)+1);
+    });
+    return [...map.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'es'));
+  }
+  function esc(v){
+    return String(v??'').replace(/[&<>"']/g,c=>({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[c]));
+  }
+  function renderRoutesScoped(){
+    const root=$('routeRanking');
+    if(!root)return;
+    const mode=getMode();
+    const rows=countRoutes(filteredData());
+    const visible=mode==='monthly'?rows:rows.filter(x=>x[1]>2);
+    if(!visible.length){
+      root.innerHTML='<div class="stats-empty" style="padding:20px 8px"><strong>'+esc(mode==='monthly'?'No hay rutas registradas en este mes':'No hay rutas con más de 2 viajes en este periodo')+'</strong></div>';
+      return;
+    }
+    const max=Math.max(1,visible[0][1]);
+    root.innerHTML=visible.map(([name,n],i)=>{
+      const pct=Math.max(6,Math.round(n/max*100));
+      return '<div class="ranking-row">'
+        +'<span class="rank-number">'+(i+1)+'</span>'
+        +'<div class="rank-main"><span class="rank-name">'+esc(name)+'</span><div class="rank-bar"><i style="width:'+pct+'%"></i></div></div>'
+        +'<span class="rank-value">'+n+'</span>'
+        +'</div>';
+    }).join('');
+  }
+  let scheduled=false;
+  function schedule(){
+    if(scheduled)return;
+    scheduled=true;
+    setTimeout(()=>{scheduled=false;renderRoutesScoped();},0);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',schedule,{once:true});
+  else schedule();
+  document.addEventListener('click',e=>{
+    const el=e.target.closest('.stats-screen [data-view], .stats-screen #quarterPrev, .stats-screen #quarterNext, .stats-screen [data-month-card]');
+    if(el)schedule();
+  },true);
+  document.addEventListener('change',e=>{
+    if(e.target.closest('.stats-screen #statsYear, .stats-screen #statsMonth, .stats-screen #statsProduct, .stats-screen #statsSeries'))schedule();
+  },true);
+  window.addEventListener('storage',schedule);
+})();
+</script>
