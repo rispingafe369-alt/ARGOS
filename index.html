@@ -8485,6 +8485,22 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   observer.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});
 })();
 </script>
+<style id="argos-stats-modal-focus-v61">
+/* V61 · Estadísticas: modales específicos, limpios y no repetitivos */
+.stats-detail-section{margin-top:12px;}
+.stats-detail-section h4{font-size:13px !important;letter-spacing:.01em;}
+.stats-detail-section .modal-list{gap:6px;}
+.stats-detail-section .modal-row{padding:10px 11px;border:1px solid rgba(138,0,92,.06);}
+@media(max-width:600px){
+  #statsModal .stats-modal-card{max-height:88vh;padding:14px;border-radius:18px;}
+  #statsModal .stats-modal-top{margin-bottom:10px;}
+  #statsModal .stats-modal h3{font-size:21px;}
+  #statsModal .stats-modal p{font-size:10px;}
+  #statsModal .modal-kpi{padding:10px;}
+  #statsModal .modal-kpi strong{font-size:16px;}
+  #statsModal .modal-row{grid-template-columns:22px minmax(0,1fr) auto;padding:9px 10px;}
+}
+</style>
 </body>
 </html>
 <!-- ================================================================
@@ -11246,68 +11262,86 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     return '<div class="stats-v40-note">'+(labels.length?'Detalle calculado con los filtros activos: '+esc(labels.join(' · '))+'.':'Detalle calculado con todos los servicios registrados.')+'</div>';
   }
 
+  function countAll(a,fn){
+    const map=new Map();
+    a.forEach(s=>{
+      const k=text(fn(s));
+      if(k && k!=='Ruta no indicada')map.set(k,(map.get(k)||0)+1);
+    });
+    return [...map.entries()].sort((x,y)=>y[1]-x[1]||x[0].localeCompare(y[0],'es'));
+  }
+
+  function pct(value,total){
+    return total?Math.round((value/total)*100)+'%':'0%';
+  }
+
+  function cleanList(title,data,empty='No hay datos registrados.'){
+    if(!data.length)return '<div class="modal-section stats-detail-section"><h4>'+esc(title)+'</h4><p>'+esc(empty)+'</p></div>';
+    return '<div class="modal-section stats-detail-section"><h4>'+esc(title)+'</h4><div class="modal-list">'+
+      data.map((x,i)=>'<div class="modal-row"><b>'+(i+1)+'</b><span>'+esc(x[0])+'</span><strong>'+esc(x[1])+'</strong></div>').join('')+
+      '</div></div>';
+  }
+
   function servicesModal(){
     const a=filtered();
-    const days=new Set(a.map(dateOf).filter(Boolean).map(d=>d.toISOString().slice(0,10))).size;
-    const routes=countBy(a,route), series=countBy(a,s=>field(s,'series')), trains=countBy(a,s=>field(s,'train'));
-    modalOpen('ARGOS · ESTADÍSTICAS','Servicios','Detalle de los servicios seleccionados',
+    const dates=a.map(dateOf).filter(Boolean).sort((x,y)=>x-y);
+    const days=new Set(dates.map(d=>d.toISOString().slice(0,10))).size;
+    const average=days?(a.length/days).toFixed(1):'0';
+    const first=dates[0], last=dates[dates.length-1];
+    const period=first&&last ? (first.toLocaleDateString('es-ES')+' → '+last.toLocaleDateString('es-ES')) : 'Sin fechas';
+    const recent=[...a]
+      .sort((x,y)=>(dateOf(y)?.getTime()||0)-(dateOf(x)?.getTime()||0))
+      .slice(0,8)
+      .map((s)=>{
+        const d=dateOf(s);
+        const train=text(field(s,'train'))||'Sin tren';
+        const r=route(s);
+        return [train, (d?d.toLocaleDateString('es-ES'):'Sin fecha')+' · '+r];
+      });
+    modalOpen('ARGOS · ACTIVIDAD','Servicios','Resumen exclusivo de los servicios registrados',
       note()+kpis([
-        ['Servicios',a.length],['Días activos',days],['Series',series.length],['Trenes',trains.length]
+        ['Total',a.length],['Días activos',days],['Media / día',average],['Periodo',period]
       ])+
-      list('Rutas más realizadas',routes.slice(0,10))+
-      list('Series más utilizadas',series.slice(0,10))+
-      list('Trenes más utilizados',trains.slice(0,10))
+      cleanList('Últimos servicios',recent)
     );
   }
 
   function seriesModal(){
     const a=filtered();
-    const series=countBy(a,s=>field(s,'series'));
-    const vehicles=countBy(a,s=>field(s,'vehicle'));
-    const branches=countBy(a,s=>field(s,'branch'));
-    const products=countBy(a,s=>field(s,'product'));
-    modalOpen('ARGOS · MATERIAL','Series','Perfil del material registrado',
+    const series=countAll(a,s=>field(s,'series'));
+    const total=a.length;
+    const rows=series.map(([name,n])=>[name,n+' servicios · '+pct(n,total)]);
+    modalOpen('ARGOS · MATERIAL','Series','Solo información relacionada con las series',
       note()+kpis([
-        ['Series diferentes',series.length],['Vehículos',vehicles.length],['Ramas',branches.length]
+        ['Series diferentes',series.length],['Servicios',total],['Más utilizada',series[0]?.[0]||'—']
       ])+
-      list('Series más utilizadas',series.slice(0,10))+
-      list('Vehículos más utilizados',vehicles.slice(0,10))+
-      list('Ramas más utilizadas',branches.slice(0,10))+
-      list('Productos asociados',products.slice(0,10))
+      cleanList('Series registradas',rows)
     );
   }
 
   function trainsModal(){
     const a=filtered();
-    const trains=countBy(a,s=>field(s,'train'));
-    const detail=trains.slice(0,10).map(([name,n])=>{
-      const rows=a.filter(s=>field(s,'train')===name);
-      const ss=countBy(rows,s=>field(s,'series')).slice(0,3).map(x=>x[0]).join(', ')||'Serie no indicada';
-      const rr=countBy(rows,route).slice(0,2).map(x=>x[0]).join(' · ')||'Ruta no indicada';
-      return [name,n+' servicios · '+ss+' · '+rr];
-    });
-    modalOpen('ARGOS · MATERIAL','Trenes','Detalle de vehículos utilizados',
+    const trains=countAll(a,s=>field(s,'train'));
+    const total=a.length;
+    const rows=trains.map(([name,n])=>[name,n+' servicios · '+pct(n,total)]);
+    modalOpen('ARGOS · MATERIAL','Trenes','Solo información relacionada con los números de tren',
       note()+kpis([
-        ['Trenes diferentes',trains.length],['Servicios',a.length],['Más utilizado',trains[0]?.[0]||'—']
+        ['Trenes diferentes',trains.length],['Servicios',total],['Más utilizado',trains[0]?.[0]||'—']
       ])+
-      list('Vehículos más utilizados',detail)
+      cleanList('Trenes registrados',rows)
     );
   }
 
   function productsModal(){
     const a=filtered();
-    const products=countBy(a,s=>field(s,'product'));
-    const detail=products.slice(0,10).map(([name,n])=>{
-      const rows=a.filter(s=>field(s,'product')===name);
-      const ss=countBy(rows,s=>field(s,'series')).slice(0,4).map(x=>x[0]).join(', ')||'Serie no indicada';
-      const rr=countBy(rows,route).slice(0,3).map(x=>x[0]).join(' · ')||'Ruta no indicada';
-      return [name,n+' servicios · Series: '+ss+' · Rutas: '+rr];
-    });
-    modalOpen('ARGOS · SERVICIOS','Productos','Distribución de productos registrados',
+    const products=countAll(a,s=>field(s,'product'));
+    const total=a.length;
+    const rows=products.map(([name,n])=>[name,n+' servicios · '+pct(n,total)]);
+    modalOpen('ARGOS · SERVICIOS','Productos','Solo información relacionada con los productos registrados',
       note()+kpis([
-        ['Productos diferentes',products.length],['Servicios',a.length],['Más utilizado',products[0]?.[0]||'—']
+        ['Productos diferentes',products.length],['Servicios',total],['Más utilizado',products[0]?.[0]||'—']
       ])+
-      list('Distribución por producto',detail)
+      cleanList('Distribución por producto',rows)
     );
   }
 
@@ -11316,15 +11350,14 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const map=new Map();
     a.forEach(s=>incidentNames(s).forEach(x=>map.set(x,(map.get(x)||0)+1)));
     const types=[...map.entries()].sort((x,y)=>y[1]-x[1]||x[0].localeCompare(y[0],'es'));
-    const affected=a.filter(s=>incidentNames(s).length);
-    const trains=new Set(affected.map(s=>field(s,'train')).filter(Boolean));
-    const routes=countBy(affected,route);
-    modalOpen('ARGOS · CALIDAD','Incidencias','Detalle de las incidencias registradas',
+    const total=types.reduce((z,x)=>z+x[1],0);
+    const affected=a.filter(s=>incidentNames(s).length).length;
+    const rows=types.map(([name,n])=>[name,n+' incidencias · '+pct(n,total)]);
+    modalOpen('ARGOS · CALIDAD','Incidencias','Solo información relacionada con las incidencias',
       note()+kpis([
-        ['Incidencias',types.reduce((z,x)=>z+x[1],0)],['Servicios afectados',affected.length],['Tipos',types.length],['Trenes afectados',trains.size]
+        ['Incidencias',total],['Servicios afectados',affected],['Tipos',types.length],['Media / servicio',affected?(total/affected).toFixed(2):'0']
       ])+
-      list('Tipos de incidencia',types.slice(0,15))+
-      list('Rutas afectadas',routes.slice(0,10))
+      cleanList('Tipos de incidencia',rows)
     );
   }
 
