@@ -14260,9 +14260,19 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       });
   }
 
+  function normalizeIncidentLabel(value){
+    const raw=text(value).replace(/\s+/g,' ').trim();
+    if(!raw)return '';
+    // Algunos registros antiguos contienen solo el número del vehículo.
+    // En estadísticas lo presentamos de forma comprensible.
+    if(/^\d{3}$/.test(raw))return `Remolque ${raw}`;
+    return raw;
+  }
+
   function groupAnnualIncidents(names){
-    // Agrupación conservadora: dos incidencias se consideran la misma familia
-    // cuando comparten al menos 2 palabras significativas. De esta forma,
+    // Agrupación conservadora para las vistas anual y trimestral: dos incidencias
+    // se consideran la misma familia cuando comparten al menos 2 palabras significativas.
+    // De esta forma,
     // “chirría al frenar en ciudad” y “chirría un poco al frenar” se unen,
     // mientras que coincidencias genéricas de una sola palabra no bastan.
     const STOP=new Set(['a','al','algo','con','de','del','el','en','la','las','lo','los','muy','no','por','que','se','un','una','unos','unas','y','algun','alguna','alguno','algo','poco','poca','pocos','pocas','como','en','para']);
@@ -14289,9 +14299,12 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
   function renderIncidents(data){
     const m=new Map();
-    data.forEach(s=>incidentNames(s).forEach(n=>m.set(n,(m.get(n)||0)+1)));
+    data.forEach(s=>incidentNames(s).forEach(n=>{
+      const label=normalizeIncidentLabel(n);
+      if(label)m.set(label,(m.get(label)||0)+1);
+    }));
     let rows=[...m.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'es'));
-    if(getMode()==='annual')rows=groupAnnualIncidents(rows);
+    if(getMode()==='annual'||getMode()==='quarterly')rows=groupAnnualIncidents(rows);
     renderRank('incidentRanking',rows,'Sin incidencias registradas en este periodo');
   }
   function renderWeekday(){
