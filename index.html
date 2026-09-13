@@ -13882,6 +13882,9 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       sw.querySelectorAll('[data-view]').forEach(btn=>btn.addEventListener('click',()=>{
         const mode=btn.dataset.view;
         window.__argosStatsMode=mode;
+        if(mode==='annual'||mode==='quarterly'){
+          const m=$('statsMonth'); if(m)m.value='all';
+        }
         if(mode==='quarterly')window.__argosStatsQuarter=Math.floor(new Date().getMonth()/3);
         if(mode==='monthly'){
           const m=$('statsMonth');
@@ -14003,45 +14006,53 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     if(!panel||!chart)return;
     const mode=getMode();
     panel.classList.toggle('argos-monthly-hidden',mode==='monthly');
+    panel.classList.toggle('argos-calendar-annual',mode==='annual');
     panel.classList.add('argos-calendar-panel');
-    if(mode==='monthly')return;
+    if(mode==='monthly'){ chart.innerHTML=''; return; }
 
-    const year=getYear(),quarter=getQuarter();
-    const months=[quarter*3,quarter*3+1,quarter*3+2];
-    const counts=months.map(m=>data.filter(s=>{const d=parseDate(s);return d&&d.getMonth()===m}).length);
-    const max=Math.max(1,...counts);
-    chart.innerHTML=months.map((m,i)=>{
-      const n=counts[i],pct=n?Math.max(5,Math.round(n/max*100)):0;
-      return `<button type="button" class="quarter-month-card ${m===new Date().getMonth()&&year===new Date().getFullYear()?'current':''}" data-month-card="${m}" aria-label="${esc(MONTHS[m])} ${year}, ${n} servicios">
-        <div class="quarter-month-top"><span class="quarter-month-name">${esc(MONTHS[m])}</span><span class="quarter-month-total">${n}</span></div>
-        <div class="quarter-month-caption">${Q[quarter]} trimestre · ${year}</div>
-        <div class="quarter-month-track"><i class="quarter-month-fill" style="width:${pct}%;height:100%;--quarter-pct:${pct}%"></i></div>
-        <div class="quarter-month-bottom"><strong>${n} servicio${n===1?'':'s'}</strong></div>
-      </button>`;
-    }).join('');
+    const year=getYear();
+    const allYear=services().filter(s=>{const d=parseDate(s);return d&&d.getFullYear()===year});
+    const selectedQuarter=getQuarter();
+
+    const renderQuarterGroup=(q)=>{
+      const months=[q*3,q*3+1,q*3+2];
+      const qData=allYear.filter(s=>{const d=parseDate(s);return d&&Math.floor(d.getMonth()/3)===q});
+      const vals=months.map(m=>qData.filter(s=>parseDate(s)?.getMonth()===m).length);
+      const max=Math.max(1,...vals);
+      const cards=months.map((m,i)=>{
+        const n=vals[i],pct=n?Math.max(5,Math.round(n/max*100)):0;
+        return `<button type="button" class="quarter-month-card ${m===new Date().getMonth()&&year===new Date().getFullYear()?'current':''}" data-month-card="${m}" aria-label="${esc(MONTHS[m])} ${year}, ${n} servicios">
+          <div class="quarter-month-top"><span class="quarter-month-name">${esc(MONTHS[m])}</span><span class="quarter-month-total">${n}</span></div>
+          <div class="quarter-month-caption">${Q[q]} trimestre · ${year}</div>
+          <div class="quarter-month-track"><i class="quarter-month-fill" style="width:${pct}%;height:100%;--quarter-pct:${pct}%"></i></div>
+          <div class="quarter-month-bottom"><strong>${n} servicio${n===1?'':'s'}</strong></div>
+        </button>`;
+      }).join('');
+      return `<div class="argos-quarter-slide" data-quarter-slide="${q}"><div class="quarter-month-view">${cards}</div></div>`;
+    };
+
+    if(mode==='annual'){
+      chart.innerHTML=`<div class="argos-annual-calendar-track">${[0,1,2,3].map(renderQuarterGroup).join('')}</div>`;
+      const track=chart.querySelector('.argos-annual-calendar-track');
+      if(track)track.style.setProperty('--argos-quarter-offset',String(selectedQuarter));
+    }else{
+      chart.innerHTML=renderQuarterGroup(selectedQuarter);
+    }
 
     const label=$('statsChartTotal');
     if(label){
       label.textContent=mode==='annual'
-        ? `Año ${year} · ${Q[quarter]} trimestre · ${services().filter(s=>parseDate(s)?.getFullYear()===year).length} servicios`
-        : `Visión trimestral · ${Q[quarter]} trimestre ${year} · ${data.length} servicios`;
+        ? `Visión anual · ${year} · ${allYear.length} servicio${allYear.length===1?'':'s'}`
+        : `Visión trimestral · ${Q[selectedQuarter]} trimestre ${year} · ${data.length} servicio${data.length===1?'':'s'}`;
     }
+
     chart.querySelectorAll('[data-month-card]').forEach(card=>card.addEventListener('click',()=>{
-      const m=Number(card.dataset.monthCard);
-      const sel=$('statsMonth');
-      if(sel){
-        sel.value=String(m);
-        window.__argosStatsMode='monthly';
-        renderAll();
-      }
+      const m=Number(card.dataset.monthCard),sel=$('statsMonth');
+      if(sel){sel.value=String(m);window.__argosStatsMode='monthly';renderAll();}
     }));
     const prev=$('quarterPrev'),next=$('quarterNext');
-    const annual=getMode()==='annual';
-    // En ambas vistas no mensuales el trimestre se puede cambiar; en móvil se hace por gesto.
-    [prev,next].forEach(b=>{if(b){b.style.display='';b.disabled=false;b.setAttribute('aria-hidden','false')}});
-    if(prev)prev.disabled=quarter===0;
-    if(next)next.disabled=quarter===3;
-    if(label&&mode==='annual')label.textContent=`Año ${year} · ${Q[quarter]} trimestre · ${services().filter(s=>parseDate(s)?.getFullYear()===year).length} servicios`;
+    if(prev)prev.disabled=selectedQuarter===0;
+    if(next)next.disabled=selectedQuarter===3;
   }
 
   function renderAll(){
@@ -14084,21 +14095,12 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   function bindCalendarNavigation(){
     $('quarterPrev')?.addEventListener('click',()=>onQuarterChange(-1));
     $('quarterNext')?.addEventListener('click',()=>onQuarterChange(1));
-
     const viewport=$('.stats-chart-panel .quarter-viewport');
     if(!viewport||viewport.dataset.argosSwipeBound)return;
     viewport.dataset.argosSwipeBound='1';
     let startX=0,startY=0;
-    viewport.addEventListener('touchstart',e=>{
-      const t=e.changedTouches?.[0];if(!t)return;
-      startX=t.clientX;startY=t.clientY;
-    },{passive:true});
-    viewport.addEventListener('touchend',e=>{
-      const t=e.changedTouches?.[0];if(!t)return;
-      const dx=t.clientX-startX,dy=t.clientY-startY;
-      if(Math.abs(dx)<45||Math.abs(dx)<Math.abs(dy)*1.2)return;
-      onQuarterChange(dx<0?1:-1);
-    },{passive:true});
+    viewport.addEventListener('touchstart',e=>{const t=e.changedTouches?.[0];if(!t)return;startX=t.clientX;startY=t.clientY;},{passive:true});
+    viewport.addEventListener('touchend',e=>{const t=e.changedTouches?.[0];if(!t)return;const dx=t.clientX-startX,dy=t.clientY-startY;if(getMode()!=='annual')return;if(Math.abs(dx)<45||Math.abs(dx)<Math.abs(dy)*1.2)return;onQuarterChange(dx<0?1:-1);},{passive:true});
   }
 
   function bindFilters(){
@@ -14539,5 +14541,17 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 .stats-chart-panel.argos-monthly-hidden .quarter-carousel,
 .stats-chart-panel.argos-monthly-hidden .stats-panel-head{
   display:none !important;
+}
+</style>
+
+
+<style id="argos-stats-annual-mobile-final-v5">
+@media (max-width:600px){
+  .stats-chart-panel .quarter-viewport{overflow:hidden !important;width:100% !important;min-width:0 !important;touch-action:pan-y !important;}
+  .stats-chart-panel .argos-annual-calendar-track{display:flex !important;width:100% !important;transform:translateX(calc(var(--argos-quarter-offset,0) * -100%)) !important;transition:transform .25s ease !important;will-change:transform !important;}
+  .stats-chart-panel .argos-quarter-slide{flex:0 0 100% !important;width:100% !important;min-width:100% !important;box-sizing:border-box !important;}
+  .stats-chart-panel.argos-calendar-annual .quarter-month-view{display:grid !important;grid-template-columns:1fr !important;width:100% !important;gap:10px !important;}
+  .stats-chart-panel.argos-calendar-annual .quarter-month-card{min-height:180px !important;height:180px !important;padding:16px !important;}
+  .stats-chart-panel .quarter-nav,.stats-chart-panel.argos-calendar-annual .quarter-nav{display:none !important;}
 }
 </style>
