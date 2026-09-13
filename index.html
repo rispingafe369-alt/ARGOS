@@ -14243,10 +14243,56 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       return `<div class="ranking-row"><span class="rank-number">${i+1}</span><div class="rank-main"><span class="rank-name">${esc(name)}</span>${series?`<span class="vehicle-rank-series">· ${esc(series)}</span>`:''}<div class="rank-bar"><i style="width:${pct}%"></i></div></div><span class="rank-value">${n}</span></div>`;
     }).join('');
   }
+  function normalizeIncidentWords(value){
+    return text(value).toLocaleLowerCase('es-ES')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+      .replace(/[^a-z0-9\s-]/g,' ')
+      .split(/\s+/)
+      .map(w=>w.trim())
+      .filter(Boolean)
+      .map(w=>{
+        if(/^\d+$/.test(w))return w;
+        // Normalizamos plurales muy frecuentes para que “asientos” y “asiento”,
+        // “sucios” y “sucio”, etc. puedan reconocerse como la misma idea.
+        if(w.length>5 && /es$/.test(w))w=w.slice(0,-2);
+        else if(w.length>4 && /s$/.test(w))w=w.slice(0,-1);
+        return w;
+      });
+  }
+
+  function groupAnnualIncidents(names){
+    // Agrupación conservadora: dos incidencias se consideran la misma familia
+    // cuando comparten al menos 2 palabras significativas. De esta forma,
+    // “chirría al frenar en ciudad” y “chirría un poco al frenar” se unen,
+    // mientras que coincidencias genéricas de una sola palabra no bastan.
+    const STOP=new Set(['a','al','algo','con','de','del','el','en','la','las','lo','los','muy','no','por','que','se','un','una','unos','unas','y','algun','alguna','alguno','algo','poco','poca','pocos','pocas','como','en','para']);
+    const prepared=names.map(([name,count],idx)=>({name,count,idx,words:new Set(normalizeIncidentWords(name).filter(w=>!STOP.has(w)&&w.length>=3))}));
+    const parent=prepared.map((_,i)=>i);
+    const find=i=>{while(parent[i]!==i){parent[i]=parent[parent[i]];i=parent[i]}return i};
+    const union=(a,b)=>{a=find(a);b=find(b);if(a!==b)parent[b]=a};
+    for(let i=0;i<prepared.length;i++)for(let j=i+1;j<prepared.length;j++){
+      let common=0;
+      prepared[i].words.forEach(w=>{if(prepared[j].words.has(w))common++});
+      if(common>=2)union(i,j);
+    }
+    const groups=new Map();
+    prepared.forEach(item=>{
+      const root=find(item.idx);
+      if(!groups.has(root))groups.set(root,{members:[],count:0});
+      const g=groups.get(root); g.members.push(item); g.count+=item.count;
+    });
+    return [...groups.values()].map(g=>{
+      g.members.sort((a,b)=>a.name.length-b.name.length||b.count-a.count||a.name.localeCompare(b.name,'es'));
+      return [g.members[0].name,g.count];
+    }).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'es'));
+  }
+
   function renderIncidents(data){
     const m=new Map();
     data.forEach(s=>incidentNames(s).forEach(n=>m.set(n,(m.get(n)||0)+1)));
-    renderRank('incidentRanking',[...m.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'es')),'Sin incidencias registradas en este periodo');
+    let rows=[...m.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'es'));
+    if(getMode()==='annual')rows=groupAnnualIncidents(rows);
+    renderRank('incidentRanking',rows,'Sin incidencias registradas en este periodo');
   }
   function renderWeekday(){
     const root=$('weekdayChart');if(!root)return;
