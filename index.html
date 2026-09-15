@@ -5260,15 +5260,10 @@ function quarterModal(q){
   modalOpen("ARGOS · TRIMESTRE",["1.º trimestre","2.º trimestre","3.º trimestre","4.º trimestre"][q],`${y} · ${s.length} servicios`,kpis([["Servicios",s.length],["Km",kmv?kmv.toLocaleString("es-ES")+" km":"—"],["Km/serv.",s.length&&kmv?(kmv/s.length).toFixed(1):"—"],["Incidencias",inc]])+chart+list("Series dominantes",topRows(s,"series"))+list("Productos",topRows(s,"product"))+list("Rutas",topRows(s,"route")));
 }
 function entityModal(type,name){
-  /* El detalle de una fila debe respetar SIEMPRE el ámbito real que está viendo el usuario.
-     El motor final de Estadísticas expone __argosGetStatsScopedData(), que incluye año/trimestre/mes
-     además de los filtros de producto y serie. Si todavía no está disponible, se mantiene el motor anterior. */
-  const base=typeof window.__argosGetStatsScopedData==="function"?window.__argosGetStatsScopedData():filtered();
-  const a=base.filter(s=>(type==="route"?route(s):field(s,type))===name),kmv=a.reduce((z,s)=>z+km(s),0),inc=a.reduce((z,s)=>z+incidentList(s).length,0);
+  const a=filtered().filter(s=>(type==="route"?route(s):field(s,type))===name),kmv=a.reduce((z,s)=>z+km(s),0),inc=a.reduce((z,s)=>z+incidentList(s).length,0);
   const title={series:"Serie",product:"Producto",route:"Ruta",vehicle:"Vehículo",branch:"Rama"}[type]||type;
   const months=countBy(a,"product"), routes=countBy(a,"route");
-  const modeText=typeof window.__argosGetStatsScopeLabel==="function"?window.__argosGetStatsScopeLabel():"periodo seleccionado";
-  modalOpen("ARGOS · DETALLE",name,`${title} · ${a.length} servicios · ${modeText}`,kpis([["Servicios",a.length],["Km",kmv?kmv.toLocaleString("es-ES")+" km":"—"],["Km/serv.",a.length&&kmv?(kmv/a.length).toFixed(1):"—"],["Incidencias",inc]])+list("Productos asociados",months)+list("Rutas asociadas",routes));
+  modalOpen("ARGOS · DETALLE",name,`${title} · ${a.length} servicios`,kpis([["Servicios",a.length],["Km",kmv?kmv.toLocaleString("es-ES")+" km":"—"],["Km/serv.",a.length&&kmv?(kmv/a.length).toFixed(1):"—"],["Incidencias",inc]])+list("Productos asociados",months)+list("Rutas asociadas",routes));
 }
 function incidentEntityModal(name){
   const incidentText=s=>{
@@ -11754,6 +11749,32 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
    * Solo interceptamos elementos con data-drill dentro de Estadísticas.
    */
   document.addEventListener('click',function(e){
+    /* Los elementos de ranking deben abrir el detalle concreto del elemento
+       pulsado. Las versiones antiguas interceptaban aquí el clic y abrían
+       siempre el mismo resumen general. */
+    const row=e.target.closest('.stats-screen .ranking-row');
+    if(row){
+      const panel=row.closest('.stats-panel');
+      const name=row.querySelector('.rank-name')?.textContent?.trim();
+      if(!panel||!name)return;
+      let type='series';
+      if(panel.querySelector('#branchRanking'))type='branch';
+      else if(panel.querySelector('#productRanking'))type='product';
+      else if(panel.querySelector('#routeRanking'))type='route';
+      else if(panel.querySelector('#vehicleRanking'))type='vehicle';
+      else if(panel.querySelector('#seriesRanking'))type='series';
+      else if(panel.querySelector('#incidentRanking')){
+        incidentEntityModal(name);
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        return;
+      }
+      entityModal(type,name);
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      return;
+    }
+
     const el=e.target.closest('.stats-screen [data-drill]');
     if(!el)return;
     const type=el.dataset.drill;
@@ -14602,16 +14623,6 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       });
     });
   }
-
-  /* Exponer el ámbito definitivo para los detalles interactivos de las filas.
-     Evita que el motor histórico use datos anuales cuando la vista actual es trimestral o mensual. */
-  window.__argosGetStatsScopedData=activeData;
-  window.__argosGetStatsScopeLabel=function(){
-    const mode=getMode(),year=getYear(),month=getMonth(),quarter=getQuarter();
-    if(mode==='annual')return 'Visión anual · '+year;
-    if(mode==='quarterly')return 'Visión trimestral · '+Q[quarter]+' trimestre '+year;
-    return 'Visión mensual · '+MONTHS[month===null?new Date().getMonth():month]+' '+year;
-  };
 
   function install(){
     const currentQ=Math.floor(new Date().getMonth()/3);
