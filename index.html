@@ -5349,7 +5349,7 @@ function updateBadge(){
 }
 document.addEventListener("click",e=>{
   const q=e.target.closest(".quarter-month-card");if(q){const month=Number(q.dataset.quarterMonth);if(Number.isFinite(month))monthModal(month);return}
-  const r=e.target.closest(".ranking-row");if(r){const panel=r.closest(".stats-panel"),name=r.querySelector(".rank-name")?.textContent.trim();if(name){let type="series";if(panel?.querySelector("#branchRanking"))type="branch";else if(panel?.querySelector("#productRanking"))type="product";else if(panel?.querySelector("#routeRanking"))type="route";else if(panel?.querySelector("#vehicleRanking"))type="vehicle";else if(panel?.querySelector("#seriesRanking"))type="series";else if(panel?.querySelector("#incidentRanking")){incidentEntityModal(name);return}entityModal(type,name)}return}
+  const r=e.target.closest(".ranking-row");if(r){const panel=r.closest(".stats-panel"),name=r.querySelector(".rank-name")?.textContent.trim();if(name){let type="series";if(panel?.querySelector("#branchRanking"))type="branch";else if(panel?.querySelector("#productRanking"))type="product";else if(panel?.querySelector("#routeRanking"))type="route";else if(panel?.querySelector("#vehicleRanking"))type="vehicle";else if(panel?.querySelector("#seriesRanking"))type="series";else if(panel?.querySelector("#incidentRanking")){incidentEntityModal(name);return}if(type==='series'||type==='product'){window.__argosOpenScopedEntity?.(type,name)}else{entityModal(type,name)}}return}
   const d=e.target.closest("[data-drill]");if(d){({year:yearModal,routes:routesModal,material:materialModal,incidents:incidentsModal,services:serviceStatsModal,series:seriesStatsModal,trains:trainsStatsModal,products:productsStatsModal}[d.dataset.drill]||function(){})();return}
 });
 $("statsFilterToggle")?.addEventListener("click",filterToggle);
@@ -8777,6 +8777,121 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 })();
 </script>
 
+
+<!-- ARGOS V5 · DETALLE REAL DE SERIE/PRODUCTO SEGÚN VISIÓN ACTIVA -->
+<script id="argos-stats-scoped-entity-final">
+(function(){
+  'use strict';
+  const $=id=>document.getElementById(id);
+  const txt=v=>String(v??'').trim();
+  const val=(o,n)=>{for(const k of n){if(o&&o[k]!==undefined&&o[k]!==null&&o[k]!=='')return o[k];}return ''};
+  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function services(){try{const x=JSON.parse(localStorage.getItem('argos_services')||'[]');return Array.isArray(x)?x:[]}catch(e){return[]}}
+  function field(s,type){
+    const map={
+      series:['series','serie','trainSeries'],
+      product:['product','producto','serviceType','tipoProducto'],
+      vehicle:['vehicle','vehiculo','vehicleNumber','numeroVehiculo'],
+      branch:['branch','rama'],
+      train:['train','tren','number','numero']
+    };
+    return txt(val(s,map[type]||[]));
+  }
+  function dateOf(s){
+    const raw=txt(val(s,['date','fecha','day','dia']));
+    if(!raw)return null;
+    let d=new Date(raw);
+    if(isNaN(d.getTime())){
+      const m=raw.match(/^(\d{1,2})[\\/.\-](\d{1,2})[\\/.\-](\d{4})$/);
+      if(m)d=new Date(+m[3],+m[2]-1,+m[1]);
+    }
+    return isNaN(d.getTime())?null:d;
+  }
+  function route(s){
+    const a=txt(val(s,['origin','origen'])),b=txt(val(s,['destination','destino']));
+    return a&&b?a+' → '+b:(a||b||'Ruta no indicada');
+  }
+  function getMode(){
+    const active=document.querySelector('.argos-stats-view-button.active');
+    const ui=active?.dataset?.view;
+    return ui==='annual'||ui==='quarterly'||ui==='monthly'?ui:(window.__argosStatsMode||'quarterly');
+  }
+  function getYear(){
+    const n=parseInt($('statsYear')?.value||'',10);
+    return Number.isFinite(n)&&n>=2000&&n<=2100?n:new Date().getFullYear();
+  }
+  function getQuarter(){
+    const q=Number.isInteger(window.__argosStatsQuarter)?window.__argosStatsQuarter:Math.floor(new Date().getMonth()/3);
+    return Math.max(0,Math.min(3,q));
+  }
+  function getMonth(){
+    const v=$('statsMonth')?.value;
+    if(v!==undefined&&v!==null&&v!==''&&v!=='all'){
+      const n=Number(v); if(Number.isInteger(n)&&n>=0&&n<=11)return n;
+    }
+    return new Date().getMonth();
+  }
+  function scopedServices(type){
+    const mode=getMode(),year=getYear(),quarter=getQuarter(),month=getMonth();
+    const product=$('statsProduct')?.value||'all';
+    const seriesFilter=$('statsSeries')?.value||'all';
+    return services().filter(s=>{
+      const d=dateOf(s);
+      if(!d||d.getFullYear()!==year)return false;
+      if(mode==='quarterly'&&Math.floor(d.getMonth()/3)!==quarter)return false;
+      if(mode==='monthly'&&d.getMonth()!==month)return false;
+      if(product!=='all'&&field(s,'product')!==product)return false;
+      if(seriesFilter!=='all'&&type!=='series'&&field(s,'series')!==seriesFilter)return false;
+      return true;
+    });
+  }
+  function periodLabel(){
+    const mode=getMode(),year=getYear(),q=getQuarter(),m=getMonth();
+    const months=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+    const qs=['1.º','2.º','3.º','4.º'];
+    if(mode==='annual')return 'año '+year;
+    if(mode==='monthly')return months[m]+' '+year;
+    return qs[q]+' trimestre '+year;
+  }
+  function countMap(data,fn){
+    const m=new Map(); data.forEach(s=>{const k=txt(fn(s));if(k)m.set(k,(m.get(k)||0)+1)});
+    return [...m.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'es'));
+  }
+  function kpis(items){return '<div class="modal-kpis">'+items.map(x=>'<div class="modal-kpi"><span>'+esc(x[0])+'</span><strong>'+esc(x[1])+'</strong></div>').join('')+'</div>';}
+  function list(title,data){
+    if(!data.length)return '<div class="modal-section"><h4>'+esc(title)+'</h4><p>Sin datos en este periodo.</p></div>';
+    return '<div class="modal-section"><h4>'+esc(title)+'</h4><div class="modal-list">'+data.map((x,i)=>'<div class="modal-row"><b>'+(i+1)+'</b><span>'+esc(x[0])+'</span><strong>'+esc(x[1])+'</strong></div>').join('')+'</div></div>';
+  }
+  function openModal(kicker,title,sub,body){
+    const modal=$('statsModal'),bodyEl=$('statsModalBody'); if(!modal||!bodyEl)return;
+    $('statsModalKicker')?.replaceChildren(document.createTextNode(kicker));
+    $('statsModalTitle')?.replaceChildren(document.createTextNode(title));
+    $('statsModalSub')?.replaceChildren(document.createTextNode(sub));
+    bodyEl.innerHTML=body; modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+  }
+  function openScoped(type,name){
+    const clean=txt(name); if(!clean)return;
+    const base=scopedServices(type);
+    const data=base.filter(s=>field(s,type)===clean);
+    const vehicles=countMap(data,s=>field(s,'vehicle'));
+    const branches=countMap(data,s=>field(s,'branch'));
+    const trains=countMap(data,s=>field(s,'train'));
+    const products=countMap(data,s=>field(s,'product'));
+    const routes=countMap(data,route);
+    if(type==='series'){
+      openModal('ARGOS · MATERIAL','Serie '+clean,`${data.length} servicio${data.length===1?'':'s'} · ${periodLabel()}`,
+        kpis([['Servicios',data.length],['Vehículos',vehicles.length],['Ramas',branches.length],['Trenes',trains.length]])+
+        list('Vehículos utilizados',vehicles.slice(0,12))+list('Ramas utilizadas',branches.slice(0,12))+list('Productos asociados',products.slice(0,12))+list('Trenes utilizados',trains.slice(0,12)));
+    }else if(type==='product'){
+      openModal('ARGOS · PRODUCTO','Producto '+clean,`${data.length} servicio${data.length===1?'':'s'} · ${periodLabel()}`,
+        kpis([['Servicios',data.length],['Series',new Set(data.map(s=>field(s,'series')).filter(Boolean)).size],['Rutas',routes.length],['Trenes',trains.length]])+
+        list('Series asociadas',countMap(data,s=>field(s,'series')).slice(0,12))+list('Rutas realizadas',routes.slice(0,12))+list('Trenes utilizados',trains.slice(0,12))+list('Vehículos utilizados',vehicles.slice(0,12)));
+    }
+  }
+  window.__argosOpenScopedEntity=openScoped;
+})();
+</script>
+
 </html>
 <!-- ================================================================
      ARGOS V23 · DOBLE COMPOSICIÓN
@@ -11868,9 +11983,9 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
         return;
       }
       if(type==='series'){
-        seriesDetailModal(name);
+        window.__argosOpenScopedEntity?.('series',name);
       }else if(type==='product'){
-        productDetailModal(name);
+        window.__argosOpenScopedEntity?.('product',name);
       }else{
         /* El resto conserva su detalle específico anterior. */
         entityModal(type,name);
