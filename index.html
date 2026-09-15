@@ -11488,6 +11488,59 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     });
   }
 
+  /*
+   * Ámbito temporal real de la ventana de detalle.
+   * Este motor vive en su propio cierre, por lo que NO puede depender de
+   * funciones getMode()/activeData() declaradas por otros motores de ARGOS.
+   */
+  function currentMode(){
+    return window.__argosStatsMode||'quarterly';
+  }
+  function currentYear(){
+    const v=$('statsYear')?.value;
+    const n=parseInt(v,10);
+    return Number.isFinite(n)&&n>=2000&&n<=2100?n:new Date().getFullYear();
+  }
+  function currentMonth(){
+    const v=$('statsMonth')?.value;
+    return v!==undefined&&v!==null&&v!==''&&v!=='all'?Number(v):null;
+  }
+  function currentQuarter(){
+    const q=Number.isInteger(window.__argosStatsQuarter)
+      ?window.__argosStatsQuarter
+      :Math.floor(new Date().getMonth()/3);
+    return Math.max(0,Math.min(3,q));
+  }
+  function detailData(){
+    const mode=currentMode(),year=currentYear(),quarter=currentQuarter(),month=currentMonth();
+    const product=$('statsProduct')?.value||'all';
+    const series=$('statsSeries')?.value||'all';
+    return services().filter(s=>{
+      const d=dateOf(s);
+      if(!d||d.getFullYear()!==year)return false;
+      if(mode==='annual'){
+        /* En anual, un mes seleccionado equivale a vista mensual. */
+        if(month!==null&&d.getMonth()!==month)return false;
+      }else if(mode==='quarterly'){
+        if(Math.floor(d.getMonth()/3)!==quarter)return false;
+      }else{
+        const m=month===null?new Date().getMonth():month;
+        if(d.getMonth()!==m)return false;
+      }
+      if(product!=='all'&&field(s,'product')!==product)return false;
+      if(series!=='all'&&field(s,'series')!==series)return false;
+      return true;
+    });
+  }
+  function currentPeriodLabel(){
+    const mode=currentMode(),year=currentYear(),month=currentMonth(),q=currentQuarter();
+    const months=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+    const qs=['1.º','2.º','3.º','4.º'];
+    if(mode==='monthly'||(mode==='annual'&&month!==null))return `${months[month===null?new Date().getMonth():month]} ${year}`;
+    if(mode==='annual')return `año ${year}`;
+    return `${qs[q]} trimestre ${year}`;
+  }
+
   function countBy(a,fn){
     const map=new Map();
     a.forEach(s=>{
@@ -11561,13 +11614,13 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   /* Detalle REAL de la serie pulsada: usa activeData(), que respeta
      estrictamente la visión actual (anual/trimestral/mensual) y filtros. */
   function seriesDetailModal(name){
-    const a=activeData().filter(s=>field(s,'series')===name);
+    const a=detailData().filter(s=>field(s,'series')===name);
     const vehicles=countBy(a,s=>field(s,'vehicle'));
     const branches=countBy(a,s=>field(s,'branch'));
     const products=countBy(a,s=>field(s,'product'));
     const trains=countBy(a,s=>field(s,'train'));
     modalOpen('ARGOS · MATERIAL','Serie '+name,
-      `${a.length} servicio${a.length===1?'':'s'} · ${periodLabel()}`,
+      `${a.length} servicio${a.length===1?'':'s'} · ${currentPeriodLabel()}`,
       note()+kpis([
         ['Servicios',a.length],['Vehículos',vehicles.length],['Ramas',branches.length],['Trenes',trains.length]
       ])+
@@ -11613,13 +11666,13 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   }
 
   function productDetailModal(name){
-    const a=activeData().filter(s=>field(s,'product')===name);
+    const a=detailData().filter(s=>field(s,'product')===name);
     const series=countBy(a,s=>field(s,'series'));
     const routes=countBy(a,route);
     const trains=countBy(a,s=>field(s,'train'));
     const vehicles=countBy(a,s=>field(s,'vehicle'));
     modalOpen('ARGOS · SERVICIOS','Producto '+name,
-      `${a.length} servicio${a.length===1?'':'s'} · ${periodLabel()}`,
+      `${a.length} servicio${a.length===1?'':'s'} · ${currentPeriodLabel()}`,
       note()+kpis([
         ['Servicios',a.length],['Series',series.length],['Rutas',routes.length],['Trenes',trains.length]
       ])+
