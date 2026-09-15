@@ -14866,6 +14866,8 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     panel?.classList.toggle('argos-calendar-annual',getMode()==='annual');
   }
 
+  window.__argosStatsFinalRender=renderAll;
+
   function onQuarterChange(delta){
     if(getMode()==='monthly')return;
     window.__argosStatsQuarter=Math.max(0,Math.min(3,getQuarter()+delta));
@@ -15675,5 +15677,73 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   window.__argosOpenScopedEntity=openScoped;
   window.__argosStatsDetailPeriodV6=true;
 
+})();
+</script>
+
+<!-- ARGOS · ÚLTIMO CONTROL DE ESTADÍSTICAS · TRIMESTRAL POR DEFECTO -->
+<script id="argos-stats-final-authority-v8">
+(function(){
+  'use strict';
+  const $=id=>document.getElementById(id);
+  const currentQuarter=()=>Math.floor(new Date().getMonth()/3);
+  function resetToQuarterly(){
+    window.__argosStatsMode='quarterly';
+    window.__argosStatsQuarter=currentQuarter();
+    ['statsYear','statsMonth','statsProduct','statsSeries'].forEach(id=>{
+      const el=$(id); if(el) el.value='all';
+    });
+  }
+  function finalRender(){
+    try{ if(typeof window.__argosStatsFinalRender==='function') window.__argosStatsFinalRender(); }catch(e){}
+  }
+  function renderAfterEntry(){ [0,30,100,250,600].forEach(ms=>setTimeout(finalRender,ms)); }
+  function install(){
+    const previousShow=window.showScreen;
+    if(typeof previousShow==='function'&&!previousShow.__argosStatsAuthorityV8){
+      const wrapped=function(id){
+        if(id==='stats') resetToQuarterly();
+        const result=previousShow.apply(this,arguments);
+        if(id==='stats') renderAfterEntry();
+        return result;
+      };
+      wrapped.__argosStatsAuthorityV8=true;
+      window.showScreen=wrapped;
+    }
+    resetToQuarterly();
+    renderAfterEntry();
+    document.addEventListener('click',e=>{
+      const btn=e.target.closest('.stats-screen [data-view="quarterly"]');
+      if(btn){ resetToQuarterly(); renderAfterEntry(); }
+    },true);
+    document.addEventListener('click',e=>{
+      const reset=e.target.closest('.stats-screen #statsReset');
+      if(reset){ resetToQuarterly(); renderAfterEntry(); }
+    },true);
+    document.addEventListener('click',e=>{
+      const row=e.target.closest('.stats-screen .ranking-row');
+      if(!row)return;
+      const panel=row.closest('.stats-panel');
+      const name=row.querySelector('.rank-name')?.textContent.trim();
+      if(!name)return;
+      let type=null;
+      if(panel?.querySelector('#seriesRanking')) type='series';
+      else if(panel?.querySelector('#productRanking')) type='product';
+      if((type==='series'||type==='product')&&typeof window.__argosOpenScopedEntity==='function'){
+        e.preventDefault(); e.stopImmediatePropagation();
+        window.__argosOpenScopedEntity(type,name);
+      }
+    },true);
+    const oldRender=window.renderStats;
+    if(typeof oldRender==='function'&&!oldRender.__argosAuthorityV8){
+      const wrappedRender=function(){
+        let result; try{ result=oldRender.apply(this,arguments); }catch(e){}
+        finalRender(); return result;
+      };
+      wrappedRender.__argosAuthorityV8=true;
+      window.renderStats=wrappedRender;
+    }
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',install,{once:true});
+  else install();
 })();
 </script>
