@@ -15408,3 +15408,204 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   window.addEventListener('storage',schedule);
 })();
 </script>
+
+<!-- ARGOS · AUTORIDAD FINAL · DETALLE DE MATERIAL Y PRODUCTO POR PERIODO -->
+<script id="argos-stats-detail-period-final-v6">
+(function(){
+  'use strict';
+
+  const $=id=>document.getElementById(id);
+  const text=v=>String(v??'').trim();
+  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+  const MONTHS=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  const QUARTERS=['1.º','2.º','3.º','4.º'];
+
+  function services(){
+    try{
+      const raw=JSON.parse(localStorage.getItem('argos_services')||'[]');
+      return Array.isArray(raw)?raw:[];
+    }catch(e){return [];}
+  }
+
+  function value(o,names){
+    for(const n of names){
+      if(o&&o[n]!==undefined&&o[n]!==null&&String(o[n]).trim()!=='')return o[n];
+    }
+    return '';
+  }
+
+  function field(s,type){
+    const map={
+      series:['series','serie','trainSeries'],
+      product:['product','producto','serviceType','tipoProducto'],
+      vehicle:['vehicle','vehiculo','vehicleNumber','numeroVehiculo'],
+      branch:['branch','rama'],
+      train:['train','tren','number','numero'],
+      origin:['origin','origen'],
+      destination:['destination','destino']
+    };
+    return text(value(s,map[type]||[]));
+  }
+
+  function dateOf(s){
+    const raw=text(value(s,['date','fecha','day','dia']));
+    if(!raw)return null;
+    const iso=raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if(iso){
+      const d=new Date(Number(iso[1]),Number(iso[2])-1,Number(iso[3]));
+      return Number.isNaN(d.getTime())?null:d;
+    }
+    let d=new Date(raw);
+    if(Number.isNaN(d.getTime())){
+      const m=raw.match(/^(\d{1,2})[\\/.\-](\d{1,2})[\\/.\-](\d{4})$/);
+      if(m)d=new Date(Number(m[3]),Number(m[2])-1,Number(m[1]));
+    }
+    return Number.isNaN(d.getTime())?null:d;
+  }
+
+  function route(s){
+    const a=field(s,'origin'),b=field(s,'destination');
+    return a&&b?a+' → '+b:(a||b||'Ruta no indicada');
+  }
+
+  function mode(){
+    const m=window.__argosStatsMode;
+    return m==='annual'||m==='quarterly'||m==='monthly'?m:'quarterly';
+  }
+
+  function year(){
+    const n=parseInt($('statsYear')?.value||'',10);
+    return Number.isFinite(n)&&n>=2000&&n<=2100?n:new Date().getFullYear();
+  }
+
+  function quarter(){
+    const q=Number.isInteger(window.__argosStatsQuarter)
+      ?window.__argosStatsQuarter
+      :Math.floor(new Date().getMonth()/3);
+    return Math.max(0,Math.min(3,q));
+  }
+
+  function month(){
+    const v=$('statsMonth')?.value;
+    if(v!==undefined&&v!==null&&v!==''&&v!=='all'){
+      const n=Number(v);
+      if(Number.isInteger(n)&&n>=0&&n<=11)return n;
+    }
+    return new Date().getMonth();
+  }
+
+  function scopedServices(){
+    const m=mode(),y=year(),q=quarter(),mo=month();
+    const product=$('statsProduct')?.value||'all';
+    const series=$('statsSeries')?.value||'all';
+
+    return services().filter(s=>{
+      const d=dateOf(s);
+      if(!d||d.getFullYear()!==y)return false;
+      if(m==='quarterly' && Math.floor(d.getMonth()/3)!==q)return false;
+      if(m==='monthly' && d.getMonth()!==mo)return false;
+      if(product!=='all' && field(s,'product')!==product)return false;
+      if(series!=='all' && field(s,'series')!==series)return false;
+      return true;
+    });
+  }
+
+  function periodLabel(){
+    const m=mode(),y=year();
+    if(m==='annual')return `año ${y}`;
+    if(m==='monthly')return `${MONTHS[month()]} ${y}`;
+    return `${QUARTERS[quarter()]} trimestre ${y}`;
+  }
+
+  function count(data,fn){
+    const map=new Map();
+    data.forEach(s=>{
+      const k=text(fn(s));
+      if(!k)return;
+      map.set(k,(map.get(k)||0)+1);
+    });
+    return [...map.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'es'));
+  }
+
+  function open(title,subtitle,body){
+    const modal=$('statsModal'),bodyEl=$('statsModalBody');
+    if(!modal||!bodyEl)return;
+    $('statsModalKicker')?.replaceChildren(document.createTextNode('ARGOS · ESTADÍSTICAS'));
+    $('statsModalTitle')?.replaceChildren(document.createTextNode(title));
+    $('statsModalSub')?.replaceChildren(document.createTextNode(subtitle));
+    bodyEl.innerHTML=body;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+  }
+
+  function kpis(items){
+    return '<div class="modal-kpis">'+items.map(x=>
+      '<div class="modal-kpi"><span>'+esc(x[0])+'</span><strong>'+esc(x[1])+'</strong></div>'
+    ).join('')+'</div>';
+  }
+
+  function list(title,rows){
+    if(!rows.length)return '<div class="modal-section"><h4>'+esc(title)+'</h4><p>Sin datos en este periodo.</p></div>';
+    return '<div class="modal-section"><h4>'+esc(title)+'</h4><div class="modal-list">'+rows.map((x,i)=>
+      '<div class="modal-row"><b>'+(i+1)+'</b><span>'+esc(x[0])+'</span><strong>'+esc(x[1])+'</strong></div>'
+    ).join('')+'</div></div>';
+  }
+
+  function openScoped(type,name){
+    const clean=text(name);
+    if(!clean)return;
+
+    const base=scopedServices();
+    const data=base.filter(s=>field(s,type)===clean);
+
+    const vehicles=count(data,s=>field(s,'vehicle'));
+    const branches=count(data,s=>field(s,'branch'));
+    const trains=count(data,s=>field(s,'train'));
+    const products=count(data,s=>field(s,'product'));
+    const routes=count(data,route);
+
+    if(type==='series'){
+      open(
+        'Serie '+clean,
+        `${data.length} servicio${data.length===1?'':'s'} · ${periodLabel()}`,
+        kpis([
+          ['Servicios',data.length],
+          ['Vehículos',vehicles.length],
+          ['Ramas',branches.length],
+          ['Trenes',trains.length]
+        ])+
+        list('Vehículos utilizados',vehicles.slice(0,12))+
+        list('Ramas utilizadas',branches.slice(0,12))+
+        list('Productos asociados',products.slice(0,12))+
+        list('Trenes utilizados',trains.slice(0,12))
+      );
+      return;
+    }
+
+    if(type==='product'){
+      open(
+        'Producto '+clean,
+        `${data.length} servicio${data.length===1?'':'s'} · ${periodLabel()}`,
+        kpis([
+          ['Servicios',data.length],
+          ['Series',new Set(data.map(s=>field(s,'series')).filter(Boolean)).size],
+          ['Rutas',routes.length],
+          ['Trenes',trains.length]
+        ])+
+        list('Series asociadas',count(data,s=>field(s,'series')).slice(0,12))+
+        list('Rutas realizadas',routes.slice(0,12))+
+        list('Trenes utilizados',trains.slice(0,12))+
+        list('Vehículos utilizados',vehicles.slice(0,12))
+      );
+    }
+  }
+
+  /* Esta función pasa a ser la única fuente de verdad para el detalle.
+     No consulta la clase .active ni filtros antiguos: usa directamente
+     window.__argosStatsMode y window.__argosStatsQuarter. */
+  window.__argosOpenScopedEntity=openScoped;
+  window.__argosStatsDetailPeriodV6=true;
+
+})();
+</script>
