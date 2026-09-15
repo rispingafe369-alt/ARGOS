@@ -11551,8 +11551,35 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     );
   }
 
+  function periodLabel(){
+    const mode=getMode(),year=getYear(),month=getMonth(),q=getQuarter();
+    if(mode==='annual') return `año ${year}`;
+    if(mode==='monthly') return `${MONTHS[month===null?new Date().getMonth():month]} ${year}`;
+    return `${Q[q]} trimestre ${year}`;
+  }
+
+  /* Detalle REAL de la serie pulsada: usa activeData(), que respeta
+     estrictamente la visión actual (anual/trimestral/mensual) y filtros. */
+  function seriesDetailModal(name){
+    const a=activeData().filter(s=>field(s,'series')===name);
+    const vehicles=countBy(a,s=>field(s,'vehicle'));
+    const branches=countBy(a,s=>field(s,'branch'));
+    const products=countBy(a,s=>field(s,'product'));
+    const trains=countBy(a,s=>field(s,'train'));
+    modalOpen('ARGOS · MATERIAL','Serie '+name,
+      `${a.length} servicio${a.length===1?'':'s'} · ${periodLabel()}`,
+      note()+kpis([
+        ['Servicios',a.length],['Vehículos',vehicles.length],['Ramas',branches.length],['Trenes',trains.length]
+      ])+
+      list('Vehículos utilizados',vehicles.slice(0,12))+
+      list('Ramas utilizadas',branches.slice(0,12))+
+      list('Productos asociados',products.slice(0,12))+
+      list('Trenes utilizados',trains.slice(0,12))
+    );
+  }
+
   function seriesModal(){
-    const a=filtered();
+    const a=activeData();
     const series=countBy(a,s=>field(s,'series'));
     const vehicles=countBy(a,s=>field(s,'vehicle'));
     const branches=countBy(a,s=>field(s,'branch'));
@@ -11585,8 +11612,26 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     );
   }
 
+  function productDetailModal(name){
+    const a=activeData().filter(s=>field(s,'product')===name);
+    const series=countBy(a,s=>field(s,'series'));
+    const routes=countBy(a,route);
+    const trains=countBy(a,s=>field(s,'train'));
+    const vehicles=countBy(a,s=>field(s,'vehicle'));
+    modalOpen('ARGOS · SERVICIOS','Producto '+name,
+      `${a.length} servicio${a.length===1?'':'s'} · ${periodLabel()}`,
+      note()+kpis([
+        ['Servicios',a.length],['Series',series.length],['Rutas',routes.length],['Trenes',trains.length]
+      ])+
+      list('Series asociadas',series.slice(0,12))+
+      list('Rutas realizadas',routes.slice(0,12))+
+      list('Trenes utilizados',trains.slice(0,12))+
+      list('Vehículos utilizados',vehicles.slice(0,12))
+    );
+  }
+
   function productsModal(){
-    const a=filtered();
+    const a=activeData();
     const products=countBy(a,s=>field(s,'product'));
     const detail=products.slice(0,10).map(([name,n])=>{
       const rows=a.filter(s=>field(s,'product')===name);
@@ -11769,7 +11814,14 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
         e.stopImmediatePropagation();
         return;
       }
-      entityModal(type,name);
+      if(type==='series'){
+        seriesDetailModal(name);
+      }else if(type==='product'){
+        productDetailModal(name);
+      }else{
+        /* El resto conserva su detalle específico anterior. */
+        entityModal(type,name);
+      }
       e.preventDefault();
       e.stopImmediatePropagation();
       return;
