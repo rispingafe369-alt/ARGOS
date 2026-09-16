@@ -26218,6 +26218,41 @@ function getFleetUnit(series, vehicle){
   if(s==="106") return getS106Unit(v);
   if(!seriesData) return null;
 
+  // Serie 448: cualquiera de las ramas 001-031 se identifica por su código de tres cifras.
+  // En el formulario, escribir 018 en Vehículo debe localizar la Rama 018.
+  // También se aceptan matrículas 448-018-X / 9-448-018-X / 7-448-018-X / 8-448-018-X.
+  if(s==="448"){
+    const raw=String(vehicle??"").trim();
+    const compact=raw.replace(/\s+/g,"");
+    let code="";
+
+    const full=compact.match(/(?:^|[-])448[-]?(\d{3})(?:[-]\d)?$/i);
+    if(full) code=full[1];
+    if(!code && /^(?:9|7|8)[-]?448[-]?\d{3}(?:[-]\d)?$/i.test(compact)){
+      const m=compact.match(/(?:9|7|8)[-]?448[-]?(\d{3})/i);
+      if(m) code=m[1];
+    }
+    if(!code && /^448\d{3}$/.test(compact)) code=compact.slice(3);
+    if(!code && /^\d{1,3}$/.test(compact)) code=compact.padStart(3,"0");
+    if(!code) return null;
+
+    const n=Number(code);
+    if(!Number.isInteger(n) || n<1 || n>31) return null;
+    const base=seriesData.units?.[String(n)];
+    if(!base) return null;
+    return {
+      ...base,
+      numero:base.numero,
+      vehiculoBase:String(base.vehiculoBase||code).padStart(3,"0"),
+      vehiculoIntroducido:raw,
+      vehiculoBuscado:code,
+      vehiculoEncontrado:base.numero,
+      cocheTipo:"Coche motor",
+      fabricante:base.fabricante||seriesData.fabricante,
+      numeroCoches:base.numeroCoches||seriesData.numeroCoches
+    };
+  }
+
   // Serie 104: cualquier coche se identifica por sus dos últimos dígitos.
   // Ej.: 901 -> Rama 1 y se registra como 001; 506 -> Rama 6 y se registra como 006.
   if(s==="104"){
@@ -26845,13 +26880,21 @@ function getSeriesData(series){
 function updateBranchBox(){
   const seriesEl=$("series"), vehicleEl=$("vehicle"), box=$("branchBox"), value=$("branchValue");
   if(!seriesEl || !vehicleEl || !box || !value) return;
+  const series=normalizeFleetValue(seriesEl.value);
   const unit=getFleetUnit(seriesEl.value, vehicleEl.value);
   if(unit){
-    const lote=unit.lote ? ` · ${unit.lote}` : "";
     value.value=String(unit.rama||"");
     box.classList.add("visible");
+    return;
   }
-  else { value.value=""; box.classList.remove("visible"); }
+  // En la Serie 448 la rama también puede introducirse directamente.
+  // Dejamos el campo visible desde que se selecciona la serie.
+  if(series==="448"){
+    box.classList.add("visible");
+    return;
+  }
+  value.value="";
+  box.classList.remove("visible");
 }
 
 function getCurrentFleetUnit(){
@@ -26873,6 +26916,30 @@ if($("series")) $("series").addEventListener("input",()=>{
 });
 
 if($("vehicle")) $("vehicle").addEventListener("input",updateBranchBox);
+
+if($("branchValue")) $("branchValue").addEventListener("input",()=>{
+  const series=normalizeFleetValue($("series")?.value||"");
+  if(series!=="448") return;
+  const branchRaw=String($("branchValue")?.value||"").trim();
+  const digits=normalizeFleetValue(branchRaw);
+  if(!digits){
+    if($("vehicle")) $("vehicle").value="";
+    updateBranchBox();
+    return;
+  }
+  const n=Number(digits);
+  if(Number.isInteger(n) && n>=1 && n<=31){
+    const unit=fleet["448"]?.units?.[String(n)];
+    if(unit){
+      if($("vehicle")) $("vehicle").value=String(unit.vehiculoBase||digits).padStart(3,"0");
+      $("branchValue").value=String(unit.rama||String(n).padStart(3,"0"));
+      $("branchBox")?.classList.add("visible");
+      return;
+    }
+  }
+  if($("vehicle")) $("vehicle").value="";
+  $("branchBox")?.classList.add("visible");
+});
 
 function autocomplete(inputId,listId){
   const input=$(inputId),list=$(listId);
