@@ -7311,6 +7311,949 @@ const fleet = {
     }
   }
 },
+  "448": {
+  "seriesName": "Serie 448 · 3 coches",
+  "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+  "modelo": "Electrotrén Serie 448",
+  "apodo": "",
+  "anoPuestaServicio": "1987–1991",
+  "tipoMaterial": "Media Distancia · Regionales de Cataluña · Procedencia de largo recorrido",
+  "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+  "anchoVia": "1668 mm",
+  "numeroRamas": 31,
+  "velocidadMaxima": "160 km/h",
+  "potencia": "1.578 CV (1.160 kW)",
+  "longitud": "78,53 m (M-R-Rc)",
+  "peso": "151 t",
+  "tension": "3.000 Vcc",
+  "traccion": "4 motores de tracción · MELCO MB-3165 C · 395 CV (290 kW) por motor",
+  "tipoBogies": "Bimotor y monorreductor",
+  "frenos": "Reostático y patines electromagnéticos al carril · aire comprimido",
+  "mandoMultiple": "4 unidades",
+  "enganche": "Scharfenberg",
+  "composicion": "Bo'Bo' + 2'2' + 2'2'",
+  "diametroRuedasMotor": "1.000 mm",
+  "diametroRuedasRemolque": "940 mm",
+  "anchuraCaja": "2.800 mm",
+  "alturaTecho": "4.196 mm sobre el carril",
+  "longitudMotor": "25.945 mm entre topes",
+  "potenciaContinuaMotor": "395 CV (290 kW)",
+  "numeroMotoresTraccion": 4,
+  "tipoMotor": "MELCO MB-3165 C",
+  "pesoMotor": "64 t",
+  "pesoPorEjeMotor": "16 t",
+  "generalNotes": [
+    "Junto a los 444, los 448 también se dedicaron desde un principio a los trenes de largo recorrido entre Madrid, Valencia y Barcelona.",
+    "Están divididos en tres subseries, de las cuales la primera se diferencia de las demás en el diferente testero, que recuerda a una puerta de lavadora. No obstante, tras haber sido transferidos casi en su totalidad a los servicios regionales, han sido todos reformados, desapareciendo esa característica diferenciadora.",
+    "Todos los trenes prestan servicio en la red de regionales de Cataluña."
+  ],
+  "units": {
+    "1": {
+      "rama": "001",
+      "lote": "Primer lote",
+      "vehiculoBase": "001",
+      "numero": "9-448-001-8",
+      "vehiculosRama": [
+        "9-448-001-8",
+        "7-448-001-8",
+        "8-448-001-8"
+      ],
+      "searchCodes": [
+        "001"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Primer lote (Testero)",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado, 2003. Colores Renfe Op., 01/08. >> Colores Interurbanos. Con ASFA Digital. Incendio entre Marçan-Rolenyo y Grañén, 08/08/23. Apartada en BCN-SAC. >> En servicio desde 15/07/25. Incendio Tarragona 10/11/25. En servicio desde 10/08/26"
+      ],
+      "generalNotes": [
+        "El primer lote de estas unidades estuvo inicialmente numerado en la subserie 444.500.",
+        "Junto a los 444, los 448 también se dedicaron desde un principio a los trenes de largo recorrido entre Madrid, Valencia y Barcelona.",
+        "Están divididos en tres subseries, de las cuales la primera se diferencia de las demás en el diferente testero, que recuerda a una puerta de lavadora. No obstante, tras haber sido transferidos casi en su totalidad a los servicios regionales, han sido todos reformados, desapareciendo esa característica diferenciadora.",
+        "Todos los trenes prestan servicio en la red de regionales de Cataluña."
+      ]
+    },
+    "2": {
+      "rama": "002",
+      "lote": "Primer lote",
+      "vehiculoBase": "002",
+      "numero": "9-448-002-6",
+      "vehiculosRama": [
+        "9-448-002-6",
+        "8-448-002-6"
+      ],
+      "searchCodes": [
+        "002"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Primer lote (Testero)",
+      "deposito": "Zaragoza",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · 2 coches motor / remolque 1 dado de baja",
+      "composicionRama": "Coche motor + coche motor con cabina (remolque 1 dado de baja)",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado. Accidente en Torredembarra, 30/03/02. Baja del remolque 7-448-002-6. En servicio, con 2 coches. Colores Renfe Op. Con ASFA Digital. Colores Interurbanos, 12/17. >> Colores Media Distancia"
+      ],
+      "generalNotes": [
+        "El primer lote de estas unidades estuvo inicialmente numerado en la subserie 444.500.",
+        "Junto a los 444, los 448 también se dedicaron desde un principio a los trenes de largo recorrido entre Madrid, Valencia y Barcelona.",
+        "Están divididos en tres subseries, de las cuales la primera se diferencia de las demás en el diferente testero, que recuerda a una puerta de lavadora. No obstante, tras haber sido transferidos casi en su totalidad a los servicios regionales, han sido todos reformados, desapareciendo esa característica diferenciadora.",
+        "Todos los trenes prestan servicio en la red de regionales de Cataluña."
+      ]
+    },
+    "3": {
+      "rama": "003",
+      "lote": "Primer lote",
+      "vehiculoBase": "003",
+      "numero": "9-448-003-4",
+      "vehiculosRama": [
+        "9-448-003-4",
+        "7-448-003-4",
+        "8-448-003-4"
+      ],
+      "searchCodes": [
+        "003"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Primer lote (Testero)",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado, 2003. Colores Renfe Op. >> Colores Interurbanos, 01/13. Con ASFA Digital"
+      ],
+      "generalNotes": [
+        "El primer lote de estas unidades estuvo inicialmente numerado en la subserie 444.500.",
+        "Junto a los 444, los 448 también se dedicaron desde un principio a los trenes de largo recorrido entre Madrid, Valencia y Barcelona.",
+        "Están divididos en tres subseries, de las cuales la primera se diferencia de las demás en el diferente testero, que recuerda a una puerta de lavadora. No obstante, tras haber sido transferidos casi en su totalidad a los servicios regionales, han sido todos reformados, desapareciendo esa característica diferenciadora.",
+        "Todos los trenes prestan servicio en la red de regionales de Cataluña."
+      ]
+    },
+    "4": {
+      "rama": "004",
+      "lote": "Primer lote",
+      "vehiculoBase": "004",
+      "numero": "9-448-004-2",
+      "vehiculosRama": [
+        "9-448-004-2",
+        "7-448-004-2",
+        "8-448-004-2"
+      ],
+      "searchCodes": [
+        "004"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Primer lote (Testero)",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado, 2003. Colores Renfe Op., 26/06/08. >> Colores Interurbanos, 10/13. Con ASFA Digital. Luces LED."
+      ],
+      "generalNotes": [
+        "El primer lote de estas unidades estuvo inicialmente numerado en la subserie 444.500.",
+        "Junto a los 444, los 448 también se dedicaron desde un principio a los trenes de largo recorrido entre Madrid, Valencia y Barcelona.",
+        "Están divididos en tres subseries, de las cuales la primera se diferencia de las demás en el diferente testero, que recuerda a una puerta de lavadora. No obstante, tras haber sido transferidos casi en su totalidad a los servicios regionales, han sido todos reformados, desapareciendo esa característica diferenciadora.",
+        "Todos los trenes prestan servicio en la red de regionales de Cataluña."
+      ]
+    },
+    "5": {
+      "rama": "005",
+      "lote": "Primer lote",
+      "vehiculoBase": "005",
+      "numero": "9-448-005-9",
+      "vehiculosRama": [
+        "9-448-005-9",
+        "7-448-005-9",
+        "8-448-005-9"
+      ],
+      "searchCodes": [
+        "005"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Primer lote (Testero)",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado. Colores Renfe Op. >> Colores Interurbanos. Con ASFA Digital."
+      ],
+      "generalNotes": [
+        "El primer lote de estas unidades estuvo inicialmente numerado en la subserie 444.500.",
+        "Junto a los 444, los 448 también se dedicaron desde un principio a los trenes de largo recorrido entre Madrid, Valencia y Barcelona.",
+        "Están divididos en tres subseries, de las cuales la primera se diferencia de las demás en el diferente testero, que recuerda a una puerta de lavadora. No obstante, tras haber sido transferidos casi en su totalidad a los servicios regionales, han sido todos reformados, desapareciendo esa característica diferenciadora.",
+        "Todos los trenes prestan servicio en la red de regionales de Cataluña."
+      ]
+    },
+    "6": {
+      "rama": "006",
+      "lote": "Primer lote",
+      "vehiculoBase": "006",
+      "numero": "9-448-006-7",
+      "vehiculosRama": [
+        "9-448-006-7",
+        "7-448-006-7",
+        "8-448-006-7"
+      ],
+      "searchCodes": [
+        "006"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Primer lote (Testero)",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Accidentado en Olite (Navarra) 21/02/93, reparado. Reformado, 2004. Colores Renfe Op. >> Colores Interurbanos. Con ASFA Digital."
+      ],
+      "generalNotes": [
+        "El primer lote de estas unidades estuvo inicialmente numerado en la subserie 444.500.",
+        "Junto a los 444, los 448 también se dedicaron desde un principio a los trenes de largo recorrido entre Madrid, Valencia y Barcelona.",
+        "Están divididos en tres subseries, de las cuales la primera se diferencia de las demás en el diferente testero, que recuerda a una puerta de lavadora. No obstante, tras haber sido transferidos casi en su totalidad a los servicios regionales, han sido todos reformados, desapareciendo esa característica diferenciadora.",
+        "Todos los trenes prestan servicio en la red de regionales de Cataluña."
+      ]
+    },
+    "7": {
+      "rama": "007",
+      "lote": "Segundo lote",
+      "vehiculoBase": "007",
+      "numero": "9-448-007-5",
+      "vehiculosRama": [
+        "9-448-007-5",
+        "7-448-007-5",
+        "8-448-007-5"
+      ],
+      "searchCodes": [
+        "007"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Segundo lote",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado, 2004. Colores Renfe Op. >> Colores Interurbanos. Con ASFA Digital"
+      ]
+    },
+    "8": {
+      "rama": "008",
+      "lote": "Segundo lote",
+      "vehiculoBase": "008",
+      "numero": "9-448-008-3",
+      "vehiculosRama": [
+        "9-448-008-3",
+        "7-448-008-3",
+        "8-448-008-3"
+      ],
+      "searchCodes": [
+        "008"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Segundo lote",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado. Colores Renfe Op. Con ASFA Digital. Traslado desde SAC a Valladolid, 30/06/16. Colores Interurbanos"
+      ]
+    },
+    "9": {
+      "rama": "009",
+      "lote": "Segundo lote",
+      "vehiculoBase": "009",
+      "numero": "9-448-009-1",
+      "vehiculosRama": [
+        "9-448-009-1",
+        "7-448-009-1",
+        "8-448-009-1"
+      ],
+      "searchCodes": [
+        "009"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Segundo lote",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado, 2005. Colores Renfe Op. >> Colores Interurbanos, 06/15. Con ETCS."
+      ]
+    },
+    "10": {
+      "rama": "010",
+      "lote": "Segundo lote",
+      "vehiculoBase": "010",
+      "numero": "9-448-010-9",
+      "vehiculosRama": [
+        "9-448-010-9",
+        "7-448-010-9",
+        "8-448-010-9"
+      ],
+      "searchCodes": [
+        "010"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Segundo lote",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado, 2003. Colores Renfe Op. >> Colores Interurbanos. Con ASFA Digital. Accidente Vila-Seca 12/06/22. Apartada en Tarragona."
+      ]
+    },
+    "11": {
+      "rama": "011",
+      "lote": "Segundo lote",
+      "vehiculoBase": "011",
+      "numero": "9-448-011-7",
+      "vehiculosRama": [
+        "9-448-011-7",
+        "7-448-011-7",
+        "8-448-011-7"
+      ],
+      "searchCodes": [
+        "011"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Segundo lote",
+      "deposito": "Zaragoza",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado. Accidente en Torredembarra, 30/03/02. Colores Renfe Op >> Colores Interurbanos. Adaptado a PMR. Con ASFA Digital. Incendio en BCN Estación de Francia 19/10/19. Apartada en BMI Vilanova."
+      ]
+    },
+    "12": {
+      "rama": "012",
+      "lote": "Tercer lote",
+      "vehiculoBase": "012",
+      "numero": "9-448-012-5",
+      "vehiculosRama": [
+        "9-448-012-5",
+        "7-448-012-5",
+        "8-448-012-5"
+      ],
+      "searchCodes": [
+        "012"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Tercer lote",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado. Colores Renfe Op. >> Colores Interurbanos, 11/13. Con ASFA Digital"
+      ]
+    },
+    "13": {
+      "rama": "013",
+      "lote": "Tercer lote",
+      "vehiculoBase": "013",
+      "numero": "9-448-013-3",
+      "vehiculosRama": [
+        "9-448-013-3",
+        "7-448-013-3",
+        "8-448-013-3"
+      ],
+      "searchCodes": [
+        "013"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Tercer lote",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado, 2003. Colores Renfe Op. >> Colores Interurbanos. Con ASFA Digital"
+      ]
+    },
+    "14": {
+      "rama": "014",
+      "lote": "Tercer lote",
+      "vehiculoBase": "014",
+      "numero": "9-448-014-1",
+      "vehiculosRama": [
+        "9-448-014-1",
+        "7-448-014-1",
+        "8-448-014-1"
+      ],
+      "searchCodes": [
+        "014"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Tercer lote",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado. Accidente con Intercity 179, 03/07/90. Colores Azul/blanco de pruebas (Pitufo) >> Color Regionales >> Color Renfe Op. Con ASFA Digital. Colores Interurbanos, 02/16.",
+        "014M decorado en azul en pruebas."
+      ]
+    },
+    "15": {
+      "rama": "015",
+      "lote": "Tercer lote",
+      "vehiculoBase": "015",
+      "numero": "9-448-015-8",
+      "vehiculosRama": [
+        "9-448-015-8",
+        "7-448-015-8",
+        "8-448-015-8"
+      ],
+      "searchCodes": [
+        "015"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Tercer lote",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado, 2003. Colores Renfe Op. >> Colores Interurbanos, desde 2012. Con ASFA Digital"
+      ]
+    },
+    "16": {
+      "rama": "016",
+      "lote": "Tercer lote",
+      "vehiculoBase": "016",
+      "numero": "9-448-016-6",
+      "vehiculosRama": [
+        "9-448-016-6",
+        "7-448-016-6",
+        "8-448-016-6"
+      ],
+      "searchCodes": [
+        "016"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Tercer lote",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado, 2004. Colores Renfe Op. >> Colores Interurbanos. ASFA Digital."
+      ]
+    },
+    "17": {
+      "rama": "017",
+      "lote": "Tercer lote",
+      "vehiculoBase": "017",
+      "numero": "9-448-017-4",
+      "vehiculosRama": [
+        "9-448-017-4",
+        "7-448-017-4",
+        "8-448-017-4"
+      ],
+      "searchCodes": [
+        "017"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Tercer lote",
+      "deposito": "Zaragoza",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Primer 448 reformado, 2001. Colores Renfe Op. >> Colores Interurbanos, desde 03/11. Prototipo PMR. Con ASFA Digital"
+      ]
+    },
+    "18": {
+      "rama": "018",
+      "lote": "Tercer lote",
+      "vehiculoBase": "018",
+      "numero": "9-448-018-2",
+      "vehiculosRama": [
+        "9-448-018-2",
+        "7-448-018-2",
+        "8-448-018-2"
+      ],
+      "searchCodes": [
+        "018"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Tercer lote",
+      "deposito": "",
+      "color": "Blanco/Burdeos",
+      "estado": "Desguazada",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "",
+      "servicio": "",
+      "notas": [
+        "Sin reformar. Colores Renfe Op. Ex-G.L. Fin del servicio Intercity, 13/12/08. Apartado en Algodor, 31/07/09 >> Apartado en La Sagra. Licitado desguace, 2016 >> Desguazada 2017."
+      ]
+    },
+    "19": {
+      "rama": "019",
+      "lote": "Tercer lote",
+      "vehiculoBase": "019",
+      "numero": "9-448-019-0",
+      "vehiculosRama": [
+        "9-448-019-0",
+        "7-448-019-0",
+        "8-448-019-0"
+      ],
+      "searchCodes": [
+        "019"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Tercer lote",
+      "deposito": "",
+      "color": "Blanco/Burdeos",
+      "estado": "Desguazada",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "",
+      "servicio": "",
+      "notas": [
+        "Sin reformar. Colores Renfe Op, 03/07. Ex-G.L. Fin del servicio Intercity, 13/12/08 >> Apartado en Algodor, 31/07/09 >> Apartado en La Sagra. Licitado desguace, 2016 >> Desguazada 2017"
+      ]
+    },
+    "20": {
+      "rama": "020",
+      "lote": "Tercer lote",
+      "vehiculoBase": "020",
+      "numero": "9-448-020-8",
+      "vehiculosRama": [
+        "9-448-020-8",
+        "7-448-020-8",
+        "8-448-020-8"
+      ],
+      "searchCodes": [
+        "020"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Tercer lote",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado, 2003. Colores Renfe Op. >> Colores Interurbanos, desde 2011. Con ASFA Digital"
+      ]
+    },
+    "21": {
+      "rama": "021",
+      "lote": "Tercer lote",
+      "vehiculoBase": "021",
+      "numero": "9-448-021-6",
+      "vehiculosRama": [
+        "9-448-021-6",
+        "7-448-021-6",
+        "8-448-021-6"
+      ],
+      "searchCodes": [
+        "021"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Tercer lote",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado. Primer 448 reformado con nuevos logos de Regionales. Colores Renfe Op. >> Colores Interurbanos, 04/13. Con ASFA Digital"
+      ]
+    },
+    "22": {
+      "rama": "022",
+      "lote": "Tercer lote",
+      "vehiculoBase": "022",
+      "numero": "9-448-022-4",
+      "vehiculosRama": [
+        "9-448-022-4",
+        "7-448-022-4",
+        "8-448-022-4"
+      ],
+      "searchCodes": [
+        "022"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Tercer lote",
+      "deposito": "",
+      "color": "Blanco/Burdeos",
+      "estado": "Desguazada",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "",
+      "servicio": "",
+      "notas": [
+        "Sin reformar. Colores Renfe Op, 2008. Fin del servicio Intercity, 13/12/08. Ex-G.L. Apartado en Algodor, 31/07/09 >> Apartado en La Sagra. Licitado desguace, 2016 >> Desguazada 2017."
+      ]
+    },
+    "23": {
+      "rama": "023",
+      "lote": "Tercer lote",
+      "vehiculoBase": "023",
+      "numero": "9-448-023-2",
+      "vehiculosRama": [
+        "9-448-023-2",
+        "7-448-023-2",
+        "8-448-023-2"
+      ],
+      "searchCodes": [
+        "023"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Tercer lote",
+      "deposito": "Zaragoza",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado. Colores Renfe Op. >> Colores Interurbanos, 06/12. Adaptado a PMR. Con ASFA Digital."
+      ]
+    },
+    "24": {
+      "rama": "024",
+      "lote": "Tercer lote",
+      "vehiculoBase": "024",
+      "numero": "9-448-024-0",
+      "vehiculosRama": [
+        "9-448-024-0",
+        "7-448-024-0",
+        "8-448-024-0"
+      ],
+      "searchCodes": [
+        "024"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Tercer lote",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado. Colores Renfe Op. >> Colores Interurbanos, 12/11. Con ASFA Digital"
+      ]
+    },
+    "25": {
+      "rama": "025",
+      "lote": "Tercer lote",
+      "vehiculoBase": "025",
+      "numero": "9-448-025-7",
+      "vehiculosRama": [
+        "9-448-025-7",
+        "7-448-025-7",
+        "8-448-025-7"
+      ],
+      "searchCodes": [
+        "025"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Tercer lote",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado, 2003. Colores Renfe Op. >> Colores Interurbanos. Con ASFA Digital"
+      ]
+    },
+    "26": {
+      "rama": "026",
+      "lote": "Tercer lote",
+      "vehiculoBase": "026",
+      "numero": "9-448-026-5",
+      "vehiculosRama": [
+        "9-448-026-5",
+        "7-448-026-5",
+        "8-448-026-5"
+      ],
+      "searchCodes": [
+        "026"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Tercer lote",
+      "deposito": "",
+      "color": "Blanco/Burdeos",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Sin reformar. Colores Renfe Op, 31/10/06. Fin del servicio Intercity, 13/12/08. Ex-G.L. Apartado en Algodor (con nota \"Material Preservado\"), 31/07/09 >> Apartado en La Sagra >> Fuencarral, desde 27/12/12 >> Trasladada a La Sagra 24/06/21."
+      ]
+    },
+    "27": {
+      "rama": "027",
+      "lote": "Tercer lote",
+      "vehiculoBase": "027",
+      "numero": "9-448-027-3",
+      "vehiculosRama": [
+        "9-448-027-3",
+        "7-448-027-3",
+        "8-448-027-3"
+      ],
+      "searchCodes": [
+        "027"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Tercer lote",
+      "deposito": "Zaragoza",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado, 2004. Colores Renfe Op. >> Colores Interurbanos, 10/14. Con ASFA Digital"
+      ]
+    },
+    "28": {
+      "rama": "028",
+      "lote": "Tercer lote",
+      "vehiculoBase": "028",
+      "numero": "9-448-028-1",
+      "vehiculosRama": [
+        "9-448-028-1",
+        "7-448-028-1",
+        "8-448-028-1"
+      ],
+      "searchCodes": [
+        "028"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Tercer lote",
+      "deposito": "Zaragoza",
+      "color": "Blanco/Naranja",
+      "estado": "Desguazada",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "",
+      "servicio": "",
+      "notas": [
+        "Sin Reformar. En Regionales desde 22/12/03, con colores GL e indicadores laterales de destino. Colores Renfe Op (MD), desde 07/08. Último 448 sin reformar en servicio. Ex-Barcelona >> Zaragoza. Apartada en Zaragoza PLAZA, 06/12. Licitado desguace, 2016 >> Desguazado en PLAZA, 01/17."
+      ]
+    },
+    "29": {
+      "rama": "029",
+      "lote": "Tercer lote",
+      "vehiculoBase": "029",
+      "numero": "9-448-029-9",
+      "vehiculosRama": [
+        "9-448-029-9",
+        "7-448-029-9",
+        "8-448-029-9"
+      ],
+      "searchCodes": [
+        "029"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Tercer lote",
+      "deposito": "Zaragoza",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado, 2003. Colores Renfe Op. >> Colores Interurbanos. Con ASFA Digital"
+      ]
+    },
+    "30": {
+      "rama": "030",
+      "lote": "Tercer lote",
+      "vehiculoBase": "030",
+      "numero": "9-448-030-7",
+      "vehiculosRama": [
+        "9-448-030-7",
+        "7-448-030-7",
+        "8-448-030-7"
+      ],
+      "searchCodes": [
+        "030"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Tercer lote",
+      "deposito": "Zaragoza",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado, 2003. Colores Renfe Op. >> Colores Interurbanos >> Colores media distancia. Con ASFA Digital"
+      ]
+    },
+    "31": {
+      "rama": "031",
+      "lote": "Tercer lote",
+      "vehiculoBase": "031",
+      "numero": "9-448-031-5",
+      "vehiculosRama": [
+        "9-448-031-5",
+        "7-448-031-5",
+        "8-448-031-5"
+      ],
+      "searchCodes": [
+        "031"
+      ],
+      "fabricante": "CAF, MACOSA, ATEINSA, MTM",
+      "subserie": "448 · 3 coches · Tercer lote",
+      "deposito": "Zaragoza",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ano": "1987–1991",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · 2 coches motor + 1 remolque intermedio",
+      "composicionRama": "Coche motor + remolque + coche motor con cabina",
+      "une": "Media Dist.",
+      "servicio": "Regionales Cataluña",
+      "notas": [
+        "Reformado. Colores Renfe Op. >> Colores Interurbanos. Con ASFA Digital"
+      ]
+    }
+  }
+},
   "449": {
     "seriesName": "Serie 449",
     "fabricante": "CAF",
@@ -25737,6 +26680,39 @@ function getFleetUnit(series, vehicle){
     };
   }
 
+  // Serie 448: cualquiera de sus coches identifica la rama mediante el mismo código 001-031.
+  // Se aceptan códigos cortos (001, 002...), 448-XXX-X, matrículas Renfe
+  // 9-448-XXX-X / 7-448-XXX-X / 8-448-XXX-X y formatos compactos.
+  if(s==="448"){
+    const raw=String(vehicle??"").trim();
+    const compact=raw.replace(/\s+/g,"");
+    let code="";
+    const full=compact.match(/(?:^|[-])448[-]?(\d{3})(?:[-]\d)?$/i);
+    if(full) code=full[1];
+    if(!code){
+      const renfeFull=compact.match(/(?:^|[-])(?:9|7|8)[-]?448[-]?(\d{3})(?:[-]\d)?$/i);
+      if(renfeFull) code=renfeFull[1];
+    }
+    if(!code && /^448\d{3}$/.test(compact)) code=compact.slice(3);
+    if(!code && /^\d{1,3}$/.test(compact)) code=compact.padStart(3,"0");
+    if(!code) return null;
+
+    const n=Number(code);
+    if(!Number.isInteger(n)||n<1||n>31) return null;
+
+    const base=seriesData.units?.[String(n)];
+    if(!base) return null;
+    return {
+      ...base,
+      numero:base.numero,
+      vehiculoBase:code,
+      vehiculoIntroducido:raw,
+      vehiculoBuscado:code,
+      vehiculoEncontrado:base.numero,
+      cocheTipo:"Coche motor / composición Serie 448"
+    };
+  }
+
   // Serie 449: cada rama se identifica por cualquiera de sus cinco vehículos.
   // Se acepta el código corto (001, 701, 501...), la matrícula 449-XXX-X
   // y la matrícula completa Renfe.
@@ -25996,6 +26972,25 @@ function saveCurrentService(e){
   }
 }
 if($("serviceForm"))$("serviceForm").addEventListener("submit",saveCurrentService);
+/* ================================================================
+   ARGOS · SERIE 448 · BLOQUEO DE VEHÍCULOS DESGUAZADOS
+   Solo afecta a la Serie 448.
+   ================================================================= */
+if($("serviceForm")){
+  $("serviceForm").addEventListener("submit",function(e){
+    const series=normalizeFleetValue($("series")?.value||"");
+    if(series!=="448") return;
+    const vehicle=String($("vehicle")?.value||"").trim();
+    const branch=String($("branchValue")?.value||"").trim();
+    const unit = getFleetUnit(series,vehicle) ||
+      (branch ? fleet["448"]?.units?.[String(Number(branch))] : null);
+    if(unit && /desguazad/i.test(String(unit.estado||""))){
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      toast("VEHÍCULO DESGUAZADO");
+    }
+  },true);
+}
 
 function cancelCurrentService(){
   const form=$("serviceForm");
