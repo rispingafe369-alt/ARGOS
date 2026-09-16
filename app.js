@@ -31819,3 +31819,85 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
 
   document.addEventListener('DOMContentLoaded',boot,{once:true});
 })();
+/* ================================================================
+   ARGOS · CORRECCIÓN FINAL CAMPO VEHÍCULO · SERIE 448
+   El campo de vehículo queda libre de cualquier manejador anterior
+   que pueda interferir mientras el usuario escribe.
+   La rama se calcula sin modificar el texto introducido.
+   ================================================================ */
+(function(){
+  'use strict';
+
+  function installSerie448VehicleInput(){
+    const seriesEl=document.getElementById('series');
+    let vehicleEl=document.getElementById('vehicle');
+    const branchEl=document.getElementById('branchValue');
+    const branchBox=document.getElementById('branchBox');
+    if(!seriesEl||!vehicleEl||!branchEl||!branchBox)return;
+    if(normalizeFleetValue(seriesEl.value)!=='448')return;
+    if(vehicleEl.dataset.argos448InputFixed==='1')return;
+
+    /*
+     * Sustituimos únicamente el input de vehículo cuando se usa la S-448.
+     * Así se eliminan los listeners antiguos ligados a ese nodo, sin tocar
+     * ningún otro campo ni comportamiento del formulario.
+     */
+    const replacement=vehicleEl.cloneNode(true);
+    replacement.dataset.argos448InputFixed='1';
+    replacement.removeAttribute('readonly');
+    replacement.removeAttribute('disabled');
+    replacement.style.pointerEvents='auto';
+    replacement.style.position='relative';
+    replacement.style.zIndex='5';
+    replacement.maxLength=3;
+    replacement.setAttribute('maxlength','3');
+    replacement.value=vehicleEl.value;
+    vehicleEl.replaceWith(replacement);
+    vehicleEl=replacement;
+
+    const syncBranch=()=>{
+      const raw=String(vehicleEl.value??'');
+      const cleaned=raw.replace(/\D/g,'').slice(0,3);
+      if(cleaned!==raw) vehicleEl.value=cleaned;
+
+      const n=Number(cleaned);
+      if(Number.isInteger(n)&&n>=1&&n<=31){
+        branchEl.value=String(n).padStart(3,'0');
+        branchBox.classList.add('visible');
+      }else{
+        branchEl.value='';
+        branchBox.classList.add('visible');
+      }
+    };
+
+    vehicleEl.addEventListener('input',()=>{
+      if(normalizeFleetValue(seriesEl.value)==='448') syncBranch();
+      else updateBranchBox();
+    });
+    vehicleEl.addEventListener('change',()=>{
+      if(normalizeFleetValue(seriesEl.value)==='448') syncBranch();
+      else updateBranchBox();
+    });
+    vehicleEl.addEventListener('blur',()=>{
+      if(normalizeFleetValue(seriesEl.value)==='448') syncBranch();
+      else updateBranchBox();
+    });
+    syncBranch();
+  }
+
+  const seriesEl=document.getElementById('series');
+  if(seriesEl){
+    seriesEl.addEventListener('input',()=>{
+      if(normalizeFleetValue(seriesEl.value)==='448') installSerie448VehicleInput();
+    });
+    seriesEl.addEventListener('change',()=>{
+      if(normalizeFleetValue(seriesEl.value)==='448') installSerie448VehicleInput();
+    });
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',installSerie448VehicleInput,{once:true});
+  }else{
+    installSerie448VehicleInput();
+  }
+})();
