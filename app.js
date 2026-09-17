@@ -7311,6 +7311,1183 @@ const fleet = {
     }
   }
 },
+  "599": {
+  "seriesName": "Serie 599 · 3 coches",
+  "fabricante": "CAF",
+  "numeroCoches": "3 coches · M-R-M",
+  "tipoMaterial": "Trenes diésel de Media Distancia · líneas no electrificadas",
+  "anchoVia": "1668 mm",
+  "velocidadMaxima": "160 km/h",
+  "potencia": "1.528 kW",
+  "longitud": "75,98 m",
+  "peso": "157 t",
+  "frenos": "Aire comprimido",
+  "mandoMultiple": "Sí",
+  "enganche": "Scharfenberg",
+  "numeroUnidades": "50 composiciones",
+  "unidadesConstruidas": 50,
+  "anoConstruccion": "2008-2010",
+  "composicion": "M-R-M",
+  "motoresDiesel": 4,
+  "anchuraCaja": "2.940 mm",
+  "alturaTecho": "4.302 mm",
+  "potenciaContinuaPorMotor": "382 kW",
+  "generalNotes": [
+    "Unidades de tres coches comenzadas a entregar en 2008, diésel para servicios de media distancia por líneas de ancho convencional. Fabricadas por CAF.",
+    "Serie sucesora de la 598.",
+    "El coche central posee una puerta a nivel inferior para acceso de PMR.",
+    "Composición M-R-M con cuatro motores diésel.",
+    "Ancho de vía: 1.668 mm. Anchura de la caja: 2.940 mm. Altura del techo sobre el carril: 4.302 mm.",
+    "Potencia nominal: 1.528 kW. Potencia continua por motor: 382 kW. Velocidad máxima: 160 km/h.",
+    "Peso en orden de marcha de la unidad: 157 t. Freno neumático por aire comprimido. Mando múltiple: sí. Enganche Scharfenberg."
+  ],
+  "units": {
+    "1": {
+      "rama": "1",
+      "vehiculoBase": "001",
+      "numero": "9-599-001-8",
+      "vehiculosRama": [
+        "9-599-001-8",
+        "7-599-001-5",
+        "9-599-002-3"
+      ],
+      "searchCodes": [
+        "001",
+        "002"
+      ],
+      "deposito": "Salamanca",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2008,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "En pruebas desde 10/08. Accidente topera taller Salamanca 30/04/12. 002M trasladado por carretera a reparar a CAF-Besain 20/08/12. 001M y 001R en Salamanca. De nuevo en servicio 02/15."
+      ]
+    },
+    "2": {
+      "rama": "2",
+      "vehiculoBase": "003",
+      "numero": "9-599-003-1",
+      "vehiculosRama": [
+        "9-599-003-1",
+        "7-599-002-3",
+        "9-599-004-9"
+      ],
+      "searchCodes": [
+        "003",
+        "004"
+      ],
+      "deposito": "Cerro Negro",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2008,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "En pruebas desde 12/08. Hizo el 1º servicio entre Salamanca y Madrid >> Ex-Sevilla >> Cerro Negro 02/19."
+      ]
+    },
+    "3": {
+      "rama": "3",
+      "vehiculoBase": "005",
+      "numero": "9-599-005-8",
+      "vehiculosRama": [
+        "9-599-005-8",
+        "7-599-003-1",
+        "9-599-006-6"
+      ],
+      "searchCodes": [
+        "005",
+        "006"
+      ],
+      "deposito": "Salamanca",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Arrollamiento cosechadora 06/08/20 Navalcaballo (Soria). Apartada en Salamanca. De nuevo en servicio 02/21."
+      ]
+    },
+    "4": {
+      "rama": "4",
+      "vehiculoBase": "007",
+      "numero": "9-599-007-2",
+      "vehiculosRama": [
+        "9-599-007-2",
+        "7-599-004-9",
+        "9-599-008-0"
+      ],
+      "searchCodes": [
+        "007",
+        "008"
+      ],
+      "deposito": "Cerro Negro",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Ex-Salamanca >> Redondela."
+      ]
+    },
+    "5": {
+      "rama": "5",
+      "vehiculoBase": "009",
+      "numero": "9-599-009-8",
+      "vehiculosRama": [
+        "9-599-009-8",
+        "7-599-005-6",
+        "9-599-010-6"
+      ],
+      "searchCodes": [
+        "009",
+        "010"
+      ],
+      "deposito": "Zaragoza",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "En pruebas 03/09. Ex-Salamanca 08/23 >> Cerro Negro >> Salamanca >> Zgz 10/25."
+      ]
+    },
+    "6": {
+      "rama": "6",
+      "vehiculoBase": "011",
+      "numero": "9-599-011-4",
+      "vehiculosRama": [
+        "9-599-011-4",
+        "7-599-006-4",
+        "9-599-012-2"
+      ],
+      "searchCodes": [
+        "011",
+        "012"
+      ],
+      "deposito": "Valencia",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Salamanca >> Valencia 08/22."
+      ]
+    },
+    "7": {
+      "rama": "7",
+      "vehiculoBase": "013",
+      "numero": "9-599-013-0",
+      "vehiculosRama": [
+        "9-599-013-0",
+        "7-599-007-2",
+        "9-599-014-8"
+      ],
+      "searchCodes": [
+        "013",
+        "014"
+      ],
+      "deposito": "Salamanca",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": []
+    },
+    "8": {
+      "rama": "8",
+      "vehiculoBase": "015",
+      "numero": "9-599-015-5",
+      "vehiculosRama": [
+        "9-599-015-5",
+        "7-599-008-0",
+        "9-599-016-3"
+      ],
+      "searchCodes": [
+        "015",
+        "016"
+      ],
+      "deposito": "",
+      "color": "Blanco",
+      "estado": "Desguazada",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Accidente en P.N. Manzanares y Azuer 26/10/15. Ex-Salamanca >> Valencia. Apartada y canibalizada en Valencia FSL solo con dos coches: 008R y 016M. Hibernada desde 05/18. Licitado desguace 05/25. Desguazada."
+      ]
+    },
+    "9": {
+      "rama": "9",
+      "vehiculoBase": "017",
+      "numero": "9-599-017-1",
+      "vehiculosRama": [
+        "9-599-017-1",
+        "7-599-009-8",
+        "9-599-018-9"
+      ],
+      "searchCodes": [
+        "017",
+        "018"
+      ],
+      "deposito": "Salamanca",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Tuvo Logos 75 años Renfe. Ex-Cerro Negro >> Redondela. Descarrilo entrada Pontevedra 03/12/20."
+      ]
+    },
+    "10": {
+      "rama": "10",
+      "vehiculoBase": "019",
+      "numero": "9-599-019-7",
+      "vehiculosRama": [
+        "9-599-019-7",
+        "7-599-010-6",
+        "9-599-020-5"
+      ],
+      "searchCodes": [
+        "019",
+        "020"
+      ],
+      "deposito": "Granada",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Ex-Cerro Negro >> Granada >> Cerro Negro >> Sevilla >> Granada."
+      ]
+    },
+    "11": {
+      "rama": "11",
+      "vehiculoBase": "021",
+      "numero": "9-599-021-3",
+      "vehiculosRama": [
+        "9-599-021-3",
+        "7-599-011-4",
+        "9-599-022-1"
+      ],
+      "searchCodes": [
+        "021",
+        "022"
+      ],
+      "deposito": "Cerro Negro",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "MD+ línea Coruña-Vigo, 08/09. Arrollamiento de camión en Calzada de Oropesa 03/03/17. En reparación en Tradinsa (04/19). De nuevo en servicio 04/25."
+      ]
+    },
+    "12": {
+      "rama": "12",
+      "vehiculoBase": "023",
+      "numero": "9-599-023-9",
+      "vehiculosRama": [
+        "9-599-023-9",
+        "7-599-012-2",
+        "9-599-024-7"
+      ],
+      "searchCodes": [
+        "023",
+        "024"
+      ],
+      "deposito": "Cerro Negro",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "1º servicio MD Salamanca-Ávila. Ex-Salamanca >> Salamanca y MD 06/22 >> Cerro Negro. Vinilos Grand Tour Territorios UNESCO Villuercas Ibores desde 11/23."
+      ]
+    },
+    "13": {
+      "rama": "13",
+      "vehiculoBase": "025",
+      "numero": "9-599-025-4",
+      "vehiculosRama": [
+        "9-599-025-4",
+        "7-599-013-0",
+        "9-599-026-2"
+      ],
+      "searchCodes": [
+        "025",
+        "026"
+      ],
+      "deposito": "Salamanca",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "En Valencia hasta 02/12 >> Salamanca >> Cerro Negro desde 2019."
+      ]
+    },
+    "14": {
+      "rama": "14",
+      "vehiculoBase": "027",
+      "numero": "9-599-027-0",
+      "vehiculosRama": [
+        "9-599-027-0",
+        "7-599-014-8",
+        "9-599-028-8"
+      ],
+      "searchCodes": [
+        "027",
+        "028"
+      ],
+      "deposito": "Valencia",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Ex-Valencia hasta 04/12 >> Sevilla >> Valencia >> Ex-Salamanca 08/22. Valencia."
+      ]
+    },
+    "15": {
+      "rama": "15",
+      "vehiculoBase": "029",
+      "numero": "9-599-029-6",
+      "vehiculosRama": [
+        "9-599-029-6",
+        "7-599-015-5",
+        "9-599-030-4"
+      ],
+      "searchCodes": [
+        "029",
+        "030"
+      ],
+      "deposito": "Valencia",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Inauguración nueva estación Canfranc 15/04/21. Ex-Valencia >> Zgz >> Valencia 10/25."
+      ]
+    },
+    "16": {
+      "rama": "16",
+      "vehiculoBase": "031",
+      "numero": "9-599-031-2",
+      "vehiculosRama": [
+        "9-599-031-2",
+        "7-599-016-3",
+        "9-599-032-0"
+      ],
+      "searchCodes": [
+        "031",
+        "032"
+      ],
+      "deposito": "Valencia",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Valencia >> Salamanca 08/22 >> Cerro Negro >> Valencia. Pruebas Huesca-Canfranc 04/25."
+      ]
+    },
+    "17": {
+      "rama": "17",
+      "vehiculoBase": "033",
+      "numero": "9-599-033-8",
+      "vehiculosRama": [
+        "9-599-033-8",
+        "7-599-017-1",
+        "9-599-034-6"
+      ],
+      "searchCodes": [
+        "033",
+        "034"
+      ],
+      "deposito": "Salamanca",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Descarrilo en Rubielos de Mora, 23/03/15 >> Apartado en Valencia, 04/15 >> En servicio >> Incendio motor auxiliar dep. Granada 04/12/17. De nuevo en servicio Valencia >> Cerro Negro 2019 >> Valencia >> Salamanca 03/23."
+      ]
+    },
+    "18": {
+      "rama": "18",
+      "vehiculoBase": "035",
+      "numero": "9-599-035-3",
+      "vehiculosRama": [
+        "9-599-035-3",
+        "7-599-018-9",
+        "9-599-036-1"
+      ],
+      "searchCodes": [
+        "035",
+        "036"
+      ],
+      "deposito": "Redondela",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Ex-Vigo >> Sevilla."
+      ]
+    },
+    "19": {
+      "rama": "19",
+      "vehiculoBase": "037",
+      "numero": "9-599-037-9",
+      "vehiculosRama": [
+        "9-599-037-9",
+        "7-599-019-7",
+        "9-599-038-7"
+      ],
+      "searchCodes": [
+        "037",
+        "038"
+      ],
+      "deposito": "Cerro Negro",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Pruebas desde 11/09. Ex-Vigo >> Sevilla >> Granada."
+      ]
+    },
+    "20": {
+      "rama": "20",
+      "vehiculoBase": "039",
+      "numero": "9-599-039-5",
+      "vehiculosRama": [
+        "9-599-039-5",
+        "7-599-020-5",
+        "9-599-040-3"
+      ],
+      "searchCodes": [
+        "039",
+        "040"
+      ],
+      "deposito": "Cerro Negro",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "En pruebas desde 12/09. Ex-Vigo >> Valencia >> Sevilla >> Cerro Negro desde 08/18. Testero motor 599-039-5 pintado de blanco estilo 598. Arrollamiento camión P.N. Talavera de la Reina 19/09/22."
+      ]
+    },
+    "21": {
+      "rama": "21",
+      "vehiculoBase": "041",
+      "numero": "9-599-041-1",
+      "vehiculosRama": [
+        "9-599-041-1",
+        "7-599-021-3",
+        "9-599-042-9"
+      ],
+      "searchCodes": [
+        "041",
+        "042"
+      ],
+      "deposito": "Cerro Negro",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Ex-Vigo >> Sevilla >> Cerro Negro desde 02/19."
+      ]
+    },
+    "22": {
+      "rama": "22",
+      "vehiculoBase": "043",
+      "numero": "9-599-043-7",
+      "vehiculosRama": [
+        "9-599-043-7",
+        "7-599-022-1",
+        "9-599-044-5"
+      ],
+      "searchCodes": [
+        "043",
+        "044"
+      ],
+      "deposito": "Salamanca",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Ex-Vigo >> Salamanca >> Cerro Negro."
+      ]
+    },
+    "23": {
+      "rama": "23",
+      "vehiculoBase": "045",
+      "numero": "9-599-045-2",
+      "vehiculosRama": [
+        "9-599-045-2",
+        "7-599-023-9",
+        "9-599-046-0"
+      ],
+      "searchCodes": [
+        "045",
+        "046"
+      ],
+      "deposito": "Cerro Negro",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Llevó Logos 75 años Renfe. Ex-Redondela."
+      ]
+    },
+    "24": {
+      "rama": "24",
+      "vehiculoBase": "047",
+      "numero": "9-599-047-8",
+      "vehiculosRama": [
+        "9-599-047-8",
+        "7-599-024-7",
+        "9-599-048-6"
+      ],
+      "searchCodes": [
+        "047",
+        "048"
+      ],
+      "deposito": "Valencia",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Ex-Vigo hasta 06/12 >> Salamanca >> Vigo >> Cerro Negro."
+      ]
+    },
+    "25": {
+      "rama": "25",
+      "vehiculoBase": "049",
+      "numero": "9-599-049-4",
+      "vehiculosRama": [
+        "9-599-049-4",
+        "7-599-025-4",
+        "9-599-050-2"
+      ],
+      "searchCodes": [
+        "049",
+        "050"
+      ],
+      "deposito": "Redondela",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": []
+    },
+    "26": {
+      "rama": "26",
+      "vehiculoBase": "051",
+      "numero": "9-599-051-0",
+      "vehiculosRama": [
+        "9-599-051-0",
+        "7-599-026-2",
+        "9-599-052-8"
+      ],
+      "searchCodes": [
+        "051",
+        "052"
+      ],
+      "deposito": "Salamanca",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "En Vigo hasta 05/12 >> Salamanca >> Vigo 11/12 >> Cerro Negro."
+      ]
+    },
+    "27": {
+      "rama": "27",
+      "vehiculoBase": "053",
+      "numero": "9-599-053-6",
+      "vehiculosRama": [
+        "9-599-053-6",
+        "7-599-027-0",
+        "9-599-054-4"
+      ],
+      "searchCodes": [
+        "053",
+        "054"
+      ],
+      "deposito": "Redondela",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Ex-Cerro Negro."
+      ]
+    },
+    "28": {
+      "rama": "28",
+      "vehiculoBase": "055",
+      "numero": "9-599-055-1",
+      "vehiculosRama": [
+        "9-599-055-1",
+        "7-599-028-8",
+        "9-599-056-9"
+      ],
+      "searchCodes": [
+        "055",
+        "056"
+      ],
+      "deposito": "Salamanca",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "En Valencia hasta 05/12 >> Salamanca >> Valencia >> Cerro Negro. Ex-patrimonio: publicidad Tren Ecológico Hoya de Huesca 06/21. Arrollamiento camión PN Matapozuelos (Valladolid) 03/02/26. De nuevo en servicio."
+      ]
+    },
+    "29": {
+      "rama": "29",
+      "vehiculoBase": "057",
+      "numero": "9-599-057-7",
+      "vehiculosRama": [
+        "9-599-057-7",
+        "7-599-029-6",
+        "9-599-058-5"
+      ],
+      "searchCodes": [
+        "057",
+        "058"
+      ],
+      "deposito": "Granada",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Valencia >> Sevilla."
+      ]
+    },
+    "30": {
+      "rama": "30",
+      "vehiculoBase": "059",
+      "numero": "9-599-059-3",
+      "vehiculosRama": [
+        "9-599-059-3",
+        "7-599-030-4",
+        "9-599-060-1"
+      ],
+      "searchCodes": [
+        "059",
+        "060"
+      ],
+      "deposito": "",
+      "color": "Blanco",
+      "estado": "Accidentada",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Empleado para formación de maquinistas de Sevilla. Descarrilo Huelva-Viator 20/03/15. Accidente en PN Málaga por investir un camión 22/08. Composición temporal 2019: 9-599-059-3-3, 7-599-038-7, 9-599-076-7. Ex-Sevilla."
+      ]
+    },
+    "31": {
+      "rama": "31",
+      "vehiculoBase": "061",
+      "numero": "9-599-061-9",
+      "vehiculosRama": [
+        "9-599-061-9",
+        "7-599-031-2",
+        "9-599-062-7"
+      ],
+      "searchCodes": [
+        "061",
+        "062"
+      ],
+      "deposito": "Cerro Negro",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Ex-Valencia >> Sevilla."
+      ]
+    },
+    "32": {
+      "rama": "32",
+      "vehiculoBase": "063",
+      "numero": "9-599-063-5",
+      "vehiculosRama": [
+        "9-599-063-5",
+        "7-599-032-0",
+        "9-599-064-3"
+      ],
+      "searchCodes": [
+        "063",
+        "064"
+      ],
+      "deposito": "Redondela",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Ex-Valencia >> Redondela. Arrollamiento tractor Illescas/Torrijos 17/07/20. De nuevo en servicio 06/21. Ex-Cerro Negro."
+      ]
+    },
+    "33": {
+      "rama": "33",
+      "vehiculoBase": "065",
+      "numero": "9-599-065-0",
+      "vehiculosRama": [
+        "9-599-065-0",
+        "7-599-033-8",
+        "9-599-066-8"
+      ],
+      "searchCodes": [
+        "065",
+        "066"
+      ],
+      "deposito": "Cerro Negro",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Incendio remolque en Granada 11/17. Se recupera aprovechando remolque del 599-041 (accidentado en El Arahal) 03/18. Cerro Negro 2019 >> Ex-Sevilla >> Salamanca."
+      ]
+    },
+    "34": {
+      "rama": "34",
+      "vehiculoBase": "067",
+      "numero": "9-599-067-6",
+      "vehiculosRama": [
+        "9-599-067-6",
+        "7-599-034-6",
+        "9-599-068-4"
+      ],
+      "searchCodes": [
+        "067",
+        "068"
+      ],
+      "deposito": "Redondela",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2010,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Ex-Granada."
+      ]
+    },
+    "35": {
+      "rama": "35",
+      "vehiculoBase": "069",
+      "numero": "9-599-069-2",
+      "vehiculosRama": [
+        "9-599-069-2",
+        "7-599-035-3",
+        "9-599-070-0"
+      ],
+      "searchCodes": [
+        "069",
+        "070"
+      ],
+      "deposito": "Sevilla",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2010,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Ex-Granada. Accidente y descarrilo PN Talavera de la Reina 24/04/18. Ex-Sevilla >> Cerro Negro."
+      ]
+    },
+    "36": {
+      "rama": "36",
+      "vehiculoBase": "071",
+      "numero": "9-599-071-8",
+      "vehiculosRama": [
+        "9-599-071-8",
+        "7-599-036-1",
+        "9-599-072-6"
+      ],
+      "searchCodes": [
+        "071",
+        "072"
+      ],
+      "deposito": "Cerro Negro",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2010,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Salida fábrica 08/10. Ex-Granada >> Redondela."
+      ]
+    },
+    "37": {
+      "rama": "37",
+      "vehiculoBase": "073",
+      "numero": "9-599-073-4",
+      "vehiculosRama": [
+        "9-599-073-4",
+        "7-599-037-9",
+        "9-599-074-2"
+      ],
+      "searchCodes": [
+        "073",
+        "074"
+      ],
+      "deposito": "Salamanca",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2010,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "En pruebas 09/10. Ex-Granada >> Cerro Negro."
+      ]
+    },
+    "38": {
+      "rama": "38",
+      "vehiculoBase": "075",
+      "numero": "9-599-075-9",
+      "vehiculosRama": [
+        "9-599-075-9",
+        "7-599-038-7",
+        "9-599-076-8"
+      ],
+      "searchCodes": [
+        "075",
+        "076"
+      ],
+      "deposito": "Granada",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2010,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "En pruebas 09/10. Ex-Granada >> Sevilla >> Granada. Composición temporal 2019: 9-599-059-3, 7-599-038-7, 9-599-076-8-7. Ex-Sevilla."
+      ]
+    },
+    "39": {
+      "rama": "39",
+      "vehiculoBase": "077",
+      "numero": "9-599-077-5",
+      "vehiculosRama": [
+        "9-599-077-5",
+        "7-599-039-5",
+        "9-599-078-4"
+      ],
+      "searchCodes": [
+        "077",
+        "078"
+      ],
+      "deposito": "Granada",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2010,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Salida de fábrica y en pruebas 10/10. Ex-Granada >> Sevilla >> Granada."
+      ]
+    },
+    "40": {
+      "rama": "40",
+      "vehiculoBase": "079",
+      "numero": "9-599-079-1",
+      "vehiculosRama": [
+        "9-599-079-1",
+        "7-599-040-3",
+        "9-599-080-9"
+      ],
+      "searchCodes": [
+        "079",
+        "080"
+      ],
+      "deposito": "Redondela",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2010,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Salida de fábrica en 10/10. Ex-Sevilla >> Salamanca 08/18 >> Cerro Negro 2019. Vinilos SKYDRUG 3.0 Casa de Brujas 12/22. Pruebas ERTMS Barcelona desde 18/04/23."
+      ]
+    },
+    "41": {
+      "rama": "41",
+      "vehiculoBase": "081",
+      "numero": "9-599-081-7",
+      "vehiculosRama": [
+        "9-599-081-7",
+        "7-599-041-1",
+        "9-599-082-5"
+      ],
+      "searchCodes": [
+        "081",
+        "082"
+      ],
+      "deposito": "Salamanca",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2010,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Salida de fábrica 10/10. Primer viaje de pruebas 27/10/10. Logos Junta Andalucía. Descarrilo en Arahal (Sevilla) en trayecto Málaga-Sevilla. Se aprovecha el remolque de 599-041 con bogies del remolque 599-033 y motores 599-065 y 066. Ex-Sevilla. De nuevo en servicio en Zafra 30/09/23. Ex-Cerro Negro >> Granada >> Salamanca desde 09/24."
+      ]
+    },
+    "42": {
+      "rama": "42",
+      "vehiculoBase": "083",
+      "numero": "9-599-083-3",
+      "vehiculosRama": [
+        "9-599-083-3",
+        "7-599-042-9",
+        "9-599-084-1"
+      ],
+      "searchCodes": [
+        "083",
+        "084"
+      ],
+      "deposito": "Salamanca",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Accidente P/N de Gilena, 16/01/11. Ex-Sevilla >> Cerro Negro desde 08/18."
+      ]
+    },
+    "43": {
+      "rama": "43",
+      "vehiculoBase": "085",
+      "numero": "9-599-085-8",
+      "vehiculosRama": [
+        "9-599-085-8",
+        "7-599-043-7",
+        "9-599-086-7"
+      ],
+      "searchCodes": [
+        "085",
+        "086"
+      ],
+      "deposito": "Cerro Negro",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Ex-Sevilla. Descarrilo en Torrellano 19/01/19. Afectado por incendio en Bejís (Castellón) 16/08/22. De nuevo en servicio. Ex-Valencia. Cerro Negro."
+      ]
+    },
+    "44": {
+      "rama": "44",
+      "vehiculoBase": "087",
+      "numero": "9-599-087-4",
+      "vehiculosRama": [
+        "9-599-087-4",
+        "7-599-044-5",
+        "9-599-088-3"
+      ],
+      "searchCodes": [
+        "087",
+        "088"
+      ],
+      "deposito": "Cerro Negro",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Ex-Sevilla >> Cerro Negro desde 2019."
+      ]
+    },
+    "45": {
+      "rama": "45",
+      "vehiculoBase": "089",
+      "numero": "9-599-089-0",
+      "vehiculosRama": [
+        "9-599-089-0",
+        "7-599-045-2",
+        "9-599-090-8"
+      ],
+      "searchCodes": [
+        "089",
+        "090"
+      ],
+      "deposito": "Valencia",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Llevó Logos 75 años Renfe. Ex-Salamanca >> Redondela >> Ex-Cerro Negro >> Salamanca >> Valencia."
+      ]
+    },
+    "46": {
+      "rama": "46",
+      "vehiculoBase": "091",
+      "numero": "9-599-091-6",
+      "vehiculosRama": [
+        "9-599-091-6",
+        "7-599-046-0",
+        "9-599-092-4"
+      ],
+      "searchCodes": [
+        "091",
+        "092"
+      ],
+      "deposito": "Redondela",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Ex-Sevilla >> Cerro Negro >> Redondela. Pequeño incendio en bogie Santiago de Compostela 30/08/25."
+      ]
+    },
+    "47": {
+      "rama": "47",
+      "vehiculoBase": "093",
+      "numero": "9-599-093-2",
+      "vehiculosRama": [
+        "9-599-093-2",
+        "7-599-047-8",
+        "9-599-094-0"
+      ],
+      "searchCodes": [
+        "093",
+        "094"
+      ],
+      "deposito": "Cerro Negro",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Ex-Sevilla >> Cerro Negro 03/24."
+      ]
+    },
+    "48": {
+      "rama": "48",
+      "vehiculoBase": "095",
+      "numero": "9-599-095-7",
+      "vehiculosRama": [
+        "9-599-095-7",
+        "7-599-048-6",
+        "9-599-096-5"
+      ],
+      "searchCodes": [
+        "095",
+        "096"
+      ],
+      "deposito": "Sevilla",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": []
+    },
+    "49": {
+      "rama": "49",
+      "vehiculoBase": "097",
+      "numero": "9-599-097-3",
+      "vehiculosRama": [
+        "9-599-097-3",
+        "7-599-049-4",
+        "9-599-098-1"
+      ],
+      "searchCodes": [
+        "097",
+        "098"
+      ],
+      "deposito": "Cerro Negro",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Ex-Salamanca >> Redondela."
+      ]
+    },
+    "50": {
+      "rama": "50",
+      "vehiculoBase": "099",
+      "numero": "9-599-099-9",
+      "vehiculosRama": [
+        "9-599-099-9",
+        "7-599-050-2",
+        "9-599-100-5"
+      ],
+      "searchCodes": [
+        "099",
+        "100"
+      ],
+      "deposito": "Cerro Negro",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "notas": [
+        "Ex-Salamanca >> Ex-Valencia >> Cerro Negro."
+      ]
+    }
+  }
+},
   "448": {
   "seriesName": "Serie 448 · 3 coches",
   "fabricante": "CAF, MACOSA, ATEINSA, MTM",
@@ -26715,6 +27892,31 @@ function getFleetUnit(series, vehicle){
     };
   }
 
+  // Serie 599: SOLO los dos coches motor identifican la rama.
+  // El remolque intermedio forma parte de la composición pero NO identifica
+  // la rama en la búsqueda por vehículo. Ejemplo: 023 y 024 -> Rama 12.
+  if(s==="599"){
+    const raw=String(vehicle??"").trim();
+    const compact=raw.replace(/\s+/g,"");
+    let code="";
+    const fullMotor=compact.match(/(?:^|[-])9[-]?599[-]?(\d{3})(?:[-]\d)?$/i);
+    if(fullMotor) code=fullMotor[1];
+    if(!code && /^599\d{3}$/.test(compact)) code=compact.slice(3);
+    if(!code && /^\d{1,3}$/.test(compact)) code=compact.padStart(3,"0");
+    if(!code) return null;
+
+    let base=null, matchedVehicle="", cocheTipo="";
+    for(const candidate of Object.values(seriesData.units||{})){
+      const vehicles=candidate.vehiculosRama||[];
+      const motorImpar=String(vehicles[0]||"").split("-")[2]||"";
+      const motorPar=String(vehicles[2]||"").split("-")[2]||"";
+      if(code===motorImpar){ base=candidate; matchedVehicle=vehicles[0]; cocheTipo="Coche motor impar"; break; }
+      if(code===motorPar){ base=candidate; matchedVehicle=vehicles[2]; cocheTipo="Coche motor par"; break; }
+    }
+    if(!base) return null;
+    return {...base,numero:matchedVehicle||base.numero,vehiculoBase:code,vehiculoIntroducido:raw,vehiculoBuscado:code,vehiculoEncontrado:matchedVehicle,cocheTipo:cocheTipo||"Coche motor"};
+  }
+
   // Serie 448: cualquiera de sus coches identifica la rama mediante el mismo código 001-031.
   // Se aceptan códigos cortos (001, 002...), 448-XXX-X, matrículas Renfe
   // 9-448-XXX-X / 7-448-XXX-X / 8-448-XXX-X y formatos compactos.
@@ -27040,17 +28242,17 @@ function saveCurrentService(e){
 }
 if($("serviceForm"))$("serviceForm").addEventListener("submit",saveCurrentService);
 /* ================================================================
-   ARGOS · SERIE 448 · BLOQUEO DE VEHÍCULOS DESGUAZADOS
-   Solo afecta a la Serie 448.
+   ARGOS · BLOQUEO DE VEHÍCULOS DESGUAZADOS · SERIES 448 Y 599
+   Mantiene el comportamiento existente de la Serie 448 y lo extiende a 599.
    ================================================================= */
 if($("serviceForm")){
   $("serviceForm").addEventListener("submit",function(e){
     const series=normalizeFleetValue($("series")?.value||"");
-    if(series!=="448") return;
+    if(!["448","599"].includes(series)) return;
     const vehicle=String($("vehicle")?.value||"").trim();
     const branch=String($("branchValue")?.value||"").trim();
     const unit = getFleetUnit(series,vehicle) ||
-      (branch ? fleet["448"]?.units?.[String(Number(branch))] : null);
+      (branch ? fleet[series]?.units?.[String(Number(branch))] : null);
     if(unit && /desguazad/i.test(String(unit.estado||""))){
       e.preventDefault();
       e.stopImmediatePropagation();
