@@ -3191,24 +3191,6 @@ body:not(.dark) select{
   }
 }
 </style>
-<script id="argos-one-time-cache-reset-20260917">
-(function(){
-  'use strict';
-  const KEY='argos_cache_reset_20260917_1420';
-  try{
-    if(localStorage.getItem(KEY)) return;
-    localStorage.setItem(KEY,'1');
-    if('serviceWorker' in navigator){
-      navigator.serviceWorker.getRegistrations().then(regs=>
-        Promise.all(regs.map(reg=>reg.unregister()))
-      ).catch(()=>{});
-    }
-    if('caches' in window){
-      caches.keys().then(keys=>Promise.all(keys.map(key=>caches.delete(key)))).catch(()=>{});
-    }
-  }catch(e){}
-})();
-</script>
 </head>
 
 <body>
@@ -4003,7 +3985,7 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/5.0.8/jspdf.plugin.autotable.min.js"></script>
 
-<script src="app.js?v=20260917-1420"></script>
+<script src="app.js"></script>
 
 <script>
 (function(){
@@ -4880,10 +4862,8 @@ window.showScreen=function(id){
         const data=(typeof fleet!=='undefined')?fleet[s]:null;
         const units=data?.units||{};
         for(const [key,unit] of Object.entries(units)){
-          const unitBranch=window.ARGOS_NORMALIZE_BRANCH(unit?.rama||'');
-          const typedBranch=window.ARGOS_NORMALIZE_BRANCH(b);
-          if(unitBranch && typedBranch && unitBranch===typedBranch){
-            return {branch:unitBranch,vehicle:String(unit.vehiculoBase||key)};
+          if(digits(unit?.rama)===b){
+            return {branch:window.ARGOS_NORMALIZE_BRANCH(unit.rama),vehicle:String(unit.vehiculoBase||key)};
           }
         }
       }catch(e){}
@@ -11191,7 +11171,14 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
           <div class="ficha-general-grid">${general.map((n,i)=>`<div class="ficha-general-item"><span class="ficha-general-number">${String(i+1).padStart(2,'0')}</span><div>${esc(n)}</div></div>`).join('')}</div>
         </div>`:'';
 
-      const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>Serie ${esc(series)}${fichaSubserie?` · ${esc(fichaSubserie)}`:''} · Rama ${esc(fichaBranch)}${unit.lote?` · ${esc(unit.lote)}`:''}</h3><p>Vehículo ${esc(fichaVehicle||'—')} · ${esc(unit.numero||'—')}</p></div>`;
+      const fichaEs448=s==='448';
+      const heroTitle=fichaEs448
+        ? `Serie ${esc(series)} · Rama ${esc(fichaBranch)}`
+        : `Serie ${esc(series)}${fichaSubserie?` · ${esc(fichaSubserie)}`:''} · Rama ${esc(fichaBranch)}${unit.lote?` · ${esc(unit.lote)}`:''}`;
+      const desguazadoBadge=/desguazad/i.test(String(unit.estado||''))
+        ? `<div class="argosdex-ficha-status argosdex-ficha-status-desguazada">VEHÍCULO DESGUAZADO</div>`
+        : '';
+      const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>${heroTitle}</h3><p>Vehículo ${esc(fichaVehicle||'—')} · ${esc(unit.numero||'—')}</p>${desguazadoBadge}</div>`;
       return `${hero}${identification}${highlights}${generalBlock}`;
     }
 
@@ -11451,6 +11438,11 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   window.addEventListener('load',install,{once:true});
 })();
 </script>
+
+<style id="argosdex-ficha-status-v1">
+.argosdex-ficha-status{margin-top:12px;padding:10px 12px;border:1px solid rgba(138,0,92,.28);border-radius:12px;background:#f4e2ec;color:#8a005c;font-size:13px;font-weight:950;letter-spacing:.08em;text-transform:uppercase;text-align:center;}
+body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,255,.18);color:#fff;}
+</style>
 
 <style id="argosdex-shared-highlights-v1">
 .argos-shared-highlights-section{position:relative}
@@ -12523,7 +12515,107 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 })();
 </script>
 
+<!-- ================================================================
+     ARGOS 4.7 · NORMALIZACIÓN FINAL DE RAMAS
+     Regla única: nunca mostrar ni introducir ceros a la izquierda.
+     Ejemplos: 001 -> 1 · 006 -> 6 · 022 -> 22.
+     No modifica la numeración interna de vehículos ni códigos de estación.
+     ================================================================ -->
+<script id="argos-branch-leading-zero-final-v47">
+(function(){
+  'use strict';
 
+  const normalizeBranch=value=>{
+    const digits=String(value??'').replace(/\D/g,'');
+    if(!digits)return '';
+    return String(parseInt(digits,10));
+  };
+
+  // Mantener disponible una única regla global para todas las funciones de ARGOS.
+  window.ARGOS_NORMALIZE_BRANCH=normalizeBranch;
+
+  function isBranchField(el){
+    if(!el || !('value' in el))return false;
+    const id=String(el.id||'').toLowerCase();
+    const name=String(el.name||'').toLowerCase();
+    const aria=String(el.getAttribute?.('aria-label')||'').toLowerCase();
+    const placeholder=String(el.getAttribute?.('placeholder')||'').toLowerCase();
+    const cls=String(el.className||'').toLowerCase();
+    return /(^|[-_])(?:branch|rama)([-_]|$)/.test(id)
+      || /(?:branch|rama)/.test(name)
+      || /(?:branch|rama)/.test(aria)
+      || /(?:branch|rama)/.test(placeholder)
+      || /(?:branch|rama)/.test(cls);
+  }
+
+  function normalizeField(el){
+    if(!isBranchField(el))return;
+    const next=normalizeBranch(el.value);
+    if(String(el.value)!==next){
+      el.value=next;
+      try{el.dispatchEvent(new Event('input',{bubbles:true}));}catch(e){}
+    }
+  }
+
+  // Al escribir o pegar una rama: 001 -> 1 inmediatamente.
+  document.addEventListener('input',function(ev){
+    normalizeField(ev.target);
+  },true);
+
+  document.addEventListener('change',function(ev){
+    normalizeField(ev.target);
+  },true);
+
+  // Antes de cualquier envío, dejamos la rama en formato canónico.
+  document.addEventListener('submit',function(ev){
+    const form=ev.target;
+    if(!form?.querySelectorAll)return;
+    form.querySelectorAll('input,textarea,select').forEach(normalizeField);
+  },true);
+
+  function normalizeDisplayedText(root){
+    if(!root)return;
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+    const nodes=[];
+    let node;
+    while((node=walker.nextNode()))nodes.push(node);
+    nodes.forEach(textNode=>{
+      const old=String(textNode.nodeValue||'');
+      const next=old.replace(/(Rama\s+)0+(\d+)/gi,'$1$2');
+      if(next!==old)textNode.nodeValue=next;
+    });
+  }
+
+  // Normaliza también fichas, avisos, historial, ArgoDex y cualquier otro
+  // texto visible que reciba una rama con formato antiguo desde la base.
+  function sweep(){
+    try{normalizeDisplayedText(document.body);}catch(e){}
+    document.querySelectorAll('input,textarea,select').forEach(normalizeField);
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',sweep,{once:true});
+  }else{
+    sweep();
+  }
+
+  const observer=new MutationObserver(mutations=>{
+    for(const m of mutations){
+      if(m.type==='childList' || m.type==='characterData'){
+        sweep();
+        break;
+      }
+    }
+  });
+
+  function startObserver(){
+    if(document.body)observer.observe(document.body,{subtree:true,childList:true,characterData:true});
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',startObserver,{once:true});
+  else startObserver();
+})();
+</script>
 
 <!-- ARGOS 4.7 · AJUSTE FINAL BIBLIOTECA MÓVIL
      Solo corrige la posición de la ventana de ramas en móvil.
@@ -13611,6 +13703,15 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     section.dataset.argosHistoryShared='1';
     section.dataset.series=info.series;
     section.dataset.branch=info.branch;
+
+    // Conservar las notas estáticas que ya ha generado fleetFichaHtml().
+    // Sin esto, al consultar Supabase se sustituían por una lista vacía cuando
+    // no había destacados compartidos, haciendo desaparecer los datos de la rama.
+    if(!Array.isArray(section.__argosStaticNotes)){
+      section.__argosStaticNotes=[...section.querySelectorAll('.ficha-note')]
+        .map(el=>String(el.textContent||'').trim())
+        .filter(Boolean);
+    }
 
     const list=ensureList(section);
     if(list)list.innerHTML='<div class="ficha-empty-inline">Cargando datos destacados compartidos…</div>';
