@@ -3985,7 +3985,7 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/5.0.8/jspdf.plugin.autotable.min.js"></script>
 
-<script src="app.js?v=20260917-598"></script>
+<script src="app.js?v=20260917-598-vehicle-input-fix"></script>
 
 <script>
 (function(){
@@ -4837,13 +4837,15 @@ window.showScreen=function(id){
     const digits=v=>String(v??'').replace(/\D/g,'');
     let manual=false;
 
-    function setBranchManualUI(){
+    function setBranchManualUI(event){
       const b=digits(branch.value).slice(0,3);
       branch.value=window.ARGOS_NORMALIZE_BRANCH(b);
       manual=!!b;
       vehicle.required=!manual;
       if(manual){
-        vehicle.value='';
+        // Solo una rama escrita directamente por el usuario debe vaciar Vehículo.
+        // Los eventos sintéticos internos no deben destruir lo que se está escribiendo.
+        if(!event || event.isTrusted===true) vehicle.value='';
         branch.classList.add('manual');
         if(box)box.classList.add('visible');
         if(hint)hint.textContent='Rama introducida manualmente · no es necesario indicar vehículo.';
