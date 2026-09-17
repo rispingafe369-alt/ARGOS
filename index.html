@@ -3191,6 +3191,24 @@ body:not(.dark) select{
   }
 }
 </style>
+<script id="argos-one-time-cache-reset-20260917">
+(function(){
+  'use strict';
+  const KEY='argos_cache_reset_20260917_1420';
+  try{
+    if(localStorage.getItem(KEY)) return;
+    localStorage.setItem(KEY,'1');
+    if('serviceWorker' in navigator){
+      navigator.serviceWorker.getRegistrations().then(regs=>
+        Promise.all(regs.map(reg=>reg.unregister()))
+      ).catch(()=>{});
+    }
+    if('caches' in window){
+      caches.keys().then(keys=>Promise.all(keys.map(key=>caches.delete(key)))).catch(()=>{});
+    }
+  }catch(e){}
+})();
+</script>
 </head>
 
 <body>
@@ -3985,7 +4003,7 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/5.0.8/jspdf.plugin.autotable.min.js"></script>
 
-<script src="app.js?v=20260917-448-zero-fix"></script>
+<script src="app.js?v=20260917-1420"></script>
 
 <script>
 (function(){
@@ -4862,8 +4880,10 @@ window.showScreen=function(id){
         const data=(typeof fleet!=='undefined')?fleet[s]:null;
         const units=data?.units||{};
         for(const [key,unit] of Object.entries(units)){
-          if(digits(unit?.rama)===b){
-            return {branch:window.ARGOS_NORMALIZE_BRANCH(unit.rama),vehicle:String(unit.vehiculoBase||key)};
+          const unitBranch=window.ARGOS_NORMALIZE_BRANCH(unit?.rama||'');
+          const typedBranch=window.ARGOS_NORMALIZE_BRANCH(b);
+          if(unitBranch && typedBranch && unitBranch===typedBranch){
+            return {branch:unitBranch,vehicle:String(unit.vehiculoBase||key)};
           }
         }
       }catch(e){}
@@ -12503,107 +12523,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 })();
 </script>
 
-<!-- ================================================================
-     ARGOS 4.7 · NORMALIZACIÓN FINAL DE RAMAS
-     Regla única: nunca mostrar ni introducir ceros a la izquierda.
-     Ejemplos: 001 -> 1 · 006 -> 6 · 022 -> 22.
-     No modifica la numeración interna de vehículos ni códigos de estación.
-     ================================================================ -->
-<script id="argos-branch-leading-zero-final-v47">
-(function(){
-  'use strict';
 
-  const normalizeBranch=value=>{
-    const digits=String(value??'').replace(/\D/g,'');
-    if(!digits)return '';
-    return String(parseInt(digits,10));
-  };
-
-  // Mantener disponible una única regla global para todas las funciones de ARGOS.
-  window.ARGOS_NORMALIZE_BRANCH=normalizeBranch;
-
-  function isBranchField(el){
-    if(!el || !('value' in el))return false;
-    const id=String(el.id||'').toLowerCase();
-    const name=String(el.name||'').toLowerCase();
-    const aria=String(el.getAttribute?.('aria-label')||'').toLowerCase();
-    const placeholder=String(el.getAttribute?.('placeholder')||'').toLowerCase();
-    const cls=String(el.className||'').toLowerCase();
-    return /(^|[-_])(?:branch|rama)([-_]|$)/.test(id)
-      || /(?:branch|rama)/.test(name)
-      || /(?:branch|rama)/.test(aria)
-      || /(?:branch|rama)/.test(placeholder)
-      || /(?:branch|rama)/.test(cls);
-  }
-
-  function normalizeField(el){
-    if(!isBranchField(el))return;
-    const next=normalizeBranch(el.value);
-    if(String(el.value)!==next){
-      el.value=next;
-      try{el.dispatchEvent(new Event('input',{bubbles:true}));}catch(e){}
-    }
-  }
-
-  // Al escribir o pegar una rama: 001 -> 1 inmediatamente.
-  document.addEventListener('input',function(ev){
-    normalizeField(ev.target);
-  },true);
-
-  document.addEventListener('change',function(ev){
-    normalizeField(ev.target);
-  },true);
-
-  // Antes de cualquier envío, dejamos la rama en formato canónico.
-  document.addEventListener('submit',function(ev){
-    const form=ev.target;
-    if(!form?.querySelectorAll)return;
-    form.querySelectorAll('input,textarea,select').forEach(normalizeField);
-  },true);
-
-  function normalizeDisplayedText(root){
-    if(!root)return;
-    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
-    const nodes=[];
-    let node;
-    while((node=walker.nextNode()))nodes.push(node);
-    nodes.forEach(textNode=>{
-      const old=String(textNode.nodeValue||'');
-      const next=old.replace(/(Rama\s+)0+(\d+)/gi,'$1$2');
-      if(next!==old)textNode.nodeValue=next;
-    });
-  }
-
-  // Normaliza también fichas, avisos, historial, ArgoDex y cualquier otro
-  // texto visible que reciba una rama con formato antiguo desde la base.
-  function sweep(){
-    try{normalizeDisplayedText(document.body);}catch(e){}
-    document.querySelectorAll('input,textarea,select').forEach(normalizeField);
-  }
-
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',sweep,{once:true});
-  }else{
-    sweep();
-  }
-
-  const observer=new MutationObserver(mutations=>{
-    for(const m of mutations){
-      if(m.type==='childList' || m.type==='characterData'){
-        sweep();
-        break;
-      }
-    }
-  });
-
-  function startObserver(){
-    if(document.body)observer.observe(document.body,{subtree:true,childList:true,characterData:true});
-  }
-
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',startObserver,{once:true});
-  else startObserver();
-})();
-</script>
 
 <!-- ARGOS 4.7 · AJUSTE FINAL BIBLIOTECA MÓVIL
      Solo corrige la posición de la ventana de ramas en móvil.
