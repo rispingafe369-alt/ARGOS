@@ -27237,7 +27237,7 @@ function fleetFichaHtml(series,vehicle,service=null){
     : (normalizeFleetValue(series)==="446" || normalizeFleetValue(series)==="447" ? "" : (unit.subserie||""));
   const fichaEs448 = normalizeFleetValue(series)==="448";
   const heroTitle = fichaEs448
-    ? `Serie ${esc(series)} · Rama ${esc(fichaRama)}`
+    ? `Serie ${esc(series)} · Rama ${esc(fichaRama)}${unit.lote?` · ${esc(unit.lote)}`:""}`
     : `Serie ${esc(series)}${fichaSubserie?` · ${esc(fichaSubserie)}`:""} · Rama ${esc(fichaRama)}${unit.lote?` · ${esc(unit.lote)}`:""}`;
   const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>${heroTitle}</h3><p>Vehículo ${esc(vehiculoFicha)} · ${esc(unit.numero||"—")}</p></div>`;
 
