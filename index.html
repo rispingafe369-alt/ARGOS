@@ -11173,7 +11173,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
       const fichaEs448=s==='448';
       const heroTitle=fichaEs448
-        ? `Serie ${esc(series)} · Rama ${esc(fichaBranch)}`
+        ? `Serie ${esc(series)} · Rama ${esc(fichaBranch)}${unit.lote?` · ${esc(unit.lote)}`:''}`
         : `Serie ${esc(series)}${fichaSubserie?` · ${esc(fichaSubserie)}`:''} · Rama ${esc(fichaBranch)}${unit.lote?` · ${esc(unit.lote)}`:''}`;
       const desguazadoBadge=/desguazad/i.test(String(unit.estado||''))
         ? `<div class="argosdex-ficha-status argosdex-ficha-status-desguazada">VEHÍCULO DESGUAZADO</div>`
@@ -13672,15 +13672,25 @@ body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,25
     const list=ensureList(section);
     if(!list)return;
 
+    // La ficha ya trae datos destacados propios de la rama desde fleetFichaHtml().
+    // Nunca los sustituimos: añadimos, debajo, los datos compartidos de Supabase.
+    const staticValues=Array.isArray(section.__argosStaticNotes)
+      ? section.__argosStaticNotes.map(clean).filter(Boolean)
+      : [];
+
     const seen=new Set();
-    const values=(Array.isArray(items)?items:[])
-      .map(x=>clean(x?.content))
-      .filter(Boolean)
-      .filter(v=>{
-        const k=v.toLocaleLowerCase('es-ES').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-        if(seen.has(k))return false;
-        seen.add(k);return true;
-      });
+    const values=[];
+    staticValues.forEach(v=>{
+      const k=v.toLocaleLowerCase('es-ES').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+      if(k&&!seen.has(k)){seen.add(k);values.push(v);}
+    });
+
+    (Array.isArray(items)?items:[]).forEach(item=>{
+      const v=clean(item?.content);
+      if(!v)return;
+      const k=v.toLocaleLowerCase('es-ES').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+      if(k&&!seen.has(k)){seen.add(k);values.push(v);}
+    });
 
     list.innerHTML=values.length
       ? values.map(v=>`<div class="ficha-note">${esc(v)}</div>`).join('')
@@ -13714,14 +13724,23 @@ body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,25
     }
 
     const list=ensureList(section);
-    if(list)list.innerHTML='<div class="ficha-empty-inline">Cargando datos destacados compartidos…</div>';
+    if(list && !(Array.isArray(section.__argosStaticNotes) && section.__argosStaticNotes.length)){
+      list.innerHTML='<div class="ficha-empty-inline">Cargando datos destacados compartidos…</div>';
+    }
 
     try{
       const items=await fetchHighlights(info.series,info.branch);
       render(section,items);
     }catch(error){
       console.error('ARGOS · datos destacados del historial:',error);
-      if(list)list.innerHTML='<div class="ficha-empty-inline">No se han podido cargar los datos destacados compartidos.</div>';
+      // Si falla Supabase, conservamos los datos destacados locales de la rama.
+      if(list && !(Array.isArray(section.__argosStaticNotes) && section.__argosStaticNotes.length)){
+        list.innerHTML='<div class="ficha-empty-inline">No se han podido cargar los datos destacados compartidos.</div>';
+      }else if(list && Array.isArray(section.__argosStaticNotes)){
+        list.innerHTML=section.__argosStaticNotes.length
+          ? section.__argosStaticNotes.map(v=>`<div class="ficha-note">${esc(v)}</div>`).join('')
+          : '<div class="ficha-empty-inline">No se han podido cargar los datos destacados compartidos.</div>';
+      }
     }
   }
 
