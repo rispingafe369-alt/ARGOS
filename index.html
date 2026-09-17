@@ -4840,12 +4840,20 @@ window.showScreen=function(id){
     function setBranchManualUI(event){
       const b=digits(branch.value).slice(0,3);
       branch.value=window.ARGOS_NORMALIZE_BRANCH(b);
-      manual=!!b;
+
+      /*
+       * IMPORTANTE: manual solo cambia cuando el usuario ha escrito/pegado
+       * realmente en la casilla Rama. Los eventos sintéticos que ARGOS genera
+       * para normalizar una rama automática (por ejemplo 001 -> 1) no deben
+       * convertir esa rama automática en una rama manual.
+       */
+      const userEdited=(event?.isTrusted===true);
+      if(userEdited) manual=!!b;
+
       vehicle.required=!manual;
       if(manual){
         // Solo una rama escrita directamente por el usuario debe vaciar Vehículo.
-        // Los eventos sintéticos internos no deben destruir lo que se está escribiendo.
-        if(!event || event.isTrusted===true) vehicle.value='';
+        if(userEdited) vehicle.value='';
         branch.classList.add('manual');
         if(box)box.classList.add('visible');
         if(hint)hint.textContent='Rama introducida manualmente · no es necesario indicar vehículo.';
@@ -4915,6 +4923,16 @@ window.showScreen=function(id){
     }
 
     branch.addEventListener('input',setBranchManualUI);
+
+    // Al reiniciar Añadir servicio se reinicia también el estado interno de
+    // rama manual. Evita que una rama manual usada en un servicio anterior
+    // bloquee el siguiente servicio y provoque falsos "Rama no encontrada".
+    form.addEventListener('reset',function(){
+      manual=false;
+      vehicle.required=false;
+      branch.classList.remove('manual');
+      if(hint)hint.textContent='Se detecta automáticamente al introducir el vehículo · también puedes escribirla directamente.';
+    });
 
     vehicle.addEventListener('input',function(){
       if(manual && digits(this.value)){
