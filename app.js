@@ -33637,6 +33637,48 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   document.addEventListener('DOMContentLoaded',boot,{once:true});
 })();
 
+
+/* ================================================================
+   ARGOS · PROTECCIÓN DEFINITIVA DE ESCRITURA · CAMPO VEHÍCULO
+   - El texto escrito por el usuario nunca se sobrescribe automáticamente.
+   - Solo actúa sobre eventos reales de teclado/edición (isTrusted).
+   - Ignora eventos sintéticos usados internamente por ArgosDex.
+   - No cambia la lógica de resolución de ramas ni la base de material.
+   ================================================================ */
+(function(){
+  'use strict';
+
+  function installVehicleWriteGuard(){
+    if(window.__argosVehicleWriteGuardInstalled) return;
+    window.__argosVehicleWriteGuardInstalled=true;
+
+    document.addEventListener('input',function(ev){
+      const el=ev.target;
+      if(!el || el.id!=='vehicle' || ev.isTrusted!==true) return;
+
+      const keep=String(el.value ?? '');
+      const seq=(Number(el.__argosVehicleWriteSeq)||0)+1;
+      el.__argosVehicleWriteSeq=seq;
+
+      const restore=()=>{
+        if(el.__argosVehicleWriteSeq!==seq) return;
+        if(String(el.value ?? '')!==keep){
+          el.value=keep;
+          try{
+            if(typeof window.updateBranchBox==='function') window.updateBranchBox();
+          }catch(e){}
+        }
+      };
+
+      setTimeout(restore,0);
+      setTimeout(restore,35);
+    },true);
+  }
+
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',installVehicleWriteGuard,{once:true});
+  else installVehicleWriteGuard();
+})();
+
 /* ================================================================
    ARGOS · FIX DEFINITIVO DE ESCRITURA · SERIE 448
    IMPORTANTE:
