@@ -7311,6 +7311,592 @@ const fleet = {
     }
   }
 },
+  "598": {
+  "seriesName": "Serie 598 · 3 coches",
+  "fabricante": "CAF",
+  "numeroCoches": "3 coches · M-R-M",
+  "subseries": "3 coches",
+  "tipoMaterial": "Trenes diésel de Media Distancia",
+  "anchoVia": "1668 mm",
+  "velocidadMaxima": "160 km/h",
+  "potencia": "1.352 kW",
+  "longitud": "74,8 m",
+  "peso": "193,6 t",
+  "frenos": "Aire comprimido",
+  "mandoMultiple": "Máximo 3 trenes",
+  "enganche": "Scharfenberg",
+  "numeroUnidades": "21 composiciones",
+  "unidadesConstruidas": 21,
+  "anoConstruccion": "2004-2005",
+  "composicion": "M-R-M",
+  "motoresDiesel": 4,
+  "tipoMotor": "MAN D2876 LUE 605",
+  "numeroCilindros": "6 en línea",
+  "transmision": "Oleodinámica",
+  "diametroRuedas": "850 mm",
+  "anchuraCaja": "2.940 mm",
+  "alturaTecho": "4.168 mm",
+  "potenciaContinuaPorMotor": "338 kW a 2.000 r.p.m.",
+  "asientos": "188 + 1 PMR + 2 strapontines",
+  "combustible": "2.400 l repartidos en 2 depósitos",
+  "pesoExtremo": "66 t",
+  "pesoIntermedio": "61,6 t",
+  "pesoPorEjeExtremo": "13,75 t",
+  "pesoPorEjeIntermedio": "13,35 t",
+  "equipamiento": "Basculación SIBI",
+  "generalNotes": [
+    "Trenes diésel para servicios de Media Distancia.",
+    "Evolución de los TRD serie 594 contratada por Renfe para el refuerzo de sus servicios de Media Distancia en líneas sin electrificar. Esta versión, también evolucionada en la nueva y más numerosa serie 599, incorpora un coche central remolque, y nuevos testeros aerodinámicos. En el apartado técnico, disponen de los bogies SIBI de basculación activa, sistema que permite mayores velocidades de circulación en curva sin merma del confort del viajero y seguridad de la circulación. Se contrató la construcción de 21 unidades por 95 millones de Euros al consorcio liderado por CAF en junio de 2001, iniciándose los servicios en 2004, repartiéndose los trenes entre las redes de Galicia, Madrid con base en Cerro Negro y Andalucía."
+  ],
+  "units": {
+    "1": {
+      "rama": "001",
+      "vehiculoBase": "001",
+      "numero": "9-598-001-6",
+      "vehiculosRama": [
+        "9-598-001-6",
+        "7-598-001-5",
+        "9-598-501-5"
+      ],
+      "searchCodes": [
+        "001",
+        "501"
+      ],
+      "fabricante": "CAF",
+      "une": "Media Dist.",
+      "deposito": "Salamanca",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2008,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "notas": [
+        "Colores Renfe Op. Logos \"Media Distancia\". En Sevilla 09/07 >> Vigo >> Sevilla. Descarrilo 06/05/18 cerca de Zafra. Incendiado el 19/10/18 en la estación de Calañas. Ex-Cerro Negro >> Sevilla 02/19"
+      ]
+    },
+    "2": {
+      "rama": "002",
+      "vehiculoBase": "002",
+      "numero": "9-598-002-4",
+      "vehiculosRama": [
+        "9-598-002-4",
+        "7-598-002-4",
+        "9-598-502-3"
+      ],
+      "searchCodes": [
+        "002",
+        "502"
+      ],
+      "fabricante": "CAF",
+      "une": "Media Dist.",
+      "deposito": "Cerro Negro",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2008,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "notas": [
+        "Colores Renfe Op. Logos \"Media Distancia\". Ex-Vigo >> Sevilla >> Cerro Negro >> Descarrilo Torrijos 14/01/19 >> Sevilla 06/19. Descarrilo Algairén 06/08/24."
+      ]
+    },
+    "3": {
+      "rama": "003",
+      "vehiculoBase": "003",
+      "numero": "9-598-003-2",
+      "vehiculosRama": [
+        "9-598-003-2",
+        "7-598-003-2",
+        "9-598-503-1"
+      ],
+      "searchCodes": [
+        "003",
+        "503"
+      ],
+      "fabricante": "CAF",
+      "une": "Media Dist.",
+      "deposito": "Sevilla",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2008,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "notas": [
+        "Colores Renfe Op. Logos \"Media Distancia\". Ex-Sevilla >> Cerro Negro >> Sevilla 08/19."
+      ]
+    },
+    "4": {
+      "rama": "004",
+      "vehiculoBase": "004",
+      "numero": "9-598-004-0",
+      "vehiculosRama": [
+        "9-598-004-0",
+        "7-598-004-0",
+        "9-598-504-9"
+      ],
+      "searchCodes": [
+        "004",
+        "504"
+      ],
+      "fabricante": "CAF",
+      "une": "Media Dist.",
+      "deposito": "Cerro Negro",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2008,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "notas": [
+        "Colores Renfe Op. Logos \"Media Distancia\". Ex-Vigo. Colores Interurbanos. Ex-Cerro Negro. En Sevilla desde 08/18."
+      ]
+    },
+    "5": {
+      "rama": "005",
+      "vehiculoBase": "005",
+      "numero": "9-598-005-7",
+      "vehiculosRama": [
+        "9-598-005-7",
+        "7-598-005-7",
+        "9-598-505-6"
+      ],
+      "searchCodes": [
+        "005",
+        "505"
+      ],
+      "fabricante": "CAF",
+      "une": "Media Dist.",
+      "deposito": "Sevilla",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "notas": [
+        "Colores Renfe Op. >> Colores Interurbanos. Ex-Cerro Negro >> Sevilla 08/19."
+      ]
+    },
+    "6": {
+      "rama": "006",
+      "vehiculoBase": "006",
+      "numero": "9-598-006-5",
+      "vehiculosRama": [
+        "9-598-006-5",
+        "7-598-006-5",
+        "9-598-506-4"
+      ],
+      "searchCodes": [
+        "006",
+        "506"
+      ],
+      "fabricante": "CAF",
+      "une": "Media Dist.",
+      "deposito": "Sevilla",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "notas": [
+        "Colores Renfe Op. Logos \"Media Distancia\". Ex-Vigo. Accidente El Chorro 16/12/23."
+      ]
+    },
+    "7": {
+      "rama": "007",
+      "vehiculoBase": "007",
+      "numero": "9-598-007-3",
+      "vehiculosRama": [
+        "9-598-007-3",
+        "7-598-007-3",
+        "9-598-507-2"
+      ],
+      "searchCodes": [
+        "007",
+        "507"
+      ],
+      "fabricante": "CAF",
+      "une": "Media Dist.",
+      "deposito": "Sevilla",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "notas": [
+        "Colores Renfe Op. Logos \"Media Distancia\". Ex-Vigo >> Sevilla >> Cerro Negro. Incendio en Valmoral de la Mata, 30/09/14. Lleva un bogie BRAVA en motor 507. Logos 75 años Renfe. Accidente de Torrijos y Villaluenga 23/06/18."
+      ]
+    },
+    "8": {
+      "rama": "008",
+      "vehiculoBase": "008",
+      "numero": "9-598-008-1",
+      "vehiculosRama": [
+        "9-598-008-1",
+        "7-598-008-1",
+        "9-598-508-0"
+      ],
+      "searchCodes": [
+        "008",
+        "508"
+      ],
+      "fabricante": "CAF",
+      "une": "Media Dist.",
+      "deposito": "Sevilla",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "notas": [
+        "Colores Renfe Op. Incendiado en Los Santos de Maimona (26/11/15). Colores Interurbanos. Ex-Sevilla >> Cerro Negro >> Sevilla 08/19."
+      ]
+    },
+    "9": {
+      "rama": "009",
+      "vehiculoBase": "009",
+      "numero": "9-598-009-9",
+      "vehiculosRama": [
+        "9-598-009-9",
+        "7-598-009-9",
+        "9-598-509-8"
+      ],
+      "searchCodes": [
+        "009",
+        "509"
+      ],
+      "fabricante": "CAF",
+      "une": "Media Dist.",
+      "deposito": "Cerro Negro",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "notas": [
+        "Ex-Vigo. Accidente por desprendimiento entre San Yuste y Loja el 25/02/10. Ex-apartado Sevilla >> Enviado al TCR Valladolid para su reparación 08/10. Colores Renfe Op. Logos \"MD\" >> Colores Renfe v.599, desde 29/05/13. Ex-Cerro Negro >> Sevilla 09/19 >> Cerro Negro 05/21."
+      ]
+    },
+    "10": {
+      "rama": "010",
+      "vehiculoBase": "010",
+      "numero": "9-598-010-7",
+      "vehiculosRama": [
+        "9-598-010-7",
+        "7-598-010-7",
+        "9-598-510-6"
+      ],
+      "searchCodes": [
+        "010",
+        "510"
+      ],
+      "fabricante": "CAF",
+      "une": "Media Dist.",
+      "deposito": "Sevilla",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "notas": [
+        "Colores Renfe Op. Ex-Sevilla >> Cerro Negro. Colores Interurbanos."
+      ]
+    },
+    "11": {
+      "rama": "011",
+      "vehiculoBase": "011",
+      "numero": "9-598-011-5",
+      "vehiculosRama": [
+        "9-598-011-5",
+        "7-598-011-5",
+        "9-598-511-4"
+      ],
+      "searchCodes": [
+        "011",
+        "511"
+      ],
+      "fabricante": "CAF",
+      "une": "Media Dist.",
+      "deposito": "Sevilla",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "notas": [
+        "Colores Renfe Op. Arrollamiento de tractor en Daimiel, 18/06/14. Trasladado a Valladolid, 23/10/14. Ex-Cerro Negro >> 05/19. De nuevo en servicio."
+      ]
+    },
+    "12": {
+      "rama": "012",
+      "vehiculoBase": "012",
+      "numero": "9-598-012-3",
+      "vehiculosRama": [
+        "9-598-012-3",
+        "7-598-012-3",
+        "9-598-512-2"
+      ],
+      "searchCodes": [
+        "012",
+        "512"
+      ],
+      "fabricante": "CAF",
+      "une": "Media Dist.",
+      "deposito": "Sevilla",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "notas": [
+        "Colores Renfe Op. Ex-Cerro Negro >> Sevilla >> Cerro Negro 01/22. Último tren línea Cuenca-Aranjuez 19/06/22 >> 24/07/23."
+      ]
+    },
+    "13": {
+      "rama": "013",
+      "vehiculoBase": "013",
+      "numero": "9-598-013-1",
+      "vehiculosRama": [
+        "9-598-013-1",
+        "7-598-013-1",
+        "9-598-513-0"
+      ],
+      "searchCodes": [
+        "013",
+        "513"
+      ],
+      "fabricante": "CAF",
+      "une": "Media Dist.",
+      "deposito": "Valladolid",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "notas": [
+        "Colores Renfe Op. Arrollamiento tractor, incendio y descarrilo 29/06/17 entre Torrijos y Erustes. Trasladado a Valladolid 07/17. CM2 (513) y R (013) apartados y canibalizados en BMI Valladolid."
+      ]
+    },
+    "14": {
+      "rama": "014",
+      "vehiculoBase": "014",
+      "numero": "9-598-014-9",
+      "vehiculosRama": [
+        "9-598-014-9",
+        "7-598-014-9",
+        "9-598-514-8"
+      ],
+      "searchCodes": [
+        "014",
+        "514"
+      ],
+      "fabricante": "CAF",
+      "une": "Media Dist.",
+      "deposito": "Sevilla",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "notas": [
+        "Colores Renfe Op. Logos \"Media Distancia\". Ex-Vigo >> Sevilla >> Cerro Negro >> Sevilla 08/18. Accidente El Chorro 16/12/23."
+      ]
+    },
+    "15": {
+      "rama": "015",
+      "vehiculoBase": "015",
+      "numero": "9-598-015-6",
+      "vehiculosRama": [
+        "9-598-015-6",
+        "7-598-015-6",
+        "9-598-515-5"
+      ],
+      "searchCodes": [
+        "015",
+        "515"
+      ],
+      "fabricante": "CAF",
+      "une": "Media Dist.",
+      "deposito": "Sevilla",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "notas": [
+        "Colores Renfe Op. Logos de Media Distancia. Ex-Vigo >> Cerro Negro >> Sevilla 08/18. Accidente El Chorro 16/12/23."
+      ]
+    },
+    "16": {
+      "rama": "016",
+      "vehiculoBase": "016",
+      "numero": "9-598-016-4",
+      "vehiculosRama": [
+        "9-598-016-4",
+        "7-598-016-4",
+        "9-598-516-3"
+      ],
+      "searchCodes": [
+        "016",
+        "516"
+      ],
+      "fabricante": "CAF",
+      "une": "Media Dist.",
+      "deposito": "Sevilla",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "notas": [
+        "Accidentado 13/04/05 en Galicia. Reparado. Colores Renfe Op. Logos \"Media Distancia\". En 2006: 15 días en Madrid, 1 mes en Sevilla >> Vigo 09/06 >> Sevilla."
+      ]
+    },
+    "17": {
+      "rama": "017",
+      "vehiculoBase": "017",
+      "numero": "9-598-017-2",
+      "vehiculosRama": [
+        "9-598-017-2",
+        "7-598-017-2",
+        "9-598-517-1"
+      ],
+      "searchCodes": [
+        "017",
+        "517"
+      ],
+      "fabricante": "CAF",
+      "une": "Media Dist.",
+      "deposito": "Valladolid",
+      "color": "Blanco",
+      "estado": "Desguazada",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "notas": [
+        "Colores Renfe Op. Logos \"Media Distancia\". Ex-Sevilla >> Cerro Negro. Accidente 06/09/10 (Carmonita, Badajoz). Baja desde 24/12/10. Apartado Valladolid. Desguazado en Valladolid 2020."
+      ]
+    },
+    "18": {
+      "rama": "018",
+      "vehiculoBase": "018",
+      "numero": "9-598-018-0",
+      "vehiculosRama": [
+        "9-598-018-0",
+        "7-598-018-0",
+        "9-598-518-9"
+      ],
+      "searchCodes": [
+        "018",
+        "518"
+      ],
+      "fabricante": "CAF",
+      "une": "Media Dist.",
+      "deposito": "Sevilla",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "notas": [
+        "Colores Renfe Op. Colores Interurbanos."
+      ]
+    },
+    "19": {
+      "rama": "019",
+      "vehiculoBase": "019",
+      "numero": "9-598-019-8",
+      "vehiculosRama": [
+        "9-598-019-8",
+        "7-598-019-8",
+        "9-598-519-7"
+      ],
+      "searchCodes": [
+        "019",
+        "519"
+      ],
+      "fabricante": "CAF",
+      "une": "Media Dist.",
+      "deposito": "Sevilla",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "notas": [
+        "Colores Renfe Op (versión 599). Logos \"Media Distancia\". Monta prototipo PMR. Ex-Sevilla >> Cerro Negro >> Sevilla desde 08/19."
+      ]
+    },
+    "20": {
+      "rama": "020",
+      "vehiculoBase": "020",
+      "numero": "9-598-020-6",
+      "vehiculosRama": [
+        "9-598-020-6",
+        "7-598-020-6",
+        "9-598-520-5"
+      ],
+      "searchCodes": [
+        "020",
+        "520"
+      ],
+      "fabricante": "CAF",
+      "une": "Media Dist.",
+      "deposito": "Sevilla",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "notas": [
+        "Colores Renfe Op (versión 599). Logos \"Media Distancia\". Ex-Sevilla >> Ex-Cerro Negro >> Sevilla 05/19."
+      ]
+    },
+    "21": {
+      "rama": "021",
+      "vehiculoBase": "021",
+      "numero": "9-598-021-4",
+      "vehiculosRama": [
+        "9-598-021-4",
+        "7-598-021-4",
+        "9-598-521-3"
+      ],
+      "searchCodes": [
+        "021",
+        "521"
+      ],
+      "fabricante": "CAF",
+      "une": "Media Dist.",
+      "deposito": "Sevilla",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2009,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-M",
+      "composicionRama": "Motor impar + remolque intermedio + motor par",
+      "notas": [
+        "Colores Renfe Op (versión 599). Logos \"Media Distancia\". Ex-Sevilla. Colores Interurbanos >> Ex-Cerro Negro >> Sevilla 05/19."
+      ]
+    }
+  }
+},
   "599": {
   "seriesName": "Serie 599 · 3 coches",
   "fabricante": "CAF",
@@ -27892,6 +28478,31 @@ function getFleetUnit(series, vehicle){
     };
   }
 
+  // Serie 598: SOLO los dos coches motor identifican la rama.
+  // La rama viene determinada por el remolque intermedio: 023/523 -> Rama 12,
+  // 021/521 -> Rama 11, etc. El remolque NO identifica la rama por sí mismo.
+  if(s==="598"){
+    const raw=String(vehicle??"").trim();
+    const compact=raw.replace(/\s+/g,"");
+    let code="";
+    const fullMotor=compact.match(/^(?:9[-]?)?598[-]?(\d{3})(?:[-]\d)?$/i);
+    if(fullMotor) code=fullMotor[1];
+    if(!code && /^598\d{3}$/.test(compact)) code=compact.slice(3);
+    if(!code && /^\d{1,3}$/.test(compact)) code=compact.padStart(3,"0");
+    if(!code) return null;
+
+    let base=null, matchedVehicle="", cocheTipo="";
+    for(const candidate of Object.values(seriesData.units||{})){
+      const vehicles=candidate.vehiculosRama||[];
+      const motorImpar=String(vehicles[0]||"").split("-")[2]||"";
+      const motorPar=String(vehicles[2]||"").split("-")[2]||"";
+      if(code===motorImpar){ base=candidate; matchedVehicle=vehicles[0]; cocheTipo="Coche motor impar"; break; }
+      if(code===motorPar){ base=candidate; matchedVehicle=vehicles[2]; cocheTipo="Coche motor par"; break; }
+    }
+    if(!base) return null;
+    return {...base,numero:matchedVehicle||base.numero,vehiculoBase:code,vehiculoIntroducido:raw,vehiculoBuscado:code,vehiculoEncontrado:matchedVehicle,cocheTipo:cocheTipo||"Coche motor"};
+  }
+
   // Serie 599: SOLO los dos coches motor identifican la rama.
   // El remolque intermedio forma parte de la composición pero NO identifica
   // la rama en la búsqueda por vehículo. Ejemplo: 023 y 024 -> Rama 12.
@@ -28248,7 +28859,7 @@ if($("serviceForm"))$("serviceForm").addEventListener("submit",saveCurrentServic
 if($("serviceForm")){
   $("serviceForm").addEventListener("submit",function(e){
     const series=normalizeFleetValue($("series")?.value||"");
-    if(!["448","599"].includes(series)) return;
+    if(!["448","599","598"].includes(series)) return;
     const vehicle=String($("vehicle")?.value||"").trim();
     const branch=String($("branchValue")?.value||"").trim();
     const unit = getFleetUnit(series,vehicle) ||
