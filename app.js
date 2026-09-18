@@ -30984,7 +30984,7 @@ function fleetFichaHtml(series,vehicle,service=null){
     <div class="ficha-section">
       <div class="ficha-section-title">CARACTERÍSTICAS TÉCNICAS</div>
       <div class="ficha-grid">
-        ${fichaField("Constructor",tech.constructor||tech.fabricante)}
+        ${fichaField("Constructor",tech.fabricante||((Object.prototype.hasOwnProperty.call(tech,"constructor"))?tech.constructor:""))}
         ${fichaField("Composición",tech.composicion)}
         ${fichaField("Ancho de vía",tech.anchoVia)}
         ${fichaField("Longitud entre topes (Unidad)",tech.longitud)}
