@@ -29222,6 +29222,14 @@ function fleetFichaHtml(series,vehicle,service=null){
   const unit=getFleetUnit(series,vehicle);
   const seriesData=getSeriesData(series);
   const tech=unit.tech||seriesData;
+  const hasFichaValue=value=>{
+    if(value===null || value===undefined) return false;
+    const text=String(value).trim();
+    return text!=="" && text!=="—" && text!=="-";
+  };
+  const fichaField=(label,value)=>hasFichaValue(value)
+    ? `<div><span>${esc(label)}</span><strong>${esc(value)}</strong></div>`
+    : "";
   if(!unit){
     return `<div class="ficha-empty"><strong>Ficha no disponible</strong><span>No hay información de material almacenada para Serie ${esc(series||"—")} · Vehículo ${esc(vehicle||"—")}.</span></div>`;
   }
@@ -29255,12 +29263,12 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Motor introducido</span><strong>${esc(unit.motorTipo||"—")}</strong></div>
         <div><span>Motor impar</span><strong>${esc(unit.motorImpar||"—")}</strong></div>
         <div><span>Motor par</span><strong>${esc(unit.motorPar||"—")}</strong></div>`:""}
-        <div><span>Número completo</span><strong>${esc(unit.numero||"—")}</strong></div>
-        <div><span>Fabricante</span><strong>${esc(unit.fabricante||tech?.fabricante||"—")}</strong></div>
-        <div><span>Número de coches</span><strong>${esc(unit.numeroCoches||tech?.numeroCoches||"—")}</strong></div>
-        <div><span>Año</span><strong>${esc(unit.ano||"—")}</strong></div>
+        ${fichaField("Número completo",unit.numero)}
+        ${fichaField("Fabricante",unit.fabricante||tech?.fabricante)}
+        ${fichaField("Número de coches",unit.numeroCoches||tech?.numeroCoches)}
+        ${fichaField("Año",unit.ano)}
         ${["130","730"].includes(normalizeFleetValue(series)) && unit.exNumero?`<div><span>${normalizeFleetValue(series)==="730"?"Ex-número · procedencia S-130":"Ex-número"}</span><strong>${esc(unit.exNumero)}</strong></div>`:""}
-        <div><span>Depósito / base</span><strong>${esc(unit.deposito||"—")}</strong></div>
+        ${fichaField("Depósito / base",unit.deposito)}
         ${normalizeFleetValue(series)==="453"?`
         <div><span>Color</span><strong>${esc(unit.color||"—")}</strong></div>
         <div><span>Estado</span><strong>${esc(unit.estado||"—")}</strong></div>
@@ -29269,12 +29277,12 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Color</span><strong>${esc(unit.color||"—")}</strong></div>
         <div><span>Estado</span><strong>${esc(unit.estado||"—")}</strong></div>`:""}
         ${normalizeFleetValue(series)==="440"?`
-        <div><span>UNE</span><strong>${esc(unit.une||"—")}</strong></div>
-        <div><span>Color</span><strong>${esc(unit.color||"—")}</strong></div>
-        <div><span>Estado</span><strong>${esc(unit.estado||"—")}</strong></div>
-        <div><span>Asientos</span><strong>${esc(unit.asientos||"—")}</strong></div>
-        <div><span>Furgón</span><strong>${esc(unit.furgon||"—")}</strong></div>
-        <div><span>Lugar</span><strong>${esc(unit.lugar||"—")}</strong></div>`:""}
+        ${fichaField("UNE",unit.une)}
+        ${fichaField("Color",unit.color)}
+        ${fichaField("Estado",unit.estado)}
+        ${fichaField("Asientos",unit.asientos)}
+        ${fichaField("Furgón",unit.furgon)}
+        ${fichaField("Lugar",unit.lugar)}`:""}
         ${normalizeFleetValue(series)==="446"?`
         <div><span>LZB</span><strong>${esc(unit.lzb||"—")}</strong></div>
         <div><span>Vehículos de la rama</span><strong>${esc((unit.vehiculosRama||[]).join(" · ")||"—")}</strong></div>
@@ -29329,31 +29337,31 @@ function fleetFichaHtml(series,vehicle,service=null){
     <div class="ficha-section">
       <div class="ficha-section-title">CARACTERÍSTICAS TÉCNICAS</div>
       <div class="ficha-grid">
-        <div><span>Constructor</span><strong>${esc(tech.constructor||tech.fabricante||"—")}</strong></div>
-        <div><span>Unidades construidas</span><strong>${esc(tech.unidadesConstruidas||"—")}</strong></div>
-        <div><span>Año de construcción</span><strong>${esc(tech.anoConstruccion||"—")}</strong></div>
-        <div><span>Composición</span><strong>${esc(tech.composicion||"—")}</strong></div>
-        <div><span>Tipo de bogie</span><strong>${esc(tech.tipoBogies||"—")}</strong></div>
-        <div><span>Diámetro de ruedas nuevas (Motor)</span><strong>${esc(tech.diametroRuedasMotor||"—")}</strong></div>
-        <div><span>Diámetro de ruedas nuevas (Remolque)</span><strong>${esc(tech.diametroRuedasRemolque||"—")}</strong></div>
-        <div><span>Ancho de vía</span><strong>${esc(tech.anchoVia||"—")}</strong></div>
-        <div><span>Anchura de la caja</span><strong>${esc(tech.anchuraCaja||"—")}</strong></div>
-        <div><span>Altura del techo sobre el carril (Motor)</span><strong>${esc(tech.alturaTechoMotor||"—")}</strong></div>
-        <div><span>Longitud entre topes (Motor)</span><strong>${esc(tech.longitudMotor||"—")}</strong></div>
-        <div><span>Longitud entre topes (Unidad)</span><strong>${esc(tech.longitud||"—")}</strong></div>
-        <div><span>Tensión de alimentación</span><strong>${esc(tech.tension||"—")}</strong></div>
-        <div><span>Potencia nominal</span><strong>${esc(tech.potencia||"—")}</strong></div>
-        <div><span>Velocidad máxima</span><strong>${esc(tech.velocidadMaxima||"—")}</strong></div>
-        <div><span>Número de motores de tracción</span><strong>${esc(tech.numeroMotoresTraccion||"—")}</strong></div>
-        <div><span>Tipo de motor</span><strong>${esc(tech.tipoMotor||"—")}</strong></div>
-        <div><span>Potencia continua por motor</span><strong>${esc(tech.potenciaContinuaPorMotor||"—")}</strong></div>
-        <div><span>Peso en orden de marcha (Motor)</span><strong>${esc(tech.pesoMotor||"—")}</strong></div>
-        <div><span>Peso en orden de marcha (Unidad)</span><strong>${esc(tech.peso||"—")}</strong></div>
-        <div><span>Peso por eje (Motor)</span><strong>${esc(tech.pesoPorEjeMotor||"—")}</strong></div>
-        <div><span>Freno eléctrico</span><strong>${esc(tech.frenoElectrico||"—")}</strong></div>
-        <div><span>Freno neumático</span><strong>${esc(tech.frenos||"—")}</strong></div>
-        <div><span>Mando múltiple</span><strong>${esc(tech.mandoMultiple||"—")}</strong></div>
-        <div><span>Tipo de enganche</span><strong>${esc(tech.enganche||"—")}</strong></div>
+        ${fichaField("Constructor",tech.constructor||tech.fabricante)}
+        ${fichaField("Unidades construidas",tech.unidadesConstruidas)}
+        ${fichaField("Año de construcción",tech.anoConstruccion)}
+        ${fichaField("Composición",tech.composicion)}
+        ${fichaField("Tipo de bogie",tech.tipoBogies)}
+        ${fichaField("Diámetro de ruedas nuevas (Motor)",tech.diametroRuedasMotor)}
+        ${fichaField("Diámetro de ruedas nuevas (Remolque)",tech.diametroRuedasRemolque)}
+        ${fichaField("Ancho de vía",tech.anchoVia)}
+        ${fichaField("Anchura de la caja",tech.anchuraCaja)}
+        ${fichaField("Altura del techo sobre el carril (Motor)",tech.alturaTechoMotor)}
+        ${fichaField("Longitud entre topes (Motor)",tech.longitudMotor)}
+        ${fichaField("Longitud entre topes (Unidad)",tech.longitud)}
+        ${fichaField("Tensión de alimentación",tech.tension)}
+        ${fichaField("Potencia nominal",tech.potencia)}
+        ${fichaField("Velocidad máxima",tech.velocidadMaxima)}
+        ${fichaField("Número de motores de tracción",tech.numeroMotoresTraccion)}
+        ${fichaField("Tipo de motor",tech.tipoMotor)}
+        ${fichaField("Potencia continua por motor",tech.potenciaContinuaPorMotor)}
+        ${fichaField("Peso en orden de marcha (Motor)",tech.pesoMotor)}
+        ${fichaField("Peso en orden de marcha (Unidad)",tech.peso)}
+        ${fichaField("Peso por eje (Motor)",tech.pesoPorEjeMotor)}
+        ${fichaField("Freno eléctrico",tech.frenoElectrico)}
+        ${fichaField("Freno neumático",tech.frenos)}
+        ${fichaField("Mando múltiple",tech.mandoMultiple)}
+        ${fichaField("Tipo de enganche",tech.enganche)}
       </div>
     </div>`:"";
 
@@ -29369,19 +29377,19 @@ function fleetFichaHtml(series,vehicle,service=null){
     </div>`;
 
   // 4) Información general de la serie.
-  const general=Array.isArray(unit.generalNotes)?unit.generalNotes.flat(Infinity).filter(Boolean):
+  let general=Array.isArray(unit.generalNotes)?unit.generalNotes.flat(Infinity).filter(Boolean):
     (Array.isArray(seriesData?.generalNotes)?seriesData.generalNotes.flat(Infinity).filter(Boolean):[]);
+  if(normalizeFleetValue(series)==="440"){
+    general=general[1]?[
+      "Serie eléctrica de 255 unidades, destinada principalmente a servicios de Cercanías y también a servicios Regionales. Parte de la serie fue reformada a las series 470 y 440R, mientras algunas unidades se mantuvieron en estado original."
+    ]:[];
+  }
   const generalBlock=general.length?`
     <div class="ficha-section ficha-general-section">
       <div class="ficha-section-title">INFORMACIÓN GENERAL DE LA SERIE ${esc(series)}</div>
       <div class="ficha-general-grid">${general.map((n,i)=>`<div class="ficha-general-item"><span class="ficha-general-number">${String(i+1).padStart(2,"0")}</span><div>${esc(n)}</div></div>`).join("")}</div>
     </div>`:"";
 
-  const vehiculoFicha=["103","104","120","121"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : (normalizeFleetValue(series)==="730" ? (unit.numero||vehicle) : vehicle);
-  const fichaRama = normalizeFleetValue(series)==="453" ? String(Number(unit.rama||0)) : String(unit.rama||"");
-  const fichaSubserie = normalizeFleetValue(series)==="453"
-    ? (String(unit.numeroCoches||"").startsWith("8 coches") || String(unit.subserie||"").includes("453.6") ? "453.6 · TL200 · 8 coches" : "453.0 · TL100 · 4 coches")
-    : (normalizeFleetValue(series)==="446" || normalizeFleetValue(series)==="447" ? "" : (unit.subserie||""));
   const fichaEs448 = normalizeFleetValue(series)==="448";
   const heroTitle = fichaEs448
     ? `Serie ${esc(series)} · Rama ${esc(fichaRama)}${unit.lote?` · ${esc(unit.lote)}`:""}`
