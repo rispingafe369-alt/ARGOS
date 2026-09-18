@@ -3985,7 +3985,7 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/5.0.8/jspdf.plugin.autotable.min.js"></script>
 
-<script src="app.js?v=20260918-440-ficha-clean"></script>
+<script src="app.js?v=20260918-440-history-fix"></script>
 
 <script>
 (function(){
@@ -15855,3 +15855,160 @@ body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,25
   else install();
 })();
 </script>
+
+<!-- ARGOS · FIX FINAL: APERTURA DE FICHAS DESDE HISTORIAL -->
+<script id="argos-history-ficha-click-fix-v1">
+(function(){
+  'use strict';
+
+  /*
+   * El historial tenía varios renderizadores acumulados y algunos de ellos
+   * dependían de funciones locales de otros scripts. Eso podía dejar una
+   * tarjeta visible pero sin una ruta fiable hasta la ficha.
+   *
+   * Este controlador final usa delegación de eventos sobre #historyList y
+   * resuelve el servicio directamente desde localStorage. No modifica el
+   * servicio ni la base de material; únicamente abre su ficha.
+   */
+
+  function readServices(){
+    try{
+      const raw=localStorage.getItem('argos_services')||'[]';
+      const data=JSON.parse(raw);
+      return Array.isArray(data)?data:[];
+    }catch(e){
+      console.warn('ARGOS · historial/ficha: no se pudieron leer los servicios',e);
+      return [];
+    }
+  }
+
+  function normalize(value){
+    return String(value??'').trim();
+  }
+
+  function digits(value){
+    return String(value??'').replace(/\D/g,'');
+  }
+
+  function normalizeSeries(value){
+    const d=digits(value);
+    return d.replace(/^0+/,'')||'';
+  }
+
+  function findVehicleByBranch(series,branch){
+    const s=normalizeSeries(series);
+    const b=digits(branch);
+    if(!s||!b||typeof window.fleet!=='object'||!window.fleet)return '';
+    try{
+      const units=window.fleet[s]?.units||{};
+      for(const [key,unit] of Object.entries(units)){
+        if(digits(unit?.rama)===b){
+          return normalize(unit?.vehiculoBase||key);
+        }
+      }
+    }catch(e){
+      console.warn('ARGOS · historial/ficha: error resolviendo rama',e);
+    }
+    return '';
+  }
+
+  function openService(service){
+    if(!service)return;
+
+    const series=normalize(service.series||service.serie||service.trainSeries);
+    let vehicle=normalize(service.vehicle||service.vehiculo||service.vehicleNumber);
+    const branch=normalize(service.branch||service.rama);
+
+    // Un registro normal ya contiene vehículo.
+    // Si es un registro por rama, obtenemos un vehículo representativo de esa rama
+    // solo para poder abrir la ficha de material.
+    if(!vehicle&&series&&branch){
+      vehicle=findVehicleByBranch(series,branch);
+    }
+
+    if(typeof window.openFicha==='function'){
+      try{
+        window.openFicha(series,vehicle,service);
+        return;
+      }catch(error){
+        console.error('ARGOS · historial/ficha: error al abrir openFicha',error);
+      }
+    }
+
+    // Fallback mínimo, por si el motor principal todavía no estuviera disponible.
+    const content=document.getElementById('fichaContent');
+    if(!content)return;
+
+    const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[c]));
+    const branchText=branch||'';
+    content.innerHTML=`
+      <div class="ficha-hero">
+        <div class="ficha-kicker">REGISTRO ARGOS</div>
+        <h3>Serie ${esc(series||'—')} · Rama ${esc(branchText||'—')}</h3>
+        <p>${vehicle?'Vehículo '+esc(vehicle)+' · ':''}Ficha consultada desde el historial</p>
+      </div>
+      <div class="ficha-section">
+        <div class="ficha-section-title">DATOS DEL SERVICIO</div>
+        <div class="ficha-grid">
+          <div><span>Nº de tren</span><strong>${esc(service.train||service.tren||'—')}</strong></div>
+          <div><span>Origen</span><strong>${esc(service.origin||service.origen||'—')}</strong></div>
+          <div><span>Destino</span><strong>${esc(service.destination||service.destino||'—')}</strong></div>
+          <div><span>Fecha</span><strong>${esc(service.date||service.fecha||'—')}</strong></div>
+        </div>
+      </div>`;
+    if(typeof window.showScreen==='function')window.showScreen('ficha');
+  }
+
+  function findServiceFromCard(card){
+    if(!card)return null;
+    const id=normalize(card.dataset.serviceId);
+    if(!id)return null;
+    return readServices().find(service=>normalize(service?.id)===id)||null;
+  }
+
+  function install(){
+    const list=document.getElementById('historyList');
+    if(!list||list.dataset.argosHistoryFichaFix==='1')return;
+    list.dataset.argosHistoryFichaFix='1';
+
+    list.addEventListener('click',function(event){
+      const card=event.target.closest('.history-card-clickable[data-service-id]');
+      if(!card||!list.contains(card))return;
+      if(event.target.closest('.argos-history-actions'))return;
+
+      const service=findServiceFromCard(card);
+      if(!service)return;
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      openService(service);
+    },true);
+
+    list.addEventListener('keydown',function(event){
+      const card=event.target.closest('.history-card-clickable[data-service-id]');
+      if(!card||!list.contains(card))return;
+      if(event.key!=='Enter'&&event.key!==' ')return;
+
+      const service=findServiceFromCard(card);
+      if(!service)return;
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      openService(service);
+    },true);
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',install,{once:true});
+  }else{
+    install();
+  }
+
+  // Por seguridad, si otro script reconstruye #historyList después del primer
+  // intento de instalación, el listener queda delegado al contenedor y sigue
+  // funcionando mientras exista el mismo #historyList.
+})();
+</script>
+
