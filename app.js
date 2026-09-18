@@ -29390,6 +29390,23 @@ function fleetFichaHtml(series,vehicle,service=null){
       <div class="ficha-general-grid">${general.map((n,i)=>`<div class="ficha-general-item"><span class="ficha-general-number">${String(i+1).padStart(2,"0")}</span><div>${esc(n)}</div></div>`).join("")}</div>
     </div>`:"";
 
+  // Valores usados por el encabezado de la ficha.
+  // Esta definición estaba ausente en la versión de la Serie 440 y hacía que
+  // fleetFichaHtml() lanzara ReferenceError al abrir una ficha desde Historial.
+  const vehiculoFicha=["103","104","120","121"].includes(normalizeFleetValue(series))
+    ? (unit.vehiculoBase||vehicle)
+    : (normalizeFleetValue(series)==="730" ? (unit.numero||vehicle) : vehicle);
+  const fichaRama = normalizeFleetValue(series)==="453"
+    ? String(Number(unit.rama||0))
+    : String(unit.rama||"");
+  const fichaSubserie = normalizeFleetValue(series)==="453"
+    ? (String(unit.numeroCoches||"").startsWith("8 coches") || String(unit.subserie||"").includes("453.6")
+        ? "453.6 · TL200 · 8 coches"
+        : "453.0 · TL100 · 4 coches")
+    : ((normalizeFleetValue(series)==="446" || normalizeFleetValue(series)==="447")
+        ? ""
+        : (unit.subserie||""));
+
   const fichaEs448 = normalizeFleetValue(series)==="448";
   const heroTitle = fichaEs448
     ? `Serie ${esc(series)} · Rama ${esc(fichaRama)}${unit.lote?` · ${esc(unit.lote)}`:""}`
