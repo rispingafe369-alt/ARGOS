@@ -9074,6 +9074,269 @@ const fleet = {
     }
   }
 },
+  "440": {
+    "seriesName": "Serie 440",
+    "fabricante": "CAF, MACOSA, WESA, MELCO, GEE",
+    "modelo": "Unidad eléctrica Serie 440",
+    "apodo": "",
+    "anoPuestaServicio": "1974–1985",
+    "tipoMaterial": "Cercanías y Regionales · Serie eléctrica 440",
+    "numeroCoches": "3 coches · M-R-Rc",
+    "anchoVia": "1668 mm",
+    "numeroRamas": 255,
+    "velocidadMaxima": "140 km/h",
+    "potencia": "1.578 CV (1.160 kW)",
+    "longitud": "80,16 m. (M-R-Rc)",
+    "peso": "133,2 t.",
+    "tension": "3.000 V",
+    "traccion": "4 motores de tracción · MELCO MB-3165 A2",
+    "tipoBogies": "Bimotor y monorreductor",
+    "frenos": "Aire comprimido",
+    "frenoElectrico": "Reostático y patines electromagnéticos al carril",
+    "mandoMultiple": "4 unidades",
+    "enganche": "Scharfenberg",
+    "composicion": "Bo'Bo' + 2'2' + 2'2'",
+    "unidadesConstruidas": 255,
+    "anoConstruccion": "1974–1985",
+    "generalNotes": [
+      "En la presente tabla se muestran todas las numeraciones de la serie 440 original con el objetivo de poder colgar fotografías de las unidades antes de su reforma o venta. Las unidades que todavía se encuentran en esta serie muestran todos sus detalles. Las vendidas a otros países y las transformadas a la serie 470 se detalla en la columna Notas.",
+      "Reseña histórica: Unidades eléctricas construidas en mayor número en la compañía ferroviaria española, con 255 ejemplares construidos de los que los dos últimos fueron construidos con tecnología chopper. Se dedicaron fundamentalmente a los servicios de cercanías en las grandes ciudades españolas con líneas electrificadas, pero también con servicios regionales de larga distancia. Fueron reformadas en la serie 470 para regionales y 440R para cercanías, manteniéndose algunos ejemplares en estado original para ambos tipos de servicios.",
+      "Color: Rojo y blanco cercanías (Rojo), naranja y blanco regionales (Naranja), gris con naranja y blanco regionales (Gris).",
+      "Asientos: Skay (SKY), regionales rojos (Reg) o los más modernos de regionales (Nuevos). Para cercanías nuevos: (Cerca).",
+      "Furgón: En el coche motor se marca SI si lo posee, y NO si se le ha transformado a espacio para viajeros.",
+      "Notas: Aligeradas de cercanías, de dos coches y reformadas solo interiormente y sin puerta en el testero (Aligeradas); regionales, de dos coches y sin reforma alguna, solo el color (recicladas); también destino internacional y reforma a serie 470."
+    ],
+    "tech": {
+      "fabricante": "CAF, MACOSA, WESA, MELCO, GEE",
+      "constructor": "CAF, MACOSA, WESA, MELCO, GEE",
+      "unidadesConstruidas": "255 ejemplares (253 + dos últimos con tecnología chopper)",
+      "anoConstruccion": "1974–1985",
+      "composicion": "Bo'Bo' + 2'2' + 2'2'",
+      "tipoBogies": "Bimotor y monorreductor",
+      "diametroRuedasMotor": "1.000 mm.",
+      "diametroRuedasRemolque": "940 mm.",
+      "anchoVia": "1.668 mm.",
+      "anchuraCaja": "2.900 mm.",
+      "alturaTechoMotor": "4.260 mm.",
+      "longitudMotor": "26.747 mm.",
+      "longitud": "80,16 m. (M-R-Rc)",
+      "tension": "3.000 Voltios",
+      "potencia": "1.578 CV (1.160 kW)",
+      "velocidadMaxima": "140 Km/h.",
+      "numeroMotoresTraccion": "4",
+      "tipoMotor": "MELCO MB-3165 A2",
+      "potenciaContinuaPorMotor": "395 CV (290 kW)",
+      "pesoMotor": "59 t.",
+      "peso": "133,2 t.",
+      "pesoPorEjeMotor": "14,77 t.",
+      "frenoElectrico": "Reostático y patines electromagnéticos al carril",
+      "frenos": "Aire comprimido",
+      "mandoMultiple": "4 unidades",
+      "enganche": "Scharfenberg"
+    },
+    "units": {
+    "131": {
+      "rama": "131",
+      "vehiculoBase": "131",
+      "numero": "9-440-131-1",
+      "vehiculosRama": ["9-440-131-1", "8-440-118-8"],
+      "searchCodes": ["131"],
+      "fabricante": "CAF, MACOSA, WESA, MELCO, GEE",
+      "une": "",
+      "deposito": "",
+      "color": "Cercanías",
+      "estado": "Apartada",
+      "asientos": "Nuevos",
+      "furgon": "no",
+      "lugar": "BCN-SAC",
+      "ano": 1978,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": ["Decoración de prueba de Cercanías diseño AD, finales de los 80. Ex-rem. intermedio 7-440-098-2, desguazado en Valladolid 10/03. Delta. Santander, durante verano 2004. Ex-Cercanías SAC. Ex-Apartada en BCN-SAC. Pruebas de tren-tierra, 2008>> Apartada en BCN-SAC, 12/08."]
+    },
+    "144": {
+      "rama": "144",
+      "vehiculoBase": "144",
+      "numero": "9-440-144-4",
+      "vehiculosRama": ["9-440-144-4", "7-440-144-4", "8-440-144-4"],
+      "searchCodes": ["144"],
+      "fabricante": "CAF, MACOSA, WESA, MELCO, GEE",
+      "une": "Media Dist.",
+      "deposito": "León",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Regio.",
+      "furgon": "no",
+      "lugar": "",
+      "ano": 1980,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": ["Reformada. Máquina autoventa en coche motor. Colores Renfe Op. Regionales. Ex-Cercanías. Apartada en Algodor, 10/11>> De nuevo en circulación, 02/12, colores Interurbanos. Ex-Santander>>León>>Miranda de Ebro, Desde 10/18>>León. Luces led 10/25."]
+    },
+    "154": {
+      "rama": "154",
+      "vehiculoBase": "154",
+      "numero": "9-440-154-3",
+      "vehiculosRama": ["9-440-154-3", "7-440-229-3", "8-440-111-3"],
+      "searchCodes": ["154"],
+      "fabricante": "CAF, MACOSA, WESA, MELCO, GEE",
+      "une": "",
+      "deposito": "",
+      "color": "Cercanías",
+      "estado": "Apartada",
+      "asientos": "Cerca",
+      "furgon": "No",
+      "lugar": "",
+      "ano": 1980,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": ["Ex-Llanera>>Sevilla desde 10/07>>Irún. Colores Renfe Operadora Cercanías>> Apartada en Miranda de Ebro 08/10>> Trasladada a Valladolid 09/10."]
+    },
+    "207": {
+      "rama": "207",
+      "vehiculoBase": "207",
+      "numero": "9-440-207-9",
+      "vehiculosRama": ["9-440-207-9", "8-440-209-5"],
+      "searchCodes": ["207"],
+      "fabricante": "CAF, MACOSA, WESA, MELCO, GEE",
+      "une": "Media Dist.",
+      "deposito": "Miranda de Ebro",
+      "color": "Blanco/Burdeos",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "no",
+      "lugar": "Miranda de Ebro",
+      "ano": 1983,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": ["Reformada. Ex-Delta. Cercanías. Colores Renfe Op. Ex BCN-SAC>> Santander. Apartada en Algodor, 09/09. Ex-Integra. Transferida a Renfe Viajeros, 12/13. Colores Interurbanos, desde 06/14. Miranda de Ebro 22/06/14>> León desde 05/21. Colores Intercity (Blanco/Burdeos). Miranda de Ebro, 10/21."]
+    },
+    "217": {
+      "rama": "217",
+      "vehiculoBase": "217",
+      "numero": "9-440-217-8",
+      "vehiculosRama": ["9-440-217-8", "7-440-212-9", "8-440-224-4"],
+      "searchCodes": ["217"],
+      "fabricante": "CAF, MACOSA, WESA, MELCO, GEE",
+      "une": "Media Dist.",
+      "deposito": "León",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Regionales",
+      "furgon": "No",
+      "lugar": "",
+      "ano": 1983,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": ["Reformada. Ex-Cercanías. Ex-Asientos 2+3 en Cercanías. Atocha>> cedida en S. Sebastian>> Ex-León>> Santander. Colores Interurbanos."]
+    },
+    "235": {
+      "rama": "235",
+      "vehiculoBase": "235",
+      "numero": "9-440-235-0",
+      "vehiculosRama": ["9-440-235-0", "7-440-225-1", "8-440-235-0"],
+      "searchCodes": ["235"],
+      "fabricante": "CAF, MACOSA, WESA, MELCO, GEE",
+      "une": "Media Dist.",
+      "deposito": "León",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Regionales",
+      "furgon": "no",
+      "lugar": "",
+      "ano": 1983,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": ["Ex-Cercanías Atocha. Asientos orientables de regionales. Reformada en TCR Valladolid. Desde 2007 en BCN, tras breve paso por León. En Santander desde 03/11 >> Accidente Mataporquera 03/05/11, apartada Mataporquera>> Colores Interurbanos desde 06/11, circula desde 09/11. Ex-Santander>> León. Faros led 10/25."]
+    },
+    "236": {
+      "rama": "236",
+      "vehiculoBase": "236",
+      "numero": "9-440-236-8",
+      "vehiculosRama": ["9-440-236-8", "8-440-236-8"],
+      "searchCodes": ["236"],
+      "fabricante": "CAF, MACOSA, WESA, MELCO, GEE",
+      "une": "Media Dist.",
+      "deposito": "León",
+      "color": "Blanco/Burdeos",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "lugar": "León",
+      "ano": 1983,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": ["Reformada. Ex-Delta. Cercanías. Colores Renfe Op., desde verano 08. Ex BCN-SAC>> Santander. Apartada en Algodor. Ex-Integra. Transferida a Renfe Viajeros, 12/13. Trasladada al TCR Málaga, 2014. Colores Intercity, 07/14. De nuevo en servicio, desde 12/14. Miranda de Ebro>> Desde 03/16, León. Colisión con 447-120R en Viérnoles 21/08/23."]
+    },
+    "237": {
+      "rama": "237",
+      "vehiculoBase": "237",
+      "numero": "9-440-237-6",
+      "vehiculosRama": ["9-440-237-6", "8-440-237-6"],
+      "searchCodes": ["237"],
+      "fabricante": "CAF, MACOSA, WESA, MELCO, GEE",
+      "une": "Media Dist.",
+      "deposito": "Miranda de Ebro",
+      "color": "Blanco/Burdeos",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "no",
+      "lugar": "Miranda de Ebro",
+      "ano": 1983,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": ["Reformada. Ex-Delta. Cercanías. Colores Renfe Op., escudos de Cantabria. Santander, desde 01/07. Apartada en Algodor>> Apartada en La Sagra, 10/12. Ex-Integra, transferida a Renfe Viajeros, 12/13. Trasladada al TCR Málaga, 06/14. Colores Intercity, 2015. De nuevo en servicio, desde 03/15 M.D. León>> Miranda de Ebro, 10/21."]
+    },
+    "239": {
+      "rama": "239",
+      "vehiculoBase": "239",
+      "numero": "9-440-239-2",
+      "vehiculosRama": ["9-440-239-2", "8-440-239-2"],
+      "searchCodes": ["239"],
+      "fabricante": "CAF, MACOSA, WESA, MELCO, GEE",
+      "une": "Media Dist.",
+      "deposito": "León",
+      "color": "Blanco/Burdeos",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "no",
+      "lugar": "",
+      "ano": 1983,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": ["Reformada. Ex-Delta. Cercanías. Colores Renfe Op. Ex BCN-SAC>> Santander. Apartada en Algodor. Ex-Integra. Transferida a Renfe Viajeros, 12/13. Trasladada al TCR de Málaga 2014. Colores Interurbanos. De nuevo en servicio, León."]
+    },
+    "247": {
+      "rama": "247",
+      "vehiculoBase": "247",
+      "numero": "9-440-247-5",
+      "vehiculosRama": ["9-440-247-5", "7-440-237-6", "8-440-247-5"],
+      "searchCodes": ["247"],
+      "fabricante": "CAF, MACOSA, WESA, MELCO, GEE",
+      "une": "Media Dist.",
+      "deposito": "León",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "MD",
+      "furgon": "no",
+      "lugar": "",
+      "ano": 1983,
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": ["Ex-Cercanías Sevilla. Traspasada a Media Distancia. Colores Renfe Op. Ex-León>> Santander>> BCN-SAC desde 10/10>> Santander, 2012. Colores interurbanos, desde 06/13. Valencia, verano 2013>> León, 11/13. Faros led 09/25."]
+    }
+    }
+  },
   "448": {
   "seriesName": "Serie 448 · 3 coches",
   "fabricante": "CAF, MACOSA, ATEINSA, MTM",
@@ -28503,6 +28766,38 @@ function getFleetUnit(series, vehicle){
     return {...base,numero:matchedVehicle||base.numero,vehiculoBase:code,vehiculoIntroducido:raw,vehiculoBuscado:code,vehiculoEncontrado:matchedVehicle,cocheTipo:cocheTipo||"Coche motor"};
   }
 
+  // Serie 440: el coche motor identifica directamente la rama.
+  // Ej.: 012 -> Rama 12. También se admiten matrículas completas de la serie 440.
+  if(s==="440"){
+    const raw=String(vehicle??"").trim();
+    const compact=raw.replace(/\s+/g,"");
+    let code="";
+    const full=compact.match(/(?:^|[-])440[-]?(\d{3})(?:[-]\d)?$/i);
+    if(full) code=full[1];
+    if(!code){
+      const renfeFull=compact.match(/(?:^|[-])(?:9|8)[-]?440[-]?(\d{3})(?:[-]\d)?$/i);
+      if(renfeFull) code=renfeFull[1];
+    }
+    if(!code && /^440\d{3}$/.test(compact)) code=compact.slice(3);
+    if(!code && /^\d{1,3}$/.test(compact)) code=compact.padStart(3,"0");
+    if(!code) return null;
+
+    const key=String(Number(code));
+    const base=seriesData.units?.[key];
+    if(!base) return null;
+    return {
+      ...base,
+      numero:base.numero,
+      vehiculoBase:code,
+      vehiculoIntroducido:raw,
+      vehiculoBuscado:code,
+      vehiculoEncontrado:base.numero,
+      cocheTipo:"Coche motor",
+      fabricante:base.fabricante||seriesData.fabricante,
+      numeroCoches:base.numeroCoches||seriesData.numeroCoches
+    };
+  }
+
   // Serie 599: SOLO los dos coches motor identifican la rama.
   // El remolque intermedio forma parte de la composición pero NO identifica
   // la rama en la búsqueda por vehículo. Ejemplo: 023 y 024 -> Rama 12.
@@ -28859,7 +29154,7 @@ if($("serviceForm"))$("serviceForm").addEventListener("submit",saveCurrentServic
 if($("serviceForm")){
   $("serviceForm").addEventListener("submit",function(e){
     const series=normalizeFleetValue($("series")?.value||"");
-    if(!["448","599","598"].includes(series)) return;
+    if(!["440","448","599","598"].includes(series)) return;
     const vehicle=String($("vehicle")?.value||"").trim();
     const branch=String($("branchValue")?.value||"").trim();
     const unit = getFleetUnit(series,vehicle) ||
@@ -28973,6 +29268,13 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${normalizeFleetValue(series)==="450"?`
         <div><span>Color</span><strong>${esc(unit.color||"—")}</strong></div>
         <div><span>Estado</span><strong>${esc(unit.estado||"—")}</strong></div>`:""}
+        ${normalizeFleetValue(series)==="440"?`
+        <div><span>UNE</span><strong>${esc(unit.une||"—")}</strong></div>
+        <div><span>Color</span><strong>${esc(unit.color||"—")}</strong></div>
+        <div><span>Estado</span><strong>${esc(unit.estado||"—")}</strong></div>
+        <div><span>Asientos</span><strong>${esc(unit.asientos||"—")}</strong></div>
+        <div><span>Furgón</span><strong>${esc(unit.furgon||"—")}</strong></div>
+        <div><span>Lugar</span><strong>${esc(unit.lugar||"—")}</strong></div>`:""}
         ${normalizeFleetValue(series)==="446"?`
         <div><span>LZB</span><strong>${esc(unit.lzb||"—")}</strong></div>
         <div><span>Vehículos de la rama</span><strong>${esc((unit.vehiculosRama||[]).join(" · ")||"—")}</strong></div>
@@ -29023,6 +29325,38 @@ function fleetFichaHtml(series,vehicle,service=null){
       </div>
     </div>`;
 
+  const technical440=normalizeFleetValue(series)==="440"?`
+    <div class="ficha-section">
+      <div class="ficha-section-title">CARACTERÍSTICAS TÉCNICAS</div>
+      <div class="ficha-grid">
+        <div><span>Constructor</span><strong>${esc(tech.constructor||tech.fabricante||"—")}</strong></div>
+        <div><span>Unidades construidas</span><strong>${esc(tech.unidadesConstruidas||"—")}</strong></div>
+        <div><span>Año de construcción</span><strong>${esc(tech.anoConstruccion||"—")}</strong></div>
+        <div><span>Composición</span><strong>${esc(tech.composicion||"—")}</strong></div>
+        <div><span>Tipo de bogie</span><strong>${esc(tech.tipoBogies||"—")}</strong></div>
+        <div><span>Diámetro de ruedas nuevas (Motor)</span><strong>${esc(tech.diametroRuedasMotor||"—")}</strong></div>
+        <div><span>Diámetro de ruedas nuevas (Remolque)</span><strong>${esc(tech.diametroRuedasRemolque||"—")}</strong></div>
+        <div><span>Ancho de vía</span><strong>${esc(tech.anchoVia||"—")}</strong></div>
+        <div><span>Anchura de la caja</span><strong>${esc(tech.anchuraCaja||"—")}</strong></div>
+        <div><span>Altura del techo sobre el carril (Motor)</span><strong>${esc(tech.alturaTechoMotor||"—")}</strong></div>
+        <div><span>Longitud entre topes (Motor)</span><strong>${esc(tech.longitudMotor||"—")}</strong></div>
+        <div><span>Longitud entre topes (Unidad)</span><strong>${esc(tech.longitud||"—")}</strong></div>
+        <div><span>Tensión de alimentación</span><strong>${esc(tech.tension||"—")}</strong></div>
+        <div><span>Potencia nominal</span><strong>${esc(tech.potencia||"—")}</strong></div>
+        <div><span>Velocidad máxima</span><strong>${esc(tech.velocidadMaxima||"—")}</strong></div>
+        <div><span>Número de motores de tracción</span><strong>${esc(tech.numeroMotoresTraccion||"—")}</strong></div>
+        <div><span>Tipo de motor</span><strong>${esc(tech.tipoMotor||"—")}</strong></div>
+        <div><span>Potencia continua por motor</span><strong>${esc(tech.potenciaContinuaPorMotor||"—")}</strong></div>
+        <div><span>Peso en orden de marcha (Motor)</span><strong>${esc(tech.pesoMotor||"—")}</strong></div>
+        <div><span>Peso en orden de marcha (Unidad)</span><strong>${esc(tech.peso||"—")}</strong></div>
+        <div><span>Peso por eje (Motor)</span><strong>${esc(tech.pesoPorEjeMotor||"—")}</strong></div>
+        <div><span>Freno eléctrico</span><strong>${esc(tech.frenoElectrico||"—")}</strong></div>
+        <div><span>Freno neumático</span><strong>${esc(tech.frenos||"—")}</strong></div>
+        <div><span>Mando múltiple</span><strong>${esc(tech.mandoMultiple||"—")}</strong></div>
+        <div><span>Tipo de enganche</span><strong>${esc(tech.enganche||"—")}</strong></div>
+      </div>
+    </div>`:"";
+
   // 3) Datos destacados de la rama.
   const highlights=notes.length?`
     <div class="ficha-section">
@@ -29057,6 +29391,7 @@ function fleetFichaHtml(series,vehicle,service=null){
   return `${hero}
     ${serviceBlock}
     ${identification}
+    ${technical440}
     ${highlights}
     ${serviceAnnotationsHtml(service)}
     ${generalBlock}`;
