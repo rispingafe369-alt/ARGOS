@@ -3985,7 +3985,7 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/5.0.8/jspdf.plugin.autotable.min.js"></script>
 
-<script src="app.js?v=20260918-440-historial-ficha-final"></script>
+<script src="app.js?v=20260918-470-series"></script>
 
 <script>
 (function(){
@@ -11107,6 +11107,10 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
             <div><span>Depósito / base</span><strong>${esc(unit.deposito||'—')}</strong></div>
             ${unit.color?`<div><span>Color</span><strong>${esc(unit.color)}</strong></div>`:''}
             ${unit.estado?`<div><span>Estado</span><strong>${esc(unit.estado)}</strong></div>`:''}
+            ${s==='470'?`
+            <div><span>UNE</span><strong>${esc(unit.une||'—')}</strong></div>
+            <div><span>Asientos</span><strong>${esc(unit.asientos||'—')}</strong></div>
+            <div><span>Furgón</span><strong>${esc(unit.furgon||'—')}</strong></div>`:''}
             ${unit.fechaAlta?`<div><span>Fecha de alta</span><strong>${esc(unit.fechaAlta)}</strong></div>`:''}
             ${unit.ancho||tech.anchoVia?`<div><span>Ancho de vía</span><strong>${esc(unit.ancho||tech.anchoVia)}${unit.ancho?' mm':''}</strong></div>`:''}
             ${fichaSubserie?`<div><span>Subserie</span><strong>${esc(fichaSubserie)}</strong></div>`:''}
@@ -12300,6 +12304,7 @@ body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,25
       if(!collection)return;
       Object.entries(collection).forEach(([key,unit])=>{
         if(!unit||typeof unit!=='object')return;
+        if(String(series)==='470' && /desguazad/i.test(String(unit.estado||'')))return;
         const branch=firstValue(unit,['rama','branch']);
         if(!branch)return;
         result.push({key,unit,branch,sourceLabel});
