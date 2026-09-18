@@ -3985,7 +3985,7 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/5.0.8/jspdf.plugin.autotable.min.js"></script>
 
-<script src="app.js?v=20260918-470-series"></script>
+<script src="app.js?v=20260918-594-series"></script>
 
 <script>
 (function(){
@@ -12323,7 +12323,8 @@ body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,25
     const map=new Map();
     items.forEach(item=>{
       const branchDigits=String(item.branch).replace(/\D/g,'');
-      const key=(branchDigits||item.branch.toLowerCase())+'|'+(item.sourceLabel||'');
+      const seriesKey=String(item?.unit?.subserie||'').startsWith('594.')?'|'+String(item.unit.subserie):'';
+      const key=(branchDigits||item.branch.toLowerCase())+'|'+(item.sourceLabel||'')+seriesKey;
       if(!map.has(key))map.set(key,item);
     });
     return [...map.values()];
