@@ -9337,6 +9337,1585 @@ const fleet = {
     }
     }
   },
+  "470": {
+  "seriesName": "Serie 470 · 3 coches",
+  "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+  "modelo": "Unidad eléctrica Serie 470",
+  "apodo": "",
+  "anoPuestaServicio": "Desde 1993 (transformaciones)",
+  "tipoMaterial": "Media Distancia · Regionales",
+  "numeroCoches": "3 coches · M-R-Rc",
+  "anchoVia": "1668 mm",
+  "numeroRamas": 57,
+  "numeroUnidades": "57 ramas transformadas",
+  "velocidadMaxima": "140 km/h",
+  "potencia": "1.160 kW",
+  "longitud": "80,2 m",
+  "peso": "156 t",
+  "tension": "3.000 V c.c.",
+  "traccion": "4 motores Mitsubishi/MELCO MB-3165 · 290 kW por motor",
+  "numeroMotoresTraccion": "4",
+  "potenciaContinuaPorMotor": "290 kW",
+  "tipoMotor": "Mitsubishi/MELCO MB-3165",
+  "mandoMultiple": "Hasta 3 unidades acopladas",
+  "enganche": "Scharfenberg",
+  "composicion": "Bo'Bo' + 2'2' + 2'2'",
+  "plazasSentadas": "220 o 270, según versión",
+  "capacidad": "220 o 270 plazas sentadas, según versión",
+  "frenos": "Aire comprimido",
+  "frenoElectrico": "Reostático (arquitectura heredada de la Serie 440)",
+  "tipoBogies": "Arquitectura de la Serie 440 reformada",
+  "equipamientoReforma": "Aire acondicionado, nueva iluminación, teleindicadores, megafonía, nuevos asientos, mejoras en aseos, puertas exteriores automáticas y espacio para bicicletas",
+  "generalNotes": [
+    "Las unidades 470 proceden de la transformación de unidades de la Serie 440 para servicios Regionales / Media Distancia, conservando el número de orden de la unidad de origen.",
+    "Composición normal de tres coches: un coche motor y dos remolques, uno de ellos con cabina. Longitud aproximada 80,2 m, potencia 1.160 kW y velocidad máxima 140 km/h. Alimentación de 3.000 V c.c. y ancho de vía 1.668 mm.",
+    "La transformación incorporó aire acondicionado y un nuevo interior: iluminación renovada, teleindicadores, sistema de audio/megafonía, nuevos asientos y mejoras en aseos; también se documentan puertas exteriores automáticas y espacio para bicicletas.",
+    "La capacidad de plazas sentadas varía según versión; las fuentes consultadas sitúan la capacidad en 220 o 270 plazas. En esta base, las unidades figuran con asientos 'Nuevos'.",
+    "Las labores de reforma fueron desarrolladas por CAF y por Talleres de Renfe de Valladolid y Málaga. La arquitectura de tracción procede de la 440, con cuatro motores de aproximadamente 290 kW cada uno.",
+    "Ninguna unidad de esta serie se registra con furgón en la configuración de la base, y todas se clasifican con asientos de Regionales / nuevos según la información aportada."
+  ],
+  "units": {
+    "5": {
+      "rama": "5",
+      "vehiculoBase": "005",
+      "numero": "9-470-005-0",
+      "vehiculosRama": [
+        "9-470-005-0",
+        "7-470-004-0",
+        "8-470-005-7"
+      ],
+      "searchCodes": [
+        "005"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 005",
+      "une": "Media Dist.",
+      "deposito": "León",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-005. 2 WC. Máquina autoventa. Colores Interurbanos desde 02/13. Vinilos Tren del Vino, primavera 2017. Valencia 12/17>>Fuencarral 2018>>Valencia. Arrollamiento de camión ferroviario 20/09/23; reparada en Miranda, útil desde 2023."
+      ]
+    },
+    "8": {
+      "rama": "8",
+      "vehiculoBase": "008",
+      "numero": "9-470-008-4",
+      "vehiculosRama": [
+        "9-470-008-4",
+        "7-470-002-7",
+        "8-470-016-7"
+      ],
+      "searchCodes": [
+        "008"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 008",
+      "une": "Media Dist.",
+      "deposito": "Santander",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-008. 2 WC. Transportines y máquina autoventa en furgón. Ex-Sevilla>>León desde 09/09. Colores Interurbanos desde 11/12. Ex-Miranda>>Valencia>>Miranda de Ebro>>Santander 06/20."
+      ]
+    },
+    "11": {
+      "rama": "11",
+      "vehiculoBase": "011",
+      "numero": "9-470-011-8",
+      "vehiculosRama": [
+        "9-470-011-8",
+        "7-470-003-5",
+        "8-470-012-6"
+      ],
+      "searchCodes": [
+        "011"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 011",
+      "une": "Media Dist.",
+      "deposito": "",
+      "color": "Blanco/Naranja",
+      "estado": "Baja",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-011. Colores Renfe Op., logos MD. Irún hasta 02/11>>León. Incendio en coche motor, 06/12. Apartada en León. Baja desde 11/12."
+      ]
+    },
+    "14": {
+      "rama": "14",
+      "vehiculoBase": "014",
+      "numero": "9-470-014-2",
+      "vehiculosRama": [
+        "9-470-014-2",
+        "7-470-026-6",
+        "8-470-014-2"
+      ],
+      "searchCodes": [
+        "014"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 014",
+      "une": "Media Dist.",
+      "deposito": "León",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-014. Máquina autoventa, 2 WC. Colores Renfe Operadora, logos MD. Ex-Sevilla>>Valencia desde 02/11>>León. Colores Interurbanos. Ex-Valencia>>Fuencarral 04/18>>León desde 29/11."
+      ]
+    },
+    "19": {
+      "rama": "19",
+      "vehiculoBase": "019",
+      "numero": "9-470-019-1",
+      "vehiculosRama": [
+        "9-470-019-1",
+        "7-470-010-0",
+        "8-470-017-5"
+      ],
+      "searchCodes": [
+        "019"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 019",
+      "une": "Media Dist.",
+      "deposito": "Valencia",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-019. Ex-León>>Barcelona>>Irún>>León. Colores Renfe Op., logos Gob. Navarra. Colores Interurbanos desde 09/13. Vinilos Tren del Vino primavera 2016. Ex-Miranda>>Valencia."
+      ]
+    },
+    "23": {
+      "rama": "23",
+      "vehiculoBase": "023",
+      "numero": "9-470-023-3",
+      "vehiculosRama": [
+        "9-470-023-3",
+        "7-470-014-2",
+        "8-470-023-3"
+      ],
+      "searchCodes": [
+        "023"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 023",
+      "une": "Media Dist.",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-023. Nuevo logo de Regionales. Colores Renfe Op.>>Interurbanos 04/13. Ex-León>>Ex-Valencia>>BCN-SAC. Máquina autoventa en coche motor."
+      ]
+    },
+    "25": {
+      "rama": "25",
+      "vehiculoBase": "025",
+      "numero": "9-470-025-8",
+      "vehiculosRama": [
+        "9-470-025-8",
+        "7-470-015-9",
+        "8-470-025-8"
+      ],
+      "searchCodes": [
+        "025"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 025",
+      "une": "Media Dist.",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-025. Nuevo logo de Regionales. Colores Renfe Op. desde 02/08. Ex-Irún>>Santander 11/10>>Valencia 07/13. Colores Interurbanos. Fuencarral 2019>>BCN-SAC desde 07/23."
+      ]
+    },
+    "35": {
+      "rama": "35",
+      "vehiculoBase": "035",
+      "numero": "9-470-035-7",
+      "vehiculosRama": [
+        "9-470-035-7",
+        "7-470-029-0",
+        "8-470-035-7"
+      ],
+      "searchCodes": [
+        "035"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 035",
+      "une": "Media Dist.",
+      "deposito": "",
+      "color": "Blanco/Negro",
+      "estado": "Incendiado",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-035. Ex-Castilla y León Exprés. Colores Renfe Op.>>Interurbanos 2011. Incendio del coche motor 035M en Marçà-Falset 25/07/20>>Ex BCN-SAC, apartada en Móra la Nova. Trasladada a TCR Vilanova. Licitado desguace 04/25."
+      ]
+    },
+    "41": {
+      "rama": "41",
+      "vehiculoBase": "041",
+      "numero": "9-470-041-5",
+      "vehiculosRama": [
+        "9-470-041-5",
+        "7-470-039-9",
+        "8-470-007-6"
+      ],
+      "searchCodes": [
+        "041"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 041",
+      "une": "Media Dist.",
+      "deposito": "Miranda de Ebro",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-041. Colores Renfe Op. Ex-León>>Fuencarral>>Valencia>>Lleida hasta 2005 con pantógrafos en el mismo sentido. Colores Interurbanos 07/11. Ex-Valencia>>Fuencarral 12/17>>Los Prados 06/21>>Miranda de Ebro. Apartada Zaragoza>>En servicio 08/25."
+      ]
+    },
+    "46": {
+      "rama": "46",
+      "vehiculoBase": "046",
+      "numero": "9-470-046-4",
+      "vehiculosRama": [
+        "9-470-046-4",
+        "7-470-046-4",
+        "8-470-046-4"
+      ],
+      "searchCodes": [
+        "046"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 046",
+      "une": "Media Dist.",
+      "deposito": "León",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-046. Colores Renfe Op.>>Colores Interurbanos desde 07/14."
+      ]
+    },
+    "70": {
+      "rama": "70",
+      "vehiculoBase": "070",
+      "numero": "9-470-070-4",
+      "vehiculosRama": [
+        "9-470-070-4",
+        "7-470-070-4",
+        "8-470-070-4"
+      ],
+      "searchCodes": [
+        "070"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 070",
+      "une": "Media Dist.",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-070. Ex-azul con flechas blancas>>Colores Renfe Op. Motor 070M incendiado en Gavà 02/09; de nuevo en servicio 04/09 con motor de 440-175 renumerado. Apartada en Fuencarral 03/12, ex BCN-SAC>>León. Colores Interurbanos desde finales de 2012. De nuevo en Barcelona SAC 03/14."
+      ]
+    },
+    "71": {
+      "rama": "71",
+      "vehiculoBase": "071",
+      "numero": "9-470-071-2",
+      "vehiculosRama": [
+        "9-470-071-2",
+        "7-470-042-3",
+        "8-470-071-2"
+      ],
+      "searchCodes": [
+        "071"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 071",
+      "une": "Media Dist.",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-071. Ex-Andalucía Exprés. Colores Renfe Op. (logos MD)>>Interurbanos desde 03/13. Ex BCN-SAC>>Zaragoza>>Miranda de Ebro 07/21 tras accidente con ganado. En circulación 02/22; BCN-SAC desde 02/24."
+      ]
+    },
+    "74": {
+      "rama": "74",
+      "vehiculoBase": "074",
+      "numero": "9-470-074-6",
+      "vehiculosRama": [
+        "9-470-074-6",
+        "7-470-066-2",
+        "8-470-019-1"
+      ],
+      "searchCodes": [
+        "074"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 074",
+      "une": "Media Dist.",
+      "deposito": "",
+      "color": "Blanco/Negro",
+      "estado": "Apartada",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-074. Nuevo logo de Regionales. Ex-Irún>>Fuencarral>>MD Santander desde 11/10. Colores Interurbanos desde 02/11. Refuerzo de ASFA. Hibernada en Fuencarral desde 12/15. En servicio 01/18. Apartada Fuencarral. Trasladada al TCR de Vilanova 09/21."
+      ]
+    },
+    "85": {
+      "rama": "85",
+      "vehiculoBase": "085",
+      "numero": "9-470-085-2",
+      "vehiculosRama": [
+        "9-470-085-2",
+        "7-470-085-2",
+        "8-470-090-2"
+      ],
+      "searchCodes": [
+        "085"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 085",
+      "une": "Media Dist.",
+      "deposito": "Miranda de Ebro",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-085. Colores Renfe Op. (logos MD)>>Interurbanos. Ex-Fuencarral>>Valencia>>Fuencarral>>Miranda de Ebro 12/16."
+      ]
+    },
+    "89": {
+      "rama": "89",
+      "vehiculoBase": "089",
+      "numero": "9-470-089-4",
+      "vehiculosRama": [
+        "9-470-089-4",
+        "7-470-089-4",
+        "8-470-098-5"
+      ],
+      "searchCodes": [
+        "089"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 089",
+      "une": "Media Dist.",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-089. Ex-Irún>>Barcelona>>León>>BCN-SAC. Colores Renfe Op. Apartada en Fuencarral 03/12>>Los Prados 05/12. Colores Interurbanos. León 10/12>>Fuencarral>>Barcelona 03/14."
+      ]
+    },
+    "90": {
+      "rama": "90",
+      "vehiculoBase": "090",
+      "numero": "9-470-090-2",
+      "vehiculosRama": [
+        "9-470-090-2",
+        "7-470-090-2",
+        "8-470-100-9"
+      ],
+      "searchCodes": [
+        "090"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 090",
+      "une": "Media Dist.",
+      "deposito": "Valencia",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-090. Ex Castilla y León Exprés. Ex-Barcelona>>León. Última unidad en activo con esos colores. Trasladada a Los Prados 09/14. Colores Interurbanos. Ex-León>>Valencia."
+      ]
+    },
+    "94": {
+      "rama": "94",
+      "vehiculoBase": "094",
+      "numero": "9-470-094-4",
+      "vehiculosRama": [
+        "9-470-094-4",
+        "7-470-094-4",
+        "8-470-108-2"
+      ],
+      "searchCodes": [
+        "094"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 094",
+      "une": "Media Dist.",
+      "deposito": "Zaragoza",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-094. Colores Renfe Op., logos MD. Baja por incendio en León del Mc, 12/08. Segregada en TCR Valladolid 06/09. Ex-Irún>>Miranda de Ebro. Logos Gob. de Navarra. Colores Interurbanos. Ex-Miranda>>Valencia>>Miranda 06/21>>Zaragoza."
+      ]
+    },
+    "95": {
+      "rama": "95",
+      "vehiculoBase": "095",
+      "numero": "9-470-095-1",
+      "vehiculosRama": [
+        "9-470-095-1",
+        "7-470-097-7",
+        "8-470-110-8"
+      ],
+      "searchCodes": [
+        "095"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 095",
+      "une": "Media Dist.",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-095. Ex-Castilla y León Exprés. Colores Renfe Op.>>Colores Interurbanos 03/14."
+      ]
+    },
+    "98": {
+      "rama": "98",
+      "vehiculoBase": "098",
+      "numero": "9-470-098-5",
+      "vehiculosRama": [
+        "9-470-098-5",
+        "7-470-099-3",
+        "8-470-128-0"
+      ],
+      "searchCodes": [
+        "098"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 098",
+      "une": "Regionales",
+      "deposito": "",
+      "color": "Regionales",
+      "estado": "Desguazada",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-098. Colores Renfe Operadora, logos MD. Máquina autoventa. 2 WC. Irún hasta 06/04>>Sevilla, hasta 01/06>>Irún, hasta 11/07>>Sevilla, hasta 06/10>>BCN-SAC. Ex-Media Distancia>>Baja en Valladolid 11/11. Licitado desguace 2013>>Desguazada."
+      ]
+    },
+    "99": {
+      "rama": "99",
+      "vehiculoBase": "099",
+      "numero": "9-470-099-3",
+      "vehiculosRama": [
+        "9-470-099-3",
+        "7-470-100-9",
+        "8-470-120-7"
+      ],
+      "searchCodes": [
+        "099"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 099",
+      "une": "Media Dist.",
+      "deposito": "Valencia",
+      "color": "Blanco/Negro",
+      "estado": "Accidentada",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-099. Asientos fijos en una sola orientación. Colores Renfe Op. Decoración Interurbanos. Accidente en Flaçà. Ex-apartada en Granollers-Centre. BCN>>Valencia 03/11>>Barcelona 08/13. Incendio 18/01/25 en Tortosa>>apartada en Valencia FSL."
+      ]
+    },
+    "100": {
+      "rama": "100",
+      "vehiculoBase": "100",
+      "numero": "9-470-100-9",
+      "vehiculosRama": [
+        "9-470-100-9",
+        "7-470-113-2",
+        "8-470-124-9"
+      ],
+      "searchCodes": [
+        "100"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 100",
+      "une": "Media Dist.",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-100. Nuevo logo de Regionales. Colores Renfe Op.>>Colores Interurbanos 2011."
+      ]
+    },
+    "101": {
+      "rama": "101",
+      "vehiculoBase": "101",
+      "numero": "9-470-101-7",
+      "vehiculosRama": [
+        "9-470-101-7",
+        "7-470-105-8",
+        "8-470-132-2"
+      ],
+      "searchCodes": [
+        "101"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 101",
+      "une": "Media Dist.",
+      "deposito": "Miranda de Ebro",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-101. Colores Renfe Op.>>Colores Interurbanos. Ex-Fuencarral>>Cercanías en Santander 02/20>>Miranda 06/20."
+      ]
+    },
+    "102": {
+      "rama": "102",
+      "vehiculoBase": "102",
+      "numero": "9-470-102-5",
+      "vehiculosRama": [
+        "9-470-102-5",
+        "7-470-152-0",
+        "8-470-164-5"
+      ],
+      "searchCodes": [
+        "102"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 102",
+      "une": "Media Dist.",
+      "deposito": "Fuencarral",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-102. Colores Renfe Op., logos Media Distancia. Ex-Irún, traspasada a Regionales Santander 11/10. Colores Interurbanos 05/13. Ex-Santander>>Fuencarral desde 08/24."
+      ]
+    },
+    "103": {
+      "rama": "103",
+      "vehiculoBase": "103",
+      "numero": "9-470-103-3",
+      "vehiculosRama": [
+        "9-470-103-3",
+        "7-470-127-2",
+        "8-470-039-9"
+      ],
+      "searchCodes": [
+        "103"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 103",
+      "une": "Media Dist.",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-103. Colores Renfe Op.>>Colores Interurbanos 07/11."
+      ]
+    },
+    "104": {
+      "rama": "104",
+      "vehiculoBase": "104",
+      "numero": "9-470-104-1",
+      "vehiculosRama": [
+        "9-470-104-1",
+        "7-470-112-4",
+        "8-470-130-6"
+      ],
+      "searchCodes": [
+        "104"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 104",
+      "une": "Media Dist.",
+      "deposito": "Miranda de Ebro",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-104. Última 470 transformada. Asientos fijos en una sola orientación. Colores Renfe Op. Colisión con un camión en la línea de Manresa en 2000. Ex BCN-SAC>>Color Interurbanos 06/16. León>>Miranda de Ebro desde 05/21."
+      ]
+    },
+    "106": {
+      "rama": "106",
+      "vehiculoBase": "106",
+      "numero": "9-470-106-6",
+      "vehiculosRama": [
+        "9-470-106-6",
+        "7-470-163-7",
+        "8-470-105-8"
+      ],
+      "searchCodes": [
+        "106"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 106",
+      "une": "Media Dist.",
+      "deposito": "León",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-106. Ex-Fuencarral>>Valencia 03/11. Color Interurbanos desde 05/13. Fuencarral 01/18>>León desde 29/01/26."
+      ]
+    },
+    "110": {
+      "rama": "110",
+      "vehiculoBase": "110",
+      "numero": "9-470-110-8",
+      "vehiculosRama": [
+        "9-470-110-8",
+        "7-470-007-6",
+        "8-470-099-3"
+      ],
+      "searchCodes": [
+        "110"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 110",
+      "une": "Media Dist.",
+      "deposito": "Miranda de Ebro",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-110. Ex-León>>Irún. Colores Renfe Op.>>Interurbanos 2011. Vinilos Tren del Vino otoño 2018. Vinilos Best Of Wine Tour 10/11/18."
+      ]
+    },
+    "111": {
+      "rama": "111",
+      "vehiculoBase": "111",
+      "numero": "9-470-111-6",
+      "vehiculosRama": [
+        "9-470-111-6",
+        "7-470-110-8",
+        "8-470-093-6"
+      ],
+      "searchCodes": [
+        "111"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 111",
+      "une": "Media Dist.",
+      "deposito": "Miranda de Ebro",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-111. Colores Renfe Op.>>Colores Interurbanos 10/07/13. Máquina autoventa en coche motor. Ex-Fuencarral>>Miranda desde 08/26."
+      ]
+    },
+    "114": {
+      "rama": "114",
+      "vehiculoBase": "114",
+      "numero": "9-470-114-9",
+      "vehiculosRama": [
+        "9-470-114-9",
+        "7-470-125-6",
+        "8-470-139-7"
+      ],
+      "searchCodes": [
+        "114"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 114",
+      "une": "Media Dist.",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-114. Colores Renfe Op.>>Colores Interurbanos 10/07/13. Retenida durante el temporal de Les Borges Blanques por inundaciones."
+      ]
+    },
+    "115": {
+      "rama": "115",
+      "vehiculoBase": "115",
+      "numero": "9-470-115-7",
+      "vehiculosRama": [
+        "9-470-115-7",
+        "7-470-119-9",
+        "8-470-129-8"
+      ],
+      "searchCodes": [
+        "115"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 115",
+      "une": "Media Dist.",
+      "deposito": "Valencia",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-115. 2 WC, transportines y máquina autoventa en furgón. Colores Renfe Op. Ex-Fuencarral>>Sevilla>>León>>Fuencarral. Colores Interurbanos 09/13. Valencia 2018."
+      ]
+    },
+    "116": {
+      "rama": "116",
+      "vehiculoBase": "116",
+      "numero": "9-470-116-5",
+      "vehiculosRama": [
+        "9-470-116-5",
+        "7-470-134-8",
+        "8-470-137-1"
+      ],
+      "searchCodes": [
+        "116"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 116",
+      "une": "Media Dist.",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-116. Colores Renfe Op. Descarrilo en Flaçà 09/10/10. Colores MD2 09/10. CETCS."
+      ]
+    },
+    "117": {
+      "rama": "117",
+      "vehiculoBase": "117",
+      "numero": "9-470-117-3",
+      "vehiculosRama": [
+        "9-470-117-3",
+        "7-470-116-5",
+        "8-470-089-4"
+      ],
+      "searchCodes": [
+        "117"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 117",
+      "une": "Media Dist.",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-117. Colores Renfe Op. Ex-BCN-SAC. Colores MD2. Ex-Valencia."
+      ]
+    },
+    "118": {
+      "rama": "118",
+      "vehiculoBase": "118",
+      "numero": "9-470-118-1",
+      "vehiculosRama": [
+        "9-470-118-1",
+        "7-470-123-1",
+        "8-470-116-5"
+      ],
+      "searchCodes": [
+        "118"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 118",
+      "une": "Media Dist.",
+      "deposito": "Valencia",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-118. Máquina autoventa en furgón. Colores Renfe Op., rotulación RC con error (lleva 117C y debería ser 116C). Colores Interurbanos desde 06/13. Ex Fuencarral>>León>>Sevilla desde 09/07>>León hasta 05/10>>Barcelona 01/11>>Ex BCN-SAC."
+      ]
+    },
+    "119": {
+      "rama": "119",
+      "vehiculoBase": "119",
+      "numero": "9-470-119-9",
+      "vehiculosRama": [
+        "9-470-119-9",
+        "7-470-124-9",
+        "8-470-154-6"
+      ],
+      "searchCodes": [
+        "119"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 119",
+      "une": "Media Dist.",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-119. BCN-SAC>>Fuencarral>>BCN-SAC. Colores Renfe Op.>>Colores Interurbanos, 2013."
+      ]
+    },
+    "120": {
+      "rama": "120",
+      "vehiculoBase": "120",
+      "numero": "9-470-120-7",
+      "vehiculosRama": [
+        "9-470-120-7",
+        "7-470-106-6",
+        "8-470-087-8"
+      ],
+      "searchCodes": [
+        "120"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 120",
+      "une": "Media Dist.",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-120. Colores Interurbanos, desde 05/11."
+      ]
+    },
+    "122": {
+      "rama": "122",
+      "vehiculoBase": "122",
+      "numero": "9-470-122-3",
+      "vehiculosRama": [
+        "9-470-122-3",
+        "7-470-129-8",
+        "8-470-125-6"
+      ],
+      "searchCodes": [
+        "122"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 122",
+      "une": "Media Dist.",
+      "deposito": "Fuencarral",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-122. Colores Renfe Op. Colores Interurbanos, 05/13. Máquina autoventa en coche motor. Ex-Santander>>Fuencarral desde 08/24."
+      ]
+    },
+    "123": {
+      "rama": "123",
+      "vehiculoBase": "123",
+      "numero": "9-470-123-1",
+      "vehiculosRama": [
+        "9-470-123-1",
+        "7-470-130-6",
+        "8-470-123-1"
+      ],
+      "searchCodes": [
+        "123"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 123",
+      "une": "Media Dist.",
+      "deposito": "Zaragoza",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-123. Máquina autoventa en coche 123C. Colores Renfe Op., desde 11/07. Colores Interurbanos 06/14. Ex-León>>Valencia>>Zaragoza 04/25."
+      ]
+    },
+    "124": {
+      "rama": "124",
+      "vehiculoBase": "124",
+      "numero": "9-470-124-9",
+      "vehiculosRama": [
+        "9-470-124-9",
+        "7-470-170-2",
+        "8-470-180-1"
+      ],
+      "searchCodes": [
+        "124"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 124",
+      "une": "Media Dist.",
+      "deposito": "Zaragoza",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-124. Colores Renfe Op.>>Colores Interurbanos 04/11. Ex-Irún. Vinilada en Vitoria con vinilos Tren del Vino otoño 2017, sin vinilos 05/18. Ex-Miranda>>Valencia desde 12/17. Ex-Fuencarral hasta 09/20."
+      ]
+    },
+    "126": {
+      "rama": "126",
+      "vehiculoBase": "126",
+      "numero": "9-470-126-4",
+      "vehiculosRama": [
+        "9-470-126-4",
+        "7-470-133-0",
+        "8-470-131-4"
+      ],
+      "searchCodes": [
+        "126"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 126",
+      "une": "",
+      "deposito": "",
+      "color": "Blanco/Naranja",
+      "estado": "Desguazada",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-126. Persianas interiores. Renfe Op. Ex-Fuencarral>>Valencia. Apartada en Algodor>>Desguazada."
+      ]
+    },
+    "128": {
+      "rama": "128",
+      "vehiculoBase": "128",
+      "numero": "9-470-128-8",
+      "vehiculosRama": [
+        "9-470-128-8",
+        "7-470-020-9",
+        "8-470-134-8"
+      ],
+      "searchCodes": [
+        "128"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 128",
+      "une": "Media Dist.",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-128. Asientos fijos en una sola orientación. Colores Renfe Op. Colores Interurbanos 01/12."
+      ]
+    },
+    "129": {
+      "rama": "129",
+      "vehiculoBase": "129",
+      "numero": "9-470-129-6",
+      "vehiculosRama": [
+        "9-470-129-6",
+        "7-470-135-5",
+        "8-470-135-5"
+      ],
+      "searchCodes": [
+        "129"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 129",
+      "une": "Cercanías",
+      "deposito": "Santander",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-129. Colores Renfe Op.>>Colores Interurbanos 18/07/13. Santander desde 02/19. UT asignada a Cercanías Santander."
+      ]
+    },
+    "136": {
+      "rama": "136",
+      "vehiculoBase": "136",
+      "numero": "9-470-136-3",
+      "vehiculosRama": [
+        "9-470-136-3",
+        "7-470-138-9",
+        "8-470-097-7"
+      ],
+      "searchCodes": [
+        "136"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 136",
+      "une": "Media Dist.",
+      "deposito": "Santander",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-136. Primera en Colores Renfe Op. Último REX Toledo-Madrid 15/11/05. Trasladada a Los Prados 05/12. Colores Interurbanos 2012. Ex-Irún>>Miranda de Ebro 12/17>>Santander 06/20."
+      ]
+    },
+    "137": {
+      "rama": "137",
+      "vehiculoBase": "137",
+      "numero": "9-470-137-1",
+      "vehiculosRama": [
+        "9-470-137-1",
+        "7-470-118-1",
+        "8-470-091-0"
+      ],
+      "searchCodes": [
+        "137"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 137",
+      "une": "Regionales",
+      "deposito": "",
+      "color": "Regionales",
+      "estado": "Desguazada",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-137. Máquina autoventa en furgón. Ex-Sevilla>>Fuencarral hasta 10/09. Apartada y dada de baja en TCR Valladolid 03/10. Licitado desguace 2013>>Desguazada 2014."
+      ]
+    },
+    "140": {
+      "rama": "140",
+      "vehiculoBase": "140",
+      "numero": "9-470-140-5",
+      "vehiculosRama": [
+        "9-470-140-5",
+        "7-470-140-5",
+        "8-470-140-5"
+      ],
+      "searchCodes": [
+        "140"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 140",
+      "une": "Media Dist.",
+      "deposito": "Zaragoza",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-140. Colores Renfe Op.>>Colores Interurbanos. Ex-Fuencarral>>Valencia>>Miranda de Ebro 09/10>>Valencia>>Miranda de Ebro 11/17>>Zaragoza 04/22."
+      ]
+    },
+    "155": {
+      "rama": "155",
+      "vehiculoBase": "155",
+      "numero": "9-470-155-3",
+      "vehiculosRama": [
+        "9-470-155-3",
+        "7-470-155-3",
+        "8-470-155-3"
+      ],
+      "searchCodes": [
+        "155"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 155",
+      "une": "Media Dist.",
+      "deposito": "Santander",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-155. Colores Renfe Op. Fuencarral hasta 07/09>>León>>Fuencarral. Colores Interurbanos desde 2014. Cercanías Santander 02/19."
+      ]
+    },
+    "156": {
+      "rama": "156",
+      "vehiculoBase": "156",
+      "numero": "9-470-156-1",
+      "vehiculosRama": [
+        "9-470-156-1",
+        "7-470-238-7",
+        "8-470-187-6"
+      ],
+      "searchCodes": [
+        "156"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 156",
+      "une": "Media Dist.",
+      "deposito": "León",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-156. Colores Renfe Op.>>Colores Interurbanos 16/09/13. Ex-Fuencarral. Vinilos Tren del Vino otoño 2015. Sin vinilos 10/17. Vinilos Tren del Vino primavera 2019. Miranda>>Santander desde 05/21>>León 2022."
+      ]
+    },
+    "163": {
+      "rama": "163",
+      "vehiculoBase": "163",
+      "numero": "9-470-163-7",
+      "vehiculosRama": [
+        "9-470-163-7",
+        "7-470-109-0",
+        "8-470-162-9"
+      ],
+      "searchCodes": [
+        "163"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 163",
+      "une": "Media Dist.",
+      "deposito": "Zaragoza",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-163. Máquina autoventa en coche motor. 2 WC. Colores Interurbanos 2012. Ex-León>>Santander>>Fuencarral 07/18. Accidentada>>vuelta al servicio 25/05/26."
+      ]
+    },
+    "171": {
+      "rama": "171",
+      "vehiculoBase": "171",
+      "numero": "9-470-171-0",
+      "vehiculosRama": [
+        "9-470-171-0",
+        "7-470-153-8",
+        "8-470-169-4"
+      ],
+      "searchCodes": [
+        "171"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 171",
+      "une": "Media Dist.",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-171. Máquina autoventa en furgón. Ex-Sevilla. Ex-Zaragoza pasa a formar parte de la dotación de Barcelona marzo 2025. Colores Renfe Op., logos MD>>Interurbanos 03/11>>Ex Miranda de Ebro>>Fuencarral 02/16>>Valencia desde 12/17>>Fuencarral hasta 09/20."
+      ]
+    },
+    "172": {
+      "rama": "172",
+      "vehiculoBase": "172",
+      "numero": "9-470-172-8",
+      "vehiculosRama": [
+        "9-470-172-8",
+        "7-470-169-4",
+        "8-470-173-6"
+      ],
+      "searchCodes": [
+        "172"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 172",
+      "une": "",
+      "deposito": "",
+      "color": "Blanco/Naranja",
+      "estado": "Apartada",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-172. Colores Renfe Operadora, logos MD. Ex-Sevilla>>León 04/10. Incendiada en Boquiñeni en un regional Logroño-Zaragoza>>Apartada."
+      ]
+    },
+    "173": {
+      "rama": "173",
+      "vehiculoBase": "173",
+      "numero": "9-470-173-6",
+      "vehiculosRama": [
+        "9-470-173-6",
+        "7-470-166-0",
+        "8-470-176-9"
+      ],
+      "searchCodes": [
+        "173"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 173",
+      "une": "Media Dist.",
+      "deposito": "Zaragoza",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-173. Indicadores exteriores luminosos. Máquina autoventa. Colores Renfe Op., logos MD. Sevilla>>León 06/10>>Valencia 06/11>>Miranda de Ebro. Colores Interurbanos 30/05/11. Vinilos Tren del Vino primavera 2018. Con Eurofaros 11/09/25."
+      ]
+    },
+    "174": {
+      "rama": "174",
+      "vehiculoBase": "174",
+      "numero": "9-470-174-4",
+      "vehiculosRama": [
+        "9-470-174-4",
+        "7-470-167-8",
+        "8-470-178-5"
+      ],
+      "searchCodes": [
+        "174"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 174",
+      "une": "Media Dist.",
+      "deposito": "Zaragoza",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-174. Colores Renfe Op.>>Interurbanos 26/10/13. Fuencarral hasta 09/20. Recorrido entre La Zaida y Quinto 29/08/24."
+      ]
+    },
+    "177": {
+      "rama": "177",
+      "vehiculoBase": "177",
+      "numero": "9-470-177-7",
+      "vehiculosRama": [
+        "9-470-177-7",
+        "7-470-173-6",
+        "8-470-172-8"
+      ],
+      "searchCodes": [
+        "177"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 177",
+      "une": "Media Dist.",
+      "deposito": "Miranda de Ebro",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-177. Indicadores destino luminosos. Máquina autoventa. Colores Interurbanos 06/12. Ex-León>>Santander>>Miranda de Ebro 07/16>>Santander 10/16>>Miranda 06/20."
+      ]
+    },
+    "186": {
+      "rama": "186",
+      "vehiculoBase": "186",
+      "numero": "9-470-186-8",
+      "vehiculosRama": [
+        "9-470-186-8",
+        "7-470-164-5",
+        "8-470-174-4"
+      ],
+      "searchCodes": [
+        "186"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 186",
+      "une": "",
+      "deposito": "",
+      "color": "Blanco/Naranja",
+      "estado": "Desguazada",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-186. Máquina autoventa. Colores Renfe Operadora, logos MD. Baja por incendio en Huerta de Valdecarábanos 06/09. Ex-Fuencarral. Desguazada en Fuencarral el 15/10/10."
+      ]
+    },
+    "187": {
+      "rama": "187",
+      "vehiculoBase": "187",
+      "numero": "9-470-187-6",
+      "vehiculosRama": [
+        "9-470-187-6",
+        "7-470-165-2",
+        "8-470-175-1"
+      ],
+      "searchCodes": [
+        "187"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 187",
+      "une": "Media Dist.",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-187. Colores Renfe Op., logos Media Distancia. Máquina autoventa. Ex-Andalucía Exprés hasta 04/04>>Irún hasta 01/06>>Sevilla hasta 05/10>>Barcelona. Nueva decoración Interurbanos con vinilos Media Distancia. Arrollamiento de piedras entre Tàrrega y Vilagrassa 11/11/17."
+      ]
+    },
+    "190": {
+      "rama": "190",
+      "vehiculoBase": "190",
+      "numero": "9-470-190-0",
+      "vehiculosRama": [
+        "9-470-190-0",
+        "7-470-172-8",
+        "8-470-182-7"
+      ],
+      "searchCodes": [
+        "190"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 190",
+      "une": "Media Dist.",
+      "deposito": "BCN-SAC",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-190. Máquina autoventa en furgón. Colores Renfe Op., logos MD>>Interurbanos 07/11. Sevilla>>Fuencarral desde 06/10. Última en las Lanzaderas de Córdoba a Los Rabanales. Ex-Fuencarral."
+      ]
+    },
+    "203": {
+      "rama": "203",
+      "vehiculoBase": "203",
+      "numero": "9-470-203-1",
+      "vehiculosRama": [
+        "9-470-203-1",
+        "7-470-190-0",
+        "8-470-203-1"
+      ],
+      "searchCodes": [
+        "203"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 203",
+      "une": "Media Dist.",
+      "deposito": "Miranda de Ebro",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-203. Máquina autoventa en furgón. Ex-Sevilla>>León>>Valencia desde 11/11. Colores Renfe Op., logos MD.>>Colores Interurbanos."
+      ]
+    },
+    "238": {
+      "rama": "238",
+      "vehiculoBase": "238",
+      "numero": "9-470-238-7",
+      "vehiculosRama": [
+        "9-470-238-7",
+        "7-470-228-8",
+        "8-470-238-7"
+      ],
+      "searchCodes": [
+        "238"
+      ],
+      "fabricante": "CAF · Talleres Renfe Valladolid y Málaga",
+      "procedencia": "Serie 440 · unidad 238",
+      "une": "Media Dist.",
+      "deposito": "Zaragoza",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "asientos": "Nuevos",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "3 coches · M-R-Rc",
+      "composicionRama": "Coche motor + remolque + remolque con cabina",
+      "notas": [
+        "Ex 440-238. Nuevo logo de Regionales. Colores Renfe Op., logos MD>>Colores Interurbanos. Máquina autoventa. Ex-Sevilla>>Barcelona 06/10>>Miranda de Ebro 08/10-12/10>>Santander>>Miranda de Ebro>>Santander>>Fuencarral 09/20. Incendio entre Arcos de Jalón y Medinaceli 24/09/23. De nuevo en servicio."
+      ]
+    }
+  }
+},
   "448": {
   "seriesName": "Serie 448 · 3 coches",
   "fabricante": "CAF, MACOSA, ATEINSA, MTM",
@@ -28798,6 +30377,34 @@ function getFleetUnit(series, vehicle){
     };
   }
 
+  // Serie 470: el coche motor identifica directamente la rama.
+  // Ej.: 012 -> Rama 12. Se aceptan códigos cortos y matrículas de la serie 470.
+  if(s==="470"){
+    const raw=String(vehicle??"").trim();
+    const compact=raw.replace(/\s+/g,"");
+    let code="";
+    const full=compact.match(/^(?:9[-]?)?470[-]?(\d{3})(?:[-]\d)?$/i);
+    if(full) code=full[1];
+    if(!code && /^470\d{3}$/.test(compact)) code=compact.slice(3);
+    if(!code && /^\d{1,3}$/.test(compact)) code=compact.padStart(3,"0");
+    if(!code) return null;
+
+    const key=String(Number(code));
+    const base=seriesData.units?.[key];
+    if(!base) return null;
+    return {
+      ...base,
+      numero:base.numero,
+      vehiculoBase:code,
+      vehiculoIntroducido:raw,
+      vehiculoBuscado:code,
+      vehiculoEncontrado:base.numero,
+      cocheTipo:"Coche motor",
+      fabricante:base.fabricante||seriesData.fabricante,
+      numeroCoches:base.numeroCoches||seriesData.numeroCoches
+    };
+  }
+
   // Serie 599: SOLO los dos coches motor identifican la rama.
   // El remolque intermedio forma parte de la composición pero NO identifica
   // la rama en la búsqueda por vehículo. Ejemplo: 023 y 024 -> Rama 12.
@@ -29154,7 +30761,7 @@ if($("serviceForm"))$("serviceForm").addEventListener("submit",saveCurrentServic
 if($("serviceForm")){
   $("serviceForm").addEventListener("submit",function(e){
     const series=normalizeFleetValue($("series")?.value||"");
-    if(!["440","448","599","598"].includes(series)) return;
+    if(!["440","448","599","598","470"].includes(series)) return;
     const vehicle=String($("vehicle")?.value||"").trim();
     const branch=String($("branchValue")?.value||"").trim();
     const unit = getFleetUnit(series,vehicle) ||
@@ -29283,6 +30890,14 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${fichaField("Asientos",unit.asientos)}
         ${fichaField("Furgón",unit.furgon)}
         ${fichaField("Lugar",unit.lugar)}`:""}
+        ${normalizeFleetValue(series)==="470"?`
+        ${fichaField("UNE",unit.une)}
+        ${fichaField("Color",unit.color)}
+        ${fichaField("Estado",unit.estado)}
+        ${fichaField("Asientos",unit.asientos)}
+        ${fichaField("Furgón",unit.furgon)}
+        ${fichaField("Vehículos de la rama",(unit.vehiculosRama||[]).join(" · "))}
+        ${fichaField("Procedencia",unit.procedencia)}`:""}
         ${normalizeFleetValue(series)==="446"?`
         <div><span>LZB</span><strong>${esc(unit.lzb||"—")}</strong></div>
         <div><span>Vehículos de la rama</span><strong>${esc((unit.vehiculosRama||[]).join(" · ")||"—")}</strong></div>
@@ -29365,6 +30980,31 @@ function fleetFichaHtml(series,vehicle,service=null){
       </div>
     </div>`:"";
 
+  const technical470=normalizeFleetValue(series)==="470"?`
+    <div class="ficha-section">
+      <div class="ficha-section-title">CARACTERÍSTICAS TÉCNICAS</div>
+      <div class="ficha-grid">
+        ${fichaField("Constructor",tech.constructor||tech.fabricante)}
+        ${fichaField("Composición",tech.composicion)}
+        ${fichaField("Ancho de vía",tech.anchoVia)}
+        ${fichaField("Longitud entre topes (Unidad)",tech.longitud)}
+        ${fichaField("Tensión de alimentación",tech.tension)}
+        ${fichaField("Potencia nominal",tech.potencia)}
+        ${fichaField("Velocidad máxima",tech.velocidadMaxima)}
+        ${fichaField("Número de motores de tracción",tech.numeroMotoresTraccion)}
+        ${fichaField("Tipo de motor",tech.tipoMotor)}
+        ${fichaField("Potencia continua por motor",tech.potenciaContinuaPorMotor)}
+        ${fichaField("Peso en orden de marcha (Unidad)",tech.peso)}
+        ${fichaField("Freno eléctrico",tech.frenoElectrico)}
+        ${fichaField("Freno neumático",tech.frenos)}
+        ${fichaField("Mando múltiple",tech.mandoMultiple)}
+        ${fichaField("Tipo de enganche",tech.enganche)}
+        ${fichaField("Tipo de bogies",tech.tipoBogies)}
+        ${fichaField("Plazas sentadas",tech.plazasSentadas)}
+        ${fichaField("Equipamiento de la reforma",tech.equipamientoReforma)}
+      </div>
+    </div>`:"";
+
   // 3) Datos destacados de la rama.
   const highlights=notes.length?`
     <div class="ficha-section">
@@ -29417,6 +31057,7 @@ function fleetFichaHtml(series,vehicle,service=null){
     ${serviceBlock}
     ${identification}
     ${technical440}
+    ${technical470}
     ${highlights}
     ${serviceAnnotationsHtml(service)}
     ${generalBlock}`;
@@ -29495,6 +31136,7 @@ function progressFleetBranches(series){
   const units=data.units||{};
   const branches=new Set();
   Object.values(units).forEach(unit=>{
+    if(key==="470" && /desguazad/i.test(String(unit?.estado||""))) return;
     const branch=progressBranchKey(unit?.rama);
     if(branch)branches.add(branch);
   });
