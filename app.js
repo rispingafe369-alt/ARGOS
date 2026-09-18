@@ -10922,12 +10922,12 @@ const fleet = {
   "fabricante": "CAF / MAN / Voith",
   "modelo": "TRD Serie 594",
   "apodo": "TRD",
-  "anoPuestaServicio": "1997–1999; subserie 594.2 reformada en 2003",
+  "anoPuestaServicio": "1997–1999",
   "tipoMaterial": "Media Distancia · Regionales · líneas no electrificadas",
   "numeroCoches": "2 coches · M-M",
   "anchoVia": "1668 mm",
-  "numeroRamas": 26,
-  "numeroUnidades": "25 unidades físicas: 16 originales + 7 de nueva construcción + 2 BRAVA; la 594-108 renumera a la 594-003",
+  "numeroRamas": 23,
+  "numeroUnidades": "23 unidades físicas: 15 de la serie 000 + 8 de la subserie 100; la 594-108 procede de la 594-003",
   "velocidadMaxima": "160 km/h",
   "potencia": "1.632 CV (1.200 kW)",
   "longitud": "47,348 m",
@@ -10950,8 +10950,8 @@ const fleet = {
   "composicion": "M-M",
   "generalNotes": [
     "Desde principios de 2006: Serie 000: serie original, inicialmente en Galicia y Andalucía. Han sido sustituidos por los 598. Actualmente en Cerro Negro y Valencia.",
-    "Serie 100: TRD con sistema SIBI de basculación. Desde Salamanca hicieron los servicios a Madrid y Palencia.",
-    "Serie 200: TRD de ancho variable con sistema BRAVA. Desde Zaragoza hicieron servicios a Huesca hasta su renumeración a número original.",
+    "Subserie 100: TRD con sistema SIBI de basculación. Desde Salamanca hicieron los servicios a Madrid y Palencia.",
+    "Subserie 200: TRD de ancho variable con sistema BRAVA. Desde Zaragoza hicieron servicios a Huesca hasta su renumeración a número original.",
     "Serie de 16 unidades de dos coches motores para servicios regionales en líneas no electrificadas. El 003 sirvió de pruebas para la construcción de la subserie 100, quedando integrado en ella y poseyendo el sistema SIBI de CAF de basculación activa. Existió la subserie 200 con dos trenes con los bogies BRAVA de ancho variable, procedentes de los trenes originales 9 y 16."
   ],
   "units": {
@@ -11009,34 +11009,6 @@ const fleet = {
       "subserie": "594.0",
       "notas": [
         "Fue \"A.D.R. Castelao\", en Vigo hasta verano 2001. Antiguo \"Sierra de Alhamilla\". Ex-Cerro Negro>>A Coruña. Colores Renfe Op. Reformado en Tradinsa, 05/09. 4º TRD con nuevo testero e interiorismo, 02/10. Incendiado en Perbes (A Coruña), 05/09/23. Apartado taller Ourense desde 22/07/16."
-      ]
-    },
-    "3": {
-      "rama": "3",
-      "vehiculoBase": "003",
-      "numero": "594-003-6",
-      "vehiculosRama": [
-        "594-003-6",
-        "594-503-5"
-      ],
-      "searchCodes": [
-        "003",
-        "503"
-      ],
-      "fabricante": "CAF / MAN / Voith",
-      "une": "",
-      "deposito": "",
-      "estado": "Reformada",
-      "ano": "1997",
-      "exNumero": "",
-      "asientos": "",
-      "furgon": "No",
-      "ancho": "1668",
-      "numeroCoches": "2 coches · M-M",
-      "composicionRama": "2 coches motores",
-      "subserie": "594.0",
-      "notas": [
-        "Fue \"Concepción Arenal\" y \"Sierra de Gador\". Reformado a 594-108-3."
       ]
     },
     "4": {
@@ -11204,7 +11176,7 @@ const fleet = {
       "composicionRama": "2 coches motores",
       "subserie": "594.0",
       "notas": [
-        "Fue \"Sierra de Grazalema\" y \"Sierra Tejada\". Ex-Sevilla>>Zaragoza. Pruebas de bogie Brava durante 2002, en línea AVE (Zaragoza). Renumerado a 594-201-6 (2003). Vuelto a numerar como 594-009-3 tras reinstalarse sus bogies originales. Valladolid-Puebla de Sanabria verano 2013. Trasladado a Trintinsa (Lleida), 11/02/15. TRD reformado con nuevo testero e interiorismo. Ex-Cerro Negro. Incendiado en Pozaldez (Valladolid), 05/09/24. Apartado en Salamanca."
+        "Fue \"Sierra de Grazalema\" y \"Sierra Tejada\". Ex-Sevilla>>Zaragoza. Pruebas de bogie Brava durante 2002, en línea AVE (Zaragoza). Renumerado temporalmente como 594-201-6 (subserie 200) en 2003. Vuelto a numerar como 594-009-3 tras reinstalarse sus bogies originales. Valladolid-Puebla de Sanabria verano 2013. Trasladado a Trintinsa (Lleida), 11/02/15. TRD reformado con nuevo testero e interiorismo. Ex-Cerro Negro. Incendiado en Pozaldez (Valladolid), 05/09/24. Apartado en Salamanca."
       ]
     },
     "10": {
@@ -11400,7 +11372,7 @@ const fleet = {
       "composicionRama": "2 coches motores",
       "subserie": "594.0",
       "notas": [
-        "Fue \"Casa de las conchas\". Pareja temporal con el 509 por accidente del 516 en Vigo. Ex-Salamanca>>Zaragoza. Pruebas de bogie Brava durante 2002, en línea AVE (Zaragoza). Renumerado a 594-202-4 (2003). Vuelto a numerar como 594-016-8 tras reinstalarse sus bogies originales, 06/09. Colores Renfe Op. Reformado en Tradinsa, 09/07. 5º TRD con nuevo testero e interiorismo 08/10. Ex-Valencia>>Ourense>>Salamanca>>Ourense."
+        "Fue \"Casa de las conchas\". Pareja temporal con el 509 por accidente del 516 en Vigo. Ex-Salamanca>>Zaragoza. Pruebas de bogie Brava durante 2002, en línea AVE (Zaragoza). Renumerado temporalmente como 594-202-4 (subserie 200) en 2003. Vuelto a numerar como 594-016-8 tras reinstalarse sus bogies originales, 06/09. Colores Renfe Op. Reformado en Tradinsa, 09/07. 5º TRD con nuevo testero e interiorismo 08/10. Ex-Valencia>>Ourense>>Salamanca>>Ourense."
       ]
     },
     "101": {
@@ -11627,62 +11599,6 @@ const fleet = {
         "Ex 594-003. Fue \"Sierra de Gador\" y \"Río Genil\". Ex-Sevilla>>Salamanca>>Valencia. Colores Renfe Op. Media Dist. Reformado sólo mecánicamente en CAF-Irún, 10/07 a 03/08. Ex-Cerro Negro>>Ourense. Apartado 20/08/15 TCR Valladolid."
       ]
     },
-    "201": {
-      "rama": "1",
-      "vehiculoBase": "201",
-      "numero": "594-201-6",
-      "vehiculosRama": [
-        "594-201-6",
-        "594-701-5"
-      ],
-      "searchCodes": [
-        "201",
-        "701"
-      ],
-      "fabricante": "CAF / MAN / Voith",
-      "une": "",
-      "deposito": "",
-      "estado": "Reformada",
-      "ano": "(2003)",
-      "exNumero": "594-009-3",
-      "asientos": "",
-      "furgon": "No",
-      "ancho": "1668",
-      "numeroCoches": "2 coches · M-M",
-      "composicionRama": "2 coches motores",
-      "subserie": "594.2",
-      "notas": [
-        "Ex 594-009-3. Colores Renfe Op. Ex-Zaragoza>>Valencia. Renumerado como 594-009-3 tras volver a instalar sus bogies originales."
-      ]
-    },
-    "202": {
-      "rama": "2",
-      "vehiculoBase": "202",
-      "numero": "594-202-4",
-      "vehiculosRama": [
-        "594-202-4",
-        "594-702-3"
-      ],
-      "searchCodes": [
-        "202",
-        "702"
-      ],
-      "fabricante": "CAF / MAN / Voith",
-      "une": "",
-      "deposito": "",
-      "estado": "Reformada",
-      "ano": "(2003)",
-      "exNumero": "594-016-8",
-      "asientos": "",
-      "furgon": "No",
-      "ancho": "1668",
-      "numeroCoches": "2 coches · M-M",
-      "composicionRama": "2 coches motores",
-      "subserie": "594.2",
-      "notas": [
-        "Ex 594-016-8. Colores Renfe Op. Ex-Zaragoza. Renumerado como 594-016-8 tras volver a instalar sus bogies originales, 06/09."
-      ]
-    }
   }
 },
   "448": {
@@ -30593,9 +30509,9 @@ function getFleetUnit(series, vehicle){
   if(!seriesData) return null;
 
   // Serie 594: se puede buscar por el coche motor o por su pareja.
-  // 594.0: 001-016 / 501-516 -> ramas 1-16.
+  // 594.0: 001-016 / 501-516 -> ramas 1-16, salvo la 003 que pasó a 594.1 como 108.
   // 594.1: 101-108 / 601-608 -> ramas 1-8.
-  // 594.2: 201-202 / 701-702 -> ramas 1-2.
+  // La antigua subserie 200 (594.2) no forma parte de la base actual: 201/701 y 202/702 se renumeraron como 009/509 y 016/516.
   if(s==="594"){
     const raw=String(vehicle??"").trim();
     const compact=raw.replace(/\s+/g,"");
