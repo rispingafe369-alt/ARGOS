@@ -10916,6 +10916,775 @@ const fleet = {
     }
   }
 },
+  "594": {
+  "seriesName": "Serie 594 · TRD · 2 coches",
+  "constructor": "CAF / MAN / Voith",
+  "fabricante": "CAF / MAN / Voith",
+  "modelo": "TRD Serie 594",
+  "apodo": "TRD",
+  "anoPuestaServicio": "1997–1999; subserie 594.2 reformada en 2003",
+  "tipoMaterial": "Media Distancia · Regionales · líneas no electrificadas",
+  "numeroCoches": "2 coches · M-M",
+  "anchoVia": "1668 mm",
+  "numeroRamas": 26,
+  "numeroUnidades": "25 unidades físicas: 16 originales + 7 de nueva construcción + 2 BRAVA; la 594-108 renumera a la 594-003",
+  "velocidadMaxima": "160 km/h",
+  "potencia": "1.632 CV (1.200 kW)",
+  "longitud": "47,348 m",
+  "peso": "109 t",
+  "tension": "—",
+  "numeroMotoresTraccion": "4 motores diésel",
+  "tipoMotor": "MAN D-2866 LUE 602",
+  "potenciaContinuaPorMotor": "408 CV (300 kW) a 2.000 r.p.m.",
+  "diametroRuedas": "850 mm",
+  "anchoCaja": "2.937 mm",
+  "alturaTecho": "3.888 mm sobre el carril",
+  "longitudMotor": "23,674 m entre topes",
+  "numeroCilindros": "6 en línea",
+  "motoresDiesel": "4 (4 tiempos sobrealimentado)",
+  "transmision": "Hidráulica Voith T211 rzze",
+  "pesoPorEjeMotor": "13,62 t",
+  "frenos": "Aire comprimido",
+  "mandoMultiple": "5 unidades",
+  "enganche": "Scharfenberg",
+  "composicion": "M-M",
+  "generalNotes": [
+    "Desde principios de 2006: Serie 000: serie original, inicialmente en Galicia y Andalucía. Han sido sustituidos por los 598. Actualmente en Cerro Negro y Valencia.",
+    "Serie 100: TRD con sistema SIBI de basculación. Desde Salamanca hicieron los servicios a Madrid y Palencia.",
+    "Serie 200: TRD de ancho variable con sistema BRAVA. Desde Zaragoza hicieron servicios a Huesca hasta su renumeración a número original.",
+    "Serie de 16 unidades de dos coches motores para servicios regionales en líneas no electrificadas. El 003 sirvió de pruebas para la construcción de la subserie 100, quedando integrado en ella y poseyendo el sistema SIBI de CAF de basculación activa. Existió la subserie 200 con dos trenes con los bogies BRAVA de ancho variable, procedentes de los trenes originales 9 y 16."
+  ],
+  "units": {
+    "1": {
+      "rama": "1",
+      "vehiculoBase": "001",
+      "numero": "594-001-0",
+      "vehiculosRama": [
+        "594-001-0",
+        "594-501-9"
+      ],
+      "searchCodes": [
+        "001",
+        "501"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "Media Dist.",
+      "deposito": "Zaragoza",
+      "estado": "En servicio",
+      "ano": "1997",
+      "exNumero": "",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.0",
+      "notas": [
+        "Fue \"Emilia Pardo Bazán\". Ex-Vigo>>Valencia>>Ourense>>Valencia>>Cerro Negro. Colores Renfe Op.>>Colores Interurbanos. Ex-Zaragoza>>Salamanca>>Ourense>>Zaragoza 06/21."
+      ]
+    },
+    "2": {
+      "rama": "2",
+      "vehiculoBase": "002",
+      "numero": "594-002-8",
+      "vehiculosRama": [
+        "594-002-8",
+        "594-502-7"
+      ],
+      "searchCodes": [
+        "002",
+        "502"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "Media Dist.",
+      "deposito": "Ourense",
+      "estado": "Incendiado",
+      "ano": "1997",
+      "exNumero": "",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.0",
+      "notas": [
+        "Fue \"A.D.R. Castelao\", en Vigo hasta verano 2001. Antiguo \"Sierra de Alhamilla\". Ex-Cerro Negro>>A Coruña. Colores Renfe Op. Reformado en Tradinsa, 05/09. 4º TRD con nuevo testero e interiorismo, 02/10. Incendiado en Perbes (A Coruña), 05/09/23. Apartado taller Ourense desde 22/07/16."
+      ]
+    },
+    "3": {
+      "rama": "3",
+      "vehiculoBase": "003",
+      "numero": "594-003-6",
+      "vehiculosRama": [
+        "594-003-6",
+        "594-503-5"
+      ],
+      "searchCodes": [
+        "003",
+        "503"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "",
+      "deposito": "",
+      "estado": "Reformada",
+      "ano": "1997",
+      "exNumero": "",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.0",
+      "notas": [
+        "Fue \"Concepción Arenal\" y \"Sierra de Gador\". Reformado a 594-108-3."
+      ]
+    },
+    "4": {
+      "rama": "4",
+      "vehiculoBase": "004",
+      "numero": "594-004-4",
+      "vehiculosRama": [
+        "594-004-4",
+        "594-504-3"
+      ],
+      "searchCodes": [
+        "004",
+        "504"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "Media Dist.",
+      "deposito": "Zaragoza",
+      "estado": "En servicio",
+      "ano": "1997",
+      "exNumero": "",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.0",
+      "notas": [
+        "Fue \"Curros Enríquez\" en Vigo. Ex-Cerro Negro>>A Coruña>>Zaragoza 07/22. Colores Renfe Op., logos MD.>>Colores Interurbanos. Ex-Ourense."
+      ]
+    },
+    "5": {
+      "rama": "5",
+      "vehiculoBase": "005",
+      "numero": "594-005-1",
+      "vehiculosRama": [
+        "594-005-1",
+        "594-505-0"
+      ],
+      "searchCodes": [
+        "005",
+        "505"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "Media Dist.",
+      "deposito": "Salamanca",
+      "estado": "En servicio",
+      "ano": "1997",
+      "exNumero": "",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.0",
+      "notas": [
+        "Fue \"Ramón Piñeiro\". Ex-Vigo. En Salamanca mientras el 594-105 estaba en R, 2005. Colores Renfe Op. Ex-Valencia>>Cerro Negro>>A Coruña>>Ourense>>Valladolid. Apartado en TCR Valladolid. Trasladado a Tradinsa (Lleida), 16/09/14. TRD reformado con nuevo testero e interiorismo. Ex-Cerro Negro>>Ourense."
+      ]
+    },
+    "6": {
+      "rama": "6",
+      "vehiculoBase": "006",
+      "numero": "594-006-9",
+      "vehiculosRama": [
+        "594-006-9",
+        "594-506-8"
+      ],
+      "searchCodes": [
+        "006",
+        "506"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "Media Dist.",
+      "deposito": "Salamanca",
+      "estado": "En servicio",
+      "ano": "1997",
+      "exNumero": "",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.0",
+      "notas": [
+        "Fue \"Rosalía de Castro\". Ex-Vigo>>Valencia>>Salamanca>>Valencia>>Cerro Negro>>Valladolid>>Salamanca. Colores Renfe Op.>>Colores Interurbanos. Interior en estado original."
+      ]
+    },
+    "7": {
+      "rama": "7",
+      "vehiculoBase": "007",
+      "numero": "594-007-7",
+      "vehiculosRama": [
+        "594-007-7",
+        "594-507-6"
+      ],
+      "searchCodes": [
+        "007",
+        "507"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "Media Dist.",
+      "deposito": "Salamanca",
+      "estado": "Incendiado",
+      "ano": "1998",
+      "exNumero": "",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.0",
+      "notas": [
+        "Fue \"Sierra de Gador\" y \"Concepción Arenal\". Colores Renfe Op. y logos MD. Ex-Vigo>>Valencia>>Salamanca>>Cerro Negro>>A Coruña>>Ourense>>Valladolid. Apartado en TCR Valladolid. Trasladado a Tradinsa (Lleida), 16/09/14. TRD reformado con nuevo testero e interiorismo. Incendio en Sarriacín de Aliste 02/05/25; apartado en Salamanca."
+      ]
+    },
+    "8": {
+      "rama": "8",
+      "vehiculoBase": "008",
+      "numero": "594-008-5",
+      "vehiculosRama": [
+        "594-008-5",
+        "594-508-4"
+      ],
+      "searchCodes": [
+        "008",
+        "508"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "Media Dist.",
+      "deposito": "Zaragoza",
+      "estado": "En servicio",
+      "ano": "1998",
+      "exNumero": "",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.0",
+      "notas": [
+        "Fue \"Sierra de Alhamilla\", \"A Conqueiro\" y \"Sierra Tejada\". Ex-Sevilla>>Cerro Negro>>Salamanca>>Cerro Negro>>Valencia>>Cerro Negro. Colores Renfe Op. Descarillo Oza dos Ríos 28/12. Reformado en CAF-Irún, desde 20/02/08 hasta 02/12/08. 1º TRD con nuevo testero e interiorismo. De nuevo en servicio 21/12/08. Reformado a PMR (prototipo) por TCR Valladolid. Logos 75 años Renfe. Ex-Ourense>>Zaragoza 11/21."
+      ]
+    },
+    "9": {
+      "rama": "9",
+      "vehiculoBase": "009",
+      "numero": "594-009-3",
+      "vehiculosRama": [
+        "594-009-3",
+        "594-509-2"
+      ],
+      "searchCodes": [
+        "009",
+        "509"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "Media Dist.",
+      "deposito": "Salamanca",
+      "estado": "Incendiado",
+      "ano": "1998",
+      "exNumero": "594-201-6",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.0",
+      "notas": [
+        "Fue \"Sierra de Grazalema\" y \"Sierra Tejada\". Ex-Sevilla>>Zaragoza. Pruebas de bogie Brava durante 2002, en línea AVE (Zaragoza). Renumerado a 594-201-6 (2003). Vuelto a numerar como 594-009-3 tras reinstalarse sus bogies originales. Valladolid-Puebla de Sanabria verano 2013. Trasladado a Trintinsa (Lleida), 11/02/15. TRD reformado con nuevo testero e interiorismo. Ex-Cerro Negro. Incendiado en Pozaldez (Valladolid), 05/09/24. Apartado en Salamanca."
+      ]
+    },
+    "10": {
+      "rama": "10",
+      "vehiculoBase": "010",
+      "numero": "594-010-1",
+      "vehiculosRama": [
+        "594-010-1",
+        "594-510-0"
+      ],
+      "searchCodes": [
+        "010",
+        "510"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "Media Dist.",
+      "deposito": "Zaragoza",
+      "estado": "En servicio",
+      "ano": "1998",
+      "exNumero": "",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.0",
+      "notas": [
+        "Fue \"Sierra Nevada\" y \"Sierra de Alamilla\". Ex-Regionales Galicia. 1º con nuevos logos Renfe. Colores Renfe Op., logos MD. Reformado mecánicamente en CAF-Irún (verano 07). Valencia>>Ourense. Colores Interurbanos. Choque con puerta S. Esteban Sil 29/12/17. Incendio Maside 16/02/18."
+      ]
+    },
+    "11": {
+      "rama": "11",
+      "vehiculoBase": "011",
+      "numero": "594-011-9",
+      "vehiculosRama": [
+        "594-011-9",
+        "594-511-8"
+      ],
+      "searchCodes": [
+        "011",
+        "511"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "Media Dist.",
+      "deposito": "Ourense",
+      "estado": "En servicio",
+      "ano": "1998",
+      "exNumero": "",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.0",
+      "notas": [
+        "Fue \"SerranÍa de Ronda\". Ex-Sevilla>>Cerro Negro>>Salamanca. Colores Renfe Op. Reformado en Tradinsa, 05/10. 6º TRD con nuevo testero e interiorismo, finales 2012. Ex-Salamanca>>Ourense desde 04/19>>Zaragoza desde 09/21>>Ourense 07/23."
+      ]
+    },
+    "12": {
+      "rama": "12",
+      "vehiculoBase": "012",
+      "numero": "594-012-7",
+      "vehiculosRama": [
+        "594-012-7",
+        "594-512-6"
+      ],
+      "searchCodes": [
+        "012",
+        "512"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "Media Dist.",
+      "deposito": "Ourense",
+      "estado": "En servicio",
+      "ano": "1998",
+      "exNumero": "",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.0",
+      "notas": [
+        "Fue \"Sierra de Tejada\" y \"Sierra Bermeja\". Ex-Sevilla>>Cerro Negro>>Valencia>>Salamanca>>Cerro Negro>>A Coruña. Colores Renfe Op. Reformado en CAF-Irún, 03/09. 2º TRD con nuevo testero e interiorismo. Ex-Valladolid>>Ourense. Incendio en Orense 08/01/23. De nuevo en servicio. Descarillo entre Campomarzo y Bandeira 18/01/23."
+      ]
+    },
+    "13": {
+      "rama": "13",
+      "vehiculoBase": "013",
+      "numero": "594-013-5",
+      "vehiculosRama": [
+        "594-013-5",
+        "594-513-4"
+      ],
+      "searchCodes": [
+        "013",
+        "513"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "Media Dist.",
+      "deposito": "Salamanca",
+      "estado": "En servicio",
+      "ano": "1998",
+      "exNumero": "",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.0",
+      "notas": [
+        "Fue \"Sierra de Ronda\". Ex-Sevilla>>Cerro Negro. Ex-Logos MD. Colores Renfe Op. Reformado en Tradinsa, 03/09. 3º TRD con nuevo testero e interiorismo, 07/09. Logos 75 años Renfe. Ex-Salamanca>>Ourense>>Cerro Negro 03/21>>Ourense 06/21>>Salamanca 04/22."
+      ]
+    },
+    "14": {
+      "rama": "14",
+      "vehiculoBase": "014",
+      "numero": "594-014-3",
+      "vehiculosRama": [
+        "594-014-3",
+        "594-514-2"
+      ],
+      "searchCodes": [
+        "014",
+        "514"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "Media Dist.",
+      "deposito": "Zaragoza",
+      "estado": "En servicio",
+      "ano": "1998",
+      "exNumero": "",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.0",
+      "notas": [
+        "Fue \"Torre del Gallo\" y \"Sierra Nevada\". Colores Renfe Op. 1er vehículo de Renfe con logos MD. Reformado mecánicamente en CAF-Irún, 2008. Colores interurbanos, 10/13. Ex-Zaragoza>>Salamanca>>Zaragoza desde 09/20."
+      ]
+    },
+    "15": {
+      "rama": "15",
+      "vehiculoBase": "015",
+      "numero": "594-015-0",
+      "vehiculosRama": [
+        "594-015-0",
+        "594-515-9"
+      ],
+      "searchCodes": [
+        "015",
+        "515"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "Media Dist.",
+      "deposito": "Ourense",
+      "estado": "Incendiado",
+      "ano": "1998",
+      "exNumero": "",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.0",
+      "notas": [
+        "Fue \"Plaza Mayor\". Colores Renfe Op. Ex-Galicia>>Sevilla, 2004>>Salamanca>>Cerro Negro>>Valencia>>Cerro Negro>>Valladolid>>Ourense>>Valladolid. Apartado en TCR Valladolid. Reformado en Tradinsa (Lleida) del 16/09/14 a 06/18. Ex-Salamanca>>Ourense desde 28/06/19. Incendio en Bézanos Infesta 28/08/19. Vinilos trenes turísticos Galicia desde 07/21. Incendio Curtis 28/10/25."
+      ]
+    },
+    "16": {
+      "rama": "16",
+      "vehiculoBase": "016",
+      "numero": "594-016-8",
+      "vehiculosRama": [
+        "594-016-8",
+        "594-516-7"
+      ],
+      "searchCodes": [
+        "016",
+        "516"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "Media Dist.",
+      "deposito": "Salamanca",
+      "estado": "En servicio",
+      "ano": "1998",
+      "exNumero": "594-202-4",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.0",
+      "notas": [
+        "Fue \"Casa de las conchas\". Pareja temporal con el 509 por accidente del 516 en Vigo. Ex-Salamanca>>Zaragoza. Pruebas de bogie Brava durante 2002, en línea AVE (Zaragoza). Renumerado a 594-202-4 (2003). Vuelto a numerar como 594-016-8 tras reinstalarse sus bogies originales, 06/09. Colores Renfe Op. Reformado en Tradinsa, 09/07. 5º TRD con nuevo testero e interiorismo 08/10. Ex-Valencia>>Ourense>>Salamanca>>Ourense."
+      ]
+    },
+    "101": {
+      "rama": "1",
+      "vehiculoBase": "101",
+      "numero": "594-101-8",
+      "vehiculosRama": [
+        "594-101-8",
+        "594-601-7"
+      ],
+      "searchCodes": [
+        "101",
+        "601"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "Media Dist.",
+      "deposito": "Ourense",
+      "estado": "En servicio",
+      "ano": "1999",
+      "exNumero": "",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.1",
+      "notas": [
+        "Fue \"Rocío Aranaz\" y \"Palacio de Monterrey\". Incendiado coche 601 en Ávila 05/12/04. De nuevo accidentado en Salamanca, reparado y reformado sólo mecánicamente en CAF-Irún 10/07. Colores Renfe Op. Ex-Salamanca>>Valencia>>Salamanca 04/09. Reformado en CAF Irún 10/09/15 a 03/18. Ex-Cerro Negro>>Murcia>>En Galicia desde 03/22."
+      ]
+    },
+    "102": {
+      "rama": "2",
+      "vehiculoBase": "102",
+      "numero": "594-102-6",
+      "vehiculosRama": [
+        "594-102-6",
+        "594-602-5"
+      ],
+      "searchCodes": [
+        "102",
+        "602"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "Media Dist.",
+      "deposito": "Ourense",
+      "estado": "En servicio",
+      "ano": "1999",
+      "exNumero": "",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.1",
+      "notas": [
+        "Fue \"Río Genil\" y \"Torre del Gallo\". Ex-Ourense>>Cerro Negro. Colores Renfe Op. Trasladado a CAF-Irún para reforma, 02/15 a 06/19>>Salamanca>>Ourense desde 29/01/20. Vinilos campos trenes turísticos verano 2021. Arrollamiento vehículo P.N. entre Recimil y San Vicente de Conexo 12/07/23."
+      ]
+    },
+    "103": {
+      "rama": "3",
+      "vehiculoBase": "103",
+      "numero": "594-103-4",
+      "vehiculosRama": [
+        "594-103-4",
+        "594-603-3"
+      ],
+      "searchCodes": [
+        "103",
+        "603"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "",
+      "deposito": "Ourense",
+      "estado": "Apartada",
+      "ano": "1999",
+      "exNumero": "",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.1",
+      "notas": [
+        "Fue \"Río Guadalhorce\". Ex-Sevilla>>Salamanca>>Valladolid>>Cerro Negro. Colores Renfe Op desde 07/07. Ex-A Coruña>>Cerro Negro. Reformada en CAF-Irún 02/15 a 10/16>>Murcia 11/16>>Cerro Negro 12/16>>Murcia>>Galicia desde 03/22. Incendio coche 603 en Botos (Lalín) 06/11/22. Apartado en Ourense."
+      ]
+    },
+    "104": {
+      "rama": "4",
+      "vehiculoBase": "104",
+      "numero": "594-104-2",
+      "vehiculosRama": [
+        "594-104-2",
+        "594-604-1"
+      ],
+      "searchCodes": [
+        "104",
+        "604"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "Media Dist.",
+      "deposito": "Ourense",
+      "estado": "En servicio",
+      "ano": "1999",
+      "exNumero": "",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.1",
+      "notas": [
+        "Fue \"Río Guadalquivir\". Logos Media Distancia. Colores Renfe Op. Reformado en CAF Irún, 02/15 a 06/16. Ex-Cerro Negro>>Murcia>>Galicia 06/22."
+      ]
+    },
+    "105": {
+      "rama": "5",
+      "vehiculoBase": "105",
+      "numero": "594-105-9",
+      "vehiculosRama": [
+        "594-105-9",
+        "594-605-8"
+      ],
+      "searchCodes": [
+        "105",
+        "605"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "Media Dist.",
+      "deposito": "Ourense",
+      "estado": "En servicio",
+      "ano": "1999",
+      "exNumero": "",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.1",
+      "notas": [
+        "Fue \"Río Guadairo\". Ex-Sevilla>>Cerro Negro>>Salamanca. Colores Renfe Op. Incendio en Hortaleza 26/07/09. Reformado en CAF Irún, 02/15 a 10/16>>Cerro Negro>>Murcia 11/16>>Galicia 01/21."
+      ]
+    },
+    "106": {
+      "rama": "6",
+      "vehiculoBase": "106",
+      "numero": "594-106-7",
+      "vehiculosRama": [
+        "594-106-7",
+        "594-606-6"
+      ],
+      "searchCodes": [
+        "106",
+        "606"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "Media Dist.",
+      "deposito": "Ourense",
+      "estado": "En servicio",
+      "ano": "1999",
+      "exNumero": "",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.1",
+      "notas": [
+        "Fue \"Río Darro\" y \"Casa de las Conchas\". Ex-Salamanca>>Sevilla>>Cerro Negro>>Salamanca>>Valladolid. Colores Renfe Op. desde 02/07. Reformado en CAF-Irún, 2015 a 02/17. Regionales Murcia-Cartagena. En Zaragoza desde 03/22>>Galicia 01/23. Arrollamiento Barrallore 06/01/25."
+      ]
+    },
+    "107": {
+      "rama": "7",
+      "vehiculoBase": "107",
+      "numero": "594-107-5",
+      "vehiculosRama": [
+        "594-107-5",
+        "594-607-4"
+      ],
+      "searchCodes": [
+        "107",
+        "607"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "",
+      "deposito": "",
+      "estado": "Apartada",
+      "ano": "1999",
+      "exNumero": "",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.1",
+      "notas": [
+        "Fue \"Plaza Mayor\". Logos Media distancia. Ex-Salamanca>>A Coruña>>Ourense. Colores Renfe Op. Incendiado en Villalba 22/03/11. Canibalizado en TRADINSA. Coche motor 107 apartado en Alzira. Canibalizado en BMI Valladolid."
+      ]
+    },
+    "108": {
+      "rama": "8",
+      "vehiculoBase": "108",
+      "numero": "594-108-3",
+      "vehiculosRama": [
+        "594-108-3",
+        "594-608-2"
+      ],
+      "searchCodes": [
+        "108",
+        "608"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "",
+      "deposito": "",
+      "estado": "Apartada",
+      "ano": "1999",
+      "exNumero": "594-003",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.1",
+      "notas": [
+        "Ex 594-003. Fue \"Sierra de Gador\" y \"Río Genil\". Ex-Sevilla>>Salamanca>>Valencia. Colores Renfe Op. Media Dist. Reformado sólo mecánicamente en CAF-Irún, 10/07 a 03/08. Ex-Cerro Negro>>Ourense. Apartado 20/08/15 TCR Valladolid."
+      ]
+    },
+    "201": {
+      "rama": "1",
+      "vehiculoBase": "201",
+      "numero": "594-201-6",
+      "vehiculosRama": [
+        "594-201-6",
+        "594-701-5"
+      ],
+      "searchCodes": [
+        "201",
+        "701"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "",
+      "deposito": "",
+      "estado": "Reformada",
+      "ano": "(2003)",
+      "exNumero": "594-009-3",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.2",
+      "notas": [
+        "Ex 594-009-3. Colores Renfe Op. Ex-Zaragoza>>Valencia. Renumerado como 594-009-3 tras volver a instalar sus bogies originales."
+      ]
+    },
+    "202": {
+      "rama": "2",
+      "vehiculoBase": "202",
+      "numero": "594-202-4",
+      "vehiculosRama": [
+        "594-202-4",
+        "594-702-3"
+      ],
+      "searchCodes": [
+        "202",
+        "702"
+      ],
+      "fabricante": "CAF / MAN / Voith",
+      "une": "",
+      "deposito": "",
+      "estado": "Reformada",
+      "ano": "(2003)",
+      "exNumero": "594-016-8",
+      "asientos": "",
+      "furgon": "No",
+      "ancho": "1668",
+      "numeroCoches": "2 coches · M-M",
+      "composicionRama": "2 coches motores",
+      "subserie": "594.2",
+      "notas": [
+        "Ex 594-016-8. Colores Renfe Op. Ex-Zaragoza. Renumerado como 594-016-8 tras volver a instalar sus bogies originales, 06/09."
+      ]
+    }
+  }
+},
   "448": {
   "seriesName": "Serie 448 · 3 coches",
   "fabricante": "CAF, MACOSA, ATEINSA, MTM",
@@ -29823,6 +30592,44 @@ function getFleetUnit(series, vehicle){
   if(s==="106") return getS106Unit(v);
   if(!seriesData) return null;
 
+  // Serie 594: se puede buscar por el coche motor o por su pareja.
+  // 594.0: 001-016 / 501-516 -> ramas 1-16.
+  // 594.1: 101-108 / 601-608 -> ramas 1-8.
+  // 594.2: 201-202 / 701-702 -> ramas 1-2.
+  if(s==="594"){
+    const raw=String(vehicle??"").trim();
+    const compact=raw.replace(/\s+/g,"");
+    let code="";
+    const full=compact.match(/(?:^|[-])594[-]?(\d{3})(?:[-]\d)?$/i);
+    if(full) code=full[1];
+    if(!code && /^594\d{3}$/.test(compact)) code=compact.slice(3);
+    if(!code && /^\d{1,3}$/.test(compact)) code=compact.padStart(3,"0");
+    if(!code) return null;
+
+    let base=null;
+    let key="";
+    for(const [unitKey,candidate] of Object.entries(seriesData.units||{})){
+      if((candidate.searchCodes||[]).map(String).includes(code)){
+        base=candidate;
+        key=unitKey;
+        break;
+      }
+    }
+    if(!base) return null;
+
+    return {
+      ...base,
+      numero:base.numero,
+      vehiculoBase:base.vehiculoBase,
+      vehiculoIntroducido:raw,
+      vehiculoBuscado:code,
+      vehiculoEncontrado:base.numero,
+      cocheTipo:"Coche motor",
+      fabricante:base.fabricante||seriesData.fabricante,
+      numeroCoches:base.numeroCoches||seriesData.numeroCoches
+    };
+  }
+
   // Serie 448: cualquiera de las ramas 001-031 se identifica por su código de tres cifras.
   // En el formulario, escribir 018 en Vehículo debe localizar la Rama 018.
   // También se aceptan matrículas 448-018-X / 9-448-018-X / 7-448-018-X / 8-448-018-X.
@@ -30863,7 +31670,7 @@ function fleetFichaHtml(series,vehicle,service=null){
       <div class="ficha-section-title">IDENTIFICACIÓN</div>
       <div class="ficha-grid">
         <div><span>Serie</span><strong>${esc(series)}</strong></div>
-        <div><span>Vehículo</span><strong>${esc(["103","104","120","121"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : vehicle)}</strong></div>
+        <div><span>Vehículo</span><strong>${esc(["103","104","120","121","594"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : vehicle)}</strong></div>
         <div><span>Rama</span><strong>${esc(unit.rama)}</strong></div>
         ${["446","447","463","464"].includes(normalizeFleetValue(series))?`<div><span>Lote</span><strong>${esc(unit.lote||"—")}</strong></div>`:""}
         ${(["102","112"].includes(normalizeFleetValue(series)))?`
@@ -30874,7 +31681,7 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${fichaField("Fabricante",unit.fabricante||tech?.fabricante)}
         ${fichaField("Número de coches",unit.numeroCoches||tech?.numeroCoches)}
         ${fichaField("Año",unit.ano)}
-        ${["130","730"].includes(normalizeFleetValue(series)) && unit.exNumero?`<div><span>${normalizeFleetValue(series)==="730"?"Ex-número · procedencia S-130":"Ex-número"}</span><strong>${esc(unit.exNumero)}</strong></div>`:""}
+        ${["130","730","594"].includes(normalizeFleetValue(series)) && unit.exNumero?`<div><span>${normalizeFleetValue(series)==="730"?"Ex-número · procedencia S-130":"Ex-número"}</span><strong>${esc(unit.exNumero)}</strong></div>`:""}
         ${fichaField("Depósito / base",unit.deposito)}
         ${normalizeFleetValue(series)==="453"?`
         <div><span>Color</span><strong>${esc(unit.color||"—")}</strong></div>
@@ -30898,6 +31705,13 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${fichaField("Furgón",unit.furgon)}
         ${fichaField("Vehículos de la rama",(unit.vehiculosRama||[]).join(" · "))}
         ${fichaField("Procedencia",unit.procedencia)}`:""}
+        ${normalizeFleetValue(series)==="594"?`
+        ${fichaField("UNE",unit.une)}
+        ${fichaField("Estado",unit.estado)}
+        ${fichaField("Asientos",unit.asientos)}
+        ${fichaField("Furgón",unit.furgon)}
+        ${fichaField("Subserie",unit.subserie)}
+        ${fichaField("Pareja",(unit.vehiculosRama||[])[1])}`:""}
         ${normalizeFleetValue(series)==="446"?`
         <div><span>LZB</span><strong>${esc(unit.lzb||"—")}</strong></div>
         <div><span>Vehículos de la rama</span><strong>${esc((unit.vehiculosRama||[]).join(" · ")||"—")}</strong></div>
@@ -30984,7 +31798,7 @@ function fleetFichaHtml(series,vehicle,service=null){
     <div class="ficha-section">
       <div class="ficha-section-title">CARACTERÍSTICAS TÉCNICAS</div>
       <div class="ficha-grid">
-        ${fichaField("Constructor",tech.fabricante||((Object.prototype.hasOwnProperty.call(tech,"constructor"))?tech.constructor:""))}
+        ${fichaField("Constructor",tech.constructor||tech.fabricante)}
         ${fichaField("Composición",tech.composicion)}
         ${fichaField("Ancho de vía",tech.anchoVia)}
         ${fichaField("Longitud entre topes (Unidad)",tech.longitud)}
@@ -31002,6 +31816,35 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${fichaField("Tipo de bogies",tech.tipoBogies)}
         ${fichaField("Plazas sentadas",tech.plazasSentadas)}
         ${fichaField("Equipamiento de la reforma",tech.equipamientoReforma)}
+      </div>
+    </div>`:"";
+
+  const technical594=normalizeFleetValue(series)==="594"?`
+    <div class="ficha-section">
+      <div class="ficha-section-title">CARACTERÍSTICAS TÉCNICAS</div>
+      <div class="ficha-grid">
+        ${fichaField("Constructor",tech.constructor)}
+        ${fichaField("Unidades construidas","16 + 7") }
+        ${fichaField("Año de construcción","1997 a 1998")}
+        ${fichaField("Composición",tech.composicion)}
+        ${fichaField("Nº de motores diésel",tech.motoresDiesel)}
+        ${fichaField("Tipo de motor",tech.tipoMotor)}
+        ${fichaField("Nº de cilindros",tech.numeroCilindros)}
+        ${fichaField("Transmisión",tech.transmision)}
+        ${fichaField("Diámetro de ruedas nuevas",tech.diametroRuedas)}
+        ${fichaField("Ancho de vía",tech.anchoVia)}
+        ${fichaField("Anchura de la caja",tech.anchoCaja)}
+        ${fichaField("Altura del techo sobre el carril",tech.alturaTecho)}
+        ${fichaField("Longitud entre topes (Motor)",tech.longitudMotor)}
+        ${fichaField("Longitud entre topes (Unidad)",tech.longitud)}
+        ${fichaField("Potencia nominal",tech.potencia)}
+        ${fichaField("Velocidad máxima",tech.velocidadMaxima)}
+        ${fichaField("Potencia continua por motor",tech.potenciaContinuaPorMotor)}
+        ${fichaField("Peso en orden de marcha (Unidad)",tech.peso)}
+        ${fichaField("Peso por eje (Motor)",tech.pesoPorEjeMotor)}
+        ${fichaField("Freno neumático",tech.frenos)}
+        ${fichaField("Mando múltiple",tech.mandoMultiple)}
+        ${fichaField("Tipo de enganche",tech.enganche)}
       </div>
     </div>`:"";
 
@@ -31033,7 +31876,7 @@ function fleetFichaHtml(series,vehicle,service=null){
   // Valores usados por el encabezado de la ficha.
   // Esta definición estaba ausente en la versión de la Serie 440 y hacía que
   // fleetFichaHtml() lanzara ReferenceError al abrir una ficha desde Historial.
-  const vehiculoFicha=["103","104","120","121"].includes(normalizeFleetValue(series))
+  const vehiculoFicha=["103","104","120","121","594"].includes(normalizeFleetValue(series))
     ? (unit.vehiculoBase||vehicle)
     : (normalizeFleetValue(series)==="730" ? (unit.numero||vehicle) : vehicle);
   const fichaRama = normalizeFleetValue(series)==="453"
@@ -31058,6 +31901,7 @@ function fleetFichaHtml(series,vehicle,service=null){
     ${identification}
     ${technical440}
     ${technical470}
+    ${technical594}
     ${highlights}
     ${serviceAnnotationsHtml(service)}
     ${generalBlock}`;
@@ -31128,6 +31972,27 @@ function progressBranchKey(value){
   return digits?String(Number(digits)):"";
 }
 
+function progressBranchIdentity(series,branch,vehicle,subserie){
+  const key=progressSeriesKey(series);
+  const b=progressBranchKey(branch);
+  if(!b)return"";
+  if(key!=="594")return b;
+  let sub=String(subserie??"").trim();
+  if(!sub&&vehicle){
+    try{sub=String(getFleetUnit(series,vehicle)?.subserie||"").trim();}catch(e){}
+  }
+  return sub?sub+"::"+b:"";
+}
+
+function progressBranchLabel(series,value){
+  const key=progressSeriesKey(series);
+  if(key==="594"&&String(value).includes("::")){
+    const [sub,b]=String(value).split("::");
+    return sub+" · Rama "+b;
+  }
+  return "Rama "+String(value);
+}
+
 function progressFleetBranches(series){
   const key=progressSeriesKey(series);
   const data=typeof fleet!=="undefined"?fleet[key]:null;
@@ -31137,11 +32002,17 @@ function progressFleetBranches(series){
   const branches=new Set();
   Object.values(units).forEach(unit=>{
     if(key==="470" && /desguazad/i.test(String(unit?.estado||""))) return;
-    const branch=progressBranchKey(unit?.rama);
+    const branch=progressBranchIdentity(key,unit?.rama,unit?.vehiculoBase,unit?.subserie);
     if(branch)branches.add(branch);
   });
 
   return [...branches].sort((a,b)=>{
+    if(key==="594"){
+      const [sa,ba]=String(a).split("::"),[sb,bb]=String(b).split("::");
+      const na=Number(ba),nb=Number(bb);
+      if(sa!==sb)return sa.localeCompare(sb,"es",{numeric:true});
+      return Number.isFinite(na)&&Number.isFinite(nb)?na-nb:String(ba).localeCompare(bb,"es",{numeric:true});
+    }
     const na=Number(a),nb=Number(b);
     return Number.isFinite(na)&&Number.isFinite(nb)?na-nb:String(a).localeCompare(String(b),'es',{numeric:true});
   });
@@ -31153,9 +32024,9 @@ function renderProgress(){
   services().forEach(service=>{
     const series=progressSeriesKey(service?.series); if(!series)return;
     if(!registered.has(series))registered.set(series,new Set());
-    const b=progressBranchKey(service?.branch); if(b)registered.get(series).add(b);
+    const b=progressBranchIdentity(series,service?.branch,service?.vehicle,service?.subserie); if(b)registered.get(series).add(b);
     const second=service?.doubleComposition&&service?.composition2;
-    const b2=progressBranchKey(second?.branch??second?.rama); if(b2)registered.get(series).add(b2);
+    const b2=progressBranchIdentity(series,second?.branch??second?.rama,second?.vehicle??second?.vehiculo,second?.subserie); if(b2)registered.get(series).add(b2);
   });
   const data=[...registered.entries()].map(([series,branches])=>{
     const totalBranches=progressFleetBranches(series); if(!totalBranches.length)return null;
@@ -31171,7 +32042,7 @@ function openProgressBranchModal(series){
   const modal=$("progressBranchModal"); if(!modal)return;
   initProgressModal();
   const key=progressSeriesKey(series), all=progressFleetBranches(key), registered=new Set();
-  services().forEach(service=>{if(progressSeriesKey(service?.series)!==key)return;const b=progressBranchKey(service?.branch);if(b)registered.add(b);const second=service?.doubleComposition&&service?.composition2;const b2=progressBranchKey(second?.branch??second?.rama);if(b2)registered.add(b2)});
+  services().forEach(service=>{if(progressSeriesKey(service?.series)!==key)return;const b=progressBranchIdentity(key,service?.branch,service?.vehicle,service?.subserie);if(b)registered.add(b);const second=service?.doubleComposition&&service?.composition2;const b2=progressBranchIdentity(key,second?.branch??second?.rama,second?.vehicle??second?.vehiculo,second?.subserie);if(b2)registered.add(b2)});
   const have=all.filter(b=>registered.has(b)), missing=all.filter(b=>!registered.has(b));
   $("progressBranchModalTitle").textContent=`Serie ${key}`;
   $("progressBranchModalSummary").textContent=missing.length===0
@@ -31179,8 +32050,8 @@ function openProgressBranchModal(series){
     :`${have.length} de ${all.length} ramas registradas · ${missing.length} pendientes`;
   $("progressBranchHaveCount").textContent=String(have.length);
   $("progressBranchMissingCount").textContent=String(missing.length);
-  $("progressBranchHaveList").innerHTML=have.length?have.map(b=>`<span class="progress-branch-chip">Rama ${esc(b)}</span>`).join(''):'<div class="progress-branch-empty">Todavía no tienes ninguna rama registrada de esta serie.</div>';
-  $("progressBranchMissingList").innerHTML=missing.length?missing.map(b=>`<span class="progress-branch-chip">Rama ${esc(b)}</span>`).join(''):'<div class="progress-branch-empty progress-branch-complete">Has registrado todas las ramas de esta serie.</div>';
+  $("progressBranchHaveList").innerHTML=have.length?have.map(b=>`<span class="progress-branch-chip">${esc(progressBranchLabel(key,b))}</span>`).join(''):'<div class="progress-branch-empty">Todavía no tienes ninguna rama registrada de esta serie.</div>';
+  $("progressBranchMissingList").innerHTML=missing.length?missing.map(b=>`<span class="progress-branch-chip">${esc(progressBranchLabel(key,b))}</span>`).join(''):'<div class="progress-branch-empty progress-branch-complete">Has registrado todas las ramas de esta serie.</div>';
   modal.hidden=false; document.body.classList.add('argos-progress-modal-open');
   const close=modal.querySelector('[data-progress-modal-close]'); if(close&&close.matches('button'))setTimeout(()=>close.focus(),0);
 }
