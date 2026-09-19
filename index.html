@@ -15892,3 +15892,172 @@ body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,25
   else install();
 })();
 </script>
+
+
+<!-- ================================================================
+     ARGOS · PROTECCIÓN FINAL DE RAMAS DESGUAZADAS
+     Solo afecta a material no disponible; el resto del funcionamiento queda intacto.
+     ================================================================ -->
+<script id="argos-scrapped-final-guard-v1">
+(function(){
+  'use strict';
+
+  function catalogNum(value){
+    const digits=String(value??'').replace(/\D/g,'');
+    return digits?String(Number(digits)):'';
+  }
+  const excludedBranches={
+    "114":new Set(["5"]),
+    "130":new Set(["11","12","13","14","15","16","17","18","19","20","21","22","23","24","25"]),
+    "446":new Set(["11","18","42","56","58","67","96"]),
+    "447":new Set(["28","30","44"]),
+    "448":new Set(["18","19","22","28"]),
+    "598":new Set(["17"]),
+    "599":new Set(["15"])
+  };
+  const excludedVehicles={
+    "120":new Set(["361"]),
+    "450":new Set(["7"])
+  };
+
+  function findUnit(series,vehicle,branch){
+    const s=typeof normalizeFleetValue==='function'?normalizeFleetValue(series):catalogNum(series);
+    try{
+      const units=(typeof fleet!=='undefined'?fleet?.[s]?.units:null)||{};
+      const v=catalogNum(vehicle),b=catalogNum(branch);
+      for(const [key,unit] of Object.entries(units)){
+        const candidates=[key,unit?.vehiculoBase,unit?.numero,...(Array.isArray(unit?.searchCodes)?unit.searchCodes:[])].map(catalogNum);
+        if(v&&candidates.includes(v))return unit;
+      }
+      if(b){
+        for(const unit of Object.values(units))if(catalogNum(unit?.rama)===b)return unit;
+      }
+    }catch(e){}
+    return null;
+  }
+
+  function resolve(series,vehicle,branch){
+    const s=typeof normalizeFleetValue==='function'?normalizeFleetValue(series):catalogNum(series);
+    const v=catalogNum(vehicle),b=catalogNum(branch);
+    const unit=findUnit(s,vehicle,branch);
+    if(excludedBranches[s]?.has(b))return {type:'scrapped',series:s,branch:b||branch,vehicle:v,unit};
+    if(excludedVehicles[s]?.has(v))return {type:'scrapped',series:s,branch:catalogNum(unit?.rama)||b,vehicle:v,unit};
+    if(unit&&/desguazad/i.test(String(unit.estado||'')))return {type:'scrapped',series:s,branch:catalogNum(unit.rama)||b,vehicle:v,unit};
+    if(unit&&unit.transformadaA)return {type:'transformed',series:s,branch:catalogNum(unit.rama)||b,vehicle:v,unit};
+    return null;
+  }
+
+  function formBlocked(){
+    const s=document.getElementById('series')?.value||'';
+    const v=document.getElementById('vehicle')?.value||'';
+    const b=document.getElementById('branchValue')?.value||'';
+    const first=resolve(s,v,b);
+    if(first?.type==='scrapped')return first;
+
+    const check=document.getElementById('doubleComposition');
+    if(check?.checked){
+      const s2=document.getElementById('doubleSeries')?.value||'';
+      const v2=document.getElementById('doubleVehicle')?.value||'';
+      const b2=document.getElementById('doubleBranch')?.value||document.getElementById('doubleBranchValue')?.value||'';
+      const second=resolve(s2,v2,b2);
+      if(second?.type==='scrapped')return second;
+    }
+    return null;
+  }
+
+  function showScrapped(info){
+    document.getElementById('argosBranchVisitOverlay')?.remove();
+    document.getElementById('argosFirstBranchOverlay')?.remove();
+    let overlay=document.getElementById('argosScrappedBranchOverlayV1');
+    if(!overlay){
+      overlay=document.createElement('div');
+      overlay.id='argosScrappedBranchOverlayV1';
+      overlay.className='argos-branch-visit-overlay';
+      overlay.style.zIndex='2147483647';
+      document.body.appendChild(overlay);
+    }
+    const series=String(info?.series||'').trim();
+    const branch=String(info?.branch||'').trim();
+    const vehicle=String(info?.vehicle||'').trim();
+    const label=branch?`Serie ${escapeHtml(series)} · Rama ${escapeHtml(branch)}`:`Serie ${escapeHtml(series)}`;
+    overlay.innerHTML=`<div class="argos-branch-visit-modal argos-branch-visit-modal-v43" role="dialog" aria-modal="true">
+      <div class="argos-branch-visit-kicker">RAMA DESGUAZADA</div>
+      <h2>Rama desguazada</h2>
+      <p>Esta rama está marcada como desguazada en la base de material de ARGOS y no se puede registrar.</p>
+      <div class="argos-branch-visit-card"><strong>${label}</strong>${vehicle?`<span>Vehículo ${escapeHtml(vehicle)}</span>`:''}</div>
+      <div class="argos-branch-visit-actions"><button type="button" class="argos-branch-visit-menu" id="argosScrappedCloseV1">Aceptar y volver al menú</button></div>
+    </div>`;
+    overlay.querySelector('#argosScrappedCloseV1').onclick=()=>{overlay.remove();if(typeof showScreen==='function')showScreen('menu')};
+  }
+  function escapeHtml(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+
+  // Bloqueo por clic: llega antes que los listeners del botón/formulario.
+  document.addEventListener('click',function(e){
+    const button=e.target?.closest?.('#serviceForm button[type="submit"], #serviceForm input[type="submit"]');
+    if(!button)return;
+    const info=formBlocked();
+    if(!info)return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    showScrapped(info);
+  },true);
+
+  // El app.js también puede detectar el bloqueo antes que esta capa visual.
+  // En ese caso recibimos aquí el aviso y mostramos exactamente el mismo diálogo.
+  document.addEventListener('argos:scrapped-branch',function(e){
+    const info=e.detail||{};
+    showScrapped(resolve(info.series,info.vehicle,info.branch)||info);
+  },true);
+
+  // Bloqueo adicional del Enter para instalaciones que conserven una ruta
+  // antigua de guardado manual sin el interceptor de app.js.
+  document.addEventListener('keydown',function(e){
+    if(e.key!=='Enter')return;
+    const target=e.target;
+    if(!target?.closest?.('#serviceForm'))return;
+    const info=formBlocked();
+    if(!info)return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    showScrapped(info);
+  },true);
+
+  // Bloqueo por submit: respaldo para teclado y requestSubmit().
+  document.addEventListener('submit',function(e){
+    if(e.target!==document.getElementById('serviceForm'))return;
+    const info=formBlocked();
+    if(!info)return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    showScrapped(info);
+  },true);
+
+  // Si una ruta antigua consigue guardar antes de este guardado final, se deshace
+  // únicamente el servicio recién creado y se muestra el aviso correcto.
+  document.addEventListener('argos:service-saved',function(ev){
+    const service=ev.detail?.service;
+    if(!service)return;
+    const first=resolve(service.series,service.vehicle,service.branch);
+    let info=first?.type==='scrapped'?first:null;
+    if(!info&&service.doubleComposition&&service.composition2){
+      const c=service.composition2;
+      const second=resolve(c.series,c.vehicle,c.branch);
+      if(second?.type==='scrapped')info=second;
+    }
+    if(!info)return;
+
+    try{
+      const current=Array.isArray(ev.detail?.after)?ev.detail.after:[];
+      const filtered=current.filter(s=>String(s?.id||'')!==String(service?.id||''));
+      if(typeof saveServices==='function')saveServices(filtered);
+      if(typeof refreshHome==='function')refreshHome();
+      if(typeof renderHistory==='function')renderHistory();
+      if(typeof renderStats==='function')renderStats();
+      if(typeof renderProgress==='function')renderProgress();
+      if(typeof renderQuality==='function')renderQuality();
+    }catch(e){}
+    showScrapped(info);
+  },true);
+})();
+</script>
+
