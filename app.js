@@ -31899,6 +31899,138 @@ const fleet = {
       vehicleIndex
     };
   })(),
+
+  "252": {
+    "seriesName": "Serie 252",
+    "fabricante": "Krauss-Maffei / Meinfesa / CAF",
+    "modelo": "Locomotora eléctrica",
+    "anoPuestaServicio": "1991–1993",
+    "tipoMaterial": "Alta Velocidad · Grandes Líneas · Mercancías",
+    "numeroCoches": "1 locomotora",
+    "anchoVia": "1435 / 1668 mm",
+    "numeroRamas": 75,
+    "velocidadMaxima": "220 km/h con LZB · 160 km/h sin LZB",
+    "potencia": "5.600 kW (7.616 CV)",
+    "longitud": "20,380 m",
+    "peso": "90 t (1–11) · 87 t (resto)",
+    "tension": "25 kV CA / 3.000 V CC · bitensión en las 11 primeras",
+    "traccion": "4 motores de tracción",
+    "tipoBogies": "Bimotor",
+    "rodaje": "Bo'Bo'",
+    "composicion": "1 locomotora",
+    "esfuerzoTraccion": "29.571 kg a 70 km/h",
+    "tipoMotor": "TB 2.824-OGA02(P)",
+    "potenciaContinuaPorMotor": "1.428 kW (1.943 CV)",
+    "diametroRuedas": "1.250 mm",
+    "anchuraCaja": "3.100 mm",
+    "alturaTecho": "3.800 mm",
+    "pesoPorEje": "22,5 / 21,75 t",
+    "pesoPorMetro": "4,41 / 4,26 t",
+    "frenoElectrico": "Reostático y recuperación",
+    "frenos": "Aire comprimido",
+    "mandoMultiple": "Dos locomotoras",
+    "calefaccionTren": "Eléctrica",
+    "generalNotes": [
+      "Notas Generales: Construidas por Siemens desde 1992 para la línea de AVE Madrid-Sevilla y los trenes de viajeros del resto de la red. De 001 a 005 sólo pueden ser de ancho internacional, las otras 70 pueden ser de ambos anchos. Las últimas locomotoras solo poseen aparatos eléctricos para 3.000 Vcc.",
+      "Reseña histórica: Locomotoras construidas con ocasión de la primera línea AVE española, y a su vez, para sustituir varias series de locomotoras que alcanzaban ya cinco décadas de servicio. Son 75 locomotoras, de las cuales las 11 primeras en origen, y más unidades posteriormente, se usan en ancho internacional para el arrastre de trenes de alta velocidad. Las de ancho nacional se ocupan en exclusiva de los trenes de viajeros por el resto de líneas convencionales aunque han realizado pruebas con mercancías."
+    ],
+    "unidades": 75,
+    "constructor": "ABB, Henschel, Krauss-Maffei, Meinfesa, CAF, Siemens.",
+    "unidadesConstruidas": "75",
+    "anoConstruccion": "1991 a 93",
+    "tipoBogies": "Bimotor",
+    "diametroRuedas": "1.250 mm",
+    "anchuraCaja": "3.100 mm",
+    "alturaTecho": "3.800 mm",
+    "longitud": "20.380 mm",
+    "potencia": "7.616 CV (5.600 kW)",
+    "numeroMotoresTraccion": "4",
+    "tipoMotor": "TB 2.824-OGA02(P)",
+    "potenciaContinuaPorMotor": "1.943 CV (1.428 kW)",
+    "peso": "90 t (1 a 11), 87 t el resto",
+    "pesoPorEje": "22,5 / 21,75 t",
+    "pesoPorMetro": "4,41 / 4,26 t",
+    "frenoElectrico": "Reostático y recuperación",
+    "mandoMultiple": "Dos locomotoras",
+    "calefaccionTren": "Eléctrica",
+    "units": {
+      "1":{"rama":"1","vehiculoBase":"001","numero":"252-001-3","une":"AVE","deposito":"Cerro Negro","color":"Blanco/Negro","estado":"En servicio","ancho":"1435","ano":"1991","constructor":"Krauss-Maffei","notas":["LAV Madrid-Sevilla/Bobadilla. Amarillo/gris y logos AVE; blanco AVE y nueva decoración Renfe Operadora 03/08. Ex-La Sagra."]},
+      "2":{"rama":"2","vehiculoBase":"002","numero":"252-002-1","une":"AVE","deposito":"Cerro Negro","color":"Blanco/Negro","estado":"En servicio","ancho":"1435","ano":"1991","constructor":"Krauss-Maffei","notas":["LAV Madrid-Sevilla/Bobadilla. Ex-color A.V. Ex-La Sagra."]},
+      "3":{"rama":"3","vehiculoBase":"003","numero":"252-003-9","une":"AVE","deposito":"Cerro Negro","color":"Blanco/Negro","estado":"En servicio","ancho":"1435","ano":"1991","constructor":"Krauss-Maffei","notas":["LAV Madrid-Sevilla/Bobadilla. Ex-color A.V. Ex-La Sagra → Cerro Negro → Can Tunis."]},
+      "4":{"rama":"4","vehiculoBase":"004","numero":"252-004-7","une":"AVE","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1435","ano":"1991","constructor":"Krauss-Maffei","notas":["Ex-LAV Madrid-Sevilla/Bobadilla. Ex-color A.V. Ex-La Sagra → Can Tunis → Cerro Negro."]},
+      "5":{"rama":"5","vehiculoBase":"005","numero":"252-005-4","une":"AVE","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1435","ano":"1991","constructor":"Krauss-Maffei","notas":["Ex-LAV Madrid-Sevilla/Bobadilla. Ex-colores A.V. y Renfe Operadora. Ex-La Sagra → BCN-SAC."]},
+      "6":{"rama":"6","vehiculoBase":"006","numero":"252-006-2","une":"AVE","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1435","ano":"1991","constructor":"Krauss-Maffei","notas":["LAV Madrid-Sevilla/Bobadilla. Ex-color A.V. Ex-La Sagra."]},
+      "7":{"rama":"7","vehiculoBase":"007","numero":"252-007-0","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"Apartada","ancho":"1435","ano":"1991","constructor":"Krauss-Maffei","notas":["Ex-LAV Sevilla. Ex-La Sagra. Reformada para Mercancías UIC 01/12. Séptima de la serie en equipar ERTMS."]},
+      "8":{"rama":"8","vehiculoBase":"008","numero":"252-008-8","une":"AVE","deposito":"Cerro Negro","color":"Blanco/Negro","estado":"En servicio","ancho":"1435","ano":"1991","constructor":"Krauss-Maffei","notas":["Transferida a G.Líneas para LAV Madrid-Sevilla/Bobadilla. Color AVE blanco → Renfe Operadora AVE 27/04/08. Ex-La Sagra → Cerro Negro → Can Tunis."]},
+      "9":{"rama":"9","vehiculoBase":"009","numero":"252-009-6","une":"Alta Velocidad","estado":"Desguazada","ancho":"1435","ano":"1991","constructor":"Krauss-Maffei","notas":["Récord de velocidad de 302 km/h el 16/05/94. Incendiada en Sevilla Sta. Justa 11/04/05. Baja del parque 20/10/06. Desguazada en talleres de La Sagra 01/02/11."]},
+      "10":{"rama":"10","vehiculoBase":"010","numero":"252-010-4","color":"Blanco/Negro","estado":"Desguazada","ancho":"1435","ano":"1991","constructor":"Krauss-Maffei","notas":["Ancho UIC. Ex-LAV Sevilla/Málaga. Incendiada en LAV Barcelona (Candasnos) con Trenhotel 922 Benidorm-Vigo el 06/08/14. Apartada y posteriormente desguazada."]},
+      "11":{"rama":"11","vehiculoBase":"011","numero":"252-011-2","une":"AVE","deposito":"Cerro Negro","color":"Blanco/Negro","estado":"En servicio","ancho":"1435","ano":"1991","constructor":"Krauss-Maffei","notas":["LAV Madrid-Sevilla/Málaga. Ex-color A.V. Ex-La Sagra."]},
+      "12":{"rama":"12","vehiculoBase":"012","numero":"252-012-0","une":"Grandes Líneas","deposito":"Cerro Negro","color":"Blanco/Negro","estado":"En servicio","ancho":"1435","ano":"1991","constructor":"Krauss-Maffei","notas":["Ex-AVE. Ancho nacional (amarillo/gris) → ancho UIC para Madrid-Barcelona. Rombo de velocidad 200B. Logo Altaria. Colores Renfe Operadora. Ex-La Sagra."]},
+      "13":{"rama":"13","vehiculoBase":"013","numero":"252-013-8","une":"Grandes Líneas","deposito":"Fuencarral","color":"Blanco/Negro","estado":"Baja","ancho":"1668","ano":"1991","constructor":"Krauss-Maffei","notas":["Perteneció a AVE. Primera 252 ex-AVE en recibir colores de Grandes Líneas. Accidente con camión en Villanueva (Zaragoza) 26/04/03. Reforma en Lugo Llanera 07/10. Integria 01/11. Renfe Viajeros 12/13. Dada de baja y apartada en Valencia."]},
+      "14":{"rama":"14","vehiculoBase":"014","numero":"252-014-6","une":"Grandes Líneas","deposito":"Valencia","color":"Blanco/Negro","estado":"Apartada","ancho":"1668","ano":"1991","constructor":"Krauss-Maffei","notas":["Perteneció a AVE. Rombo de velocidad 200B. No tuvo color azul/blanco. Ex-Fuencarral → Miranda → Fuencarral. Bitensión 25 kV/3 kV. Apartada Valencia-FSL."]},
+      "15":{"rama":"15","vehiculoBase":"015","numero":"252-015-3","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"Apartada","ancho":"1435","ano":"1992","constructor":"Krauss-Maffei","notas":["Ex-AVE. Ancho ibérico → ancho UIC para LAV Barcelona. Rombo de velocidad 200B. Logo Altaria. Mercancías desde 06/14. Quinta de la serie equipada con ERTMS."]},
+      "16":{"rama":"16","vehiculoBase":"016","numero":"252-016-1","color":"Blanco/Negro","estado":"Apartada","ancho":"1668","constructor":"Meinfesa","notas":["Rombo de velocidad 200B. Colores Renfe Operadora desde 03/07. Ex-Fuencarral → Miranda → Fuencarral. Bitensión 25 kV/3 kV. Apartada 06/20. Ex-G.L. Redondela. Trasladada a Madrid 11/23."]},
+      "17":{"rama":"17","vehiculoBase":"017","numero":"252-017-9","color":"Blanco/Negro","estado":"Desguazada","ancho":"1435","ano":"1992","constructor":"Meinfesa","notas":["Rombo de velocidad 200B. Transformada a ancho internacional. Logo Altaria. Reformada para Mercancías UIC. Incendiada 02/14. Licitada 10/18, vendida a MTF. Desguazada en TCR Villaverde 16/04/19."]},
+      "18":{"rama":"18","vehiculoBase":"018","numero":"252-018-7","color":"Blanco/Negro","estado":"Apartada","ancho":"1668","constructor":"Meinfesa","notas":["Rombo de velocidad 220. Fue ancho UIC. Ex-Cerro Negro. Ex-logo Altaria. Ex-Fuencarral → Sta. Justa → BCN-SAC. Dada de baja 04/11. Apartada en Villaverde Bajo y canibalizada."]},
+      "19":{"rama":"19","vehiculoBase":"019","numero":"252-019-5","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"Apartada","ancho":"1435","ano":"1992","constructor":"Meinfesa","notas":["Rombo de velocidad 200B. Ex-G.L. Fuencarral → Miranda → Can Tunis. Primera de la serie equipada con ERTMS."]},
+      "20":{"rama":"20","vehiculoBase":"020","numero":"252-020-3","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"Apartada","ancho":"1435","constructor":"Meinfesa","notas":["Rombo de velocidad 200B. Ancho UIC para LAV Barcelona. Logo Altaria. Renfe Mercancías desde 07/16. Novena de la serie equipada con ERTMS."]},
+      "21":{"rama":"21","vehiculoBase":"021","numero":"252-021-1","une":"Grandes Líneas","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Meinfesa","notas":["Rombo de velocidad 200B. Colores Renfe Operadora. Ex-Fuencarral → Miranda → Redondela. Bitensión 25 kV/3 kV."]},
+      "22":{"rama":"22","vehiculoBase":"022","numero":"252-022-9","une":"Grandes Líneas","deposito":"Fuencarral","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"CAF","notas":["ALTARIA (ex-ARCO). Rombo de velocidad 200B. Prototipo con LEDs en luces de posición y cola."]},
+      "23":{"rama":"23","vehiculoBase":"023","numero":"252-023-7","une":"Grandes Líneas","deposito":"Fuencarral","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"CAF","notas":["Ex-ARCO → ALTARIA. Rombo de velocidad 200B. Colores Renfe Operadora desde 03/13. Ex-Fuencarral → Miranda. Apartada Valencia F.S.L."]},
+      "24":{"rama":"24","vehiculoBase":"024","numero":"252-024-5","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"Apartada","ancho":"1435","ano":"1992","constructor":"Meinfesa","notas":["Ex-ARCO. Rombo de velocidad 200B. Transformada a ancho UIC Madrid-Barcelona. Tercera de la serie equipada con ERTMS 03/13. Reforma para mercancías UIC."]},
+      "25":{"rama":"25","vehiculoBase":"025","numero":"252-025-2","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"Apartada","ancho":"1435","ano":"1992","constructor":"Meinfesa","notas":["Ex-ARCO. Rombo de velocidad 200B. Transformada a ancho UIC Madrid-Barcelona. Segunda de la serie equipada con ERTMS. Reforma para mercancías UIC."]},
+      "26":{"rama":"26","vehiculoBase":"026","numero":"252-026-0","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1435","constructor":"Meinfesa","notas":["Ex-ARCO → Altaria. Rombo de velocidad 200B. Transformada a ancho internacional. Colores Renfe Operadora. Ex-G.L. Fuencarral → Mercancías UIC. Octava de la serie en equipar ERTMS."]},
+      "27":{"rama":"27","vehiculoBase":"027","numero":"252-027-8","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"Apartada","ancho":"1435","constructor":"CAF","notas":["Rombo de velocidad 200B. Transformada a ancho UIC Madrid-Barcelona 2002. Logo Altaria. Ex-La Sagra → Cerro Negro. Mercancías desde 01/14. Décima de la serie en equipar ERTMS."]},
+      "28":{"rama":"28","vehiculoBase":"028","numero":"252-028-6","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"Apartada","ancho":"1435","ano":"1992","constructor":"Meinfesa","notas":["Rombo de velocidad 200B. Ex-logo Altaria. Ex-La Sagra. Reformada para mercancías UIC. Sexta de la serie con ERTMS."]},
+      "29":{"rama":"29","vehiculoBase":"029","numero":"252-029-4","une":"Grandes Líneas","deposito":"Fuencarral","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","ano":"1992","constructor":"Meinfesa","notas":["Rombo de velocidad 200B. Ex-Can Tunis. Colores amarillo/negro → Renfe Operadora. No tuvo color GL. Ex-Fuencarral → Santa Justa → Fuencarral → Valencia. Última locomotora titular del Arco/Intercity Camino de Santiago (Rama Bilbaína), 01/03/20."]},
+      "30":{"rama":"30","vehiculoBase":"030","numero":"252-030-2","color":"Blanco/Negro","estado":"Baja","ancho":"1668","constructor":"Meinfesa","notas":["Rombo de velocidad 200B. Accidente en Burgos. Ex-Can Tunis → Miranda. Ex-Integria. Transferida a Renfe Viajeros 12/13. Apartada en Fuencarral 05/18 y canibalizada en TCR Villaverde."]},
+      "31":{"rama":"31","vehiculoBase":"031","numero":"252-031-0","color":"Blanco/Negro","estado":"Baja","ancho":"1668","constructor":"CAF","notas":["Rombo de velocidad 220B. Accidente en Sant Celoni 27/07/93. Transformada a ancho internacional para LAV Barcelona y posteriormente de nuevo a ibérico. Bitensión 25 kV/3 kV. Incendio en Ribadavia 27/11/18. Baja desde 01/21. Trasladada al TCR Villaverde."]},
+      "32":{"rama":"32","vehiculoBase":"032","numero":"252-032-8","une":"Grandes Líneas","deposito":"Fuencarral","color":"Blanco/Negro","estado":"Apartada","ancho":"1668","constructor":"Meinfesa","notas":["Rombo de velocidad 200B. Ex-Can Tunis. Colores Renfe Operadora. Ex-Fuencarral → Santa Justa → G.L. Fuencarral. Nuevos focos triple óptica. Traslado a La Sagra 28/07/25."]},
+      "33":{"rama":"33","vehiculoBase":"033","numero":"252-033-6","une":"Grandes Líneas","deposito":"Fuencarral","color":"Blanco/Negro","estado":"Apartada","ancho":"1668","constructor":"Meinfesa","notas":["Rombo de velocidad 200B. Ex-ALTARIA. Ex-Valencia → Fuencarral → La Sagra 29/08/26. Última locomotora que remolcó un tren de material convencional (ICTY 280 Coruña-Hendaya, 03/03/20)."]},
+      "34":{"rama":"34","vehiculoBase":"034","numero":"252-034-4","une":"Grandes Líneas","deposito":"Fuencarral","color":"Blanco/Negro","estado":"Apartada","ancho":"1668","constructor":"Meinfesa","notas":["Ex-ALTARIA. Rombo de velocidad 200B. Colores Renfe Operadora. Traslado a La Sagra 10/12/25."]},
+      "35":{"rama":"35","vehiculoBase":"035","numero":"252-035-1","une":"Grandes Líneas","deposito":"Fuencarral","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"CAF","notas":["ALTARIA. Rombo de velocidad 200B. Colores Renfe Operadora. Ex-Fuencarral → Sta. Justa → Miranda."]},
+      "36":{"rama":"36","vehiculoBase":"036","numero":"252-036-9","une":"Grandes Líneas","deposito":"Fuencarral","color":"Blanco/Negro","estado":"Baja","ancho":"1668","constructor":"Meinfesa","notas":["Ex-ALTARIA. Rombo de velocidad 200B. Colores Renfe Operadora desde 18/07/08. Ex-Fuencarral → Sta. Justa → Fuencarral → Miranda → Valencia. Dada de baja 12/25."]},
+      "37":{"rama":"37","vehiculoBase":"037","numero":"252-037-7","une":"Grandes Líneas","deposito":"Fuencarral","color":"Blanco/Negro","estado":"Apartada","ancho":"1668","constructor":"Meinfesa","notas":["ALTARIA. Rombo de velocidad 200B. Nuevos focos triple óptica. Ex-Fuencarral → Valencia. Traslado a La Sagra 10/12/25."]},
+      "38":{"rama":"38","vehiculoBase":"038","numero":"252-038-5","une":"Grandes Líneas","deposito":"Fuencarral","color":"Blanco/Negro","estado":"Apartada","ancho":"1668","constructor":"Meinfesa","notas":["Ex-ALTARIA. Rombo de velocidad 200B. Colores Renfe Operadora. Ex-Fuencarral → Miranda → Fuencarral. Apartada en La Sagra desde 28/08/26."]},
+      "39":{"rama":"39","vehiculoBase":"039","numero":"252-039-3","une":"Grandes Líneas","deposito":"Fuencarral","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"CAF","notas":["ALTARIA. Rombo de velocidad 200B. Recibe colores Renfe Operadora 15/10/08."]},
+      "40":{"rama":"40","vehiculoBase":"040","numero":"252-040-1","une":"Grandes Líneas","deposito":"Fuencarral","color":"Blanco/Negro","estado":"Apartada","ancho":"1668","constructor":"Meinfesa","notas":["Ex-ALTARIA. Rombo de velocidad 200B. Pegatina Amunt, Copa del Rey 2008. Colores Renfe Operadora desde 2008. Ex-Fuencarral → Miranda. Apartada TCR Villaverde → La Sagra."]},
+      "41":{"rama":"41","vehiculoBase":"041","numero":"252-041-9","une":"Grandes Líneas","deposito":"Fuencarral","color":"Blanco/Negro","estado":"Apartada","ancho":"1668","constructor":"Meinfesa","notas":["ALTARIA. Rombo de velocidad 200B. Accidente remolcando un Talgo en Les Borges Blanques en 1995 con la 440-153. Traslado a La Sagra 10/12/25."]},
+      "42":{"rama":"42","vehiculoBase":"042","numero":"252-042-7","une":"Grandes Líneas","deposito":"Fuencarral","color":"Blanco/Negro","estado":"Apartada","ancho":"1668","constructor":"Meinfesa","notas":["Rombo de velocidad 200B. ATP. Ex-Altaria. Ex-Can Tunis. Logos Alvia Picasso 11/07/13. Traslado a La Sagra 28/07/25."]},
+      "43":{"rama":"43","vehiculoBase":"043","numero":"252-043-5","une":"Grandes Líneas","deposito":"Fuencarral","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"CAF","notas":["ARCO. Rombo de velocidad 200B ATP. Ex-colores G.L. Colores Renfe Operadora. Ex-Can Tunis. Nuevos focos LED 10/25."]},
+      "44":{"rama":"44","vehiculoBase":"044","numero":"252-044-3","une":"Grandes Líneas","deposito":"Fuencarral","color":"Blanco/Negro","estado":"Apartada","ancho":"1668","constructor":"Meinfesa","notas":["ARCO. Rombo de velocidad 200B ATP. Ex-colores G.L. Colores Renfe Operadora. Ex-Can Tunis → Fuencarral. Apartada en La Sagra desde 28/08/26."]},
+      "45":{"rama":"45","vehiculoBase":"045","numero":"252-045-0","une":"Grandes Líneas","deposito":"Fuencarral","color":"Blanco/Negro","estado":"Apartada","ancho":"1668","constructor":"Meinfesa","notas":["ARCO. Rombo de velocidad 200B ATP. Ex-Can Tunis. Colores Renfe Operadora. Ex-Fuencarral → Irún → Fuencarral. Apartada en León. Traslado a La Sagra 10/12/25."]},
+      "46":{"rama":"46","vehiculoBase":"046","numero":"252-046-8","une":"Grandes Líneas","deposito":"Fuencarral","color":"Blanco/Negro","estado":"Apartada","ancho":"1668","constructor":"Meinfesa","notas":["Ex-ARCO. Rombo de velocidad 200B ATP. Ex-Can Tunis → Ex-Fuencarral → Miranda de Ebro. Traslado a La Sagra 28/07/25."]},
+      "47":{"rama":"47","vehiculoBase":"047","numero":"252-047-6","une":"Grandes Líneas","deposito":"Fuencarral","color":"Blanco/Negro","estado":"Apartada","ancho":"1668","constructor":"CAF","notas":["Ex-ARCO. Rombo de velocidad 200B ATP. Realizó pruebas con mercancías en Asturias 07/10. Ex-G.L. → Integria → G.L. Mantiene logos Integria. Traslado a La Sagra 28/07/25."]},
+      "48":{"rama":"48","vehiculoBase":"048","numero":"252-048-4","une":"Grandes Líneas","deposito":"Fuencarral","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Meinfesa","notas":["Ex-ARCO. Rombo de velocidad 200B ATP. Ex-Can Tunis → BCN-SAC. Colores Renfe Operadora 10/08."]},
+      "49":{"rama":"49","vehiculoBase":"049","numero":"252-049-2","color":"Blanco/Negro","estado":"Baja","ancho":"1668","constructor":"Meinfesa","notas":["ARCO. Rombo de velocidad 200B. Ex-Can Tunis → BCN-SAC. Ex-Integria. Transferida a Renfe Viajeros Miranda de Ebro 12/13. Apartada en Fuencarral y canibalizada."]},
+      "50":{"rama":"50","vehiculoBase":"050","numero":"252-050-0","une":"Grandes Líneas","deposito":"Valencia","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Meinfesa","notas":["Rombo de velocidad 200B. Colores Renfe Operadora. Ex-Can Tunis → BCN-SAC → Fuencarral."]},
+      "51":{"rama":"51","vehiculoBase":"051","numero":"252-051-8","color":"Blanco/Negro","estado":"Baja","ancho":"1668","constructor":"CAF","notas":["Ex-ARCO. Rombo de velocidad 200B. Colores Renfe Operadora. Ex-Can Tunis → BCN-SAC → Fuencarral. Apartada en Valencia Fuente de San Luis desde 09/07/17. Canibalizada. Licitado desguace 05/25."]},
+      "52":{"rama":"52","vehiculoBase":"052","numero":"252-052-6","une":"Grandes Líneas","deposito":"Valencia","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Meinfesa","notas":["ALTARIA. Rombo de velocidad 200B. Decoración Renfe Operadora 07/08. Ex-Can Tunis → BCN-SAC → Fuencarral."]},
+      "53":{"rama":"53","vehiculoBase":"053","numero":"252-053-4","une":"Grandes Líneas","deposito":"Valencia","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Meinfesa","notas":["Colores Renfe Operadora desde 09/06. Ex-Can Tunis → Fuencarral."]},
+      "54":{"rama":"54","vehiculoBase":"054","numero":"252-054-2","color":"Amarillo/Gris","estado":"Desguazada","ancho":"1668","constructor":"Meinfesa","notas":["Accidente en Las Correderas (Despeñaperros) 25/12/95. Desguazada en TCR Villaverde 04/98."]},
+      "55":{"rama":"55","vehiculoBase":"055","numero":"252-055-9","une":"Grandes Líneas","deposito":"Valencia","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"CAF","notas":["Rombo de velocidad 200B. Ex-Fuencarral. Ex-color G.L. Colores Renfe Operadora. Ex-Can Tunis → BCN-SAC."]},
+      "56":{"rama":"56","vehiculoBase":"056","numero":"252-056-7","une":"Grandes Líneas","deposito":"Valencia","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Meinfesa","notas":["Rombo de velocidad 200B. Descarrilo en Vilaverd 15/11/05. Ex-Fuencarral → Apartada Valencia FSL 03/20 → Can Tunis → BCN-SAC. Colores Renfe Operadora."]},
+      "57":{"rama":"57","vehiculoBase":"057","numero":"252-057-5","une":"Grandes Líneas","deposito":"Valencia","color":"Blanco/Negro","estado":"Apartada","ancho":"1668","constructor":"Meinfesa","notas":["Rombo de velocidad 200B. Ex-Fuencarral. Colores Renfe Operadora 01/08. No tuvo color GL. Ex-Can Tunis → BCN-SAC. Traslado a La Sagra 28/07/25."]},
+      "58":{"rama":"58","vehiculoBase":"058","numero":"252-058-3","une":"Grandes Líneas","deposito":"Valencia","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Meinfesa","notas":["Autorizada 200B. Ex-Fuencarral. Colores Renfe Operadora. Ex-Can Tunis → BCN-SAC."]},
+      "59":{"rama":"59","vehiculoBase":"059","numero":"252-059-1","une":"Grandes Líneas","deposito":"Valencia","color":"Blanco/Negro","estado":"Apartada","ancho":"1668","constructor":"CAF","notas":["Rombo de velocidad 200B. Ex-Fuencarral. Colores Renfe Operadora. Ex-Can Tunis → BCN-SAC → Valencia. Arrollamiento de vehículo en Novelda 02/07/21. Apartada La Sagra desde 28/08/26."]},
+      "60":{"rama":"60","vehiculoBase":"060","numero":"252-060-9","une":"Grandes Líneas","deposito":"Valencia","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Meinfesa","notas":["Rombo de velocidad 200B. Ex-Can Tunis. Colores Renfe Operadora. Ex-BCN-SAC."]},
+      "61":{"rama":"61","vehiculoBase":"061","numero":"252-061-7","une":"Grandes Líneas","deposito":"Valencia","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Meinfesa","notas":["Rombo de velocidad 200B. Ex-Can Tunis. Colores Renfe Operadora. Ex-BCN-SAC → Valencia → Fuencarral."]},
+      "62":{"rama":"62","vehiculoBase":"062","numero":"252-062-5","color":"Amarillo/Gris","estado":"Desguazada","ancho":"1668","constructor":"Meinfesa","notas":["Accidente 11/11/02, colisión con camión de obras en la AV Zaragoza-Huesca (Villanueva). Desguazada 16/09/10."]},
+      "63":{"rama":"63","vehiculoBase":"063","numero":"252-063-3","une":"MIT-Integria-FyM","deposito":"BCN-SAC","color":"Blanco/Negro","estado":"Baja","ancho":"1668","constructor":"CAF","notas":["Ex-Fuencarral. Colisión con coche cerca de Valladolid. Reconstrucción de frontal en Fuencarral. Apartada en BCN-SAC desde 01/11. Canibalizada. Licitado desguace 05/25."]},
+      "64":{"rama":"64","vehiculoBase":"064","numero":"252-064-1","une":"Grandes Líneas","deposito":"Valencia","color":"Blanco/Negro","estado":"Baja","ancho":"1668","constructor":"Meinfesa","notas":["Ex-Fuencarral. Primera 252 en colores Renfe Operadora. Ex-Can Tunis → BCN-SAC → Valencia. Dada de baja 12/25."]},
+      "65":{"rama":"65","vehiculoBase":"065","numero":"252-065-8","une":"Grandes Líneas","deposito":"Valencia","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Meinfesa","notas":["Ex-Fuencarral → Can Tunis → BCN-SAC. Colores Renfe Operadora."]},
+      "66":{"rama":"66","vehiculoBase":"066","numero":"252-066-6","une":"Grandes Líneas","deposito":"Valencia","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Meinfesa","notas":["Autorizada 2008 (ex 160B). Ex-Fuencarral → Can Tunis → BCN-SAC. Colores Renfe Operadora 11/08."]},
+      "67":{"rama":"67","vehiculoBase":"067","numero":"252-067-4","une":"Grandes Líneas","deposito":"Valencia","color":"Blanco/Negro","estado":"Baja","ancho":"1668","constructor":"CAF","notas":["Ex-Fuencarral → Can Tunis → Sta. Justa. Rombo de velocidad 200B ATP. Colores Renfe Operadora. Traspasada a Integria, logos Integria → GL. Ex-Fuencarral → Valencia. Dada de baja 12/25."]},
+      "68":{"rama":"68","vehiculoBase":"068","numero":"252-068-2","color":"Blanco/Negro","estado":"Apartada","ancho":"1668","constructor":"Meinfesa","notas":["Rombo de velocidad 200B. Colores Renfe Operadora. Ex-Fuencarral → Can Tunis → BCN-SAC. Ex-G.L. → Integria. Apartada Valencia-FSL. Baja desde 04/13. Licitado desguace 05/25."]},
+      "69":{"rama":"69","vehiculoBase":"069","numero":"252-069-0","une":"Grandes Líneas","deposito":"Valencia","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Meinfesa","notas":["Autorizada 200B. Ex-Fuencarral → Can Tunis → BCN-SAC. Colores Renfe Operadora."]},
+      "70":{"rama":"70","vehiculoBase":"070","numero":"252-070-8","une":"Grandes Líneas","deposito":"Valencia","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Meinfesa","notas":["ALTARIA. Ex-Can Tunis. Ex-BCN-SAC → Valencia. Última en colores azul/blanco de Grandes Líneas, hasta 11/22."]},
+      "71":{"rama":"71","vehiculoBase":"071","numero":"252-071-6","color":"Blanco/Negro","estado":"Baja","ancho":"1668","constructor":"CAF","notas":["Rombo de velocidad 200B. Apartada entre 05/98 y 03/01. Ex-Fuencarral → Can Tunis. Ex-Integria → Renfe Viajeros 12/13 → BCN-SAC. Apartada Valencia Fuente de San Luis 05/18. Canibalizada. Licitado desguace 05/25."]},
+      "72":{"rama":"72","vehiculoBase":"072","numero":"252-072-4","une":"Grandes Líneas","deposito":"Valencia","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Meinfesa","notas":["Accidente en Azuqueca de Henares 01/04/97. De nuevo en servicio. Ex-Can Tunis → BCN-SAC → Valencia. Ex-G.L. Apartada en Valencia FSL. Colores Renfe Operadora."]},
+      "73":{"rama":"73","vehiculoBase":"073","numero":"252-073-2","color":"Blanco/Negro","estado":"Baja","ancho":"1668","constructor":"Meinfesa","notas":["Grandes Líneas. Ex-Fuencarral. Colores Renfe Operadora. Ex-Can Tunis → BCN-SAC. Integria. Apartada en Fuencarral 09/11. Canibalizada."]},
+      "74":{"rama":"74","vehiculoBase":"074","numero":"252-074-0","une":"Grandes Líneas","deposito":"Valencia","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Meinfesa","notas":["Colores Renfe Operadora desde 12/06. Ex-Can Tunis → BCN-SAC."]},
+      "75":{"rama":"75","vehiculoBase":"075","numero":"252-075-7","une":"Grandes Líneas","deposito":"Valencia","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"CAF","notas":["Accidente Zaragoza 04/03, motivo del cambio de color a GL. Rombo de velocidad 200B ATP. Ex-Fuencarral. Colores Renfe Operadora desde 11/07. Ex-Can Tunis → BCN-SAC."]}
+    }
+  },
 };
 
 // Fabricante de la S-463: se determina automáticamente por el lote de la rama.
@@ -33484,6 +33616,38 @@ function fleetFichaHtml(series,vehicle,service=null){
       </div>
     </div>`:"";
 
+
+  const technical252=normalizeFleetValue(series)==="252"?`
+    <div class="ficha-section">
+      <div class="ficha-section-title">CARACTERÍSTICAS TÉCNICAS</div>
+      <div class="ficha-grid">
+        ${fichaField("Constructor",tech.constructor||tech.fabricante)}
+        ${fichaField("Unidades construidas",tech.unidadesConstruidas)}
+        ${fichaField("Año de construcción",tech.anoConstruccion)}
+        ${fichaField("Rodaje",tech.rodaje)}
+        ${fichaField("Tipo de bogie",tech.tipoBogies)}
+        ${fichaField("Diámetro de ruedas nuevas",tech.diametroRuedas)}
+        ${fichaField("Ancho de vía",tech.anchoVia)}
+        ${fichaField("Anchura de la caja",tech.anchuraCaja)}
+        ${fichaField("Altura del techo sobre el carril",tech.alturaTecho)}
+        ${fichaField("Longitud entre topes",tech.longitud)}
+        ${fichaField("Tensión de alimentación",tech.tension)}
+        ${fichaField("Potencia nominal",tech.potencia)}
+        ${fichaField("Esfuerzo de tracción continuo",tech.esfuerzoTraccion)}
+        ${fichaField("Velocidad máxima",tech.velocidadMaxima)}
+        ${fichaField("Nº de motores de tracción",tech.numeroMotoresTraccion)}
+        ${fichaField("Tipo de motor",tech.tipoMotor)}
+        ${fichaField("Potencia continua por motor",tech.potenciaContinuaPorMotor)}
+        ${fichaField("Peso en orden de marcha",tech.peso)}
+        ${fichaField("Peso por eje",tech.pesoPorEje)}
+        ${fichaField("Peso por metro lineal",tech.pesoPorMetro)}
+        ${fichaField("Freno eléctrico",tech.frenoElectrico)}
+        ${fichaField("Freno neumático",tech.frenos)}
+        ${fichaField("Mando múltiple",tech.mandoMultiple)}
+        ${fichaField("Calefacción al tren",tech.calefaccionTren)}
+      </div>
+    </div>`:"";
+
   const technical334=normalizeFleetValue(series)==="334"?`
     <div class="ficha-section">
       <div class="ficha-section-title">CARACTERÍSTICAS TÉCNICAS</div>
@@ -33598,6 +33762,7 @@ function fleetFichaHtml(series,vehicle,service=null){
     ${technical470}
     ${technical256}
     ${technical334}
+    ${technical252}
     ${technical594}
     ${highlights}
     ${serviceAnnotationsHtml(service)}
