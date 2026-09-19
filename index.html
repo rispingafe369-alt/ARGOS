@@ -12665,11 +12665,8 @@ body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,25
     });
   }
 
-  // Normaliza fichas, avisos, historial, ArgoDex y cualquier otro
+  // Normaliza también fichas, avisos, historial, ArgoDex y cualquier otro
   // texto visible que reciba una rama con formato antiguo desde la base.
-  // Se ejecuta una sola vez al cargar. No se observa todo el document.body:
-  // la Biblioteca genera nodos dinámicamente y ese observador global podía
-  // entrar en una cadena de mutaciones y bloquear la página al abrir una serie.
   function sweep(){
     try{normalizeDisplayedText(document.body);}catch(e){}
     document.querySelectorAll('input,textarea,select').forEach(normalizeField);
@@ -12680,6 +12677,14 @@ body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,25
   }else{
     sweep();
   }
+
+  /*
+     IMPORTANTE: no instalar un MutationObserver sobre todo el body aquí.
+     La Biblioteca repinta su lista de ramas al abrir una serie y ese cambio
+     de DOM disparaba este observador, que volvía a recorrer y modificar el
+     mismo documento de forma recursiva hasta bloquear la página.
+     La normalización inicial y la de los campos de entrada se mantienen.
+  */
 })();
 </script>
 
