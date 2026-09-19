@@ -10916,6 +10916,749 @@ const fleet = {
     }
   }
 },
+  "334": {
+  "seriesName": "Serie 334 · Locomotoras diésel",
+  "constructor": "Vossloh Valencia",
+  "fabricante": "Vossloh Valencia",
+  "modelo": "JT 42BW-HS.HE (Euro 3000)",
+  "tipo": "JT 42BW-HS.HE (Euro 3000)",
+  "apodo": "Euro 3000",
+  "anoPuestaServicio": "Desde 2006",
+  "tipoMaterial": "Locomotora diésel",
+  "numeroCoches": "1 locomotora",
+  "anchoVia": "1668 mm",
+  "numeroRamas": 28,
+  "numeroUnidades": "28 locomotoras · 26 contabilizables + 2 desguazadas",
+  "velocidadMaxima": "200 km/h",
+  "potencia": "3.256 CV a 926 r.p.m.",
+  "longitud": "21.500 mm",
+  "peso": "90 t",
+  "tension": "—",
+  "traccion": "4 motores eléctricos EMD-D43 BMR",
+  "numeroMotoresTraccion": "4",
+  "tipoMotor": "12N710G3B-EC",
+  "mandoMultiple": "Sí",
+  "enganche": "—",
+  "composicion": "Bo'Bo'",
+  "rodaje": "Bo'Bo'",
+  "motoresDiesel": "1 (2 tiempos turboalimentado)",
+  "numeroCilindros": "12 en V",
+  "transmision": "Eléctrica GM AR-10 D-14",
+  "diametroRuedas": "965 mm",
+  "esfuerzoTraccion": "17.800 kg",
+  "numeroMotoresElectricos": "4",
+  "tipoMotorElectrico": "EMD-D43 BMR",
+  "pesoPorEje": "22,5 t",
+  "frenoDinamico": "Reostático",
+  "frenos": "Aire comprimido",
+  "calefaccionTren": "Eléctrica",
+  "generalNotes": [
+    "Locomotoras de nueva fabricación, de dos bogies de dos ejes, basadas en las originales 333.",
+    "Locomotoras construidas con partes recuperadas de 319 y 333, como alternadores y generadores principales, creadas para sustituir a las 354 y complementar a otras series en el remolque de trenes de viajeros por líneas diésel."
+  ],
+  "units": {
+    "1": {
+      "rama": "001",
+      "vehiculoBase": "001",
+      "numero": "9-334-001-5",
+      "vehiculosRama": [
+        "9-334-001-5"
+      ],
+      "searchCodes": [
+        "001"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "",
+      "deposito": "",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2006,
+      "numeroConstruccion": "2265",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "Colores Renfe Op. En servicio desde 12/06. Ex-G.L. Fuencarral. Destinada a Integra, prototipo con pantógrafo auscultador. Transferida a Renfe Viajeros, 12/13>> Stadler 07/20 >> TCR Villaverde 2021."
+      ]
+    },
+    "2": {
+      "rama": "002",
+      "vehiculoBase": "002",
+      "numero": "9-334-002-3",
+      "vehiculosRama": [
+        "9-334-002-3"
+      ],
+      "searchCodes": [
+        "002"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2006,
+      "numeroConstruccion": "2266",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "Colores Renfe Op. En servicio 12/06. Ex-Salamanca>>Fuencarral. Con GSMR."
+      ]
+    },
+    "3": {
+      "rama": "003",
+      "vehiculoBase": "003",
+      "numero": "9-334-003-1",
+      "vehiculosRama": [
+        "9-334-003-1"
+      ],
+      "searchCodes": [
+        "003"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2006,
+      "numeroConstruccion": "2267",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "Colores Renfe Op. En servicio 12/06. Ex-Salamanca>>Fuencarral>>Ourense. Con GSM-R>> Trasladada a Fuencarral 03/20."
+      ]
+    },
+    "4": {
+      "rama": "004",
+      "vehiculoBase": "004",
+      "numero": "9-334-004-9",
+      "vehiculosRama": [
+        "9-334-004-9"
+      ],
+      "searchCodes": [
+        "004"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2006,
+      "numeroConstruccion": "2268",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "En servicio 12/06. Ex-Salamanca>>Fuencarral."
+      ]
+    },
+    "5": {
+      "rama": "005",
+      "vehiculoBase": "005",
+      "numero": "9-334-005-6",
+      "vehiculosRama": [
+        "9-334-005-6"
+      ],
+      "searchCodes": [
+        "005"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2006,
+      "numeroConstruccion": "2269",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "Colores Renfe Op. En servicio 12/06. Ex-Salamanca>>Fuencarral>>Ourense."
+      ]
+    },
+    "6": {
+      "rama": "006",
+      "vehiculoBase": "006",
+      "numero": "9-334-006-4",
+      "vehiculosRama": [
+        "9-334-006-4"
+      ],
+      "searchCodes": [
+        "006"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2006,
+      "numeroConstruccion": "2270",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "En Innotrans 2006, Kiel. Ex-Salamanca>>Ourense."
+      ]
+    },
+    "7": {
+      "rama": "007",
+      "vehiculoBase": "007",
+      "numero": "9-334-007-2",
+      "vehiculosRama": [
+        "9-334-007-2"
+      ],
+      "searchCodes": [
+        "007"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2006,
+      "numeroConstruccion": "2271",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "Colores Renfe Op. En servicio 12/06. Ex-Fuencarral>>Granada>>Fuencarral>>Ourense. Con GSM-R >> Vuelta a Fuencarral 06/20."
+      ]
+    },
+    "8": {
+      "rama": "008",
+      "vehiculoBase": "008",
+      "numero": "9-334-008-0",
+      "vehiculosRama": [
+        "9-334-008-0"
+      ],
+      "searchCodes": [
+        "008"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "",
+      "deposito": "",
+      "color": "Blanco",
+      "estado": "Desguazada",
+      "ano": 2006,
+      "numeroConstruccion": "2272",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "Colores Renfe Op. (vista placa). Ex-G.L. Fuencarral. Apartada BMI Villaverde Bajo 2016 por avería>> Para piezas."
+      ]
+    },
+    "9": {
+      "rama": "009",
+      "vehiculoBase": "009",
+      "numero": "9-334-009-8",
+      "vehiculosRama": [
+        "9-334-009-8"
+      ],
+      "searchCodes": [
+        "009"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2007,
+      "numeroConstruccion": "2273",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "Colores Renfe Op. En servicio 03/07. Ex-Fuencarral>>Ourense."
+      ]
+    },
+    "10": {
+      "rama": "010",
+      "vehiculoBase": "010",
+      "numero": "9-334-010-6",
+      "vehiculosRama": [
+        "9-334-010-6"
+      ],
+      "searchCodes": [
+        "010"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2007,
+      "numeroConstruccion": "2274",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "En servicio 07/07. Ex-Salamanca>> Ourense (Hasta 11/02/21). Con GSM-R>> Trasladada a Fuencarral 06/20."
+      ]
+    },
+    "11": {
+      "rama": "011",
+      "vehiculoBase": "011",
+      "numero": "9-334-011-4",
+      "vehiculosRama": [
+        "9-334-011-4"
+      ],
+      "searchCodes": [
+        "011"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2006,
+      "numeroConstruccion": "2275",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "(Ex-333-035 ??). En servicio desde 07/07. Con retrovisores. Ex-Fuencarral>>Granada>>Fuencarral>>Granada/Sevilla>>Fuencarral."
+      ]
+    },
+    "12": {
+      "rama": "012",
+      "vehiculoBase": "012",
+      "numero": "9-334-012-2",
+      "vehiculosRama": [
+        "9-334-012-2"
+      ],
+      "searchCodes": [
+        "012"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2007,
+      "numeroConstruccion": "2276",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "En servicio desde 08/07. Con retrovisores. Ex-Fuencarral>>Granada."
+      ]
+    },
+    "13": {
+      "rama": "013",
+      "vehiculoBase": "013",
+      "numero": "9-334-013-0",
+      "vehiculosRama": [
+        "9-334-013-0"
+      ],
+      "searchCodes": [
+        "013"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2007,
+      "numeroConstruccion": "2277",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "En servicio 11/07. Ex-Fuencarral, Almería otoño 08."
+      ]
+    },
+    "14": {
+      "rama": "014",
+      "vehiculoBase": "014",
+      "numero": "9-334-014-8",
+      "vehiculosRama": [
+        "9-334-014-8"
+      ],
+      "searchCodes": [
+        "014"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2007,
+      "numeroConstruccion": "2278",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "En servicio 11/07. Ex-Fuencarral>>Granada>>Ourense desde 06/17."
+      ]
+    },
+    "15": {
+      "rama": "015",
+      "vehiculoBase": "015",
+      "numero": "9-334-015-5",
+      "vehiculosRama": [
+        "9-334-015-5"
+      ],
+      "searchCodes": [
+        "015"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2008,
+      "numeroConstruccion": "2279",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "En servicio desde 01/08. Con retrovisores. Ex-Salamanca>>Fuencarral>>Sevilla>>Fuencarral."
+      ]
+    },
+    "16": {
+      "rama": "016",
+      "vehiculoBase": "016",
+      "numero": "9-334-016-3",
+      "vehiculosRama": [
+        "9-334-016-3"
+      ],
+      "searchCodes": [
+        "016"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2006,
+      "numeroConstruccion": "2280",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "En servicio 02/08. Ex-Salamanca."
+      ]
+    },
+    "17": {
+      "rama": "017",
+      "vehiculoBase": "017",
+      "numero": "9-334-017-1",
+      "vehiculosRama": [
+        "9-334-017-1"
+      ],
+      "searchCodes": [
+        "017"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2006,
+      "numeroConstruccion": "2281",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "En servicio 03/08. Ex-Salamanca."
+      ]
+    },
+    "18": {
+      "rama": "018",
+      "vehiculoBase": "018",
+      "numero": "9-334-018-9",
+      "vehiculosRama": [
+        "9-334-018-9"
+      ],
+      "searchCodes": [
+        "018"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2008,
+      "numeroConstruccion": "2282",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "En servicio. Ex-Salamanca>>Granada>>Fuencarral>>Sevilla>>Fuencarral."
+      ]
+    },
+    "19": {
+      "rama": "019",
+      "vehiculoBase": "019",
+      "numero": "9-334-019-7",
+      "vehiculosRama": [
+        "9-334-019-7"
+      ],
+      "searchCodes": [
+        "019"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2008,
+      "numeroConstruccion": "2283",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "Accidente en Linares-Baeza, 23/10/08. Ex-Granada>>Fuencarral."
+      ]
+    },
+    "20": {
+      "rama": "020",
+      "vehiculoBase": "020",
+      "numero": "9-334-020-5",
+      "vehiculosRama": [
+        "9-334-020-5"
+      ],
+      "searchCodes": [
+        "020"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2008,
+      "numeroConstruccion": "2284",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "En Servicio en los tramos entre Almería-Linares y Linares-Granada 08/08. Accidente en Linares-Baeza el 23/10/08. Ex-Granada 12/08 >>Ex-Fuencarral>> Salamanca."
+      ]
+    },
+    "21": {
+      "rama": "021",
+      "vehiculoBase": "021",
+      "numero": "9-334-021-3",
+      "vehiculosRama": [
+        "9-334-021-3"
+      ],
+      "searchCodes": [
+        "021"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2006,
+      "numeroConstruccion": "2285",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "En servicio 01/09. Ex-Salamanca."
+      ]
+    },
+    "22": {
+      "rama": "022",
+      "vehiculoBase": "022",
+      "numero": "9-334-022-1",
+      "vehiculosRama": [
+        "9-334-022-1"
+      ],
+      "searchCodes": [
+        "022"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2008,
+      "numeroConstruccion": "2286",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "En servicio 02/09. Ex-Salamanca."
+      ]
+    },
+    "23": {
+      "rama": "023",
+      "vehiculoBase": "023",
+      "numero": "9-334-023-9",
+      "vehiculosRama": [
+        "9-334-023-9"
+      ],
+      "searchCodes": [
+        "023"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2008,
+      "numeroConstruccion": "2287",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "En servicio desde 04/09. Ex-Ourense>>Salamanca."
+      ]
+    },
+    "24": {
+      "rama": "024",
+      "vehiculoBase": "024",
+      "numero": "9-334-024-7",
+      "vehiculosRama": [
+        "9-334-024-7"
+      ],
+      "searchCodes": [
+        "024"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2008,
+      "numeroConstruccion": "2288",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "En servicio desde 04/09. Ex-Granada."
+      ]
+    },
+    "25": {
+      "rama": "025",
+      "vehiculoBase": "025",
+      "numero": "9-334-025-4",
+      "vehiculosRama": [
+        "9-334-025-4"
+      ],
+      "searchCodes": [
+        "025"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2008,
+      "numeroConstruccion": "2289",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "En servicio. Ex-Granada."
+      ]
+    },
+    "26": {
+      "rama": "026",
+      "vehiculoBase": "026",
+      "numero": "9-334-026-2",
+      "vehiculosRama": [
+        "9-334-026-2"
+      ],
+      "searchCodes": [
+        "026"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2008,
+      "numeroConstruccion": "2290",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "En servicio. Ex-Granada."
+      ]
+    },
+    "27": {
+      "rama": "027",
+      "vehiculoBase": "027",
+      "numero": "9-334-027-0",
+      "vehiculosRama": [
+        "9-334-027-0"
+      ],
+      "searchCodes": [
+        "027"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "Grandes Líneas",
+      "deposito": "Fuencarral",
+      "color": "Blanco",
+      "estado": "Desguazada",
+      "ano": 2008,
+      "numeroConstruccion": "2291",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "En servicio. Ex-Granada>>Fuencarral. Apartada para piezas."
+      ]
+    },
+    "28": {
+      "rama": "028",
+      "vehiculoBase": "028",
+      "numero": "9-334-028-8",
+      "vehiculosRama": [
+        "9-334-028-8"
+      ],
+      "searchCodes": [
+        "028"
+      ],
+      "fabricante": "Vossloh Valencia",
+      "une": "",
+      "deposito": "",
+      "color": "Blanco",
+      "estado": "En servicio",
+      "ano": 2006,
+      "numeroConstruccion": "2292",
+      "tipoMaterial": "Locomotora diésel",
+      "numeroCoches": "1 locomotora",
+      "composicionRama": "Locomotora",
+      "ancho": "1668",
+      "notas": [
+        "(vista placa). Ex-Granada."
+      ]
+    }
+  }
+},
   "594": {
   "seriesName": "Serie 594 · TRD · 2 coches",
   "constructor": "CAF / MAN / Voith",
@@ -30508,6 +31251,34 @@ function getFleetUnit(series, vehicle){
   if(s==="106") return getS106Unit(v);
   if(!seriesData) return null;
 
+  // Serie 334: la locomotora es un único vehículo y su número identifica directamente la rama.
+  // Ej.: 018 -> Rama 18. Se aceptan códigos cortos y matrículas 9-334-XXX-X.
+  if(s==="334"){
+    const raw=String(vehicle??"").trim();
+    const compact=raw.replace(/\s+/g,"");
+    let code="";
+    const full=compact.match(/^(?:9[-]?)?334[-]?(\d{3})(?:[-]\d)?$/i);
+    if(full) code=full[1];
+    if(!code && /^334\d{3}$/.test(compact)) code=compact.slice(3);
+    if(!code && /^\d{1,3}$/.test(compact)) code=compact.padStart(3,"0");
+    if(!code) return null;
+
+    const key=String(Number(code));
+    const base=seriesData.units?.[key];
+    if(!base) return null;
+    return {
+      ...base,
+      numero:base.numero,
+      vehiculoBase:code,
+      vehiculoIntroducido:raw,
+      vehiculoBuscado:code,
+      vehiculoEncontrado:base.numero,
+      cocheTipo:"Locomotora",
+      fabricante:base.fabricante||seriesData.fabricante,
+      numeroCoches:base.numeroCoches||seriesData.numeroCoches
+    };
+  }
+
   // Serie 594: se puede buscar por el coche motor o por su pareja.
   // 594.0: 001-016 / 501-516 -> ramas 1-16, salvo la 003 que pasó a 594.1 como 108.
   // 594.1: 101-108 / 601-608 -> ramas 1-8.
@@ -31484,7 +32255,7 @@ if($("serviceForm"))$("serviceForm").addEventListener("submit",saveCurrentServic
 if($("serviceForm")){
   $("serviceForm").addEventListener("submit",function(e){
     const series=normalizeFleetValue($("series")?.value||"");
-    if(!["440","448","599","598","470"].includes(series)) return;
+    if(!["440","448","599","598","470","334"].includes(series)) return;
     const vehicle=String($("vehicle")?.value||"").trim();
     const branch=String($("branchValue")?.value||"").trim();
     const unit = getFleetUnit(series,vehicle) ||
@@ -31606,6 +32377,13 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${normalizeFleetValue(series)==="450"?`
         <div><span>Color</span><strong>${esc(unit.color||"—")}</strong></div>
         <div><span>Estado</span><strong>${esc(unit.estado||"—")}</strong></div>`:""}
+        ${normalizeFleetValue(series)==="334"?`
+        ${fichaField("Nº de construcción",unit.numeroConstruccion)}
+        ${fichaField("Estado",unit.estado)}
+        ${fichaField("UNE",unit.une)}
+        ${fichaField("Depósito / base",unit.deposito)}
+        ${fichaField("Color",unit.color)}
+        `:""}
         ${normalizeFleetValue(series)==="440"?`
         ${fichaField("UNE",unit.une)}
         ${fichaField("Color",unit.color)}
@@ -31735,6 +32513,36 @@ function fleetFichaHtml(series,vehicle,service=null){
       </div>
     </div>`:"";
 
+  const technical334=normalizeFleetValue(series)==="334"?`
+    <div class="ficha-section">
+      <div class="ficha-section-title">CARACTERÍSTICAS TÉCNICAS</div>
+      <div class="ficha-grid">
+        ${fichaField("Constructor",tech.constructor||tech.fabricante)}
+        ${fichaField("Tipo",tech.tipo)}
+        ${fichaField("Unidades construidas","28")}
+        ${fichaField("Año de construcción",tech.anoPuestaServicio)}
+        ${fichaField("Rodaje",tech.rodaje)}
+        ${fichaField("Nº de motores diésel",tech.motoresDiesel)}
+        ${fichaField("Tipo de motor",tech.tipoMotor)}
+        ${fichaField("Nº de cilindros",tech.numeroCilindros)}
+        ${fichaField("Transmisión",tech.transmision)}
+        ${fichaField("Diámetro de ruedas nuevas",tech.diametroRuedas)}
+        ${fichaField("Ancho de vía",tech.anchoVia)}
+        ${fichaField("Longitud entre topes",tech.longitud)}
+        ${fichaField("Potencia nominal",tech.potencia)}
+        ${fichaField("Esfuerzo de tracción",tech.esfuerzoTraccion)}
+        ${fichaField("Velocidad máxima",tech.velocidadMaxima)}
+        ${fichaField("Nº de motores eléctricos de tracción",tech.numeroMotoresElectricos)}
+        ${fichaField("Tipo de motor eléctrico",tech.tipoMotorElectrico)}
+        ${fichaField("Peso en orden de marcha",tech.peso)}
+        ${fichaField("Peso por eje",tech.pesoPorEje)}
+        ${fichaField("Freno dinámico",tech.frenoDinamico)}
+        ${fichaField("Freno neumático",tech.frenos)}
+        ${fichaField("Mando múltiple",tech.mandoMultiple)}
+        ${fichaField("Calefacción al tren",tech.calefaccionTren)}
+      </div>
+    </div>`:"";
+
   const technical594=normalizeFleetValue(series)==="594"?`
     <div class="ficha-section">
       <div class="ficha-section-title">CARACTERÍSTICAS TÉCNICAS</div>
@@ -31817,6 +32625,7 @@ function fleetFichaHtml(series,vehicle,service=null){
     ${identification}
     ${technical440}
     ${technical470}
+    ${technical334}
     ${technical594}
     ${highlights}
     ${serviceAnnotationsHtml(service)}
@@ -31917,7 +32726,7 @@ function progressFleetBranches(series){
   const units=data.units||{};
   const branches=new Set();
   Object.values(units).forEach(unit=>{
-    if(key==="470" && /desguazad/i.test(String(unit?.estado||""))) return;
+    if(["470","334"].includes(key) && /desguazad/i.test(String(unit?.estado||""))) return;
     const branch=progressBranchIdentity(key,unit?.rama,unit?.vehiculoBase,unit?.subserie);
     if(branch)branches.add(branch);
   });
