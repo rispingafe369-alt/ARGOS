@@ -10963,22 +10963,9 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const b=text(branch);
     if(!s)return null;
 
-    /* 1. Rama explícita: la rama tiene prioridad. */
-    if(b){
-      const byBranch=directByBranch(s,b);
-      if(byBranch){
-        let canonical=byBranch.vehicle;
-        try{
-          if(typeof getFleetUnit==='function'){
-            const unit=getFleetUnit(s,canonical);
-            if(unit) return {series:s,vehicle:canonical,branch:window.ARGOS_NORMALIZE_BRANCH(unit.rama)||window.ARGOS_NORMALIZE_BRANCH(byBranch.branch),unit};
-          }
-        }catch(e){ console.warn('ARGOS V74 · getFleetUnit por rama:',e); }
-        return {series:s,vehicle:canonical,branch:window.ARGOS_NORMALIZE_BRANCH(byBranch.branch),unit:byBranch.unit};
-      }
-    }
-
-    /* 2. Vehículo: usa exactamente el resolvedor principal de ARGOS. */
+    /* 1. Vehículo: cuando se introduce un vehículo concreto, tiene prioridad.
+       Esto es imprescindible en la Serie 333, donde por ejemplo 104 y 404
+       comparten la Rama 4 pero pertenecen a subseries distintas. */
     if(v){
       try{
         if(typeof getFleetUnit==='function'){
@@ -10996,6 +10983,21 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
       const direct=directByVehicle(s,v);
       if(direct) return {series:s,vehicle:direct.vehicle,branch:direct.branch,unit:direct.unit};
+    }
+
+    /* 2. Rama: solo se usa cuando no hay un vehículo concreto. */
+    if(b){
+      const byBranch=directByBranch(s,b);
+      if(byBranch){
+        let canonical=byBranch.vehicle;
+        try{
+          if(typeof getFleetUnit==='function'){
+            const unit=getFleetUnit(s,canonical);
+            if(unit) return {series:s,vehicle:canonical,branch:window.ARGOS_NORMALIZE_BRANCH(unit.rama)||window.ARGOS_NORMALIZE_BRANCH(byBranch.branch),unit};
+          }
+        }catch(e){ console.warn('ARGOS V74 · getFleetUnit por rama:',e); }
+        return {series:s,vehicle:canonical,branch:window.ARGOS_NORMALIZE_BRANCH(byBranch.branch),unit:byBranch.unit};
+      }
     }
 
     return null;
@@ -12346,7 +12348,7 @@ body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,25
     const map=new Map();
     items.forEach(item=>{
       const branchDigits=String(item.branch).replace(/\D/g,'');
-      const seriesKey=String(item?.unit?.subserie||'').startsWith('594.')?'|'+String(item.unit.subserie):'';
+      const seriesKey=(String(item?.unit?.subserie||'').startsWith('594.')||String(item?.unit?.subserie||'').startsWith('333.'))?'|'+String(item.unit.subserie):'';
       const key=(branchDigits||item.branch.toLowerCase())+'|'+(item.sourceLabel||'')+seriesKey;
       if(!map.has(key))map.set(key,item);
     });
@@ -12486,6 +12488,13 @@ body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,25
       // 453: separación obligatoria por número de coches.
       const groups=groupBy(all,(unit,item)=>carLabel(unit,series,item?.sourceLabel||''),true);
       html=orderedGroups(groups).map(([label,items])=>renderGroup(label,items,null)).join('');
+    }else if(String(series)==='333'){
+      // 333: primero subserie; dentro de 333.3, después lote.
+      const subs=groupBy(all,(unit)=>subserieLabel(unit),true);
+      html=orderedGroups(subs).map(([sub,items])=>{
+        const lots=groupBy(items,(unit)=>lotLabel(unit),false);
+        return renderGroup(sub,items,lots.size>1?lotLabel:null);
+      }).join('');
     }else{
       // Primero lote. Si dentro de un lote existen varias subseries, se vuelven a dividir.
       const lots=groupBy(all,(unit)=>lotLabel(unit),false);
