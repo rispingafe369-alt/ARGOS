@@ -5495,7 +5495,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     root.querySelectorAll('.modal-row strong').forEach(function(el){
       let t = el.textContent || '';
       t = t.replace(/\s*·\s*[\d.,]+\s*km\b/gi,'');
-      if(el.textContent !== t) el.textContent = t;
+      el.textContent = t;
     });
 
     /* Seguridad: si algún render vuelve a crear el KPI principal o intensidad. */
@@ -12665,8 +12665,11 @@ body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,25
     });
   }
 
-  // Normaliza también fichas, avisos, historial, ArgoDex y cualquier otro
+  // Normaliza fichas, avisos, historial, ArgoDex y cualquier otro
   // texto visible que reciba una rama con formato antiguo desde la base.
+  // Se ejecuta una sola vez al cargar. No se observa todo el document.body:
+  // la Biblioteca genera nodos dinámicamente y ese observador global podía
+  // entrar en una cadena de mutaciones y bloquear la página al abrir una serie.
   function sweep(){
     try{normalizeDisplayedText(document.body);}catch(e){}
     document.querySelectorAll('input,textarea,select').forEach(normalizeField);
@@ -12677,30 +12680,6 @@ body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,25
   }else{
     sweep();
   }
-
-  /*
-   * El observer solo necesita vigilar inserciones/eliminaciones de nodos.
-   * No observamos characterData porque sweep() normaliza texto y volvería a
-   * disparar este mismo observer en bucle, bloqueando la Biblioteca al abrir
-   * una serie.
-   */
-  let sweepQueued=false;
-  const observer=new MutationObserver(mutations=>{
-    if(!mutations.some(m=>m.type==='childList'))return;
-    if(sweepQueued)return;
-    sweepQueued=true;
-    setTimeout(()=>{
-      sweepQueued=false;
-      sweep();
-    },0);
-  });
-
-  function startObserver(){
-    if(document.body)observer.observe(document.body,{subtree:true,childList:true});
-  }
-
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',startObserver,{once:true});
-  else startObserver();
 })();
 </script>
 
