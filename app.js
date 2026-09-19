@@ -32031,6 +32031,146 @@ const fleet = {
       "75":{"rama":"75","vehiculoBase":"075","numero":"252-075-7","une":"Grandes Líneas","deposito":"Valencia","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"CAF","notas":["Accidente Zaragoza 04/03, motivo del cambio de color a GL. Rombo de velocidad 200B ATP. Ex-Fuencarral. Colores Renfe Operadora desde 11/07. Ex-Can Tunis → BCN-SAC."]}
     }
   },
+
+  "253": {
+    "seriesName": "Serie 253",
+    "fabricante": "Bombardier / Integria Renfe",
+    "modelo": "TRAXX F140 DC",
+    "anoPuestaServicio": "2007–2010",
+    "tipoMaterial": "Mercancías · Locomotora eléctrica",
+    "numeroRamas": 100,
+    "velocidadMaxima": "140 km/h",
+    "potencia": "5.400 kW",
+    "longitud": "18.900 mm",
+    "peso": "85 t",
+    "tension": "3.000 V CC",
+    "traccion": "4 motores de tracción",
+    "tipoBogies": "Bimotor",
+    "rodaje": "Bo'Bo'",
+    "composicion": "1 locomotora",
+    "esfuerzoTraccion": "300 kN",
+    "tipoMotor": "4FHA 6956H",
+    "numeroMotoresTraccion": "4",
+    "diametroRuedas": "1.250 mm",
+    "anchuraCaja": "2.978 mm",
+    "alturaTecho": "4.225 mm",
+    "pesoPorEje": "21,25 t",
+    "frenoElectrico": "Reostático y recuperación",
+    "frenos": "Aire comprimido, disco",
+    "mandoMultiple": "Sí",
+    "calefaccionTren": "No",
+    "relacionEngranajes": "22:115",
+    "unidadesConstruidas": "100",
+    "anoConstruccion": "2007 a 2010",
+    "constructor": "Bombardier / Integria Renfe",
+    "anchoVia": "1.668 mm",
+    "generalNotes": [
+      "Notas Generales: Pedido de 100 locomotoras fabricadas por Bombardier en Italia (Vado-Ligure) y Renfe en Villaverde entregadas a partir de septiembre de 2008 y hasta diciembre de 2011. Modelo TRAXX F140 DC.",
+      "Reseña histórica: Serie contratada específicamente para tráficos de mercancías que supone la retirada de ejemplares de las series más antiguas. Responde a una de las variantes del tipo Traxx del fabricante que cuenta con muchos otros ejemplares en varios países europeos de las distintas versiones. Efectúan servicio desde las primeras semanas de 2009."
+    ],
+    "units": {
+      "1":{"rama":"1","vehiculoBase":"001","numero":"253-001-2","une":"Renfe Alquiler","deposito":"Can Tunis","color":"Blanco/Negro","estado":"Alquilada","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"7980","ano":"2007","notas":["Construida en Italia. En pruebas Alemania. En servicio desde 01/09. Alquilada a Comsa RT 04/17 → Alquilada a LCR 04/18."]},
+      "2":{"rama":"2","vehiculoBase":"002","numero":"253-002-0","une":"Renfe Alquiler","deposito":"Can Tunis","color":"Blanco/Negro","estado":"Alquilada","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"7981","ano":"2007","notas":["Ex-Can Tunis. Alquilada Comsa (Captrain) 01/18."]},
+      "3":{"rama":"3","vehiculoBase":"003","numero":"253-003-8","une":"Renfe Alquiler","deposito":"Can Tunis","color":"Blanco/Negro","estado":"Alquilada","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"7982","ano":"2008","notas":["Alquilada a Transfesa Rail 02/17. Logos Transfesa, 2018 → Low Cost Rail 2021."]},
+      "4":{"rama":"4","vehiculoBase":"004","numero":"253-004-6","une":"Renfe Alquiler","deposito":"Can Tunis","color":"Blanco/Negro","estado":"Alquilada","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"7983","ano":"2008","notas":["Logos 75 años. Ex-Mercancías Can Tunis → Alquilada Comsa 01/17 → Alquilada a Transfesa. Logos Transfesa, 08/18 → Alquilada LCR 2021."]},
+      "5":{"rama":"5","vehiculoBase":"005","numero":"253-005-3","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"7984","ano":"2008"},
+      "6":{"rama":"6","vehiculoBase":"006","numero":"253-006-1","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"7985","ano":"2008","notas":["Pegatinas Transporte Sostenible"]},
+      "7":{"rama":"7","vehiculoBase":"007","numero":"253-007-9","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"7986","ano":"2008","notas":["Pegatinas Transporte Sostenible"]},
+      "8":{"rama":"8","vehiculoBase":"008","numero":"253-008-7","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"7987","ano":"2008","notas":["Pegatinas Transporte Sostenible"]},
+      "9":{"rama":"9","vehiculoBase":"009","numero":"253-009-5","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"7988","ano":"2008","notas":["Pegatinas Transporte Sostenible"]},
+      "10":{"rama":"10","vehiculoBase":"010","numero":"253-010-3","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"7989","ano":"2008","notas":["Pegatinas Transporte Sostenible"]},
+      "11":{"rama":"11","vehiculoBase":"011","numero":"253-011-1","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"7990","ano":"2008","notas":["Pegatinas Transporte Sostenible desde 06/21."]},
+      "12":{"rama":"12","vehiculoBase":"012","numero":"253-012-9","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"7991","ano":"2008","notas":["Pegatinas Transporte Sostenible"]},
+      "13":{"rama":"13","vehiculoBase":"013","numero":"253-013-7","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"7992","ano":"2008","notas":["Pegatinas Transporte Sostenible"]},
+      "14":{"rama":"14","vehiculoBase":"014","numero":"253-014-5","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"7993","ano":"2008","notas":["Pegatinas Transporte Sostenible"]},
+      "15":{"rama":"15","vehiculoBase":"015","numero":"253-015-2","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"7994","ano":"2009","notas":["Pegatinas transporte sostenible desde 05/21."]},
+      "16":{"rama":"16","vehiculoBase":"016","numero":"253-016-0","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"7995","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "17":{"rama":"17","vehiculoBase":"017","numero":"253-017-8","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"7996","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "18":{"rama":"18","vehiculoBase":"018","numero":"253-018-6","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"7997","ano":"2009","notas":["Pegatina Transporte Sostenible."]},
+      "19":{"rama":"19","vehiculoBase":"019","numero":"253-019-4","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"7998","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "20":{"rama":"20","vehiculoBase":"020","numero":"253-020-2","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"7999","ano":"2009"},
+      "21":{"rama":"21","vehiculoBase":"021","numero":"253-021-0","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8000","ano":"2009","notas":["Pegatinas transporte sostenible desde 05/21."]},
+      "22":{"rama":"22","vehiculoBase":"022","numero":"253-022-8","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8001","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "23":{"rama":"23","vehiculoBase":"023","numero":"253-023-6","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8002","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "24":{"rama":"24","vehiculoBase":"024","numero":"253-024-4","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8003","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "25":{"rama":"25","vehiculoBase":"025","numero":"253-025-1","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8004","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "26":{"rama":"26","vehiculoBase":"026","numero":"253-026-9","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8005","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "27":{"rama":"27","vehiculoBase":"027","numero":"253-027-7","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8006","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "28":{"rama":"28","vehiculoBase":"028","numero":"253-028-5","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8007","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "29":{"rama":"29","vehiculoBase":"029","numero":"253-029-3","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8008","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "30":{"rama":"30","vehiculoBase":"030","numero":"253-030-1","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8009","ano":"2009"},
+      "31":{"rama":"31","vehiculoBase":"031","numero":"253-031-9","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8010","ano":"2009","notas":["Última 253 en realizar servicio del Salero Flix-Manresa. Pegatinas transporte sostenible."]},
+      "32":{"rama":"32","vehiculoBase":"032","numero":"253-032-7","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8011","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "33":{"rama":"33","vehiculoBase":"033","numero":"253-033-5","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8012","ano":"2009"},
+      "34":{"rama":"34","vehiculoBase":"034","numero":"253-034-3","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8013","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "35":{"rama":"35","vehiculoBase":"035","numero":"253-035-0","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8014","ano":"2009","notas":["Pegatinas transporte sostenible desde 06/21."]},
+      "36":{"rama":"36","vehiculoBase":"036","numero":"253-036-8","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8015","ano":"2009","notas":["Descarrilo Tarragona 22/04/21. Pegatinas Transporte Sostenible."]},
+      "37":{"rama":"37","vehiculoBase":"037","numero":"253-037-6","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8016","ano":"2009"},
+      "38":{"rama":"38","vehiculoBase":"038","numero":"253-038-4","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8017","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "39":{"rama":"39","vehiculoBase":"039","numero":"253-039-2","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8018","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "40":{"rama":"40","vehiculoBase":"040","numero":"253-040-0","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8019","ano":"2009"},
+      "41":{"rama":"41","vehiculoBase":"041","numero":"253-041-8","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8020","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "42":{"rama":"42","vehiculoBase":"042","numero":"253-042-6","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8021","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "43":{"rama":"43","vehiculoBase":"043","numero":"253-043-4","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8022","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "44":{"rama":"44","vehiculoBase":"044","numero":"253-044-2","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8023","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "45":{"rama":"45","vehiculoBase":"045","numero":"253-045-9","une":"Mercancías","deposito":"Can Tunis","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8024","ano":"2009","notas":["Vinilos de Transporte Sostenible (Tren de Noé), 08/19."]},
+      "46":{"rama":"46","vehiculoBase":"046","numero":"253-046-7","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8025","ano":"2009","notas":["Rotulada con dígito de autocontrol erróneo (253-046-6). → Corregido dígito, 07/12. Pegatinas Transporte Sostenible."]},
+      "47":{"rama":"47","vehiculoBase":"047","numero":"253-047-5","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8026","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "48":{"rama":"48","vehiculoBase":"048","numero":"253-048-3","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8027","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "49":{"rama":"49","vehiculoBase":"049","numero":"253-049-1","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8028","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "50":{"rama":"50","vehiculoBase":"050","numero":"253-050-9","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8029","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "51":{"rama":"51","vehiculoBase":"051","numero":"253-051-7","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8030","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "52":{"rama":"52","vehiculoBase":"052","numero":"253-052-5","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8031","ano":"2009"},
+      "53":{"rama":"53","vehiculoBase":"053","numero":"253-053-3","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8032","ano":"2009","notas":["Pegatinas transporte sostenible desde 05/21."]},
+      "54":{"rama":"54","vehiculoBase":"054","numero":"253-054-1","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8033","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "55":{"rama":"55","vehiculoBase":"055","numero":"253-055-8","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8034","ano":"2009"},
+      "56":{"rama":"56","vehiculoBase":"056","numero":"253-056-6","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8035","ano":"2009"},
+      "57":{"rama":"57","vehiculoBase":"057","numero":"253-057-4","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8036","ano":"2009"},
+      "58":{"rama":"58","vehiculoBase":"058","numero":"253-058-2","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8037","ano":"2009"},
+      "59":{"rama":"59","vehiculoBase":"059","numero":"253-059-0","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8038","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "60":{"rama":"60","vehiculoBase":"060","numero":"253-060-8","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8039","ano":"2009","notas":["Pegatinas \"Transporte Sostenible\"."]},
+      "61":{"rama":"61","vehiculoBase":"061","numero":"253-061-6","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8040","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "62":{"rama":"62","vehiculoBase":"062","numero":"253-062-4","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8041","ano":"2009"},
+      "63":{"rama":"63","vehiculoBase":"063","numero":"253-063-2","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8042","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "64":{"rama":"64","vehiculoBase":"064","numero":"253-064-0","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"Apartada","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8043","ano":"2009","notas":["Pegatinas Transporte Sostenible. Arrollamiento tractor entre Sanchidrián y Mingorría 23/06/23. Apartada en Vicálvaro Clasificación."]},
+      "65":{"rama":"65","vehiculoBase":"065","numero":"253-065-7","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8044","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "66":{"rama":"66","vehiculoBase":"066","numero":"253-066-5","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8045","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "67":{"rama":"67","vehiculoBase":"067","numero":"253-067-3","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8046","ano":"2009"},
+      "68":{"rama":"68","vehiculoBase":"068","numero":"253-068-1","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8047","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "69":{"rama":"69","vehiculoBase":"069","numero":"253-069-9","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8048","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "70":{"rama":"70","vehiculoBase":"070","numero":"253-070-7","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8049","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "71":{"rama":"71","vehiculoBase":"071","numero":"253-071-5","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8050","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "72":{"rama":"72","vehiculoBase":"072","numero":"253-072-3","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8051","ano":"2009"},
+      "73":{"rama":"73","vehiculoBase":"073","numero":"253-073-1","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8052","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "74":{"rama":"74","vehiculoBase":"074","numero":"253-074-9","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8053","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "75":{"rama":"75","vehiculoBase":"075","numero":"253-075-6","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8054","ano":"2009"},
+      "76":{"rama":"76","vehiculoBase":"076","numero":"253-076-4","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8055","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "77":{"rama":"77","vehiculoBase":"077","numero":"253-077-2","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8056","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "78":{"rama":"78","vehiculoBase":"078","numero":"253-078-0","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8057","ano":"2009"},
+      "79":{"rama":"79","vehiculoBase":"079","numero":"253-079-8","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8058","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "80":{"rama":"80","vehiculoBase":"080","numero":"253-080-6","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8059","ano":"2009"},
+      "81":{"rama":"81","vehiculoBase":"081","numero":"253-081-4","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8060","ano":"2009"},
+      "82":{"rama":"82","vehiculoBase":"082","numero":"253-082-2","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8061","ano":"2009","notas":["Apartada Vicálvaro → En servicio."]},
+      "83":{"rama":"83","vehiculoBase":"083","numero":"253-083-0","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8062","ano":"2009","notas":["Accidente en Las Fraguas 14/10/24."]},
+      "84":{"rama":"84","vehiculoBase":"084","numero":"253-084-8","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8063","ano":"2009","notas":["Pegatinas Transporte Sostenible"]},
+      "85":{"rama":"85","vehiculoBase":"085","numero":"253-085-5","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8064","ano":"2009"},
+      "86":{"rama":"86","vehiculoBase":"086","numero":"253-086-3","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8065","ano":"2009"},
+      "87":{"rama":"87","vehiculoBase":"087","numero":"253-087-1","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8066","ano":"2009"},
+      "88":{"rama":"88","vehiculoBase":"088","numero":"253-088-9","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8067","ano":"2009"},
+      "89":{"rama":"89","vehiculoBase":"089","numero":"253-089-7","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8068","ano":"2009"},
+      "90":{"rama":"90","vehiculoBase":"090","numero":"253-090-5","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8069","notas":["Pegatinas Transporte Sostenible"]},
+      "91":{"rama":"91","vehiculoBase":"091","numero":"253-091-3","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8070"},
+      "92":{"rama":"92","vehiculoBase":"092","numero":"253-092-1","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8071"},
+      "93":{"rama":"93","vehiculoBase":"093","numero":"253-093-9","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8072","ano":"2010"},
+      "94":{"rama":"94","vehiculoBase":"094","numero":"253-094-7","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8073"},
+      "95":{"rama":"95","vehiculoBase":"095","numero":"253-095-4","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8074"},
+      "96":{"rama":"96","vehiculoBase":"096","numero":"253-096-2","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8075"},
+      "97":{"rama":"97","vehiculoBase":"097","numero":"253-097-0","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8076"},
+      "98":{"rama":"98","vehiculoBase":"098","numero":"253-098-8","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8077"},
+      "99":{"rama":"99","vehiculoBase":"099","numero":"253-099-6","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8078"},
+      "100":{"rama":"100","vehiculoBase":"100","numero":"253-100-2","une":"Mercancías","deposito":"Vicálvaro","color":"Blanco/Negro","estado":"En servicio","ancho":"1668","constructor":"Bombardier / Integria Renfe","fabricante":"Bombardier / Integria Renfe","numeroConstruccion":"8079"}
+    }
+  },
 };
 
 // Fabricante de la S-463: se determina automáticamente por el lote de la rama.
@@ -33433,7 +33573,7 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Motor par</span><strong>${esc(unit.motorPar||"—")}</strong></div>`:""}
         ${fichaField("Número completo",unit.numero)}
         ${fichaField("Fabricante",normalizeFleetValue(series)==="252" ? unit.constructor : (unit.fabricante||tech?.fabricante))}
-        ${!["256","252"].includes(normalizeFleetValue(series))?fichaField("Número de coches",unit.numeroCoches||tech?.numeroCoches):""}
+        ${!["256","252","253"].includes(normalizeFleetValue(series))?fichaField("Número de coches",unit.numeroCoches||tech?.numeroCoches):""}
         ${fichaField("Año",unit.ano)}
         ${["130","730","594"].includes(normalizeFleetValue(series)) && unit.exNumero?`<div><span>${normalizeFleetValue(series)==="730"?"Ex-número · procedencia S-130":"Ex-número"}</span><strong>${esc(unit.exNumero)}</strong></div>`:""}
         ${fichaField("Depósito / base",unit.deposito)}
@@ -33510,7 +33650,7 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${["453","801"].includes(normalizeFleetValue(series))?`
         <div><span>Vehículos de la rama</span><strong>${esc((unit.vehiculosRama||[]).join(" · ")||"—")}</strong></div>
         <div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||seriesData?.composicion||"—")}</strong></div>`:""}
-        ${tech?.velocidadMaxima && normalizeFleetValue(series)!=="252"?`<div><span>Velocidad máxima</span><strong>${esc(tech.velocidadMaxima||seriesData.velocidadMaxima)}</strong></div>`:""}
+        ${tech?.velocidadMaxima && !["252","253"].includes(normalizeFleetValue(series))?`<div><span>Velocidad máxima</span><strong>${esc(tech.velocidadMaxima||seriesData.velocidadMaxima)}</strong></div>`:""}
         ${tech?.potencia?`<div><span>Potencia</span><strong>${esc(tech.potencia||seriesData.potencia)}</strong></div>`:""}
         ${tech?.plazasSentadas?`<div><span>Plazas sentadas</span><strong>${esc(tech.plazasSentadas||seriesData.plazasSentadas)}</strong></div>`:""}
          ${["112","121","447","446","450","453","464","730","801"].includes(normalizeFleetValue(series))?`
@@ -33653,6 +33793,36 @@ function fleetFichaHtml(series,vehicle,service=null){
       </div>
     </div>`:"";
 
+  const technical253=normalizeFleetValue(series)==="253"?`
+    <div class="ficha-section">
+      <div class="ficha-section-title">CARACTERÍSTICAS TÉCNICAS</div>
+      <div class="ficha-grid">
+        ${fichaField("Constructor",unit.constructor||tech.constructor||tech.fabricante)}
+        ${fichaField("Unidades construidas",tech.unidadesConstruidas)}
+        ${fichaField("Año de construcción",tech.anoConstruccion)}
+        ${fichaField("Rodaje",tech.rodaje)}
+        ${fichaField("Tipo de bogie",tech.tipoBogies)}
+        ${fichaField("Diámetro de ruedas nuevas",tech.diametroRuedas)}
+        ${fichaField("Ancho de vía",tech.anchoVia)}
+        ${fichaField("Anchura de la caja",tech.anchuraCaja)}
+        ${fichaField("Altura del techo sobre el carril",tech.alturaTecho)}
+        ${fichaField("Longitud entre topes",tech.longitud)}
+        ${fichaField("Tensión de alimentación",tech.tension)}
+        ${fichaField("Potencia nominal",tech.potencia)}
+        ${fichaField("Esfuerzo de tracción",tech.esfuerzoTraccion)}
+        ${fichaField("Velocidad máxima",tech.velocidadMaxima)}
+        ${fichaField("Nº de motores de tracción",tech.numeroMotoresTraccion)}
+        ${fichaField("Tipo de motor",tech.tipoMotor)}
+        ${fichaField("Relación de engranajes",tech.relacionEngranajes)}
+        ${fichaField("Peso en orden de marcha",tech.peso)}
+        ${fichaField("Peso por eje",tech.pesoPorEje)}
+        ${fichaField("Freno eléctrico",tech.frenoElectrico)}
+        ${fichaField("Freno neumático",tech.frenos)}
+        ${fichaField("Mando múltiple",tech.mandoMultiple)}
+        ${fichaField("Calefacción al tren",tech.calefaccionTren)}
+      </div>
+    </div>`:"";
+
   const technical334=normalizeFleetValue(series)==="334"?`
     <div class="ficha-section">
       <div class="ficha-section-title">CARACTERÍSTICAS TÉCNICAS</div>
@@ -33768,6 +33938,7 @@ function fleetFichaHtml(series,vehicle,service=null){
     ${technical256}
     ${technical334}
     ${technical252}
+    ${technical253}
     ${technical594}
     ${highlights}
     ${serviceAnnotationsHtml(service)}
