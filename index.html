@@ -3985,7 +3985,7 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/5.0.8/jspdf.plugin.autotable.min.js"></script>
 
-<script src="app.js?v=20260919-256-exclusions-v3"></script>
+<script src="app.js?v=20260919-256-ficha-history-v3"></script>
 
 <script>
 (function(){
@@ -8203,35 +8203,6 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     }
   }
 
-  // Exclusiones operativas: nunca mostrar en Biblioteca ramas que ya
-  // no pertenecen a la serie (desguazadas o renumeradas a otra serie).
-  const EXCLUDED_BRANCHES={
-    '114':new Set(['5']),
-    '130':new Set(['11','12','13','14','15','16','17','18','19','20','21','22','23','24','25']),
-    '463':new Set(['2','3','4','6','9','16','17','19','20']),
-    '464':new Set(['1','2','3','4','5','6','15']),
-    '446':new Set(['11','18','42','56','58','67','96']),
-    '447':new Set(['28','30','44']),
-    '448':new Set(['18','19','22','28']),
-    '470':new Set(['98','126','137','186']),
-    '598':new Set(['17']),
-    '599':new Set(['15']),
-    '334':new Set(['8','27'])
-  };
-  const EXCLUDED_VEHICLES={
-    '120':new Set(['361']),
-    '450':new Set(['007'])
-  };
-  function locallyExcluded(series,unit){
-    const s=String(series||'');
-    const branch=norm(unit?.rama);
-    if(EXCLUDED_BRANCHES[s]?.has(branch))return true;
-    const vehicle=String(unit?.vehiculoBase||unit?.numero||'').trim().replace(/\s+/g,'');
-    const m=vehicle.match(/(?:^|[-])(?:120|450)[-]?(\d{3})(?:[-]\d)?$/i);
-    const vk=m?m[1]:(/^\d{1,3}$/.test(vehicle)?vehicle.padStart(3,'0'):vehicle);
-    return Boolean(EXCLUDED_VEHICLES[s]?.has(vk));
-  }
-
   function branchesFor(series){
     try{
       const source=(typeof fleet!=='undefined')?fleet:(window.fleet||{});
@@ -8239,7 +8210,6 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       const units=data?.units||{};
       const seen=new Set();
       Object.values(units).forEach(unit=>{
-        if(locallyExcluded(series,unit))return;
         if(typeof window.argosFleetUnitExcluded==='function' && window.argosFleetUnitExcluded(series,unit?.vehiculoBase||unit?.numero||'',unit?.rama,unit))return;
         const raw=String(unit?.rama??'').trim();
         if(!raw)return;
@@ -12357,7 +12327,7 @@ body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,25
       if(!collection)return;
       Object.entries(collection).forEach(([key,unit])=>{
         if(!unit||typeof unit!=='object')return;
-        if(['470','334'].includes(String(series)) && /desguazad/i.test(String(unit.estado||'')))return;
+        if(typeof window.argosFleetUnitExcluded==='function' && window.argosFleetUnitExcluded(series,unit?.vehiculoBase||unit?.numero||'',unit?.rama,unit))return;
         const branch=firstValue(unit,['rama','branch']);
         if(!branch)return;
         result.push({key,unit,branch,sourceLabel});
