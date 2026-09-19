@@ -11653,6 +11653,2095 @@ const fleet = {
       }
     }
   },
+  "333": {
+    "seriesName": "Serie 333 · Locomotoras diésel",
+    "fabricante": "Macosa, MTM, GM (Alstom/Vossloh las 300)",
+    "modelo": "JT 26-C",
+    "tipo": "JT 26-C",
+    "anoPuestaServicio": "1974 a 1976 (2002 en adelante las 300)",
+    "tipoMaterial": "Locomotora diésel",
+    "subseries": "333.1 · 333.2 · 333.3 · 333.4",
+    "numeroUnidades": "93 originales",
+    "constructor": "Macosa, MTM, GM (Alstom/Vossloh las 300)",
+    "rodaje": "Co'Co'",
+    "motoresDiesel": "1 (2 tiempos sobrealimentado)",
+    "tipoMotor": "GM 16-645-E-3",
+    "numeroCilindros": "16 en V",
+    "diametroCarreraCilindros": "244 × 254 mm",
+    "transmision": "Eléctrica GM AR-10 D-14",
+    "diametroRuedas": "1.067 mm",
+    "anchoVia": "1.668 mm",
+    "anchuraCaja": "3.060 mm (3.160 mm las 300)",
+    "alturaTecho": "4.280 mm (4.307 mm las 300)",
+    "longitud": "20.700 mm (22.330 mm las 300)",
+    "potencia": "3.345 CV a 900 r.p.m.",
+    "esfuerzoTraccion": "28.100 kg a 23 km/h",
+    "velocidadMaxima": "146 km/h (120 km/h las 300)",
+    "numeroMotoresElectricos": "6",
+    "tipoMotorElectrico": "GM D-77",
+    "potenciaContinuaPorMotor": "2.550 CV (1.875 kW)",
+    "peso": "120 t",
+    "pesoPorEje": "20 t",
+    "pesoPorMetro": "5,79 t (5,37 t las 300)",
+    "frenoDinamico": "Reostático",
+    "frenos": "Aire comprimido",
+    "mandoMultiple": "4 locomotoras (3 las 300)",
+    "calefaccionTren": "Eléctrica (No poseen las 300)",
+    "generalNotes": [
+      "Con la apertura al servicio del taller de locomotoras de Vicalvaro, las locomotoras basadas en Fuencarral y pertenecientes a la UN Mercancías han pasado a depender de Vicalvaro.",
+      "Última gran serie de locomotoras diésel construida totalmente nueva en Renfe, puesto que series posteriores hasta la llegada de las nuevas 334 fueron todas procedentes de reformas (319, 333.3, etc.). Locomotora polivalente y de gran potencia que ha servido tanto para trenes de mercancías como de viajeros.",
+      "Algunas unidades fueron decoradas en colores de Grandes Líneas. Ocho locomotoras fueron reformadas para la subserie 100, exclusivamente pensada para trenes de viajeros, y otras 4 locomotoras fueron reformadas a la subserie 200, que permitían alcanzar los 200 km/h con trenes de viajeros igualmente.",
+      "La subserie 333.3 se formó con tres lotes de 32 + 32 + 28 locomotoras. Los huecos entre 380 y 385 corresponden a locomotoras pertenecientes a empresas ferroviarias privadas.",
+      "La subserie 333.4 fue creada a partir de la renumeración de locomotoras de la 333.3 y mantiene el rombo de velocidad de 145 km/h.",
+      "La subserie 333.0 no conserva unidades en el estado actual: sus locomotoras fueron reformadas o renumeradas a otras subseries, o causaron baja."
+    ],
+    "units": {
+      "101": {
+        "rama": "1",
+        "subserie": "333.1",
+        "vehiculoBase": "101",
+        "numero": "333-101-4",
+        "searchCodes": [
+          "101"
+        ],
+        "ano": 1974,
+        "numeroConstruccion": "1471",
+        "une": "Grandes Líneas",
+        "notas": [
+          "(333-013-1) Bogies Nuevos. Ex- Fuencarral. 02/08 en Galicia para el estrella A Corufia. 10/08 apartada en Madrid. Ex-G.L. Salamanca."
+        ],
+        "ramaOriginal": "13",
+        "estado": "Apartada"
+      },
+      "102": {
+        "rama": "2",
+        "subserie": "333.1",
+        "vehiculoBase": "102",
+        "numero": "333-102-2",
+        "searchCodes": [
+          "102"
+        ],
+        "ano": 1974,
+        "numeroConstruccion": "1463",
+        "une": "Grandes Líneas",
+        "notas": [
+          "(333-005-7) Bogies Nuevos, vista a 16-3-06. Ex-G.L. Fuencarral. Transformada 333.3/334"
+        ],
+        "ramaOriginal": "5",
+        "estado": "Reformada",
+        "transformadaA": "334"
+      },
+      "103": {
+        "rama": "3",
+        "subserie": "333.1",
+        "vehiculoBase": "103",
+        "numero": "333-103-0",
+        "searchCodes": [
+          "103"
+        ],
+        "ano": 1976,
+        "numeroConstruccion": "1544",
+        "une": "Grandes Líneas",
+        "notas": [
+          "(333-086-7) Bogies Nuevos. Ex-T.C. Santa Justa. Ex-Fuencarral. Apartada en Madrid 02/09. Ex-G.L. Salamanca."
+        ],
+        "ramaOriginal": "86",
+        "estado": "Apartada"
+      },
+      "104": {
+        "rama": "4",
+        "subserie": "333.1",
+        "vehiculoBase": "104",
+        "numero": "333-104-8",
+        "searchCodes": [
+          "104"
+        ],
+        "ano": 1974,
+        "numeroConstruccion": "1469",
+        "une": "Grandes Líneas",
+        "notas": [
+          "(333-011-5) Bogies Nuevos. Ex- Fuencarral>> Salamanca>> G.L. Ourense. Trasladada a Madrid 06/04/09 para desguace."
+        ],
+        "ramaOriginal": "11",
+        "estado": "Baja"
+      },
+      "105": {
+        "rama": "5",
+        "subserie": "333.1",
+        "vehiculoBase": "105",
+        "numero": "333-105-5",
+        "searchCodes": [
+          "105"
+        ],
+        "ano": 1974,
+        "numeroConstruccion": "1467",
+        "color": "Amarillo/Gris",
+        "notas": [
+          "(333-009-9) Bogies Nuevos. Ex- Fuencarral>>Salamanca. Averiada 12/07/08, en servicio 08/08. Averia rodadura 28/01/09, reparada en Monforte, en servicio 03/09. Ex-G.L. Ourense hasta 7/4/09 >> Fuencarral>> Dada de baja, trasladada TCR Villaverde 10/09. Maquina herramienta en TCR>>Fuencarral 04/08/16. Cedida a la AAFM 09/18. Ultima 333 de caja original que presto servicio."
+        ],
+        "ramaOriginal": "9",
+        "estado": "Baja"
+      },
+      "106": {
+        "rama": "6",
+        "subserie": "333.1",
+        "vehiculoBase": "106",
+        "numero": "333-106-3",
+        "searchCodes": [
+          "106"
+        ],
+        "ano": 1976,
+        "numeroConstruccion": "1537",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(333-079-2) Bogies Nuevos. Colores Renfe Op. desde 08/06. De Baja, trasladada al TCR Villaverde, 04/08. Ex-G.L. Fuencarral."
+        ],
+        "ramaOriginal": "79",
+        "estado": "Baja"
+      },
+      "107": {
+        "rama": "7",
+        "subserie": "333.1",
+        "vehiculoBase": "107",
+        "numero": "333-107-1",
+        "searchCodes": [
+          "107"
+        ],
+        "ano": 1974,
+        "numeroConstruccion": "1464",
+        "deposito": "Fuencarral",
+        "color": "Amarillo/Negro",
+        "notas": [
+          "Ex 333-006-5. Bogies Nuevos. Ex- Ourense>> G.L. Fuencarral. Ex-Apartada> De nuevo en servicio, 07/10, para Integria. Colores Renfe Op. Logos Integria, colores Renfe Op. Preservada AAFM, 02/16, repintada amarillo/gris 10/18."
+        ],
+        "ramaOriginal": "6",
+        "estado": "Preservada"
+      },
+      "108": {
+        "rama": "8",
+        "subserie": "333.1",
+        "vehiculoBase": "108",
+        "numero": "333-108-9",
+        "searchCodes": [
+          "108"
+        ],
+        "ano": 1974,
+        "numeroConstruccion": "1466",
+        "notas": [
+          "(333-008-1) Bogies Nuevos.Ex- Ourense, Ex-G.L. Fuencarral, colores amarillo/gris>> Reformada a 334."
+        ],
+        "ramaOriginal": "8",
+        "estado": "Reformada",
+        "transformadaA": "334"
+      },
+      "201": {
+        "rama": "1",
+        "subserie": "333.2",
+        "vehiculoBase": "201",
+        "numero": "333-201-2",
+        "searchCodes": [
+          "201"
+        ],
+        "ano": 1975,
+        "numeroConstruccion": "1499",
+        "color": "Amarillo/Gris",
+        "notas": [
+          "(333-041-2, 22/03/96) Bogies Nuevos. Dada de baja y apartada en TCR Villaverde."
+        ],
+        "ramaOriginal": "41",
+        "estado": "Baja"
+      },
+      "202": {
+        "rama": "2",
+        "subserie": "333.2",
+        "vehiculoBase": "202",
+        "numero": "333-202-0",
+        "searchCodes": [
+          "202"
+        ],
+        "ano": 1974,
+        "numeroConstruccion": "1479",
+        "une": "Grandes Líneas",
+        "notas": [
+          "(333-021-4, 22/03/96) Bogies Nuevos, Ex-G.L. Fuencarral>> Baja, Trasladada a TCR Villaverde 24/01/08"
+        ],
+        "ramaOriginal": "21",
+        "estado": "Baja"
+      },
+      "203": {
+        "rama": "3",
+        "subserie": "333.2",
+        "vehiculoBase": "203",
+        "numero": "333-203-8",
+        "searchCodes": [
+          "203"
+        ],
+        "ano": 1975,
+        "numeroConstruccion": "1510",
+        "une": "Grandes Líneas",
+        "notas": [
+          "(333-052-9, 22/03/96) Bogies Nuevos, apartada y canibalizada TCR Villaverde"
+        ],
+        "ramaOriginal": "52",
+        "estado": "Canibalizada"
+      },
+      "204": {
+        "rama": "4",
+        "subserie": "333.2",
+        "vehiculoBase": "204",
+        "numero": "333-204-6",
+        "searchCodes": [
+          "204"
+        ],
+        "ano": 1976,
+        "numeroConstruccion": "1542",
+        "une": "Grandes Líneas",
+        "notas": [
+          "(333-084-2, 06/12/97) Bogies Nuevos, 11/02/08 traslado con 333-012 al TCR Villaverde. Ex- G.L. Fuencarral an +"
+        ],
+        "ramaOriginal": "84"
+      },
+      "301": {
+        "rama": "1",
+        "subserie": "333.3",
+        "vehiculoBase": "301",
+        "numero": "333-301-0",
+        "searchCodes": [
+          "301"
+        ],
+        "ano": 2002,
+        "numeroConstruccion": "2082",
+        "une": "Mercancías",
+        "deposito": "Ourense",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex- 333-027-1)Ex-T.C. Colores Renfe Op."
+        ],
+        "ramaOriginal": "27",
+        "lote": "Primer lote"
+      },
+      "302": {
+        "rama": "2",
+        "subserie": "333.3",
+        "vehiculoBase": "302",
+        "numero": "333-302-8",
+        "searchCodes": [
+          "302"
+        ],
+        "ano": 2002,
+        "numeroConstruccion": "2083",
+        "une": "Renfe Alquiler",
+        "deposito": "Barcelona",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex- 333-056-0)Ex-T.C.Colores Renfe Op. Ex-Mercancias Ourense>> Alquilada a Medway 2021>> Traccién Rail 2021>> Medway 2021>> Go Transport 03/25"
+        ],
+        "ramaOriginal": "56",
+        "lote": "Primer lote"
+      },
+      "303": {
+        "rama": "3",
+        "subserie": "333.3",
+        "vehiculoBase": "303",
+        "numero": "333-303-6",
+        "searchCodes": [
+          "303"
+        ],
+        "ano": 2002,
+        "numeroConstruccion": "2086",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex- 333-073-5)Ex-T.C.Colores Renfe Op. Ex-Ourense>>Sevilla. Descarrilo La Nava (Huelva) 07/02/14 por desprendimiento. Vicalvaro>> Fuencarral desde 01/12/25"
+        ],
+        "ramaOriginal": "73",
+        "lote": "Primer lote"
+      },
+      "304": {
+        "rama": "4",
+        "subserie": "333.3",
+        "vehiculoBase": "304",
+        "numero": "333-304-4",
+        "searchCodes": [
+          "304"
+        ],
+        "ano": 2002,
+        "numeroConstruccion": "2089",
+        "color": "Amarillo/Gris",
+        "notas": [
+          "(Ex- 333-050-3) Destruida en accidente de Chinchilla 03/06/03. Ex-T.C. Fuencarral."
+        ],
+        "ramaOriginal": "50",
+        "estado": "Destruida",
+        "lote": "Primer lote"
+      },
+      "305": {
+        "rama": "5",
+        "subserie": "333.3",
+        "vehiculoBase": "305",
+        "numero": "333-305-1",
+        "searchCodes": [
+          "305"
+        ],
+        "ano": 2002,
+        "numeroConstruccion": "2092",
+        "une": "Mercancías",
+        "deposito": "Ourense",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex- 333-075-0). Ex-T.Combinado. Colores Renfe Op. Ex-Ourense>>Sevilla"
+        ],
+        "ramaOriginal": "75",
+        "lote": "Primer lote"
+      },
+      "306": {
+        "rama": "6",
+        "subserie": "333.3",
+        "vehiculoBase": "306",
+        "numero": "333-306-9",
+        "searchCodes": [
+          "306"
+        ],
+        "ano": 2002,
+        "numeroConstruccion": "2095",
+        "une": "Renfe Alquiler",
+        "deposito": "Vicálvaro",
+        "color": "Gris",
+        "notas": [
+          "Ex 333-029-7. Ex-T.C.>> Mercancias. Colores Renfe Op. Ex-Ourense. Transferida a Renfe Alquiler 2015. Color Gris, desde 09/15. Alquilada a Continental Rail 2015. Incendio en bogie en Ciempozuelos, 26/10/17. Alquilada a GO Transport, 05/19"
+        ],
+        "ramaOriginal": "29",
+        "lote": "Primer lote"
+      },
+      "307": {
+        "rama": "7",
+        "subserie": "333.3",
+        "vehiculoBase": "307",
+        "numero": "333-307-7",
+        "searchCodes": [
+          "307"
+        ],
+        "ano": 2003,
+        "numeroConstruccion": "2098",
+        "une": "Mercancías",
+        "deposito": "Ourense",
+        "color": "Blanco/Negro",
+        "notas": [
+          "Ex 333-049-5. Ex-T.C.>> Mercancias. Colores Renfe Op. Ex-Ourense>> Sevilla"
+        ],
+        "ramaOriginal": "49",
+        "lote": "Primer lote"
+      },
+      "308": {
+        "rama": "8",
+        "subserie": "333.3",
+        "vehiculoBase": "308",
+        "numero": "333-308-5",
+        "searchCodes": [
+          "308"
+        ],
+        "ano": 2002,
+        "numeroConstruccion": "2101",
+        "une": "Mercancías",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex 333-090-9) Ex-T.C.>> Mercancias Ourense. Colores Renfe Op. Descarrilo en Silleda (Pontevedra) por desprendimiento, 05/01/10. Trasladada a Valencia FSL, 17/08/10>> Baja 24/08/10. Licitado desguace 05/25."
+        ],
+        "ramaOriginal": "90",
+        "estado": "Baja",
+        "lote": "Primer lote"
+      },
+      "309": {
+        "rama": "9",
+        "subserie": "333.3",
+        "vehiculoBase": "309",
+        "numero": "333-309-3",
+        "searchCodes": [
+          "309"
+        ],
+        "ano": 2003,
+        "numeroConstruccion": "2104",
+        "une": "Renfe Alquiler",
+        "color": "Gris",
+        "notas": [
+          "Ex 333-046-1. Ex-T.C.>> Mercancias. Colores Renfe Op. Ex-Ourense. Transferida a Renfe Alquiler 2015. Color Gris, 12/15. Alquilada a Transfesa, 01/16.>> Alquilada a LCR, 03/18 (sin logos). (vista placa)"
+        ],
+        "ramaOriginal": "46",
+        "lote": "Primer lote"
+      },
+      "310": {
+        "rama": "10",
+        "subserie": "333.3",
+        "vehiculoBase": "310",
+        "numero": "333-310-1",
+        "searchCodes": [
+          "310"
+        ],
+        "ano": 2003,
+        "numeroConstruccion": "2107",
+        "une": "Renfe Alquiler",
+        "color": "Blanco/Negro",
+        "notas": [
+          "Ex 333-065-1. Ex-T.C.>> Mercancias. Colores Renfe Op. Ex-Apartada en Valencia FSL>>En servicio, 08/10. Ex-Ourense. Traspaso a Renfe Alquiler 2021. Alquilada a Medway 2021 >> Traccion Rail 2021>> Medway 2021 >> Continental Rail 01/25. Alquilada a Guinovart 2026, vinilos en los frontales."
+        ],
+        "ramaOriginal": "65",
+        "lote": "Primer lote"
+      },
+      "311": {
+        "rama": "11",
+        "subserie": "333.3",
+        "vehiculoBase": "311",
+        "numero": "333-311-9",
+        "searchCodes": [
+          "311"
+        ],
+        "ano": 2003,
+        "numeroConstruccion": "2110",
+        "color": "Amarillo/Gris",
+        "notas": [
+          "(Ex- 333-053-7). Renumerada 333- 404-2.Ex- T.C. Fuencarral"
+        ],
+        "ramaOriginal": "53",
+        "estado": "Renumerada",
+        "transformadaA": "333-404-2",
+        "lote": "Primer lote"
+      },
+      "312": {
+        "rama": "12",
+        "subserie": "333.3",
+        "vehiculoBase": "312",
+        "numero": "333-312-7",
+        "searchCodes": [
+          "312"
+        ],
+        "ano": 2003,
+        "numeroConstruccion": "2112",
+        "color": "Amarillo/Gris",
+        "notas": [
+          "(Ex- 333-038-8). Renumerada 333- 406-7.Ex-T.C."
+        ],
+        "ramaOriginal": "38",
+        "estado": "Renumerada",
+        "transformadaA": "333-406-7",
+        "lote": "Primer lote"
+      },
+      "313": {
+        "rama": "13",
+        "subserie": "333.3",
+        "vehiculoBase": "313",
+        "numero": "333-313-5",
+        "searchCodes": [
+          "313"
+        ],
+        "ano": 2002,
+        "numeroConstruccion": "2081",
+        "une": "Renfe Alquiler",
+        "color": "Gris",
+        "notas": [
+          "Ex 333-036-2. Ex-Cargas>> Mercancias. Colores Renfe Op. Ex-Ourense. Renfe Alquiler 2015. Color Gris, desde 04/15. Alquilada a Continental Rail 2015>> Acciona 2015>>Tracci6n Rail 2016-2018>> Captrain 2018>>Transitia Rail 2018-2019>> Tracci6n Rail 2020-2022>> Low Cost Rail 2022. Alquilada a CEFSA (Grupo Raxell) desde 04/23. Adaptada para consumo de Biodiésel>>Alquilada Continental Rail 01/24>>Traccién Rail 04/24>>Continental Rail 07/24>> Alsa 01/26."
+        ],
+        "ramaOriginal": "36",
+        "lote": "Primer lote"
+      },
+      "314": {
+        "rama": "14",
+        "subserie": "333.3",
+        "vehiculoBase": "314",
+        "numero": "333-314-3",
+        "searchCodes": [
+          "314"
+        ],
+        "ano": 2002,
+        "numeroConstruccion": "2084",
+        "une": "Renfe Alquiler",
+        "color": "Gris",
+        "notas": [
+          "Ex 333-015-6. Ex-Cargas>> Mercancias>> Renfe Alquiler 2015. Ex- Ourense>> Vicalvaro. Alquilada Continental Rail 10/15>> Transfesa 04/16>> COMSA 05/16 a 2017>> Continental Rail 2018"
+        ],
+        "ramaOriginal": "15",
+        "lote": "Primer lote"
+      },
+      "315": {
+        "rama": "15",
+        "subserie": "333.3",
+        "vehiculoBase": "315",
+        "numero": "333-315-0",
+        "searchCodes": [
+          "315"
+        ],
+        "ano": 2002,
+        "numeroConstruccion": "2085",
+        "une": "Mercancías",
+        "deposito": "Ourense",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex- 333-043-8). Ex-Cargas. Colores Renfe Op."
+        ],
+        "ramaOriginal": "43",
+        "lote": "Primer lote"
+      },
+      "316": {
+        "rama": "16",
+        "subserie": "333.3",
+        "vehiculoBase": "316",
+        "numero": "333-316-8",
+        "searchCodes": [
+          "316"
+        ],
+        "ano": 2002,
+        "numeroConstruccion": "2087",
+        "une": "Renfe Alquiler",
+        "color": "Gris",
+        "notas": [
+          "Ex 333-045-3. Ex-Cargas>> Mercancias. Colores Renfe Op. Ex-Santa Justa. Transferida a Renfe Alquiler 2017. Color Gris, desde 04/17. Alquilada a Low Cost Rail 2017."
+        ],
+        "ramaOriginal": "45",
+        "lote": "Primer lote"
+      },
+      "317": {
+        "rama": "17",
+        "subserie": "333.3",
+        "vehiculoBase": "317",
+        "numero": "333-317-6",
+        "searchCodes": [
+          "317"
+        ],
+        "ano": 2002,
+        "numeroConstruccion": "2088",
+        "une": "Renfe Alquiler",
+        "color": "Gris",
+        "notas": [
+          "Ex 333-060-2. Ex-Cargas>> Mercancias. Colores Renfe Op. Ex-Santa Justa. Transferida a Renfe Alquiler 2017. Color Gris. Alquilada a Low Cost Rail, 01/17>> Tracci6n Rail 2022."
+        ],
+        "ramaOriginal": "60",
+        "lote": "Primer lote"
+      },
+      "318": {
+        "rama": "18",
+        "subserie": "333.3",
+        "vehiculoBase": "318",
+        "numero": "333-318-4",
+        "searchCodes": [
+          "318"
+        ],
+        "ano": 2002,
+        "numeroConstruccion": "2090",
+        "notas": [
+          "(Ex- 333-085-9)Ex-Cargas. Renumerada 333-408-3"
+        ],
+        "ramaOriginal": "85",
+        "estado": "Renumerada",
+        "transformadaA": "333-408-3",
+        "lote": "Primer lote"
+      },
+      "319": {
+        "rama": "19",
+        "subserie": "333.3",
+        "vehiculoBase": "319",
+        "numero": "333-319-2",
+        "searchCodes": [
+          "319"
+        ],
+        "ano": 2002,
+        "numeroConstruccion": "2091",
+        "une": "Renfe Alquiler",
+        "color": "Gris",
+        "notas": [
+          "Ex 333-057-8. Ex-Cargas>> Mercancias. Colores Renfe Op. Ex-Ourense. Traspaso Renfe Alquiler 2015. Alquilada a Continental Rail, desde 03/15. Color Gris (logos Continental), desde 11/05/15. Descarrilo Vilaverd 29/04/22. En servicio"
+        ],
+        "ramaOriginal": "57",
+        "lote": "Primer lote"
+      },
+      "320": {
+        "rama": "20",
+        "subserie": "333.3",
+        "vehiculoBase": "320",
+        "numero": "333-320-0",
+        "searchCodes": [
+          "320"
+        ],
+        "ano": 2002,
+        "numeroConstruccion": "2093",
+        "une": "Renfe Alquiler",
+        "deposito": "Vicálvaro",
+        "color": "Gris",
+        "notas": [
+          "Ex 333-037-0. Ex-Cargas>> Mercancias. Colores Renfe Op. Ex-Ourense>> Renfe Alquiler 2015 Alquilada Continental Rail, desde 03/15. Color Gris (logos Continental)>> Alquilada GO Transport 05/19>> Renfe Mercancias desde 01/07/25>> R. Alquiler 09/25."
+        ],
+        "ramaOriginal": "37",
+        "lote": "Primer lote"
+      },
+      "321": {
+        "rama": "21",
+        "subserie": "333.3",
+        "vehiculoBase": "321",
+        "numero": "333-321-8",
+        "searchCodes": [
+          "321"
+        ],
+        "ano": 2002,
+        "numeroConstruccion": "2094",
+        "une": "Renfe Alquiler",
+        "color": "Gris",
+        "notas": [
+          "Ex 333-061-0. Ex-Cargas>> Mercancias. Colores Renfe Op., desde 08/06. Incendiada en Redondela, 29/12/11. Ex-Ourense. Transferida a Renfe Alquiler 2015. Color Gris, desde 04/15. Alquilada a ACCIONA, 06/15>> Alquilada a Continental Rail 02/18 a 03/23. Alquilada a Traccién Rail 10/25. Renfe Alquiler 01/26"
+        ],
+        "ramaOriginal": "61",
+        "lote": "Primer lote"
+      },
+      "322": {
+        "rama": "22",
+        "subserie": "333.3",
+        "vehiculoBase": "322",
+        "numero": "333-322-6",
+        "searchCodes": [
+          "322"
+        ],
+        "ano": 2002,
+        "numeroConstruccion": "2096",
+        "notas": [
+          "Ex 333-019-8. Ex-Cargas. Renumerada a 333-407-5."
+        ],
+        "ramaOriginal": "19",
+        "estado": "Renumerada",
+        "transformadaA": "333-407-5",
+        "lote": "Primer lote"
+      },
+      "323": {
+        "rama": "23",
+        "subserie": "333.3",
+        "vehiculoBase": "323",
+        "numero": "333-323-4",
+        "searchCodes": [
+          "323"
+        ],
+        "ano": 2003,
+        "numeroConstruccion": "2097",
+        "une": "Renfe Alquiler",
+        "color": "Gris",
+        "notas": [
+          "Ex 333-028-9. Ex-Cargas>> Mercancias. Colores Renfe Op. Ex-Ourense. Transferida a Renfe Alquiler 2015. Color Gris. Alquilada a Acciona 2015>> Alquilada a Continental Rail, 02/18 (sin logos)."
+        ],
+        "ramaOriginal": "28",
+        "lote": "Primer lote"
+      },
+      "324": {
+        "rama": "24",
+        "subserie": "333.3",
+        "vehiculoBase": "324",
+        "numero": "333-324-2",
+        "searchCodes": [
+          "324"
+        ],
+        "ano": null,
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "@ Mercancias Fuencarral Blanco/Negro 2003. 2099 + © E99 Ex 333-010-7. Ex-Cargas. Colores Renfe Op. Ex-Fuencarral>> Ourense>> Fuencarral desde 01/12/25"
+        ],
+        "ramaOriginal": "10",
+        "lote": "Primer lote"
+      },
+      "325": {
+        "rama": "25",
+        "subserie": "333.3",
+        "vehiculoBase": "325",
+        "numero": "333-325-9",
+        "searchCodes": [
+          "325"
+        ],
+        "ano": null,
+        "une": "Mercancías",
+        "deposito": "Ourense",
+        "color": "Blanco/Negro",
+        "notas": [
+          "@ Mercancias Ourense Blanco/Negro 2003. 2100 + © EGM9 Ex 333-047-9. Ex-Cargas. Colores Renfe Op. Ex-Fuencarral."
+        ],
+        "ramaOriginal": "47",
+        "lote": "Primer lote"
+      },
+      "326": {
+        "rama": "26",
+        "subserie": "333.3",
+        "vehiculoBase": "326",
+        "numero": "333-326-7",
+        "searchCodes": [
+          "326"
+        ],
+        "ano": null,
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "@ Mercancias Fuencarral Blanco/Negro 2003. 2102 + © EGH9 Ex 333-054-5. Ex-Cargas. Colores Renfe Op. Ex-Valencia>> Salamanca>> Ourense>> Fuencarral desde 01/12/25"
+        ],
+        "ramaOriginal": "54",
+        "lote": "Primer lote"
+      },
+      "327": {
+        "rama": "27",
+        "subserie": "333.3",
+        "vehiculoBase": "327",
+        "numero": "333-327-5",
+        "searchCodes": [
+          "327"
+        ],
+        "ano": null,
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "@ Mercancias Fuencarral Blanco/Negro 2003. 2103 + © SHA Ex 333-063-6. Ex-Cargas. Colores Renfe Op. Ex-Salamanca>> Ourense>> Fuencarral desde 01/12/25"
+        ],
+        "ramaOriginal": "63",
+        "lote": "Primer lote"
+      },
+      "328": {
+        "rama": "28",
+        "subserie": "333.3",
+        "vehiculoBase": "328",
+        "numero": "333-328-3",
+        "searchCodes": [
+          "328"
+        ],
+        "ano": null,
+        "une": "Mercancías",
+        "deposito": "Ourense",
+        "color": "Blanco/Negro",
+        "notas": [
+          "@ Mercancias Ourense Blanco/Negro 2003. 2105 + © EGA Ex 333-024-8. Ex-Cargas>> Mercancias Salamanca. Colores Renfe Op. Accidente Salamanca con la 333.389 13/07/17. Faros LED en cabina 1. Arrollamiento vehiculo Betanzos 01/12/19"
+        ],
+        "ramaOriginal": "24",
+        "lote": "Primer lote"
+      },
+      "329": {
+        "rama": "29",
+        "subserie": "333.3",
+        "vehiculoBase": "329",
+        "numero": "333-329-1",
+        "searchCodes": [
+          "329"
+        ],
+        "ano": 2003,
+        "numeroConstruccion": "2106",
+        "color": "Amarillo/Gris",
+        "notas": [
+          "Ex 333-044-6. Ex-Cargas. Renumerada a 333-402-6."
+        ],
+        "ramaOriginal": "44",
+        "estado": "Renumerada",
+        "transformadaA": "333-402-6",
+        "lote": "Primer lote"
+      },
+      "330": {
+        "rama": "30",
+        "subserie": "333.3",
+        "vehiculoBase": "330",
+        "numero": "333-330-9",
+        "searchCodes": [
+          "330"
+        ],
+        "ano": 2003,
+        "numeroConstruccion": "2108",
+        "color": "Amarillo/Gris",
+        "notas": [
+          "Ex 333-055-2. Ex-Cargas. Renumerada a 333-401-8."
+        ],
+        "ramaOriginal": "55",
+        "estado": "Renumerada",
+        "transformadaA": "333-401-8",
+        "lote": "Primer lote"
+      },
+      "331": {
+        "rama": "31",
+        "subserie": "333.3",
+        "vehiculoBase": "331",
+        "numero": "333-331-7",
+        "searchCodes": [
+          "331"
+        ],
+        "ano": 2003,
+        "numeroConstruccion": "2109",
+        "color": "Amarillo/Gris",
+        "notas": [
+          "Ex 333-080-0. Ex-Cargas. Renumerada a 333-403-4."
+        ],
+        "ramaOriginal": "80",
+        "estado": "Renumerada",
+        "transformadaA": "333-403-4",
+        "lote": "Primer lote"
+      },
+      "332": {
+        "rama": "32",
+        "subserie": "333.3",
+        "vehiculoBase": "332",
+        "numero": "333-332-5",
+        "searchCodes": [
+          "332"
+        ],
+        "ano": 2003,
+        "numeroConstruccion": "2111",
+        "color": "Amarillo/Gris",
+        "notas": [
+          "Ex 333-068-5. Ex-Cargas. Renumerada a 333-405-9."
+        ],
+        "ramaOriginal": "68",
+        "estado": "Renumerada",
+        "transformadaA": "333-405-9",
+        "lote": "Primer lote"
+      },
+      "333": {
+        "rama": "33",
+        "subserie": "333.3",
+        "vehiculoBase": "333",
+        "numero": "333-333-3",
+        "searchCodes": [
+          "333"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2233",
+        "une": "Renfe Alquiler",
+        "color": "Gris",
+        "notas": [
+          "Ex 333-003-2. Ex-Cargas>> Mercancias. Colores Renfe Op. Ex-Salamanca. Transferida a Renfe Alquiler 2017. Color Gris, desde 04/17. Alquilada a Low Cost Rail 2017>> Tracci6n Rail 2022."
+        ],
+        "ramaOriginal": "3",
+        "lote": "Segundo lote"
+      },
+      "334": {
+        "rama": "34",
+        "subserie": "333.3",
+        "vehiculoBase": "334",
+        "numero": "333-334-1",
+        "searchCodes": [
+          "334"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2234",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex-333-014-9). Accidente en Salamanca 09/10/06. Enviada a reparar 05/12/06. De nuevo en servicio 08/07. Ex- Fuencarral>>Salamanca>> Ourense>> Fuencarral desde 01/06/26"
+        ],
+        "ramaOriginal": "14",
+        "lote": "Segundo lote"
+      },
+      "335": {
+        "rama": "35",
+        "subserie": "333.3",
+        "vehiculoBase": "335",
+        "numero": "333-335-8",
+        "searchCodes": [
+          "335"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2235",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex 333-023-0) En Servicio 07/05. Ex- Fuencarral. Colores Renfe Op. Ex-Salamanca>> Ourense>> Fuencarral desde 01/12/25"
+        ],
+        "ramaOriginal": "23",
+        "lote": "Segundo lote"
+      },
+      "336": {
+        "rama": "36",
+        "subserie": "333.3",
+        "vehiculoBase": "336",
+        "numero": "333-336-6",
+        "searchCodes": [
+          "336"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2236",
+        "une": "Renfe Alquiler",
+        "color": "Gris",
+        "notas": [
+          "Ex 333-069-3. En servicio desde 09/05. Ex-Salamanca. Transferida a Renfe Alquiler 2017. Color Gris. Alquilada a Low Cost Rail, 03/17>> Ferrovial 2022."
+        ],
+        "ramaOriginal": "69",
+        "lote": "Segundo lote"
+      },
+      "337": {
+        "rama": "37",
+        "subserie": "333.3",
+        "vehiculoBase": "337",
+        "numero": "333-337-4",
+        "searchCodes": [
+          "337"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2237",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "Ex 333-088-3. En servicio, desde 09/05. Ex-Salamanca>> Ourense>> Fuencarral desde 01/06/26"
+        ],
+        "ramaOriginal": "88",
+        "lote": "Segundo lote"
+      },
+      "338": {
+        "rama": "38",
+        "subserie": "333.3",
+        "vehiculoBase": "338",
+        "numero": "333-338-2",
+        "searchCodes": [
+          "338"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2238",
+        "une": "Mercancías",
+        "deposito": "Vicálvaro",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex-333-040-4) En servicio desde 11/05. Ex-Fuencarral. Accidentada en la topera de Salamanca 23/12/13. Trasladada a Llanera en 2022>> Ourense 2023. Apartada desde 05/23 en Vicalvaro>> Vuelta al servicio 06/26."
+        ],
+        "ramaOriginal": "40",
+        "estado": "En servicio",
+        "lote": "Segundo lote"
+      },
+      "339": {
+        "rama": "39",
+        "subserie": "333.3",
+        "vehiculoBase": "339",
+        "numero": "333-339-0",
+        "searchCodes": [
+          "339"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2239",
+        "une": "Mercancías",
+        "deposito": "Vicálvaro",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex-333-025-5) Ex-Salamanca>> Ourense"
+        ],
+        "ramaOriginal": "25",
+        "lote": "Segundo lote"
+      },
+      "340": {
+        "rama": "40",
+        "subserie": "333.3",
+        "vehiculoBase": "340",
+        "numero": "333-340-8",
+        "searchCodes": [
+          "340"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2240",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex-333-026-3) Ex-Fuencarral. Colores Renfe Op. Ex-Salamanca"
+        ],
+        "ramaOriginal": "26",
+        "lote": "Segundo lote"
+      },
+      "341": {
+        "rama": "41",
+        "subserie": "333.3",
+        "vehiculoBase": "341",
+        "numero": "333-341-6",
+        "searchCodes": [
+          "341"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2241",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex-333-033-9). Ex-Vicalvaro>> Ourense>> Fuencarral desde 01/06/26"
+        ],
+        "ramaOriginal": "33",
+        "lote": "Segundo lote"
+      },
+      "342": {
+        "rama": "42",
+        "subserie": "333.3",
+        "vehiculoBase": "342",
+        "numero": "333-342-4",
+        "searchCodes": [
+          "342"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2242",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex-333-039-6) Ex-Vicalvaro>> Ourense>> Fuencarral desde 01/06/26"
+        ],
+        "ramaOriginal": "39",
+        "lote": "Segundo lote"
+      },
+      "343": {
+        "rama": "43",
+        "subserie": "333.3",
+        "vehiculoBase": "343",
+        "numero": "333-343-2",
+        "searchCodes": [
+          "343"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2243",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex-333-066-9) Ex-Salamanca. Colores Renfe Op. Ex-Vicalvaro>> Fuencarral desde 01/12/25"
+        ],
+        "ramaOriginal": "66",
+        "lote": "Segundo lote"
+      },
+      "344": {
+        "rama": "44",
+        "subserie": "333.3",
+        "vehiculoBase": "344",
+        "numero": "333-344-0",
+        "searchCodes": [
+          "344"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2244",
+        "une": "Mercancías",
+        "deposito": "Salamanca",
+        "color": "Blanco/Negro",
+        "notas": [
+          "Ex 333-018-0. Ex-Salamanca>> Vicalvaro>> Santa Justa>> Ourense>> Vicalvaro>>Ourense>> Monforte desde 01/12/25"
+        ],
+        "ramaOriginal": "18",
+        "lote": "Segundo lote"
+      },
+      "345": {
+        "rama": "45",
+        "subserie": "333.3",
+        "vehiculoBase": "345",
+        "numero": "333-345-7",
+        "searchCodes": [
+          "345"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2245",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex-333-092-5) Ex- Vicalvaro>> Ourense>> Vicalvaro>> Fuencarral desde 01/06/26"
+        ],
+        "ramaOriginal": "92",
+        "lote": "Segundo lote"
+      },
+      "346": {
+        "rama": "46",
+        "subserie": "333.3",
+        "vehiculoBase": "346",
+        "numero": "333-346-5",
+        "searchCodes": [
+          "346"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2246",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex-333-002-4) Ex-Vicalvaro>> Ourense>> Fuencarral desde 01/12/25"
+        ],
+        "ramaOriginal": "2",
+        "lote": "Segundo lote"
+      },
+      "347": {
+        "rama": "47",
+        "subserie": "333.3",
+        "vehiculoBase": "347",
+        "numero": "333-347-3",
+        "searchCodes": [
+          "347"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2247",
+        "une": "Mercancías",
+        "deposito": "Vicálvaro",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex-333-030-5)Ex-Salamanca>> Vicalvaro"
+        ],
+        "ramaOriginal": "30",
+        "lote": "Segundo lote"
+      },
+      "348": {
+        "rama": "48",
+        "subserie": "333.3",
+        "vehiculoBase": "348",
+        "numero": "333-348-1",
+        "searchCodes": [
+          "348"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2248",
+        "une": "Mercancías",
+        "deposito": "Vicálvaro",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex-333-051-1)Ex-Salamanca. Accidente con 333.404 en taller de Salamanca 26/02/25"
+        ],
+        "ramaOriginal": "51",
+        "lote": "Segundo lote"
+      },
+      "349": {
+        "rama": "49",
+        "subserie": "333.3",
+        "vehiculoBase": "349",
+        "numero": "333-349-9",
+        "searchCodes": [
+          "349"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2249",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex-333-059-4)Ex-Salamanca>> Vicalvaro>> Fuencarral desde 01/06/26"
+        ],
+        "ramaOriginal": "59",
+        "lote": "Segundo lote"
+      },
+      "350": {
+        "rama": "50",
+        "subserie": "333.3",
+        "vehiculoBase": "350",
+        "numero": "333-350-7",
+        "searchCodes": [
+          "350"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2250",
+        "une": "Mercancías",
+        "deposito": "Vicálvaro",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex-333-070-1) Ex-Vicalvaro>> Sta. Justa>> Monforte desde 01/12/25"
+        ],
+        "ramaOriginal": "70",
+        "lote": "Segundo lote"
+      },
+      "351": {
+        "rama": "51",
+        "subserie": "333.3",
+        "vehiculoBase": "351",
+        "numero": "333-351-5",
+        "searchCodes": [
+          "351"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2251",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex-333-062-8)En servicio desde 05/06. Ex- Vicalvaro>> Ourense>> Vicalvaro>> Fuencarral desde 01/06/26"
+        ],
+        "ramaOriginal": "62",
+        "lote": "Segundo lote"
+      },
+      "352": {
+        "rama": "52",
+        "subserie": "333.3",
+        "vehiculoBase": "352",
+        "numero": "333-352-3",
+        "searchCodes": [
+          "352"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2252",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex-333-022-2) Ex-Vicalvaro>> Fuencarral desde 01/12/25"
+        ],
+        "ramaOriginal": "22",
+        "lote": "Segundo lote"
+      },
+      "353": {
+        "rama": "53",
+        "subserie": "333.3",
+        "vehiculoBase": "353",
+        "numero": "333-353-1",
+        "searchCodes": [
+          "353"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2253",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex 333-082-6)En servicio desde 07/06. Ex-Valencia>>Vicalvaro>> Ourense>> Vicalvaro>> Fuencarral desde 01/06/26"
+        ],
+        "ramaOriginal": "82",
+        "lote": "Segundo lote"
+      },
+      "354": {
+        "rama": "54",
+        "subserie": "333.3",
+        "vehiculoBase": "354",
+        "numero": "333-354-9",
+        "searchCodes": [
+          "354"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2254",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex-333-072-7) En servicio 08/06. Ex- Valencia>> Vicalvaro>> Fuencarral desde 01/06/26"
+        ],
+        "ramaOriginal": "72",
+        "lote": "Segundo lote"
+      },
+      "355": {
+        "rama": "55",
+        "subserie": "333.3",
+        "vehiculoBase": "355",
+        "numero": "333-355-6",
+        "searchCodes": [
+          "355"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2255",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex-333-067-7) En servicio 09/06. Ex- Valencia>> Vicalvaro>> Fuencarral desde 01/06/26"
+        ],
+        "ramaOriginal": "67",
+        "lote": "Segundo lote"
+      },
+      "356": {
+        "rama": "56",
+        "subserie": "333.3",
+        "vehiculoBase": "356",
+        "numero": "333-356-4",
+        "searchCodes": [
+          "356"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2256",
+        "une": "Renfe Alquiler",
+        "deposito": "Vicálvaro",
+        "color": "Gris",
+        "notas": [
+          "Ex 333-093-3. Colores Renfe Op. En servicio 10/06. Traspaso Renfe Alquiler 2021. Decoracién ROSCO, 05/21. Alquilada Traccion Rail 2021>> Medway 09/21>> Sin logos de Medway. Alquilada LCR 01/25>> Alquilada Traccioén Rail desde 02/25."
+        ],
+        "ramaOriginal": "93",
+        "lote": "Segundo lote"
+      },
+      "357": {
+        "rama": "57",
+        "subserie": "333.3",
+        "vehiculoBase": "357",
+        "numero": "333-357-2",
+        "searchCodes": [
+          "357"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2257",
+        "une": "Mercancías",
+        "deposito": "Vicálvaro",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex 333-016-4)En Servicio 11/06. Ex- Valencia >> Vicalvaro. Accidente en Lalin 24/01/23. Apartada Ourense>> Vicalvaro 24/01/23. Apartada Uurense>> Vicalvaro"
+        ],
+        "ramaOriginal": "16",
+        "estado": "Apartada",
+        "lote": "Segundo lote"
+      },
+      "358": {
+        "rama": "58",
+        "subserie": "333.3",
+        "vehiculoBase": "358",
+        "numero": "333-358-0",
+        "searchCodes": [
+          "358"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2258",
+        "une": "Renfe Alquiler",
+        "color": "Gris",
+        "notas": [
+          "Ex 333-001-6. Colores Renfe Op. En servicio 11/06. Ex-Valencia>> Vicalvaro>> Ourense. Renfe Alquiler, desde 2021. Colores Rosco 05/21. Alquilada Medway, 09/21>> Alquilada Alsa Rail, 03/25."
+        ],
+        "ramaOriginal": "1",
+        "lote": "Segundo lote"
+      },
+      "359": {
+        "rama": "59",
+        "subserie": "333.3",
+        "vehiculoBase": "359",
+        "numero": "333-359-8",
+        "searchCodes": [
+          "359"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2259",
+        "une": "Renfe Alquiler",
+        "deposito": "Ourense",
+        "color": "Gris",
+        "notas": [
+          "Ex 333-004-0. Colores Renfe Op. Ex- Miranda, hasta 22/12/16. Renfe Alquiler desde 2021. Decoracién Rosco 09/21. Alquilada a Go Transport 2021>> Traccion Rail 2021 >> Go Transport 2021>> LCR 2022>> Continental Rail 2022."
+        ],
+        "ramaOriginal": "4",
+        "lote": "Segundo lote"
+      },
+      "360": {
+        "rama": "60",
+        "subserie": "333.3",
+        "vehiculoBase": "360",
+        "numero": "333-360-6",
+        "searchCodes": [
+          "360"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2260",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex-333-048-7)Colores Renfe Op. Ex- Sta. Justa>> Fuencarral desde 01/12/25"
+        ],
+        "ramaOriginal": "48",
+        "lote": "Segundo lote"
+      },
+      "361": {
+        "rama": "61",
+        "subserie": "333.3",
+        "vehiculoBase": "361",
+        "numero": "333-361-4",
+        "searchCodes": [
+          "361"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2261",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex-333-058-6) Colores Renfe Op. Ex-Sevilla>> Vicalvaro>> Fuencarral desde 01/06/26"
+        ],
+        "ramaOriginal": "58",
+        "lote": "Segundo lote"
+      },
+      "362": {
+        "rama": "62",
+        "subserie": "333.3",
+        "vehiculoBase": "362",
+        "numero": "333-362-2",
+        "searchCodes": [
+          "362"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2262",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex-333-071-9) Colores Renfe Op. Ex-Valencia>> Sevilla>> Ourense>> Sevilla>> Fuencarral desde 01/06/26"
+        ],
+        "ramaOriginal": "71",
+        "lote": "Segundo lote"
+      },
+      "363": {
+        "rama": "63",
+        "subserie": "333.3",
+        "vehiculoBase": "363",
+        "numero": "333-363-0",
+        "searchCodes": [
+          "363"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2263",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex-333-020-6) Colores Renfe Op. Ex-Sevilla >> Vicalvaro >> Llanera>> Vicalvaro>> Fuencarral desde 01/12/25"
+        ],
+        "ramaOriginal": "20",
+        "lote": "Segundo lote"
+      },
+      "364": {
+        "rama": "64",
+        "subserie": "333.3",
+        "vehiculoBase": "364",
+        "numero": "333-364-8",
+        "searchCodes": [
+          "364"
+        ],
+        "ano": 2005,
+        "numeroConstruccion": "2264",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "(Ex-333-031-3)Colores Renfe Op. Ex- Sevilla>> Vicalvaro >> Llanera>> Vicalvaro>> Fuencarral desde 01/06/26"
+        ],
+        "ramaOriginal": "31",
+        "lote": "Segundo lote"
+      },
+      "365": {
+        "rama": "65",
+        "subserie": "333.3",
+        "vehiculoBase": "365",
+        "numero": "333-365-5",
+        "searchCodes": [
+          "365"
+        ],
+        "ano": 2008,
+        "numeroConstruccion": "2463",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "Colores Renfe Op. Ex-Vicalvaro>> Ourense>> Fuencarral desde 01/12/25"
+        ],
+        "lote": "Tercer lote"
+      },
+      "366": {
+        "rama": "66",
+        "subserie": "333.3",
+        "vehiculoBase": "366",
+        "numero": "333-366-3",
+        "searchCodes": [
+          "366"
+        ],
+        "ano": 2008,
+        "numeroConstruccion": "2464",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "Colores Renfe Op. Ex-Vicalvaro>> Fuencarral desde 01/12/25"
+        ],
+        "lote": "Tercer lote"
+      },
+      "367": {
+        "rama": "67",
+        "subserie": "333.3",
+        "vehiculoBase": "367",
+        "numero": "333-367-1",
+        "searchCodes": [
+          "367"
+        ],
+        "ano": 2008,
+        "numeroConstruccion": "2465",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "Colores Renfe Op. Ex-Sta.Justa. Ex- Ourense>> Fuencarral desde 01/12/25"
+        ],
+        "lote": "Tercer lote"
+      },
+      "368": {
+        "rama": "68",
+        "subserie": "333.3",
+        "vehiculoBase": "368",
+        "numero": "333-368-9",
+        "searchCodes": [
+          "368"
+        ],
+        "ano": 2008,
+        "numeroConstruccion": "2466",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "Colores Renfe Op. Ex-Zaragoza>> Ourense>> Fuencarral desde 01/06/26"
+        ],
+        "lote": "Tercer lote"
+      },
+      "369": {
+        "rama": "69",
+        "subserie": "333.3",
+        "vehiculoBase": "369",
+        "numero": "333-369-7",
+        "searchCodes": [
+          "369"
+        ],
+        "ano": 2008,
+        "numeroConstruccion": "2467",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "Carrileros Puigcerda 03/09. Ex- Zaragoza>> Vicalvaro>> Fuencarral desde 01/12/25"
+        ],
+        "lote": "Tercer lote"
+      },
+      "370": {
+        "rama": "70",
+        "subserie": "333.3",
+        "vehiculoBase": "370",
+        "numero": "333-370-5",
+        "searchCodes": [
+          "370"
+        ],
+        "ano": 2008,
+        "numeroConstruccion": "2468",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "En Servicio. Ex-Vicalvaro>> Zaragoza>> Vicalvaro>> Fuencarral desde 01/12/25"
+        ],
+        "lote": "Tercer lote"
+      },
+      "371": {
+        "rama": "71",
+        "subserie": "333.3",
+        "vehiculoBase": "371",
+        "numero": "333-371-3",
+        "searchCodes": [
+          "371"
+        ],
+        "ano": 2008,
+        "numeroConstruccion": "2469",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "Ex-Sta. Justa>> Ourense>> Fuencarral desde 01/12/25"
+        ],
+        "lote": "Tercer lote"
+      },
+      "372": {
+        "rama": "72",
+        "subserie": "333.3",
+        "vehiculoBase": "372",
+        "numero": "333-372-1",
+        "searchCodes": [
+          "372"
+        ],
+        "ano": 2008,
+        "numeroConstruccion": "2470",
+        "une": "Mercancías",
+        "deposito": "Santa Justa",
+        "color": "Blanco/Negro",
+        "notas": [
+          "En Servicio"
+        ],
+        "lote": "Tercer lote"
+      },
+      "373": {
+        "rama": "73",
+        "subserie": "333.3",
+        "vehiculoBase": "373",
+        "numero": "333-373-9",
+        "searchCodes": [
+          "373"
+        ],
+        "ano": 2008,
+        "numeroConstruccion": "2471",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "Ex-Valencia>>Ex- Miranda>>Vicalvaro>> Ourense>> Fuencarral desde 01/12/25"
+        ],
+        "lote": "Tercer lote"
+      },
+      "374": {
+        "rama": "74",
+        "subserie": "333.3",
+        "vehiculoBase": "374",
+        "numero": "333-374-7",
+        "searchCodes": [
+          "374"
+        ],
+        "ano": 2008,
+        "numeroConstruccion": "2472",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "Ex-Valencia>> Vicalvaro>> Fuencarral desde 01/06/26"
+        ],
+        "lote": "Tercer lote"
+      },
+      "375": {
+        "rama": "75",
+        "subserie": "333.3",
+        "vehiculoBase": "375",
+        "numero": "333-375-4",
+        "searchCodes": [
+          "375"
+        ],
+        "ano": 2008,
+        "numeroConstruccion": "2473",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "En Servicio. Ex- Vicalvaro>> Sta. Justa>> Fuencarral desde 01/12/25"
+        ],
+        "lote": "Tercer lote"
+      },
+      "376": {
+        "rama": "76",
+        "subserie": "333.3",
+        "vehiculoBase": "376",
+        "numero": "333-376-2",
+        "searchCodes": [
+          "376"
+        ],
+        "ano": 2008,
+        "numeroConstruccion": "2474",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "En servicio.Ex-Vicalvaro>> Ourense>> Sevilla>> Fuencarral desde 01/12/25"
+        ],
+        "lote": "Tercer lote"
+      },
+      "377": {
+        "rama": "77",
+        "subserie": "333.3",
+        "vehiculoBase": "377",
+        "numero": "333-377-0",
+        "searchCodes": [
+          "377"
+        ],
+        "ano": 2008,
+        "numeroConstruccion": "2475",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "En servicio. Ex-Sevilla>> Ourense>> Fuencarral desde 01/12/25"
+        ],
+        "lote": "Tercer lote"
+      },
+      "378": {
+        "rama": "78",
+        "subserie": "333.3",
+        "vehiculoBase": "378",
+        "numero": "333-378-8",
+        "searchCodes": [
+          "378"
+        ],
+        "ano": 2008,
+        "numeroConstruccion": "2476",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "Ex-Vicalvaro>> Sta. Justa>> Fuencarral desde 01/12/25 Pucivanarussus ui 1a"
+        ],
+        "lote": "Tercer lote"
+      },
+      "379": {
+        "rama": "79",
+        "subserie": "333.3",
+        "vehiculoBase": "379",
+        "numero": "333-379-6",
+        "searchCodes": [
+          "379"
+        ],
+        "ano": 2008,
+        "numeroConstruccion": "2477",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "Ex-Valencia>> Vicalvaro>> Fuencarral desde 01/06/26"
+        ],
+        "lote": "Tercer lote"
+      },
+      "386": {
+        "rama": "86",
+        "subserie": "333.3",
+        "vehiculoBase": "386",
+        "numero": "333-386-1",
+        "searchCodes": [
+          "386"
+        ],
+        "ano": 2008,
+        "numeroConstruccion": "2478",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "Alcance con 333-328-3 en Salamanca, 13/07/17. (vista placa) Ex- Salamanca>> Vicalvaro>> Fuencarral desde 01/06/26"
+        ],
+        "ramaOriginal": "328",
+        "lote": "Tercer lote"
+      },
+      "387": {
+        "rama": "87",
+        "subserie": "333.3",
+        "vehiculoBase": "387",
+        "numero": "333-387-9",
+        "searchCodes": [
+          "387"
+        ],
+        "ano": 2009,
+        "numeroConstruccion": "2479",
+        "une": "Mercancías",
+        "deposito": "Santa Justa",
+        "color": "Blanco/Negro",
+        "notas": [
+          "En servicio 2009"
+        ],
+        "lote": "Tercer lote"
+      },
+      "388": {
+        "rama": "88",
+        "subserie": "333.3",
+        "vehiculoBase": "388",
+        "numero": "333-388-7",
+        "searchCodes": [
+          "388"
+        ],
+        "ano": 2009,
+        "numeroConstruccion": "2480",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "Pruebas 02/09. Ex-Sta. Justa>> Fuencarral desde 01/12/25"
+        ],
+        "lote": "Tercer lote"
+      },
+      "389": {
+        "rama": "89",
+        "subserie": "333.3",
+        "vehiculoBase": "389",
+        "numero": "333-389-5",
+        "searchCodes": [
+          "389"
+        ],
+        "ano": 2009,
+        "numeroConstruccion": "2481",
+        "une": "Mercancías",
+        "deposito": "Vicálvaro",
+        "color": "Blanco/Negro",
+        "notas": [
+          "En Servicio desde 03/09. Accidente Salamanca con la 333.328 13/07/17. Ex- Valencia>> Ourense"
+        ],
+        "lote": "Tercer lote"
+      },
+      "390": {
+        "rama": "90",
+        "subserie": "333.3",
+        "vehiculoBase": "390",
+        "numero": "333-390-3",
+        "searchCodes": [
+          "390"
+        ],
+        "ano": 2008,
+        "numeroConstruccion": "2482",
+        "une": "Mercancías",
+        "deposito": "Ourense",
+        "color": "Blanco/Negro",
+        "notas": [
+          "En servicio desde 04/09 Ourense>> 08/09 Valencia>> Ourense desde 03/15"
+        ],
+        "lote": "Tercer lote"
+      },
+      "391": {
+        "rama": "91",
+        "subserie": "333.3",
+        "vehiculoBase": "391",
+        "numero": "333-391-1",
+        "searchCodes": [
+          "391"
+        ],
+        "ano": 2008,
+        "numeroConstruccion": "2483",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "En servicio. Ex-Zaragoza>> Ourense>> Vicalvaro>> Fuencarral desde 01/06/26"
+        ],
+        "lote": "Tercer lote"
+      },
+      "392": {
+        "rama": "92",
+        "subserie": "333.3",
+        "vehiculoBase": "392",
+        "numero": "333-392-9",
+        "searchCodes": [
+          "392"
+        ],
+        "ano": 2008,
+        "numeroConstruccion": "2484",
+        "une": "Mercancías",
+        "deposito": "Ourense",
+        "color": "Blanco/Negro",
+        "notas": [
+          "Ex-Santa Justa>> Ourense. Descarrilo Abrofigal 08/08/24."
+        ],
+        "lote": "Tercer lote"
+      },
+      "393": {
+        "rama": "93",
+        "subserie": "333.3",
+        "vehiculoBase": "393",
+        "numero": "333-393-7",
+        "searchCodes": [
+          "393"
+        ],
+        "ano": 2009,
+        "numeroConstruccion": "2485",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "Ex-Santa Justa >> Ourense desde 08/25>> Fuencarral desde 01/06/26"
+        ],
+        "lote": "Tercer lote"
+      },
+      "394": {
+        "rama": "94",
+        "subserie": "333.3",
+        "vehiculoBase": "394",
+        "numero": "333-394-5",
+        "searchCodes": [
+          "394"
+        ],
+        "ano": 2008,
+        "numeroConstruccion": "2486",
+        "une": "Mercancías",
+        "deposito": "Ourense",
+        "color": "Blanco/Negro",
+        "notas": [
+          "En servicio desde 09/09. Ex-Sta.Justa"
+        ],
+        "lote": "Tercer lote"
+      },
+      "395": {
+        "rama": "95",
+        "subserie": "333.3",
+        "vehiculoBase": "395",
+        "numero": "333-395-2",
+        "searchCodes": [
+          "395"
+        ],
+        "ano": 2009,
+        "numeroConstruccion": "2487",
+        "une": "Mercancías",
+        "deposito": "Ourense",
+        "color": "Blanco/Negro",
+        "notas": [
+          "-"
+        ],
+        "lote": "Tercer lote"
+      },
+      "396": {
+        "rama": "96",
+        "subserie": "333.3",
+        "vehiculoBase": "396",
+        "numero": "333-396-0",
+        "searchCodes": [
+          "396"
+        ],
+        "ano": 2009,
+        "numeroConstruccion": "2488",
+        "une": "Mercancías",
+        "deposito": "Ourense",
+        "color": "Blanco/Negro",
+        "notas": [
+          "Ex-Santa Justa."
+        ],
+        "lote": "Tercer lote"
+      },
+      "397": {
+        "rama": "97",
+        "subserie": "333.3",
+        "vehiculoBase": "397",
+        "numero": "333-397-8",
+        "searchCodes": [
+          "397"
+        ],
+        "ano": 2008,
+        "numeroConstruccion": "2489",
+        "une": "Mercancías",
+        "deposito": "Ourense",
+        "color": "Blanco/Negro",
+        "notas": [
+          "17/12/09 pruebas de carga desde Valencia FSL a Barracas con 20 tolvas."
+        ],
+        "lote": "Tercer lote"
+      },
+      "398": {
+        "rama": "98",
+        "subserie": "333.3",
+        "vehiculoBase": "398",
+        "numero": "333-398-6",
+        "searchCodes": [
+          "398"
+        ],
+        "ano": 2008,
+        "numeroConstruccion": "2490",
+        "une": "Mercancías",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Negro",
+        "notas": [
+          "Ex-Ourense>> Miranda>>Vicalvaro>> Ourense>> Sevilla>> Fuencarral desde 01/06/26 oS +"
+        ],
+        "lote": "Tercer lote"
+      },
+      "401": {
+        "rama": "1",
+        "subserie": "333.4",
+        "vehiculoBase": "401",
+        "numero": "333-401-8",
+        "searchCodes": [
+          "401"
+        ],
+        "ano": 2003,
+        "numeroConstruccion": "2108",
+        "une": "Renfe Alquiler",
+        "deposito": "Fuencarral",
+        "color": "Gris",
+        "notas": [
+          "(Ex- 333-330-9) Ex Fuencarral>>Ourense. Frontales decoracion diferente>>Blanco 2019. Ex-G.L. Renfe>> Alquilada Alsa (gris) desde 05/05/25"
+        ],
+        "ramaOriginal": "330"
+      },
+      "402": {
+        "rama": "2",
+        "subserie": "333.4",
+        "vehiculoBase": "402",
+        "numero": "333-402-6",
+        "searchCodes": [
+          "402"
+        ],
+        "ano": 2003,
+        "numeroConstruccion": "2106",
+        "une": "Renfe Alquiler",
+        "deposito": "Fuencarral",
+        "color": "Gris",
+        "notas": [
+          "(Ex- 333-329-1)Ex- Fuencarral>> Ourense >> Fuencarral. Ex-G.L. Renfe>> Alquilada Alsa desde 05/05/25. Ex-Azul/blanco>> Colores Alsa 06/25"
+        ],
+        "ramaOriginal": "329"
+      },
+      "403": {
+        "rama": "3",
+        "subserie": "333.4",
+        "vehiculoBase": "403",
+        "numero": "333-403-4",
+        "searchCodes": [
+          "403"
+        ],
+        "ano": 2003,
+        "numeroConstruccion": "2109",
+        "color": "Rojo/Gris",
+        "notas": [
+          "Ex 333-331-7. Ex-Azul/blanco>> Blanco, desde 03/15. Ex-Ourense>> Salamanca desde 02/16. Ex-Blanco>> Colores Al-Andalus desde 07/03/25."
+        ],
+        "ramaOriginal": "331"
+      },
+      "404": {
+        "rama": "4",
+        "subserie": "333.4",
+        "vehiculoBase": "404",
+        "numero": "333-404-2",
+        "searchCodes": [
+          "404"
+        ],
+        "ano": 2003,
+        "numeroConstruccion": "2110",
+        "deposito": "Salamanca",
+        "color": "Azul/Blanco",
+        "notas": [
+          "Ex 333-311-9. Ex-Azul/blanco>> Blanco, desde 02/16. Ex-Ourense>> Salamanca. Accidente con 333.348 en taller Salamanca 26/02/25"
+        ],
+        "ramaOriginal": "311"
+      },
+      "405": {
+        "rama": "5",
+        "subserie": "333.4",
+        "vehiculoBase": "405",
+        "numero": "333-405-9",
+        "searchCodes": [
+          "405"
+        ],
+        "ano": 2003,
+        "numeroConstruccion": "2111",
+        "deposito": "Fuencarral",
+        "color": "Rojo/Gris",
+        "notas": [
+          "(Ex- 333-332-5) Ex-Fuencarral>> Ourense. Ex-Azul/blanco>> Colores Al-Andalus desde 07/03/25."
+        ],
+        "ramaOriginal": "332"
+      },
+      "406": {
+        "rama": "6",
+        "subserie": "333.4",
+        "vehiculoBase": "406",
+        "numero": "333-406-7",
+        "searchCodes": [
+          "406"
+        ],
+        "ano": 2003,
+        "numeroConstruccion": "2112",
+        "deposito": "Fuencarral",
+        "color": "Rojo/Gris",
+        "notas": [
+          "Ex 333-312-7. Ex-Fuencarral >> Ourense Ex-Azul/blanco, Blanco, desde 05/15 >>Ex-Ourense G.L., Al Andalus desde 05/25."
+        ],
+        "ramaOriginal": "312"
+      },
+      "407": {
+        "rama": "7",
+        "subserie": "333.4",
+        "vehiculoBase": "407",
+        "numero": "333-407-5",
+        "searchCodes": [
+          "407"
+        ],
+        "ano": 2002,
+        "numeroConstruccion": "2096",
+        "color": "Rojo/Gris",
+        "notas": [
+          "Ex 333-322-6. Ex G.L.>> Integria>> Renfe Viajeros. Ex-Azul/blanco (G.L.)>> Marron/blanco (T. Fresa), desde 05/13. Descarrilo Os Peares 16/03/18. Color R.Op. Blanco desde 28/03/20.Ex- G.L. Ourense, colores Al-Andalus 05/25"
+        ],
+        "ramaOriginal": "322"
+      },
+      "408": {
+        "rama": "8",
+        "subserie": "333.4",
+        "vehiculoBase": "408",
+        "numero": "333-408-3",
+        "searchCodes": [
+          "408"
+        ],
+        "ano": 2002,
+        "numeroConstruccion": "2090",
+        "color": "Azul/Blanco",
+        "notas": [
+          "(Ex-333-318-4) Descarrilo en el Directo de Burgos, 19/02/10. Ex-G.L. Fuencarral. Dada de baja>> Apartada en el TCR Villaverde desde 04/03/11. ao 8 = ~ L4 e L4 e U U = U = | U Constructor Macosa, MTM, GM (Alstom/Vossloh las 300) Tipo JT 26-C Unidades construidas 93 originales Ano de construccién 1974 a 1976 (2002 en adelante las 300) Rodaje Co'Co' Num. de motores diesel 1 (2 tiempos sobrealimentado) Tipo de motor GM 16-645-E-3 Num. de cilindros 16 enV. Diametro y carrera cilindros 244 x 254 mm. Transmision Eléctrica GM AR-10 D-14 Diametro de ruedas nuevas 1.067 mm. Ancho de via 1.668 mm. Anchura de la caja 3.060 mm. (3.160 mm. las 300) Altura del techo sobre el carril 4.280 mm. (4.307 mm. las 300) Longitud entre topes 20.700 mm. (22.330 mm. las 300) Potencia nominal 3.345 CV a 900 r.p.m. Esfuerzo de traccion continuo 28.100 Kg a 23 km/h. Velocidad maxima 146 Km/h. (120 Km/h las 300) N® motores eléctricos de traccion 6 Tipo de motor eléctrico GM D-77 Potencia continua por motor 2.550 CV (1.875 Kw) Peso en orden de marcha 120t. Peso por eje 20t. Peso por metro lineal 5,79 t. (5,37 t. las 300) Freno dinamico Reostatico Freno neumatico Aire comprimido Mando multiple 4 locomotoras (3 las 300) Calefacci6n al tren Eléctrica (No poseen las 300)"
+        ],
+        "ramaOriginal": "318",
+        "estado": "Baja"
+      }
+    }
+  },
   "334": {
   "seriesName": "Serie 334 · Locomotoras diésel",
   "constructor": "Vossloh Valencia",
@@ -32288,6 +34377,31 @@ function getFleetUnit(series, vehicle){
     };
   }
 
+  // Serie 333: se identifica por el código completo de tres cifras (101-108, 201-204, 301-379/386-398, 401-408).
+  // También se aceptan matrículas completas 333-XXX-X / 9-333-XXX-X.
+  if(s==="333"){
+    const raw=String(vehicle??"").trim();
+    const compact=raw.replace(/\s+/g,"");
+    let code="";
+    const full=compact.match(/(?:^|-)333[-]?(\d{3})(?:[-]\d)?$/i);
+    if(full) code=full[1];
+    if(!code && /^333\d{3}$/.test(compact)) code=compact.slice(3);
+    if(!code && /^\d{1,3}$/.test(compact)) code=compact.padStart(3,"0");
+    if(!code) return null;
+    const base=seriesData.units?.[code];
+    if(!base) return null;
+    return {
+      ...base,
+      numero:base.numero,
+      vehiculoBase:code,
+      vehiculoIntroducido:raw,
+      vehiculoBuscado:code,
+      vehiculoEncontrado:base.numero,
+      cocheTipo:"Locomotora",
+      fabricante:base.fabricante||seriesData.fabricante
+    };
+  }
+
   // Serie 334: la locomotora es un único vehículo y su número identifica directamente la rama.
   // Ej.: 018 -> Rama 18. Se aceptan códigos cortos y matrículas 9-334-XXX-X.
   if(s==="334"){
@@ -33177,6 +35291,8 @@ function argosFleetUnitExcluded(series,vehicle="",branch="",unit=null){
   // En la Serie 252, las unidades dadas de baja están fuera del parque
   // operativo y pendientes de desguace. No cuentan en Progreso ni se pueden registrar.
   if(s==="252" && /\bbaja\b/i.test(String(resolved?.estado||"")))return true;
+  // Serie 333: las unidades dadas de baja, destruidas o canibalizadas no forman parte del catálogo operativo.
+  if(s==="333" && /(\bbaja\b|destruida|canibal)/i.test(String(resolved?.estado||"")))return true;
   return false;
 }
 
@@ -33368,8 +35484,8 @@ if($("serviceForm")){
     const b=argosCatalogNumber(branch || unit?.rama);
     const v=argosCatalogNumber(vehicle);
     const listedAsScrapped=!!(ARGOS_EXCLUDED_BRANCHES[series]?.has(b) || ARGOS_EXCLUDED_VEHICLES[series]?.has(v));
-    const isScrapped=listedAsScrapped || /desguazad/i.test(String(unit?.estado||""));
-    const isWithdrawn=series==="252" && /\bbaja\b/i.test(String(unit?.estado||""));
+    const isScrapped=listedAsScrapped || /desguazad|destruida/i.test(String(unit?.estado||""));
+    const isWithdrawn=(series==="252" || series==="333") && /(\bbaja\b|canibal)/i.test(String(unit?.estado||""));
     toast(isWithdrawn ? "UNIDAD DADA DE BAJA" : (isScrapped ? "VEHÍCULO DESGUAZADO" : "VEHÍCULO NO DISPONIBLE EN ESTA SERIE"));
   },true);
 }
@@ -33427,7 +35543,9 @@ if($("serviceForm")){
     if(excludedBranches[s]?.has(b))return {scrapped:true,unit};
     if(excludedVehicles[s]?.has(v))return {scrapped:true,unit};
     if(unit && /desguazad/i.test(String(unit.estado||'')))return {scrapped:true,unit};
-    if(unit && s==="252" && /\bbaja\b/i.test(String(unit.estado||'')))return {scrapped:true,withdrawn:true,unit};
+    if(unit && (s==="252" || s==="333") && /\bbaja\b/i.test(String(unit.estado||'')))return {scrapped:true,withdrawn:true,unit};
+    if(unit && s==="333" && /canibal/i.test(String(unit.estado||'')))return {scrapped:true,withdrawn:true,unit};
+    if(unit && s==="333" && /destruida/i.test(String(unit.estado||'')))return {scrapped:true,unit};
     if(unit && unit.transformadaA)return {scrapped:false,unit};
     return null;
   }
@@ -33529,7 +35647,20 @@ function serviceAnnotationsHtml(service){
 function fleetFichaHtml(series,vehicle,service=null){
   const unit=getFleetUnit(series,vehicle);
   const seriesData=getSeriesData(series);
-  const tech=unit.tech||seriesData;
+  const baseTech=unit.tech||seriesData;
+  const tech=(normalizeFleetValue(series)==="333" && baseTech)?{
+    ...baseTech,
+    ...(unit.subserie==="333.3"||unit.subserie==="333.4"?{
+      anchuraCaja:"3.160 mm",
+      alturaTecho:"4.307 mm",
+      longitud:"22.330 mm",
+      pesoPorMetro:"5,37 t",
+      mandoMultiple:"3 locomotoras",
+      calefaccionTren:"No"
+    }:{}),
+    ...(unit.subserie==="333.3"?{velocidadMaxima:"120 km/h"}:{}),
+    ...(unit.subserie==="333.4"?{velocidadMaxima:"145 km/h"}: {})
+  }:baseTech;
   const hasFichaValue=value=>{
     if(value===null || value===undefined) return false;
     const text=String(value).trim();
@@ -33567,13 +35698,20 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Vehículo</span><strong>${esc(["103","104","120","121","594"].includes(normalizeFleetValue(series)) ? (unit.vehiculoBase||vehicle) : vehicle)}</strong></div>
         <div><span>Rama</span><strong>${esc(unit.rama)}</strong></div>
         ${["446","447","463","464"].includes(normalizeFleetValue(series))?`<div><span>Lote</span><strong>${esc(unit.lote||"—")}</strong></div>`:""}
+        ${normalizeFleetValue(series)==="333"?`
+        ${fichaField("Subserie",unit.subserie)}
+        ${fichaField("Lote",unit.lote)}
+        ${fichaField("Rama original 333",unit.ramaOriginal?"Rama "+unit.ramaOriginal:"")}
+        ${fichaField("Estado",unit.estado)}
+        ${fichaField("UNE",unit.une)}
+        ${fichaField("Color",unit.color)}`:""}
         ${(["102","112"].includes(normalizeFleetValue(series)))?`
         <div><span>Motor introducido</span><strong>${esc(unit.motorTipo||"—")}</strong></div>
         <div><span>Motor impar</span><strong>${esc(unit.motorImpar||"—")}</strong></div>
         <div><span>Motor par</span><strong>${esc(unit.motorPar||"—")}</strong></div>`:""}
         ${fichaField("Número completo",unit.numero)}
         ${fichaField("Fabricante",normalizeFleetValue(series)==="252" ? unit.constructor : (unit.fabricante||tech?.fabricante))}
-        ${!["256","252","253"].includes(normalizeFleetValue(series))?fichaField("Número de coches",unit.numeroCoches||tech?.numeroCoches):""}
+        ${!["256","252","253","333"].includes(normalizeFleetValue(series))?fichaField("Número de coches",unit.numeroCoches||tech?.numeroCoches):""}
         ${fichaField("Año",unit.ano)}
         ${["130","730","594"].includes(normalizeFleetValue(series)) && unit.exNumero?`<div><span>${normalizeFleetValue(series)==="730"?"Ex-número · procedencia S-130":"Ex-número"}</span><strong>${esc(unit.exNumero)}</strong></div>`:""}
         ${fichaField("Depósito / base",unit.deposito)}
@@ -33650,8 +35788,8 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${["453","801"].includes(normalizeFleetValue(series))?`
         <div><span>Vehículos de la rama</span><strong>${esc((unit.vehiculosRama||[]).join(" · ")||"—")}</strong></div>
         <div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||seriesData?.composicion||"—")}</strong></div>`:""}
-        ${tech?.velocidadMaxima && !["252","253"].includes(normalizeFleetValue(series))?`<div><span>Velocidad máxima</span><strong>${esc(tech.velocidadMaxima||seriesData.velocidadMaxima)}</strong></div>`:""}
-        ${tech?.potencia?`<div><span>Potencia</span><strong>${esc(tech.potencia||seriesData.potencia)}</strong></div>`:""}
+        ${tech?.velocidadMaxima && !["252","253","333"].includes(normalizeFleetValue(series))?`<div><span>Velocidad máxima</span><strong>${esc(tech.velocidadMaxima||seriesData.velocidadMaxima)}</strong></div>`:""}
+        ${tech?.potencia && normalizeFleetValue(series)!=="333"?`<div><span>Potencia</span><strong>${esc(tech.potencia||seriesData.potencia)}</strong></div>`:""}
         ${tech?.plazasSentadas?`<div><span>Plazas sentadas</span><strong>${esc(tech.plazasSentadas||seriesData.plazasSentadas)}</strong></div>`:""}
          ${["112","121","447","446","450","453","464","730","801"].includes(normalizeFleetValue(series))?`
          <div><span>Longitud</span><strong>${esc(tech.longitud||"—")}</strong></div>
@@ -33823,6 +35961,41 @@ function fleetFichaHtml(series,vehicle,service=null){
       </div>
     </div>`:"";
 
+  const technical333=normalizeFleetValue(series)==="333"?`
+    <div class="ficha-section">
+      <div class="ficha-section-title">CARACTERÍSTICAS TÉCNICAS</div>
+      <div class="ficha-grid">
+        ${fichaField("Constructor",tech.constructor||tech.fabricante)}
+        ${fichaField("Tipo",tech.tipo)}
+        ${fichaField("Unidades construidas",tech.unidadesConstruidas)}
+        ${fichaField("Año de construcción",tech.anoConstruccion)}
+        ${fichaField("Rodaje",tech.rodaje)}
+        ${fichaField("Nº de motores diésel",tech.motoresDiesel)}
+        ${fichaField("Tipo de motor",tech.tipoMotor)}
+        ${fichaField("Nº de cilindros",tech.numeroCilindros)}
+        ${fichaField("Diámetro y carrera de cilindros",tech.diametroCarreraCilindros)}
+        ${fichaField("Transmisión",tech.transmision)}
+        ${fichaField("Diámetro de ruedas nuevas",tech.diametroRuedas)}
+        ${fichaField("Ancho de vía",tech.anchoVia)}
+        ${fichaField("Anchura de la caja",tech.anchuraCaja)}
+        ${fichaField("Altura del techo sobre el carril",tech.alturaTecho)}
+        ${fichaField("Longitud entre topes",tech.longitud)}
+        ${fichaField("Potencia nominal",tech.potencia)}
+        ${fichaField("Esfuerzo de tracción continuo",tech.esfuerzoTraccion)}
+        ${fichaField("Velocidad máxima",tech.velocidadMaxima)}
+        ${fichaField("Nº de motores eléctricos de tracción",tech.numeroMotoresElectricos)}
+        ${fichaField("Tipo de motor eléctrico",tech.tipoMotorElectrico)}
+        ${fichaField("Potencia continua por motor",tech.potenciaContinuaPorMotor)}
+        ${fichaField("Peso en orden de marcha",tech.peso)}
+        ${fichaField("Peso por eje",tech.pesoPorEje)}
+        ${fichaField("Peso por metro lineal",tech.pesoPorMetro)}
+        ${fichaField("Freno dinámico",tech.frenoDinamico)}
+        ${fichaField("Freno neumático",tech.frenos)}
+        ${fichaField("Mando múltiple",tech.mandoMultiple)}
+        ${fichaField("Calefacción al tren",tech.calefaccionTren)}
+      </div>
+    </div>`:"";
+
   const technical334=normalizeFleetValue(series)==="334"?`
     <div class="ficha-section">
       <div class="ficha-section-title">CARACTERÍSTICAS TÉCNICAS</div>
@@ -33936,6 +36109,7 @@ function fleetFichaHtml(series,vehicle,service=null){
     ${technical440}
     ${technical470}
     ${technical256}
+    ${technical333}
     ${technical334}
     ${technical252}
     ${technical253}
@@ -34065,6 +36239,16 @@ function progressBranchIdentity(series,branch,vehicle,subserie){
     return sub?sub+"::"+b:b;
   }
 
+  // 333 tiene varias subseries y, dentro de la 333.3, tres lotes.
+  // La subserie forma parte de la identidad para evitar fusionar ramas homónimas.
+  if(key==="333"){
+    let sub=String(subserie??"").trim();
+    if(!sub)sub=String(unit?.subserie||"").trim();
+    const lot=String(unit?.lote||"").trim();
+    if(sub && lot)return sub+"::"+lot+"::"+b;
+    return sub?sub+"::"+b:b;
+  }
+
   // 453 tiene dos composiciones independientes con las mismas ramas numeradas:
   // TL100 = 4 coches y TL200 = 8 coches. Ambas deben contar por separado.
   if(key==="453"){
@@ -34080,7 +36264,12 @@ function progressBranchIdentity(series,branch,vehicle,subserie){
 function progressBranchLabel(series,value){
   const key=progressSeriesKey(series);
   if(String(value).includes("::")){
-    const [prefix,b]=String(value).split("::");
+    const parts=String(value).split("::");
+    if(key==="333"){
+      if(parts.length>=3)return parts[0]+" · "+parts[1]+" · Rama "+parts[2];
+      if(parts.length===2)return parts[0]+" · Rama "+parts[1];
+    }
+    const [prefix,b]=parts;
     if(key==="594")return prefix+" · Rama "+b;
     if(key==="453")return prefix+" coches · Rama "+b;
     return prefix+" · Rama "+b;
@@ -34123,6 +36312,13 @@ function progressFleetBranches(series){
       if(va!==vb)return Number(va)-Number(vb);
       const na=Number(ba),nb=Number(bb);
       return Number.isFinite(na)&&Number.isFinite(nb)?na-nb:String(ba).localeCompare(bb,"es",{numeric:true});
+    }
+    if(key==="333"){
+      const [sa,la,ba]=String(a).split("::"),[sb,lb,bb]=String(b).split("::");
+      if(sa!==sb)return String(sa).localeCompare(String(sb),"es",{numeric:true});
+      if(la!==lb)return String(la).localeCompare(String(lb),"es",{numeric:true});
+      const na=Number(ba),nb=Number(bb);
+      return Number.isFinite(na)&&Number.isFinite(nb)?na-nb:String(ba).localeCompare(String(bb),"es",{numeric:true});
     }
     const [la,ba]=String(a).includes("::")?String(a).split("::"): ["",String(a)];
     const [lb,bb]=String(b).includes("::")?String(b).split("::"): ["",String(b)];
