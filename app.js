@@ -10916,6 +10916,743 @@ const fleet = {
     }
   }
 },
+  "256": {
+    "seriesName": "Serie 256 · Locomotoras eléctricas Euro6000",
+    "constructor": "Stadler Valencia",
+    "fabricante": "Stadler Valencia",
+    "modelo": "Euro 6000",
+    "apodo": "Euro6000",
+    "tipoMaterial": "Locomotora eléctrica de mercancías",
+    "numeroCoches": "1 locomotora",
+    "numeroRamas": 25,
+    "numeroUnidades": "25 locomotoras en base · 18 ancho ibérico + 6 ancho internacional + 1 alquiler",
+    "unidadesConstruidas": "12 + 12",
+    "anoConstruccion": "2022 a 2025",
+    "rodaje": "Co'Co'",
+    "diametroRuedas": "1.100 / 1.020 mm",
+    "anchoVia": "1.668 mm (primer lote) / 1.435 mm (segundo lote)",
+    "anchuraCaja": "2.900 mm",
+    "alturaTecho": "4.290 mm",
+    "longitud": "23.020 mm",
+    "longitudPivotesBogies": "14.000 mm",
+    "tension": "25 kV AC, 3 kV DC, 1,5 kV DC",
+    "potenciaNominalTraccion": "6,17 MW (25 kV AC 50 Hz) / 6,17 MW (3 kV DC) / 4,1 MW (1,5 kV DC)",
+    "esfuerzoTraccionContinuo": "430 kN",
+    "esfuerzoTraccionArranque": "500 kN",
+    "velocidadMaxima": "120 km/h",
+    "radioMinimo": "122 / 90 m (línea / taller)",
+    "tipoMotor": "6 motores asíncronos AC/AC de ABB, modelo TSA",
+    "potenciaPorMotor": "1.536 kW",
+    "relacionEngranajes": "4,52:1",
+    "peso": "120 t",
+    "pesoPorEje": "21,5 t",
+    "pesoPorMetro": "5,21 t",
+    "frenoElectrico": "Regenerativo / Reostático",
+    "potenciaFrenoReostatico": "2.000 kW",
+    "potenciaFrenoRegenerativo": "6 MW (25 kV AC 50 Hz) / 5,6 MW (3 kV DC) / 5,6 MW (1,5 kV DC)",
+    "esfuerzoMaximoFreno": "240 kN",
+    "frenos": "Aire comprimido",
+    "mandoMultiple": "2 locomotoras",
+    "calefaccionTren": "No",
+    "sistemasSeguridad": "ASFA Digital / Hombre Muerto",
+    "generalNotes": [
+      "Renfe contrató en 2021, por cerca de 86 millones de euros, la compra de 12 locomotoras Euro6000 a Stadler para Renfe Mercancías, del primer lote en ancho ibérico.",
+      "Posteriormente se adquirieron otras 12 locomotoras similares: seis continuaron el primer lote en ancho ibérico y seis se construyeron en ancho internacional, junto con unidades destinadas a Renfe Alquiler.",
+      "Serie tricorriente apta para 25 kV en corriente alterna y 3.000 / 1.500 V en corriente continua. La segunda tanda en ancho internacional se destinó al Corredor Mediterráneo y permite la tracción de trenes de mercancías de hasta 750 m."
+    ],
+    "units": {
+      "101": {
+        "rama": "101",
+        "vehiculoBase": "101",
+        "numero": "9-256-101-8",
+        "vehiculosRama": [
+          "9-256-101-8"
+        ],
+        "searchCodes": [
+          "101"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho ibérico",
+        "ancho": "1668",
+        "uic": "91 71 6256 101-8",
+        "ano": 2022,
+        "fechaAlta": "21/12/2022",
+        "numeroConstruccion": "4224",
+        "deposito": "Llanera",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": [
+          "Entregada 21/12/2022. Pruebas desde 21/12/22."
+        ]
+      },
+      "102": {
+        "rama": "102",
+        "vehiculoBase": "102",
+        "numero": "9-256-102-6",
+        "vehiculosRama": [
+          "9-256-102-6"
+        ],
+        "searchCodes": [
+          "102"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho ibérico",
+        "ancho": "1668",
+        "uic": "91 71 6256 102-6",
+        "ano": 2022,
+        "fechaAlta": "21/12/2022",
+        "numeroConstruccion": "4225",
+        "deposito": "Llanera",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": [
+          "Entregada 21/12/2022. Pruebas desde 21/12/22. Entra en servicio comercial 15/02/23."
+        ]
+      },
+      "103": {
+        "rama": "103",
+        "vehiculoBase": "103",
+        "numero": "9-256-103-4",
+        "vehiculosRama": [
+          "9-256-103-4"
+        ],
+        "searchCodes": [
+          "103"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho ibérico",
+        "ancho": "1668",
+        "uic": "91 71 6256 103-4",
+        "ano": 2022,
+        "fechaAlta": "21/12/2022",
+        "numeroConstruccion": "4226",
+        "deposito": "Llanera",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": [
+          "Entregada 21/12/22. En servicio."
+        ]
+      },
+      "104": {
+        "rama": "104",
+        "vehiculoBase": "104",
+        "numero": "9-256-104-2",
+        "vehiculosRama": [
+          "9-256-104-2"
+        ],
+        "searchCodes": [
+          "104"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho ibérico",
+        "ancho": "1668",
+        "uic": "91 71 6256 104-2",
+        "ano": 2022,
+        "fechaAlta": "21/12/2022",
+        "numeroConstruccion": "4227",
+        "deposito": "Llanera",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": [
+          "Entregada 21/12/22. En servicio 04/23."
+        ]
+      },
+      "105": {
+        "rama": "105",
+        "vehiculoBase": "105",
+        "numero": "9-256-105-9",
+        "vehiculosRama": [
+          "9-256-105-9"
+        ],
+        "searchCodes": [
+          "105"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho ibérico",
+        "ancho": "1668",
+        "uic": "91 71 6256 105-9",
+        "ano": 2022,
+        "fechaAlta": "21/12/2022",
+        "numeroConstruccion": "4228",
+        "deposito": "Llanera",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": [
+          "Entregada 21/12/22. Pruebas desde 22/12/22. En servicio, 02/23."
+        ]
+      },
+      "106": {
+        "rama": "106",
+        "vehiculoBase": "106",
+        "numero": "9-256-106-7",
+        "vehiculosRama": [
+          "9-256-106-7"
+        ],
+        "searchCodes": [
+          "106"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho ibérico",
+        "ancho": "1668",
+        "uic": "91 71 6256 106-7",
+        "ano": 2023,
+        "fechaAlta": "",
+        "numeroConstruccion": "4229",
+        "deposito": "Llanera",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": [
+          "Entregada 01/02/23."
+        ]
+      },
+      "107": {
+        "rama": "107",
+        "vehiculoBase": "107",
+        "numero": "9-256-107-5",
+        "vehiculosRama": [
+          "9-256-107-5"
+        ],
+        "searchCodes": [
+          "107"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho ibérico",
+        "ancho": "1668",
+        "uic": "91 71 6256 107-5",
+        "ano": 2023,
+        "fechaAlta": "",
+        "numeroConstruccion": "4230",
+        "deposito": "Llanera",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": [
+          "Entregada 03/23."
+        ]
+      },
+      "108": {
+        "rama": "108",
+        "vehiculoBase": "108",
+        "numero": "9-256-108-3",
+        "vehiculosRama": [
+          "9-256-108-3"
+        ],
+        "searchCodes": [
+          "108"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho ibérico",
+        "ancho": "1668",
+        "uic": "91 71 6256 108-3",
+        "ano": 2023,
+        "fechaAlta": "",
+        "numeroConstruccion": "4231",
+        "deposito": "Llanera",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": [
+          "Entregada 03/23."
+        ]
+      },
+      "109": {
+        "rama": "109",
+        "vehiculoBase": "109",
+        "numero": "9-256-109-1",
+        "vehiculosRama": [
+          "9-256-109-1"
+        ],
+        "searchCodes": [
+          "109"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho ibérico",
+        "ancho": "1668",
+        "uic": "91 71 6256 109-1",
+        "ano": 2023,
+        "fechaAlta": "18/04/2023",
+        "numeroConstruccion": "4232",
+        "deposito": "Llanera",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": [
+          "Entregada 18/04/2023. Primer paso por variante Pajares 01/09/23."
+        ]
+      },
+      "110": {
+        "rama": "110",
+        "vehiculoBase": "110",
+        "numero": "9-256-110-9",
+        "vehiculosRama": [
+          "9-256-110-9"
+        ],
+        "searchCodes": [
+          "110"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho ibérico",
+        "ancho": "1668",
+        "uic": "91 71 6256 110-9",
+        "ano": 2023,
+        "fechaAlta": "20/04/2023",
+        "numeroConstruccion": "4233",
+        "deposito": "Llanera",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": [
+          "Entregada 18/04/2023. Primer servicio comercial 20/04/23."
+        ]
+      },
+      "111": {
+        "rama": "111",
+        "vehiculoBase": "111",
+        "numero": "9-256-111-7",
+        "vehiculosRama": [
+          "9-256-111-7"
+        ],
+        "searchCodes": [
+          "111"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho ibérico",
+        "ancho": "1668",
+        "uic": "91 71 6256 111-7",
+        "ano": 2023,
+        "fechaAlta": "",
+        "numeroConstruccion": "4234",
+        "deposito": "Llanera",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": [
+          "Alta 06/23."
+        ]
+      },
+      "112": {
+        "rama": "112",
+        "vehiculoBase": "112",
+        "numero": "9-256-112-5",
+        "vehiculosRama": [
+          "9-256-112-5"
+        ],
+        "searchCodes": [
+          "112"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho ibérico",
+        "ancho": "1668",
+        "uic": "91 71 6256 112-5",
+        "ano": 2023,
+        "fechaAlta": "",
+        "numeroConstruccion": "4235",
+        "deposito": "Llanera",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": [
+          "Alta 07/23."
+        ]
+      },
+      "113": {
+        "rama": "113",
+        "vehiculoBase": "113",
+        "numero": "9-256-113-3",
+        "vehiculosRama": [
+          "9-256-113-3"
+        ],
+        "searchCodes": [
+          "113"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho ibérico",
+        "ancho": "1668",
+        "uic": "91 71 6256 113-3",
+        "ano": 2026,
+        "fechaAlta": "23/03/2026",
+        "numeroConstruccion": "4574",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": []
+      },
+      "114": {
+        "rama": "114",
+        "vehiculoBase": "114",
+        "numero": "9-256-114-1",
+        "vehiculosRama": [
+          "9-256-114-1"
+        ],
+        "searchCodes": [
+          "114"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho ibérico",
+        "ancho": "1668",
+        "uic": "91 71 6256 114-1",
+        "ano": 2026,
+        "fechaAlta": "23/03/2026",
+        "numeroConstruccion": "4575",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": []
+      },
+      "115": {
+        "rama": "115",
+        "vehiculoBase": "115",
+        "numero": "9-256-115-8",
+        "vehiculosRama": [
+          "9-256-115-8"
+        ],
+        "searchCodes": [
+          "115"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho ibérico",
+        "ancho": "1668",
+        "uic": "91 71 6256 115-8",
+        "ano": 2026,
+        "fechaAlta": "25/04/2026",
+        "numeroConstruccion": "",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": []
+      },
+      "116": {
+        "rama": "116",
+        "vehiculoBase": "116",
+        "numero": "9-256-116-6",
+        "vehiculosRama": [
+          "9-256-116-6"
+        ],
+        "searchCodes": [
+          "116"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho ibérico",
+        "ancho": "1668",
+        "uic": "91 71 6256 116-6",
+        "ano": 2026,
+        "fechaAlta": "25/04/2026",
+        "numeroConstruccion": "",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": []
+      },
+      "117": {
+        "rama": "117",
+        "vehiculoBase": "117",
+        "numero": "9-256-117-4",
+        "vehiculosRama": [
+          "9-256-117-4"
+        ],
+        "searchCodes": [
+          "117"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho ibérico",
+        "ancho": "1668",
+        "uic": "91 71 6256 117-4",
+        "ano": 2026,
+        "fechaAlta": "",
+        "numeroConstruccion": "",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": [
+          "Alta 04/26."
+        ]
+      },
+      "118": {
+        "rama": "118",
+        "vehiculoBase": "118",
+        "numero": "9-256-118-2",
+        "vehiculosRama": [
+          "9-256-118-2"
+        ],
+        "searchCodes": [
+          "118"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho ibérico",
+        "ancho": "1668",
+        "uic": "91 71 6256 118-2",
+        "ano": 2026,
+        "fechaAlta": "",
+        "numeroConstruccion": "",
+        "deposito": "Fuencarral",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": [
+          "Alta 04/26."
+        ]
+      },
+      "119": {
+        "rama": "119",
+        "vehiculoBase": "119",
+        "numero": "9-256-119-0",
+        "vehiculosRama": [
+          "9-256-119-0"
+        ],
+        "searchCodes": [
+          "119"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho internacional",
+        "ancho": "1435",
+        "uic": "91 71 6256 119-0",
+        "ano": 2025,
+        "fechaAlta": "",
+        "numeroConstruccion": "",
+        "deposito": "Can Tunis",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": [
+          "Recibida 09/12/25."
+        ]
+      },
+      "120": {
+        "rama": "120",
+        "vehiculoBase": "120",
+        "numero": "9-256-120-8",
+        "vehiculosRama": [
+          "9-256-120-8"
+        ],
+        "searchCodes": [
+          "120"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho internacional",
+        "ancho": "1435",
+        "uic": "91 71 6256 120-8",
+        "ano": 2025,
+        "fechaAlta": "",
+        "numeroConstruccion": "",
+        "deposito": "Can Tunis",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": [
+          "Alta 12/25."
+        ]
+      },
+      "121": {
+        "rama": "121",
+        "vehiculoBase": "121",
+        "numero": "9-256-121-6",
+        "vehiculosRama": [
+          "9-256-121-6"
+        ],
+        "searchCodes": [
+          "121"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho internacional",
+        "ancho": "1435",
+        "uic": "91 71 6256 121-6",
+        "ano": 2026,
+        "fechaAlta": "",
+        "numeroConstruccion": "",
+        "deposito": "Can Tunis",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": [
+          "Alta 01/26."
+        ]
+      },
+      "122": {
+        "rama": "122",
+        "vehiculoBase": "122",
+        "numero": "9-256-122-4",
+        "vehiculosRama": [
+          "9-256-122-4"
+        ],
+        "searchCodes": [
+          "122"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho internacional",
+        "ancho": "1435",
+        "uic": "91 71 6256 122-4",
+        "ano": 2026,
+        "fechaAlta": "",
+        "numeroConstruccion": "",
+        "deposito": "Can Tunis",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": [
+          "Alta 02/26."
+        ]
+      },
+      "123": {
+        "rama": "123",
+        "vehiculoBase": "123",
+        "numero": "9-256-123-2",
+        "vehiculosRama": [
+          "9-256-123-2"
+        ],
+        "searchCodes": [
+          "123"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho internacional",
+        "ancho": "1435",
+        "uic": "91 71 6256 123-2",
+        "ano": 2026,
+        "fechaAlta": "",
+        "numeroConstruccion": "",
+        "deposito": "Can Tunis",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": [
+          "Alta 03/26."
+        ]
+      },
+      "124": {
+        "rama": "124",
+        "vehiculoBase": "124",
+        "numero": "9-256-124-0",
+        "vehiculosRama": [
+          "9-256-124-0"
+        ],
+        "searchCodes": [
+          "124"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Ancho internacional",
+        "ancho": "1435",
+        "uic": "91 71 6256 124-0",
+        "ano": 2026,
+        "fechaAlta": "10/03/2026",
+        "numeroConstruccion": "",
+        "deposito": "Can Tunis",
+        "color": "Blanco/Burdeos",
+        "estado": "En servicio",
+        "notas": []
+      },
+      "125": {
+        "rama": "125",
+        "vehiculoBase": "125",
+        "numero": "9-256-125-6",
+        "vehiculosRama": [
+          "9-256-125-6"
+        ],
+        "searchCodes": [
+          "125"
+        ],
+        "fabricante": "Stadler Valencia",
+        "modelo": "Euro 6000",
+        "tipoMaterial": "Locomotora eléctrica de mercancías",
+        "numeroCoches": "1 locomotora",
+        "composicionRama": "Locomotora Co'Co'",
+        "subserie": "Alquiler",
+        "ancho": "",
+        "uic": "91 71 6256 125-6",
+        "ano": 2026,
+        "fechaAlta": "06/08/2026",
+        "numeroConstruccion": "",
+        "deposito": "",
+        "color": "Gris",
+        "estado": "Alquilada",
+        "notas": [
+          "Blanco/Gris Renfe Alquiler. Alquilada a ALSA Rail."
+        ]
+      }
+    }
+  },
   "334": {
   "seriesName": "Serie 334 · Locomotoras diésel",
   "constructor": "Vossloh Valencia",
@@ -31251,6 +31988,34 @@ function getFleetUnit(series, vehicle){
   if(s==="106") return getS106Unit(v);
   if(!seriesData) return null;
 
+  // Serie 256: locomotora única. El número de vehículo identifica directamente la rama.
+  // Ej.: 018 -> Rama 18. Se aceptan códigos de 1 a 3 cifras y la matrícula 9-256-XXX-X.
+  if(s==="256"){
+    const raw=String(vehicle??"").trim();
+    const compact=raw.replace(/\s+/g,"");
+    let code="";
+    const full=compact.match(/^(?:9[-]?)?256[-]?(\d{3})(?:[-]\d)?$/i);
+    if(full) code=full[1];
+    if(!code && /^256\d{3}$/.test(compact)) code=compact.slice(3);
+    if(!code && /^\d{1,3}$/.test(compact)) code=compact.padStart(3,"0");
+    if(!code) return null;
+
+    const key=String(Number(code));
+    const base=seriesData.units?.[key];
+    if(!base) return null;
+    return {
+      ...base,
+      numero:base.numero,
+      vehiculoBase:code,
+      vehiculoIntroducido:raw,
+      vehiculoBuscado:code,
+      vehiculoEncontrado:base.numero,
+      cocheTipo:"Locomotora",
+      fabricante:base.fabricante||seriesData.fabricante,
+      numeroCoches:base.numeroCoches||seriesData.numeroCoches
+    };
+  }
+
   // Serie 334: la locomotora es un único vehículo y su número identifica directamente la rama.
   // Ej.: 018 -> Rama 18. Se aceptan códigos cortos y matrículas 9-334-XXX-X.
   if(s==="334"){
@@ -32377,6 +33142,13 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${normalizeFleetValue(series)==="450"?`
         <div><span>Color</span><strong>${esc(unit.color||"—")}</strong></div>
         <div><span>Estado</span><strong>${esc(unit.estado||"—")}</strong></div>`:""}
+        ${normalizeFleetValue(series)==="256"?`
+        ${fichaField("Estado",unit.estado)}
+        ${fichaField("Color",unit.color)}
+        ${fichaField("Matrícula UIC",unit.uic)}
+        ${fichaField("Nº de construcción",unit.numeroConstruccion)}
+        ${fichaField("Fecha de alta",unit.fechaAlta)}
+        `:""}
         ${normalizeFleetValue(series)==="334"?`
         ${fichaField("Nº de construcción",unit.numeroConstruccion)}
         ${fichaField("Estado",unit.estado)}
@@ -32513,6 +33285,44 @@ function fleetFichaHtml(series,vehicle,service=null){
       </div>
     </div>`:"";
 
+  const technical256=normalizeFleetValue(series)==="256"?`
+    <div class="ficha-section">
+      <div class="ficha-section-title">CARACTERÍSTICAS TÉCNICAS</div>
+      <div class="ficha-grid">
+        ${fichaField("Constructor",tech.constructor||tech.fabricante)}
+        ${fichaField("Modelo",tech.modelo)}
+        ${fichaField("Unidades construidas",tech.unidadesConstruidas)}
+        ${fichaField("Año de construcción",tech.anoConstruccion)}
+        ${fichaField("Rodaje",tech.rodaje)}
+        ${fichaField("Diámetro de ruedas nuevas / usadas",tech.diametroRuedas)}
+        ${fichaField("Ancho de vía",tech.anchoVia)}
+        ${fichaField("Anchura de la caja",tech.anchuraCaja)}
+        ${fichaField("Altura del techo sobre el carril",tech.alturaTecho)}
+        ${fichaField("Longitud entre topes",tech.longitud)}
+        ${fichaField("Longitud entre pivotes de bogies",tech.longitudPivotesBogies)}
+        ${fichaField("Tensión de alimentación",tech.tension)}
+        ${fichaField("Potencia nominal de tracción en llanta",tech.potenciaNominalTraccion)}
+        ${fichaField("Esfuerzo de tracción continuo",tech.esfuerzoTraccionContinuo)}
+        ${fichaField("Esfuerzo de tracción en el arranque",tech.esfuerzoTraccionArranque)}
+        ${fichaField("Velocidad máxima",tech.velocidadMaxima)}
+        ${fichaField("Radio mínimo curva línea / taller",tech.radioMinimo)}
+        ${fichaField("Tipo de motor",tech.tipoMotor)}
+        ${fichaField("Potencia por motor",tech.potenciaPorMotor)}
+        ${fichaField("Relación de engranajes",tech.relacionEngranajes)}
+        ${fichaField("Peso en orden de marcha",tech.peso)}
+        ${fichaField("Peso por eje",tech.pesoPorEje)}
+        ${fichaField("Peso por metro lineal",tech.pesoPorMetro)}
+        ${fichaField("Freno eléctrico",tech.frenoElectrico)}
+        ${fichaField("Potencia de freno reostático",tech.potenciaFrenoReostatico)}
+        ${fichaField("Potencia de freno regenerativo",tech.potenciaFrenoRegenerativo)}
+        ${fichaField("Esfuerzo máximo de freno",tech.esfuerzoMaximoFreno)}
+        ${fichaField("Freno neumático",tech.frenos)}
+        ${fichaField("Mando múltiple",tech.mandoMultiple)}
+        ${fichaField("Calefacción al tren",tech.calefaccionTren)}
+        ${fichaField("Sistemas de seguridad",tech.sistemasSeguridad)}
+      </div>
+    </div>`:"";
+
   const technical334=normalizeFleetValue(series)==="334"?`
     <div class="ficha-section">
       <div class="ficha-section-title">CARACTERÍSTICAS TÉCNICAS</div>
@@ -32625,6 +33435,7 @@ function fleetFichaHtml(series,vehicle,service=null){
     ${identification}
     ${technical440}
     ${technical470}
+    ${technical256}
     ${technical334}
     ${technical594}
     ${highlights}
