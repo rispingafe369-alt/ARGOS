@@ -11639,7 +11639,7 @@ const fleet = {
         "numeroCoches": "1 locomotora",
         "composicionRama": "Locomotora Co'Co'",
         "subserie": "Alquiler",
-        "ancho": "",
+        "ancho": "1435",
         "uic": "91 71 6256 125-6",
         "ano": 2026,
         "fechaAlta": "06/08/2026",
@@ -33131,7 +33131,7 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Motor par</span><strong>${esc(unit.motorPar||"—")}</strong></div>`:""}
         ${fichaField("Número completo",unit.numero)}
         ${fichaField("Fabricante",unit.fabricante||tech?.fabricante)}
-        ${fichaField("Número de coches",unit.numeroCoches||tech?.numeroCoches)}
+        ${normalizeFleetValue(series)!=="256"?fichaField("Número de coches",unit.numeroCoches||tech?.numeroCoches):""}
         ${fichaField("Año",unit.ano)}
         ${["130","730","594"].includes(normalizeFleetValue(series)) && unit.exNumero?`<div><span>${normalizeFleetValue(series)==="730"?"Ex-número · procedencia S-130":"Ex-número"}</span><strong>${esc(unit.exNumero)}</strong></div>`:""}
         ${fichaField("Depósito / base",unit.deposito)}
@@ -33190,7 +33190,7 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Ancho de vía</span><strong>${esc(unit.ancho||tech?.anchoVia||"—")} ${unit.ancho?"mm":""}</strong></div>
         ${(unit.subserie||seriesData?.subseries)?`<div><span>Subserie</span><strong>${esc(unit.subserie||seriesData.subseries)}</strong></div>`:""}
         ${(unit.modelo||tech?.modelo||seriesData?.modelo)?`<div><span>Modelo</span><strong>${esc(unit.modelo||tech?.modelo||seriesData.modelo)}</strong></div>`:""}
-        ${(unit.apodo||tech?.apodo)?`<div><span>Apodo</span><strong>${esc(seriesData.apodo)}</strong></div>`:""}
+        ${normalizeFleetValue(series)!=="256" && (unit.apodo||tech?.apodo)?`<div><span>Apodo</span><strong>${esc(seriesData.apodo)}</strong></div>`:""}
         ${(unit.tipoMaterial||tech?.tipoMaterial||seriesData?.tipoMaterial)?`<div><span>Tipo de material</span><strong>${esc(unit.tipoMaterial||tech?.tipoMaterial||seriesData.tipoMaterial)}</strong></div>`:""}
         ${normalizeFleetValue(series)==="114"?`
         <div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||"—")}</strong></div>`:""}
@@ -33289,13 +33289,9 @@ function fleetFichaHtml(series,vehicle,service=null){
     <div class="ficha-section">
       <div class="ficha-section-title">CARACTERÍSTICAS TÉCNICAS</div>
       <div class="ficha-grid">
-        ${fichaField("Constructor",tech.constructor||tech.fabricante)}
-        ${fichaField("Modelo",tech.modelo)}
         ${fichaField("Unidades construidas",tech.unidadesConstruidas)}
-        ${fichaField("Año de construcción",tech.anoConstruccion)}
         ${fichaField("Rodaje",tech.rodaje)}
         ${fichaField("Diámetro de ruedas nuevas / usadas",tech.diametroRuedas)}
-        ${fichaField("Ancho de vía",tech.anchoVia)}
         ${fichaField("Anchura de la caja",tech.anchuraCaja)}
         ${fichaField("Altura del techo sobre el carril",tech.alturaTecho)}
         ${fichaField("Longitud entre topes",tech.longitud)}
