@@ -32847,6 +32847,68 @@ function getFleetUnit(series, vehicle){
   return seriesData?.units?.[v] || null;
 }
 
+/* ================================================================
+   ARGOS · DISPONIBILIDAD ÚNICA DEL CATÁLOGO
+   Excluye material desguazado, ramas/vehículos dados de baja y
+   unidades que ya fueron transformadas/renumeradas a otra serie.
+   La base de material NO se modifica: esto solo controla Biblioteca,
+   Progreso y el alta de servicios.
+   ================================================================ */
+const ARGOS_EXCLUDED_BRANCHES={
+  "114":new Set(["5"]),
+  "130":new Set(["11","12","13","14","15","16","17","18","19","20","21","22","23","24","25"]),
+  "446":new Set(["11","18","42","56","58","67","96"]),
+  "447":new Set(["28","30","44"]),
+  "448":new Set(["18","19","22","28"]),
+  "598":new Set(["17"]),
+  "599":new Set(["15"])
+};
+
+const ARGOS_EXCLUDED_VEHICLES={
+  "120":new Set(["361"]),
+  "450":new Set(["7"])
+};
+
+function argosCatalogNumber(value){
+  const digits=String(value??"").replace(/\D/g,"");
+  return digits?String(Number(digits)):"";
+}
+
+function argosFleetUnitByBranch(series,branch){
+  const s=normalizeFleetValue(series);
+  const b=argosCatalogNumber(branch);
+  if(!b)return null;
+  try{
+    const data=fleet?.[s];
+    for(const unit of Object.values(data?.units||{})){
+      if(argosCatalogNumber(unit?.rama)===b)return unit;
+    }
+  }catch(e){}
+  return null;
+}
+
+function argosFleetUnitExcluded(series,vehicle="",branch="",unit=null){
+  const s=normalizeFleetValue(series);
+  const v=argosCatalogNumber(vehicle);
+  const b=argosCatalogNumber(branch);
+  let resolved=unit||null;
+
+  if(!resolved&&vehicle){
+    try{resolved=getFleetUnit(s,vehicle);}catch(e){}
+  }
+  if(!resolved&&branch)resolved=argosFleetUnitByBranch(s,branch);
+
+  if(ARGOS_EXCLUDED_BRANCHES[s]?.has(b))return true;
+  if(ARGOS_EXCLUDED_VEHICLES[s]?.has(v))return true;
+  if(resolved?.transformadaA)return true;
+  if(/desguazad/i.test(String(resolved?.estado||"")))return true;
+  return false;
+}
+
+window.argosFleetUnitExcluded=argosFleetUnitExcluded;
+window.ARGOS_EXCLUDED_BRANCHES=ARGOS_EXCLUDED_BRANCHES;
+window.ARGOS_EXCLUDED_VEHICLES=ARGOS_EXCLUDED_VEHICLES;
+
 function getSeriesData(series){
   return fleet[normalizeFleetValue(series)] || null;
 }
@@ -33014,22 +33076,25 @@ function saveCurrentService(e){
 }
 if($("serviceForm"))$("serviceForm").addEventListener("submit",saveCurrentService);
 /* ================================================================
-   ARGOS · BLOQUEO DE VEHÍCULOS DESGUAZADOS · SERIES 448 Y 599
-   Mantiene el comportamiento existente de la Serie 448 y lo extiende a 599.
+   ARGOS · BLOQUEO DE MATERIAL NO DISPONIBLE
+   Una única regla para desguazados y unidades ya transformadas a otra serie.
    ================================================================= */
 if($("serviceForm")){
   $("serviceForm").addEventListener("submit",function(e){
     const series=normalizeFleetValue($("series")?.value||"");
-    if(!["440","448","599","598","470","334"].includes(series)) return;
     const vehicle=String($("vehicle")?.value||"").trim();
     const branch=String($("branchValue")?.value||"").trim();
-    const unit = getFleetUnit(series,vehicle) ||
-      (branch ? fleet[series]?.units?.[String(Number(branch))] : null);
-    if(unit && /desguazad/i.test(String(unit.estado||""))){
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      toast("VEHÍCULO DESGUAZADO");
-    }
+    const unit=getFleetUnit(series,vehicle) || (branch ? argosFleetUnitByBranch(series,branch) : null);
+    if(!argosFleetUnitExcluded(series,vehicle,branch,unit))return;
+
+    e.preventDefault();
+    e.stopImmediatePropagation();
+
+    const b=argosCatalogNumber(branch || unit?.rama);
+    const v=argosCatalogNumber(vehicle);
+    const listedAsScrapped=!!(ARGOS_EXCLUDED_BRANCHES[series]?.has(b) || ARGOS_EXCLUDED_VEHICLES[series]?.has(v));
+    const isScrapped=listedAsScrapped || /desguazad/i.test(String(unit?.estado||""));
+    toast(isScrapped ? "VEHÍCULO DESGUAZADO" : "VEHÍCULO NO DISPONIBLE EN ESTA SERIE");
   },true);
 }
 
@@ -33533,9 +33598,10 @@ function progressFleetBranches(series){
   const units=data.units||{};
   const branches=new Set();
   Object.values(units).forEach(unit=>{
-    if(["470","334"].includes(key) && /desguazad/i.test(String(unit?.estado||""))) return;
     const branch=progressBranchIdentity(key,unit?.rama,unit?.vehiculoBase,unit?.subserie);
-    if(branch)branches.add(branch);
+    if(!branch)return;
+    if(argosFleetUnitExcluded(key,unit?.vehiculoBase,unit?.rama,unit))return;
+    branches.add(branch);
   });
 
   return [...branches].sort((a,b)=>{
@@ -33555,10 +33621,23 @@ function renderProgress(){
   const registered=new Map();
   services().forEach(service=>{
     const series=progressSeriesKey(service?.series); if(!series)return;
-    if(!registered.has(series))registered.set(series,new Set());
-    const b=progressBranchIdentity(series,service?.branch,service?.vehicle,service?.subserie); if(b)registered.get(series).add(b);
+
+    const primaryBranch=service?.branch;
+    const primaryVehicle=service?.vehicle;
+    const primary=progressBranchIdentity(series,primaryBranch,primaryVehicle,service?.subserie);
+    if(primary && !argosFleetUnitExcluded(series,primaryVehicle,primaryBranch)){
+      if(!registered.has(series))registered.set(series,new Set());
+      registered.get(series).add(primary);
+    }
+
     const second=service?.doubleComposition&&service?.composition2;
-    const b2=progressBranchIdentity(series,second?.branch??second?.rama,second?.vehicle??second?.vehiculo,second?.subserie); if(b2)registered.get(series).add(b2);
+    const secondBranch=second?.branch??second?.rama;
+    const secondVehicle=second?.vehicle??second?.vehiculo;
+    const b2=progressBranchIdentity(series,secondBranch,secondVehicle,second?.subserie);
+    if(b2 && !argosFleetUnitExcluded(series,secondVehicle,secondBranch)){
+      if(!registered.has(series))registered.set(series,new Set());
+      registered.get(series).add(b2);
+    }
   });
   const data=[...registered.entries()].map(([series,branches])=>{
     const totalBranches=progressFleetBranches(series); if(!totalBranches.length)return null;
@@ -33574,7 +33653,20 @@ function openProgressBranchModal(series){
   const modal=$("progressBranchModal"); if(!modal)return;
   initProgressModal();
   const key=progressSeriesKey(series), all=progressFleetBranches(key), registered=new Set();
-  services().forEach(service=>{if(progressSeriesKey(service?.series)!==key)return;const b=progressBranchIdentity(key,service?.branch,service?.vehicle,service?.subserie);if(b)registered.add(b);const second=service?.doubleComposition&&service?.composition2;const b2=progressBranchIdentity(key,second?.branch??second?.rama,second?.vehicle??second?.vehiculo,second?.subserie);if(b2)registered.add(b2)});
+  services().forEach(service=>{
+    if(progressSeriesKey(service?.series)!==key)return;
+
+    const primaryBranch=service?.branch;
+    const primaryVehicle=service?.vehicle;
+    const b=progressBranchIdentity(key,primaryBranch,primaryVehicle,service?.subserie);
+    if(b && !argosFleetUnitExcluded(key,primaryVehicle,primaryBranch))registered.add(b);
+
+    const second=service?.doubleComposition&&service?.composition2;
+    const secondBranch=second?.branch??second?.rama;
+    const secondVehicle=second?.vehicle??second?.vehiculo;
+    const b2=progressBranchIdentity(key,secondBranch,secondVehicle,second?.subserie);
+    if(b2 && !argosFleetUnitExcluded(key,secondVehicle,secondBranch))registered.add(b2);
+  });
   const have=all.filter(b=>registered.has(b)), missing=all.filter(b=>!registered.has(b));
   $("progressBranchModalTitle").textContent=`Serie ${key}`;
   $("progressBranchModalSummary").textContent=missing.length===0
