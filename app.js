@@ -31990,8 +31990,6 @@ function getS106Unit(vehicle){
 const ARGOS_EXCLUDED_BRANCHES={
   "114":new Set(["5"]),
   "130":new Set(["11","12","13","14","15","16","17","18","19","20","21","22","23","24","25"]),
-  "463":new Set(["2","3","4","6","9","16","17","19","20"]),
-  "464":new Set(["1","2","3","4","5","6","15"]),
   "446":new Set(["11","18","42","56","58","67","96"]),
   "447":new Set(["28","30","44"]),
   "448":new Set(["18","19","22","28"]),
@@ -32052,15 +32050,12 @@ function argosFleetUnitExcluded(series,vehicle="",branch="",unit=null){
   // anterior para no inferir bajas adicionales de estados históricos.
 
   // Unidades que ya no pertenecen a la serie porque fueron transformadas
-  // y renumeradas en otra serie. Las ramas explícitas anteriores son la
-  // referencia principal; estos campos cubren además fichas con anotación
-  // histórica de la transformación.
+  // y renumeradas en otra serie.
   const state=String(resolved?.estadoActual||"");
   const transformed=String(resolved?.transformadaA||"");
-  const provenance=String(resolved?.procedencia||"");
-  if(s==="130" && (/\b730[-\s]/i.test(state)||/\b730[-\s]/i.test(transformed)||/\b730[-\s]/i.test(provenance)))return true;
-  if(s==="463" && (/\b464[-\s]/i.test(state)||/\b464[-\s]/i.test(transformed)||/\b464[-\s]/i.test(provenance)||/\b465[-\s]/i.test(state)||/\b465[-\s]/i.test(transformed)||/\b465[-\s]/i.test(provenance)))return true;
-  if(s==="464" && (/\b465[-\s]/i.test(state)||/\b465[-\s]/i.test(transformed)||/\b465[-\s]/i.test(provenance)))return true;
+  if(s==="130" && (/730[-\s]/i.test(state)||/730[-\s]/i.test(transformed)))return true;
+  if(s==="463" && (/464[-\s]/i.test(state)||/464[-\s]/i.test(transformed)||/464[-\s]/i.test(String(resolved?.procedencia||""))))return true;
+  if(s==="464" && (/465[-\s]/i.test(state)||/465[-\s]/i.test(transformed)))return true;
 
   return false;
 }
