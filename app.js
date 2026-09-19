@@ -33669,39 +33669,105 @@ function progressBranchKey(value){
   return digits?String(Number(digits)):"";
 }
 
+function progressFleetSourceUnits(series){
+  const key=progressSeriesKey(series);
+  const data=typeof fleet!=="undefined"?fleet[key]:null;
+  if(!data)return[];
+  if(key==="453"){
+    return [
+      ...Object.values(data.units||{}).map(unit=>({unit,variant:"4"})),
+      ...Object.values(data.unitsTL200||{}).map(unit=>({unit,variant:"8"}))
+    ];
+  }
+  return Object.values(data.units||{}).map(unit=>({unit,variant:""}));
+}
+
+function progressResolveFleetUnit(series,branch,vehicle){
+  const key=progressSeriesKey(series);
+  if(vehicle){
+    try{
+      const direct=getFleetUnit(series,vehicle);
+      if(direct)return direct;
+    }catch(e){}
+  }
+
+  const b=progressBranchKey(branch);
+  if(!b)return null;
+  const candidates=progressFleetSourceUnits(key).filter(entry=>progressBranchKey(entry.unit?.rama)===b);
+  return candidates.length===1 ? candidates[0].unit : null;
+}
+
+function progress453Variant(unit,vehicle){
+  const text=[
+    unit?.subserie,
+    unit?.numeroCoches,
+    unit?.modelo,
+    unit?.tipoMaterial,
+    unit?.cocheTipo,
+    vehicle
+  ].map(v=>String(v??"")).join(" ").toLowerCase();
+  if(/tl200|453\.6|8\s*coches/.test(text))return"8";
+  return"4";
+}
+
 function progressBranchIdentity(series,branch,vehicle,subserie){
   const key=progressSeriesKey(series);
   const b=progressBranchKey(branch);
   if(!b)return"";
-  if(key!=="594")return b;
-  let sub=String(subserie??"").trim();
-  if(!sub&&vehicle){
-    try{sub=String(getFleetUnit(series,vehicle)?.subserie||"").trim();}catch(e){}
+
+  const unit=progressResolveFleetUnit(key,branch,vehicle);
+
+  // 594 mantiene su separación por subserie, que es la identificación operativa actual.
+  if(key==="594"){
+    let sub=String(subserie??"").trim();
+    if(!sub)sub=String(unit?.subserie||"").trim();
+    return sub?sub+"::"+b:b;
   }
-  return sub?sub+"::"+b:"";
+
+  // 453 tiene dos composiciones independientes con las mismas ramas numeradas:
+  // TL100 = 4 coches y TL200 = 8 coches. Ambas deben contar por separado.
+  if(key==="453"){
+    return progress453Variant(unit,vehicle)+"::"+b;
+  }
+
+  // Cuando una serie tiene varios lotes, el lote forma parte de la identidad
+  // de la rama para que dos ramas con el mismo número no se fusionen en Progreso.
+  const lot=String(unit?.lote||"").trim();
+  return lot?lot+"::"+b:b;
 }
 
 function progressBranchLabel(series,value){
   const key=progressSeriesKey(series);
-  if(key==="594"&&String(value).includes("::")){
-    const [sub,b]=String(value).split("::");
-    return sub+" · Rama "+b;
+  if(String(value).includes("::")){
+    const [prefix,b]=String(value).split("::");
+    if(key==="594")return prefix+" · Rama "+b;
+    if(key==="453")return prefix+" coches · Rama "+b;
+    return prefix+" · Rama "+b;
   }
   return "Rama "+String(value);
 }
 
 function progressFleetBranches(series){
   const key=progressSeriesKey(series);
-  const data=typeof fleet!=="undefined"?fleet[key]:null;
-  if(!data)return[];
-
-  const units=data.units||{};
   const branches=new Set();
-  Object.values(units).forEach(unit=>{
-    const branch=progressBranchIdentity(key,unit?.rama,unit?.vehiculoBase,unit?.subserie);
-    if(!branch)return;
+  progressFleetSourceUnits(key).forEach(({unit,variant})=>{
+    if(!unit)return;
     if(argosFleetUnitExcluded(key,unit?.vehiculoBase,unit?.rama,unit))return;
-    branches.add(branch);
+    const branch=progressBranchIdentity(
+      key,
+      unit?.rama,
+      unit?.vehiculoBase,
+      unit?.subserie
+    );
+    // En la 453 la identidad debe usar la colección de origen incluso cuando
+    // el registro de la unidad todavía no lleva subserie explícita.
+    if(key==="453"){
+      const explicit=String(variant||progress453Variant(unit,unit?.vehiculoBase));
+      const b=progressBranchKey(unit?.rama);
+      if(b)branches.add(explicit+"::"+b);
+    }else if(branch){
+      branches.add(branch);
+    }
   });
 
   return [...branches].sort((a,b)=>{
@@ -33711,8 +33777,17 @@ function progressFleetBranches(series){
       if(sa!==sb)return sa.localeCompare(sb,"es",{numeric:true});
       return Number.isFinite(na)&&Number.isFinite(nb)?na-nb:String(ba).localeCompare(bb,"es",{numeric:true});
     }
-    const na=Number(a),nb=Number(b);
-    return Number.isFinite(na)&&Number.isFinite(nb)?na-nb:String(a).localeCompare(String(b),'es',{numeric:true});
+    if(key==="453"){
+      const [va,ba]=String(a).split("::"),[vb,bb]=String(b).split("::");
+      if(va!==vb)return Number(va)-Number(vb);
+      const na=Number(ba),nb=Number(bb);
+      return Number.isFinite(na)&&Number.isFinite(nb)?na-nb:String(ba).localeCompare(bb,"es",{numeric:true});
+    }
+    const [la,ba]=String(a).includes("::")?String(a).split("::"): ["",String(a)];
+    const [lb,bb]=String(b).includes("::")?String(b).split("::"): ["",String(b)];
+    if(la!==lb)return la.localeCompare(lb,"es",{numeric:true});
+    const na=Number(ba),nb=Number(bb);
+    return Number.isFinite(na)&&Number.isFinite(nb)?na-nb:String(ba).localeCompare(String(bb),'es',{numeric:true});
   });
 }
 
