@@ -33034,6 +33034,9 @@ function argosFleetUnitExcluded(series,vehicle="",branch="",unit=null){
   if(ARGOS_EXCLUDED_VEHICLES[s]?.has(v))return true;
   if(resolved?.transformadaA)return true;
   if(/desguazad/i.test(String(resolved?.estado||"")))return true;
+  // En la Serie 252, las unidades dadas de baja están fuera del parque
+  // operativo y pendientes de desguace. No cuentan en Progreso ni se pueden registrar.
+  if(s==="252" && /\bbaja\b/i.test(String(resolved?.estado||"")))return true;
   return false;
 }
 
@@ -33226,7 +33229,8 @@ if($("serviceForm")){
     const v=argosCatalogNumber(vehicle);
     const listedAsScrapped=!!(ARGOS_EXCLUDED_BRANCHES[series]?.has(b) || ARGOS_EXCLUDED_VEHICLES[series]?.has(v));
     const isScrapped=listedAsScrapped || /desguazad/i.test(String(unit?.estado||""));
-    toast(isScrapped ? "VEHÍCULO DESGUAZADO" : "VEHÍCULO NO DISPONIBLE EN ESTA SERIE");
+    const isWithdrawn=series==="252" && /\bbaja\b/i.test(String(unit?.estado||""));
+    toast(isWithdrawn ? "UNIDAD DADA DE BAJA" : (isScrapped ? "VEHÍCULO DESGUAZADO" : "VEHÍCULO NO DISPONIBLE EN ESTA SERIE"));
   },true);
 }
 
@@ -33283,6 +33287,7 @@ if($("serviceForm")){
     if(excludedBranches[s]?.has(b))return {scrapped:true,unit};
     if(excludedVehicles[s]?.has(v))return {scrapped:true,unit};
     if(unit && /desguazad/i.test(String(unit.estado||'')))return {scrapped:true,unit};
+    if(unit && s==="252" && /\bbaja\b/i.test(String(unit.estado||'')))return {scrapped:true,withdrawn:true,unit};
     if(unit && unit.transformadaA)return {scrapped:false,unit};
     return null;
   }
@@ -33313,7 +33318,7 @@ if($("serviceForm")){
     if(!blocked?.scrapped)return;
     e.preventDefault();
     e.stopImmediatePropagation();
-    document.dispatchEvent(new CustomEvent('argos:scrapped-branch',{detail:{series:normalizeFleetValue($('series')?.value||''),branch:$('branchValue')?.value||'',vehicle:$('vehicle')?.value||''}}));
+    toast(blocked.withdrawn ? 'UNIDAD DADA DE BAJA' : 'VEHÍCULO DESGUAZADO');
   },true);
 
   // Segundo nivel de protección para Enter/requestSubmit() u otros envíos.
@@ -33323,7 +33328,7 @@ if($("serviceForm")){
     if(!blocked?.scrapped)return;
     e.preventDefault();
     e.stopImmediatePropagation();
-    document.dispatchEvent(new CustomEvent('argos:scrapped-branch',{detail:{series:normalizeFleetValue($('series')?.value||''),branch:$('branchValue')?.value||'',vehicle:$('vehicle')?.value||''}}));
+    toast(blocked.withdrawn ? 'UNIDAD DADA DE BAJA' : 'VEHÍCULO DESGUAZADO');
   },true);
 
   // Exponerlo por si una ruta alternativa del formulario necesita consultarlo.
@@ -33427,8 +33432,8 @@ function fleetFichaHtml(series,vehicle,service=null){
         <div><span>Motor impar</span><strong>${esc(unit.motorImpar||"—")}</strong></div>
         <div><span>Motor par</span><strong>${esc(unit.motorPar||"—")}</strong></div>`:""}
         ${fichaField("Número completo",unit.numero)}
-        ${fichaField("Fabricante",unit.fabricante||tech?.fabricante)}
-        ${normalizeFleetValue(series)!=="256"?fichaField("Número de coches",unit.numeroCoches||tech?.numeroCoches):""}
+        ${fichaField("Fabricante",normalizeFleetValue(series)==="252" ? unit.constructor : (unit.fabricante||tech?.fabricante))}
+        ${!["256","252"].includes(normalizeFleetValue(series))?fichaField("Número de coches",unit.numeroCoches||tech?.numeroCoches):""}
         ${fichaField("Año",unit.ano)}
         ${["130","730","594"].includes(normalizeFleetValue(series)) && unit.exNumero?`<div><span>${normalizeFleetValue(series)==="730"?"Ex-número · procedencia S-130":"Ex-número"}</span><strong>${esc(unit.exNumero)}</strong></div>`:""}
         ${fichaField("Depósito / base",unit.deposito)}
@@ -33505,7 +33510,7 @@ function fleetFichaHtml(series,vehicle,service=null){
         ${["453","801"].includes(normalizeFleetValue(series))?`
         <div><span>Vehículos de la rama</span><strong>${esc((unit.vehiculosRama||[]).join(" · ")||"—")}</strong></div>
         <div><span>Composición de la rama</span><strong>${esc(unit.composicionRama||seriesData?.composicion||"—")}</strong></div>`:""}
-        ${tech?.velocidadMaxima?`<div><span>Velocidad máxima</span><strong>${esc(tech.velocidadMaxima||seriesData.velocidadMaxima)}</strong></div>`:""}
+        ${tech?.velocidadMaxima && normalizeFleetValue(series)!=="252"?`<div><span>Velocidad máxima</span><strong>${esc(tech.velocidadMaxima||seriesData.velocidadMaxima)}</strong></div>`:""}
         ${tech?.potencia?`<div><span>Potencia</span><strong>${esc(tech.potencia||seriesData.potencia)}</strong></div>`:""}
         ${tech?.plazasSentadas?`<div><span>Plazas sentadas</span><strong>${esc(tech.plazasSentadas||seriesData.plazasSentadas)}</strong></div>`:""}
          ${["112","121","447","446","450","453","464","730","801"].includes(normalizeFleetValue(series))?`
@@ -33621,7 +33626,7 @@ function fleetFichaHtml(series,vehicle,service=null){
     <div class="ficha-section">
       <div class="ficha-section-title">CARACTERÍSTICAS TÉCNICAS</div>
       <div class="ficha-grid">
-        ${fichaField("Constructor",tech.constructor||tech.fabricante)}
+        ${fichaField("Constructor",unit.constructor||tech.constructor||tech.fabricante)}
         ${fichaField("Unidades construidas",tech.unidadesConstruidas)}
         ${fichaField("Año de construcción",tech.anoConstruccion)}
         ${fichaField("Rodaje",tech.rodaje)}
