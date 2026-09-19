@@ -38287,3 +38287,121 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
 
   if(document.readyState!=='loading' && is448()) syncBranchOnly();
 })();
+
+/* ================================================================
+   ARGOS · ENFORZADOR GLOBAL DE BIBLIOTECA
+   Capa independiente del motor visual de Biblioteca.
+   Su única función es retirar del DOM las ramas que no deben figurar
+   en el catálogo operativo por baja/desguace o renumeración.
+   ================================================================ */
+(function(){
+  'use strict';
+
+  const EXCLUDED_BRANCHES={
+    '114':new Set(['5']),
+    '130':new Set(['11','12','13','14','15','16','17','18','19','20','21','22','23','24','25']),
+    '463':new Set(['2','3','4','6','9','16','17','19','20']),
+    '464':new Set(['1','2','3','4','5','6','15']),
+    '446':new Set(['11','18','42','56','58','67','96']),
+    '447':new Set(['28','30','44']),
+    '448':new Set(['18','19','22','28']),
+    '470':new Set(['98','126','137','186']),
+    '598':new Set(['17']),
+    '599':new Set(['15']),
+    '334':new Set(['8','27'])
+  };
+
+  const EXCLUDED_VEHICLES={
+    '120':new Set(['361']),
+    '450':new Set(['007'])
+  };
+
+  window.ARGOS_LIBRARY_EXCLUDED_BRANCHES=EXCLUDED_BRANCHES;
+  window.ARGOS_LIBRARY_EXCLUDED_VEHICLES=EXCLUDED_VEHICLES;
+
+  function branchKey(v){
+    const d=String(v??'').replace(/\D/g,'');
+    return d?String(Number(d)):'';
+  }
+
+  function seriesFromTitle(){
+    const title=document.getElementById('argosLibraryBranchesTitle');
+    const m=String(title?.textContent||'').match(/(\d+)/);
+    return m?m[1]:'';
+  }
+
+  function vehicleKey(series,v){
+    const raw=String(v??'').trim().replace(/\s+/g,'');
+    if(!raw)return '';
+    const m=raw.match(new RegExp('(?:^|[-])'+series+'[-]?(\\d{3})(?:[-]\\d)?$','i'));
+    return m?m[1]:(/^\d{1,3}$/.test(raw)?raw.padStart(3,'0'):raw);
+  }
+
+  function excluded(series,branch,vehicle){
+    if(EXCLUDED_BRANCHES[series]?.has(branchKey(branch)))return true;
+    const vk=vehicleKey(series,vehicle);
+    return Boolean(EXCLUDED_VEHICLES[series]?.has(vk));
+  }
+
+  function scrubLibrary(){
+    const list=document.getElementById('argosLibraryBranchesList');
+    if(!list)return;
+    const series=seriesFromTitle();
+    if(!series)return;
+
+    list.querySelectorAll('.library-branch-card,.library-group-branch').forEach(card=>{
+      const text=String(card.textContent||'');
+      const m=text.match(/\bRama\s+(\d+)\b/i);
+      if(m && excluded(series,m[1],''))card.remove();
+    });
+
+    list.querySelectorAll('.library-group').forEach(group=>{
+      const cards=group.querySelectorAll('.library-group-branch,.library-branch-card');
+      if(!cards.length){ group.remove(); return; }
+      const count=group.querySelector('.library-group-count');
+      if(count){
+        const n=cards.length;
+        count.textContent=n+' '+(n===1?'rama':'ramas');
+      }
+    });
+  }
+
+  function install(){
+    if(window.__argosGlobalLibraryExclusionInstalled)return;
+    window.__argosGlobalLibraryExclusionInstalled=true;
+
+    const list=document.getElementById('argosLibraryBranchesList');
+    if(list){
+      const observer=new MutationObserver(scrubLibrary);
+      observer.observe(list,{childList:true,subtree:true});
+      scrubLibrary();
+    }
+
+    const title=document.getElementById('argosLibraryBranchesTitle');
+    if(title){
+      const titleObserver=new MutationObserver(()=>setTimeout(scrubLibrary,0));
+      titleObserver.observe(title,{childList:true,subtree:true,characterData:true});
+    }
+
+    // Ejecutar también al abrir Biblioteca, por si un motor antiguo pinta la lista
+    // después de la carga inicial.
+    const previous=window.showScreen;
+    if(typeof previous==='function'&&!previous.__argosGlobalLibraryWrapped){
+      const wrapped=function(id){
+        const result=previous.apply(this,arguments);
+        if(id==='library'){
+          setTimeout(scrubLibrary,0);
+          setTimeout(scrubLibrary,40);
+          setTimeout(scrubLibrary,150);
+          setTimeout(scrubLibrary,400);
+        }
+        return result;
+      };
+      wrapped.__argosGlobalLibraryWrapped=true;
+      window.showScreen=wrapped;
+    }
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
+  else install();
+})();
