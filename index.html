@@ -8210,7 +8210,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       const units=data?.units||{};
       const seen=new Set();
       Object.values(units).forEach(unit=>{
-        if(['470','334'].includes(String(series)) && /desguazad/i.test(String(unit?.estado||'')))return;
+        if(typeof window.argosFleetUnitExcluded==='function' && window.argosFleetUnitExcluded(series,unit?.vehiculoBase||unit?.numero||'',unit?.rama,unit))return;
         const raw=String(unit?.rama??'').trim();
         if(!raw)return;
         const clean=norm(raw);
