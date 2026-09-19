@@ -33098,6 +33098,106 @@ if($("serviceForm")){
   },true);
 }
 
+
+/* ================================================================
+   ARGOS · BLOQUEO DEFINITIVO DE RAMAS/VEHÍCULOS NO DISPONIBLES
+   Refuerzo independiente del guardado normal y del registro manual.
+   No modifica fleet ni ninguna otra lógica existente.
+   ================================================================= */
+(function(){
+  'use strict';
+
+  function catalogNum(value){
+    const digits=String(value??'').replace(/\D/g,'');
+    return digits?String(Number(digits)):'';
+  }
+
+  const excludedBranches={
+    "114":new Set(["5"]),
+    "130":new Set(["11","12","13","14","15","16","17","18","19","20","21","22","23","24","25"]),
+    "446":new Set(["11","18","42","56","58","67","96"]),
+    "447":new Set(["28","30","44"]),
+    "448":new Set(["18","19","22","28"]),
+    "598":new Set(["17"]),
+    "599":new Set(["15"])
+  };
+  const excludedVehicles={
+    "120":new Set(["361"]),
+    "450":new Set(["7"])
+  };
+
+  function findUnit(series,vehicle,branch){
+    const s=normalizeFleetValue(series);
+    try{
+      const data=fleet?.[s], units=data?.units||{};
+      const v=catalogNum(vehicle), b=catalogNum(branch);
+      for(const [key,unit] of Object.entries(units)){
+        const candidates=[key,unit?.vehiculoBase,unit?.numero,...(Array.isArray(unit?.searchCodes)?unit.searchCodes:[])].map(catalogNum);
+        if(v && candidates.includes(v))return unit;
+      }
+      if(b){
+        for(const unit of Object.values(units)){
+          if(catalogNum(unit?.rama)===b)return unit;
+        }
+      }
+    }catch(e){}
+    return null;
+  }
+
+  function excluded(series,vehicle,branch){
+    const s=normalizeFleetValue(series);
+    const v=catalogNum(vehicle), b=catalogNum(branch);
+    const unit=findUnit(s,vehicle,branch);
+    if(excludedBranches[s]?.has(b))return {scrapped:true,unit};
+    if(excludedVehicles[s]?.has(v))return {scrapped:true,unit};
+    if(unit && /desguazad/i.test(String(unit.estado||'')))return {scrapped:true,unit};
+    if(unit && unit.transformadaA)return {scrapped:false,unit};
+    return null;
+  }
+
+  function getFormValues(){
+    const series=$('series')?.value||'';
+    const vehicle=$('vehicle')?.value||'';
+    const branch=$('branchValue')?.value||'';
+    const first=excluded(series,vehicle,branch);
+    if(first)return first;
+
+    const double=$('doubleComposition')?.checked;
+    if(double){
+      const series2=$('doubleSeries')?.value||'';
+      const vehicle2=$('doubleVehicle')?.value||'';
+      const branch2=$('doubleBranch')?.value||$('doubleBranchValue')?.value||'';
+      const second=excluded(series2,vehicle2,branch2);
+      if(second)return second;
+    }
+    return null;
+  }
+
+  // Impide el clic antes de que cualquier manejador propio pueda guardar.
+  document.addEventListener('click',function(e){
+    const target=e.target?.closest?.('#serviceForm button[type="submit"], #serviceForm input[type="submit"]');
+    if(!target)return;
+    const blocked=getFormValues();
+    if(!blocked?.scrapped)return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    document.dispatchEvent(new CustomEvent('argos:scrapped-branch',{detail:{series:normalizeFleetValue($('series')?.value||''),branch:$('branchValue')?.value||'',vehicle:$('vehicle')?.value||''}}));
+  },true);
+
+  // Segundo nivel de protección para Enter/requestSubmit() u otros envíos.
+  document.addEventListener('submit',function(e){
+    if(e.target!==$('serviceForm'))return;
+    const blocked=getFormValues();
+    if(!blocked?.scrapped)return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    document.dispatchEvent(new CustomEvent('argos:scrapped-branch',{detail:{series:normalizeFleetValue($('series')?.value||''),branch:$('branchValue')?.value||'',vehicle:$('vehicle')?.value||''}}));
+  },true);
+
+  // Exponerlo por si una ruta alternativa del formulario necesita consultarlo.
+  window.argosFinalCatalogExcluded=excluded;
+})();
+
 function cancelCurrentService(){
   const form=$("serviceForm");
   if(form){form.reset();clearFormExtras();}
