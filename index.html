@@ -5495,7 +5495,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     root.querySelectorAll('.modal-row strong').forEach(function(el){
       let t = el.textContent || '';
       t = t.replace(/\s*·\s*[\d.,]+\s*km\b/gi,'');
-      el.textContent = t;
+      if(el.textContent !== t) el.textContent = t;
     });
 
     /* Seguridad: si algún render vuelve a crear el KPI principal o intensidad. */
