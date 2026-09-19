@@ -3985,7 +3985,7 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/5.0.8/jspdf.plugin.autotable.min.js"></script>
 
-<script src="app.js?v=20260919-256-series-v1"></script>
+<script src="app.js?v=20260919-256-ficha-history-v2"></script>
 
 <script>
 (function(){
@@ -10766,7 +10766,16 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       const train=text(service.train??service.tren??service.number??service.numero);
       const series=text(service.series??service.serie??service.trainSeries);
       const vehicle=text(service.vehicle??service.vehiculo??service.vehicleNumber);
-      const branch=window.ARGOS_NORMALIZE_BRANCH(service.branch??service.rama);
+      let branch=window.ARGOS_NORMALIZE_BRANCH(service.branch??service.rama);
+      try{
+        if(normalizeFleetValue(series)==="256" && vehicle && typeof getFleetUnit==="function"){
+          const resolved256=getFleetUnit(series,vehicle);
+          if(resolved256?.rama) branch=window.ARGOS_NORMALIZE_BRANCH(resolved256.rama);
+        }else if(normalizeFleetValue(series)==="256" && branch){
+          const n256=Number(branch);
+          if(Number.isInteger(n256) && n256>=101 && n256<=125) branch=String(n256-100);
+        }
+      }catch(e){}
       const composition2=service?.doubleComposition&&service?.composition2?service.composition2:null;
       let branch2=composition2?window.ARGOS_NORMALIZE_BRANCH(composition2.branch||composition2.rama):'';
       if(composition2&&!branch2&&composition2.series&&composition2.vehicle){
