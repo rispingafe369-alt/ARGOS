@@ -34377,23 +34377,40 @@ function getFleetUnit(series, vehicle){
     };
   }
 
-  // Serie 333: se identifica por el código completo de tres cifras (101-108, 201-204, 301-379/386-398, 401-408).
+  // Serie 333: el código de vehículo determina de forma inequívoca la subserie.
+  // 1xx = 333.1 · 2xx = 333.2 · 3xx = 333.3 · 4xx = 333.4.
+  // Es importante NO resolver 404 únicamente por su rama (4), porque también
+  // existe 104 = rama 4 de la 333.1. Primero buscamos SIEMPRE el vehículo exacto.
   // También se aceptan matrículas completas 333-XXX-X / 9-333-XXX-X.
   if(s==="333"){
     const raw=String(vehicle??"").trim();
     const compact=raw.replace(/\s+/g,"");
     let code="";
+
     const full=compact.match(/(?:^|-)333[-]?(\d{3})(?:[-]\d)?$/i);
     if(full) code=full[1];
     if(!code && /^333\d{3}$/.test(compact)) code=compact.slice(3);
     if(!code && /^\d{1,3}$/.test(compact)) code=compact.padStart(3,"0");
     if(!code) return null;
-    const base=seriesData.units?.[code];
+
+    // Buscar por clave, vehiculoBase, searchCodes o número completo.
+    // La prioridad por código exacto evita que la rama 4 termine resolviendo 104.
+    let base=seriesData.units?.[code]||null;
+    if(!base){
+      for(const candidate of Object.values(seriesData.units||{})){
+        const codes=[candidate?.vehiculoBase,...(Array.isArray(candidate?.searchCodes)?candidate.searchCodes:[])].map(x=>String(x??"").replace(/\D/g,""));
+        if(codes.includes(code) || String(candidate?.numero??"").includes(`333-${code}-`)){
+          base=candidate;
+          break;
+        }
+      }
+    }
     if(!base) return null;
+
     return {
       ...base,
       numero:base.numero,
-      vehiculoBase:code,
+      vehiculoBase:String(base.vehiculoBase||code).padStart(3,"0"),
       vehiculoIntroducido:raw,
       vehiculoBuscado:code,
       vehiculoEncontrado:base.numero,
@@ -35260,13 +35277,27 @@ function argosCatalogNumber(value){
   return digits?String(Number(digits)):"";
 }
 
-function argosFleetUnitByBranch(series,branch){
+function argosFleetUnitByBranch(series,branch,vehicle=""){
   const s=normalizeFleetValue(series);
   const b=argosCatalogNumber(branch);
+  const v=argosCatalogNumber(vehicle);
   if(!b)return null;
   try{
     const data=fleet?.[s];
-    for(const unit of Object.values(data?.units||{})){
+    const units=Object.values(data?.units||{});
+
+    // Si conocemos el vehículo, debe mandar el vehículo exacto sobre la rama.
+    // Esto es imprescindible en la 333, donde 104 y 404 son ambos Rama 4.
+    if(v){
+      const exact=units.find(unit=>{
+        if(argosCatalogNumber(unit?.rama)!==b)return false;
+        const candidates=[unit?.vehiculoBase,unit?.numero,...(Array.isArray(unit?.searchCodes)?unit.searchCodes:[])].map(argosCatalogNumber);
+        return candidates.includes(v);
+      });
+      if(exact)return exact;
+    }
+
+    for(const unit of units){
       if(argosCatalogNumber(unit?.rama)===b)return unit;
     }
   }catch(e){}
@@ -35282,7 +35313,7 @@ function argosFleetUnitExcluded(series,vehicle="",branch="",unit=null){
   if(!resolved&&vehicle){
     try{resolved=getFleetUnit(s,vehicle);}catch(e){}
   }
-  if(!resolved&&branch)resolved=argosFleetUnitByBranch(s,branch);
+  if(!resolved&&branch)resolved=argosFleetUnitByBranch(s,branch,vehicle);
 
   if(ARGOS_EXCLUDED_BRANCHES[s]?.has(b))return true;
   if(ARGOS_EXCLUDED_VEHICLES[s]?.has(v))return true;
@@ -35430,10 +35461,17 @@ function saveCurrentService(e){
     series:$("series")?.value.trim()||"",
     vehicle:(()=>{
       const entered=$("vehicle")?.value.trim()||"";
-      const unit=getFleetUnit($("series")?.value||"",entered);
-      return ["103","104"].includes(normalizeFleetValue($("series")?.value||"")) ? (unit?.vehiculoBase||entered) : entered;
+      const seriesValue=$("series")?.value||"";
+      const unit=getFleetUnit(seriesValue,entered);
+      const seriesKey=normalizeFleetValue(seriesValue);
+      return ["103","104","333"].includes(seriesKey) ? (unit?.vehiculoBase||entered) : entered;
     })(),
     branch:(($("branchValue")?.value||"").trim() || getFleetUnit($("series")?.value||"", $("vehicle")?.value||"")?.rama || ""),
+    subserie:(()=>{
+      const seriesValue=$("series")?.value||"";
+      const unit=getFleetUnit(seriesValue,$("vehicle")?.value||"");
+      return normalizeFleetValue(seriesValue)==="333" ? (unit?.subserie||"") : "";
+    })(),
     product:$("product")?.value||"",
     origin:$("origin")?.value.trim()||"",
     destination:$("destination")?.value.trim()||"",
