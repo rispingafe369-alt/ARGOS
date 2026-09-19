@@ -3985,7 +3985,7 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/5.0.8/jspdf.plugin.autotable.min.js"></script>
 
-<script src="app.js?v=20260918-594-series-v2"></script>
+<script src="app.js?v=20260919-334-series-v1"></script>
 
 <script>
 (function(){
@@ -8210,6 +8210,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       const units=data?.units||{};
       const seen=new Set();
       Object.values(units).forEach(unit=>{
+        if(['470','334'].includes(String(series)) && /desguazad/i.test(String(unit?.estado||'')))return;
         const raw=String(unit?.rama??'').trim();
         if(!raw)return;
         const clean=norm(raw);
@@ -11111,6 +11112,19 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
             <div><span>UNE</span><strong>${esc(unit.une||'—')}</strong></div>
             <div><span>Asientos</span><strong>${esc(unit.asientos||'—')}</strong></div>
             <div><span>Furgón</span><strong>${esc(unit.furgon||'—')}</strong></div>`:''}
+            ${s==='334'?`
+            ${unit.numeroConstruccion?`<div><span>Nº de construcción</span><strong>${esc(unit.numeroConstruccion)}</strong></div>`:''}
+            ${unit.une?`<div><span>UNE</span><strong>${esc(unit.une)}</strong></div>`:''}
+            ${tech.motoresDiesel?`<div><span>Nº de motores diésel</span><strong>${esc(tech.motoresDiesel)}</strong></div>`:''}
+            ${tech.numeroCilindros?`<div><span>Nº de cilindros</span><strong>${esc(tech.numeroCilindros)}</strong></div>`:''}
+            ${tech.transmision?`<div><span>Transmisión</span><strong>${esc(tech.transmision)}</strong></div>`:''}
+            ${tech.diametroRuedas?`<div><span>Diámetro de ruedas</span><strong>${esc(tech.diametroRuedas)}</strong></div>`:''}
+            ${tech.esfuerzoTraccion?`<div><span>Esfuerzo de tracción</span><strong>${esc(tech.esfuerzoTraccion)}</strong></div>`:''}
+            ${tech.numeroMotoresElectricos?`<div><span>Motores eléctricos de tracción</span><strong>${esc(tech.numeroMotoresElectricos)}</strong></div>`:''}
+            ${tech.tipoMotorElectrico?`<div><span>Tipo de motor eléctrico</span><strong>${esc(tech.tipoMotorElectrico)}</strong></div>`:''}
+            ${tech.pesoPorEje?`<div><span>Peso por eje</span><strong>${esc(tech.pesoPorEje)}</strong></div>`:''}
+            ${tech.frenoDinamico?`<div><span>Freno dinámico</span><strong>${esc(tech.frenoDinamico)}</strong></div>`:''}
+            ${tech.calefaccionTren?`<div><span>Calefacción al tren</span><strong>${esc(tech.calefaccionTren)}</strong></div>`:''}`:''}
             ${unit.fechaAlta?`<div><span>Fecha de alta</span><strong>${esc(unit.fechaAlta)}</strong></div>`:''}
             ${unit.ancho||tech.anchoVia?`<div><span>Ancho de vía</span><strong>${esc(unit.ancho||tech.anchoVia)}${unit.ancho?' mm':''}</strong></div>`:''}
             ${fichaSubserie?`<div><span>Subserie</span><strong>${esc(fichaSubserie)}</strong></div>`:''}
@@ -12304,7 +12318,7 @@ body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,25
       if(!collection)return;
       Object.entries(collection).forEach(([key,unit])=>{
         if(!unit||typeof unit!=='object')return;
-        if(String(series)==='470' && /desguazad/i.test(String(unit.estado||'')))return;
+        if(['470','334'].includes(String(series)) && /desguazad/i.test(String(unit.estado||'')))return;
         const branch=firstValue(unit,['rama','branch']);
         if(!branch)return;
         result.push({key,unit,branch,sourceLabel});
