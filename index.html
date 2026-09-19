@@ -3985,7 +3985,7 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/5.0.8/jspdf.plugin.autotable.min.js"></script>
 
-<script src="app.js?v=20260919-256-catalog-fix-v5"></script>
+<script src="app.js?v=20260919-256-catalog-fix-v6"></script>
 
 <script>
 (function(){
@@ -8467,133 +8467,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   observer.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});
 })();
 </script>
-<script id="argos-library-ultimate-exclusion-enforcer">
-(function(){
-  'use strict';
 
-  /*
-   * ÚLTIMA CAPA DE SEGURIDAD DE BIBLIOTECA.
-   * No modifica fleet ni el resto de ARGOS. Solo impide que un motor de
-   * Biblioteca anterior o posterior vuelva a pintar unidades que ya no deben
-   * figurar en el catálogo operativo.
-   */
-  const EXCLUDED_BRANCHES={
-    '114':new Set(['5']),
-    '130':new Set(['11','12','13','14','15','16','17','18','19','20','21','22','23','24','25']),
-    '463':new Set(['2','3','4','6','9','16','17','19','20']),
-    '464':new Set(['1','2','3','4','5','6','15']),
-    '446':new Set(['11','18','42','56','58','67','96']),
-    '447':new Set(['28','30','44']),
-    '448':new Set(['18','19','22','28']),
-    '470':new Set(['98','126','137','186']),
-    '598':new Set(['17']),
-    '599':new Set(['15']),
-    '334':new Set(['8','27'])
-  };
-  const EXCLUDED_VEHICLES={
-    '120':new Set(['361']),
-    '450':new Set(['007'])
-  };
-
-  const numeric=v=>{
-    const d=String(v??'').replace(/\D/g,'');
-    return d?String(Number(d)):'';
-  };
-
-  function currentSeries(){
-    const title=document.getElementById('argosLibraryBranchesTitle');
-    const m=String(title?.textContent||'').match(/(\d+)/);
-    return m?m[1]:'';
-  }
-
-  function excludedVehicle(series,vehicle){
-    if(!EXCLUDED_VEHICLES[series])return false;
-    const raw=String(vehicle??'').trim().replace(/\s+/g,'');
-    if(!raw)return false;
-    const m=raw.match(new RegExp('(?:^|[-])'+series+'[-]?(\\d{3})(?:[-]\\d)?$','i'));
-    const key=m?m[1]:(/^\d{1,3}$/.test(raw)?raw.padStart(3,'0'):raw);
-    return EXCLUDED_VEHICLES[series].has(key);
-  }
-
-  function unitExcluded(series,unit){
-    if(!unit)return false;
-    const b=numeric(unit.rama);
-    if(EXCLUDED_BRANCHES[series]?.has(b))return true;
-    if(excludedVehicle(series,unit.vehiculoBase||unit.numero||''))return true;
-    return false;
-  }
-
-  function scrub(){
-    const list=document.getElementById('argosLibraryBranchesList');
-    if(!list)return;
-    const series=currentSeries();
-    if(!series)return;
-
-    list.querySelectorAll('.library-group-branch,.library-branch-card').forEach(card=>{
-      const m=String(card.textContent||'').match(/\bRama\s+(\d+)\b/i);
-      if(!m)return;
-      if(EXCLUDED_BRANCHES[series]?.has(String(Number(m[1]))))card.remove();
-    });
-
-    // Si un grupo queda vacío tras retirar una rama, quitar también el grupo.
-    list.querySelectorAll('.library-group').forEach(group=>{
-      const remaining=group.querySelector('.library-group-branch,.library-branch-card');
-      if(!remaining)group.remove();
-      else{
-        const count=group.querySelector('.library-group-count');
-        if(count){
-          const n=group.querySelectorAll('.library-group-branch,.library-branch-card').length;
-          count.textContent=`${n} ${n===1?'rama':'ramas'}`;
-        }
-      }
-    });
-
-    // Si se usa el motor simple, mantener el estado de vacío cuando proceda.
-    if(!list.querySelector('.library-group,.library-branch-card,.library-group-branch') && !list.querySelector('.library-empty')){
-      list.innerHTML='<div class="library-empty">No hay ramas registradas para esta serie.</div>';
-    }
-  }
-
-  function install(){
-    if(window.__argosLibraryUltimateExclusionInstalled)return;
-    window.__argosLibraryUltimateExclusionInstalled=true;
-
-    const list=document.getElementById('argosLibraryBranchesList');
-    const library=document.getElementById('library');
-    const panel=document.getElementById('argosLibraryBranches');
-    if(list){
-      const observer=new MutationObserver(()=>scrub());
-      observer.observe(list,{childList:true,subtree:true});
-      scrub();
-    }
-    if(panel){
-      const observerPanel=new MutationObserver(()=>setTimeout(scrub,0));
-      observerPanel.observe(panel,{attributes:true,attributeFilter:['hidden','aria-hidden']});
-    }
-
-    // Ejecutar de nuevo al entrar en Biblioteca, independientemente de qué
-    // motor de navegación abra la pantalla.
-    const previousShow=window.showScreen;
-    if(typeof previousShow==='function'&&!previousShow.__argosLibraryUltimateWrapped){
-      const wrapped=function(id){
-        const result=previousShow.apply(this,arguments);
-        if(id==='library'){
-          setTimeout(scrub,0);
-          setTimeout(scrub,50);
-          setTimeout(scrub,250);
-        }
-        return result;
-      };
-      wrapped.__argosLibraryUltimateWrapped=true;
-      window.showScreen=wrapped;
-    }
-  }
-
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
-  else install();
-  window.ARGOS_LIBRARY_UNIT_EXCLUDED=unitExcluded;
-})();
-</script>
 
 </body>
 
@@ -9002,6 +8876,109 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 })();
 </script>
 
+
+
+<!-- ARGOS · BLOQUEO FINAL DE UNIDADES NO REGISTRABLES
+     Captura el submit antes de cualquier manejador antiguo (incluidos los
+     de rama manual y doble composición). No modifica la base de datos. -->
+<script id="argos-final-unavailable-submit-guard">
+(function(){
+  'use strict';
+
+  function excluded(series,vehicle,branch){
+    const s=String(series??'').replace(/\D/g,'').replace(/^0+/,'');
+    const v=String(vehicle??'').trim();
+    const b=String(branch??'').replace(/\D/g,'').replace(/^0+/,'');
+    if(!s)return false;
+
+    try{
+      const resolver=window.argosFleetUnitExcluded;
+      if(typeof resolver==='function'){
+        let unit=null;
+        try{
+          if(typeof window.getFleetUnit==='function' && v){
+            unit=window.getFleetUnit(s,v)||null;
+          }
+        }catch(e){}
+        if(!unit && typeof fleet!=='undefined' && fleet?.[s]?.units && b){
+          unit=Object.values(fleet[s].units).find(u=>{
+            const ub=String(u?.rama??'').replace(/\D/g,'').replace(/^0+/,'');
+            return ub===b;
+          })||null;
+        }
+        if(resolver(s,v,b,unit))return true;
+      }
+    }catch(e){
+      console.warn('ARGOS · guard final de disponibilidad:',e);
+    }
+
+    /* Respaldo mínimo por si otro módulo todavía no expone el resolvedor. */
+    const branches={
+      '114':['5'],
+      '130':['11','12','13','14','15','16','17','18','19','20','21','22','23','24','25'],
+      '463':['2','3','4','6','9','16','17','19','20'],
+      '464':['1','2','3','4','5','6','15'],
+      '446':['11','18','42','56','58','67','96'],
+      '447':['28','30','44'],
+      '448':['18','19','22','28'],
+      '470':['98','126','137','186'],
+      '598':['17'],
+      '599':['15'],
+      '334':['8','27']
+    };
+    if(branches[s]?.includes(b))return true;
+    if(s==='120' && /(?:^|[-])120[-]?(361)(?:[-]\d)?$/i.test(v))return true;
+    if(s==='450' && /(?:^|[-])450[-]?(007)(?:[-]\d)?$/i.test(v))return true;
+    return false;
+  }
+
+  function getUnit(series,vehicle,branch){
+    try{
+      if(typeof window.getFleetUnit==='function' && vehicle){
+        const u=window.getFleetUnit(series,vehicle);
+        if(u)return u;
+      }
+      if(typeof fleet!=='undefined' && fleet?.[series]?.units){
+        const b=String(branch??'').replace(/\D/g,'').replace(/^0+/,'');
+        return Object.values(fleet[series].units).find(u=>{
+          return String(u?.rama??'').replace(/\D/g,'').replace(/^0+/,'')===b;
+        })||null;
+      }
+    }catch(e){}
+    return null;
+  }
+
+  document.addEventListener('submit',function(ev){
+    const form=ev.target;
+    if(!form || form.id!=='serviceForm')return;
+
+    const series=form.querySelector('#series')?.value||'';
+    const vehicle=form.querySelector('#vehicle')?.value||'';
+    const branch=form.querySelector('#branchValue')?.value||'';
+    const unit=getUnit(String(series).replace(/\D/g,'').replace(/^0+/,''),vehicle,branch);
+
+    if(!excluded(series,vehicle,branch)){
+      const s=String(series??'').replace(/\D/g,'').replace(/^0+/,'');
+      const u=String(unit?.estado||'');
+      if(s && /desguazad/i.test(u) && String(unit?.rama??'').replace(/\D/g,'').replace(/^0+/,'')===String(branch??'').replace(/\D/g,'').replace(/^0+/,'')){
+        ev.preventDefault();
+        ev.stopImmediatePropagation();
+        if(typeof window.toast==='function')window.toast('VEHÍCULO DESGUAZADO');
+        return;
+      }
+      return;
+    }
+
+    ev.preventDefault();
+    ev.stopImmediatePropagation();
+
+    const desguazada=unit && /desguazad/i.test(String(unit.estado||''));
+    if(typeof window.toast==='function'){
+      window.toast(desguazada ? 'VEHÍCULO DESGUAZADO' : 'VEHÍCULO NO DISPONIBLE EN ESTA SERIE');
+    }
+  },true);
+})();
+</script>
 </html>
 <!-- ================================================================
      ARGOS V23 · DOBLE COMPOSICIÓN
@@ -12701,17 +12678,25 @@ body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,25
     sweep();
   }
 
+  /*
+   * El observer solo necesita vigilar inserciones/eliminaciones de nodos.
+   * No observamos characterData porque sweep() normaliza texto y volvería a
+   * disparar este mismo observer en bucle, bloqueando la Biblioteca al abrir
+   * una serie.
+   */
+  let sweepQueued=false;
   const observer=new MutationObserver(mutations=>{
-    for(const m of mutations){
-      if(m.type==='childList' || m.type==='characterData'){
-        sweep();
-        break;
-      }
-    }
+    if(!mutations.some(m=>m.type==='childList'))return;
+    if(sweepQueued)return;
+    sweepQueued=true;
+    setTimeout(()=>{
+      sweepQueued=false;
+      sweep();
+    },0);
   });
 
   function startObserver(){
-    if(document.body)observer.observe(document.body,{subtree:true,childList:true,characterData:true});
+    if(document.body)observer.observe(document.body,{subtree:true,childList:true});
   }
 
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',startObserver,{once:true});
