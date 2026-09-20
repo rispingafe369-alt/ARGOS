@@ -3269,10 +3269,6 @@ body:not(.dark) select{
         <span class="home-icon">★</span>
         <span><h2>Calidad</h2></span>
       </button>
-      <button class="home-card argos-achievements-menu-card" type="button" data-screen="achievements">
-        <span class="home-icon">🏆</span>
-        <span><h2>Logros</h2></span>
-      </button>
       <button class="home-card" data-screen="library" type="button">
         <span class="home-icon">▤</span>
         <span><h2>Biblioteca</h2></span>
@@ -3284,6 +3280,10 @@ body:not(.dark) select{
       <button class="home-card" type="button" data-screen="exportServices">
         <span class="home-icon">⇩</span>
         <span><h2>Exportación</h2></span>
+      </button>
+      <button class="home-card argos-achievements-menu-card" type="button" data-screen="achievements">
+        <span class="home-icon">🏆</span>
+        <span><h2>Logros</h2></span>
       </button>
     </div>
     <div class="argos-footer-action">
@@ -16093,3 +16093,58 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   else install();
 })();
 </script>
+
+
+<style id="argos-more-functions-six-equal-final">
+/* ARGOS · MÁS FUNCIONES · 6 BOTONES IGUALES · LOGROS JUNTO A EXPORTACIÓN */
+@media (min-width:601px){
+  #more-functions > .argos-home > .home-list{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-template-rows:repeat(3,minmax(0,1fr))!important;
+    gap:14px!important;
+    overflow:visible!important;
+  }
+  #more-functions > .argos-home > .home-list > .home-card,
+  #more-functions > .argos-home > .home-list > .home-card[data-screen="exportServices"],
+  #more-functions > .argos-home > .home-list > .home-card[data-screen="achievements"]{
+    grid-column:auto!important;
+    grid-row:auto!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:none!important;
+    min-height:76px!important;
+    max-height:none!important;
+    height:auto!important;
+    margin:0!important;
+    box-sizing:border-box!important;
+  }
+}
+@media (max-width:600px){
+  #more-functions > .argos-home > .home-list{
+    display:flex!important;
+    flex-direction:column!important;
+    gap:10px!important;
+  }
+  #more-functions > .argos-home > .home-list > .home-card,
+  #more-functions > .argos-home > .home-list > .home-card[data-screen="exportServices"],
+  #more-functions > .argos-home > .home-list > .home-card[data-screen="achievements"]{
+    width:100%!important;
+    min-height:72px!important;
+    max-height:none!important;
+    height:72px!important;
+    flex:0 0 72px!important;
+    margin:0!important;
+    box-sizing:border-box!important;
+  }
+}
+@media (max-width:380px){
+  #more-functions > .argos-home > .home-list > .home-card,
+  #more-functions > .argos-home > .home-list > .home-card[data-screen="exportServices"],
+  #more-functions > .argos-home > .home-list > .home-card[data-screen="achievements"]{
+    min-height:66px!important;
+    height:66px!important;
+    flex-basis:66px!important;
+  }
+}
+</style>
