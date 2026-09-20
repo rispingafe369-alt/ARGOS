@@ -6,17 +6,25 @@
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "display_override": [
-    "window-controls-overlay",
-    "standalone"
-  ],
-  "background_color": "#a51b78",
-  "theme_color": "#a51b78",
   "orientation": "portrait",
+  "background_color": "#e52a3f",
+  "theme_color": "#e52a3f",
   "icons": [
     {
-      "src": "icons/renfe-logo-blanco.png",
-      "sizes": "any",
+      "src": "icons/renfe-logo-negro-blanco-192-definitivo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/renfe-logo-negro-blanco-512-definitivo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/argos-favicon-180.png",
+      "sizes": "180x180",
       "type": "image/png",
       "purpose": "any"
     }
