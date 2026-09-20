@@ -16220,3 +16220,21 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   }
 }
 </style>
+
+<style id="argos-main-menu-card-integration">
+/* ARGOS · INTEGRACIÓN VISUAL DEL MENÚ PRINCIPAL
+   Solo suaviza bordes y sombras de las tarjetas para integrarlas con el fondo.
+   No modifica tamaños, posiciones ni estructura. */
+@media(max-width:600px){
+  .argos-home .home-list{
+    background:transparent!important;
+  }
+  .argos-home .home-card{
+    border-color:rgba(20,20,25,.055)!important;
+    box-shadow:0 3px 12px rgba(30,20,30,.045)!important;
+  }
+  .argos-home .home-card.primary{
+    box-shadow:0 4px 14px rgba(138,0,92,.12)!important;
+  }
+}
+</style>
