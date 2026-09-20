@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="theme-color" content="#e52a3f">
+<meta name="theme-color" content="#000000">
 <meta name="description" content="ARGOS - Gestión de servicios ferroviarios">
 <link rel="manifest" href="manifest.webmanifest">
 
@@ -16973,9 +16973,741 @@ body.dark .argos-achievement-card .argos-achievement-description{color:#bdb8bf !
   'use strict';
   function apply(){
     const meta=document.querySelector('meta[name="theme-color"]');
-    if(meta)meta.setAttribute('content','#e52a3f');
+    if(meta)meta.setAttribute('content','#000000');
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply,{once:true});
   else apply();
+})();
+</script>
+
+
+<!-- ARGOS · AJUSTE FINAL · BARRA SUPERIOR NEGRA + LOGROS V2 -->
+<style id="argos-final-black-header-logros-v2">
+/* ================================================================
+   CABECERA · NEGRO ELEGANTE + DEGRADADO LIMPIO
+   ================================================================ */
+html,body{
+  background:var(--page,#f4f5f7) !important;
+}
+.app-header,
+.brand-row{
+  background:linear-gradient(90deg,#e52a3f 0%,#c01b70 34%,#8f0078 63%,#1d5e90 100%) !important;
+}
+@media(max-width:600px){
+  /* La barra nativa del sistema queda en negro.
+     El rojo ya no se utiliza como fondo del documento, por lo que tampoco
+     aparece en las esquinas redondeadas del encabezado. */
+  html,body{
+    background:var(--page,#f4f5f7) !important;
+  }
+  .app-header{
+    background:linear-gradient(90deg,#e52a3f 0%,#c01b70 34%,#8f0078 63%,#1d5e90 100%) !important;
+  }
+}
+
+/* ================================================================
+   LOGROS · DISEÑO V2
+   ================================================================ */
+#achievements .argos-achievements-dashboard-v2{
+  width:min(980px,100%);
+  margin:0 auto;
+  display:grid;
+  gap:24px;
+  font-family:"Avenir Next","Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+}
+
+#achievements .argos-achievements-hero-v2{
+  position:relative;
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center;
+  gap:18px;
+  padding:22px 24px;
+  border-radius:24px;
+  overflow:hidden;
+  background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(249,243,247,.98));
+  border:1px solid rgba(138,0,92,.10);
+  box-shadow:0 12px 30px rgba(48,25,43,.07);
+}
+#achievements .argos-achievements-hero-v2::after{
+  content:"";
+  position:absolute;
+  inset:auto -55px -70px auto;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:linear-gradient(135deg,rgba(229,42,63,.10),rgba(29,94,144,.10));
+  pointer-events:none;
+}
+#achievements .argos-achievements-hero-icon-v2{
+  width:72px;
+  height:72px;
+  border-radius:21px;
+  display:grid;
+  place-items:center;
+  font-size:35px;
+  background:linear-gradient(145deg,#f7e8f0,#efe1ea);
+  box-shadow:inset 0 0 0 1px rgba(138,0,92,.07);
+  position:relative;
+  z-index:1;
+}
+#achievements .argos-achievements-hero-copy-v2{
+  position:relative;
+  z-index:1;
+}
+#achievements .argos-achievements-hero-kicker-v2{
+  display:block;
+  margin-bottom:3px;
+  color:#8a005c;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+#achievements .argos-achievements-hero-title-v2{
+  margin:0;
+  color:#17171b;
+  font-size:clamp(27px,4.5vw,38px);
+  line-height:1;
+  font-weight:950;
+  letter-spacing:-.035em;
+}
+#achievements .argos-achievements-hero-subtitle-v2{
+  display:block;
+  margin-top:7px;
+  color:#6f7078;
+  font-size:12px;
+  line-height:1.4;
+}
+#achievements .argos-achievements-counter-v2{
+  position:relative;
+  z-index:1;
+  min-width:92px;
+  padding:11px 13px;
+  border-radius:17px;
+  text-align:center;
+  background:#fff;
+  border:1px solid rgba(138,0,92,.09);
+  box-shadow:0 5px 14px rgba(50,25,45,.05);
+}
+#achievements .argos-achievements-counter-v2 strong{
+  display:block;
+  color:#8a005c;
+  font-size:25px;
+  line-height:1;
+  font-weight:950;
+}
+#achievements .argos-achievements-counter-v2 span{
+  display:block;
+  margin-top:4px;
+  color:#797a82;
+  font-size:9px;
+  font-weight:850;
+  text-transform:uppercase;
+  letter-spacing:.07em;
+}
+
+#achievements .argos-achievements-section-v2{
+  display:grid;
+  gap:10px;
+}
+#achievements .argos-achievements-section-head-v2{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:12px;
+}
+#achievements .argos-achievements-section-title-v2{
+  margin:0;
+  color:#17171b;
+  font-size:clamp(29px,5vw,42px);
+  line-height:.96;
+  font-weight:950;
+  letter-spacing:-.045em;
+}
+#achievements .argos-achievements-section-meta-v2{
+  color:#85868e;
+  font-size:10px;
+  font-weight:850;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  white-space:nowrap;
+}
+#achievements .argos-achievements-section-subtitle-v2{
+  margin:0;
+  color:#73747c;
+  font-size:12px;
+  line-height:1.4;
+}
+
+#achievements .argos-achievements-grid-v2{
+  display:grid;
+  gap:13px;
+}
+#achievements .argos-achievement-card-v2{
+  position:relative;
+  display:grid;
+  grid-template-columns:60px minmax(0,1fr);
+  gap:15px;
+  align-items:start;
+  padding:16px 17px 17px 18px;
+  border-radius:20px;
+  background:#fff;
+  border:1px solid rgba(20,20,25,.08);
+  box-shadow:0 8px 22px rgba(30,20,30,.045);
+  overflow:hidden;
+}
+#achievements .argos-achievement-card-v2::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:5px;
+  background:linear-gradient(180deg,#e52a3f 0%,#c01b70 38%,#8f0078 66%,#1d5e90 100%);
+}
+#achievements .argos-achievement-icon-v2{
+  width:60px;
+  height:60px;
+  border-radius:17px;
+  display:grid;
+  place-items:center;
+  font-size:27px;
+  background:linear-gradient(145deg,#f7e8f0,#f0e6ed);
+  box-shadow:inset 0 0 0 1px rgba(138,0,92,.06);
+}
+#achievements .argos-achievement-main-v2{
+  min-width:0;
+}
+#achievements .argos-achievement-topline-v2{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+#achievements .argos-achievement-kicker-v2{
+  color:#8a005c;
+  font-size:9px;
+  line-height:1;
+  font-weight:950;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+}
+#achievements .argos-achievement-state-v2{
+  padding:6px 9px;
+  border-radius:999px;
+  color:#267a32;
+  background:#e9f7e9;
+  font-size:8px;
+  line-height:1;
+  font-weight:950;
+  white-space:nowrap;
+}
+#achievements .argos-achievement-state-v2.locked{
+  color:#7a737d;
+  background:#f1eef2;
+}
+#achievements .argos-achievement-title-v2{
+  margin:7px 0 0;
+  color:#18181d;
+  font-size:20px;
+  line-height:1.08;
+  font-weight:950;
+  letter-spacing:-.028em;
+}
+#achievements .argos-achievement-description-v2{
+  margin:7px 0 0;
+  color:#71727a;
+  font-size:12px;
+  line-height:1.45;
+}
+#achievements .argos-achievement-progress-v2{
+  margin-top:12px;
+}
+#achievements .argos-achievement-progress-head-v2{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  margin-bottom:6px;
+  color:#888991;
+  font-size:9px;
+  font-weight:800;
+}
+#achievements .argos-achievement-progress-track-v2{
+  width:100%;
+  height:7px;
+  overflow:hidden;
+  border-radius:999px;
+  background:#eee9ed;
+}
+#achievements .argos-achievement-progress-fill-v2{
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,#e52a3f 0%,#c01b70 45%,#1d5e90 100%);
+}
+
+#achievements .argos-achievements-more-button-v2{
+  width:100%;
+  min-height:60px;
+  border:0;
+  border-radius:19px;
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  background:linear-gradient(90deg,#e52a3f 0%,#c01b70 34%,#8f0078 63%,#1d5e90 100%) !important;
+  color:#fff !important;
+  font-family:inherit;
+  font-size:15px;
+  font-weight:950;
+  letter-spacing:.01em;
+  box-shadow:0 9px 22px rgba(95,20,85,.14);
+}
+#achievements .argos-achievements-more-button-v2 .more-chevron{
+  display:inline-grid;
+  place-items:center;
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  background:rgba(255,255,255,.16);
+  font-size:18px;
+  line-height:1;
+  transition:transform .18s ease;
+}
+#achievements .argos-achievements-more-button-v2.open .more-chevron{
+  transform:rotate(90deg);
+}
+#achievements .argos-achievements-pending-v2{
+  display:none;
+  gap:10px;
+}
+#achievements .argos-achievements-pending-v2.open{
+  display:grid;
+}
+#achievements .argos-achievements-pending-title-v2{
+  margin:0;
+  color:#17171b;
+  font-size:23px;
+  line-height:1;
+  font-weight:950;
+  letter-spacing:-.035em;
+}
+#achievements .argos-achievement-card-v2.pending .argos-achievement-icon-v2{
+  background:#f1eef2;
+  filter:saturate(.55);
+}
+#achievements .argos-achievement-card-v2.pending .argos-achievement-title-v2{
+  color:#34333a;
+}
+
+/* MODO OSCURO */
+body.dark #achievements .argos-achievements-hero-v2{
+  background:linear-gradient(135deg,#222027,#2b252d) !important;
+  border-color:rgba(255,255,255,.08) !important;
+  box-shadow:0 12px 28px rgba(0,0,0,.22);
+}
+body.dark #achievements .argos-achievements-hero-icon-v2{
+  background:linear-gradient(145deg,#392632,#342630) !important;
+}
+body.dark #achievements .argos-achievements-hero-title-v2,
+body.dark #achievements .argos-achievements-section-title-v2,
+body.dark #achievements .argos-achievement-title-v2,
+body.dark #achievements .argos-achievements-pending-title-v2{
+  color:#fff !important;
+}
+body.dark #achievements .argos-achievements-hero-subtitle-v2,
+body.dark #achievements .argos-achievements-section-subtitle-v2,
+body.dark #achievements .argos-achievement-description-v2{
+  color:#c0bbc2 !important;
+}
+body.dark #achievements .argos-achievements-counter-v2{
+  background:#28252b !important;
+  border-color:rgba(255,255,255,.08) !important;
+}
+body.dark #achievements .argos-achievement-card-v2{
+  background:linear-gradient(145deg,#242126,#2d2730) !important;
+  border-color:rgba(255,255,255,.075) !important;
+  box-shadow:0 8px 20px rgba(0,0,0,.24);
+}
+body.dark #achievements .argos-achievement-icon-v2{
+  background:#352632 !important;
+}
+body.dark #achievements .argos-achievement-progress-track-v2{
+  background:#3b353d !important;
+}
+body.dark #achievements .argos-achievement-state-v2.locked{
+  background:#38333a !important;
+  color:#c8c2c9 !important;
+}
+body.dark #achievements .argos-achievements-section-meta-v2{
+  color:#aaa4ad !important;
+}
+
+@media(max-width:600px){
+  #achievements .argos-achievements-dashboard-v2{
+    gap:17px;
+  }
+  #achievements .argos-achievements-hero-v2{
+    grid-template-columns:56px minmax(0,1fr);
+    gap:13px;
+    padding:16px;
+    border-radius:20px;
+  }
+  #achievements .argos-achievements-hero-icon-v2{
+    width:56px;
+    height:56px;
+    border-radius:17px;
+    font-size:28px;
+  }
+  #achievements .argos-achievements-hero-kicker-v2{
+    font-size:9px;
+  }
+  #achievements .argos-achievements-hero-title-v2{
+    font-size:31px;
+  }
+  #achievements .argos-achievements-counter-v2{
+    grid-column:1 / -1;
+    justify-self:start;
+    min-width:0;
+    padding:8px 10px;
+    display:flex;
+    align-items:baseline;
+    gap:6px;
+  }
+  #achievements .argos-achievements-counter-v2 strong{
+    font-size:21px;
+  }
+  #achievements .argos-achievements-counter-v2 span{
+    margin-top:0;
+  }
+  #achievements .argos-achievements-section-title-v2{
+    font-size:33px;
+  }
+  #achievements .argos-achievements-section-meta-v2{
+    font-size:8px;
+  }
+  #achievements .argos-achievement-card-v2{
+    grid-template-columns:48px minmax(0,1fr);
+    gap:12px;
+    padding:13px 13px 14px 15px;
+    border-radius:18px;
+  }
+  #achievements .argos-achievement-icon-v2{
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    font-size:22px;
+  }
+  #achievements .argos-achievement-title-v2{
+    font-size:17px;
+  }
+  #achievements .argos-achievement-description-v2{
+    font-size:11px;
+    line-height:1.42;
+  }
+  #achievements .argos-achievement-state-v2{
+    padding:5px 8px;
+    font-size:7px;
+  }
+  #achievements .argos-achievement-progress-v2{
+    margin-top:10px;
+  }
+  #achievements .argos-achievement-progress-track-v2{
+    height:6px;
+  }
+  #achievements .argos-achievements-more-button-v2{
+    min-height:56px;
+    border-radius:17px;
+    font-size:14px;
+  }
+  #achievements .argos-achievements-pending-title-v2{
+    font-size:21px;
+  }
+}
+</style>
+
+<script id="argos-final-logros-v2-authority">
+(function(){
+  'use strict';
+
+  const rootId='argosAchievementsList';
+  let rendering=false;
+
+  function digits(v){return String(v??'').replace(/\D/g,'')}
+  function norm(v){return digits(v).replace(/^0+/,'')||''}
+  function key(series,branch){
+    const s=norm(series),b=norm(branch);
+    return s&&b?s+'|'+b:'';
+  }
+  function esc(v){
+    return String(v??'').replace(/[&<>"']/g,c=>({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[c]));
+  }
+  function services(){
+    try{
+      const x=JSON.parse(localStorage.getItem('argos_services')||'[]');
+      return Array.isArray(x)?x:[];
+    }catch(e){return []}
+  }
+  function findBranch(service,second){
+    const series=String(second
+      ?(service?.composition2?.series||service?.secondSeries||service?.series2||'')
+      :(service?.series||service?.serie||'')).trim();
+    const vehicle=String(second
+      ?(service?.composition2?.vehicle||service?.secondVehicle||service?.vehicle2||'')
+      :(service?.vehicle||service?.vehiculo||'')).trim();
+    let branch=String(second
+      ?(service?.composition2?.branch||service?.composition2?.rama||service?.secondBranch||service?.branch2||'')
+      :(service?.branch||service?.rama||'')).trim();
+
+    if(!branch&&series&&vehicle&&typeof getFleetUnit==='function'){
+      try{
+        const unit=getFleetUnit(series,vehicle);
+        if(unit?.rama)branch=String(unit.rama);
+      }catch(e){}
+    }
+    if(!branch&&series&&vehicle&&typeof fleet!=='undefined'){
+      try{
+        const units=fleet[norm(series)]?.units||{};
+        const v=norm(vehicle);
+        for(const [k,u] of Object.entries(units)){
+          const codes=[k,u?.vehiculoBase,u?.numero,...(Array.isArray(u?.searchCodes)?u.searchCodes:[])].map(norm).filter(Boolean);
+          if(v&&codes.includes(v)){
+            branch=String(u?.rama||'');
+            break;
+          }
+        }
+      }catch(e){}
+    }
+    if(typeof window.ARGOS_NORMALIZE_BRANCH==='function')branch=window.ARGOS_NORMALIZE_BRANCH(branch);
+    return {series,branch};
+  }
+  function registeredBranches(){
+    const set=new Set();
+    services().forEach(service=>{
+      const first=findBranch(service,false);
+      if(first.series&&first.branch)set.add(key(first.series,first.branch));
+      if(service?.doubleComposition&&service?.composition2){
+        const second=findBranch(service,true);
+        if(second.series&&second.branch)set.add(key(second.series,second.branch));
+      }
+    });
+    return set;
+  }
+  function list(){
+    return Array.isArray(window.ARGOS_ACHIEVEMENTS)?window.ARGOS_ACHIEVEMENTS:[];
+  }
+  function unlocked(a,reg){
+    const req=Array.isArray(a.requiredBranches)?a.requiredBranches.map(String):[];
+    if(req.length)return req.every(b=>reg.has(key(a.series,b)));
+    return reg.has(key(a.series,a.branch));
+  }
+  function progress(a,reg){
+    const req=Array.isArray(a.requiredBranches)?a.requiredBranches.map(String):[];
+    if(!req.length)return unlocked(a,reg)?{done:1,total:1,label:'Rama registrada'}:{done:0,total:1,label:'Rama pendiente'};
+    const done=req.filter(b=>reg.has(key(a.series,b))).length;
+    return {done,total:req.length,label:`${done}/${req.length} ramas`};
+  }
+  function card(a,isUnlocked,reg,pending){
+    const p=progress(a,reg);
+    const title=esc(a.title||'Logro');
+    const description=esc(a.description||'Completa el objetivo para desbloquear este logro.');
+    const icon=isUnlocked?(a.icon||'🏆'):'🔒';
+    const state=isUnlocked?'CONSEGUIDO':'PENDIENTE';
+    const pct=Math.max(0,Math.min(100,(p.done/p.total)*100));
+    return `<article class="argos-achievement-card-v2 ${isUnlocked?'unlocked':'pending'}">
+      <div class="argos-achievement-icon-v2" aria-hidden="true">${esc(icon)}</div>
+      <div class="argos-achievement-main-v2">
+        <div class="argos-achievement-topline-v2">
+          <span class="argos-achievement-kicker-v2">${pending?'POR CONSEGUIR':'LOGRO'}</span>
+          <span class="argos-achievement-state-v2 ${pending?'locked':''}">${state}</span>
+        </div>
+        <div class="argos-achievement-title-v2">${title}</div>
+        <div class="argos-achievement-description-v2">${description}</div>
+        <div class="argos-achievement-progress-v2">
+          <div class="argos-achievement-progress-head-v2"><span>Progreso</span><span>${esc(p.label)}</span></div>
+          <div class="argos-achievement-progress-track-v2"><div class="argos-achievement-progress-fill-v2" style="width:${pct}%"></div></div>
+        </div>
+      </div>
+    </article>`;
+  }
+
+  function render(){
+    const root=document.getElementById(rootId);
+    if(!root||rendering)return;
+    rendering=true;
+    try{
+      const achievements=list();
+      const reg=registeredBranches();
+      const own=achievements.filter(a=>unlocked(a,reg));
+      const pending=achievements.filter(a=>!unlocked(a,reg));
+      const total=achievements.length;
+
+      root.innerHTML=`
+        <div class="argos-achievements-dashboard-v2">
+          <section class="argos-achievements-hero-v2">
+            <div class="argos-achievements-hero-icon-v2" aria-hidden="true">🏆</div>
+            <div class="argos-achievements-hero-copy-v2">
+              <span class="argos-achievements-hero-kicker-v2">ARGOS · COLECCIÓN</span>
+              <h2 class="argos-achievements-hero-title-v2">Mis logros</h2>
+              <span class="argos-achievements-hero-subtitle-v2">Tu colección personal de logros ferroviarios.</span>
+            </div>
+            <div class="argos-achievements-counter-v2"><strong>${own.length}/${total}</strong><span>conseguidos</span></div>
+          </section>
+
+          <section class="argos-achievements-section-v2">
+            <div class="argos-achievements-section-head-v2">
+              <div>
+                <h3 class="argos-achievements-section-title-v2">MIS LOGROS</h3>
+              </div>
+              <span class="argos-achievements-section-meta-v2">${own.length===1?'1 LOGRO':'LOGROS'}</span>
+            </div>
+            <p class="argos-achievements-section-subtitle-v2">Todos los logros que ya has conseguido.</p>
+            <div class="argos-achievements-grid-v2">
+              ${own.length?own.map(a=>card(a,true,reg,false)).join(''):'<div class="argos-achievements-owned-empty"><strong>Aún no tienes logros</strong>Registra ramas para empezar a desbloquear tu colección.</div>'}
+            </div>
+          </section>
+
+          <section class="argos-achievements-section-v2">
+            <button id="argosAchievementsMoreButtonV2" class="argos-achievements-more-button-v2" type="button" aria-expanded="false">
+              <span>VER MÁS LOGROS</span><span class="more-chevron" aria-hidden="true">›</span>
+            </button>
+            <div id="argosAchievementsPendingV2" class="argos-achievements-pending-v2" aria-hidden="true">
+              <h3 class="argos-achievements-pending-title-v2">AÚN POR CONSEGUIR</h3>
+              <div class="argos-achievements-grid-v2">
+                ${pending.length?pending.map(a=>card(a,false,reg,true)).join(''):'<div class="argos-achievements-owned-empty"><strong>¡Colección completa!</strong>No tienes logros pendientes.</div>'}
+              </div>
+            </div>
+          </section>
+        </div>`;
+
+      const btn=document.getElementById('argosAchievementsMoreButtonV2');
+      const pendingBox=document.getElementById('argosAchievementsPendingV2');
+      if(btn&&pendingBox){
+        btn.addEventListener('click',()=>{
+          const open=pendingBox.classList.toggle('open');
+          btn.classList.toggle('open',open);
+          btn.setAttribute('aria-expanded',String(open));
+          pendingBox.setAttribute('aria-hidden',String(!open));
+          btn.querySelector('span:first-child').textContent=open?'OCULTAR LOGROS':'VER MÁS LOGROS';
+        });
+      }
+    }finally{
+      rendering=false;
+    }
+  }
+
+  /* El motor antiguo puede renderizar primero. Este observer lo sustituye
+     inmediatamente por la interfaz V2 sin alterar el registro de servicios. */
+  const obs=new MutationObserver(()=>{
+    const root=document.getElementById(rootId);
+    if(root&&!rendering&&!root.querySelector('.argos-achievements-dashboard-v2')){
+      requestAnimationFrame(render);
+    }
+  });
+  function install(){
+    const root=document.getElementById(rootId);
+    if(root)obs.observe(root,{childList:true,subtree:true});
+    render();
+  }
+  document.addEventListener('argos:service-saved',()=>requestAnimationFrame(render));
+  window.addEventListener('storage',ev=>{if(ev.key==='argos_services')requestAnimationFrame(render)});
+  window.renderAchievementsV2=render;
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
+  else install();
+})();
+</script>
+
+
+<!-- ARGOS · LOGROS · PULIDO FINAL -->
+<style id="argos-logros-polished-navigation-v3">
+#achievements > .screen-header{
+  display:none !important;
+}
+#achievements .argos-achievements-dashboard-v2{
+  position:relative;
+}
+#achievements .argos-achievements-topbar-v2{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  margin-bottom:2px;
+}
+#achievements .argos-achievements-back-v2{
+  width:42px;
+  height:42px;
+  min-width:42px;
+  border:1px solid rgba(138,0,92,.10);
+  border-radius:14px;
+  background:#f4e6ef;
+  color:#8a005c;
+  display:grid;
+  place-items:center;
+  font-family:"Avenir Next","Segoe UI",system-ui,sans-serif;
+  font-size:24px;
+  font-weight:500;
+  line-height:1;
+  cursor:pointer;
+}
+#achievements .argos-achievements-topbar-label-v2{
+  color:#8a005c;
+  font-family:"Avenir Next","Segoe UI",system-ui,sans-serif;
+  font-size:10px;
+  font-weight:950;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+body.dark #achievements .argos-achievements-back-v2{
+  background:#352632 !important;
+  border-color:rgba(255,255,255,.07);
+  color:#ef9bca;
+}
+@media(max-width:600px){
+  #achievements .argos-achievements-topbar-v2{
+    margin-bottom:0;
+  }
+  #achievements .argos-achievements-back-v2{
+    width:40px;
+    height:40px;
+    min-width:40px;
+    border-radius:13px;
+    font-size:22px;
+  }
+}
+</style>
+<script id="argos-logros-polished-navigation-v3-script">
+(function(){
+  'use strict';
+  function mount(){
+    const root=document.getElementById('argosAchievementsList');
+    if(!root)return;
+    const dash=root.querySelector('.argos-achievements-dashboard-v2');
+    if(!dash||dash.querySelector('.argos-achievements-topbar-v2'))return;
+
+    const topbar=document.createElement('div');
+    topbar.className='argos-achievements-topbar-v2';
+    topbar.innerHTML='<button class="argos-achievements-back-v2" type="button" aria-label="Volver">‹</button><span class="argos-achievements-topbar-label-v2">ARGOS · LOGROS</span>';
+    dash.insertBefore(topbar,dash.firstElementChild);
+
+    const back=topbar.querySelector('.argos-achievements-back-v2');
+    if(back){
+      back.addEventListener('click',function(){
+        const original=document.querySelector('#achievements .screen-header [data-back]');
+        if(original){ original.click(); return; }
+        if(typeof window.showScreen==='function')window.showScreen('menu');
+      });
+    }
+  }
+  const observer=new MutationObserver(mount);
+  function install(){
+    const root=document.getElementById('argosAchievementsList');
+    if(root)observer.observe(root,{childList:true,subtree:true});
+    mount();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
+  else install();
 })();
 </script>
