@@ -3350,75 +3350,6 @@ body:not(.dark) select{
 }
 </style>
 
-<style id="argos-dark-menu-final-fix">
-/* ARGOS · MODO OSCURO · MENÚ PRINCIPAL · CORRECCIÓN VISUAL
-   Solo corrige la paleta del menú principal en tema oscuro.
-   No modifica tamaños, posiciones, navegación ni lógica. */
-body.dark #menu .home-card:not(.primary){
-  background:linear-gradient(145deg,#242126 0%,#2d2730 100%) !important;
-  border:1px solid rgba(255,255,255,.075) !important;
-  color:#fff !important;
-  box-shadow:0 3px 10px rgba(0,0,0,.20), inset 0 1px 0 rgba(255,255,255,.025) !important;
-}
-body.dark #menu .home-card:not(.primary) h2,
-body.dark #menu .home-card:not(.primary) p,
-body.dark #menu .home-card:not(.primary) .latest-service-value,
-body.dark #menu .home-card:not(.primary) label{
-  color:#fff !important;
-}
-body.dark #menu .home-card:not(.primary) .home-icon{
-  background:#352632 !important;
-  color:#e08bc0 !important;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.035) !important;
-}
-
-/* El botón destacado conserva el degradado de ARGOS también en oscuro,
-   sin el borde oscuro que generaba una línea al inicio. */
-body.dark #menu .home-card.primary,
-body.dark #menu .home-card.primary:hover,
-body.dark #menu .home-card.primary:focus,
-body.dark #menu .home-card.primary:active{
-  background:var(--argos-gradient) !important;
-  border:0 !important;
-  outline:0 !important;
-  color:#fff !important;
-  box-shadow:0 5px 16px rgba(0,0,0,.26) !important;
-  background-clip:border-box !important;
-  -webkit-background-clip:border-box !important;
-}
-body.dark #menu .home-card.primary .home-icon{
-  background:rgba(255,255,255,.16) !important;
-  color:#fff !important;
-}
-
-/* El botón de salida del menú conserva la misma lectura visual en oscuro. */
-body.dark #menu .argos-footer-action .argos-identical-action{
-  background:#242126 !important;
-  color:#fff !important;
-  border-color:rgba(255,255,255,.075) !important;
-  box-shadow:0 3px 10px rgba(0,0,0,.18) !important;
-}
-body.dark #menu .argos-footer-action .more-functions-back-arrow{
-  background:#352632 !important;
-  color:#e08bc0 !important;
-}
-
-/* Más funciones: misma integración en tema oscuro para sus seis tarjetas. */
-body.dark #more-functions .home-card{
-  background:linear-gradient(145deg,#242126 0%,#2d2730 100%) !important;
-  border-color:rgba(255,255,255,.075) !important;
-  color:#fff !important;
-  box-shadow:0 3px 10px rgba(0,0,0,.20), inset 0 1px 0 rgba(255,255,255,.025) !important;
-}
-body.dark #more-functions .home-card h2,
-body.dark #more-functions .home-card p{
-  color:#fff !important;
-}
-body.dark #more-functions .home-card .home-icon{
-  background:#352632 !important;
-  color:#e08bc0 !important;
-}
-</style>
 </head>
 
 <body>
@@ -16208,7 +16139,20 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
    * Ejemplo:
    * {id:'251-rama-004',series:'251',branch:'004',title:'...',description:'...',icon:'🏆'}
    */
-  const ACHIEVEMENTS=window.ARGOS_ACHIEVEMENTS||[];
+  const DEFAULT_ACHIEVEMENTS=[
+    {
+      id:'801-experto-operaciones-tranviarias',
+      series:'801',
+      requiredBranches:['001','002','003','004','005','006','007'],
+      title:'Auténtico experto en operaciones tranviarias',
+      description:'Objetivo: Registra un tren con cada una de las ramas de la serie 801.',
+      icon:'🏆'
+    }
+  ];
+
+  const ACHIEVEMENTS=Array.isArray(window.ARGOS_ACHIEVEMENTS)&&window.ARGOS_ACHIEVEMENTS.length
+    ? window.ARGOS_ACHIEVEMENTS
+    : DEFAULT_ACHIEVEMENTS;
   window.ARGOS_ACHIEVEMENTS=ACHIEVEMENTS;
 
   function digits(v){return String(v??'').replace(/\D/g,'')}
@@ -16273,9 +16217,19 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
     const registered=registeredBranches();
     root.innerHTML=ACHIEVEMENTS.map(a=>{
-      const unlocked=registered.has(key(a.series,a.branch));
+      const required=Array.isArray(a.requiredBranches)
+        ? a.requiredBranches.map(b=>String(b))
+        : [];
+      const done=required.length
+        ? required.filter(b=>registered.has(key(a.series,b))).length
+        : (registered.has(key(a.series,a.branch))?1:0);
+      const unlocked=required.length
+        ? done===required.length
+        : registered.has(key(a.series,a.branch));
       const icon=a.icon||'🏆';
-      const state=unlocked?'Desbloqueado':'Bloqueado';
+      const state=unlocked
+        ? 'Desbloqueado'
+        : (required.length ? `${done}/${required.length} ramas` : 'Bloqueado');
       const branchLabel=a.branch?String(a.branch).padStart(3,'0'):'';
       return `<article class="argos-achievement-card ${unlocked?'unlocked':'locked'}">
         <div class="argos-achievement-icon" aria-hidden="true">${esc(icon)}</div>
