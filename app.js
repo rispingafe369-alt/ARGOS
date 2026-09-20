@@ -34121,6 +34121,538 @@ const fleet = {
     }
   },
 
+  "251": {
+  "seriesName": "Serie 251",
+  "fabricante": "CAF, MACOSA, WESA, GEE, Melco",
+  "constructor": "CAF, MACOSA, WESA, GEE, Melco",
+  "modelo": "Locomotora eléctrica Serie 251",
+  "anoPuestaServicio": "1981–1984",
+  "tipoMaterial": "Mercancías · Locomotora eléctrica",
+  "numeroRamas": 30,
+  "velocidadMaxima": "100/160 km/h (PV/GV)",
+  "potencia": "6.324 CV (4.650 kW)",
+  "longitud": "20.700 mm",
+  "peso": "138 t",
+  "tension": "3.000 V CC",
+  "traccion": "3 motores de tracción",
+  "tipoBogies": "Monomotor y birreductor",
+  "rodaje": "B'B'B'",
+  "composicion": "1 locomotora",
+  "esfuerzoTraccion": "35.598 kg a 44 km/h",
+  "tipoMotor": "MELCO MB-3200-B3",
+  "numeroMotoresTraccion": "3",
+  "diametroRuedas": "1.250 mm",
+  "anchuraCaja": "3.190 mm",
+  "alturaTecho": "4.220 mm",
+  "pesoPorEje": "23 t",
+  "pesoPorMetro": "6,66 t",
+  "frenoElectrico": "Reostático",
+  "frenos": "Dual en origen",
+  "mandoMultiple": "No",
+  "calefaccionTren": "Eléctrica",
+  "potenciaContinuaPorMotor": "2.180 CV (1.550 kW)",
+  "relacionEngranajes": "4,68 / 2,91 (PV/GV)",
+  "unidadesConstruidas": "30",
+  "anoConstruccion": "1981 a 84",
+  "anchoVia": "1.668 mm",
+  "generalNotes": [
+    "Notas Generales: “Sin rayas” indica que no conserva los embellecedores del testero y “sin placa” que no conserva el saliente con la numeración. Ambos elementos fueron eliminados en varias locomotoras por problemas de óxido. El depósito de Lugo de Llanera está en Asturias. La 251-004 conserva la decoración de origen por acuerdo de las AAF de Gijón y Madrid con Integria Renfe.",
+    "Reseña histórica: Fueron las locomotoras más potentes de Renfe Operadora hasta la llegada de las 252 y posteriores. Se dedicaron preferentemente a mercancías en la rampa de Pajares, aunque también realizaron trenes hacia otros destinos y, años atrás, algunos servicios de viajeros. De las 30 unidades construidas, la 251-004 es la única que mantiene sus colores de origen, gracias a Renfe y a una iniciativa de la Asociación “Don Pelayo” de Amigos del Ferrocarril. La 251-001 fue desguazada."
+  ],
+  "units": {
+    "1": {
+      "rama": "1",
+      "vehiculoBase": "001",
+      "numero": "251-001-4",
+      "une": "",
+      "deposito": "",
+      "color": "Azul/Amarillo",
+      "estado": "Desguazada",
+      "ancho": "1668",
+      "constructor": "Mitsubishi",
+      "fabricante": "Mitsubishi",
+      "ano": "1982",
+      "notas": [
+        "Incendiada en Friera (Galicia), 09/05/95. Apartada a finales de 1996-principios de 1997 y desguazada en el TCR de Villaverde posteriormente a 02/99."
+      ]
+    },
+    "2": {
+      "rama": "2",
+      "vehiculoBase": "002",
+      "numero": "251-002-2",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ancho": "1668",
+      "constructor": "Mitsubishi",
+      "fabricante": "Mitsubishi",
+      "ano": "1982",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Colores Renfe Operadora desde 07/11. Tarragona desde 06/18."
+      ]
+    },
+    "3": {
+      "rama": "3",
+      "vehiculoBase": "003",
+      "numero": "251-003-0",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ancho": "1668",
+      "constructor": "CAF",
+      "fabricante": "CAF",
+      "ano": "1982",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Sin logos Renfe. Colores Renfe Operadora desde 15/05/13. Incendiada entre Santa María de Alameda y Las Navas, 26/09/14."
+      ]
+    },
+    "4": {
+      "rama": "4",
+      "vehiculoBase": "004",
+      "numero": "251-004-8",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Azul/Amarillo",
+      "estado": "En servicio",
+      "ancho": "1668",
+      "constructor": "Macosa",
+      "fabricante": "Macosa",
+      "ano": "1983",
+      "notas": [
+        "Sin placa ni rayas. Sin logo RENFE de 10/03 a 04/11. Colores originales. Bigotes (rayas) en una sola cabina desde 11/12 y en ambas desde 2013."
+      ],
+      "numeroConstruccion": "691"
+    },
+    "5": {
+      "rama": "5",
+      "vehiculoBase": "005",
+      "numero": "251-005-5",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ancho": "1668",
+      "constructor": "CAF",
+      "fabricante": "CAF",
+      "ano": "1982",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Cabina reformada en A Coruña. Colores Renfe Operadora desde 07/11. Sin visera desde 2020."
+      ]
+    },
+    "6": {
+      "rama": "6",
+      "vehiculoBase": "006",
+      "numero": "251-006-3",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "Baja",
+      "ancho": "1668",
+      "constructor": "CAF",
+      "fabricante": "CAF",
+      "ano": "1982",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Colores Renfe Operadora desde 03/10. Sin visera desde 12/17. Apartada desde 12/25 en TCR Villaverde."
+      ]
+    },
+    "7": {
+      "rama": "7",
+      "vehiculoBase": "007",
+      "numero": "251-007-1",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ancho": "1668",
+      "constructor": "Macosa",
+      "fabricante": "Macosa",
+      "ano": "1983",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Colores Renfe Operadora desde 05/15."
+      ],
+      "numeroConstruccion": "692"
+    },
+    "8": {
+      "rama": "8",
+      "vehiculoBase": "008",
+      "numero": "251-008-9",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "Baja",
+      "ancho": "1668",
+      "constructor": "Macosa",
+      "fabricante": "Macosa",
+      "ano": "1983",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Fue la primera en gris y amarillo. Colores Renfe Operadora desde 04/10. Sin visera desde 06/18. Apartada desde 10/21 en Lugo de Llanera."
+      ],
+      "numeroConstruccion": "693"
+    },
+    "9": {
+      "rama": "9",
+      "vehiculoBase": "009",
+      "numero": "251-009-7",
+      "une": "",
+      "deposito": "Llanera",
+      "color": "Amarillo/Gris",
+      "estado": "Desguazada",
+      "ancho": "1668",
+      "constructor": "Macosa",
+      "fabricante": "Macosa",
+      "ano": "1982",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas → Mercancías. Accidente en Arévalo, 26/03/10. Ex-Llanera. Desguazada."
+      ]
+    },
+    "10": {
+      "rama": "10",
+      "vehiculoBase": "010",
+      "numero": "251-010-5",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "Baja",
+      "ancho": "1668",
+      "constructor": "CAF",
+      "fabricante": "CAF",
+      "ano": "1982",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Colores Renfe Operadora desde 09/10. Sin visera desde 09/18. Baja en Llanera 08/26."
+      ]
+    },
+    "11": {
+      "rama": "11",
+      "vehiculoBase": "011",
+      "numero": "251-011-3",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ancho": "1668",
+      "constructor": "Macosa",
+      "fabricante": "Macosa",
+      "ano": "1983",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Colores Renfe Operadora desde 11/13."
+      ],
+      "numeroConstruccion": "694"
+    },
+    "12": {
+      "rama": "12",
+      "vehiculoBase": "012",
+      "numero": "251-012-1",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ancho": "1668",
+      "constructor": "Macosa",
+      "fabricante": "Macosa",
+      "ano": "1983",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Colores Renfe Operadora desde 11/12. Sin visera desde 01/21."
+      ],
+      "numeroConstruccion": "695"
+    },
+    "13": {
+      "rama": "13",
+      "vehiculoBase": "013",
+      "numero": "251-013-9",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ancho": "1668",
+      "constructor": "CAF",
+      "fabricante": "CAF",
+      "ano": "1982",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Colores Renfe Operadora desde 03/13."
+      ]
+    },
+    "14": {
+      "rama": "14",
+      "vehiculoBase": "014",
+      "numero": "251-014-7",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ancho": "1668",
+      "constructor": "CAF",
+      "fabricante": "CAF",
+      "ano": "1982",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Con logos Renfe Operadora en laterales de cabinas. Colores Renfe Operadora desde 31/07/08. Sin visera desde 10/16."
+      ]
+    },
+    "15": {
+      "rama": "15",
+      "vehiculoBase": "015",
+      "numero": "251-015-4",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ancho": "1668",
+      "constructor": "CAF",
+      "fabricante": "CAF",
+      "ano": "1982",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Colores Renfe Operadora desde 11/11. Tarragona desde 06/18."
+      ]
+    },
+    "16": {
+      "rama": "16",
+      "vehiculoBase": "016",
+      "numero": "251-016-2",
+      "une": "",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "Desguazada",
+      "ancho": "1668",
+      "constructor": "CAF",
+      "fabricante": "CAF",
+      "ano": "1982",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas → Mercancías. Llanera. Logos Renfe Operadora desde 10/09 → colores Renfe Operadora desde 10/17. Sin visera desde 10/17. Accidente en Puente de los Fierros, 29/11/21. Desguazada in situ, 05-06/12/21."
+      ]
+    },
+    "17": {
+      "rama": "17",
+      "vehiculoBase": "017",
+      "numero": "251-017-0",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ancho": "1668",
+      "constructor": "Macosa",
+      "fabricante": "Macosa",
+      "ano": "1983",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Implicada en accidente en Arévalo, Ilesa, 26/03/10. Colores Renfe Operadora desde 24/04/11. Sin visera desde 09/20."
+      ],
+      "numeroConstruccion": "696"
+    },
+    "18": {
+      "rama": "18",
+      "vehiculoBase": "018",
+      "numero": "251-018-8",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ancho": "1668",
+      "constructor": "Macosa",
+      "fabricante": "Macosa",
+      "ano": "1983",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Primera de la serie en color Renfe Operadora, 03/05/07. Incendio en Pola de Lena, 27/06/16."
+      ],
+      "numeroConstruccion": "697"
+    },
+    "19": {
+      "rama": "19",
+      "vehiculoBase": "019",
+      "numero": "251-019-6",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "Baja",
+      "ancho": "1668",
+      "constructor": "CAF",
+      "fabricante": "CAF",
+      "ano": "1983",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Colores Renfe Operadora sin visera desde 08/17. Ex-Llanera → Can Tunis → Baja 08/26."
+      ]
+    },
+    "20": {
+      "rama": "20",
+      "vehiculoBase": "020",
+      "numero": "251-020-4",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ancho": "1668",
+      "constructor": "CAF",
+      "fabricante": "CAF",
+      "ano": "1983",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Colores Renfe Operadora."
+      ]
+    },
+    "21": {
+      "rama": "21",
+      "vehiculoBase": "021",
+      "numero": "251-021-2",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "Baja",
+      "ancho": "1668",
+      "constructor": "CAF",
+      "fabricante": "CAF",
+      "ano": "1983",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Colores Renfe Operadora sin visera desde 07/17. Ex-Llanera → Baja en TCR Villaverde Bajo 08/26."
+      ]
+    },
+    "22": {
+      "rama": "22",
+      "vehiculoBase": "022",
+      "numero": "251-022-0",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ancho": "1668",
+      "constructor": "CAF",
+      "fabricante": "CAF",
+      "ano": "1983",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Colores Renfe Operadora."
+      ]
+    },
+    "23": {
+      "rama": "23",
+      "vehiculoBase": "023",
+      "numero": "251-023-8",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ancho": "1668",
+      "constructor": "Macosa",
+      "fabricante": "Macosa",
+      "ano": "1983",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Colores Renfe Operadora y sin visera desde 01/17."
+      ],
+      "numeroConstruccion": "698"
+    },
+    "24": {
+      "rama": "24",
+      "vehiculoBase": "024",
+      "numero": "251-024-6",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ancho": "1668",
+      "constructor": "Macosa",
+      "fabricante": "Macosa",
+      "ano": "1983",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Colores Renfe Operadora y sin visera desde 03/16."
+      ],
+      "numeroConstruccion": "699"
+    },
+    "25": {
+      "rama": "25",
+      "vehiculoBase": "025",
+      "numero": "251-025-3",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ancho": "1668",
+      "constructor": "CAF",
+      "fabricante": "CAF",
+      "ano": "1983",
+      "notas": [
+        "Sin rayas ni placas. Ex-Cargas. Colores Renfe Operadora desde 03/11. Sin visera desde 06/19."
+      ]
+    },
+    "26": {
+      "rama": "26",
+      "vehiculoBase": "026",
+      "numero": "251-026-1",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ancho": "1668",
+      "constructor": "CAF",
+      "fabricante": "CAF",
+      "ano": "1983",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Colores Renfe Operadora y sin visera."
+      ]
+    },
+    "27": {
+      "rama": "27",
+      "vehiculoBase": "027",
+      "numero": "251-027-9",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ancho": "1668",
+      "constructor": "CAF",
+      "fabricante": "CAF",
+      "ano": "1983",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Colores Renfe Operadora. Arrollamiento de vehículo en Fontanar, 27/05/18. Sin visera desde 01/19."
+      ]
+    },
+    "28": {
+      "rama": "28",
+      "vehiculoBase": "028",
+      "numero": "251-028-7",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "Baja",
+      "ancho": "1668",
+      "constructor": "CAF",
+      "fabricante": "CAF",
+      "ano": "1983",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Descarrilo en La Granja (Brañuelas-León), 25/02/10. Trasladada al taller de León y vuelta al servicio 05/02/11. Colores Renfe Operadora desde 06/17. Sin visera desde 06/17. Nuevos portaseñales 11/18. Ex-Llanera → Baja 08/26 en TCR Villaverde."
+      ]
+    },
+    "29": {
+      "rama": "29",
+      "vehiculoBase": "029",
+      "numero": "251-029-5",
+      "une": "",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "Baja",
+      "ancho": "1668",
+      "constructor": "Macosa",
+      "fabricante": "Macosa",
+      "ano": "1984",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Bandas moradas en cabinas desde 10/09. Colores Renfe Operadora y sin visera desde 03/18. Ex-Llanera → Apartada 03/26 en TCR Villaverde → Baja 08/26."
+      ],
+      "numeroConstruccion": "700"
+    },
+    "30": {
+      "rama": "30",
+      "vehiculoBase": "030",
+      "numero": "251-030-3",
+      "une": "Mercancías",
+      "deposito": "Llanera",
+      "color": "Blanco/Negro",
+      "estado": "En servicio",
+      "ancho": "1668",
+      "constructor": "CAF",
+      "fabricante": "CAF",
+      "ano": "1983",
+      "notas": [
+        "Sin placa ni rayas. Ex-Cargas. Colores Renfe Operadora. Visita Tarragona para habilitación de maquinistas 04/18. Sin visera desde 06/20."
+      ]
+    }
+  }
+},
+
   "253": {
     "seriesName": "Serie 253",
     "fabricante": "Bombardier / Integria Renfe",
@@ -35321,7 +35853,7 @@ function argosFleetUnitExcluded(series,vehicle="",branch="",unit=null){
   if(/desguazad/i.test(String(resolved?.estado||"")))return true;
   // En la Serie 252, las unidades dadas de baja están fuera del parque
   // operativo y pendientes de desguace. No cuentan en Progreso ni se pueden registrar.
-  if(s==="252" && /\bbaja\b/i.test(String(resolved?.estado||"")))return true;
+  if((s==="251" || s==="252") && /\bbaja\b/i.test(String(resolved?.estado||"")))return true;
   // Serie 333: las unidades dadas de baja, destruidas o canibalizadas no forman parte del catálogo operativo.
   if(s==="333" && /(\bbaja\b|destruida|canibal)/i.test(String(resolved?.estado||"")))return true;
   return false;
@@ -35523,7 +36055,7 @@ if($("serviceForm")){
     const v=argosCatalogNumber(vehicle);
     const listedAsScrapped=!!(ARGOS_EXCLUDED_BRANCHES[series]?.has(b) || ARGOS_EXCLUDED_VEHICLES[series]?.has(v));
     const isScrapped=listedAsScrapped || /desguazad|destruida/i.test(String(unit?.estado||""));
-    const isWithdrawn=(series==="252" || series==="333") && /(\bbaja\b|canibal)/i.test(String(unit?.estado||""));
+    const isWithdrawn=(series==="251" || series==="252" || series==="333") && /(\bbaja\b|canibal)/i.test(String(unit?.estado||""));
     toast(isWithdrawn ? "UNIDAD DADA DE BAJA" : (isScrapped ? "VEHÍCULO DESGUAZADO" : "VEHÍCULO NO DISPONIBLE EN ESTA SERIE"));
   },true);
 }
@@ -35581,7 +36113,7 @@ if($("serviceForm")){
     if(excludedBranches[s]?.has(b))return {scrapped:true,unit};
     if(excludedVehicles[s]?.has(v))return {scrapped:true,unit};
     if(unit && /desguazad/i.test(String(unit.estado||'')))return {scrapped:true,unit};
-    if(unit && (s==="252" || s==="333") && /\bbaja\b/i.test(String(unit.estado||'')))return {scrapped:true,withdrawn:true,unit};
+    if(unit && (s==="251" || s==="252" || s==="333") && /\bbaja\b/i.test(String(unit.estado||'')))return {scrapped:true,withdrawn:true,unit};
     if(unit && s==="333" && /canibal/i.test(String(unit.estado||'')))return {scrapped:true,withdrawn:true,unit};
     if(unit && s==="333" && /destruida/i.test(String(unit.estado||'')))return {scrapped:true,unit};
     if(unit && unit.transformadaA)return {scrapped:false,unit};
@@ -35969,6 +36501,38 @@ function fleetFichaHtml(series,vehicle,service=null){
       </div>
     </div>`:"";
 
+  const technical251=normalizeFleetValue(series)==="251"?`
+    <div class="ficha-section">
+      <div class="ficha-section-title">CARACTERÍSTICAS TÉCNICAS</div>
+      <div class="ficha-grid">
+        ${fichaField("Constructores",tech.constructor||tech.fabricante)}
+        ${fichaField("Unidades construidas",tech.unidadesConstruidas)}
+        ${fichaField("Año de construcción",tech.anoConstruccion)}
+        ${fichaField("Rodaje",tech.rodaje)}
+        ${fichaField("Tipo de bogie",tech.tipoBogies)}
+        ${fichaField("Diámetro de ruedas nuevas",tech.diametroRuedas)}
+        ${fichaField("Ancho de vía",tech.anchoVia)}
+        ${fichaField("Anchura de la caja",tech.anchuraCaja)}
+        ${fichaField("Altura del techo sobre el carril",tech.alturaTecho)}
+        ${fichaField("Longitud entre topes",tech.longitud)}
+        ${fichaField("Tensión de alimentación",tech.tension)}
+        ${fichaField("Potencia nominal",tech.potencia)}
+        ${fichaField("Esfuerzo de tracción continuo",tech.esfuerzoTraccion)}
+        ${fichaField("Velocidad máxima",tech.velocidadMaxima)}
+        ${fichaField("Nº de motores de tracción",tech.numeroMotoresTraccion)}
+        ${fichaField("Tipo de motor",tech.tipoMotor)}
+        ${fichaField("Potencia continua por motor",tech.potenciaContinuaPorMotor)}
+        ${fichaField("Relación de engranajes",tech.relacionEngranajes)}
+        ${fichaField("Peso en orden de marcha",tech.peso)}
+        ${fichaField("Peso por eje",tech.pesoPorEje)}
+        ${fichaField("Peso por metro lineal",tech.pesoPorMetro)}
+        ${fichaField("Freno eléctrico",tech.frenoElectrico)}
+        ${fichaField("Freno neumático",tech.frenos)}
+        ${fichaField("Mando múltiple",tech.mandoMultiple)}
+        ${fichaField("Calefacción al tren",tech.calefaccionTren)}
+      </div>
+    </div>`:"";
+
   const technical253=normalizeFleetValue(series)==="253"?`
     <div class="ficha-section">
       <div class="ficha-section-title">CARACTERÍSTICAS TÉCNICAS</div>
@@ -36150,6 +36714,7 @@ function fleetFichaHtml(series,vehicle,service=null){
     ${technical333}
     ${technical334}
     ${technical252}
+    ${technical251}
     ${technical253}
     ${technical594}
     ${highlights}
