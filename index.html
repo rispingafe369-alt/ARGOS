@@ -1687,6 +1687,78 @@ button:focus:not(:focus-visible),
 }
 </style>
 
+<style id="argos-5-mobile-fixed-more-functions">
+/* ARGOS · MÁS FUNCIONES · MÓVIL FIJO SIN SCROLL */
+@media (max-width:600px){
+  .menu-screen.active{
+    height:calc(100dvh - 64px)!important;
+    max-height:calc(100dvh - 64px)!important;
+    min-height:0!important;
+    overflow:hidden!important;
+  }
+  .menu-screen .argos-home{
+    height:100%!important;
+    min-height:0!important;
+    max-height:100%!important;
+    display:grid!important;
+    grid-template-rows:auto minmax(0,1fr) auto!important;
+    overflow:hidden!important;
+    box-sizing:border-box!important;
+  }
+  .menu-screen .home-list{
+    height:100%!important;
+    min-height:0!important;
+    max-height:100%!important;
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-template-rows:repeat(3,minmax(0,1fr))!important;
+    gap:6px!important;
+    overflow:hidden!important;
+  }
+  .menu-screen .home-card{
+    width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+    max-height:none!important;
+    padding:6px 10px!important;
+    display:grid!important;
+    grid-template-columns:42px minmax(0,1fr)!important;
+    column-gap:9px!important;
+    align-items:center!important;
+    overflow:hidden!important;
+    box-sizing:border-box!important;
+  }
+  .menu-screen .home-icon{
+    width:42px!important;
+    height:42px!important;
+    border-radius:12px!important;
+    font-size:21px!important;
+  }
+  .menu-screen .home-card h2{
+    margin:0!important;
+    font-size:clamp(15px,3.2vw,19px)!important;
+    line-height:1.05!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+}
+@media (max-width:600px) and (max-height:700px){
+  .menu-screen .argos-home{padding:7px 10px 6px!important;gap:6px!important;}
+  .menu-screen .home-list{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(3,minmax(0,1fr))!important;gap:5px!important;}
+  .menu-screen .home-card{padding:4px 8px!important;grid-template-columns:38px minmax(0,1fr)!important;column-gap:7px!important;}
+  .menu-screen .home-icon{width:38px!important;height:38px!important;border-radius:11px!important;font-size:20px!important;}
+  .menu-screen .home-card h2{font-size:clamp(14px,3vw,17px)!important;}
+}
+@media (max-width:600px) and (max-height:580px){
+  .menu-screen .argos-home{padding:5px 8px 4px!important;gap:5px!important;}
+  .menu-screen .home-list{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(3,minmax(0,1fr))!important;gap:4px!important;}
+  .menu-screen .home-card{padding:3px 7px!important;grid-template-columns:34px minmax(0,1fr)!important;column-gap:6px!important;}
+  .menu-screen .home-icon{width:34px!important;height:34px!important;border-radius:10px!important;font-size:18px!important;}
+  .menu-screen .home-card h2{font-size:15px!important;}
+}
+</style>
+
 <style id="argos-5-menu-last-polish">
 /* ARGOS 5.0 · AJUSTE FINAL SOLICITADO
    Solo: franja superior morada + botón Más funciones aprovechando el espacio inferior.
