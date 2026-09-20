@@ -16238,3 +16238,34 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   }
 }
 </style>
+
+<style id="argos-menu-principal-integracion-real-final">
+/* =========================================================
+   ARGOS · MENÚ PRINCIPAL · INTEGRACIÓN REAL DE TARJETAS
+   SOLO modifica la integración visual de las seis tarjetas.
+   NO modifica tamaños, posiciones, textos ni estructura.
+   ========================================================= */
+@media (max-width:600px){
+  /* Elimina el efecto de piezas flotantes y las líneas de sombra
+     que quedan visibles en los espacios entre tarjetas. */
+  #menu > .argos-home > .home-list > .home-card{
+    border:1px solid rgba(70,58,68,.035)!important;
+    background:linear-gradient(180deg,#ffffff 0%,#fcfcfd 100%)!important;
+    box-shadow:0 1px 2px rgba(40,30,40,.025), inset 0 0 0 1px rgba(255,255,255,.55)!important;
+  }
+
+  /* La tarjeta principal mantiene exactamente su magenta. */
+  #menu > .argos-home > .home-list > .home-card.primary{
+    border-color:transparent!important;
+    background:var(--renfe)!important;
+    box-shadow:0 1px 2px rgba(40,30,40,.035), inset 0 0 0 1px rgba(255,255,255,.045)!important;
+  }
+
+  /* Evita que la sombra/relieve del contenedor genere una franja
+     distinta detrás de las tarjetas. */
+  #menu > .argos-home > .home-list{
+    background:transparent!important;
+    box-shadow:none!important;
+  }
+}
+</style>
