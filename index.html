@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="theme-color" content="#b00073">
+<meta name="theme-color" content="#9a0072">
 <meta name="color-scheme" content="dark">
 <meta name="description" content="ARGOS - Gestión de servicios ferroviarios">
 <link rel="manifest" href="manifest.webmanifest">
@@ -50,7 +50,7 @@ button{cursor:pointer;-webkit-tap-highlight-color:transparent}
 .brand-row{
   height:68px;
   margin:0!important;
-  background:linear-gradient(90deg, #e52a3f 0%, #b00073 46%, #9a0072 58%, #1c5f8f 100%);
+  background:var(--renfe);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -1687,6 +1687,78 @@ button:focus:not(:focus-visible),
 }
 </style>
 
+<style id="argos-5-mobile-fixed-more-functions">
+/* ARGOS · MÁS FUNCIONES · MÓVIL FIJO SIN SCROLL */
+@media (max-width:600px){
+  .menu-screen.active{
+    height:calc(100dvh - 64px)!important;
+    max-height:calc(100dvh - 64px)!important;
+    min-height:0!important;
+    overflow:hidden!important;
+  }
+  .menu-screen .argos-home{
+    height:100%!important;
+    min-height:0!important;
+    max-height:100%!important;
+    display:grid!important;
+    grid-template-rows:auto minmax(0,1fr) auto!important;
+    overflow:hidden!important;
+    box-sizing:border-box!important;
+  }
+  .menu-screen .home-list{
+    height:100%!important;
+    min-height:0!important;
+    max-height:100%!important;
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-template-rows:repeat(3,minmax(0,1fr))!important;
+    gap:6px!important;
+    overflow:hidden!important;
+  }
+  .menu-screen .home-card{
+    width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+    max-height:none!important;
+    padding:6px 10px!important;
+    display:grid!important;
+    grid-template-columns:42px minmax(0,1fr)!important;
+    column-gap:9px!important;
+    align-items:center!important;
+    overflow:hidden!important;
+    box-sizing:border-box!important;
+  }
+  .menu-screen .home-icon{
+    width:42px!important;
+    height:42px!important;
+    border-radius:12px!important;
+    font-size:21px!important;
+  }
+  .menu-screen .home-card h2{
+    margin:0!important;
+    font-size:clamp(15px,3.2vw,19px)!important;
+    line-height:1.05!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+}
+@media (max-width:600px) and (max-height:700px){
+  .menu-screen .argos-home{padding:7px 10px 6px!important;gap:6px!important;}
+  .menu-screen .home-list{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(3,minmax(0,1fr))!important;gap:5px!important;}
+  .menu-screen .home-card{padding:4px 8px!important;grid-template-columns:38px minmax(0,1fr)!important;column-gap:7px!important;}
+  .menu-screen .home-icon{width:38px!important;height:38px!important;border-radius:11px!important;font-size:20px!important;}
+  .menu-screen .home-card h2{font-size:clamp(14px,3vw,17px)!important;}
+}
+@media (max-width:600px) and (max-height:580px){
+  .menu-screen .argos-home{padding:5px 8px 4px!important;gap:5px!important;}
+  .menu-screen .home-list{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(3,minmax(0,1fr))!important;gap:4px!important;}
+  .menu-screen .home-card{padding:3px 7px!important;grid-template-columns:34px minmax(0,1fr)!important;column-gap:6px!important;}
+  .menu-screen .home-icon{width:34px!important;height:34px!important;border-radius:10px!important;font-size:18px!important;}
+  .menu-screen .home-card h2{font-size:15px!important;}
+}
+</style>
+
 <style id="argos-5-menu-last-polish">
 /* ARGOS 5.0 · AJUSTE FINAL SOLICITADO
    Solo: franja superior morada + botón Más funciones aprovechando el espacio inferior.
@@ -1746,7 +1818,7 @@ html,body{background:var(--page)!important;}
     max-height:64px!important;
     margin:0!important;
     padding:0!important;
-    background:linear-gradient(90deg, #e52a3f 0%, #b00073 46%, #9a0072 58%, #1c5f8f 100%)!important;
+    background:#8a005c!important;
   }
 
   .app-shell > .menu-screen.active{
@@ -3191,6 +3263,93 @@ body:not(.dark) select{
   }
 }
 </style>
+
+
+<style id="argos-header-and-home-integration-final-v2">
+/* ================================================================
+   ARGOS · INTEGRACIÓN VISUAL FINAL
+   - Cabecera con degradado rojo → magenta → azul.
+   - Barra superior del sistema: color sólido compatible con el
+     degradado (los sistemas móviles no admiten degradados en
+     theme-color).
+   - Tarjetas del MENÚ PRINCIPAL integradas visualmente con el fondo.
+   - Nuevo servicio adopta la misma paleta de degradado.
+   - NO modifica tamaños, posiciones ni lógica.
+   ================================================================ */
+
+.brand-row{
+  background:linear-gradient(90deg,#e62b3f 0%,#c01b70 34%,#8f0078 63%,#1d5e90 100%) !important;
+}
+
+/* Barra del sistema móvil: los iconos/hora permanecen blancos. */
+@media(max-width:600px){
+  html,
+  body{
+    background:#9a0072 !important;
+  }
+
+  .app-shell{
+    background:var(--page,#f4f5f7) !important;
+  }
+
+  /* Chrome/Android y navegadores compatibles leen este color sólido. */
+  body{
+    color-scheme:dark;
+  }
+
+  /* El menú principal deja de tener un efecto de "pegatina".
+     Se conserva exactamente el tamaño de las tarjetas. */
+  #menu .home-card:not(.primary){
+    background:linear-gradient(145deg,rgba(255,255,255,.97) 0%,rgba(246,247,249,.93) 100%) !important;
+    border:1px solid rgba(35,30,35,.045) !important;
+    box-shadow:0 2px 6px rgba(35,30,35,.018), inset 0 1px 0 rgba(255,255,255,.72) !important;
+  }
+
+  #menu .home-card:not(.primary):active{
+    box-shadow:0 1px 4px rgba(35,30,35,.018), inset 0 1px 0 rgba(255,255,255,.65) !important;
+  }
+
+  /* Nuevo servicio: misma paleta que la cabecera. */
+  #menu .home-card.primary{
+    background:linear-gradient(90deg,#e62b3f 0%,#c01b70 34%,#8f0078 63%,#1d5e90 100%) !important;
+    border-color:transparent !important;
+    color:#fff !important;
+    box-shadow:0 4px 12px rgba(90,0,70,.08) !important;
+  }
+
+  #menu .home-card.primary .home-icon{
+    background:rgba(255,255,255,.15) !important;
+    color:#fff !important;
+  }
+}
+
+/* En escritorio se aplica la misma integración, sin tocar dimensiones. */
+@media(min-width:601px){
+  #menu .home-card:not(.primary){
+    background:linear-gradient(145deg,rgba(255,255,255,.98) 0%,rgba(247,248,250,.94) 100%) !important;
+    border:1px solid rgba(35,30,35,.05) !important;
+    box-shadow:0 3px 9px rgba(35,30,35,.025), inset 0 1px 0 rgba(255,255,255,.78) !important;
+  }
+
+  #menu .home-card.primary{
+    background:linear-gradient(90deg,#e62b3f 0%,#c01b70 34%,#8f0078 63%,#1d5e90 100%) !important;
+    border-color:transparent !important;
+    color:#fff !important;
+    box-shadow:0 5px 14px rgba(90,0,70,.09) !important;
+  }
+
+  #menu .home-card.primary .home-icon{
+    background:rgba(255,255,255,.15) !important;
+    color:#fff !important;
+  }
+}
+
+/* Refuerzo del theme-color sin tocar ninguna otra funcionalidad. */
+@supports (color:color-mix(in srgb, red, blue)){
+  /* El gradiente permanece en la cabecera; theme-color debe ser un color único. */
+}
+</style>
+
 </head>
 
 <body>
@@ -3280,6 +3439,10 @@ body:not(.dark) select{
       <button class="home-card" type="button" data-screen="exportServices">
         <span class="home-icon">⇩</span>
         <span><h2>Exportación</h2></span>
+      </button>
+      <button class="home-card argos-achievements-menu-card" type="button" data-screen="achievements">
+        <span class="home-icon">🏆</span>
+        <span><h2>Logros</h2></span>
       </button>
     </div>
     <div class="argos-footer-action">
@@ -3375,6 +3538,22 @@ body:not(.dark) select{
     </div>
   </div>
 </div>
+
+<!-- LOGROS · ARGOS -->
+<section id="achievements" class="screen argos-achievements-screen" aria-label="Logros">
+  <div class="screen-header">
+    <button class="back-button" data-back type="button">‹</button>
+    <div><div class="screen-kicker">ARGOS · LOGROS</div><h2>Logros</h2></div>
+  </div>
+  <div class="argos-achievements-intro">
+    <div class="argos-achievements-intro-icon">🏆</div>
+    <div>
+      <strong>Desbloquea logros</strong>
+      <span>Registra determinadas ramas para conseguir logros especiales.</span>
+    </div>
+  </div>
+  <div id="argosAchievementsList" class="argos-achievements-list"></div>
+</section>
 
 <!-- BLOC DE NOTAS · ARGOS -->
 <section id="notesPad" class="screen notes-screen" aria-label="Bloc de notas">
@@ -3985,7 +4164,7 @@ body.argos-authenticated .argos-auth-screen{display:none!important;}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/5.0.8/jspdf.plugin.autotable.min.js"></script>
 
-<script src="app.js?v=20260919-252-added"></script>
+<script src="app.js"></script>
 
 <script>
 (function(){
@@ -4837,23 +5016,13 @@ window.showScreen=function(id){
     const digits=v=>String(v??'').replace(/\D/g,'');
     let manual=false;
 
-    function setBranchManualUI(event){
+    function setBranchManualUI(){
       const b=digits(branch.value).slice(0,3);
       branch.value=window.ARGOS_NORMALIZE_BRANCH(b);
-
-      /*
-       * IMPORTANTE: manual solo cambia cuando el usuario ha escrito/pegado
-       * realmente en la casilla Rama. Los eventos sintéticos que ARGOS genera
-       * para normalizar una rama automática (por ejemplo 001 -> 1) no deben
-       * convertir esa rama automática en una rama manual.
-       */
-      const userEdited=(event?.isTrusted===true);
-      if(userEdited) manual=!!b;
-
+      manual=!!b;
       vehicle.required=!manual;
       if(manual){
-        // Solo una rama escrita directamente por el usuario debe vaciar Vehículo.
-        if(userEdited) vehicle.value='';
+        vehicle.value='';
         branch.classList.add('manual');
         if(box)box.classList.add('visible');
         if(hint)hint.textContent='Rama introducida manualmente · no es necesario indicar vehículo.';
@@ -4923,16 +5092,6 @@ window.showScreen=function(id){
     }
 
     branch.addEventListener('input',setBranchManualUI);
-
-    // Al reiniciar Añadir servicio se reinicia también el estado interno de
-    // rama manual. Evita que una rama manual usada en un servicio anterior
-    // bloquee el siguiente servicio y provoque falsos "Rama no encontrada".
-    form.addEventListener('reset',function(){
-      manual=false;
-      vehicle.required=false;
-      branch.classList.remove('manual');
-      if(hint)hint.textContent='Se detecta automáticamente al introducir el vehículo · también puedes escribirla directamente.';
-    });
 
     vehicle.addEventListener('input',function(){
       if(manual && digits(this.value)){
@@ -8210,7 +8369,6 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       const units=data?.units||{};
       const seen=new Set();
       Object.values(units).forEach(unit=>{
-        if(typeof window.argosFleetUnitExcluded==='function' && window.argosFleetUnitExcluded(String(series),unit?.vehiculoBase,unit?.rama,unit))return;
         const raw=String(unit?.rama??'').trim();
         if(!raw)return;
         const clean=norm(raw);
@@ -10766,16 +10924,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       const train=text(service.train??service.tren??service.number??service.numero);
       const series=text(service.series??service.serie??service.trainSeries);
       const vehicle=text(service.vehicle??service.vehiculo??service.vehicleNumber);
-      let branch=window.ARGOS_NORMALIZE_BRANCH(service.branch??service.rama);
-      try{
-        if(normalizeFleetValue(series)==="256" && vehicle && typeof getFleetUnit==="function"){
-          const resolved256=getFleetUnit(series,vehicle);
-          if(resolved256?.rama) branch=window.ARGOS_NORMALIZE_BRANCH(resolved256.rama);
-        }else if(normalizeFleetValue(series)==="256" && branch){
-          const n256=Number(branch);
-          if(Number.isInteger(n256) && n256>=101 && n256<=125) branch=String(n256-100);
-        }
-      }catch(e){}
+      const branch=window.ARGOS_NORMALIZE_BRANCH(service.branch??service.rama);
       const composition2=service?.doubleComposition&&service?.composition2?service.composition2:null;
       let branch2=composition2?window.ARGOS_NORMALIZE_BRANCH(composition2.branch||composition2.rama):'';
       if(composition2&&!branch2&&composition2.series&&composition2.vehicle){
@@ -10823,19 +10972,11 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     list.querySelectorAll('[data-service-id]').forEach(card=>{
       const open=()=>{
         const service=getService(card.dataset.serviceId);
-        if(!service)return;
-        window.__argosNextFichaOrigin="history";
-
-        /* Para servicios con vehículo usamos directamente la ficha completa
-           del motor principal. La ruta alternativa por rama se conserva
-           únicamente cuando el registro no lleva vehículo. */
-        const vehicle=String(service.vehicle||'').trim();
-        if(vehicle){
-          if(typeof window.openFicha==='function')window.openFicha(service.series||'',vehicle,service);
-          return;
+        if(service){
+          window.__argosNextFichaOrigin="history";
+          if(typeof openServiceFicha==='function')openServiceFicha(service);
+          else if(typeof openFicha==='function')openFicha(service.series||'',service.vehicle||'',service);
         }
-        if(typeof openServiceFicha==='function')openServiceFicha(service);
-        else if(typeof window.openFicha==='function')window.openFicha(service.series||'',vehicle,service);
       };
       card.addEventListener('click',e=>{
         if(e.target.closest('.argos-history-actions'))return;
@@ -10963,9 +11104,22 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
     const b=text(branch);
     if(!s)return null;
 
-    /* 1. Vehículo: cuando se introduce un vehículo concreto, tiene prioridad.
-       Esto es imprescindible en la Serie 333, donde por ejemplo 104 y 404
-       comparten la Rama 4 pero pertenecen a subseries distintas. */
+    /* 1. Rama explícita: la rama tiene prioridad. */
+    if(b){
+      const byBranch=directByBranch(s,b);
+      if(byBranch){
+        let canonical=byBranch.vehicle;
+        try{
+          if(typeof getFleetUnit==='function'){
+            const unit=getFleetUnit(s,canonical);
+            if(unit) return {series:s,vehicle:canonical,branch:window.ARGOS_NORMALIZE_BRANCH(unit.rama)||window.ARGOS_NORMALIZE_BRANCH(byBranch.branch),unit};
+          }
+        }catch(e){ console.warn('ARGOS V74 · getFleetUnit por rama:',e); }
+        return {series:s,vehicle:canonical,branch:window.ARGOS_NORMALIZE_BRANCH(byBranch.branch),unit:byBranch.unit};
+      }
+    }
+
+    /* 2. Vehículo: usa exactamente el resolvedor principal de ARGOS. */
     if(v){
       try{
         if(typeof getFleetUnit==='function'){
@@ -10983,21 +11137,6 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
       const direct=directByVehicle(s,v);
       if(direct) return {series:s,vehicle:direct.vehicle,branch:direct.branch,unit:direct.unit};
-    }
-
-    /* 2. Rama: solo se usa cuando no hay un vehículo concreto. */
-    if(b){
-      const byBranch=directByBranch(s,b);
-      if(byBranch){
-        let canonical=byBranch.vehicle;
-        try{
-          if(typeof getFleetUnit==='function'){
-            const unit=getFleetUnit(s,canonical);
-            if(unit) return {series:s,vehicle:canonical,branch:window.ARGOS_NORMALIZE_BRANCH(unit.rama)||window.ARGOS_NORMALIZE_BRANCH(byBranch.branch),unit};
-          }
-        }catch(e){ console.warn('ARGOS V74 · getFleetUnit por rama:',e); }
-        return {series:s,vehicle:canonical,branch:window.ARGOS_NORMALIZE_BRANCH(byBranch.branch),unit:byBranch.unit};
-      }
     }
 
     return null;
@@ -11119,23 +11258,6 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
             <div><span>Depósito / base</span><strong>${esc(unit.deposito||'—')}</strong></div>
             ${unit.color?`<div><span>Color</span><strong>${esc(unit.color)}</strong></div>`:''}
             ${unit.estado?`<div><span>Estado</span><strong>${esc(unit.estado)}</strong></div>`:''}
-            ${s==='470'?`
-            <div><span>UNE</span><strong>${esc(unit.une||'—')}</strong></div>
-            <div><span>Asientos</span><strong>${esc(unit.asientos||'—')}</strong></div>
-            <div><span>Furgón</span><strong>${esc(unit.furgon||'—')}</strong></div>`:''}
-            ${s==='334'?`
-            ${unit.numeroConstruccion?`<div><span>Nº de construcción</span><strong>${esc(unit.numeroConstruccion)}</strong></div>`:''}
-            ${unit.une?`<div><span>UNE</span><strong>${esc(unit.une)}</strong></div>`:''}
-            ${tech.motoresDiesel?`<div><span>Nº de motores diésel</span><strong>${esc(tech.motoresDiesel)}</strong></div>`:''}
-            ${tech.numeroCilindros?`<div><span>Nº de cilindros</span><strong>${esc(tech.numeroCilindros)}</strong></div>`:''}
-            ${tech.transmision?`<div><span>Transmisión</span><strong>${esc(tech.transmision)}</strong></div>`:''}
-            ${tech.diametroRuedas?`<div><span>Diámetro de ruedas</span><strong>${esc(tech.diametroRuedas)}</strong></div>`:''}
-            ${tech.esfuerzoTraccion?`<div><span>Esfuerzo de tracción</span><strong>${esc(tech.esfuerzoTraccion)}</strong></div>`:''}
-            ${tech.numeroMotoresElectricos?`<div><span>Motores eléctricos de tracción</span><strong>${esc(tech.numeroMotoresElectricos)}</strong></div>`:''}
-            ${tech.tipoMotorElectrico?`<div><span>Tipo de motor eléctrico</span><strong>${esc(tech.tipoMotorElectrico)}</strong></div>`:''}
-            ${tech.pesoPorEje?`<div><span>Peso por eje</span><strong>${esc(tech.pesoPorEje)}</strong></div>`:''}
-            ${tech.frenoDinamico?`<div><span>Freno dinámico</span><strong>${esc(tech.frenoDinamico)}</strong></div>`:''}
-            ${tech.calefaccionTren?`<div><span>Calefacción al tren</span><strong>${esc(tech.calefaccionTren)}</strong></div>`:''}`:''}
             ${unit.fechaAlta?`<div><span>Fecha de alta</span><strong>${esc(unit.fechaAlta)}</strong></div>`:''}
             ${unit.ancho||tech.anchoVia?`<div><span>Ancho de vía</span><strong>${esc(unit.ancho||tech.anchoVia)}${unit.ancho?' mm':''}</strong></div>`:''}
             ${fichaSubserie?`<div><span>Subserie</span><strong>${esc(fichaSubserie)}</strong></div>`:''}
@@ -11228,14 +11350,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
           <div class="ficha-general-grid">${general.map((n,i)=>`<div class="ficha-general-item"><span class="ficha-general-number">${String(i+1).padStart(2,'0')}</span><div>${esc(n)}</div></div>`).join('')}</div>
         </div>`:'';
 
-      const fichaEs448=s==='448';
-      const heroTitle=fichaEs448
-        ? `Serie ${esc(series)} · Rama ${esc(fichaBranch)}${unit.lote?` · ${esc(unit.lote)}`:''}`
-        : `Serie ${esc(series)}${fichaSubserie?` · ${esc(fichaSubserie)}`:''} · Rama ${esc(fichaBranch)}${unit.lote?` · ${esc(unit.lote)}`:''}`;
-      const desguazadoBadge=/desguazad/i.test(String(unit.estado||''))
-        ? `<div class="argosdex-ficha-status argosdex-ficha-status-desguazada">VEHÍCULO DESGUAZADO</div>`
-        : '';
-      const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>${heroTitle}</h3><p>Vehículo ${esc(fichaVehicle||'—')} · ${esc(unit.numero||'—')}</p>${desguazadoBadge}</div>`;
+      const hero=`<div class="ficha-hero"><div class="ficha-kicker">MATERIAL RENFE</div><h3>Serie ${esc(series)}${fichaSubserie?` · ${esc(fichaSubserie)}`:''} · Rama ${esc(fichaBranch)}${unit.lote?` · ${esc(unit.lote)}`:''}</h3><p>Vehículo ${esc(fichaVehicle||'—')} · ${esc(unit.numero||'—')}</p></div>`;
       return `${hero}${identification}${highlights}${generalBlock}`;
     }
 
@@ -11495,11 +11610,6 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   window.addEventListener('load',install,{once:true});
 })();
 </script>
-
-<style id="argosdex-ficha-status-v1">
-.argosdex-ficha-status{margin-top:12px;padding:10px 12px;border:1px solid rgba(138,0,92,.28);border-radius:12px;background:#f4e2ec;color:#8a005c;font-size:13px;font-weight:950;letter-spacing:.08em;text-transform:uppercase;text-align:center;}
-body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,255,.18);color:#fff;}
-</style>
 
 <style id="argosdex-shared-highlights-v1">
 .argos-shared-highlights-section{position:relative}
@@ -12331,7 +12441,6 @@ body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,25
         if(!unit||typeof unit!=='object')return;
         const branch=firstValue(unit,['rama','branch']);
         if(!branch)return;
-        if(typeof window.argosFleetUnitExcluded==='function' && window.argosFleetUnitExcluded(String(series),unit?.vehiculoBase,branch,unit))return;
         result.push({key,unit,branch,sourceLabel});
       });
     };
@@ -12348,8 +12457,7 @@ body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,25
     const map=new Map();
     items.forEach(item=>{
       const branchDigits=String(item.branch).replace(/\D/g,'');
-      const seriesKey=(String(item?.unit?.subserie||'').startsWith('594.')||String(item?.unit?.subserie||'').startsWith('333.'))?'|'+String(item.unit.subserie):'';
-      const key=(branchDigits||item.branch.toLowerCase())+'|'+(item.sourceLabel||'')+seriesKey;
+      const key=(branchDigits||item.branch.toLowerCase())+'|'+(item.sourceLabel||'');
       if(!map.has(key))map.set(key,item);
     });
     return [...map.values()];
@@ -12488,13 +12596,6 @@ body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,25
       // 453: separación obligatoria por número de coches.
       const groups=groupBy(all,(unit,item)=>carLabel(unit,series,item?.sourceLabel||''),true);
       html=orderedGroups(groups).map(([label,items])=>renderGroup(label,items,null)).join('');
-    }else if(String(series)==='333'){
-      // 333: primero subserie; dentro de 333.3, después lote.
-      const subs=groupBy(all,(unit)=>subserieLabel(unit),true);
-      html=orderedGroups(subs).map(([sub,items])=>{
-        const lots=groupBy(items,(unit)=>lotLabel(unit),false);
-        return renderGroup(sub,items,lots.size>1?lotLabel:null);
-      }).join('');
     }else{
       // Primero lote. Si dentro de un lote existen varias subseries, se vuelven a dividir.
       const lots=groupBy(all,(unit)=>lotLabel(unit),false);
@@ -13738,25 +13839,15 @@ body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,25
     const list=ensureList(section);
     if(!list)return;
 
-    // La ficha ya trae datos destacados propios de la rama desde fleetFichaHtml().
-    // Nunca los sustituimos: añadimos, debajo, los datos compartidos de Supabase.
-    const staticValues=Array.isArray(section.__argosStaticNotes)
-      ? section.__argosStaticNotes.map(clean).filter(Boolean)
-      : [];
-
     const seen=new Set();
-    const values=[];
-    staticValues.forEach(v=>{
-      const k=v.toLocaleLowerCase('es-ES').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-      if(k&&!seen.has(k)){seen.add(k);values.push(v);}
-    });
-
-    (Array.isArray(items)?items:[]).forEach(item=>{
-      const v=clean(item?.content);
-      if(!v)return;
-      const k=v.toLocaleLowerCase('es-ES').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-      if(k&&!seen.has(k)){seen.add(k);values.push(v);}
-    });
+    const values=(Array.isArray(items)?items:[])
+      .map(x=>clean(x?.content))
+      .filter(Boolean)
+      .filter(v=>{
+        const k=v.toLocaleLowerCase('es-ES').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+        if(seen.has(k))return false;
+        seen.add(k);return true;
+      });
 
     list.innerHTML=values.length
       ? values.map(v=>`<div class="ficha-note">${esc(v)}</div>`).join('')
@@ -13780,33 +13871,15 @@ body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,25
     section.dataset.series=info.series;
     section.dataset.branch=info.branch;
 
-    // Conservar las notas estáticas que ya ha generado fleetFichaHtml().
-    // Sin esto, al consultar Supabase se sustituían por una lista vacía cuando
-    // no había destacados compartidos, haciendo desaparecer los datos de la rama.
-    if(!Array.isArray(section.__argosStaticNotes)){
-      section.__argosStaticNotes=[...section.querySelectorAll('.ficha-note')]
-        .map(el=>String(el.textContent||'').trim())
-        .filter(Boolean);
-    }
-
     const list=ensureList(section);
-    if(list && !(Array.isArray(section.__argosStaticNotes) && section.__argosStaticNotes.length)){
-      list.innerHTML='<div class="ficha-empty-inline">Cargando datos destacados compartidos…</div>';
-    }
+    if(list)list.innerHTML='<div class="ficha-empty-inline">Cargando datos destacados compartidos…</div>';
 
     try{
       const items=await fetchHighlights(info.series,info.branch);
       render(section,items);
     }catch(error){
       console.error('ARGOS · datos destacados del historial:',error);
-      // Si falla Supabase, conservamos los datos destacados locales de la rama.
-      if(list && !(Array.isArray(section.__argosStaticNotes) && section.__argosStaticNotes.length)){
-        list.innerHTML='<div class="ficha-empty-inline">No se han podido cargar los datos destacados compartidos.</div>';
-      }else if(list && Array.isArray(section.__argosStaticNotes)){
-        list.innerHTML=section.__argosStaticNotes.length
-          ? section.__argosStaticNotes.map(v=>`<div class="ficha-note">${esc(v)}</div>`).join('')
-          : '<div class="ficha-empty-inline">No se han podido cargar los datos destacados compartidos.</div>';
-      }
+      if(list)list.innerHTML='<div class="ficha-empty-inline">No se han podido cargar los datos destacados compartidos.</div>';
     }
   }
 
@@ -15500,36 +15573,6 @@ body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,25
   .stats-chart-panel .quarter-nav,.stats-chart-panel.argos-calendar-annual .quarter-nav{display:none !important;}
 }
 </style>
-<style id="argos-header-gradient-final">
-/* ARGOS · Cabecera superior · degradado inspirado en la referencia */
-.brand-row{
-  background:linear-gradient(90deg,#e52a3f 0%,#b00073 46%,#9a0072 58%,#1c5f8f 100%) !important;
-}
-</style>
-
-<style id="argos-mobile-gradient-system-final">
-/* ARGOS · Cabecera móvil · sincronización con el degradado
-   La barra superior del sistema usa el mismo tono magenta central
-   del degradado, evitando que quede el morado antiguo.
-   No modifica tamaños ni posiciones de la cabecera. */
-@media(max-width:600px){
-  html,body{
-    background:#b00073!important;
-  }
-
-  .app-header,
-  .brand-row{
-    background:linear-gradient(90deg,#e52a3f 0%,#b00073 46%,#9a0072 58%,#1c5f8f 100%)!important;
-  }
-
-  /* El área superior del sistema queda visualmente coordinada
-     con la zona magenta central de la cabecera. */
-  .app-header{
-    background:linear-gradient(90deg,#e52a3f 0%,#b00073 46%,#9a0072 58%,#1c5f8f 100%)!important;
-  }
-}
-</style>
-
 
 <!-- ARGOS · ESTADÍSTICAS · RUTAS SEGÚN VISTA · ÚLTIMA CORRECCIÓN -->
 <script id="argos-stats-routes-scope-final">
@@ -15932,170 +15975,335 @@ body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,25
 })();
 </script>
 
+<!-- ARGOS · FIX DEFINITIVO SERIE 448 · CAMPO VEHÍCULO -->
 
-<!-- ================================================================
-     ARGOS · PROTECCIÓN FINAL DE RAMAS DESGUAZADAS
-     Solo afecta a material no disponible; el resto del funcionamiento queda intacto.
-     ================================================================ -->
-<script id="argos-scrapped-final-guard-v1">
+<!-- ARGOS · FIX DEFINITIVO SERIE 448 · CAMPO VEHÍCULO -->
+<script id="argos-serie448-vehicle-input-authority">
 (function(){
   'use strict';
 
-  function catalogNum(value){
-    const digits=String(value??'').replace(/\D/g,'');
-    return digits?String(Number(digits)):'';
-  }
-  const excludedBranches={
-    "114":new Set(["5"]),
-    "130":new Set(["11","12","13","14","15","16","17","18","19","20","21","22","23","24","25"]),
-    "446":new Set(["11","18","42","56","58","67","96"]),
-    "447":new Set(["28","30","44"]),
-    "448":new Set(["18","19","22","28"]),
-    "598":new Set(["17"]),
-    "599":new Set(["15"])
-  };
-  const excludedVehicles={
-    "120":new Set(["361"]),
-    "450":new Set(["7"])
-  };
+  /*
+   * La S-448 usa un campo de texto normal. Para evitar que cualquier
+   * manejador antiguo modifique el valor mientras se escribe, al recibir
+   * foco sustituimos el input por una copia sin listeners y trabajamos
+   * únicamente sobre ese nodo nuevo.
+   */
+  function digits(v){ return String(v ?? '').replace(/\D/g,'').slice(0,3); }
+  function normalizeSeries(v){ return digits(v).replace(/^0+/,'') || ''; }
 
-  function findUnit(series,vehicle,branch){
-    const s=typeof normalizeFleetValue==='function'?normalizeFleetValue(series):catalogNum(series);
-    try{
-      const units=(typeof fleet!=='undefined'?fleet?.[s]?.units:null)||{};
-      const v=catalogNum(vehicle),b=catalogNum(branch);
-      for(const [key,unit] of Object.entries(units)){
-        const candidates=[key,unit?.vehiculoBase,unit?.numero,...(Array.isArray(unit?.searchCodes)?unit.searchCodes:[])].map(catalogNum);
-        if(v&&candidates.includes(v))return unit;
-      }
-      if(b){
-        for(const unit of Object.values(units))if(catalogNum(unit?.rama)===b)return unit;
-      }
-    }catch(e){}
-    return null;
+  function branchForVehicle(value){
+    const code=digits(value);
+    if(!code) return '';
+    const n=Number(code);
+    return Number.isInteger(n) && n>=1 && n<=31 ? String(n).padStart(3,'0') : '';
   }
 
-  function resolve(series,vehicle,branch){
-    const s=typeof normalizeFleetValue==='function'?normalizeFleetValue(series):catalogNum(series);
-    const v=catalogNum(vehicle),b=catalogNum(branch);
-    const unit=findUnit(s,vehicle,branch);
-    if(excludedBranches[s]?.has(b))return {type:'scrapped',series:s,branch:b||branch,vehicle:v,unit};
-    if(excludedVehicles[s]?.has(v))return {type:'scrapped',series:s,branch:catalogNum(unit?.rama)||b,vehicle:v,unit};
-    if(unit&&/desguazad/i.test(String(unit.estado||'')))return {type:'scrapped',series:s,branch:catalogNum(unit.rama)||b,vehicle:v,unit};
-    if(unit&&unit.transformadaA)return {type:'transformed',series:s,branch:catalogNum(unit.rama)||b,vehicle:v,unit};
-    return null;
+  function currentElements(){
+    return {
+      series:document.getElementById('series'),
+      vehicle:document.getElementById('vehicle'),
+      branch:document.getElementById('branchValue'),
+      box:document.getElementById('branchBox'),
+      hint:document.getElementById('branchModeHint')
+    };
   }
 
-  function formBlocked(){
-    const s=document.getElementById('series')?.value||'';
-    const v=document.getElementById('vehicle')?.value||'';
-    const b=document.getElementById('branchValue')?.value||'';
-    const first=resolve(s,v,b);
-    if(first?.type==='scrapped')return first;
+  function sync448Vehicle(){
+    const {series,vehicle,branch,box,hint}=currentElements();
+    if(!series||!vehicle||!branch) return;
+    if(normalizeSeries(series.value)!=='448') return;
+    const raw=String(vehicle.value??'');
+    const cleaned=digits(raw);
+    if(raw!==cleaned) vehicle.value=cleaned;
 
-    const check=document.getElementById('doubleComposition');
-    if(check?.checked){
-      const s2=document.getElementById('doubleSeries')?.value||'';
-      const v2=document.getElementById('doubleVehicle')?.value||'';
-      const b2=document.getElementById('doubleBranch')?.value||document.getElementById('doubleBranchValue')?.value||'';
-      const second=resolve(s2,v2,b2);
-      if(second?.type==='scrapped')return second;
+    const found=branchForVehicle(cleaned);
+    if(found){
+      branch.value=found;
+      branch.classList.remove('manual');
+      if(box)box.classList.add('visible');
+      if(hint)hint.textContent='Rama detectada automáticamente · también puedes escribirla directamente.';
+    }else{
+      branch.value='';
+      branch.classList.remove('manual');
+      if(box)box.classList.add('visible');
+      if(hint)hint.textContent='Se detecta automáticamente al introducir el vehículo · también puedes escribirla directamente.';
     }
-    return null;
   }
 
-  function showScrapped(info){
-    document.getElementById('argosBranchVisitOverlay')?.remove();
-    document.getElementById('argosFirstBranchOverlay')?.remove();
-    let overlay=document.getElementById('argosScrappedBranchOverlayV1');
-    if(!overlay){
-      overlay=document.createElement('div');
-      overlay.id='argosScrappedBranchOverlayV1';
-      overlay.className='argos-branch-visit-overlay';
-      overlay.style.zIndex='2147483647';
-      document.body.appendChild(overlay);
-    }
-    const series=String(info?.series||'').trim();
-    const branch=String(info?.branch||'').trim();
-    const vehicle=String(info?.vehicle||'').trim();
-    const label=branch?`Serie ${escapeHtml(series)} · Rama ${escapeHtml(branch)}`:`Serie ${escapeHtml(series)}`;
-    overlay.innerHTML=`<div class="argos-branch-visit-modal argos-branch-visit-modal-v43" role="dialog" aria-modal="true">
-      <div class="argos-branch-visit-kicker">RAMA DESGUAZADA</div>
-      <h2>Rama desguazada</h2>
-      <p>Esta rama está marcada como desguazada en la base de material de ARGOS y no se puede registrar.</p>
-      <div class="argos-branch-visit-card"><strong>${label}</strong>${vehicle?`<span>Vehículo ${escapeHtml(vehicle)}</span>`:''}</div>
-      <div class="argos-branch-visit-actions"><button type="button" class="argos-branch-visit-menu" id="argosScrappedCloseV1">Aceptar y volver al menú</button></div>
-    </div>`;
-    overlay.querySelector('#argosScrappedCloseV1').onclick=()=>{overlay.remove();if(typeof showScreen==='function')showScreen('menu')};
+  function installCleanVehicle(){
+    const {series,vehicle}=currentElements();
+    if(!series||!vehicle) return;
+    if(normalizeSeries(series.value)!=='448') return;
+    if(vehicle.dataset.argos448Authority==='1') return;
+
+    const copy=vehicle.cloneNode(true);
+    copy.dataset.argos448Authority='1';
+    copy.type='text';
+    copy.inputMode='numeric';
+    copy.setAttribute('pattern','[0-9]*');
+    copy.setAttribute('maxlength','3');
+    copy.setAttribute('autocomplete','off');
+    copy.readOnly=false;
+    copy.disabled=false;
+    copy.required=true;
+    copy.value=digits(vehicle.value);
+
+    vehicle.replaceWith(copy);
+
+    copy.addEventListener('input',sync448Vehicle);
+    copy.addEventListener('change',sync448Vehicle);
+    copy.addEventListener('blur',sync448Vehicle);
+
+    sync448Vehicle();
+    return copy;
   }
-  function escapeHtml(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 
-  // Bloqueo por clic: llega antes que los listeners del botón/formulario.
-  document.addEventListener('click',function(e){
-    const button=e.target?.closest?.('#serviceForm button[type="submit"], #serviceForm input[type="submit"]');
-    if(!button)return;
-    const info=formBlocked();
-    if(!info)return;
-    e.preventDefault();
-    e.stopImmediatePropagation();
-    showScrapped(info);
-  },true);
-
-  // El app.js también puede detectar el bloqueo antes que esta capa visual.
-  // En ese caso recibimos aquí el aviso y mostramos exactamente el mismo diálogo.
-  document.addEventListener('argos:scrapped-branch',function(e){
-    const info=e.detail||{};
-    showScrapped(resolve(info.series,info.vehicle,info.branch)||info);
-  },true);
-
-  // Bloqueo adicional del Enter para instalaciones que conserven una ruta
-  // antigua de guardado manual sin el interceptor de app.js.
-  document.addEventListener('keydown',function(e){
-    if(e.key!=='Enter')return;
-    const target=e.target;
-    if(!target?.closest?.('#serviceForm'))return;
-    const info=formBlocked();
-    if(!info)return;
-    e.preventDefault();
-    e.stopImmediatePropagation();
-    showScrapped(info);
-  },true);
-
-  // Bloqueo por submit: respaldo para teclado y requestSubmit().
-  document.addEventListener('submit',function(e){
-    if(e.target!==document.getElementById('serviceForm'))return;
-    const info=formBlocked();
-    if(!info)return;
-    e.preventDefault();
-    e.stopImmediatePropagation();
-    showScrapped(info);
-  },true);
-
-  // Si una ruta antigua consigue guardar antes de este guardado final, se deshace
-  // únicamente el servicio recién creado y se muestra el aviso correcto.
-  document.addEventListener('argos:service-saved',function(ev){
-    const service=ev.detail?.service;
-    if(!service)return;
-    const first=resolve(service.series,service.vehicle,service.branch);
-    let info=first?.type==='scrapped'?first:null;
-    if(!info&&service.doubleComposition&&service.composition2){
-      const c=service.composition2;
-      const second=resolve(c.series,c.vehicle,c.branch);
-      if(second?.type==='scrapped')info=second;
+  function onSeriesChange(){
+    const {series}=currentElements();
+    if(!series) return;
+    if(normalizeSeries(series.value)==='448'){
+      const vehicle=installCleanVehicle();
+      if(vehicle) sync448Vehicle();
     }
-    if(!info)return;
+  }
 
-    try{
-      const current=Array.isArray(ev.detail?.after)?ev.detail.after:[];
-      const filtered=current.filter(s=>String(s?.id||'')!==String(service?.id||''));
-      if(typeof saveServices==='function')saveServices(filtered);
-      if(typeof refreshHome==='function')refreshHome();
-      if(typeof renderHistory==='function')renderHistory();
-      if(typeof renderStats==='function')renderStats();
-      if(typeof renderProgress==='function')renderProgress();
-      if(typeof renderQuality==='function')renderQuality();
-    }catch(e){}
-    showScrapped(info);
+  document.addEventListener('focusin',function(ev){
+    if(ev.target?.id!=='vehicle') return;
+    const {series}=currentElements();
+    if(!series || normalizeSeries(series.value)!=='448') return;
+    const old=ev.target;
+    const fresh=installCleanVehicle();
+    if(fresh && fresh!==old){
+      ev.preventDefault();
+      fresh.focus({preventScroll:true});
+      try{
+        const len=fresh.value.length;
+        fresh.setSelectionRange(len,len);
+      }catch(e){}
+    }
   },true);
+
+  document.addEventListener('input',function(ev){
+    if(ev.target?.id!=='series') return;
+    onSeriesChange();
+  },true);
+
+  document.addEventListener('change',function(ev){
+    if(ev.target?.id!=='series') return;
+    onSeriesChange();
+  },true);
+
+  document.addEventListener('DOMContentLoaded',function(){
+    onSeriesChange();
+  },{once:true});
+
+  if(document.readyState!=='loading') onSeriesChange();
 })();
 </script>
+
+<!-- ARGOS · LOGROS · MOTOR INICIAL -->
+<style id="argos-achievements-v1-style">
+  .argos-achievements-screen{padding-bottom:34px}
+  .argos-achievements-intro{display:flex;align-items:center;gap:14px;margin:0 0 16px;padding:16px;border:1px solid var(--line,#dedee3);border-radius:18px;background:var(--card,#fff);box-shadow:0 8px 24px rgba(0,0,0,.04)}
+  .argos-achievements-intro-icon{width:48px;height:48px;min-width:48px;border-radius:14px;display:grid;place-items:center;background:var(--soft,#f7eaf3);font-size:25px}
+  .argos-achievements-intro strong{display:block;color:var(--ink,#1d1d1f);font-size:14px;font-weight:950}
+  .argos-achievements-intro span{display:block;margin-top:4px;color:var(--muted,#777);font-size:11px;line-height:1.35}
+  .argos-achievements-list{display:grid;grid-template-columns:1fr;gap:12px}
+  .argos-achievement-card{position:relative;display:grid;grid-template-columns:58px minmax(0,1fr) auto;align-items:center;gap:13px;min-height:86px;padding:14px 16px;border:1px solid var(--line,#dedee3);border-radius:18px;background:var(--card,#fff);box-shadow:0 7px 20px rgba(0,0,0,.035);overflow:hidden}
+  .argos-achievement-card.locked{opacity:.72}
+  .argos-achievement-icon{width:58px;height:58px;border-radius:16px;display:grid;place-items:center;background:var(--soft,#f7eaf3);font-size:27px}
+  .argos-achievement-card.unlocked .argos-achievement-icon{background:var(--soft,#f7eaf3);box-shadow:inset 0 0 0 2px rgba(138,0,92,.08)}
+  .argos-achievement-kicker{display:block;color:var(--renfe,#8a005c);font-size:9px;font-weight:950;letter-spacing:.08em;text-transform:uppercase}
+  .argos-achievement-title{margin:3px 0 0;color:var(--ink,#1d1d1f);font-size:15px;font-weight:950}
+  .argos-achievement-description{margin:4px 0 0;color:var(--muted,#777);font-size:11px;line-height:1.35}
+  .argos-achievement-state{justify-self:end;padding:7px 10px;border-radius:999px;background:var(--soft,#f7eaf3);color:var(--muted,#777);font-size:9px;font-weight:950;white-space:nowrap}
+  .argos-achievement-card.unlocked .argos-achievement-state{background:#e9f7e9;color:#267a32}
+  .argos-achievement-empty{padding:22px 16px;border:1px dashed var(--line,#dedee3);border-radius:18px;background:var(--card,#fff);color:var(--muted,#777);font-size:12px;line-height:1.45;text-align:center}
+  .argos-achievement-empty strong{display:block;color:var(--ink,#1d1d1f);font-size:14px;margin-bottom:4px}
+  @media(max-width:600px){
+    .argos-achievements-intro{padding:13px;border-radius:15px}
+    .argos-achievements-intro-icon{width:44px;height:44px;min-width:44px;border-radius:12px;font-size:22px}
+    .argos-achievement-card{grid-template-columns:48px minmax(0,1fr);gap:11px;padding:12px;min-height:0}
+    .argos-achievement-icon{width:48px;height:48px;border-radius:13px;font-size:23px}
+    .argos-achievement-state{grid-column:2;justify-self:start;margin-top:-3px}
+  }
+  #more-functions .argos-achievements-menu-card{grid-column:1 / -1}
+</style>
+<script id="argos-achievements-v1-script">
+(function(){
+  'use strict';
+
+  /*
+   * Catálogo preparado para futuras ampliaciones.
+   * Cada logro se asociará a una rama concreta mediante serie + rama.
+   * Ejemplo:
+   * {id:'251-rama-004',series:'251',branch:'004',title:'...',description:'...',icon:'🏆'}
+   */
+  const ACHIEVEMENTS=window.ARGOS_ACHIEVEMENTS||[];
+  window.ARGOS_ACHIEVEMENTS=ACHIEVEMENTS;
+
+  function digits(v){return String(v??'').replace(/\D/g,'')}
+  function norm(v){return digits(v).replace(/^0+/,'')||''}
+  function key(series,branch){
+    const s=norm(series),b=norm(branch);
+    return s&&b?s+'|'+b:'';
+  }
+  function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+
+  function services(){
+    try{
+      const x=JSON.parse(localStorage.getItem('argos_services')||'[]');
+      return Array.isArray(x)?x:[];
+    }catch(e){return []}
+  }
+
+  function findBranch(service,second){
+    const series=String(second?(service?.composition2?.series||service?.secondSeries||service?.series2||''):(service?.series||service?.serie||'')).trim();
+    let vehicle=String(second?(service?.composition2?.vehicle||service?.secondVehicle||service?.vehicle2||''):(service?.vehicle||service?.vehiculo||'')).trim();
+    let branch=String(second?(service?.composition2?.branch||service?.composition2?.rama||service?.secondBranch||service?.branch2||''):(service?.branch||service?.rama||'')).trim();
+
+    if(!branch&&series&&vehicle&&typeof getFleetUnit==='function'){
+      try{const unit=getFleetUnit(series,vehicle);if(unit?.rama)branch=String(unit.rama)}catch(e){}
+    }
+    if(!branch&&series&&vehicle&&typeof fleet!=='undefined'){
+      try{
+        const units=fleet[norm(series)]?.units||{};
+        const v=norm(vehicle);
+        for(const [k,u] of Object.entries(units)){
+          const codes=[k,u?.vehiculoBase,u?.numero,...(Array.isArray(u?.searchCodes)?u.searchCodes:[])].map(norm).filter(Boolean);
+          if(v&&codes.includes(v)){branch=String(u?.rama||'');break}
+        }
+      }catch(e){}
+    }
+
+    if(typeof window.ARGOS_NORMALIZE_BRANCH==='function')branch=window.ARGOS_NORMALIZE_BRANCH(branch);
+    return {series,branch};
+  }
+
+  function registeredBranches(){
+    const set=new Set();
+    services().forEach(service=>{
+      const first=findBranch(service,false);
+      if(first.series&&first.branch)set.add(key(first.series,first.branch));
+      if(service?.doubleComposition&&service?.composition2){
+        const second=findBranch(service,true);
+        if(second.series&&second.branch)set.add(key(second.series,second.branch));
+      }
+    });
+    return set;
+  }
+
+  function render(){
+    const root=document.getElementById('argosAchievementsList');
+    if(!root)return;
+
+    if(!ACHIEVEMENTS.length){
+      root.innerHTML='<div class="argos-achievement-empty"><strong>Próximamente</strong>Aún no hay logros configurados. Cuando me indiques los logros y las ramas asociadas, aparecerán aquí automáticamente.</div>';
+      return;
+    }
+
+    const registered=registeredBranches();
+    root.innerHTML=ACHIEVEMENTS.map(a=>{
+      const unlocked=registered.has(key(a.series,a.branch));
+      const icon=a.icon||'🏆';
+      const state=unlocked?'Desbloqueado':'Bloqueado';
+      const branchLabel=a.branch?String(a.branch).padStart(3,'0'):'';
+      return `<article class="argos-achievement-card ${unlocked?'unlocked':'locked'}">
+        <div class="argos-achievement-icon" aria-hidden="true">${esc(icon)}</div>
+        <div>
+          <span class="argos-achievement-kicker">${unlocked?'LOGRO DESBLOQUEADO':'LOGRO'}</span>
+          <div class="argos-achievement-title">${esc(a.title||'Logro')}</div>
+          <div class="argos-achievement-description">${esc(a.description||('Registra la rama '+branchLabel+' de la serie '+a.series+'.'))}</div>
+        </div>
+        <div class="argos-achievement-state">${state}</div>
+      </article>`;
+    }).join('');
+  }
+
+  window.renderAchievements=render;
+
+  function open(){
+    if(typeof window.showScreen==='function')window.showScreen('achievements');
+    document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('active',s.id==='achievements'));
+    window.scrollTo({top:0,behavior:'instant'});
+    render();
+  }
+
+  function install(){
+    document.querySelectorAll('[data-screen="achievements"]').forEach(btn=>{
+      if(btn.dataset.argosAchievementsBound==='1')return;
+      btn.dataset.argosAchievementsBound='1';
+      btn.addEventListener('click',open);
+    });
+    document.querySelectorAll('#achievements [data-back]').forEach(btn=>{
+      if(btn.dataset.argosAchievementsBackBound==='1')return;
+      btn.dataset.argosAchievementsBackBound='1';
+      btn.addEventListener('click',()=>{if(typeof window.showScreen==='function')window.showScreen('menu')});
+    });
+    render();
+  }
+
+  window.addEventListener('storage',ev=>{
+    if(ev.key==='argos_services')render();
+  });
+
+  document.addEventListener('argos:service-saved',render);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
+  else install();
+})();
+</script>
+
+
+<style id="argos-more-functions-six-equal-final">
+/* ARGOS · MÁS FUNCIONES · 6 BOTONES IGUALES · LOGROS JUNTO A EXPORTACIÓN */
+@media (min-width:601px){
+  #more-functions > .argos-home > .home-list{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-template-rows:repeat(3,minmax(0,1fr))!important;
+    gap:14px!important;
+    overflow:visible!important;
+  }
+  #more-functions > .argos-home > .home-list > .home-card,
+  #more-functions > .argos-home > .home-list > .home-card[data-screen="exportServices"],
+  #more-functions > .argos-home > .home-list > .home-card[data-screen="achievements"]{
+    grid-column:auto!important;
+    grid-row:auto!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:none!important;
+    min-height:76px!important;
+    max-height:none!important;
+    height:auto!important;
+    margin:0!important;
+    box-sizing:border-box!important;
+  }
+}
+@media (max-width:600px){
+  #more-functions > .argos-home > .home-list{
+    display:flex!important;
+    flex-direction:column!important;
+    gap:10px!important;
+  }
+  #more-functions > .argos-home > .home-list > .home-card,
+  #more-functions > .argos-home > .home-list > .home-card[data-screen="exportServices"],
+  #more-functions > .argos-home > .home-list > .home-card[data-screen="achievements"]{
+    width:100%!important;
+    min-height:72px!important;
+    max-height:none!important;
+    height:72px!important;
+    flex:0 0 72px!important;
+    margin:0!important;
+    box-sizing:border-box!important;
+  }
+}
+@media (max-width:380px){
+  #more-functions > .argos-home > .home-list > .home-card,
+  #more-functions > .argos-home > .home-list > .home-card[data-screen="exportServices"],
+  #more-functions > .argos-home > .home-list > .home-card[data-screen="achievements"]{
+    min-height:66px!important;
+    height:66px!important;
+    flex-basis:66px!important;
+  }
+}
+</style>
