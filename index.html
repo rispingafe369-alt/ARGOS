@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="theme-color" content="#8a005c">
+<meta name="theme-color" content="#b00073">
 <meta name="color-scheme" content="dark">
 <meta name="description" content="ARGOS - Gestión de servicios ferroviarios">
 <link rel="manifest" href="manifest.webmanifest">
@@ -15504,6 +15504,29 @@ body.dark .argosdex-ficha-status{background:#3a2632;border-color:rgba(255,255,25
 /* ARGOS · Cabecera superior · degradado inspirado en la referencia */
 .brand-row{
   background:linear-gradient(90deg,#e52a3f 0%,#b00073 46%,#9a0072 58%,#1c5f8f 100%) !important;
+}
+</style>
+
+<style id="argos-mobile-gradient-system-final">
+/* ARGOS · Cabecera móvil · sincronización con el degradado
+   La barra superior del sistema usa el mismo tono magenta central
+   del degradado, evitando que quede el morado antiguo.
+   No modifica tamaños ni posiciones de la cabecera. */
+@media(max-width:600px){
+  html,body{
+    background:#b00073!important;
+  }
+
+  .app-header,
+  .brand-row{
+    background:linear-gradient(90deg,#e52a3f 0%,#b00073 46%,#9a0072 58%,#1c5f8f 100%)!important;
+  }
+
+  /* El área superior del sistema queda visualmente coordinada
+     con la zona magenta central de la cabecera. */
+  .app-header{
+    background:linear-gradient(90deg,#e52a3f 0%,#b00073 46%,#9a0072 58%,#1c5f8f 100%)!important;
+  }
 }
 </style>
 
