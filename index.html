@@ -3360,7 +3360,7 @@ body:not(.dark) select{
   <div class="brand-row">
     <button id="openMenu" class="header-action left header-dots" type="button" aria-label="Abrir menú">⋮</button>
     <img class="renfe-main-logo" src="icons/renfe-logo-blanco.png" alt="Renfe">
-    <button id="argosLogout" class="header-action right" type="button" aria-label="Cerrar sesión" title="Cerrar sesión">↪</button>
+    <button id="argosLogout" class="header-action right" type="button" aria-label="Cerrar sesión" title="Cerrar sesión"><span class="argos-power-icon" aria-hidden="true"></span></button>
   </div>
 </header>
 
@@ -16307,3 +16307,111 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   }
 }
 </style>
+
+<style id="argos-final-gradient-buttons-and-logout">
+/* ================================================================
+   ARGOS · PALETA FINAL DE BOTONES + CIERRE DE SESIÓN
+   - Todos los botones que utilizaban la paleta morada pasan al
+     mismo degradado de la cabecera.
+   - Nuevo servicio usa el degradado sin borde ni artefactos oscuros.
+   - El botón de la derecha de la cabecera mantiene exactamente el
+     mismo tamaño y usa un icono de apagado dibujado con CSS, estable
+     entre distintas versiones del navegador móvil.
+   - No modifica tamaños, posiciones ni lógica existente.
+   ================================================================ */
+:root{
+  --argos-gradient:linear-gradient(90deg,#e52a3f 0%,#c01b70 34%,#8f0078 63%,#1d5e90 100%);
+}
+
+/* Todos los botones con fondo morado/renfe actualmente definidos. */
+.home-card.primary,
+.save-button,
+.theme-option.active,
+.save-settings,
+.argosdex-button,
+.argos-first-branch-ficha,
+.double-ficha-tab.active,
+.argos-branch-annotation-save,
+.argos-branch-visit-ficha,
+.argos-service-edit-save,
+.argos-export-generate,
+.argos-update-notice-accept,
+.argos-auth-submit{
+  background:var(--argos-gradient) !important;
+  background-color:transparent !important;
+  color:#fff !important;
+  border-color:transparent !important;
+  background-clip:border-box !important;
+  -webkit-appearance:none !important;
+  appearance:none !important;
+}
+
+/* Evita la línea/halo oscuro del inicio del degradado en Nuevo servicio. */
+#menu .home-card.primary,
+#menu .home-card.primary:hover,
+#menu .home-card.primary:focus,
+#menu .home-card.primary:active{
+  border:0 !important;
+  outline:0 !important;
+  background:var(--argos-gradient) !important;
+  background-clip:border-box !important;
+  -webkit-background-clip:border-box !important;
+  box-shadow:0 4px 12px rgba(90,0,70,.08) !important;
+}
+
+/* El icono interno de Nuevo servicio conserva el contraste, pero
+   queda integrado dentro del mismo degradado. */
+#menu .home-card.primary .home-icon{
+  background:rgba(255,255,255,.15) !important;
+  color:#fff !important;
+}
+
+/* Icono de apagado / cerrar sesión: dibujado en CSS para que no
+   dependa de la fuente ni de cómo el navegador represente un glifo. */
+#argosLogout{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+.argos-power-icon{
+  position:relative;
+  display:block;
+  width:18px;
+  height:18px;
+  box-sizing:border-box;
+  border:3px solid rgba(255,255,255,.96);
+  border-top-color:transparent;
+  border-radius:50%;
+  transform:rotate(-45deg);
+}
+.argos-power-icon::after{
+  content:"";
+  position:absolute;
+  width:3px;
+  height:10px;
+  left:50%;
+  top:-5px;
+  transform:translateX(-50%) rotate(45deg);
+  transform-origin:center;
+  border-radius:3px;
+  background:#fff;
+}
+
+@media(max-width:600px){
+  /* Mismo icono y mismo tamaño del botón en todas las alturas móviles. */
+  #argosLogout{
+    width:38px !important;
+    height:38px !important;
+    min-width:38px !important;
+    min-height:38px !important;
+    max-width:38px !important;
+    max-height:38px !important;
+    padding:0 !important;
+  }
+  .argos-power-icon{
+    width:18px !important;
+    height:18px !important;
+  }
+}
+</style>
+
