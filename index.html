@@ -3545,14 +3545,6 @@ body:not(.dark) select{
     <div><div class="screen-kicker">ARGOS · LOGROS</div><h2>Logros</h2></div>
   </div>
 
-  <div class="argos-achievements-hero">
-    <div class="argos-achievements-hero-copy">
-      <span class="argos-achievements-hero-kicker">ARGOS · LOGROS</span>
-      <h3>Mis logros</h3>
-      <p>Supera retos relacionados con el material ferroviario y tus servicios registrados.</p>
-    </div>
-    <div class="argos-achievements-hero-badge" aria-hidden="true">🏆</div>
-  </div>
 
   <div id="argosAchievementsList" class="argos-achievements-list"></div>
 </section>
@@ -16855,7 +16847,7 @@ body.dark .argos-achievement-card .argos-achievement-description{color:#bdb8bf !
     root.innerHTML=`
       <div class="argos-achievements-dashboard">
         <section class="argos-achievements-owned-wrap">
-          <h2 class="argos-achievements-section-title">MIS LOGROS</h2>
+          <h2 class="argos-achievements-section-title">CONSEGUIDOS</h2>
           <span class="argos-achievements-section-subtitle">Todos los logros que ya has conseguido.</span>
           <div id="argosAchievementsOwned" class="argos-achievements-owned-list"></div>
         </section>
@@ -17564,7 +17556,7 @@ body.dark #achievements .argos-achievements-section-meta-v2{
           <section class="argos-achievements-section-v2">
             <div class="argos-achievements-section-head-v2">
               <div>
-                <h3 class="argos-achievements-section-title-v2">MIS LOGROS</h3>
+                <h3 class="argos-achievements-section-title-v2">CONSEGUIDOS</h3>
               </div>
               <span class="argos-achievements-section-meta-v2">${own.length===1?'1 LOGRO':'LOGROS'}</span>
             </div>
@@ -18186,13 +18178,6 @@ button[data-more-functions-back="true"]{
       match:{type:'seriesAny',series:'114'}
     },
     {
-      id:'130-frankestein',
-      title:'Frankestein',
-      description:'Registra un servicio con cualquier rama de la serie 130.',
-      icon:'🧟',
-      match:{type:'seriesAny',series:'130'}
-    },
-    {
       id:'130-frankenstein',
       title:'Frankenstein',
       description:'Registra un servicio con cualquier rama de la serie 130.',
@@ -18594,7 +18579,7 @@ button[data-more-functions-back="true"]{
       <div class="argos-achievements-dashboard">
         <section class="argos-achievements-owned-wrap">
           <div>
-            <h2 class="argos-achievements-section-title">MIS LOGROS</h2>
+            <h2 class="argos-achievements-section-title">CONSEGUIDOS</h2>
             <span class="argos-achievements-section-subtitle">
               ${owned.length} ${owned.length===1?'logro conseguido':'logros conseguidos'} de ${ACHIEVEMENTS.length}
             </span>
