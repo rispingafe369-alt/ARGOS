@@ -1542,10 +1542,14 @@ button:focus:not(:focus-visible),
 
 <!-- ARGOS · VERSIÓN PÚBLICA Y REGISTRO DE ACTUALIZACIONES -->
 <script id="argos-app-version-config">
-  window.ARGOS_APP_VERSION = "5.5";
-  window.ARGOS_UPDATE_TITLE = "ARGOS 5.5";
+  window.ARGOS_APP_VERSION = "8";
+  window.ARGOS_UPDATE_TITLE = "ARGOS 8 · FINAL ESTABLE";
   window.ARGOS_UPDATE_ITEMS = [
-    "En esta actualización se ha modificado el menú de ARGOS, renovando su diseño para hacerlo más claro, moderno y cómodo de usar."
+    "ARGOS ya está terminado y funcional. Versión 8 · final estable.",
+    "Todas las series de Renfe, exceptuando las locomotoras 269 y 319, están añadidas a la base de datos.",
+    "Interfaz New Renfe 2026: nuevos colores y nuevo logotipo.",
+    "Logros: con el tiempo se irán desbloqueando logros relacionados con las ramas registradas.",
+    "Estadísticas · Modo Visión: podrás ver estadísticas desde el punto de vista anual, mensual o trimestral y, dentro de ellas, filtrar datos."
   ];
 </script>
 
@@ -16201,6 +16205,7 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
   }
 
   function render(){
+    if(window.ARGOS_ACHIEVEMENTS_ENGINE==='v6')return;
     const root=document.getElementById('argosAchievementsList');
     if(!root)return;
 
@@ -17531,6 +17536,7 @@ body.dark #achievements .argos-achievements-section-meta-v2{
   }
 
   function render(){
+    if(window.ARGOS_ACHIEVEMENTS_ENGINE==='v6')return;
     const root=document.getElementById(rootId);
     if(!root||rendering)return;
     rendering=true;
@@ -17677,6 +17683,7 @@ body.dark #achievements .argos-achievements-back-v2{
 (function(){
   'use strict';
   function mount(){
+    if(window.ARGOS_ACHIEVEMENTS_ENGINE==='v6')return;
     const root=document.getElementById('argosAchievementsList');
     if(!root)return;
     const dash=root.querySelector('.argos-achievements-dashboard-v2');
@@ -18004,11 +18011,13 @@ body.dark .argos-achievements-owned-empty strong{
     -webkit-overflow-scrolling:touch;
   }
 
-  #achievements .screen-header{
-    margin-bottom:12px !important;
+  #achievements > .screen-header{
+    display:flex !important;
+    margin:0 auto 18px !important;
+    padding-top:0 !important;
   }
 
-  .argos-achievements-hero{
+  #achievements .argos-achievements-hero{
     margin-bottom:16px;
     padding:18px 16px;
     border-radius:18px;
@@ -18094,6 +18103,29 @@ body.dark .argos-achievements-owned-empty strong{
 }
 
 /* ================================================================
+   LOGROS · CABECERA IGUAL QUE BIBLIOTECA
+   ================================================================ */
+#achievements > .screen-header{
+  display:flex !important;
+  width:min(900px,100%) !important;
+  margin:0 auto 22px !important;
+  align-items:center !important;
+  gap:14px !important;
+}
+#achievements > .screen-header .back-button{
+  width:48px !important;
+  height:48px !important;
+  min-width:48px !important;
+  border-radius:15px !important;
+  background:var(--soft) !important;
+  color:var(--renfe) !important;
+  font-size:32px !important;
+}
+#achievements .argos-achievements-topbar-v2{
+  display:none !important;
+}
+
+/* ================================================================
    NAVEGACIÓN: SOLO LAS SEIS FUNCIONES CITADAS -> MÁS FUNCIONES
    ================================================================ */
 button[data-more-functions-back="true"]{
@@ -18101,14 +18133,13 @@ button[data-more-functions-back="true"]{
 }
 </style>
 
-<script id="argos-logros-and-navigation-authority-v5">
+<script id="argos-logros-and-navigation-authority-v6">
 (function(){
   'use strict';
 
-  /* ---------------------------------------------------------------
-     1) LOGROS
-     --------------------------------------------------------------- */
-  const ACHIEVEMENTS=[
+  window.ARGOS_ACHIEVEMENTS_ENGINE='v6';
+
+  const ACHIEVEMENTS = [
     {
       id:'801-experto-operaciones-tranviarias',
       title:'Auténtico experto en operaciones tranviarias',
@@ -18178,11 +18209,18 @@ button[data-more-functions-back="true"]{
       match:{type:'seriesAny',series:'114'}
     },
     {
-      id:'130-frankenstein',
+      id:'730-frankenstein',
       title:'Frankenstein',
-      description:'Registra un servicio con cualquier rama de la serie 130.',
+      description:'Registra un servicio con cualquier rama de la serie 730.',
       icon:'🧟‍♂️',
-      match:{type:'seriesAny',series:'130'}
+      match:{type:'seriesAny',series:'730'}
+    },
+    {
+      id:'120-brava',
+      title:'BRAVA',
+      description:'Registra un servicio con cualquier rama de la serie 120.',
+      icon:'🛤️',
+      match:{type:'seriesAny',series:'120'}
     },
     {
       id:'446-civialvaro',
@@ -18263,12 +18301,11 @@ button[data-more-functions-back="true"]{
     }
   ];
 
-  window.ARGOS_ACHIEVEMENTS=ACHIEVEMENTS;
+  window.ARGOS_ACHIEVEMENTS = ACHIEVEMENTS;
 
-  const digits=v=>String(v??'').replace(/\D/g,'');
-  const seriesKey=v=>digits(v).slice(0,3);
-  const branchKey=v=>digits(v).replace(/^0+/,'')||'';
-  const pairKey=(s,b)=>seriesKey(s)+'|'+branchKey(b);
+  const digits = v => String(v??'').replace(/\D/g,'');
+  const seriesKey = v => digits(v).slice(0,3);
+  const branchKey = v => digits(v).replace(/^0+/,'') || '';
 
   function normalText(v){
     return String(v??'')
@@ -18282,133 +18319,102 @@ button[data-more-functions-back="true"]{
       .trim();
   }
 
-  function services(){
+  function registeredServices(){
     try{
+      /* app.js mantiene la colección sincronizada con Supabase en
+         localStorage tras completar la carga de la cuenta. */
       const raw=localStorage.getItem('argos_services')||'[]';
       const data=JSON.parse(raw);
       return Array.isArray(data)?data:[];
-    }catch(e){return []}
+    }catch(e){
+      return [];
+    }
   }
 
   function field(obj,names){
     for(const name of names){
       const value=obj?.[name];
-      if(value!==undefined&&value!==null&&String(value).trim()!=='')return String(value).trim();
+      if(value!==undefined&&value!==null&&String(value).trim()!==''){
+        return String(value).trim();
+      }
     }
     return '';
+  }
+
+  function resolveFleetUnit(series,vehicle){
+    if(!series||!vehicle)return null;
+
+    try{
+      if(typeof window.getFleetUnit==='function'){
+        const unit=window.getFleetUnit(series,vehicle);
+        if(unit)return unit;
+      }
+    }catch(e){}
+
+    try{
+      const source=(typeof window.fleet==='object'&&window.fleet)?window.fleet:
+                   ((typeof fleet!=='undefined')?fleet:{});
+      const units=source?.[seriesKey(series)]?.units||{};
+      const target=digits(vehicle);
+      for(const [k,u] of Object.entries(units)){
+        const codes=[
+          k,
+          u?.vehiculoBase,
+          u?.numero,
+          ...(Array.isArray(u?.searchCodes)?u.searchCodes:[]),
+          ...(Array.isArray(u?.vehiculosRama)?u.vehiculosRama:[])
+        ].map(digits).filter(Boolean);
+
+        if(target&&codes.includes(target))return u;
+      }
+    }catch(e){}
+
+    return null;
+  }
+
+  function composition(service,second){
+    if(!service)return null;
+
+    const series = String(second
+      ? (service.composition2?.series||service.secondSeries||service.series2||'')
+      : (service.series||service.serie||service.trainSeries||'')).trim();
+
+    const vehicle = String(second
+      ? (service.composition2?.vehicle||service.composition2?.vehiculo||service.secondVehicle||service.vehicle2||'')
+      : (service.vehicle||service.vehiculo||service.vehicleNumber||'')).trim();
+
+    let branch = String(second
+      ? (service.composition2?.branch||service.composition2?.rama||service.secondBranch||service.branch2||'')
+      : (service.branch||service.rama||'')).trim();
+
+    if(!branch){
+      const unit=resolveFleetUnit(series,vehicle);
+      if(unit?.rama)branch=String(unit.rama);
+    }
+
+    return {
+      series,
+      vehicle,
+      branch:branchKey(branch)
+    };
   }
 
   function compositions(service){
     const out=[];
-    const add=(series,branch,vehicle)=>{
-      series=String(series??'').trim();
-      branch=branchKey(branch);
-      vehicle=String(vehicle??'').trim();
-      if(series&&branch)out.push({series,branch,vehicle});
-    };
+    const first=composition(service,false);
+    if(first?.series)out.push(first);
 
-    add(service?.series||service?.serie,service?.branch||service?.rama,service?.vehicle||service?.vehiculo);
-
-    if(service?.composition2){
-      add(
-        service.composition2.series,
-        service.composition2.branch||service.composition2.rama,
-        service.composition2.vehicle||service.composition2.vehiculo
-      );
+    if(service?.doubleComposition||service?.composition2){
+      const second=composition(service,true);
+      if(second?.series)out.push(second);
     }
+
     return out;
-  }
-
-  function resolveUnit(comp){
-    let unit=null;
-    let seriesData=null;
-
-    try{
-      seriesData=window.fleet?.[seriesKey(comp.series)]||null;
-    }catch(e){}
-
-    if(comp.vehicle&&typeof window.getFleetUnit==='function'){
-      try{
-        unit=window.getFleetUnit(comp.series,comp.vehicle)||null;
-      }catch(e){}
-    }
-
-    if(!unit&&seriesData){
-      const units=seriesData.units||{};
-      const entries=Object.entries(units);
-
-      const byBranch=entries.find(([,u])=>branchKey(u?.rama)===branchKey(comp.branch));
-      if(byBranch)unit=byBranch[1];
-
-      if(!unit&&comp.vehicle){
-        const v=digits(comp.vehicle);
-        const byVehicle=entries.find(([k,u])=>{
-          const codes=[k,u?.vehiculoBase,u?.numero,...(Array.isArray(u?.searchCodes)?u.searchCodes:[])]
-            .map(digits)
-            .filter(Boolean);
-          return v&&codes.includes(v);
-        });
-        if(byVehicle)unit=byVehicle[1];
-      }
-    }
-
-    return {unit,seriesData};
-  }
-
-  function gaugeOf(comp){
-    const {unit,seriesData}=resolveUnit(comp);
-    const values=[
-      unit?.ancho,
-      unit?.anchoVia,
-      unit?.tech?.ancho,
-      unit?.tech?.anchoVia,
-      seriesData?.ancho,
-      seriesData?.anchoVia,
-      seriesData?.tech?.ancho,
-      seriesData?.tech?.anchoVia
-    ].filter(v=>v!==undefined&&v!==null&&String(v).trim()!=='')
-     .map(v=>String(v).toLocaleLowerCase('es-ES'));
-
-    const joined=values.join(' | ').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-    if(/variable/.test(joined))return 'variable';
-    if(/fijo|fija/.test(joined))return 'fixed';
-    if(/1668/.test(joined)&&/1435/.test(joined))return 'variable';
-    if(/1668|1435/.test(joined))return 'fixed';
-    return '';
-  }
-
-  function carsOf(comp){
-    const {unit,seriesData}=resolveUnit(comp);
-    const values=[
-      unit?.numeroCoches,
-      unit?.coches,
-      unit?.numCoches,
-      unit?.subserie,
-      unit?.tipo,
-      unit?.descripcion,
-      unit?.tech?.numeroCoches,
-      seriesData?.numeroCoches,
-      seriesData?.tech?.numeroCoches
-    ].filter(v=>v!==undefined&&v!==null&&String(v).trim()!=='')
-     .map(v=>String(v).toLocaleLowerCase('es-ES'));
-
-    const joined=values.join(' | ')
-      .normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-
-    if(/\b8\s*coches?\b/.test(joined))return 8;
-    if(/453\.6|tl200/.test(joined))return 8;
-    if(/\b4\s*coches?\b/.test(joined))return 4;
-    if(/453\.0|tl100/.test(joined))return 4;
-    return null;
-  }
-
-  function hasComposition(service,predicate){
-    return compositions(service).some(predicate);
   }
 
   function serviceHasSeries(service,series){
     const wanted=seriesKey(series);
-    return hasComposition(service,c=>seriesKey(c.series)===wanted);
+    return compositions(service).some(c=>seriesKey(c.series)===wanted);
   }
 
   function serviceMatchesRequirement(service,req){
@@ -18420,22 +18426,22 @@ button[data-more-functions-back="true"]{
     }
 
     if(req.type==='seriesBranch'){
-      return hasComposition(service,c=>
+      return compositions(service).some(c=>
         seriesKey(c.series)===wantedSeries &&
         branchKey(c.branch)===branchKey(req.branch)
       );
     }
 
     if(req.type==='seriesBranchCars'){
-      return hasComposition(service,c=>
-        seriesKey(c.series)===wantedSeries &&
-        branchKey(c.branch)===branchKey(req.branch) &&
-        carsOf(c)===Number(req.cars)
-      );
+      return compositions(service).some(c=>{
+        if(seriesKey(c.series)!==wantedSeries)return false;
+        if(branchKey(c.branch)!==branchKey(req.branch))return false;
+        return carsOf(c)===Number(req.cars);
+      });
     }
 
     if(req.type==='seriesGauge'){
-      return hasComposition(service,c=>
+      return compositions(service).some(c=>
         seriesKey(c.series)===wantedSeries &&
         gaugeOf(c)===req.gauge
       );
@@ -18447,13 +18453,59 @@ button[data-more-functions-back="true"]{
       const destination=normalText(field(service,['destination','destino']));
       const a=normalText(req.a);
       const b=normalText(req.b);
-      const pair=(x,y)=>
-        (x.includes(a)&&y.includes(b)) ||
-        (x.includes(b)&&y.includes(a));
-      return pair(origin,destination);
+      return (origin.includes(a)&&destination.includes(b)) ||
+             (origin.includes(b)&&destination.includes(a));
     }
 
     return false;
+  }
+
+  function resolveUnit(comp){
+    const unit=resolveFleetUnit(comp.series,comp.vehicle);
+    return unit;
+  }
+
+  function gaugeOf(comp){
+    const unit=resolveUnit(comp);
+    const values=[
+      unit?.ancho,
+      unit?.anchoVia,
+      unit?.tech?.ancho,
+      unit?.tech?.anchoVia
+    ].filter(v=>v!==undefined&&v!==null&&String(v).trim()!=='')
+     .map(v=>String(v).toLocaleLowerCase('es-ES'));
+
+    const joined=values.join(' | ')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g,'');
+
+    if(/variable/.test(joined))return 'variable';
+    if(/fijo|fija/.test(joined))return 'fixed';
+    if(/1668/.test(joined)&&/1435/.test(joined))return 'variable';
+    return '';
+  }
+
+  function carsOf(comp){
+    const unit=resolveUnit(comp);
+    const values=[
+      unit?.numeroCoches,
+      unit?.coches,
+      unit?.numCoches,
+      unit?.subserie,
+      unit?.tipo,
+      unit?.descripcion,
+      unit?.tech?.numeroCoches
+    ].filter(v=>v!==undefined&&v!==null&&String(v).trim()!=='')
+     .map(v=>String(v).toLocaleLowerCase('es-ES'));
+
+    const joined=values.join(' | ')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g,'');
+
+    if(/\b8\s*coches?\b/.test(joined))return 8;
+    if(/453\.6|tl200/.test(joined))return 8;
+    if(/\b4\s*coches?\b/.test(joined))return 4;
+    return null;
   }
 
   function distinctRequirementsSatisfied(requirements,data){
@@ -18461,11 +18513,10 @@ button[data-more-functions-back="true"]{
 
     function solve(index){
       if(index>=requirements.length)return true;
-      const req=requirements[index];
 
       for(let i=0;i<data.length;i++){
         if(used.has(i))continue;
-        if(!serviceMatchesRequirement(data[i],req))continue;
+        if(!serviceMatchesRequirement(data[i],requirements[index]))continue;
         used.add(i);
         if(solve(index+1))return true;
         used.delete(i);
@@ -18479,12 +18530,14 @@ button[data-more-functions-back="true"]{
   function progressForAchievement(a,data){
     if(Array.isArray(a.requiredBranches)&&a.requiredBranches.length){
       const set=new Set();
+
       data.forEach(service=>{
         compositions(service).forEach(c=>{
           if(seriesKey(c.series)!==seriesKey(a.series))return;
           set.add(branchKey(c.branch));
         });
       });
+
       const done=a.requiredBranches.filter(b=>set.has(branchKey(b))).length;
       return {done,total:a.requiredBranches.length};
     }
@@ -18498,7 +18551,9 @@ button[data-more-functions-back="true"]{
     }
 
     if(m.type==='distinct'){
-      const done=m.requirements.filter(req=>data.some(s=>serviceMatchesRequirement(s,req))).length;
+      const done=m.requirements.filter(req=>
+        data.some(s=>serviceMatchesRequirement(s,req))
+      ).length;
       return {done:Math.min(done,m.requirements.length),total:m.requirements.length};
     }
 
@@ -18509,36 +18564,22 @@ button[data-more-functions-back="true"]{
   }
 
   function unlocked(a,data){
-    if(Array.isArray(a.requiredBranches)&&a.requiredBranches.length){
-      const p=progressForAchievement(a,data);
-      return p.done===p.total;
-    }
-
-    const m=a.match;
-    if(!m)return false;
-
-    if(m.type==='countSeries'){
-      return data.filter(s=>serviceMatchesRequirement(s,m)).length>=m.count;
-    }
-
-    if(m.type==='distinct'){
-      return distinctRequirementsSatisfied(m.requirements,data);
-    }
-
-    return data.some(s=>serviceMatchesRequirement(s,m));
+    const p=progressForAchievement(a,data);
+    return p.done===p.total;
   }
 
   function state(a,data){
     const p=progressForAchievement(a,data);
     if(p.done===p.total)return 'DESBLOQUEADO';
-    if(p.total>1)return `${p.done}/${p.total}`;
-    return 'PENDIENTE';
+    return p.total>1?`${p.done}/${p.total}`:'PENDIENTE';
   }
 
   function desc(a,data){
     const p=progressForAchievement(a,data);
     const base=String(a.description||'');
-    if(p.total>1 && p.done<p.total)return `${base} · Progreso: ${p.done}/${p.total}`;
+    if(p.total>1&&p.done<p.total){
+      return `${base} · Progreso: ${p.done}/${p.total}`;
+    }
     return base;
   }
 
@@ -18551,9 +18592,9 @@ button[data-more-functions-back="true"]{
   function card(a,data){
     const ok=unlocked(a,data);
     const p=progressForAchievement(a,data);
-    const stateLabel=state(a,data);
-    const icon=ok?(a.icon||'🏆'):'🔒';
+    const label=state(a,data);
     const progressWidth=p.total?Math.round((p.done/p.total)*100):0;
+    const icon=ok?(a.icon||'🏆'):'🔒';
 
     return `<article class="argos-achievement-card ${ok?'unlocked':'locked'}">
       <div class="argos-achievement-icon" aria-hidden="true">${esc(icon)}</div>
@@ -18563,7 +18604,7 @@ button[data-more-functions-back="true"]{
         <div class="argos-achievement-description">${esc(desc(a,data))}</div>
         ${p.total>1?`<div class="argos-achievement-progress"><span><i style="width:${progressWidth}%"></i></span></div>`:''}
       </div>
-      <div class="argos-achievement-state">${esc(stateLabel)}</div>
+      <div class="argos-achievement-state">${esc(label)}</div>
     </article>`;
   }
 
@@ -18571,7 +18612,7 @@ button[data-more-functions-back="true"]{
     const root=document.getElementById('argosAchievementsList');
     if(!root)return;
 
-    const data=services();
+    const data=registeredServices();
     const owned=ACHIEVEMENTS.filter(a=>unlocked(a,data));
     const pending=ACHIEVEMENTS.filter(a=>!unlocked(a,data));
 
@@ -18629,9 +18670,7 @@ button[data-more-functions-back="true"]{
 
   window.renderAchievements=render;
 
-  /* ---------------------------------------------------------------
-     2) SOLO ESTAS SEIS FUNCIONES VUELVEN A MÁS FUNCIONES
-     --------------------------------------------------------------- */
+  /* Solo estas seis funciones vuelven a Más funciones. */
   document.addEventListener('click',function(ev){
     const btn=ev.target?.closest?.('button[data-more-functions-back="true"]');
     if(!btn)return;
@@ -18641,47 +18680,67 @@ button[data-more-functions-back="true"]{
 
     if(typeof window.showScreen==='function'){
       window.showScreen('more-functions');
-    }else{
-      document.querySelectorAll('.app-shell > .screen').forEach(s=>{
-        const active=s.id==='more-functions';
-        s.classList.toggle('active',active);
-        s.style.display=active?'flex':'none';
-      });
     }
   },true);
 
-  /* ---------------------------------------------------------------
-     3) Al entrar en Logros, siempre renderiza la versión final
-     --------------------------------------------------------------- */
-  const wrapShowScreen=()=>{
+  /* Entrar en Logros fuerza una lectura fresca de los servicios. */
+  function wrapShowScreen(){
     const original=window.showScreen;
     if(typeof original!=='function'||original.__argosLogrosFinalWrapped)return;
 
     const wrapped=function(id){
       const result=original.apply(this,arguments);
       if(id==='achievements'){
-        setTimeout(render,0);
+        window.setTimeout(render,30);
       }
       return result;
     };
+
     wrapped.__argosLogrosFinalWrapped=true;
     window.showScreen=wrapped;
-  };
+  }
 
   wrapShowScreen();
 
-  document.addEventListener('argos:service-saved',function(){render();});
-  window.addEventListener('storage',function(ev){
-    if(ev.key==='argos_services')render();
+  document.addEventListener('argos:service-saved',function(){
+    window.setTimeout(render,30);
   });
 
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',function(){
-      wrapShowScreen();
-      render();
-    },{once:true});
-  }else{
+  /* En el mismo documento, localStorage.setItem no dispara el evento
+     "storage". La autenticación de app.js sí añade .argos-authenticated
+     después de traer los datos de Supabase: observamos ese momento. */
+  const authObserver=new MutationObserver(function(mutations){
+    for(const mutation of mutations){
+      if(mutation.type==='attributes' &&
+         mutation.attributeName==='class' &&
+         document.body.classList.contains('argos-authenticated')){
+        window.setTimeout(render,50);
+        window.setTimeout(render,250);
+        break;
+      }
+    }
+  });
+  if(document.body){
+    authObserver.observe(document.body,{attributes:true,attributeFilter:['class']});
+  }
+
+  window.addEventListener('storage',function(ev){
+    if(ev.key==='argos_services')window.setTimeout(render,30);
+  });
+
+  document.addEventListener('visibilitychange',function(){
+    if(!document.hidden)window.setTimeout(render,30);
+  });
+
+  function initialRender(){
+    wrapShowScreen();
     render();
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',initialRender,{once:true});
+  }else{
+    initialRender();
   }
 })();
 </script>
