@@ -18006,15 +18006,19 @@ body.dark .argos-achievements-owned-empty strong{
 
 @media(max-width:600px){
   .argos-achievements-screen{
-    padding:0 12px 24px !important;
+    padding:24px !important;
+    padding-bottom:32px !important;
     overflow-y:auto !important;
     -webkit-overflow-scrolling:touch;
   }
 
   #achievements > .screen-header{
+    width:min(900px,100%) !important;
+    margin:0 auto 22px !important;
+    padding:0 !important;
     display:flex !important;
-    margin:0 auto 18px !important;
-    padding-top:0 !important;
+    align-items:center !important;
+    gap:14px !important;
   }
 
   #achievements .argos-achievements-hero{
@@ -18113,9 +18117,11 @@ body.dark .argos-achievements-owned-empty strong{
   gap:14px !important;
 }
 #achievements > .screen-header .back-button{
+  flex:0 0 48px !important;
   width:48px !important;
   height:48px !important;
   min-width:48px !important;
+  min-height:48px !important;
   border-radius:15px !important;
   background:var(--soft) !important;
   color:var(--renfe) !important;
@@ -18449,12 +18455,61 @@ button[data-more-functions-back="true"]{
 
     if(req.type==='routeSeriesPair'){
       if(!serviceHasSeries(service,wantedSeries))return false;
-      const origin=normalText(field(service,['origin','origen']));
-      const destination=normalText(field(service,['destination','destino']));
-      const a=normalText(req.a);
-      const b=normalText(req.b);
-      return (origin.includes(a)&&destination.includes(b)) ||
-             (origin.includes(b)&&destination.includes(a));
+
+      const origin=normalText(field(service,['origin','origen','from','desde','originStation']));
+      const destination=normalText(field(service,['destination','destino','to','hasta','destinationStation']));
+      const routeText=normalText(field(service,['route','ruta','trayecto','recorrido','serviceRoute','relation','relacion']));
+
+      const stationAliases={
+        'humanes':['humanes','humanes de madrid'],
+        'mostoles el soto':['mostoles-el soto','mostoles el soto','el soto'],
+        'cadiz':['cadiz'],
+        'madrid atocha':['madrid-puerta de atocha-almudena grandes','madrid puerta de atocha-almudena grandes','madrid puerta de atocha','puerta de atocha','atocha'],
+        'parla':['parla'],
+        'colmenar viejo':['colmenar viejo']
+      };
+
+      function aliases(value){
+        const wanted=normalText(value);
+        return stationAliases[wanted]||[wanted];
+      }
+
+      function stationMatches(value,wanted){
+        const t=normalText(value);
+        if(!t)return false;
+        const wantedAliases=aliases(wanted);
+
+        /* 1. Coincidencia directa: admite nombre corto, nombre largo, guiones y tildes. */
+        if(wantedAliases.some(a=>t===a||t.includes(a)||a.includes(t)))return true;
+
+        /* 2. Catálogo de estaciones de ARGOS: cubre registros guardados con
+              nombre oficial o una variante/alias de la misma estación. */
+        try{
+          const stations=(typeof LOCAL_STATIONS!=='undefined'&&Array.isArray(LOCAL_STATIONS))?LOCAL_STATIONS:(Array.isArray(window.LOCAL_STATIONS)?window.LOCAL_STATIONS:[]);
+          for(const st of stations){
+            const values=[String(st?.code??''),st?.name,...(Array.isArray(st?.aliases)?st.aliases:[])]
+              .filter(Boolean).map(normalText);
+            if(!values.length)continue;
+            const wantedStation=values.some(v=>wantedAliases.some(a=>v===a||v.includes(a)||a.includes(v)));
+            const actualStation=values.some(v=>t===v||t.includes(v)||v.includes(t));
+            if(wantedStation&&actualStation)return true;
+          }
+        }catch(e){}
+        return false;
+      }
+
+      /* Prioridad al origen/destino. */
+      if(stationMatches(origin,req.a)&&stationMatches(destination,req.b))return true;
+      if(stationMatches(origin,req.b)&&stationMatches(destination,req.a))return true;
+
+      /* Respaldo: algunos registros antiguos conservan solo el trayecto textual. */
+      if(routeText){
+        const a=aliases(req.a),b=aliases(req.b);
+        const hasA=a.some(x=>routeText.includes(x));
+        const hasB=b.some(x=>routeText.includes(x));
+        if(hasA&&hasB)return true;
+      }
+      return false;
     }
 
     return false;
@@ -18620,7 +18675,7 @@ button[data-more-functions-back="true"]{
       <div class="argos-achievements-dashboard">
         <section class="argos-achievements-owned-wrap">
           <div>
-            <h2 class="argos-achievements-section-title">CONSEGUIDOS</h2>
+            <h2 class="argos-achievements-section-title">Conseguidos</h2>
             <span class="argos-achievements-section-subtitle">
               ${owned.length} ${owned.length===1?'logro conseguido':'logros conseguidos'} de ${ACHIEVEMENTS.length}
             </span>
@@ -18633,7 +18688,7 @@ button[data-more-functions-back="true"]{
                   type="button" aria-expanded="false">VER MÁS LOGROS</button>
           <div id="argosAchievementsMoreSection" class="argos-achievements-more-section"
                aria-hidden="true">
-            <h3 class="argos-achievements-more-heading">LOGROS PENDIENTES</h3>
+            <h3 class="argos-achievements-more-heading">Logros pendientes</h3>
             <div id="argosAchievementsMoreList" class="argos-achievements-more-list"></div>
           </div>
         </section>
