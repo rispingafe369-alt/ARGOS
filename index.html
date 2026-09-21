@@ -3456,7 +3456,7 @@ body:not(.dark) select{
 <!-- EXPORTACIÓN · ARGOS -->
 <section id="exportServices" class="screen argos-export-screen" aria-label="Exportación">
   <div class="screen-header">
-    <button class="back-button" data-back type="button">‹</button>
+    <button class="back-button" data-back data-more-functions-back="true" type="button" aria-label="Volver a Más funciones">‹</button>
     <div><div class="screen-kicker">ARGOS · EXPORTACIÓN</div><h2>Exportación</h2></div>
   </div>
   <div class="argos-export-shell">
@@ -3520,7 +3520,7 @@ body:not(.dark) select{
 <!-- PROGRESO · ARGOS -->
 <section id="progress" class="screen progress-screen" aria-label="Progreso">
   <div class="screen-header">
-    <button class="back-button" data-back type="button">‹</button>
+    <button class="back-button" data-back data-more-functions-back="true" type="button" aria-label="Volver a Más funciones">‹</button>
     <div><div class="screen-kicker">ARGOS · PROGRESO</div><h2>Progreso</h2></div>
   </div>
   <div class="progress-intro"><div class="progress-intro-icon">✓</div><div><strong>Controla tus ramas</strong><span>Pulsa una serie para ver las ramas que ya tienes registradas y las que todavía te faltan.</span></div></div>
@@ -3541,23 +3541,26 @@ body:not(.dark) select{
 <!-- LOGROS · ARGOS -->
 <section id="achievements" class="screen argos-achievements-screen" aria-label="Logros">
   <div class="screen-header">
-    <button class="back-button" data-back type="button">‹</button>
+    <button class="back-button" data-more-functions-back="true" type="button" aria-label="Volver a Más funciones">‹</button>
     <div><div class="screen-kicker">ARGOS · LOGROS</div><h2>Logros</h2></div>
   </div>
-  <div class="argos-achievements-intro">
-    <div class="argos-achievements-intro-icon">🏆</div>
-    <div>
-      <strong>Desbloquea logros</strong>
-      <span>Registra determinadas ramas para conseguir logros especiales.</span>
+
+  <div class="argos-achievements-hero">
+    <div class="argos-achievements-hero-copy">
+      <span class="argos-achievements-hero-kicker">ARGOS · LOGROS</span>
+      <h3>Mis logros</h3>
+      <p>Supera retos relacionados con el material ferroviario y tus servicios registrados.</p>
     </div>
+    <div class="argos-achievements-hero-badge" aria-hidden="true">🏆</div>
   </div>
+
   <div id="argosAchievementsList" class="argos-achievements-list"></div>
 </section>
 
 <!-- BLOC DE NOTAS · ARGOS -->
 <section id="notesPad" class="screen notes-screen" aria-label="Bloc de notas">
   <div class="screen-header">
-    <button class="back-button" data-back type="button">‹</button>
+    <button class="back-button" data-back data-more-functions-back="true" type="button" aria-label="Volver a Más funciones">‹</button>
     <div><div class="screen-kicker">ARGOS · NOTAS</div><h2>Bloc de notas</h2></div>
   </div>
   <div class="notes-wrap">
@@ -3581,7 +3584,7 @@ body:not(.dark) select{
 <!-- CALIDAD · ARGOS -->
 <section id="quality" class="screen quality-screen" aria-label="Calidad">
   <div class="screen-header">
-    <button class="back-button" data-quality-back="menu" type="button">‹</button>
+    <button class="back-button" data-quality-back="menu" data-more-functions-back="true" type="button" aria-label="Volver a Más funciones">‹</button>
     <div><div class="screen-kicker">ARGOS · CALIDAD</div><h2>Calidad</h2></div>
   </div>
   <div class="quality-intro">
@@ -3794,7 +3797,7 @@ body:not(.dark) select{
 
 <section id="library" class="screen library-screen">
   <div class="screen-header">
-    <button class="back-button" data-back type="button">‹</button>
+    <button class="back-button" data-back data-more-functions-back="true" type="button" aria-label="Volver a Más funciones">‹</button>
     <div><div class="screen-kicker">ARGOS · BASE DE DATOS</div><h2>Biblioteca</h2></div>
   </div>
 
@@ -17711,3 +17714,1016 @@ body.dark #achievements .argos-achievements-back-v2{
   else install();
 })();
 </script>
+
+<!-- ARGOS · CORRECCIÓN FINAL · LOGROS + NAVEGACIÓN DESDE MÁS FUNCIONES -->
+<style id="argos-logros-navigation-final-v3">
+/* ================================================================
+   LOGROS · CABECERA TIPO BIBLIOTECA
+   ================================================================ */
+.argos-achievements-screen{
+  padding-bottom:34px !important;
+}
+
+.argos-achievements-hero{
+  width:min(980px,100%);
+  margin:0 auto 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:24px 28px;
+  border:1px solid var(--line,#dedee3);
+  border-radius:22px;
+  background:var(--card,#fff);
+  box-shadow:0 8px 26px rgba(30,20,30,.045);
+}
+
+.argos-achievements-hero-copy{
+  min-width:0;
+}
+
+.argos-achievements-hero-kicker{
+  display:block;
+  color:var(--renfe,#8a005c);
+  font-size:12px;
+  line-height:1.2;
+  font-weight:900;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+
+.argos-achievements-hero h3{
+  margin:7px 0 7px;
+  color:var(--ink,#1d1d1f);
+  font-size:clamp(30px,5vw,44px);
+  line-height:.98;
+  letter-spacing:-.035em;
+  font-weight:950;
+}
+
+.argos-achievements-hero p{
+  margin:0;
+  color:var(--muted,#777);
+  font-size:14px;
+  line-height:1.42;
+}
+
+.argos-achievements-hero-badge{
+  width:88px;
+  height:88px;
+  min-width:88px;
+  border-radius:24px;
+  display:grid;
+  place-items:center;
+  background:var(--soft,#f4e6ef);
+  font-size:42px;
+  box-shadow:inset 0 0 0 1px rgba(138,0,92,.06);
+}
+
+.argos-achievements-dashboard{
+  width:min(980px,100%);
+  margin:0 auto;
+  display:grid;
+  gap:22px;
+}
+
+.argos-achievements-owned-wrap,
+.argos-achievements-more-wrap{
+  display:grid;
+  gap:10px;
+}
+
+.argos-achievements-section-title{
+  margin:0;
+  color:var(--ink,#1d1d1f);
+  font-size:clamp(30px,5.5vw,42px);
+  line-height:.98;
+  letter-spacing:-.035em;
+  font-weight:950;
+}
+
+.argos-achievements-section-subtitle{
+  display:block;
+  margin:0 0 4px;
+  color:var(--muted,#777);
+  font-size:13px;
+  line-height:1.4;
+}
+
+.argos-achievements-owned-list,
+.argos-achievements-more-list{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+}
+
+.argos-achievement-card{
+  position:relative;
+  display:grid;
+  grid-template-columns:64px minmax(0,1fr) auto;
+  align-items:center;
+  gap:15px;
+  min-height:98px;
+  padding:16px 18px 16px 20px;
+  border:1px solid var(--line,#dedee3);
+  border-radius:20px;
+  background:var(--card,#fff);
+  box-shadow:0 8px 22px rgba(30,20,30,.04);
+  overflow:hidden;
+}
+
+.argos-achievement-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:5px;
+  background:linear-gradient(180deg,#e52a3f 0%,#c01b70 42%,#8f0078 68%,#1d5e90 100%);
+}
+
+.argos-achievement-card.locked{
+  opacity:.94;
+}
+
+.argos-achievement-icon{
+  width:58px;
+  height:58px;
+  border-radius:17px;
+  display:grid;
+  place-items:center;
+  background:var(--soft,#f7eaf3);
+  color:var(--renfe,#8a005c);
+  font-size:26px;
+  box-shadow:inset 0 0 0 1px rgba(138,0,92,.06);
+}
+
+.argos-achievement-card.locked .argos-achievement-icon{
+  filter:saturate(.55);
+  opacity:.86;
+}
+
+.argos-achievement-kicker{
+  display:block;
+  color:var(--renfe,#8a005c);
+  font-size:9px;
+  font-weight:950;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+
+.argos-achievement-title{
+  margin:3px 0 0;
+  color:var(--ink,#1d1d1f);
+  font-size:19px;
+  line-height:1.12;
+  font-weight:950;
+}
+
+.argos-achievement-description{
+  margin:6px 0 0;
+  color:var(--muted,#777);
+  font-size:12px;
+  line-height:1.4;
+}
+
+.argos-achievement-state{
+  justify-self:end;
+  padding:8px 11px;
+  border-radius:999px;
+  background:var(--soft,#f7eaf3);
+  color:var(--renfe,#8a005c);
+  font-size:9px;
+  font-weight:950;
+  white-space:nowrap;
+}
+
+.argos-achievement-card.unlocked .argos-achievement-state{
+  background:#e9f7e9;
+  color:#267a32;
+}
+
+.argos-achievements-owned-empty{
+  padding:20px 18px;
+  border:1px solid var(--line,#dedee3);
+  border-radius:18px;
+  background:var(--card,#fff);
+  color:var(--muted,#777);
+  font-size:12px;
+  line-height:1.45;
+}
+
+.argos-achievements-owned-empty strong{
+  display:block;
+  margin-bottom:4px;
+  color:var(--ink,#1d1d1f);
+  font-size:15px;
+}
+
+.argos-achievements-more-button{
+  width:100%;
+  min-height:56px;
+  border:0;
+  border-radius:17px;
+  padding:13px 20px;
+  background:linear-gradient(90deg,#e52a3f 0%,#c01b70 34%,#8f0078 63%,#1d5e90 100%) !important;
+  color:#fff !important;
+  font-size:16px;
+  font-weight:950;
+  letter-spacing:.01em;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(90,0,70,.11);
+}
+
+.argos-achievements-more-button::after{
+  content:'›';
+  display:inline-block;
+  margin-left:10px;
+  font-size:22px;
+  line-height:1;
+  vertical-align:-2px;
+  transition:transform .18s ease;
+}
+
+.argos-achievements-more-button.open::after{
+  transform:rotate(90deg);
+}
+
+.argos-achievements-more-section{
+  display:none;
+  gap:12px;
+}
+
+.argos-achievements-more-section.open{
+  display:grid;
+}
+
+.argos-achievements-more-heading{
+  margin:0;
+  color:var(--ink,#1d1d1f);
+  font-size:24px;
+  line-height:1.05;
+  font-weight:950;
+}
+
+body.dark .argos-achievements-hero{
+  background:linear-gradient(145deg,#242126 0%,#2d2730 100%) !important;
+  border-color:rgba(255,255,255,.075) !important;
+  box-shadow:0 8px 22px rgba(0,0,0,.22) !important;
+}
+body.dark .argos-achievements-hero h3,
+body.dark .argos-achievements-section-title,
+body.dark .argos-achievements-more-heading,
+body.dark .argos-achievement-title{
+  color:#fff !important;
+}
+body.dark .argos-achievements-hero p,
+body.dark .argos-achievements-section-subtitle,
+body.dark .argos-achievement-description{
+  color:#c0bbc2 !important;
+}
+body.dark .argos-achievements-hero-badge,
+body.dark .argos-achievement-icon,
+body.dark .argos-achievement-state{
+  background:#352632 !important;
+  color:#ef9bca !important;
+}
+body.dark .argos-achievement-card{
+  background:linear-gradient(145deg,#242126 0%,#2d2730 100%) !important;
+  border-color:rgba(255,255,255,.075) !important;
+  box-shadow:0 8px 22px rgba(0,0,0,.22) !important;
+}
+body.dark .argos-achievement-card.unlocked .argos-achievement-state{
+  background:#21472a !important;
+  color:#a7e6af !important;
+}
+body.dark .argos-achievements-owned-empty{
+  background:#242126 !important;
+  border-color:rgba(255,255,255,.075) !important;
+}
+body.dark .argos-achievements-owned-empty strong{
+  color:#fff !important;
+}
+
+@media(max-width:600px){
+  .argos-achievements-screen{
+    padding:0 12px 24px !important;
+    overflow-y:auto !important;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  #achievements .screen-header{
+    margin-bottom:12px !important;
+  }
+
+  .argos-achievements-hero{
+    margin-bottom:16px;
+    padding:18px 16px;
+    border-radius:18px;
+    gap:12px;
+  }
+
+  .argos-achievements-hero-kicker{
+    font-size:10px;
+  }
+
+  .argos-achievements-hero h3{
+    margin-top:5px;
+    font-size:32px;
+  }
+
+  .argos-achievements-hero p{
+    font-size:12px;
+  }
+
+  .argos-achievements-hero-badge{
+    width:60px;
+    height:60px;
+    min-width:60px;
+    border-radius:17px;
+    font-size:29px;
+  }
+
+  .argos-achievements-dashboard{
+    gap:17px;
+  }
+
+  .argos-achievements-section-title{
+    font-size:31px;
+  }
+
+  .argos-achievements-section-subtitle{
+    font-size:11px;
+  }
+
+  .argos-achievement-card{
+    grid-template-columns:52px minmax(0,1fr);
+    gap:11px;
+    min-height:0;
+    padding:13px 13px 13px 16px;
+    border-radius:18px;
+  }
+
+  .argos-achievement-card::before{
+    width:4px;
+  }
+
+  .argos-achievement-icon{
+    width:52px;
+    height:52px;
+    border-radius:15px;
+    font-size:23px;
+  }
+
+  .argos-achievement-title{
+    font-size:17px;
+  }
+
+  .argos-achievement-description{
+    font-size:11.5px;
+  }
+
+  .argos-achievement-state{
+    grid-column:2;
+    justify-self:start;
+    margin-top:-2px;
+    padding:7px 10px;
+  }
+
+  .argos-achievements-more-button{
+    min-height:54px;
+    border-radius:16px;
+    font-size:15px;
+  }
+
+  .argos-achievements-more-heading{
+    font-size:22px;
+  }
+}
+
+/* ================================================================
+   NAVEGACIÓN: SOLO LAS SEIS FUNCIONES CITADAS -> MÁS FUNCIONES
+   ================================================================ */
+button[data-more-functions-back="true"]{
+  -webkit-tap-highlight-color:transparent;
+}
+</style>
+
+<script id="argos-logros-and-navigation-authority-v5">
+(function(){
+  'use strict';
+
+  /* ---------------------------------------------------------------
+     1) LOGROS
+     --------------------------------------------------------------- */
+  const ACHIEVEMENTS=[
+    {
+      id:'801-experto-operaciones-tranviarias',
+      title:'Auténtico experto en operaciones tranviarias',
+      description:'Registra un tren con cada una de las ramas de la serie 801.',
+      icon:'🚋',
+      series:'801',
+      requiredBranches:['001','002','003','004','005','006','007']
+    },
+    {
+      id:'448-atomico',
+      title:'El atómico',
+      description:'Registra un servicio con la rama 2 de la serie 448.',
+      icon:'⚛️',
+      match:{type:'seriesBranch',series:'448',branch:'002'}
+    },
+    {
+      id:'100-cabeza-duplex',
+      title:'Cabeza de duplex',
+      description:'Registra un servicio con la rama 12 de la serie 100.',
+      icon:'🚄',
+      match:{type:'seriesBranch',series:'100',branch:'012'}
+    },
+    {
+      id:'100-expo-sevilla-1992',
+      title:'Expo Sevilla 1992',
+      description:'Registra un servicio con cada rama de la 1 a la 18 de la S100, que son las originales de la ruta Madrid - Sevilla 1992.',
+      icon:'🏛️',
+      series:'100',
+      requiredBranches:Array.from({length:18},(_,i)=>String(i+1).padStart(3,'0'))
+    },
+    {
+      id:'103-ice',
+      title:'ICE',
+      description:'Registra un servicio con cualquier rama del 103.',
+      icon:'❄️',
+      match:{type:'seriesAny',series:'103'}
+    },
+    {
+      id:'106-miedo',
+      title:'He pasado miedo',
+      description:'Registra un servicio con cualquier rama del 106.',
+      icon:'😱',
+      match:{type:'seriesAny',series:'106'}
+    },
+    {
+      id:'106-mejor-momento',
+      title:'El mejor momento del ferrocarril en España',
+      description:'Registra un servicio con un 106 de ancho variable y otro con uno de ancho fijo.',
+      icon:'🇪🇸',
+      match:{type:'distinct',requirements:[
+        {type:'seriesGauge',series:'106',gauge:'variable'},
+        {type:'seriesGauge',series:'106',gauge:'fixed'}
+      ]}
+    },
+    {
+      id:'112-pato',
+      title:'Pato',
+      description:'Registra un servicio con cualquier rama de la serie 112.',
+      icon:'🦆',
+      match:{type:'seriesAny',series:'112'}
+    },
+    {
+      id:'114-retrovisores',
+      title:'No tengo retrovisores',
+      description:'Registra un servicio con cualquier rama de la serie 114.',
+      icon:'🪞',
+      match:{type:'seriesAny',series:'114'}
+    },
+    {
+      id:'130-frankestein',
+      title:'Frankestein',
+      description:'Registra un servicio con cualquier rama de la serie 130.',
+      icon:'🧟',
+      match:{type:'seriesAny',series:'130'}
+    },
+    {
+      id:'130-frankenstein',
+      title:'Frankenstein',
+      description:'Registra un servicio con cualquier rama de la serie 130.',
+      icon:'🧟‍♂️',
+      match:{type:'seriesAny',series:'130'}
+    },
+    {
+      id:'446-civialvaro',
+      title:'Civialvaro',
+      description:'Registra un servicio con cualquier rama de la serie 446 como relación Humanes - Móstoles El Soto.',
+      icon:'🚆',
+      match:{type:'routeSeriesPair',series:'446',a:'humanes',b:'mostoles el soto'}
+    },
+    {
+      id:'446-guarras',
+      title:'Guarras',
+      description:'Registra 5 servicios con cualquier rama de la serie 446.',
+      icon:'🐷',
+      match:{type:'countSeries',series:'446',count:5}
+    },
+    {
+      id:'450-buque',
+      title:'Buque',
+      description:'Registra un servicio con cualquier rama de la serie 450.',
+      icon:'🚢',
+      match:{type:'seriesAny',series:'450'}
+    },
+    {
+      id:'453-pepe',
+      title:'Un mundo más Pepe',
+      description:'Registra un servicio con la rama 2 de la serie 453 de 8 coches.',
+      icon:'🚆',
+      match:{type:'seriesBranchCars',series:'453',branch:'002',cars:8}
+    },
+    {
+      id:'465-parlas',
+      title:'Haciendo Parlas',
+      description:'Registra un servicio con cualquier rama de la serie 465 en la relación Parla - Colmenar Viejo.',
+      icon:'📍',
+      match:{type:'routeSeriesPair',series:'465',a:'parla',b:'colmenar viejo'}
+    },
+    {
+      id:'130-majarabique',
+      title:'Majarabique',
+      description:'Registra un servicio con cualquier rama de la serie 130 en la relación Cádiz - Madrid Puerta de Atocha.',
+      icon:'📍',
+      match:{type:'routeSeriesPair',series:'130',a:'cadiz',b:'madrid atocha'}
+    },
+    {
+      id:'familia',
+      title:'Familia',
+      description:'Registra 3 servicios, uno con cualquier rama de 463, otro con cualquier rama de 464 y otro con cualquier rama de 465.',
+      icon:'👪',
+      match:{type:'distinct',requirements:[
+        {type:'seriesAny',series:'463'},
+        {type:'seriesAny',series:'464'},
+        {type:'seriesAny',series:'465'}
+      ]}
+    },
+    {
+      id:'madrileno',
+      title:'El Madrileño',
+      description:'Registra 4 servicios, uno con cualquier rama de 465, otro con cualquier rama de 446, otro con cualquier rama de 450 y otro con cualquier rama de 453.',
+      icon:'🏙️',
+      match:{type:'distinct',requirements:[
+        {type:'seriesAny',series:'465'},
+        {type:'seriesAny',series:'446'},
+        {type:'seriesAny',series:'450'},
+        {type:'seriesAny',series:'453'}
+      ]}
+    },
+    {
+      id:'cadiz',
+      title:'Te gusta Cádiz',
+      description:'Registra 4 servicios, uno con cualquier rama de 464, otro con cualquier rama de 801, otro con cualquier rama de 449 y otro con cualquier rama de 130.',
+      icon:'🌊',
+      match:{type:'distinct',requirements:[
+        {type:'seriesAny',series:'464'},
+        {type:'seriesAny',series:'801'},
+        {type:'seriesAny',series:'449'},
+        {type:'seriesAny',series:'130'}
+      ]}
+    }
+  ];
+
+  window.ARGOS_ACHIEVEMENTS=ACHIEVEMENTS;
+
+  const digits=v=>String(v??'').replace(/\D/g,'');
+  const seriesKey=v=>digits(v).slice(0,3);
+  const branchKey=v=>digits(v).replace(/^0+/,'')||'';
+  const pairKey=(s,b)=>seriesKey(s)+'|'+branchKey(b);
+
+  function normalText(v){
+    return String(v??'')
+      .trim()
+      .toLocaleLowerCase('es-ES')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g,'')
+      .replace(/[–—→>]+/g,' ')
+      .replace(/[|;,]+/g,' ')
+      .replace(/\s+/g,' ')
+      .trim();
+  }
+
+  function services(){
+    try{
+      const raw=localStorage.getItem('argos_services')||'[]';
+      const data=JSON.parse(raw);
+      return Array.isArray(data)?data:[];
+    }catch(e){return []}
+  }
+
+  function field(obj,names){
+    for(const name of names){
+      const value=obj?.[name];
+      if(value!==undefined&&value!==null&&String(value).trim()!=='')return String(value).trim();
+    }
+    return '';
+  }
+
+  function compositions(service){
+    const out=[];
+    const add=(series,branch,vehicle)=>{
+      series=String(series??'').trim();
+      branch=branchKey(branch);
+      vehicle=String(vehicle??'').trim();
+      if(series&&branch)out.push({series,branch,vehicle});
+    };
+
+    add(service?.series||service?.serie,service?.branch||service?.rama,service?.vehicle||service?.vehiculo);
+
+    if(service?.composition2){
+      add(
+        service.composition2.series,
+        service.composition2.branch||service.composition2.rama,
+        service.composition2.vehicle||service.composition2.vehiculo
+      );
+    }
+    return out;
+  }
+
+  function resolveUnit(comp){
+    let unit=null;
+    let seriesData=null;
+
+    try{
+      seriesData=window.fleet?.[seriesKey(comp.series)]||null;
+    }catch(e){}
+
+    if(comp.vehicle&&typeof window.getFleetUnit==='function'){
+      try{
+        unit=window.getFleetUnit(comp.series,comp.vehicle)||null;
+      }catch(e){}
+    }
+
+    if(!unit&&seriesData){
+      const units=seriesData.units||{};
+      const entries=Object.entries(units);
+
+      const byBranch=entries.find(([,u])=>branchKey(u?.rama)===branchKey(comp.branch));
+      if(byBranch)unit=byBranch[1];
+
+      if(!unit&&comp.vehicle){
+        const v=digits(comp.vehicle);
+        const byVehicle=entries.find(([k,u])=>{
+          const codes=[k,u?.vehiculoBase,u?.numero,...(Array.isArray(u?.searchCodes)?u.searchCodes:[])]
+            .map(digits)
+            .filter(Boolean);
+          return v&&codes.includes(v);
+        });
+        if(byVehicle)unit=byVehicle[1];
+      }
+    }
+
+    return {unit,seriesData};
+  }
+
+  function gaugeOf(comp){
+    const {unit,seriesData}=resolveUnit(comp);
+    const values=[
+      unit?.ancho,
+      unit?.anchoVia,
+      unit?.tech?.ancho,
+      unit?.tech?.anchoVia,
+      seriesData?.ancho,
+      seriesData?.anchoVia,
+      seriesData?.tech?.ancho,
+      seriesData?.tech?.anchoVia
+    ].filter(v=>v!==undefined&&v!==null&&String(v).trim()!=='')
+     .map(v=>String(v).toLocaleLowerCase('es-ES'));
+
+    const joined=values.join(' | ').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+    if(/variable/.test(joined))return 'variable';
+    if(/fijo|fija/.test(joined))return 'fixed';
+    if(/1668/.test(joined)&&/1435/.test(joined))return 'variable';
+    if(/1668|1435/.test(joined))return 'fixed';
+    return '';
+  }
+
+  function carsOf(comp){
+    const {unit,seriesData}=resolveUnit(comp);
+    const values=[
+      unit?.numeroCoches,
+      unit?.coches,
+      unit?.numCoches,
+      unit?.subserie,
+      unit?.tipo,
+      unit?.descripcion,
+      unit?.tech?.numeroCoches,
+      seriesData?.numeroCoches,
+      seriesData?.tech?.numeroCoches
+    ].filter(v=>v!==undefined&&v!==null&&String(v).trim()!=='')
+     .map(v=>String(v).toLocaleLowerCase('es-ES'));
+
+    const joined=values.join(' | ')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+
+    if(/\b8\s*coches?\b/.test(joined))return 8;
+    if(/453\.6|tl200/.test(joined))return 8;
+    if(/\b4\s*coches?\b/.test(joined))return 4;
+    if(/453\.0|tl100/.test(joined))return 4;
+    return null;
+  }
+
+  function hasComposition(service,predicate){
+    return compositions(service).some(predicate);
+  }
+
+  function serviceHasSeries(service,series){
+    const wanted=seriesKey(series);
+    return hasComposition(service,c=>seriesKey(c.series)===wanted);
+  }
+
+  function serviceMatchesRequirement(service,req){
+    if(!req)return false;
+    const wantedSeries=seriesKey(req.series);
+
+    if(req.type==='seriesAny'){
+      return serviceHasSeries(service,wantedSeries);
+    }
+
+    if(req.type==='seriesBranch'){
+      return hasComposition(service,c=>
+        seriesKey(c.series)===wantedSeries &&
+        branchKey(c.branch)===branchKey(req.branch)
+      );
+    }
+
+    if(req.type==='seriesBranchCars'){
+      return hasComposition(service,c=>
+        seriesKey(c.series)===wantedSeries &&
+        branchKey(c.branch)===branchKey(req.branch) &&
+        carsOf(c)===Number(req.cars)
+      );
+    }
+
+    if(req.type==='seriesGauge'){
+      return hasComposition(service,c=>
+        seriesKey(c.series)===wantedSeries &&
+        gaugeOf(c)===req.gauge
+      );
+    }
+
+    if(req.type==='routeSeriesPair'){
+      if(!serviceHasSeries(service,wantedSeries))return false;
+      const origin=normalText(field(service,['origin','origen']));
+      const destination=normalText(field(service,['destination','destino']));
+      const a=normalText(req.a);
+      const b=normalText(req.b);
+      const pair=(x,y)=>
+        (x.includes(a)&&y.includes(b)) ||
+        (x.includes(b)&&y.includes(a));
+      return pair(origin,destination);
+    }
+
+    return false;
+  }
+
+  function distinctRequirementsSatisfied(requirements,data){
+    const used=new Set();
+
+    function solve(index){
+      if(index>=requirements.length)return true;
+      const req=requirements[index];
+
+      for(let i=0;i<data.length;i++){
+        if(used.has(i))continue;
+        if(!serviceMatchesRequirement(data[i],req))continue;
+        used.add(i);
+        if(solve(index+1))return true;
+        used.delete(i);
+      }
+      return false;
+    }
+
+    return solve(0);
+  }
+
+  function progressForAchievement(a,data){
+    if(Array.isArray(a.requiredBranches)&&a.requiredBranches.length){
+      const set=new Set();
+      data.forEach(service=>{
+        compositions(service).forEach(c=>{
+          if(seriesKey(c.series)!==seriesKey(a.series))return;
+          set.add(branchKey(c.branch));
+        });
+      });
+      const done=a.requiredBranches.filter(b=>set.has(branchKey(b))).length;
+      return {done,total:a.requiredBranches.length};
+    }
+
+    const m=a.match;
+    if(!m)return {done:0,total:1};
+
+    if(m.type==='countSeries'){
+      const count=data.filter(s=>serviceMatchesRequirement(s,m)).length;
+      return {done:Math.min(count,m.count),total:m.count};
+    }
+
+    if(m.type==='distinct'){
+      const done=m.requirements.filter(req=>data.some(s=>serviceMatchesRequirement(s,req))).length;
+      return {done:Math.min(done,m.requirements.length),total:m.requirements.length};
+    }
+
+    return {
+      done:data.some(s=>serviceMatchesRequirement(s,m))?1:0,
+      total:1
+    };
+  }
+
+  function unlocked(a,data){
+    if(Array.isArray(a.requiredBranches)&&a.requiredBranches.length){
+      const p=progressForAchievement(a,data);
+      return p.done===p.total;
+    }
+
+    const m=a.match;
+    if(!m)return false;
+
+    if(m.type==='countSeries'){
+      return data.filter(s=>serviceMatchesRequirement(s,m)).length>=m.count;
+    }
+
+    if(m.type==='distinct'){
+      return distinctRequirementsSatisfied(m.requirements,data);
+    }
+
+    return data.some(s=>serviceMatchesRequirement(s,m));
+  }
+
+  function state(a,data){
+    const p=progressForAchievement(a,data);
+    if(p.done===p.total)return 'DESBLOQUEADO';
+    if(p.total>1)return `${p.done}/${p.total}`;
+    return 'PENDIENTE';
+  }
+
+  function desc(a,data){
+    const p=progressForAchievement(a,data);
+    const base=String(a.description||'');
+    if(p.total>1 && p.done<p.total)return `${base} · Progreso: ${p.done}/${p.total}`;
+    return base;
+  }
+
+  function esc(v){
+    return String(v??'').replace(/[&<>"']/g,c=>({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[c]));
+  }
+
+  function card(a,data){
+    const ok=unlocked(a,data);
+    const p=progressForAchievement(a,data);
+    const stateLabel=state(a,data);
+    const icon=ok?(a.icon||'🏆'):'🔒';
+    const progressWidth=p.total?Math.round((p.done/p.total)*100):0;
+
+    return `<article class="argos-achievement-card ${ok?'unlocked':'locked'}">
+      <div class="argos-achievement-icon" aria-hidden="true">${esc(icon)}</div>
+      <div>
+        <span class="argos-achievement-kicker">${ok?'LOGRO DESBLOQUEADO':'LOGRO PENDIENTE'}</span>
+        <div class="argos-achievement-title">${esc(a.title||'Logro')}</div>
+        <div class="argos-achievement-description">${esc(desc(a,data))}</div>
+        ${p.total>1?`<div class="argos-achievement-progress"><span><i style="width:${progressWidth}%"></i></span></div>`:''}
+      </div>
+      <div class="argos-achievement-state">${esc(stateLabel)}</div>
+    </article>`;
+  }
+
+  function render(){
+    const root=document.getElementById('argosAchievementsList');
+    if(!root)return;
+
+    const data=services();
+    const owned=ACHIEVEMENTS.filter(a=>unlocked(a,data));
+    const pending=ACHIEVEMENTS.filter(a=>!unlocked(a,data));
+
+    root.innerHTML=`
+      <div class="argos-achievements-dashboard">
+        <section class="argos-achievements-owned-wrap">
+          <div>
+            <h2 class="argos-achievements-section-title">MIS LOGROS</h2>
+            <span class="argos-achievements-section-subtitle">
+              ${owned.length} ${owned.length===1?'logro conseguido':'logros conseguidos'} de ${ACHIEVEMENTS.length}
+            </span>
+          </div>
+          <div id="argosAchievementsOwned" class="argos-achievements-owned-list"></div>
+        </section>
+
+        <section class="argos-achievements-more-wrap">
+          <button id="argosAchievementsMoreButton" class="argos-achievements-more-button"
+                  type="button" aria-expanded="false">VER MÁS LOGROS</button>
+          <div id="argosAchievementsMoreSection" class="argos-achievements-more-section"
+               aria-hidden="true">
+            <h3 class="argos-achievements-more-heading">LOGROS PENDIENTES</h3>
+            <div id="argosAchievementsMoreList" class="argos-achievements-more-list"></div>
+          </div>
+        </section>
+      </div>`;
+
+    const ownedRoot=document.getElementById('argosAchievementsOwned');
+    const moreRoot=document.getElementById('argosAchievementsMoreList');
+
+    if(ownedRoot){
+      ownedRoot.innerHTML=owned.length
+        ?owned.map(a=>card(a,data)).join('')
+        :'<div class="argos-achievements-owned-empty"><strong>Aún no tienes logros</strong>Registra servicios para empezar a desbloquearlos.</div>';
+    }
+
+    if(moreRoot){
+      moreRoot.innerHTML=pending.length
+        ?pending.map(a=>card(a,data)).join('')
+        :'<div class="argos-achievements-owned-empty"><strong>¡Has conseguido todos los logros!</strong>No quedan logros pendientes.</div>';
+    }
+
+    const button=document.getElementById('argosAchievementsMoreButton');
+    const section=document.getElementById('argosAchievementsMoreSection');
+
+    if(button&&section){
+      button.addEventListener('click',function(){
+        const open=section.classList.toggle('open');
+        button.classList.toggle('open',open);
+        button.textContent=open?'OCULTAR LOGROS':'VER MÁS LOGROS';
+        button.setAttribute('aria-expanded',String(open));
+        section.setAttribute('aria-hidden',String(!open));
+      });
+    }
+  }
+
+  window.renderAchievements=render;
+
+  /* ---------------------------------------------------------------
+     2) SOLO ESTAS SEIS FUNCIONES VUELVEN A MÁS FUNCIONES
+     --------------------------------------------------------------- */
+  document.addEventListener('click',function(ev){
+    const btn=ev.target?.closest?.('button[data-more-functions-back="true"]');
+    if(!btn)return;
+
+    ev.preventDefault();
+    ev.stopImmediatePropagation();
+
+    if(typeof window.showScreen==='function'){
+      window.showScreen('more-functions');
+    }else{
+      document.querySelectorAll('.app-shell > .screen').forEach(s=>{
+        const active=s.id==='more-functions';
+        s.classList.toggle('active',active);
+        s.style.display=active?'flex':'none';
+      });
+    }
+  },true);
+
+  /* ---------------------------------------------------------------
+     3) Al entrar en Logros, siempre renderiza la versión final
+     --------------------------------------------------------------- */
+  const wrapShowScreen=()=>{
+    const original=window.showScreen;
+    if(typeof original!=='function'||original.__argosLogrosFinalWrapped)return;
+
+    const wrapped=function(id){
+      const result=original.apply(this,arguments);
+      if(id==='achievements'){
+        setTimeout(render,0);
+      }
+      return result;
+    };
+    wrapped.__argosLogrosFinalWrapped=true;
+    window.showScreen=wrapped;
+  };
+
+  wrapShowScreen();
+
+  document.addEventListener('argos:service-saved',function(){render();});
+  window.addEventListener('storage',function(ev){
+    if(ev.key==='argos_services')render();
+  });
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',function(){
+      wrapShowScreen();
+      render();
+    },{once:true});
+  }else{
+    render();
+  }
+})();
+</script>
+<style id="argos-achievement-progress-final">
+.argos-achievement-progress{
+  margin-top:8px;
+}
+.argos-achievement-progress > span{
+  display:block;
+  width:min(250px,100%);
+  height:6px;
+  border-radius:999px;
+  background:rgba(138,0,92,.10);
+  overflow:hidden;
+}
+.argos-achievement-progress > span > i{
+  display:block;
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,#e52a3f 0%,#c01b70 34%,#8f0078 63%,#1d5e90 100%);
+}
+body.dark .argos-achievement-progress > span{
+  background:rgba(255,255,255,.11);
+}
+@media(max-width:600px){
+  .argos-achievement-progress > span{
+    width:100%;
+  }
+}
+</style>
