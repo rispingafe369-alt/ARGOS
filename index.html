@@ -5039,8 +5039,10 @@ window.showScreen=function(id){
         const data=(typeof fleet!=='undefined')?fleet[s]:null;
         const units=data?.units||{};
         for(const [key,unit] of Object.entries(units)){
-          if(digits(unit?.rama)===b){
-            return {branch:window.ARGOS_NORMALIZE_BRANCH(unit.rama),vehicle:String(unit.vehiculoBase||key)};
+          const unitBranch=window.ARGOS_NORMALIZE_BRANCH(unit?.rama??'');
+          const typedBranch=window.ARGOS_NORMALIZE_BRANCH(b);
+          if(unitBranch && typedBranch && unitBranch===typedBranch){
+            return {branch:unitBranch,vehicle:String(unit.vehiculoBase||key)};
           }
         }
       }catch(e){}
@@ -5229,7 +5231,9 @@ window.showScreen=function(id){
       const units=data?.units||{};
 
       for(const [key,unit] of Object.entries(units)){
-        if(digits(unit?.rama)===b){
+        const unitBranch=window.ARGOS_NORMALIZE_BRANCH(unit?.rama??'');
+        const typedBranch=window.ARGOS_NORMALIZE_BRANCH(b);
+        if(unitBranch && typedBranch && unitBranch===typedBranch){
           return {
             unit,
             vehicle:String(unit?.vehiculoBase||key||'')
@@ -9233,7 +9237,11 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
       const units=fleet[seriesNorm(series)]?.units||{};
       const b=digits(branch);
       for(const [key,unit] of Object.entries(units)){
-        if(digits(unit?.rama)===b)return {vehicle:String(unit?.vehiculoBase||key||''),branch:window.ARGOS_NORMALIZE_BRANCH(unit?.rama||branch)};
+        const unitBranch=window.ARGOS_NORMALIZE_BRANCH(unit?.rama??'');
+        const typedBranch=window.ARGOS_NORMALIZE_BRANCH(b);
+        if(unitBranch && typedBranch && unitBranch===typedBranch){
+          return {vehicle:String(unit?.vehiculoBase||key||''),branch:unitBranch};
+        }
       }
     }catch(e){console.warn('ARGOS V22 · rama:',e)}
     return null;
