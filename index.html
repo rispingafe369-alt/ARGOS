@@ -10818,29 +10818,113 @@ window.addEventListener("storage",()=>setTimeout(()=>{renderQuarterView(filtered
 
   function deleteService(service){
     if(!service)return false;
+
     const train=text(service.train??service.tren??service.number??service.numero);
-    const route=[text(service.origin??service.origen),text(service.destination??service.destino)].filter(Boolean).join(' → ');
+    const origin=text(service.origin??service.origen);
+    const destination=text(service.destination??service.destino);
+    const route=[origin,destination].filter(Boolean).join(' → ');
     const label=[train?`Tren ${train}`:'Servicio',route].filter(Boolean).join(' · ');
-    if(!window.confirm(`¿Eliminar este servicio?\n\n${label}\n\nEsta acción no se puede deshacer.`))return false;
 
-    const all=readServices();
-    const next=all.filter(s=>String(s?.id||'')!==String(service.id||''));
-    if(next.length===all.length)return false;
+    document.getElementById('argosDeleteConfirmV1')?.remove();
 
-    try{
-      if(typeof saveServices==='function')saveServices(next);
-      else localStorage.setItem(SERVICES_KEY,JSON.stringify(next));
-    }catch(error){
-      console.error('ARGOS V73 · eliminar servicio:',error);
-      if(typeof toast==='function')toast('No se ha podido eliminar el servicio');
-      return false;
-    }
+    const overlay=document.createElement('div');
+    overlay.id='argosDeleteConfirmV1';
+    overlay.className='argos-delete-confirm-overlay';
+    overlay.setAttribute('role','dialog');
+    overlay.setAttribute('aria-modal','true');
+    overlay.setAttribute('aria-labelledby','argosDeleteConfirmTitleV1');
 
-    if(typeof refreshHome==='function')refreshHome();
-    if(typeof window.renderHistory==='function')window.renderHistory();
-    if(typeof window.renderStats==='function')window.renderStats();
-    if(typeof toast==='function')toast('Servicio eliminado');
-    return true;
+    overlay.innerHTML=`
+      <div class="argos-delete-confirm-card">
+        <div class="argos-delete-confirm-top">
+          <div class="argos-delete-confirm-icon" aria-hidden="true">
+            <span>×</span>
+          </div>
+          <button type="button" class="argos-delete-confirm-close" aria-label="Cerrar">×</button>
+        </div>
+
+        <div class="argos-delete-confirm-kicker">ARGOS · HISTORIAL</div>
+        <h3 id="argosDeleteConfirmTitleV1">¿Eliminar este servicio?</h3>
+        <p class="argos-delete-confirm-lead">Esta acción eliminará este registro de tu historial.</p>
+
+        <div class="argos-delete-confirm-service">
+          <div class="argos-delete-confirm-service-label">${esc(train?'SERVICIO':'REGISTRO')}</div>
+          <strong>${esc(label||'Servicio registrado')}</strong>
+          ${service.series?`<span>Serie ${esc(service.series)}${service.branch?' · Rama '+esc(service.branch):''}</span>`:''}
+        </div>
+
+        <div class="argos-delete-confirm-warning">
+          <span aria-hidden="true">!</span>
+          <span>Esta acción no se puede deshacer.</span>
+        </div>
+
+        <div class="argos-delete-confirm-actions">
+          <button type="button" class="argos-delete-confirm-cancel">Cancelar</button>
+          <button type="button" class="argos-delete-confirm-delete">Eliminar servicio</button>
+        </div>
+      </div>`;
+
+    document.body.appendChild(overlay);
+
+    const close=()=>{
+      overlay.classList.remove('open');
+      window.setTimeout(()=>overlay.remove(),180);
+      document.removeEventListener('keydown',onKey);
+    };
+
+    const onKey=(event)=>{
+      if(event.key==='Escape'){
+        event.preventDefault();
+        close();
+      }
+    };
+
+    const performDelete=()=>{
+      const all=readServices();
+      const next=all.filter(s=>String(s?.id||'')!==String(service.id||''));
+      if(next.length===all.length){
+        close();
+        return false;
+      }
+
+      try{
+        if(typeof saveServices==='function')saveServices(next);
+        else localStorage.setItem(SERVICES_KEY,JSON.stringify(next));
+      }catch(error){
+        console.error('ARGOS V73 · eliminar servicio:',error);
+        close();
+        if(typeof toast==='function')toast('No se ha podido eliminar el servicio');
+        return false;
+      }
+
+      if(typeof refreshHome==='function')refreshHome();
+      if(typeof window.renderHistory==='function')window.renderHistory();
+      if(typeof window.renderStats==='function')window.renderStats();
+      if(typeof toast==='function')toast('Servicio eliminado');
+
+      close();
+
+      if(typeof window.showScreen==='function'){
+        window.setTimeout(()=>window.showScreen('history'),190);
+      }
+      return true;
+    };
+
+    overlay.querySelector('.argos-delete-confirm-close').addEventListener('click',close);
+    overlay.querySelector('.argos-delete-confirm-cancel').addEventListener('click',close);
+    overlay.querySelector('.argos-delete-confirm-delete').addEventListener('click',performDelete);
+    overlay.addEventListener('click',event=>{
+      if(event.target===overlay)close();
+    });
+
+    document.addEventListener('keydown',onKey);
+
+    requestAnimationFrame(()=>{
+      overlay.classList.add('open');
+      overlay.querySelector('.argos-delete-confirm-cancel')?.focus();
+    });
+
+    return false;
   }
 
   function render(){
@@ -18831,6 +18915,237 @@ body.dark .argos-achievement-progress > span{
 @media(max-width:600px){
   .argos-achievement-progress > span{
     width:100%;
+  }
+}
+</style>
+
+<style id="argos-delete-confirm-renfe-v1">
+.argos-delete-confirm-overlay{
+  position:fixed;
+  inset:0;
+  z-index:100500;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  background:rgba(14,13,17,.56);
+  backdrop-filter:blur(7px);
+  -webkit-backdrop-filter:blur(7px);
+  opacity:0;
+  transition:opacity .18s ease;
+}
+.argos-delete-confirm-overlay.open{
+  opacity:1;
+}
+.argos-delete-confirm-card{
+  width:min(500px,100%);
+  box-sizing:border-box;
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--line,#dedee3);
+  border-radius:26px;
+  padding:22px;
+  background:var(--card,#fff);
+  color:var(--ink,#17171b);
+  box-shadow:0 30px 90px rgba(0,0,0,.28);
+  transform:translateY(10px) scale(.985);
+  transition:transform .2s ease;
+}
+.argos-delete-confirm-overlay.open .argos-delete-confirm-card{
+  transform:translateY(0) scale(1);
+}
+.argos-delete-confirm-card::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto;
+  height:5px;
+  background:linear-gradient(90deg,#e52a3f 0%,#c01b70 34%,#8f0078 63%,#1d5e90 100%);
+}
+.argos-delete-confirm-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  margin-bottom:14px;
+}
+.argos-delete-confirm-icon{
+  width:54px;
+  height:54px;
+  border-radius:17px;
+  display:grid;
+  place-items:center;
+  background:var(--soft,#f5e8f0);
+  color:#b42318;
+  box-shadow:inset 0 0 0 1px rgba(180,35,24,.08);
+  font-size:31px;
+  font-weight:500;
+}
+.argos-delete-confirm-icon span{
+  display:block;
+  line-height:1;
+  transform:rotate(45deg);
+}
+.argos-delete-confirm-close{
+  width:40px;
+  height:40px;
+  border:1px solid var(--line,#dedee3);
+  border-radius:13px;
+  background:var(--page,#f7f7f8);
+  color:var(--muted,#777);
+  font-size:25px;
+  line-height:1;
+  cursor:pointer;
+}
+.argos-delete-confirm-kicker{
+  color:var(--renfe,#8a005c);
+  font-size:10px;
+  font-weight:950;
+  letter-spacing:.11em;
+}
+.argos-delete-confirm-card h3{
+  margin:6px 0 7px;
+  font-size:27px;
+  line-height:1.08;
+  letter-spacing:-.025em;
+}
+.argos-delete-confirm-lead{
+  margin:0;
+  color:var(--muted,#777);
+  font-size:13px;
+  line-height:1.45;
+}
+.argos-delete-confirm-service{
+  margin-top:17px;
+  padding:14px 15px;
+  border:1px solid var(--line,#dedee3);
+  border-radius:17px;
+  background:var(--page,#f7f7f8);
+}
+.argos-delete-confirm-service-label{
+  margin-bottom:5px;
+  color:var(--renfe,#8a005c);
+  font-size:9px;
+  font-weight:950;
+  letter-spacing:.1em;
+}
+.argos-delete-confirm-service strong{
+  display:block;
+  color:var(--ink,#17171b);
+  font-size:16px;
+  line-height:1.3;
+}
+.argos-delete-confirm-service span{
+  display:block;
+  margin-top:4px;
+  color:var(--muted,#777);
+  font-size:11px;
+}
+.argos-delete-confirm-warning{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin-top:12px;
+  padding:11px 12px;
+  border-radius:14px;
+  background:rgba(180,35,24,.07);
+  color:#9e2a20;
+  font-size:11px;
+  font-weight:800;
+}
+.argos-delete-confirm-warning span:first-child{
+  width:22px;
+  height:22px;
+  flex:0 0 22px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#b42318;
+  color:#fff;
+  font-size:13px;
+  font-weight:950;
+}
+.argos-delete-confirm-actions{
+  display:grid;
+  grid-template-columns:1fr 1.15fr;
+  gap:10px;
+  margin-top:18px;
+}
+.argos-delete-confirm-actions button{
+  min-height:50px;
+  border-radius:14px;
+  padding:11px 14px;
+  font:inherit;
+  font-size:13px;
+  font-weight:950;
+  cursor:pointer;
+}
+.argos-delete-confirm-cancel{
+  border:1px solid var(--line,#dedee3);
+  background:var(--page,#f7f7f8);
+  color:var(--ink,#17171b);
+}
+.argos-delete-confirm-delete{
+  border:0;
+  background:#b42318;
+  color:#fff;
+  box-shadow:0 7px 18px rgba(180,35,24,.18);
+}
+.argos-delete-confirm-cancel:focus-visible,
+.argos-delete-confirm-delete:focus-visible,
+.argos-delete-confirm-close:focus-visible{
+  outline:3px solid rgba(138,0,92,.18);
+  outline-offset:2px;
+}
+
+body.dark .argos-delete-confirm-card{
+  background:linear-gradient(145deg,#242126 0%,#2d2730 100%);
+  border-color:rgba(255,255,255,.08);
+}
+body.dark .argos-delete-confirm-close,
+body.dark .argos-delete-confirm-service{
+  background:#1d1a20;
+  border-color:rgba(255,255,255,.08);
+}
+body.dark .argos-delete-confirm-card h3,
+body.dark .argos-delete-confirm-service strong{
+  color:#fff;
+}
+body.dark .argos-delete-confirm-lead,
+body.dark .argos-delete-confirm-service span{
+  color:#c0bbc2;
+}
+body.dark .argos-delete-confirm-cancel{
+  background:#1d1a20;
+  border-color:rgba(255,255,255,.08);
+  color:#fff;
+}
+body.dark .argos-delete-confirm-warning{
+  background:rgba(239,111,95,.10);
+  color:#ffb7ac;
+}
+
+@media(max-width:600px){
+  .argos-delete-confirm-overlay{
+    align-items:flex-end;
+    padding:10px;
+  }
+  .argos-delete-confirm-card{
+    width:100%;
+    border-radius:24px 24px 19px 19px;
+    padding:18px;
+    transform:translateY(18px);
+  }
+  .argos-delete-confirm-card h3{
+    font-size:24px;
+  }
+  .argos-delete-confirm-lead{
+    font-size:12px;
+  }
+  .argos-delete-confirm-actions{
+    grid-template-columns:1fr;
+  }
+  .argos-delete-confirm-delete{
+    order:-1;
   }
 }
 </style>
