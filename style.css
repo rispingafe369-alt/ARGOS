@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 :root {
-  /* Morado exacto del logo */
-  --purple: #63024c;
-  --purple-2: #8a005c;
-  --purple-dark: #4a0138;
+  --purple: #8a005c;
+  --purple-2: #a50070;
+  --purple-dark: #700049;
   --bg: #f5f4f6;
   --surface: #fff;
   --surface-2: #f0eef1;
@@ -33,7 +32,7 @@ html {
 }
 body {
   min-height: 100vh;
-  background: radial-gradient(circle at top right, rgba(99, 2, 76, .10), transparent 35%), var(--bg);
+  background: radial-gradient(circle at top right, rgba(138, 0, 92, .10), transparent 35%), var(--bg);
   color: var(--text);
   font-family: Inter, "Segoe UI", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -49,54 +48,37 @@ button {
   margin: auto;
   padding-bottom: 40px;
 }
-
-/* ========== BARRA SUPERIOR CON FONDO MORADO DEL LOGO ========== */
 .app-header {
   padding: 34px 0 28px;
-  border-bottom: none;
-  background: var(--purple);
-  color: #fff;
-  /* Hace que el header ocupe todo el ancho de la pantalla */
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  padding-left: max(16px, calc((100vw - min(1120px, calc(100% - 32px))) / 2 + 16px));
-  padding-right: max(16px, calc((100vw - min(1120px, calc(100% - 32px))) / 2 + 16px));
-  box-sizing: border-box;
+  border-bottom: 1px solid var(--border);
 }
 .brand-row {
   display: flex;
   align-items: center;
   gap: 22px;
-  max-width: 1120px;
-  margin: 0 auto;
 }
 .train-logo {
   width: 78px;
   height: 78px;
   border-radius: 22px;
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--purple);
   display: grid;
   place-items: center;
   font-size: 38px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+  box-shadow: var(--shadow);
   flex: none;
-  color: #fff;
 }
 .brand-copy {
   min-width: 0;
 }
 .eyebrow, .screen-kicker {
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--purple-2);
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 1px;
 }
 h1 {
-  color: #fff;
+  color: var(--purple);
   font-size: clamp(48px, 7vw, 76px);
   line-height: .9;
   letter-spacing: -3px;
@@ -104,7 +86,7 @@ h1 {
 }
 .subtitle {
   margin-top: 10px;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--muted);
   font-size: 18px;
 }
 .subtitle span {
@@ -114,19 +96,17 @@ h1 {
   margin-left: auto;
   width: 48px;
   height: 48px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid var(--border);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
+  background: var(--surface);
+  color: var(--text);
   font-size: 22px;
-  box-shadow: none;
+  box-shadow: var(--shadow);
 }
 .settings-button:hover {
-  color: #fff;
-  border-color: #fff;
-  background: rgba(255, 255, 255, 0.22);
+  color: var(--purple);
+  border-color: var(--purple);
 }
-
 .screen {
   display: none;
   padding: 34px 0;
@@ -155,7 +135,7 @@ h1 {
 }
 .menu-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(99, 2, 76, .35);
+  border-color: rgba(138, 0, 92, .35);
 }
 .menu-card.primary {
   background: var(--purple);
@@ -254,7 +234,7 @@ h1 {
 }
 .form-group input:focus, .form-group textarea:focus, .search-box input:focus {
   border-color: var(--purple);
-  box-shadow: 0 0 0 3px rgba(99, 2, 76, .12);
+  box-shadow: 0 0 0 3px rgba(138, 0, 92, .12);
 }
 .autocomplete-group {
   position: relative;
@@ -451,30 +431,29 @@ h1 {
 .toast.show {
   transform: translate(-50%, 0);
 }
-
-/* ================================================================
-   BOTONES COMPACTOS · Ahora con fondo morado sólido del logo
-   (reemplaza el diseño multicolor / gradiente)
-   ================================================================ */
+/* Botones compactos · Más funciones / Volver */
 .btn-compact {
   position: relative !important;
   min-height: 46px !important;
   height: 46px !important;
-  border: 1px solid transparent !important;
+  border: 1px solid rgba(138, 0, 92, .18) !important;
   border-radius: 999px !important;
   padding: 6px 18px 6px 8px !important;
   flex-direction: row !important;
   align-items: center !important;
   justify-content: center !important;
   gap: 10px !important;
-  background: var(--purple) !important;
-  color: #fff !important;
-  box-shadow: 0 7px 18px rgba(99, 2, 76, .25) !important;
+  background: linear-gradient(135deg, var(--surface) 0%, #fbf7fa 100%) !important;
+  color: var(--purple) !important;
+  box-shadow:
+    0 7px 18px rgba(138, 0, 92, .10),
+    inset 0 1px 0 rgba(255, 255, 255, .85) !important;
   overflow: hidden !important;
   isolation: isolate !important;
   transition:
     transform .18s ease,
     box-shadow .18s ease,
+    border-color .18s ease,
     background .18s ease !important;
 }
 .btn-compact::before {
@@ -484,7 +463,7 @@ h1 {
   background: linear-gradient(
     105deg,
     transparent 0%,
-    rgba(255, 255, 255, .25) 42%,
+    rgba(255, 255, 255, .68) 42%,
     transparent 64%
   ) !important;
   transform: translateX(-120%) !important;
@@ -494,18 +473,22 @@ h1 {
 }
 .btn-compact:hover {
   transform: translateY(-2px) !important;
-  background: var(--purple-2) !important;
-  box-shadow: 0 10px 24px rgba(99, 2, 76, .35) !important;
+  border-color: rgba(138, 0, 92, .35) !important;
+  box-shadow:
+    0 10px 24px rgba(138, 0, 92, .15),
+    inset 0 1px 0 rgba(255, 255, 255, .9) !important;
 }
 .btn-compact:hover::before {
   transform: translateX(120%) !important;
 }
 .btn-compact:active {
   transform: translateY(0) scale(.985) !important;
-  box-shadow: 0 5px 12px rgba(99, 2, 76, .20) !important;
+  box-shadow:
+    0 5px 12px rgba(138, 0, 92, .10),
+    inset 0 1px 0 rgba(255, 255, 255, .8) !important;
 }
 .btn-compact:focus-visible {
-  outline: 3px solid rgba(99, 2, 76, .30) !important;
+  outline: 3px solid rgba(138, 0, 92, .18) !important;
   outline-offset: 3px !important;
 }
 .btn-compact .card-icon,
@@ -514,10 +497,10 @@ h1 {
   width: 32px !important;
   height: 32px !important;
   min-width: 32px !important;
-  border: 1px solid rgba(255, 255, 255, .25) !important;
+  border: 1px solid rgba(138, 0, 92, .08) !important;
   border-radius: 50% !important;
-  background: rgba(255, 255, 255, .18) !important;
-  color: #fff !important;
+  background: linear-gradient(145deg, #f8eaf3 0%, #f2dce9 100%) !important;
+  color: var(--purple) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -525,7 +508,7 @@ h1 {
   font-weight: 800 !important;
   line-height: 1 !important;
   margin: 0 !important;
-  box-shadow: none !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8) !important;
 }
 .btn-compact .card-content {
   align-items: center !important;
@@ -536,7 +519,7 @@ h1 {
   font-size: 16px !important;
   font-weight: 800 !important;
   letter-spacing: -.2px !important;
-  color: #fff !important;
+  color: var(--purple) !important;
   white-space: nowrap !important;
 }
 @media(max-width:700px) {
@@ -563,8 +546,6 @@ h1 {
   }
   .app-header {
     padding: 20px 0;
-    padding-left: max(10px, calc((100vw - calc(100% - 20px)) / 2 + 10px));
-    padding-right: max(10px, calc((100vw - calc(100% - 20px)) / 2 + 10px));
   }
   .brand-row {
     gap: 12px;
@@ -798,7 +779,7 @@ h1 {
 }
 .notes-editor:focus{
   border-color:var(--purple);
-  box-shadow:0 0 0 3px rgba(99, 2, 76, .12);
+  box-shadow:0 0 0 3px rgba(124,92,255,.12);
 }
 .notes-editor::placeholder{
   color:var(--muted);
@@ -861,4 +842,4 @@ h1 {
 .quality-empty{padding:24px 18px;border:1px dashed var(--border);border-radius:16px;color:var(--muted);text-align:center;line-height:1.5;}
 @media(max-width:700px){.quality-screen{padding:22px 0 35px;}.quality-card{padding:17px 18px;}.quality-card strong{font-size:21px;}}
 /* ARGOS · PROGRESO · DETALLE DE RAMAS */
-.progress-intro{display:flex;align-items:center;gap:13px;width:min(900px,100%);margin:0 auto 12px;padding:14px 16px;border:1px solid rgba(99,2,76,.14);border-radius:16px;background:var(--soft,#f7edf4);box-sizing:border-box}.progress-intro-icon{width:34px;height:34px;flex:0 0 34px;border-radius:11px;display:grid;place-items:center;background:var(--purple);color:#fff;font-weight:900}.progress-intro strong,.progress-intro span{display:block}.progress-intro strong{font-size:13px;color:var(--ink,#222)}.progress-intro span{margin-top:2px;color:var(--muted,#777);font-size:11px;line-height:1.4}.progress-card{cursor:pointer}.progress-card:focus-visible{outline:3px solid rgba(99,2,76,.25);outline-offset:2px}.progress-card::after{content:'Ver ramas ›';display:block;margin-top:10px;color:var(--purple);font-size:11px;font-weight:900}.progress-modal{position:fixed;inset:0;z-index:12000;display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box}.progress-modal[hidden]{display:none!important}.progress-modal-backdrop{position:absolute;inset:0;background:rgba(12,8,12,.46);backdrop-filter:blur(4px)}.progress-modal-card{position:relative;width:min(760px,100%);max-height:min(760px,calc(100dvh - 40px));overflow:auto;background:var(--card,#fff);color:var(--ink,#222);border:1px solid var(--line,#ddd);border-radius:24px;padding:22px;box-shadow:0 25px 80px rgba(20,10,20,.28);box-sizing:border-box}.progress-modal-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:16px}.progress-modal-head h3{margin:3px 0 4px;font-size:30px}.progress-modal-head p{margin:0;color:var(--muted,#777);font-size:12px}.progress-modal-close{width:40px;height:40px;border:1px solid var(--line,#ddd);border-radius:50%;background:var(--soft,#f6edf3);color:var(--ink,#222);font-size:24px;line-height:1;cursor:pointer}.progress-branch-columns{display:grid;grid-template-columns:1fr 1fr;gap:12px}.progress-branch-group{border:1px solid var(--line,#ddd);border-radius:17px;padding:13px;background:var(--page,#f7f7f7)}.progress-branch-group-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}.progress-branch-group-head strong{font-size:13px}.progress-branch-group-head span{min-width:24px;height:24px;padding:0 7px;border-radius:999px;display:grid;place-items:center;background:var(--soft,#f6edf3);color:var(--purple);font-size:11px;font-weight:900}.progress-branch-list{display:flex;flex-wrap:wrap;gap:7px}.progress-branch-chip{display:inline-flex;align-items:center;justify-content:center;min-width:38px;padding:8px 10px;border-radius:10px;background:var(--card,#fff);border:1px solid var(--line,#ddd);font-size:12px;font-weight:850}.progress-branch-empty{padding:12px;border-radius:11px;border:1px dashed var(--line,#ddd);color:var(--muted,#777);font-size:11px}.progress-modal-subtitle{margin:0 0 10px;color:var(--purple);font-size:11px;font-weight:900;letter-spacing:.04em;text-transform:uppercase}.progress-branch-complete{border-style:solid;background:var(--soft,#f7edf4);color:var(--purple);font-weight:850}@media(max-width:650px){.progress-intro{align-items:flex-start}.progress-branch-columns{grid-template-columns:1fr}.progress-modal{padding:10px}.progress-modal-card{max-height:calc(100dvh - 20px);padding:17px;border-radius:20px}.progress-modal-head h3{font-size:25px}}body.argos-progress-modal-open{overflow:hidden!important}
+.progress-intro{display:flex;align-items:center;gap:13px;width:min(900px,100%);margin:0 auto 12px;padding:14px 16px;border:1px solid rgba(138,0,92,.14);border-radius:16px;background:var(--soft,#f7edf4);box-sizing:border-box}.progress-intro-icon{width:34px;height:34px;flex:0 0 34px;border-radius:11px;display:grid;place-items:center;background:var(--renfe,#8a005c);color:#fff;font-weight:900}.progress-intro strong,.progress-intro span{display:block}.progress-intro strong{font-size:13px;color:var(--ink,#222)}.progress-intro span{margin-top:2px;color:var(--muted,#777);font-size:11px;line-height:1.4}.progress-card{cursor:pointer}.progress-card:focus-visible{outline:3px solid rgba(138,0,92,.25);outline-offset:2px}.progress-card::after{content:'Ver ramas ›';display:block;margin-top:10px;color:var(--renfe,#8a005c);font-size:11px;font-weight:900}.progress-modal{position:fixed;inset:0;z-index:12000;display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box}.progress-modal[hidden]{display:none!important}.progress-modal-backdrop{position:absolute;inset:0;background:rgba(12,8,12,.46);backdrop-filter:blur(4px)}.progress-modal-card{position:relative;width:min(760px,100%);max-height:min(760px,calc(100dvh - 40px));overflow:auto;background:var(--card,#fff);color:var(--ink,#222);border:1px solid var(--line,#ddd);border-radius:24px;padding:22px;box-shadow:0 25px 80px rgba(20,10,20,.28);box-sizing:border-box}.progress-modal-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:16px}.progress-modal-head h3{margin:3px 0 4px;font-size:30px}.progress-modal-head p{margin:0;color:var(--muted,#777);font-size:12px}.progress-modal-close{width:40px;height:40px;border:1px solid var(--line,#ddd);border-radius:50%;background:var(--soft,#f6edf3);color:var(--ink,#222);font-size:24px;line-height:1;cursor:pointer}.progress-branch-columns{display:grid;grid-template-columns:1fr 1fr;gap:12px}.progress-branch-group{border:1px solid var(--line,#ddd);border-radius:17px;padding:13px;background:var(--page,#f7f7f7)}.progress-branch-group-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}.progress-branch-group-head strong{font-size:13px}.progress-branch-group-head span{min-width:24px;height:24px;padding:0 7px;border-radius:999px;display:grid;place-items:center;background:var(--soft,#f6edf3);color:var(--renfe,#8a005c);font-size:11px;font-weight:900}.progress-branch-list{display:flex;flex-wrap:wrap;gap:7px}.progress-branch-chip{display:inline-flex;align-items:center;justify-content:center;min-width:38px;padding:8px 10px;border-radius:10px;background:var(--card,#fff);border:1px solid var(--line,#ddd);font-size:12px;font-weight:850}.progress-branch-empty{padding:12px;border-radius:11px;border:1px dashed var(--line,#ddd);color:var(--muted,#777);font-size:11px}.progress-modal-subtitle{margin:0 0 10px;color:var(--renfe,#8a005c);font-size:11px;font-weight:900;letter-spacing:.04em;text-transform:uppercase}.progress-branch-complete{border-style:solid;background:var(--soft,#f7edf4);color:var(--renfe,#8a005c);font-weight:850}@media(max-width:650px){.progress-intro{align-items:flex-start}.progress-branch-columns{grid-template-columns:1fr}.progress-modal{padding:10px}.progress-modal-card{max-height:calc(100dvh - 20px);padding:17px;border-radius:20px}.progress-modal-head h3{font-size:25px}}body.argos-progress-modal-open{overflow:hidden!important}
