@@ -129,7 +129,7 @@ function applyTheme(theme){
   if($("lightTheme"))$("lightTheme").classList.toggle("active",theme!=="dark");
   if($("darkTheme"))$("darkTheme").classList.toggle("active",theme==="dark");
   const meta=document.querySelector('meta[name="theme-color"]');
-  if(meta)meta.setAttribute("content",theme==="dark"?"#171717":"#8a005c");
+  if(meta)meta.setAttribute("content",theme==="dark"?"#171717":"#5b064a");
 }
 applyTheme(localStorage.getItem(THEME_KEY)||"light");
 if($("lightTheme"))$("lightTheme").onclick=()=>applyTheme("light");
