@@ -38278,6 +38278,74 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
     });
   }
 
+  function atNormalizeBranchKey(value){
+    const digits=String(value??'').replace(/\D/g,'');
+    if(!digits) return '';
+    return digits.replace(/^0+/,'')||'0';
+  }
+
+  function atSeriesCompareKey(value){
+    const raw=String(value??'').trim();
+    const digits=raw.replace(/\D/g,'');
+    if(digits) return digits.replace(/^0+/,'')||'0';
+    return raw.toLocaleLowerCase('es-ES')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g,'');
+  }
+
+  function atServiceBranchValues(service){
+    const branches=[];
+    const add=value=>{
+      const branch=atNormalizeBranchKey(value);
+      if(branch && !branches.includes(branch)) branches.push(branch);
+    };
+
+    add(atVal(service,['branch','rama']));
+
+    const second=service?.doubleComposition&&service?.composition2;
+    if(second){
+      add(second?.branch??second?.rama);
+    }
+
+    /* En registros antiguos en los que la rama no quedó guardada,
+       intentamos recuperarla a partir del vehículo de la ficha. */
+    if(!branches.length){
+      try{
+        const found=atFindUnit(service);
+        add(found?.unit?.rama);
+      }catch(e){
+        /* Sin rama recuperable no hay coincidencia. */
+      }
+    }
+
+    return branches;
+  }
+
+  function atFindLatestSeriesBranchService(seriesValue,branchValue){
+    const targetSeries=atSeriesCompareKey(seriesValue);
+    const targetBranch=atNormalizeBranchKey(branchValue);
+    if(!targetSeries || !targetBranch) return null;
+
+    const list=atServices();
+    let latest=null;
+    let latestIndex=-1;
+
+    list.forEach((service,index)=>{
+      const serviceSeries=atSeriesName(service);
+      if(atSeriesCompareKey(serviceSeries)!==targetSeries) return;
+
+      const branches=atServiceBranchValues(service);
+      if(!branches.includes(targetBranch)) return;
+
+      if(!latest || atIsNewerService(service,latest,index,latestIndex)){
+        latest=service;
+        latestIndex=index;
+      }
+    });
+
+    return latest;
+  }
+
   function atRenderSeriesDetail(screen,service,seriesList){
     const content=screen?.querySelector('#argosLastTimeContent');
     if(!content) return;
@@ -38329,6 +38397,43 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
           </div>
         </div>
 
+        <section class="argos-last-time-branch-search" aria-label="Buscar rama en concreto">
+          <div class="argos-last-time-branch-search-kicker">
+            ÚLTIMA VEZ · RAMA
+          </div>
+
+          <h2>Buscar rama en concreto</h2>
+
+          <p>
+            Introduce una rama para consultar la última vez que la registraste
+            dentro de la serie ${atEsc(series)}.
+          </p>
+
+          <label class="argos-last-time-branch-search-label" for="argosLastTimeBranchInput">
+            Número de rama
+          </label>
+
+          <input
+            id="argosLastTimeBranchInput"
+            class="argos-last-time-branch-search-input"
+            type="text"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            maxlength="3"
+            autocomplete="off"
+            placeholder="Ej. 3"
+            aria-describedby="argosLastTimeBranchHint">
+
+          <div class="argos-last-time-branch-search-hint" id="argosLastTimeBranchHint">
+            Puedes escribir 3 aunque la rama esté guardada como 003.
+          </div>
+
+          <div
+            class="argos-last-time-branch-search-result"
+            id="argosLastTimeBranchSearchResult"
+            aria-live="polite"></div>
+        </section>
+
         <button type="button"
                 class="argos-last-time-more"
                 id="argosLastTimeSeriesMore">
@@ -38340,6 +38445,61 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
       'click',
       ()=>atRenderSeriesList(screen,atServices())
     );
+
+    const branchInput=content.querySelector('#argosLastTimeBranchInput');
+    const branchResult=content.querySelector('#argosLastTimeBranchSearchResult');
+
+    const renderBranchResult=()=>{
+      if(!branchInput || !branchResult) return;
+
+      const rawBranch=branchInput.value.replace(/\D/g,'').slice(0,3);
+      if(branchInput.value!==rawBranch) branchInput.value=rawBranch;
+
+      const branch=atNormalizeBranchKey(rawBranch);
+      if(!branch){
+        branchResult.innerHTML='';
+        return;
+      }
+
+      const branchService=atFindLatestSeriesBranchService(series,branch);
+      if(!branchService){
+        branchResult.innerHTML=`
+          <div class="argos-last-time-branch-result empty">
+            <div class="argos-last-time-branch-result-kicker">SIN REGISTROS</div>
+            <h3>Rama ${atEsc(branch)}</h3>
+            <p>No hay servicios registrados con la rama ${atEsc(branch)} dentro de la serie ${atEsc(series)}.</p>
+          </div>`;
+        return;
+      }
+
+      const branchDate=atDateLabel(branchService);
+      const branchTrain=atVal(branchService,['train','tren','number','numero'])||'Sin número';
+      const branchProduct=atProductName(branchService);
+      const branchRoute=atServiceTitle(branchService);
+      const branchVehicle=atVal(branchService,['vehicle','vehiculo']);
+
+      branchResult.innerHTML=`
+        <div class="argos-last-time-branch-result">
+          <div class="argos-last-time-branch-result-kicker">ÚLTIMO REGISTRO EN ESTA RAMA</div>
+          <h3>Rama ${atEsc(branch)}</h3>
+          <p>La última vez que registraste la rama ${atEsc(branch)} de la serie ${atEsc(series)} fue el ${atEsc(branchDate)}.</p>
+
+          <div class="argos-last-time-branch-result-route">
+            <span>${atEsc(branchRoute.origin)}</span>
+            <b>→</b>
+            <span>${atEsc(branchRoute.destination)}</span>
+          </div>
+
+          <div class="argos-last-time-branch-result-meta">
+            <strong>Tren ${atEsc(branchTrain)}</strong>
+            <span>${atEsc(branchProduct)}</span>
+            ${branchVehicle?`<span>Vehículo ${atEsc(branchVehicle)}</span>`:''}
+            <span>${atEsc(branchDate)}</span>
+          </div>
+        </div>`;
+    };
+
+    branchInput?.addEventListener('input',renderBranchResult);
 
     content.querySelector('#argosLastTimeSeriesMore')?.addEventListener(
       'click',
@@ -40017,6 +40177,196 @@ document.addEventListener("DOMContentLoaded",()=>{refreshHome();renderHistory();
   window.argosCloseLastTime=()=>{
     if(typeof showScreen==='function') showScreen('menu');
   };
+})();
+
+
+/* ================================================================
+   ARGOS · ÚLTIMA VEZ · BÚSQUEDA DE RAMA EN CONCRETO
+   Añadido únicamente a la vista de detalle por serie.
+   ================================================================ */
+(function(){
+  const styleId='argos-last-time-branch-search-v1';
+  if(document.getElementById(styleId)) return;
+
+  const style=document.createElement('style');
+  style.id=styleId;
+  style.textContent=`
+    .argos-last-time-branch-search{
+      margin-top:14px;
+      padding:20px 22px;
+      border:1px solid var(--line);
+      border-radius:20px;
+      background:linear-gradient(135deg,var(--card),var(--soft));
+      box-shadow:0 4px 16px rgba(30,20,30,.04);
+    }
+
+    .argos-last-time-branch-search-kicker{
+      color:var(--renfe);
+      font-size:10px;
+      font-weight:950;
+      letter-spacing:.12em;
+    }
+
+    .argos-last-time-branch-search h2{
+      margin:6px 0 7px;
+      font-size:22px;
+      line-height:1.12;
+      letter-spacing:-.02em;
+    }
+
+    .argos-last-time-branch-search p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+    }
+
+    .argos-last-time-branch-search-label{
+      display:block;
+      margin-top:15px;
+      margin-bottom:6px;
+      color:var(--ink);
+      font-size:11px;
+      font-weight:900;
+    }
+
+    .argos-last-time-branch-search-input{
+      width:100%;
+      min-height:48px;
+      padding:0 14px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:var(--card);
+      color:var(--ink);
+      outline:none;
+      font-size:16px;
+      font-weight:850;
+      transition:border-color .14s ease,box-shadow .14s ease;
+    }
+
+    .argos-last-time-branch-search-input:focus{
+      border-color:var(--renfe);
+      box-shadow:0 0 0 3px rgba(138,0,92,.14);
+    }
+
+    .argos-last-time-branch-search-hint{
+      margin-top:6px;
+      color:var(--muted);
+      font-size:10px;
+      line-height:1.35;
+    }
+
+    .argos-last-time-branch-search-result{
+      margin-top:12px;
+    }
+
+    .argos-last-time-branch-result{
+      padding:16px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:var(--page);
+    }
+
+    .argos-last-time-branch-result.empty{
+      background:rgba(128,128,128,.045);
+    }
+
+    .argos-last-time-branch-result-kicker{
+      color:var(--renfe);
+      font-size:10px;
+      font-weight:950;
+      letter-spacing:.1em;
+    }
+
+    .argos-last-time-branch-result h3{
+      margin:5px 0 4px;
+      font-size:20px;
+      line-height:1.1;
+    }
+
+    .argos-last-time-branch-result p{
+      margin:0;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.45;
+    }
+
+    .argos-last-time-branch-result-route{
+      display:flex;
+      align-items:baseline;
+      gap:8px;
+      margin-top:12px;
+      font-size:16px;
+      font-weight:950;
+      line-height:1.3;
+    }
+
+    .argos-last-time-branch-result-route span{
+      min-width:0;
+      overflow-wrap:anywhere;
+    }
+
+    .argos-last-time-branch-result-route b{
+      color:var(--renfe);
+      font-size:19px;
+      font-weight:500;
+      flex:0 0 auto;
+    }
+
+    .argos-last-time-branch-result-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px 12px;
+      margin-top:9px;
+      color:var(--muted);
+      font-size:10px;
+    }
+
+    .argos-last-time-branch-result-meta strong{
+      color:var(--renfe);
+    }
+
+    @media(max-width:600px){
+      .argos-last-time-branch-search{
+        margin-top:12px;
+        padding:16px 14px;
+        border-radius:17px;
+      }
+
+      .argos-last-time-branch-search h2{
+        font-size:20px;
+      }
+
+      .argos-last-time-branch-search p{
+        font-size:12px;
+      }
+
+      .argos-last-time-branch-search-label{
+        margin-top:13px;
+        font-size:11px;
+      }
+
+      .argos-last-time-branch-search-input{
+        min-height:46px;
+        border-radius:13px;
+      }
+
+      .argos-last-time-branch-result{
+        padding:14px;
+        border-radius:14px;
+      }
+
+      .argos-last-time-branch-result-route{
+        font-size:15px;
+      }
+    }
+
+    body.dark .argos-last-time-branch-search{
+      background:linear-gradient(135deg,var(--card),var(--soft));
+    }
+  `;
+
+  document.head.appendChild(style);
 })();
 
 
